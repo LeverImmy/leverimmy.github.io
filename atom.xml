@@ -3,11 +3,11 @@
   <title>Clever_Jimmy 的博客</title>
   
   
-  <link href="https://leverimmy.github.io/atom.xml" rel="self"/>
+  <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
-  <link href="https://leverimmy.github.io/"/>
-  <updated>2022-07-19T14:25:21.038Z</updated>
-  <id>https://leverimmy.github.io/</id>
+  <link href="https://leverimmy.top/"/>
+  <updated>2022-07-26T08:21:06.551Z</updated>
+  <id>https://leverimmy.top/</id>
   
   <author>
     <name>Clever_Jimmy</name>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
+    <link href="https://leverimmy.top/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/"/>
+    <id>https://leverimmy.top/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/</id>
+    <published>2022-07-25T06:38:14.000Z</published>
+    <updated>2022-07-26T08:21:06.551Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;为什么叫划水记呢？&lt;/p&gt;
+&lt;p&gt;因为我以划水的心态&lt;del&gt;做了&lt;/del&gt;看了考试的卷子，所以叫划水记（确信）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350\text{min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;试着做做卷子顺便监考一下再吃大餐（是）&lt;/del&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="监考" scheme="https://leverimmy.top/tags/%E7%9B%91%E8%80%83/"/>
+    
+    <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
+    
+    <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>留言板</title>
-    <link href="https://leverimmy.github.io/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
-    <id>https://leverimmy.github.io/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/</id>
+    <link href="https://leverimmy.top/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
+    <id>https://leverimmy.top/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/</id>
     <published>2022-07-19T14:24:44.000Z</published>
-    <updated>2022-07-19T14:25:21.038Z</updated>
+    <updated>2022-07-25T06:52:44.590Z</updated>
     
     
       
@@ -34,17 +65,17 @@
     
     
     
-    <category term="杂项" scheme="https://leverimmy.github.io/categories/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://leverimmy.top/categories/%E6%9D%82%E9%A1%B9/"/>
     
     
-    <category term="留言板" scheme="https://leverimmy.github.io/tags/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
+    <category term="留言板" scheme="https://leverimmy.top/tags/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://leverimmy.github.io/2022/07/19/hello-world/"/>
-    <id>https://leverimmy.github.io/2022/07/19/hello-world/</id>
+    <link href="https://leverimmy.top/2022/07/19/hello-world/"/>
+    <id>https://leverimmy.top/2022/07/19/hello-world/</id>
     <published>2022-07-19T08:09:22.678Z</published>
     <updated>2022-07-19T08:09:22.678Z</updated>
     
@@ -64,8 +95,8 @@
   
   <entry>
     <title>【学习笔记】Karatsuba 乘法学习笔记</title>
-    <link href="https://leverimmy.github.io/2020/05/04/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91Karatsuba-%E4%B9%98%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://leverimmy.github.io/2020/05/04/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91Karatsuba-%E4%B9%98%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://leverimmy.top/2020/05/04/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91Karatsuba-%E4%B9%98%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://leverimmy.top/2020/05/04/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91Karatsuba-%E4%B9%98%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2020-05-04T07:40:30.000Z</published>
     <updated>2020-05-04T08:29:20.000Z</updated>
     
@@ -74,21 +105,21 @@
     
     
     
-    <category term="学习笔记" scheme="https://leverimmy.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://leverimmy.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="高精度" scheme="https://leverimmy.github.io/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
+    <category term="高精度" scheme="https://leverimmy.top/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
     
-    <category term="分治" scheme="https://leverimmy.github.io/tags/%E5%88%86%E6%B2%BB/"/>
+    <category term="分治" scheme="https://leverimmy.top/tags/%E5%88%86%E6%B2%BB/"/>
     
-    <category term="技巧" scheme="https://leverimmy.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    <category term="技巧" scheme="https://leverimmy.top/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
   <entry>
     <title>【学习笔记】经典动态规划模型学习笔记</title>
-    <link href="https://leverimmy.github.io/2020/04/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BB%8F%E5%85%B8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://leverimmy.github.io/2020/04/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BB%8F%E5%85%B8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://leverimmy.top/2020/04/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BB%8F%E5%85%B8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://leverimmy.top/2020/04/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%BB%8F%E5%85%B8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2020-04-27T03:35:44.000Z</published>
     <updated>2020-05-04T08:04:56.000Z</updated>
     
@@ -98,39 +129,17 @@
     
     
     
-    <category term="学习笔记" scheme="https://leverimmy.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://leverimmy.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="动态规划" scheme="https://leverimmy.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】EERTREE 学习笔记</title>
-    <link href="https://leverimmy.github.io/2020/03/26/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91EERTREE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://leverimmy.github.io/2020/03/26/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91EERTREE-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-03-26T13:51:07.000Z</published>
-    <updated>2020-04-10T13:33:58.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;EERTREE，又称回文树（Palindrome tree）、回文自动机（PAM），是一种能在 $O(\left|S\right|)$ 时间 和 $O(\left|\Sigma\right|\cdot\left|S\right|)$ 的空间内处理与 &lt;strong&gt;回文串&lt;/strong&gt; 有关问题的数据结构。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1506.04862.pdf&quot;&gt;pdf 论文&lt;/a&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://leverimmy.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="字符串" scheme="https://leverimmy.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    <category term="回文树" scheme="https://leverimmy.github.io/tags/%E5%9B%9E%E6%96%87%E6%A0%91/"/>
+    <category term="动态规划" scheme="https://leverimmy.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>【学习笔记】配对堆学习笔记</title>
-    <link href="https://leverimmy.github.io/2020/03/16/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E9%85%8D%E5%AF%B9%E5%A0%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://leverimmy.github.io/2020/03/16/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E9%85%8D%E5%AF%B9%E5%A0%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://leverimmy.top/2020/03/16/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E9%85%8D%E5%AF%B9%E5%A0%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://leverimmy.top/2020/03/16/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E9%85%8D%E5%AF%B9%E5%A0%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2020-03-16T03:51:46.000Z</published>
     <updated>2020-05-06T04:05:42.000Z</updated>
     
@@ -140,12 +149,12 @@
     
     
     
-    <category term="学习笔记" scheme="https://leverimmy.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://leverimmy.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="配对堆" scheme="https://leverimmy.github.io/tags/%E9%85%8D%E5%AF%B9%E5%A0%86/"/>
+    <category term="配对堆" scheme="https://leverimmy.top/tags/%E9%85%8D%E5%AF%B9%E5%A0%86/"/>
     
-    <category term="可并堆" scheme="https://leverimmy.github.io/tags/%E5%8F%AF%E5%B9%B6%E5%A0%86/"/>
+    <category term="可并堆" scheme="https://leverimmy.top/tags/%E5%8F%AF%E5%B9%B6%E5%A0%86/"/>
     
   </entry>
   
