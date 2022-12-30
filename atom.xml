@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2022-07-26T08:36:04.763Z</updated>
+  <updated>2022-12-30T12:16:46.349Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【游记】2022年回眸</title>
+    <link href="https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/"/>
+    <id>https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/</id>
+    <published>2022-12-31T06:38:14.000Z</published>
+    <updated>2022-12-30T12:16:46.349Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2022 年就这么过去了，&lt;/p&gt;
+&lt;p&gt;我也从一个高三学生变成了一个大一新生了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一年发生了很多事情。现在，是时候回顾一下了？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="回眸" scheme="https://leverimmy.top/tags/%E5%9B%9E%E7%9C%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
@@ -35,6 +59,8 @@
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
     <category term="监考" scheme="https://leverimmy.top/tags/%E7%9B%91%E8%80%83/"/>
     
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
@@ -42,8 +68,6 @@
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
