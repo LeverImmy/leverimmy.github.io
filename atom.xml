@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2022-12-31T11:20:51.954Z</updated>
+  <updated>2022-12-31T11:24:13.337Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/"/>
     <id>https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/</id>
     <published>2022-12-31T06:38:14.000Z</published>
-    <updated>2022-12-31T11:20:51.954Z</updated>
+    <updated>2022-12-31T11:24:13.337Z</updated>
     
     
     <summary type="html">&lt;p&gt;2022 年就这么过去了，&lt;/p&gt;
@@ -59,8 +59,6 @@
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="监考" scheme="https://leverimmy.top/tags/%E7%9B%91%E8%80%83/"/>
     
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
@@ -68,6 +66,8 @@
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
