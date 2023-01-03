@@ -60,8 +60,6 @@
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="监考" scheme="https://leverimmy.top/tags/%E7%9B%91%E8%80%83/"/>
     
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
@@ -69,6 +67,8 @@
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
