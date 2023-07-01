@@ -337,7 +337,7 @@
 <p><del>虽然但是咱支队也有宣传组，那我自封为宣传组副副副副副副副组员好了。</del></p>
 <p>清理自己的行李箱。并不知道该干啥。</p>
 <p>不如睡大觉。</p>
-<h2 id="2023-07-02-Day1"><a href="#2023-07-02-Day1" class="headerlink" title="2023-07-02 Day1"></a><strong>2023-07-02</strong> Day1</h2>]]></content>
+<h2 id="2023-07-02-Day-1"><a href="#2023-07-02-Day-1" class="headerlink" title="2023-07-02 Day 1"></a><strong>2023-07-02</strong> Day 1</h2>]]></content>
       <categories>
         <category>游记</category>
       </categories>
@@ -347,6 +347,42 @@
         <tag>璧山</tag>
         <tag>乡村振兴</tag>
         <tag>暑期实践</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8B)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-2-solution">https://git.tsinghua.edu.cn/xze22/calculus-2-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-07-01T13:47:09.464Z</updated>
+  <updated>2023-07-01T15:08:55.580Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -17,11 +17,55 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8B)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
+    <id>https://leverimmy.top/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8B)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</id>
+    <published>2023-07-01T14:53:46.000Z</published>
+    <updated>2023-07-01T15:08:55.580Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。&lt;/p&gt;
+&lt;p&gt;本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
+&lt;p&gt;repo 地址: &lt;a href=&quot;https://git.tsinghua.edu.cn/xze22/calculus-2-solution&quot;&gt;https://git.tsinghua.edu.cn/xze22/calculus-2-solution&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教材习题解答" scheme="https://leverimmy.top/categories/%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
+    
+    
+    <category term="微积分" scheme="https://leverimmy.top/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
+    <id>https://leverimmy.top/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</id>
+    <published>2023-07-01T13:53:46.000Z</published>
+    <updated>2023-07-01T15:09:04.713Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。&lt;/p&gt;
+&lt;p&gt;本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
+&lt;p&gt;repo 地址: &lt;a href=&quot;https://git.tsinghua.edu.cn/xze22/calculus-1-solution&quot;&gt;https://git.tsinghua.edu.cn/xze22/calculus-1-solution&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教材习题解答" scheme="https://leverimmy.top/categories/%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
+    
+    
+    <category term="微积分" scheme="https://leverimmy.top/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
     <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912023%E6%9A%91%E5%81%87%E9%87%8D%E5%BA%86%E7%92%A7%E5%B1%B1%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E5%AE%9E%E8%B7%B5/"/>
     <id>https://leverimmy.top/2023/07/01/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912023%E6%9A%91%E5%81%87%E9%87%8D%E5%BA%86%E7%92%A7%E5%B1%B1%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E5%AE%9E%E8%B7%B5/</id>
     <published>2023-07-01T13:41:16.000Z</published>
-    <updated>2023-07-01T13:47:09.464Z</updated>
+    <updated>2023-07-01T15:05:10.589Z</updated>
     
     
     <summary type="html">&lt;p&gt;暑期实践？这是什么？参加一个！&lt;/p&gt;
