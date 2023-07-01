@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-02-01T01:49:50.354Z</updated>
+  <updated>2023-07-01T13:47:09.464Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -17,73 +17,54 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【阅读笔记】《图论与代数结构（第2版）》第1章-基本概念</title>
-    <link href="https://leverimmy.top/2023/02/01/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E5%9B%BE%E8%AE%BA%E4%B8%8E%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>https://leverimmy.top/2023/02/01/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8A%E5%9B%BE%E8%AE%BA%E4%B8%8E%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</id>
-    <published>2023-02-01T01:54:18.000Z</published>
-    <updated>2023-02-01T01:49:50.354Z</updated>
+    <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
+    <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912023%E6%9A%91%E5%81%87%E9%87%8D%E5%BA%86%E7%92%A7%E5%B1%B1%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://leverimmy.top/2023/07/01/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912023%E6%9A%91%E5%81%87%E9%87%8D%E5%BA%86%E7%92%A7%E5%B1%B1%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E5%AE%9E%E8%B7%B5/</id>
+    <published>2023-07-01T13:41:16.000Z</published>
+    <updated>2023-07-01T13:47:09.464Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h2 id=&quot;图的概念&quot;&gt;&lt;a href=&quot;#图的概念&quot; class=&quot;headerlink&quot; title=&quot;图的概念&quot;&gt;&lt;/a&gt;图的概念&lt;/h2&gt;&lt;h3 id=&quot;图的运算&quot;&gt;&lt;a href=&quot;#图的运算&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;暑期实践？这是什么？参加一个！&lt;/p&gt;
+&lt;p&gt;乡村振兴？这是什么？了解一下！&lt;/p&gt;
+&lt;p&gt;重庆璧山？这是哪里？拜访一次！&lt;/p&gt;</summary>
     
     
     
-    <category term="阅读笔记" scheme="https://leverimmy.top/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="图论与代数结构（第2版）" scheme="https://leverimmy.top/tags/%E5%9B%BE%E8%AE%BA%E4%B8%8E%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/"/>
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="图论" scheme="https://leverimmy.top/tags/%E5%9B%BE%E8%AE%BA/"/>
+    <category term="重庆" scheme="https://leverimmy.top/tags/%E9%87%8D%E5%BA%86/"/>
     
-  </entry>
-  
-  <entry>
-    <title>【阅读笔记】《C++程序设计教程》第9章-引用</title>
-    <link href="https://leverimmy.top/2023/01/09/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8AC-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%AC9%E7%AB%A0-%E5%BC%95%E7%94%A8/"/>
-    <id>https://leverimmy.top/2023/01/09/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8AC-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%AC9%E7%AB%A0-%E5%BC%95%E7%94%A8/</id>
-    <published>2023-01-09T11:54:18.000Z</published>
-    <updated>2023-01-10T00:55:12.000Z</updated>
+    <category term="璧山" scheme="https://leverimmy.top/tags/%E7%92%A7%E5%B1%B1/"/>
     
+    <category term="乡村振兴" scheme="https://leverimmy.top/tags/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4/"/>
     
-    <summary type="html">&lt;p&gt;阅读《C++程序设计教程》（钱能 主编）摘抄&amp;#x2F;整理的笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="阅读笔记" scheme="https://leverimmy.top/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="C++创新设计" scheme="https://leverimmy.top/tags/C-%E5%88%9B%E6%96%B0%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="引用" scheme="https://leverimmy.top/tags/%E5%BC%95%E7%94%A8/"/>
+    <category term="暑期实践" scheme="https://leverimmy.top/tags/%E6%9A%91%E6%9C%9F%E5%AE%9E%E8%B7%B5/"/>
     
   </entry>
   
   <entry>
-    <title>【阅读笔记】《C++程序设计教程》第8章-指针</title>
-    <link href="https://leverimmy.top/2023/01/09/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8AC-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%AC8%E7%AB%A0-%E6%8C%87%E9%92%88/"/>
-    <id>https://leverimmy.top/2023/01/09/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%8AC-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%AC8%E7%AB%A0-%E6%8C%87%E9%92%88/</id>
-    <published>2023-01-09T07:46:15.000Z</published>
-    <updated>2023-01-09T12:32:00.000Z</updated>
+    <title>【学习笔记】数理逻辑与集合论（第2版）</title>
+    <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E4%B8%8E%E9%9B%86%E5%90%88%E8%AE%BA%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/"/>
+    <id>https://leverimmy.top/2023/07/01/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E4%B8%8E%E9%9B%86%E5%90%88%E8%AE%BA%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/</id>
+    <published>2023-07-01T13:34:22.000Z</published>
+    <updated>2023-07-01T13:38:49.997Z</updated>
     
     
-    <summary type="html">&lt;p&gt;阅读《C++程序设计教程》（钱能 主编）摘抄&amp;#x2F;整理的笔记。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
     
     
     
-    <category term="阅读笔记" scheme="https://leverimmy.top/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="C++程序设计" scheme="https://leverimmy.top/tags/C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="离散数学" scheme="https://leverimmy.top/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="指针" scheme="https://leverimmy.top/tags/%E6%8C%87%E9%92%88/"/>
+    <category term="数理逻辑" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"/>
+    
+    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
     
   </entry>
   
@@ -92,7 +73,7 @@
     <link href="https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/"/>
     <id>https://leverimmy.top/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/</id>
     <published>2022-12-31T06:38:14.000Z</published>
-    <updated>2023-01-09T07:47:16.000Z</updated>
+    <updated>2023-07-01T13:33:27.673Z</updated>
     
     
     <summary type="html">&lt;p&gt;2022 年就这么过去了，&lt;/p&gt;
@@ -117,13 +98,13 @@
     <link href="https://leverimmy.top/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/"/>
     <id>https://leverimmy.top/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/</id>
     <published>2022-07-25T06:38:14.000Z</published>
-    <updated>2023-01-09T07:49:16.000Z</updated>
+    <updated>2023-07-01T13:46:17.397Z</updated>
     
     
     <summary type="html">&lt;p&gt;为什么叫划水记呢？&lt;/p&gt;
 &lt;p&gt;因为我以划水的心态&lt;del&gt;做了&lt;/del&gt;看了考试的卷子，所以叫划水记（确信）。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350\text{min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350 \mathrm{ min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;试着做做卷子顺便监考一下再吃大餐（是）&lt;/del&gt;&lt;/p&gt;</summary>
     
     
@@ -138,31 +119,6 @@
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>留言板</title>
-    <link href="https://leverimmy.top/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
-    <id>https://leverimmy.top/2022/07/19/%E7%95%99%E8%A8%80%E6%9D%BF/</id>
-    <published>2022-07-19T14:24:44.000Z</published>
-    <updated>2022-07-25T06:52:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这是 Clever_Jimmy</summary>
-        
-      
-    
-    
-    
-    <category term="杂项" scheme="https://leverimmy.top/categories/%E6%9D%82%E9%A1%B9/"/>
-    
-    
-    <category term="留言板" scheme="https://leverimmy.top/tags/%E7%95%99%E8%A8%80%E6%9D%BF/"/>
     
   </entry>
   
