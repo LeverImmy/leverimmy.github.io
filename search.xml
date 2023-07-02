@@ -6,7 +6,42 @@
     <content><![CDATA[<p>摘要待填。</p>
 <span id="more"></span>
 
-<h2 id="第1章-命题逻辑的基本概念"><a href="#第1章-命题逻辑的基本概念" class="headerlink" title="第1章 命题逻辑的基本概念"></a>第1章 命题逻辑的基本概念</h2><h2 id="第2章-命题逻辑的等值和推理演算"><a href="#第2章-命题逻辑的等值和推理演算" class="headerlink" title="第2章 命题逻辑的等值和推理演算"></a>第2章 命题逻辑的等值和推理演算</h2><h2 id="第3章-命题逻辑的公理化"><a href="#第3章-命题逻辑的公理化" class="headerlink" title="第3章 命题逻辑的公理化"></a>第3章 命题逻辑的公理化</h2><h2 id="第4章-谓词逻辑的基本概念"><a href="#第4章-谓词逻辑的基本概念" class="headerlink" title="第4章 谓词逻辑的基本概念"></a>第4章 谓词逻辑的基本概念</h2><h2 id="第5章-谓词逻辑的等值和推理演算"><a href="#第5章-谓词逻辑的等值和推理演算" class="headerlink" title="第5章 谓词逻辑的等值和推理演算"></a>第5章 谓词逻辑的等值和推理演算</h2><h2 id="第9章-集合"><a href="#第9章-集合" class="headerlink" title="第9章 集合"></a>第9章 集合</h2><h2 id="第10章-关系"><a href="#第10章-关系" class="headerlink" title="第10章 关系"></a>第10章 关系</h2><h2 id="第11章-函数"><a href="#第11章-函数" class="headerlink" title="第11章 函数"></a>第11章 函数</h2><h2 id="第12章-实数集合与集合的基数"><a href="#第12章-实数集合与集合的基数" class="headerlink" title="第12章 实数集合与集合的基数"></a>第12章 实数集合与集合的基数</h2>]]></content>
+<h2 id="第1章-命题逻辑的基本概念"><a href="#第1章-命题逻辑的基本概念" class="headerlink" title="第1章 命题逻辑的基本概念"></a>第1章 命题逻辑的基本概念</h2><h3 id="代入规则"><a href="#代入规则" class="headerlink" title="代入规则"></a>代入规则</h3><ol>
+<li><p>公式中被代换的只能是命题变元，而不能是复合命题。<br>例如，可以用 $(R\land S)$ 来代替某公式中的 $P$，记作 $\frac{P}{(R\land S)}$，但不能反过来将公式中的 $(R\land S)$ 以 $P$ 代之。</p>
+</li>
+<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。<br>其实就是说，要代换就所有都代换完。对于重言式 $(P\lor\lnot P)$，仅仅代换前一部分的 $P &#x3D; \lnot Q$，那么就变成了 $(\lnot Q \lor \lnot P)$，这并非重言式。</p>
+</li>
+</ol>
+<h3 id="波兰式与逆波兰式"><a href="#波兰式与逆波兰式" class="headerlink" title="波兰式与逆波兰式"></a>波兰式与逆波兰式</h3><p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<ul>
+<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p>
+</li>
+<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p>
+</li>
+</ul>
+<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
+<blockquote>
+<p>例1.1 将下列公式写成波兰式。<br>$\lnot\lnot P \lor(W\land R)\lor \lnot Q$</p>
+</blockquote>
+<p>这题的正确答案应该是 $\lor\lor\lnot\lnot P \land W R \lnot Q$。（而不是 $\lor\lnot\lnot P\lor\land W R \lnot Q$！）</p>
+<h2 id="第2章-命题逻辑的等值和推理演算"><a href="#第2章-命题逻辑的等值和推理演算" class="headerlink" title="第2章 命题逻辑的等值和推理演算"></a>第2章 命题逻辑的等值和推理演算</h2><h3 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h3><p><del>妈的，与和或之间没有交换律。</del></p>
+<ol>
+<li><p>$(P \to Q) \to R \neq P \to (Q \to R)$<br>不知道逻辑上这两者不等的原因是什么，但显然左式是 $P \land \lnot Q \lor R$，但右式是 $\lnot P \lor \lnot Q \lor R$，二者不等。</p>
+</li>
+<li><p>$P \leftrightarrow (Q \leftrightarrow R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow Q)$<br>当 $P &#x3D; Q &#x3D; R &#x3D; \mathrm{F}$ 时，左式为假，右式为真。</p>
+</li>
+<li><p>$P \to \lnot P &#x3D; \lnot P, \lnot P \to P &#x3D; P$<br>十分合理，拆开发现是俩相同东西的或。</p>
+</li>
+<li><p>$P \leftrightarrow Q &#x3D; (P \land Q) \lor (\lnot P \land \lnot Q)$<br>这可解释为 $P \leftrightarrow Q$ 为真，有两种可能的情形，即 $(P \land Q)$ 为真，或 $(\lnot P \land \lnot Q)$ 为真。其实就是 $P$ 和 $Q$ 二者同真同假。</p>
+</li>
+<li><p>$P \leftrightarrow Q &#x3D; (P \lor \lnot Q) \land (\lnot P \lor Q)$<br>这可解释为 $P \leftrightarrow Q$ 为假，有两种可能的情形，即 $(P \lor \lnot Q)$ 为假，或 $(\lnot P \lor Q)$ 为假。其实就是 $P$ 和 $Q$ 二者真假不同。</p>
+</li>
+<li><p>$P \to (Q \to R) &#x3D; (P \land Q) \to R$<br>$P$ 是 $(Q \to R)$ 的前提，$Q$ 是 $R$ 的前提，于是可将两个前提的合取 $(P \land Q)$ 作为总的前提。</p>
+</li>
+<li><p>$(P \to R) \land (Q \to R) &#x3D; (P \lor Q) \to R$<br>左端说明由 $P$ 而且由 $Q$ 都有 $R$ 成立，从而可以说明由 $P$ 或由 $Q$ 就有 $R$ 成立，即右端。</p>
+</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="第3章-命题逻辑的公理化"><a href="#第3章-命题逻辑的公理化" class="headerlink" title="第3章 命题逻辑的公理化"></a>第3章 命题逻辑的公理化</h2><h2 id="第4章-谓词逻辑的基本概念"><a href="#第4章-谓词逻辑的基本概念" class="headerlink" title="第4章 谓词逻辑的基本概念"></a>第4章 谓词逻辑的基本概念</h2><h2 id="第5章-谓词逻辑的等值和推理演算"><a href="#第5章-谓词逻辑的等值和推理演算" class="headerlink" title="第5章 谓词逻辑的等值和推理演算"></a>第5章 谓词逻辑的等值和推理演算</h2><h2 id="第9章-集合"><a href="#第9章-集合" class="headerlink" title="第9章 集合"></a>第9章 集合</h2><h2 id="第10章-关系"><a href="#第10章-关系" class="headerlink" title="第10章 关系"></a>第10章 关系</h2><h2 id="第11章-函数"><a href="#第11章-函数" class="headerlink" title="第11章 函数"></a>第11章 函数</h2><h2 id="第12章-实数集合与集合的基数"><a href="#第12章-实数集合与集合的基数" class="headerlink" title="第12章 实数集合与集合的基数"></a>第12章 实数集合与集合的基数</h2>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
@@ -337,7 +372,10 @@
 <p><del>虽然但是咱支队也有宣传组，那我自封为宣传组副副副副副副副组员好了。</del></p>
 <p>清理自己的行李箱。并不知道该干啥。</p>
 <p>不如睡大觉。</p>
-<h2 id="2023-07-02-Day-1"><a href="#2023-07-02-Day-1" class="headerlink" title="2023-07-02 Day 1"></a><strong>2023-07-02</strong> Day 1</h2>]]></content>
+<h2 id="2023-07-02-Day-1"><a href="#2023-07-02-Day-1" class="headerlink" title="2023-07-02 Day 1"></a><strong>2023-07-02</strong> Day 1</h2><p>早上 06:30 起床，已经很久没有这么早起床了。似乎我早就已经成为懒狗大学牲了。</p>
+<p><img src="/" alt="汉口站"></p>
+<p>在高铁上看了一章多一点的《数理逻辑与集合论（第2版）》，觉得开头很容易，但简略地翻了一下后面的章节，感觉形式化的语言总归还是晦涩的。</p>
+]]></content>
       <categories>
         <category>游记</category>
       </categories>
