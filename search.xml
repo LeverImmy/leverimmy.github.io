@@ -361,24 +361,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-
-<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
     <url>/2023/07/01/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912023%E6%9A%91%E5%81%87%E9%87%8D%E5%BA%86%E7%92%A7%E5%B1%B1%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
@@ -451,9 +433,10 @@
 <p><img src="https://img.picgo.net/2023/07/04/rooster9f7d8fd72832d13a.jpeg" alt="只因"></p>
 <p>晚上很累。在楼底下超市买了一些水果和饼干，但发现并不好吃。不如睡大觉。</p>
 <h2 id="2023-07-05-Day-3"><a href="#2023-07-05-Day-3" class="headerlink" title="2023-07-05 Day 3"></a><strong>2023-07-05</strong> Day 3</h2><p>早上到达喜观振兴驿站。这里是重庆市璧山区七塘镇。</p>
+<p>感觉这个驿站类似于党员群众服务中心，设施挺齐全的。</p>
 <p><img src="https://img.picgo.net/2023/07/05/insidea0e810e46688bcb8.jpeg" alt="里边"></p>
 <p><img src="https://img.picgo.net/2023/07/05/outside150f67db02c20b08.jpeg" alt="外边"></p>
-<p>田间有很多民间艺术家就地取材，用稻梗制作出了一件件艺术品。</p>
+<p>田间有很多民间艺术家就地取材，用稻梗制作出了一件件艺术品。这里确实和川美合作很多。</p>
 <p><img src="https://img.picgo.net/2023/07/05/dogb8618324dcaa9645.jpeg" alt="这应该是狗……吧？"></p>
 <p><img src="https://img.picgo.net/2023/07/05/lay2a00e76ec8ab7bad.jpeg" alt="惬意地躺在地上的人"></p>
 <p>化身成草帽吉米。准备入户调研采访。</p>
@@ -478,6 +461,24 @@
         <tag>璧山</tag>
         <tag>乡村振兴</tag>
         <tag>暑期实践</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
   <entry>
