@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>十六进制</li>
+<li>二进制中的补码与余码<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul>
+</li>
+<li>浮点数及其规范化形式<ul>
+<li>浮点数的二进制表示</li>
+<li>浮点数的规范化形式</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p><img src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png" alt="逻辑门"></p>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code> 就是右侧加一个小圆圈，<code>X</code> 就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下 skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端<br>如果是与运算，就得有容乃大，所以开口得胖一点<br>或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a href="https://stackoverflow.com/questions/64323990/how-to-apply-nxor-on-2-bits-in-c">在 C 语言中如何实现“异或非 (NXOR) ”操作</a></del></p>
+<h2 id="C-中的字符常量"><a href="#C-中的字符常量" class="headerlink" title="C 中的字符常量"></a>C 中的字符常量</h2><p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成 <code>char str = &#39;123&#39;;</code>，虽然 <strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于 <strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C&#x2F;C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个 byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以 <code>&#39;</code> 内一共可以最多包含 4 个字符，它会被看做成一个 <code>int</code> 类型的常量。其实就是四个 <code>char</code> 并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>(&#39;1&#39; &lt;&lt; 8) + &#39;2&#39;</code> 和 <code>&#39;12&#39;</code> 是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>&#39;</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制中的补码与余码"><a href="#二进制中的补码与余码" class="headerlink" title="二进制中的补码与余码"></a>二进制中的补码与余码</h2><h3 id="补码记数法"><a href="#补码记数法" class="headerlink" title="补码记数法"></a>补码记数法</h3><p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit 二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示 $-2^{31}$，其余各位分别表示 $2^{30}, \cdots, 2^1, 2^0$。因此一个 32 bit 二进制串的表示范围为 $[-2^{31}, 2^{31}-1]$。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法"><a href="#余码记数法" class="headerlink" title="余码记数法"></a>余码记数法</h3><p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0 的数。这个数在所有 32 bit 二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="浮点数及其规范化形式"><a href="#浮点数及其规范化形式" class="headerlink" title="浮点数及其规范化形式"></a>浮点数及其规范化形式</h2><h3 id="浮点数的二进制表示"><a href="#浮点数的二进制表示" class="headerlink" title="浮点数的二进制表示"></a>浮点数的二进制表示</h3><p>浮点数由“符号位”，“指数域”和“尾数域”三个部分组成。以下以 8 bit 浮点数为例。</p>
+<ul>
+<li>符号位为 0，则为正数；符号位为 1，则为负数。</li>
+<li>尾数域（共 4 bit）为可看做为一个二进制小数，小数点位于最高位之前。</li>
+<li>指数域（共 3 bit）被解释为余码，如果为正数，则表示小数点向右移动；如果为负数，则表示小数点向左移动。</li>
+</ul>
+<p>例如 <code>0 | 110 | 1011</code> 被解释为 <code>.1011</code> 且小数点向右移动 2 位，即 <code>10.11</code>，此即 2.75。</p>
+<h3 id="浮点数的规范化形式"><a href="#浮点数的规范化形式" class="headerlink" title="浮点数的规范化形式"></a>浮点数的规范化形式</h3><p>假设我们想要表示 0.375，即 <code>.011</code>。尾数域到底应该怎么表示呢？是 <code>.0110</code> 还是 <code>.1100</code>，或者是 <code>.0011</code> 呢？毕竟，0.375 可以是 <code>.0110</code> 小数点不移动，也可以是 <code>.1100</code> 小数点向左移动一位，还可以是 <code>.0011</code>小数点向右移动一位。</p>
+<p>浮点数的规范化形式规定，尾数域必须以 <code>1</code> 开头。因此，0.375 被唯一表示为 <code>0 | 011 | 1100</code> 而不是 <code>0 | 000 | 0110</code> 或 <code>0 | 101 | 0011</code>。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>二进制</tag>
+        <tag>浮点数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】数理逻辑与集合论（第2版）</title>
     <url>/2023/07/01/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E4%B8%8E%E9%9B%86%E5%90%88%E8%AE%BA%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[<p>摘要待填。</p>
@@ -49,6 +110,333 @@
         <tag>离散数学</tag>
         <tag>数理逻辑</tag>
         <tag>集合论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2022年回眸</title>
+    <url>/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/</url>
+    <content><![CDATA[<p>2022 年就这么过去了，</p>
+<p>我也从一个高三学生变成了一个大一新生了。</p>
+<hr>
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<p><img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png" alt="换微信头像啦！"></p>
+<span id="more"></span>
+
+<h3 id="一月至五月"><a href="#一月至五月" class="headerlink" title="一月至五月"></a>一月至五月</h3><p><strong>2022-02-05 自己的 18 岁生日</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg" alt="蛋糕"></p>
+<p><strong>各种调考</strong></p>
+<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
+<h3 id="六月"><a href="#六月" class="headerlink" title="六月"></a>六月</h3><p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
+<p>数学卷子好难。</p>
+<p><strong>2022-06-16 回初中看老师</strong></p>
+<p>感觉外初变新了，装修得非常漂亮。</p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg" alt="一行人"></p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg" alt="内景"></p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg" alt="外景"></p>
+<p><strong>2022-06-25 高考出分</strong></p>
+<p>超常发挥吧。</p>
+<h3 id="七月"><a href="#七月" class="headerlink" title="七月"></a>七月</h3><p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
+<p>感谢 Q 宝的邀请</p>
+<p><img src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg" alt="大汉"></p>
+<p><img src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg" alt="小火车"></p>
+<p><strong>2022-07-25 收到录取通知书</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg" alt="二校门"></p>
+<h3 id="八月"><a href="#八月" class="headerlink" title="八月"></a>八月</h3><p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
+<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
+<p><strong>2022-08-19 开始军训</strong></p>
+<p><strong>2022-08-24 第一次定向越野</strong></p>
+<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg" alt="map"></p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg" alt="成绩！"></p>
+<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg" alt="奇怪的出入校审批"></p>
+<p><strong>2022-08-28 参加 20km 拉练</strong></p>
+<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg" alt="丑陋的背包"></p>
+<p><img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg" alt="夜景"></p>
+<h3 id="九月"><a href="#九月" class="headerlink" title="九月"></a>九月</h3><p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg" alt="可惜的是缺了 Jett 和罗总"></p>
+<p><strong>2022-09-17 参加篮球运动周</strong></p>
+<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2</del></p>
+<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至 bilibili 观看</a></p>
+<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg" alt="文学长在进行操作"></p>
+<p><img src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg" alt="在享受"></p>
+<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
+<p>问题就在于，背完了没太大用。</p>
+<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
+<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
+<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg" alt="GRE"></p>
+<h3 id="十月"><a href="#十月" class="headerlink" title="十月"></a>十月</h3><p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
+<p>十分震撼。</p>
+<p><img src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg" alt="仪仗队在出旗"></p>
+<p><img src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg" alt="国旗"></p>
+<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg" alt="5人合影（我拍的）"></p>
+<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
+<p><del>什么叫物美价廉啊（战术后仰</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg" alt="《差距》"></p>
+<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
+<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
+<p><a href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至 bilibili 观看</a></p>
+<p><strong>2022-10-03 参观工字厅</strong></p>
+<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg" alt="外部"></p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg" alt="内部1"></p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg" alt="内部2"></p>
+<p><del>值得一提的是，偶遇了<a href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
+<p><strong>2022-10-06 成功脱单</strong></p>
+<p>感谢我能遇见你。</p>
+<p>update@2023-02-08: 她觉得我和她并不合适，于是我被甩了。</p>
+<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg" alt="外部"></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg" alt="国旗飘扬"></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg" alt="武汉战疫"></p>
+<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
+<p>勇夺全校并列第七！</p>
+<p><img src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg" alt="选手照片"></p>
+<p><img src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg" alt="并列第7！"></p>
+<p>比我初一时候的成绩提高了大概 40 个（确信</p>
+<h3 id="十一月"><a href="#十一月" class="headerlink" title="十一月"></a>十一月</h3><p><strong>2022-11-01 写了一首诗</strong></p>
+<blockquote>
+<p>To Autumn</p>
+<hr>
+<p>Golden leaves of autumn</p>
+<p>danced and drifted to the ground.</p>
+<p>They dotted the picturesque view of mother nature,</p>
+<p>when the color of gold conquered the world.</p>
+<p>Leaves are leaving,</p>
+<p>but I’m not.</p>
+<hr>
+<p>My hand holds yours,</p>
+<p>your hand fits mine.</p>
+<p>By chance,</p>
+<p>my eyes meet thine.</p>
+</blockquote>
+<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
+<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
+<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
+<blockquote>
+<p>Blossom and I -</p>
+<p>Her oath, and mine -</p>
+<p>Will surely come again.</p>
+</blockquote>
+<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
+<p>能代表系里参加马杯，属实是我的荣幸。</p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg" alt="在排队参赛"></p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg" alt="横幅"></p>
+<p>还不错，甲组全校第四！</p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg" alt="第四！"></p>
+<p><strong>2022-11-27 完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
+<p>学到许多。</p>
+<p>$\LaTeX$ 熟练度增加了！</p>
+<p><img src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg" alt="算法课报告"></p>
+<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
+<p>我们班的篮球队最后 3 秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
+<p><del>当然，我超常发挥也可能是因为神秘嘉宾来看比赛了</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg" alt="最后的罚篮"></p>
+<p><strong>2022-11-28 第一次封寝</strong></p>
+<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
+<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
+<p><img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg" alt="自习位置"></p>
+<h3 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h3><p><strong>2022-12-03 第一次参加志愿服务</strong></p>
+<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg" alt="空空旷旷"></p>
+<p><del>和女朋友一起参加志愿服务！</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg" alt="合照！你能找到我吗？"></p>
+<p>送完第二波大巴之后，天刚刚亮。</p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg" alt="送完大巴之后，天也亮了"></p>
+<p><strong>2022-12-08 返乡</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg" alt="在寝室清东西"></p>
+<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg" alt="返乡大巴"></p>
+<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
+<p><del>实名diss听涛园的热干面不咋地</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg" alt="热！干！面！"></p>
+<p><strong>2022-12-16 感染新冠病毒</strong></p>
+<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
+<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
+<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg" alt="蒸橙子"></p>
+<p><strong>2022-12-20 复习期末</strong></p>
+<p>线代好难。</p>
+<p>微积分好难。</p>
+<p>基物好难。</p>
+<p>我想睡觉。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
+<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
+<p>新的一年里继续努力吧！</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr>
+<p>老老实实监考并且坐牢 $100 + 100 + 150 &#x3D; 350 \mathrm{ min}$ <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+<span id="more"></span>
+
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h3><p><img src="/gallery/journal-2022-07-24-water/prepre.png" alt="@全体成员"></p>
+<p><del>（后面两次@没有@上）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<p><img src="/gallery/journal-2022-07-24-water/pre.png" alt="吃吃吃"></p>
+<h3 id="物理"><a href="#物理" class="headerlink" title="物理"></a><strong>物理</strong></h3><p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<p><img src="/gallery/journal-2022-07-24-water/physics-T2.jpg" alt="物理卷子T2"></p>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<p><img src="/gallery/journal-2022-07-24-water/physics-T6.jpg" alt="物理卷子T6"></p>
+<p>这个我会！侧面切成 $\text{d}h$ 的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 $h$ 写成 $H$ 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 $3G$，重力提供 $G$，剩下的就是侧面提供的 $2G$。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 $\dfrac{1}{3}$ 准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h3 id="化学"><a href="#化学" class="headerlink" title="化学"></a><strong>化学</strong></h3><p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<p><img src="/gallery/journal-2022-07-24-water/chem-1,2.jpg" alt="化学卷子P1,P2"></p>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 $6$ 道多选题？怎么还有 $3$ 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<div class="justified-gallery">
+
+<p><img src="/gallery/journal-2022-07-24-water/wechat-chem.jpg" alt="笑谈化学卷子"></p>
+</div>
+
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h3 id="吃午饭"><a href="#吃午饭" class="headerlink" title="吃午饭"></a><strong>吃午饭</strong></h3><p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;@数学</p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a><strong>数学</strong></h3><p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<p><img src="/gallery/journal-2022-07-24-water/maths-fix.png" alt="细致入微"></p>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol>
+<li>（10分）求所有的正整数 $n$，使得 $1\underbrace{44\cdots4}_{n 个 4}$ 是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 $4$ 然后模 $4$ 就可以知道 $n \ge 4$ 均不符合条件。枚举 $n &#x3D; 1, 2, 3$ 即可。</p>
+<blockquote>
+<ol start="6">
+<li>（25分）设正实数 $x, y, z$ 满足 $xyz &#x3D; 1$，证明：<br>$$<br>\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \le 1<br>$$</li>
+</ol>
+</blockquote>
+<p>注意到<br>$$<br>\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} &#x3D; 1<br>$$<br>则<br>$$<br>\begin{aligned}<br>&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \\<br>\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} \\<br>&#x3D; &amp; 1<br>\end{aligned}<br>$$</p>
+<blockquote>
+<ol start="7">
+<li>（30分）设 $m &#x3D; d_0 + d_1\cdot3 + d_2\cdot3^2+\cdots+d_n\cdot3^n$ 为一个正整数的平方，且 $d_i\in\{0, 1, 2\}, i &#x3D; 0, 1, 2, \cdots, n$. 证明：至少有一个 $d_i &#x3D; 1$.</li>
+</ol>
+</blockquote>
+<p>设 $m &#x3D; 3^{\alpha}\cdot n$，其中 $3 \nmid n$。因 $m$ 为完全平方数，则 $\alpha$ 必为偶数。</p>
+<p>因 $n$ 也为完全平方数且 $3\nmid n$，则 $n \equiv 1 (\bmod3)$，则 $d_{\alpha} &#x3D; 1$。</p>
+<hr>
+<p>当我不知道干啥的时候，我看到了这个</p>
+<p><img src="/gallery/journal-2022-07-24-water/dinner.png" alt="来了来了"></p>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h3 id="帮梅老师改物理卷子"><a href="#帮梅老师改物理卷子" class="headerlink" title="帮梅老师改物理卷子"></a><strong>帮梅老师改物理卷子</strong></h3><p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h3 id="吃晚饭"><a href="#吃晚饭" class="headerlink" title="吃晚饭"></a><strong>吃晚饭</strong></h3><p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<p><img src="/gallery/journal-2022-07-24-water/hdl-empty.jpg" alt="海底捞吃饭前"></p>
+<p>吃吃吃：</p>
+<p><img src="/gallery/journal-2022-07-24-water/hdl-full.jpg" alt="杯盘狼藉"></p>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<p><img src="/gallery/journal-2022-07-24-water/hdl-coconut.jpg" alt="椰子"></p>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><img src="/gallery/journal-2022-07-24-water/us.jpg" alt="监考老师们的合照"></p>
+<p>嗝。</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
       </tags>
   </entry>
   <entry>
@@ -333,315 +721,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E6%AD%A6%E6%B1%89%E5%A4%96%E5%9B%BD%E8%AF%AD%E5%AD%A6%E6%A0%A1%E7%90%86%E7%A7%91%E5%88%86%E7%8F%AD%E8%80%83%E8%AF%95%E4%B9%8B%E7%9B%91%E8%80%83%E5%88%92%E6%B0%B4%E8%AE%B0/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr>
-<p>老老实实监考并且坐牢 $100 + 100 + 150 &#x3D; 350 \mathrm{ min}$ <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
-<span id="more"></span>
-
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h3><p><img src="/gallery/journal-2022-07-24-water/prepre.png" alt="@全体成员"></p>
-<p><del>（后面两次@没有@上）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<p><img src="/gallery/journal-2022-07-24-water/pre.png" alt="吃吃吃"></p>
-<h3 id="物理"><a href="#物理" class="headerlink" title="物理"></a><strong>物理</strong></h3><p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<p><img src="/gallery/journal-2022-07-24-water/physics-T2.jpg" alt="物理卷子T2"></p>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<p><img src="/gallery/journal-2022-07-24-water/physics-T6.jpg" alt="物理卷子T6"></p>
-<p>这个我会！侧面切成 $\text{d}h$ 的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 $h$ 写成 $H$ 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 $3G$，重力提供 $G$，剩下的就是侧面提供的 $2G$。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 $\dfrac{1}{3}$ 准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h3 id="化学"><a href="#化学" class="headerlink" title="化学"></a><strong>化学</strong></h3><p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<p><img src="/gallery/journal-2022-07-24-water/chem-1,2.jpg" alt="化学卷子P1,P2"></p>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 $6$ 道多选题？怎么还有 $3$ 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<div class="justified-gallery">
-
-<p><img src="/gallery/journal-2022-07-24-water/wechat-chem.jpg" alt="笑谈化学卷子"></p>
-</div>
-
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h3 id="吃午饭"><a href="#吃午饭" class="headerlink" title="吃午饭"></a><strong>吃午饭</strong></h3><p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;@数学</p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a><strong>数学</strong></h3><p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<p><img src="/gallery/journal-2022-07-24-water/maths-fix.png" alt="细致入微"></p>
-<p>写了几道能力范围之内的题目。</p>
-<blockquote>
-<ol>
-<li>（10分）求所有的正整数 $n$，使得 $1\underbrace{44\cdots4}_{n 个 4}$ 是一个完全平方数.</li>
-</ol>
-</blockquote>
-<p>先除以 $4$ 然后模 $4$ 就可以知道 $n \ge 4$ 均不符合条件。枚举 $n &#x3D; 1, 2, 3$ 即可。</p>
-<blockquote>
-<ol start="6">
-<li>（25分）设正实数 $x, y, z$ 满足 $xyz &#x3D; 1$，证明：<br>$$<br>\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \le 1<br>$$</li>
-</ol>
-</blockquote>
-<p>注意到<br>$$<br>\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} &#x3D; 1<br>$$<br>则<br>$$<br>\begin{aligned}<br>&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \\<br>\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} \\<br>&#x3D; &amp; 1<br>\end{aligned}<br>$$</p>
-<blockquote>
-<ol start="7">
-<li>（30分）设 $m &#x3D; d_0 + d_1\cdot3 + d_2\cdot3^2+\cdots+d_n\cdot3^n$ 为一个正整数的平方，且 $d_i\in\{0, 1, 2\}, i &#x3D; 0, 1, 2, \cdots, n$. 证明：至少有一个 $d_i &#x3D; 1$.</li>
-</ol>
-</blockquote>
-<p>设 $m &#x3D; 3^{\alpha}\cdot n$，其中 $3 \nmid n$。因 $m$ 为完全平方数，则 $\alpha$ 必为偶数。</p>
-<p>因 $n$ 也为完全平方数且 $3\nmid n$，则 $n \equiv 1 (\bmod3)$，则 $d_{\alpha} &#x3D; 1$。</p>
-<hr>
-<p>当我不知道干啥的时候，我看到了这个</p>
-<p><img src="/gallery/journal-2022-07-24-water/dinner.png" alt="来了来了"></p>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h3 id="帮梅老师改物理卷子"><a href="#帮梅老师改物理卷子" class="headerlink" title="帮梅老师改物理卷子"></a><strong>帮梅老师改物理卷子</strong></h3><p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h3 id="吃晚饭"><a href="#吃晚饭" class="headerlink" title="吃晚饭"></a><strong>吃晚饭</strong></h3><p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<p><img src="/gallery/journal-2022-07-24-water/hdl-empty.jpg" alt="海底捞吃饭前"></p>
-<p>吃吃吃：</p>
-<p><img src="/gallery/journal-2022-07-24-water/hdl-full.jpg" alt="杯盘狼藉"></p>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<p><img src="/gallery/journal-2022-07-24-water/hdl-coconut.jpg" alt="椰子"></p>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><img src="/gallery/journal-2022-07-24-water/us.jpg" alt="监考老师们的合照"></p>
-<p>嗝。</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2022年回眸</title>
-    <url>/2022/12/31/%E3%80%90%E6%B8%B8%E8%AE%B0%E3%80%912022%E5%B9%B4%E5%9B%9E%E7%9C%B8/</url>
-    <content><![CDATA[<p>2022 年就这么过去了，</p>
-<p>我也从一个高三学生变成了一个大一新生了。</p>
-<hr>
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<p><img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png" alt="换微信头像啦！"></p>
-<span id="more"></span>
-
-<h3 id="一月至五月"><a href="#一月至五月" class="headerlink" title="一月至五月"></a>一月至五月</h3><p><strong>2022-02-05 自己的 18 岁生日</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg" alt="蛋糕"></p>
-<p><strong>各种调考</strong></p>
-<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
-<h3 id="六月"><a href="#六月" class="headerlink" title="六月"></a>六月</h3><p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
-<p>数学卷子好难。</p>
-<p><strong>2022-06-16 回初中看老师</strong></p>
-<p>感觉外初变新了，装修得非常漂亮。</p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg" alt="一行人"></p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg" alt="内景"></p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg" alt="外景"></p>
-<p><strong>2022-06-25 高考出分</strong></p>
-<p>超常发挥吧。</p>
-<h3 id="七月"><a href="#七月" class="headerlink" title="七月"></a>七月</h3><p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
-<p>感谢 Q 宝的邀请</p>
-<p><img src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg" alt="大汉"></p>
-<p><img src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg" alt="小火车"></p>
-<p><strong>2022-07-25 收到录取通知书</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg" alt="二校门"></p>
-<h3 id="八月"><a href="#八月" class="headerlink" title="八月"></a>八月</h3><p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
-<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
-<p><strong>2022-08-19 开始军训</strong></p>
-<p><strong>2022-08-24 第一次定向越野</strong></p>
-<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg" alt="map"></p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg" alt="成绩！"></p>
-<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg" alt="奇怪的出入校审批"></p>
-<p><strong>2022-08-28 参加 20km 拉练</strong></p>
-<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg" alt="丑陋的背包"></p>
-<p><img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg" alt="夜景"></p>
-<h3 id="九月"><a href="#九月" class="headerlink" title="九月"></a>九月</h3><p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg" alt="可惜的是缺了 Jett 和罗总"></p>
-<p><strong>2022-09-17 参加篮球运动周</strong></p>
-<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2</del></p>
-<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至 bilibili 观看</a></p>
-<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg" alt="文学长在进行操作"></p>
-<p><img src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg" alt="在享受"></p>
-<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
-<p>问题就在于，背完了没太大用。</p>
-<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
-<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
-<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg" alt="GRE"></p>
-<h3 id="十月"><a href="#十月" class="headerlink" title="十月"></a>十月</h3><p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
-<p>十分震撼。</p>
-<p><img src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg" alt="仪仗队在出旗"></p>
-<p><img src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg" alt="国旗"></p>
-<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg" alt="5人合影（我拍的）"></p>
-<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
-<p><del>什么叫物美价廉啊（战术后仰</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg" alt="《差距》"></p>
-<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
-<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
-<p><a href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至 bilibili 观看</a></p>
-<p><strong>2022-10-03 参观工字厅</strong></p>
-<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg" alt="外部"></p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg" alt="内部1"></p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg" alt="内部2"></p>
-<p><del>值得一提的是，偶遇了<a href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
-<p><strong>2022-10-06 成功脱单</strong></p>
-<p>感谢我能遇见你。</p>
-<p>update@2023-02-08: 她觉得我和她并不合适，于是我被甩了。</p>
-<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg" alt="外部"></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg" alt="国旗飘扬"></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg" alt="武汉战疫"></p>
-<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
-<p>勇夺全校并列第七！</p>
-<p><img src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg" alt="选手照片"></p>
-<p><img src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg" alt="并列第7！"></p>
-<p>比我初一时候的成绩提高了大概 40 个（确信</p>
-<h3 id="十一月"><a href="#十一月" class="headerlink" title="十一月"></a>十一月</h3><p><strong>2022-11-01 写了一首诗</strong></p>
-<blockquote>
-<p>To Autumn</p>
-<hr>
-<p>Golden leaves of autumn</p>
-<p>danced and drifted to the ground.</p>
-<p>They dotted the picturesque view of mother nature,</p>
-<p>when the color of gold conquered the world.</p>
-<p>Leaves are leaving,</p>
-<p>but I’m not.</p>
-<hr>
-<p>My hand holds yours,</p>
-<p>your hand fits mine.</p>
-<p>By chance,</p>
-<p>my eyes meet thine.</p>
-</blockquote>
-<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
-<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
-<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
-<blockquote>
-<p>Blossom and I -</p>
-<p>Her oath, and mine -</p>
-<p>Will surely come again.</p>
-</blockquote>
-<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
-<p>能代表系里参加马杯，属实是我的荣幸。</p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg" alt="在排队参赛"></p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg" alt="横幅"></p>
-<p>还不错，甲组全校第四！</p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg" alt="第四！"></p>
-<p><strong>2022-11-27 完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
-<p>学到许多。</p>
-<p>$\LaTeX$ 熟练度增加了！</p>
-<p><img src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg" alt="算法课报告"></p>
-<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
-<p>我们班的篮球队最后 3 秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
-<p><del>当然，我超常发挥也可能是因为神秘嘉宾来看比赛了</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg" alt="最后的罚篮"></p>
-<p><strong>2022-11-28 第一次封寝</strong></p>
-<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
-<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
-<p><img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg" alt="自习位置"></p>
-<h3 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h3><p><strong>2022-12-03 第一次参加志愿服务</strong></p>
-<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg" alt="空空旷旷"></p>
-<p><del>和女朋友一起参加志愿服务！</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg" alt="合照！你能找到我吗？"></p>
-<p>送完第二波大巴之后，天刚刚亮。</p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg" alt="送完大巴之后，天也亮了"></p>
-<p><strong>2022-12-08 返乡</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg" alt="在寝室清东西"></p>
-<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg" alt="返乡大巴"></p>
-<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
-<p><del>实名diss听涛园的热干面不咋地</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg" alt="热！干！面！"></p>
-<p><strong>2022-12-16 感染新冠病毒</strong></p>
-<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
-<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
-<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg" alt="蒸橙子"></p>
-<p><strong>2022-12-20 复习期末</strong></p>
-<p>线代好难。</p>
-<p>微积分好难。</p>
-<p>基物好难。</p>
-<p>我想睡觉。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
-<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
-<p>新的一年里继续努力吧！</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【答案】《高等微积分教程(下)》教材习题解答</title>
     <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8B)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
     <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
@@ -651,24 +730,6 @@
 <span id="more"></span>
 
 <div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/%E3%80%90%E7%AD%94%E6%A1%88%E3%80%91%E9%AB%98%E7%AD%89%E5%BE%AE%E7%A7%AF%E5%88%86%E6%95%99%E7%A8%8B(%E4%B8%8A)%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-
-<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>

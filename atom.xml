@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-07-01T15:08:55.580Z</updated>
+  <updated>2023-07-21T08:22:12.032Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <link href="https://leverimmy.top/2023/07/20/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
+    <id>https://leverimmy.top/2023/07/20/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
+    <published>2023-07-20T11:39:27.000Z</published>
+    <updated>2023-07-21T08:22:12.032Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一章 数据存储&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;逻辑门&lt;/li&gt;
+&lt;li&gt;十六进制&lt;/li&gt;
+&lt;li&gt;二进制中的补码与余码&lt;ul&gt;
+&lt;li&gt;补码记数法&lt;/li&gt;
+&lt;li&gt;余码记数法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;浮点数及其规范化形式&lt;ul&gt;
+&lt;li&gt;浮点数的二进制表示&lt;/li&gt;
+&lt;li&gt;浮点数的规范化形式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机科学概论" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA/"/>
+    
+    <category term="二进制" scheme="https://leverimmy.top/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
+    
+    <category term="浮点数" scheme="https://leverimmy.top/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>【答案】《高等微积分教程(下)》教材习题解答</title>
@@ -94,7 +132,7 @@
     <link href="https://leverimmy.top/2023/07/01/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E4%B8%8E%E9%9B%86%E5%90%88%E8%AE%BA%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/"/>
     <id>https://leverimmy.top/2023/07/01/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E4%B8%8E%E9%9B%86%E5%90%88%E8%AE%BA%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89/</id>
     <published>2023-07-01T13:34:22.000Z</published>
-    <updated>2023-07-02T16:04:57.122Z</updated>
+    <updated>2023-07-21T08:06:52.750Z</updated>
     
     
     <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
