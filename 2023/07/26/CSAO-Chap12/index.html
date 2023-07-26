@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 图灵机 Bare Bones 语言 停机问题   RSA 公钥密码学">
+    <meta name="description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 图灵机 Bare Bones 语言 停机问题 RSA 公钥密码学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】计算机科学概论-第十二章">
 <meta property="og:url" content="https://leverimmy.top/2023/07/26/CSAO-Chap12/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 图灵机 Bare Bones 语言 停机问题   RSA 公钥密码学">
+<meta property="og:description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 图灵机 Bare Bones 语言 停机问题 RSA 公钥密码学">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-26T03:44:25.000Z">
-<meta property="article:modified_time" content="2023-07-26T07:59:56.808Z">
+<meta property="article:modified_time" content="2023-07-26T10:42:08.709Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="计算机科学概论">
 <meta property="article:tag" content="计算理论">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">可计算性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%81%B5%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">图灵机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bare-Bones-%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">Bare Bones 语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%9C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">停机问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-number">3.</span> <span class="nav-text">RSA 公钥密码学</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">可计算性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%81%B5%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">图灵机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bare-Bones-%E8%AF%AD%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">Bare Bones 语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9C%E6%9C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">停机问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-number">5.</span> <span class="nav-text">RSA 公钥密码学</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +235,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-07-26 11:44:25 / 修改时间：15:59:56" itemprop="dateCreated datePublished" datetime="2023-07-26T11:44:25+08:00">2023-07-26</time>
+      <time title="创建时间：2023-07-26 11:44:25 / 修改时间：18:42:08" itemprop="dateCreated datePublished" datetime="2023-07-26T11:44:25+08:00">2023-07-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,16 +268,29 @@
 <p><strong>第十二章 计算理论</strong></p>
 <ul>
 <li>可计算性</li>
-<li>图灵机<ul>
+<li>图灵机</li>
 <li>Bare Bones 语言</li>
 <li>停机问题</li>
-</ul>
-</li>
 <li>RSA 公钥密码学</li>
 </ul>
 <span id="more"></span>
 
-<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><h2 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a>图灵机</h2><h3 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h3><h3 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h3><h2 id="RSA-公钥密码学"><a href="#RSA-公钥密码学" class="headerlink" title="RSA 公钥密码学"></a>RSA 公钥密码学</h2>
+<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a>图灵机</h2><h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
+<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
+<h2 id="RSA-公钥密码学"><a href="#RSA-公钥密码学" class="headerlink" title="RSA 公钥密码学"></a>RSA 公钥密码学</h2>
     </div>
 
     
