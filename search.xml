@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】计算机科学概论-第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>图灵机</li>
-<li>Bare Bones 语言</li>
-<li>停机问题</li>
-<li>RSA 公钥密码学</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a>图灵机</h2><h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
-<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
-<h2 id="RSA-公钥密码学"><a href="#RSA-公钥密码学" class="headerlink" title="RSA 公钥密码学"></a>RSA 公钥密码学</h2>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>图灵机</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数理逻辑与集合论（第2版）</title>
     <url>/2023/07/01/Shuliluoji-Yu-Jihelun-2ed/</url>
     <content><![CDATA[<p>摘要待填。</p>
@@ -93,144 +52,132 @@
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr>
-<p>老老实实监考并且坐牢 $100 + 100 + 150 &#x3D; 350 \mathrm{ min}$ <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>十六进制</li>
+<li>二进制中的补码与余码<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul>
+</li>
+<li>浮点数及其规范化形式<ul>
+<li>浮点数的二进制表示</li>
+<li>浮点数的规范化形式</li>
+</ul>
+</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png" alt="@全体成员"></p>
-<p><del>（后面两次@没有@上）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<p><img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png" alt="吃吃吃"></p>
-<h2 id="物理"><a href="#物理" class="headerlink" title="物理"></a>物理</h2><p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<p><img src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg" alt="物理卷子T2"></p>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<p><img src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg" alt="物理卷子T6"></p>
-<p>这个我会！侧面切成 $\text{d}h$ 的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 $h$ 写成 $H$ 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 $3G$，重力提供 $G$，剩下的就是侧面提供的 $2G$。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 $\dfrac{1}{3}$ 准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学"><a href="#化学" class="headerlink" title="化学"></a>化学</h2><p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<p><img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg" alt="化学卷子P1,P2"></p>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 $6$ 道多选题？怎么还有 $3$ 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<p><img src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg" alt="笑谈化学卷子"></p>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭"><a href="#吃午饭" class="headerlink" title="吃午饭"></a>吃午饭</h2><p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;@数学</p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<p><img src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png" alt="细致入微"></p>
-<p>写了几道能力范围之内的题目。</p>
+<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p><img src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png" alt="逻辑门"></p>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code> 就是右侧加一个小圆圈，<code>X</code> 就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下 skyhappy，他跟我讲：</p>
 <blockquote>
-<ol>
-<li>（10分）求所有的正整数 $n$，使得 $1\underbrace{44\cdots4}_{n 个 4}$ 是一个完全平方数.</li>
-</ol>
+<p>我是这么记的，看输出端<br>如果是与运算，就得有容乃大，所以开口得胖一点<br>或运算就不需要了，所以窄一点就好了</p>
 </blockquote>
-<p>先除以 $4$ 然后模 $4$ 就可以知道 $n \ge 4$ 均不符合条件。枚举 $n &#x3D; 1, 2, 3$ 即可。</p>
-<blockquote>
-<ol start="6">
-<li>（25分）设正实数 $x, y, z$ 满足 $xyz &#x3D; 1$，证明：<br>$$<br>\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \le 1<br>$$</li>
-</ol>
-</blockquote>
-<p>注意到<br>$$<br>\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} &#x3D; 1<br>$$<br>则<br>$$<br>\begin{aligned}<br>&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \\<br>\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} \\<br>&#x3D; &amp; 1<br>\end{aligned}<br>$$</p>
-<blockquote>
-<ol start="7">
-<li>（30分）设 $m &#x3D; d_0 + d_1\cdot3 + d_2\cdot3^2+\cdots+d_n\cdot3^n$ 为一个正整数的平方，且 $d_i\in\{0, 1, 2\}, i &#x3D; 0, 1, 2, \cdots, n$. 证明：至少有一个 $d_i &#x3D; 1$.</li>
-</ol>
-</blockquote>
-<p>设 $m &#x3D; 3^{\alpha}\cdot n$，其中 $3 \nmid n$。因 $m$ 为完全平方数，则 $\alpha$ 必为偶数。</p>
-<p>因 $n$ 也为完全平方数且 $3\nmid n$，则 $n \equiv 1 (\bmod3)$，则 $d_{\alpha} &#x3D; 1$。</p>
-<hr>
-<p>当我不知道干啥的时候，我看到了这个</p>
-<p><img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png" alt="来了来了"></p>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子"><a href="#帮梅老师改物理卷子" class="headerlink" title="帮梅老师改物理卷子"></a>帮梅老师改物理卷子</h2><p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭"><a href="#吃晚饭" class="headerlink" title="吃晚饭"></a>吃晚饭</h2><p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<p><img src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg" alt="海底捞吃饭前"></p>
-<p>吃吃吃：</p>
-<p><img src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg" alt="杯盘狼藉"></p>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<p><img src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg" alt="椰子"></p>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg" alt="监考老师们的合照"></p>
-<p>嗝。</p>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在 C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="C-中的字符常量"><a href="#C-中的字符常量" class="headerlink" title="C 中的字符常量"></a>C 中的字符常量</h2><p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成 <code>char str = &#39;123&#39;;</code>，虽然 <strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于 <strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C&#x2F;C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个 byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以 <code>&#39;</code> 内一共可以最多包含 4 个字符，它会被看做成一个 <code>int</code> 类型的常量。其实就是四个 <code>char</code> 并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>(&#39;1&#39; &lt;&lt; 8) + &#39;2&#39;</code> 和 <code>&#39;12&#39;</code> 是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>&#39;</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制中的补码与余码"><a href="#二进制中的补码与余码" class="headerlink" title="二进制中的补码与余码"></a>二进制中的补码与余码</h2><h3 id="补码记数法"><a href="#补码记数法" class="headerlink" title="补码记数法"></a>补码记数法</h3><p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit 二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示 $-2^{31}$，其余各位分别表示 $2^{30}, \cdots, 2^1, 2^0$。因此一个 32 bit 二进制串的表示范围为 $[-2^{31}, 2^{31}-1]$。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法"><a href="#余码记数法" class="headerlink" title="余码记数法"></a>余码记数法</h3><p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0 的数。这个数在所有 32 bit 二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="浮点数及其规范化形式"><a href="#浮点数及其规范化形式" class="headerlink" title="浮点数及其规范化形式"></a>浮点数及其规范化形式</h2><h3 id="浮点数的二进制表示"><a href="#浮点数的二进制表示" class="headerlink" title="浮点数的二进制表示"></a>浮点数的二进制表示</h3><p>浮点数由“符号位”，“指数域”和“尾数域”三个部分组成。以下以 8 bit 浮点数为例。</p>
+<ul>
+<li>符号位为 0，则为正数；符号位为 1，则为负数。</li>
+<li>尾数域（共 4 bit）为可看做为一个二进制小数，小数点位于最高位之前。</li>
+<li>指数域（共 3 bit）被解释为 <strong>余码</strong>，如果为正数，则表示小数点向右移动；如果为负数，则表示小数点向左移动。</li>
+</ul>
+<p>例如 <code>0 | 110 | 1011</code> 被解释为 <code>.1011</code> 且小数点向右移动 2 位，即 <code>10.11</code>，此即 2.75。</p>
+<h3 id="浮点数的规范化形式"><a href="#浮点数的规范化形式" class="headerlink" title="浮点数的规范化形式"></a>浮点数的规范化形式</h3><p>假设我们想要表示 0.375，即 <code>.011</code>。尾数域到底应该怎么表示呢？是 <code>.0110</code> 还是 <code>.1100</code>，或者是 <code>.0011</code> 呢？毕竟，0.375 可以是 <code>.0110</code> 小数点不移动，也可以是 <code>.1100</code> 小数点向左移动一位，还可以是 <code>.0011</code>小数点向右移动一位。</p>
+<p>浮点数的规范化形式规定，尾数域必须以 <code>1</code> 开头。因此，0.375 被唯一表示为 <code>0 | 011 | 1100</code> 而不是 <code>0 | 000 | 0110</code> 或 <code>0 | 101 | 0011</code>。</p>
 ]]></content>
       <categories>
-        <category>游记</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
-        <tag>生活</tag>
+        <tag>计算机科学概论</tag>
+        <tag>二进制</tag>
+        <tag>浮点数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论-第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul>
+</li>
+<li>停机问题</li>
+<li>RSA 公钥密码学</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><p>一个通用程序设计语言。</p>
+<ul>
+<li>一种基本数据类型。<br>所有的变量本质上都是二进制数。</li>
+<li>三条赋值语句。<br><code>clear name</code> 表示把 <code>name</code> 清零。<br><code>incr name</code> 表示使 <code>name</code> 自增 1。<br><code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
+<li>一条控制结构语句。<br><code>while name not 0:</code> 在 <code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</li>
+</ul>
+<blockquote>
+<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones 语言实现。</p>
+<h3 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a>复制操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code> 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作"><a href="#交换操作" class="headerlink" title="交换操作"></a>交换操作</h3><p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
+<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
+<h2 id="RSA-公钥密码学"><a href="#RSA-公钥密码学" class="headerlink" title="RSA 公钥密码学"></a>RSA 公钥密码学</h2><p>由费马小定理 $a^{p-1} \equiv 1 \pmod{p}$ 知：若 $p, q$ 均为质数，则 $a^{k(p-1)(q-1)} \equiv 1 \pmod{pq}, \forall k \in \mathbb{N^{*}}$。</p>
+<p>首先选取两个大质数 $p, q$。取 $n &#x3D; pq$。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>图灵机</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
       </tags>
   </entry>
   <entry>
@@ -398,64 +345,144 @@
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>十六进制</li>
-<li>二进制中的补码与余码<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul>
-</li>
-<li>浮点数及其规范化形式<ul>
-<li>浮点数的二进制表示</li>
-<li>浮点数的规范化形式</li>
-</ul>
-</li>
-</ul>
+    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr>
+<p>老老实实监考并且坐牢 $100 + 100 + 150 &#x3D; 350 \mathrm{ min}$ <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
 <span id="more"></span>
 
-<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p><img src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png" alt="逻辑门"></p>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code> 就是右侧加一个小圆圈，<code>X</code> 就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下 skyhappy，他跟我讲：</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png" alt="@全体成员"></p>
+<p><del>（后面两次@没有@上）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<p><img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png" alt="吃吃吃"></p>
+<h2 id="物理"><a href="#物理" class="headerlink" title="物理"></a>物理</h2><p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<p><img src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg" alt="物理卷子T2"></p>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<p><img src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg" alt="物理卷子T6"></p>
+<p>这个我会！侧面切成 $\text{d}h$ 的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 $h$ 写成 $H$ 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 $3G$，重力提供 $G$，剩下的就是侧面提供的 $2G$。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 $\dfrac{1}{3}$ 准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学"><a href="#化学" class="headerlink" title="化学"></a>化学</h2><p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 $6$ 张的 $5$ 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<p><img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg" alt="化学卷子P1,P2"></p>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 $6$ 道多选题？怎么还有 $3$ 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<p><img src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg" alt="笑谈化学卷子"></p>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭"><a href="#吃午饭" class="headerlink" title="吃午饭"></a>吃午饭</h2><p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;@数学</p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<p><img src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png" alt="细致入微"></p>
+<p>写了几道能力范围之内的题目。</p>
 <blockquote>
-<p>我是这么记的，看输出端<br>如果是与运算，就得有容乃大，所以开口得胖一点<br>或运算就不需要了，所以窄一点就好了</p>
+<ol>
+<li>（10分）求所有的正整数 $n$，使得 $1\underbrace{44\cdots4}_{n 个 4}$ 是一个完全平方数.</li>
+</ol>
 </blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在 C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="C-中的字符常量"><a href="#C-中的字符常量" class="headerlink" title="C 中的字符常量"></a>C 中的字符常量</h2><p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成 <code>char str = &#39;123&#39;;</code>，虽然 <strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于 <strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C&#x2F;C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个 byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以 <code>&#39;</code> 内一共可以最多包含 4 个字符，它会被看做成一个 <code>int</code> 类型的常量。其实就是四个 <code>char</code> 并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>(&#39;1&#39; &lt;&lt; 8) + &#39;2&#39;</code> 和 <code>&#39;12&#39;</code> 是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>&#39;</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-
-<h2 id="二进制中的补码与余码"><a href="#二进制中的补码与余码" class="headerlink" title="二进制中的补码与余码"></a>二进制中的补码与余码</h2><h3 id="补码记数法"><a href="#补码记数法" class="headerlink" title="补码记数法"></a>补码记数法</h3><p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit 二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示 $-2^{31}$，其余各位分别表示 $2^{30}, \cdots, 2^1, 2^0$。因此一个 32 bit 二进制串的表示范围为 $[-2^{31}, 2^{31}-1]$。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法"><a href="#余码记数法" class="headerlink" title="余码记数法"></a>余码记数法</h3><p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0 的数。这个数在所有 32 bit 二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="浮点数及其规范化形式"><a href="#浮点数及其规范化形式" class="headerlink" title="浮点数及其规范化形式"></a>浮点数及其规范化形式</h2><h3 id="浮点数的二进制表示"><a href="#浮点数的二进制表示" class="headerlink" title="浮点数的二进制表示"></a>浮点数的二进制表示</h3><p>浮点数由“符号位”，“指数域”和“尾数域”三个部分组成。以下以 8 bit 浮点数为例。</p>
-<ul>
-<li>符号位为 0，则为正数；符号位为 1，则为负数。</li>
-<li>尾数域（共 4 bit）为可看做为一个二进制小数，小数点位于最高位之前。</li>
-<li>指数域（共 3 bit）被解释为 <strong>余码</strong>，如果为正数，则表示小数点向右移动；如果为负数，则表示小数点向左移动。</li>
-</ul>
-<p>例如 <code>0 | 110 | 1011</code> 被解释为 <code>.1011</code> 且小数点向右移动 2 位，即 <code>10.11</code>，此即 2.75。</p>
-<h3 id="浮点数的规范化形式"><a href="#浮点数的规范化形式" class="headerlink" title="浮点数的规范化形式"></a>浮点数的规范化形式</h3><p>假设我们想要表示 0.375，即 <code>.011</code>。尾数域到底应该怎么表示呢？是 <code>.0110</code> 还是 <code>.1100</code>，或者是 <code>.0011</code> 呢？毕竟，0.375 可以是 <code>.0110</code> 小数点不移动，也可以是 <code>.1100</code> 小数点向左移动一位，还可以是 <code>.0011</code>小数点向右移动一位。</p>
-<p>浮点数的规范化形式规定，尾数域必须以 <code>1</code> 开头。因此，0.375 被唯一表示为 <code>0 | 011 | 1100</code> 而不是 <code>0 | 000 | 0110</code> 或 <code>0 | 101 | 0011</code>。</p>
+<p>先除以 $4$ 然后模 $4$ 就可以知道 $n \ge 4$ 均不符合条件。枚举 $n &#x3D; 1, 2, 3$ 即可。</p>
+<blockquote>
+<ol start="6">
+<li>（25分）设正实数 $x, y, z$ 满足 $xyz &#x3D; 1$，证明：<br>$$<br>\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \le 1<br>$$</li>
+</ol>
+</blockquote>
+<p>注意到<br>$$<br>\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} &#x3D; 1<br>$$<br>则<br>$$<br>\begin{aligned}<br>&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} + \dfrac{2}{(z+1)^2+x^2+1} \\<br>\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} \\<br>&#x3D; &amp; 1<br>\end{aligned}<br>$$</p>
+<blockquote>
+<ol start="7">
+<li>（30分）设 $m &#x3D; d_0 + d_1\cdot3 + d_2\cdot3^2+\cdots+d_n\cdot3^n$ 为一个正整数的平方，且 $d_i\in\{0, 1, 2\}, i &#x3D; 0, 1, 2, \cdots, n$. 证明：至少有一个 $d_i &#x3D; 1$.</li>
+</ol>
+</blockquote>
+<p>设 $m &#x3D; 3^{\alpha}\cdot n$，其中 $3 \nmid n$。因 $m$ 为完全平方数，则 $\alpha$ 必为偶数。</p>
+<p>因 $n$ 也为完全平方数且 $3\nmid n$，则 $n \equiv 1 (\bmod3)$，则 $d_{\alpha} &#x3D; 1$。</p>
+<hr>
+<p>当我不知道干啥的时候，我看到了这个</p>
+<p><img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png" alt="来了来了"></p>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子"><a href="#帮梅老师改物理卷子" class="headerlink" title="帮梅老师改物理卷子"></a>帮梅老师改物理卷子</h2><p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭"><a href="#吃晚饭" class="headerlink" title="吃晚饭"></a>吃晚饭</h2><p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<p><img src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg" alt="海底捞吃饭前"></p>
+<p>吃吃吃：</p>
+<p><img src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg" alt="杯盘狼藉"></p>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<p><img src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg" alt="椰子"></p>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg" alt="监考老师们的合照"></p>
+<p>嗝。</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>游记</category>
       </categories>
       <tags>
-        <tag>计算机科学概论</tag>
-        <tag>二进制</tag>
-        <tag>浮点数</tag>
+        <tag>生活</tag>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
       </tags>
   </entry>
   <entry>
@@ -740,24 +767,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-2-solution">https://git.tsinghua.edu.cn/xze22/calculus-2-solution</a></p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-
-<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【答案】《高等微积分教程(上)》教材习题解答</title>
     <url>/2023/07/01/Tsinghua-Calculus-1/</url>
     <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
@@ -767,6 +776,24 @@
 <span id="more"></span>
 
 <div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-2-solution">https://git.tsinghua.edu.cn/xze22/calculus-2-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
