@@ -52,6 +52,96 @@
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul>
+</li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><p>一个通用程序设计语言。</p>
+<ul>
+<li>一种基本数据类型。<br>所有的变量本质上都是二进制数。</li>
+<li>三条赋值语句。<br><code>clear name</code> 表示把 <code>name</code> 清零。<br><code>incr name</code> 表示使 <code>name</code> 自增 1。<br><code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
+<li>一条控制结构语句。<br><code>while name not 0:</code> 在 <code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</li>
+</ul>
+<blockquote>
+<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones 语言实现。</p>
+<h3 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a>复制操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code> 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作"><a href="#交换操作" class="headerlink" title="交换操作"></a>交换操作</h3><p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
+<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
+<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>RSA 是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="RSA-密钥的生成与分发"><a href="#RSA-密钥的生成与分发" class="headerlink" title="RSA 密钥的生成与分发"></a>RSA 密钥的生成与分发</h3><blockquote>
+<p>$\lambda(n)$ 为 <a href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael function</a>，是指最小的正整数 $m$，满足对于所有的与 $n$ 互质的 $a$，均有 $a^{m} \equiv 1 \pmod n$。</p>
+</blockquote>
+<ol>
+<li>选择两个大质数 $p, q$，记 $n &#x3D; pq$。</li>
+<li>计算 $\lambda(n) &#x3D; \mathrm{lcm}(p - 1, q - 1)$。</li>
+<li>选择一个 $e$ 使得 $e$ 与 $\lambda(n)$ 互质。</li>
+<li>计算 $d$ 满足 $d \equiv e^{-1} \pmod{\lambda(n)}$。</li>
+</ol>
+<p>$n, e$ 作为公钥，$d$ 作为密钥。</p>
+<h3 id="RSA-的加密与解密"><a href="#RSA-的加密与解密" class="headerlink" title="RSA 的加密与解密"></a>RSA 的加密与解密</h3><p>由于所有的运算都会对 $n$ 取模，所以一个很自然的要求是明文 $m$ 的长度小于 $n$。</p>
+<ul>
+<li><p>加密：密文 $c \equiv m^e \pmod n$</p>
+</li>
+<li><p>解密：明文 $m \equiv m^{de} \equiv c^d \pmod n$</p>
+</li>
+</ul>
+<h3 id="RSA-的正确性"><a href="#RSA-的正确性" class="headerlink" title="RSA 的正确性"></a>RSA 的正确性</h3><p>只需要证明 $m \equiv m^{de} \pmod {pq}$ 即可，更简化地说，只需要证明 $m \equiv m^{de} \pmod p$ 即可，对 $q$ 同理。</p>
+<p>由于 $de \equiv 1 \pmod {\lambda(pq)}$，而 $\lambda(pq) &#x3D; (p - 1)(q - 1)$。所以不妨记 $de - 1 &#x3D; h(p - 1) &#x3D; k(q - 1)$。</p>
+<ol>
+<li>若 $m \equiv 0 \pmod p$，则 $m^{ed} \equiv 0 \equiv m \pmod p$。</li>
+<li>若 $m \not\equiv 0 \pmod p$，则由费马小定理 $m^{p-1} \equiv 1 \pmod p$。<br>  $$<br>  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m \cdot 1^{h} \equiv m \pmod p<br>  $$</li>
+</ol>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】计算机科学概论 - 第一章</title>
     <url>/2023/07/20/CSAO-Chap1/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -110,170 +200,6 @@
         <tag>计算机科学概论</tag>
         <tag>二进制</tag>
         <tag>浮点数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2022年回眸</title>
-    <url>/2022/12/31/2022-Lookback/</url>
-    <content><![CDATA[<p>2022 年就这么过去了，</p>
-<p>我也从一个高三学生变成了一个大一新生了。</p>
-<hr>
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<p><img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png" alt="换微信头像啦！"></p>
-<span id="more"></span>
-
-<h2 id="一月至五月"><a href="#一月至五月" class="headerlink" title="一月至五月"></a>一月至五月</h2><p><strong>2022-02-05 自己的 18 岁生日</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg" alt="蛋糕"></p>
-<p><strong>各种调考</strong></p>
-<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
-<h2 id="六月"><a href="#六月" class="headerlink" title="六月"></a>六月</h2><p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
-<p>数学卷子好难。</p>
-<p><strong>2022-06-16 回初中看老师</strong></p>
-<p>感觉外初变新了，装修得非常漂亮。</p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg" alt="一行人"></p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg" alt="内景"></p>
-<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg" alt="外景"></p>
-<p><strong>2022-06-25 高考出分</strong></p>
-<p>超常发挥吧。</p>
-<h2 id="七月"><a href="#七月" class="headerlink" title="七月"></a>七月</h2><p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
-<p>感谢 Q 宝的邀请</p>
-<p><img src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg" alt="大汉"></p>
-<p><img src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg" alt="小火车"></p>
-<p><strong>2022-07-25 收到录取通知书</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg" alt="二校门"></p>
-<h2 id="八月"><a href="#八月" class="headerlink" title="八月"></a>八月</h2><p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
-<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
-<p><strong>2022-08-19 开始军训</strong></p>
-<p><strong>2022-08-24 第一次定向越野</strong></p>
-<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg" alt="map"></p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg" alt="成绩！"></p>
-<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg" alt="奇怪的出入校审批"></p>
-<p><strong>2022-08-28 参加 20km 拉练</strong></p>
-<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg" alt="丑陋的背包"></p>
-<p><img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg" alt="夜景"></p>
-<h2 id="九月"><a href="#九月" class="headerlink" title="九月"></a>九月</h2><p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg" alt="可惜的是缺了 Jett 和罗总"></p>
-<p><strong>2022-09-17 参加篮球运动周</strong></p>
-<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2</del></p>
-<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至 bilibili 观看</a></p>
-<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg" alt="文学长在进行操作"></p>
-<p><img src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg" alt="在享受"></p>
-<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
-<p>问题就在于，背完了没太大用。</p>
-<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
-<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
-<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg" alt="GRE"></p>
-<h2 id="十月"><a href="#十月" class="headerlink" title="十月"></a>十月</h2><p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
-<p>十分震撼。</p>
-<p><img src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg" alt="仪仗队在出旗"></p>
-<p><img src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg" alt="国旗"></p>
-<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg" alt="5人合影（我拍的）"></p>
-<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
-<p><del>什么叫物美价廉啊（战术后仰</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg" alt="《差距》"></p>
-<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
-<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
-<p><a href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至 bilibili 观看</a></p>
-<p><strong>2022-10-03 参观工字厅</strong></p>
-<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg" alt="外部"></p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg" alt="内部1"></p>
-<p><img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg" alt="内部2"></p>
-<p><del>值得一提的是，偶遇了<a href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
-<p><strong>2022-10-06 成功脱单</strong></p>
-<p>感谢我能遇见你。</p>
-<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
-<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg" alt="外部"></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg" alt="国旗飘扬"></p>
-<p><img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg" alt="武汉战疫"></p>
-<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
-<p>勇夺全校并列第七！</p>
-<p><img src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg" alt="选手照片"></p>
-<p><img src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg" alt="并列第7！"></p>
-<p>比我初一时候的成绩提高了大概 40 个（确信</p>
-<h2 id="十一月"><a href="#十一月" class="headerlink" title="十一月"></a>十一月</h2><p><strong>2022-11-01 写了一首诗</strong></p>
-<blockquote>
-<p>To Autumn</p>
-<hr>
-<p>Golden leaves of autumn</p>
-<p>danced and drifted to the ground.</p>
-<p>They dotted the picturesque view of mother nature,</p>
-<p>when the color of gold conquered the world.</p>
-<p>Leaves are leaving,</p>
-<p>but I’m not.</p>
-<hr>
-<p>My hand holds yours,</p>
-<p>your hand fits mine.</p>
-<p>By chance,</p>
-<p>my eyes meet thine.</p>
-</blockquote>
-<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
-<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
-<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
-<blockquote>
-<p>Blossom and I -</p>
-<p>Her oath, and mine -</p>
-<p>Will surely come again.</p>
-</blockquote>
-<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
-<p>能代表系里参加马杯，属实是我的荣幸。</p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg" alt="在排队参赛"></p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg" alt="横幅"></p>
-<p>还不错，甲组全校第四！</p>
-<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg" alt="第四！"></p>
-<p><strong>2022-11-27 完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
-<p>学到许多。</p>
-<p>$\LaTeX$ 熟练度增加了！</p>
-<p><img src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg" alt="算法课报告"></p>
-<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
-<p>我们班的篮球队最后 3 秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
-<p><del>当然，我超常发挥也可能是因为神秘嘉宾来看比赛了</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg" alt="最后的罚篮"></p>
-<p><strong>2022-11-28 第一次封寝</strong></p>
-<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
-<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
-<p><img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg" alt="自习位置"></p>
-<h2 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h2><p><strong>2022-12-03 第一次参加志愿服务</strong></p>
-<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg" alt="空空旷旷"></p>
-<p><del>和女朋友一起参加志愿服务！</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg" alt="合照！你能找到我吗？"></p>
-<p>送完第二波大巴之后，天刚刚亮。</p>
-<p><img src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg" alt="送完大巴之后，天也亮了"></p>
-<p><strong>2022-12-08 返乡</strong></p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg" alt="在寝室清东西"></p>
-<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg" alt="返乡大巴"></p>
-<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
-<p><del>实名diss听涛园的热干面不咋地</del></p>
-<p><img src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg" alt="热！干！面！"></p>
-<p><strong>2022-12-16 感染新冠病毒</strong></p>
-<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
-<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
-<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
-<p><img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg" alt="蒸橙子"></p>
-<p><strong>2022-12-20 复习期末</strong></p>
-<p>线代好难。</p>
-<p>微积分好难。</p>
-<p>基物好难。</p>
-<p>我想睡觉。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
-<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
-<p>新的一年里继续努力吧！</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
       </tags>
   </entry>
   <entry>
@@ -558,96 +484,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul>
-</li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><p>一个通用程序设计语言。</p>
-<ul>
-<li>一种基本数据类型。<br>所有的变量本质上都是二进制数。</li>
-<li>三条赋值语句。<br><code>clear name</code> 表示把 <code>name</code> 清零。<br><code>incr name</code> 表示使 <code>name</code> 自增 1。<br><code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
-<li>一条控制结构语句。<br><code>while name not 0:</code> 在 <code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</li>
-</ul>
-<blockquote>
-<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones 语言实现。</p>
-<h3 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a>复制操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code> 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作"><a href="#交换操作" class="headerlink" title="交换操作"></a>交换操作</h3><p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
-<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
-<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>RSA 是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="RSA-密钥的生成与分发"><a href="#RSA-密钥的生成与分发" class="headerlink" title="RSA 密钥的生成与分发"></a>RSA 密钥的生成与分发</h3><blockquote>
-<p>$\lambda(n)$ 为 <a href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael function</a>，是指最小的正整数 $m$，满足对于所有的与 $n$ 互质的 $a$，均有 $a^{m} \equiv 1 \pmod n$。</p>
-</blockquote>
-<ol>
-<li>选择两个大质数 $p, q$，记 $n &#x3D; pq$。</li>
-<li>计算 $\lambda(n) &#x3D; \mathrm{lcm}(p - 1, q - 1)$。</li>
-<li>选择一个 $e$ 使得 $e$ 与 $\lambda(n)$ 互质。</li>
-<li>计算 $d$ 满足 $d \equiv e^{-1} \pmod{\lambda(n)}$。</li>
-</ol>
-<p>$n, e$ 作为公钥，$d$ 作为密钥。</p>
-<h3 id="RSA-的加密与解密"><a href="#RSA-的加密与解密" class="headerlink" title="RSA 的加密与解密"></a>RSA 的加密与解密</h3><p>由于所有的运算都会对 $n$ 取模，所以一个很自然的要求是明文 $m$ 的长度小于 $n$。</p>
-<ul>
-<li><p>加密：密文 $c \equiv m^e \pmod n$</p>
-</li>
-<li><p>解密：明文 $m \equiv m^{de} \equiv c^d \pmod n$</p>
-</li>
-</ul>
-<h3 id="RSA-的正确性"><a href="#RSA-的正确性" class="headerlink" title="RSA 的正确性"></a>RSA 的正确性</h3><p>只需要证明 $m \equiv m^{de} \pmod {pq}$ 即可，更简化地说，只需要证明 $m \equiv m^{de} \pmod p$ 即可，对 $q$ 同理。</p>
-<p>由于 $de \equiv 1 \pmod {\lambda(pq)}$，而 $\lambda(pq) &#x3D; (p - 1)(q - 1)$。所以不妨记 $de - 1 &#x3D; h(p - 1) &#x3D; k(q - 1)$。</p>
-<ol>
-<li>若 $m \equiv 0 \pmod p$，则 $m^{ed} \equiv 0 \equiv m \pmod p$。</li>
-<li>若 $m \not\equiv 0 \pmod p$，则由费马小定理 $m^{p-1} \equiv 1 \pmod p$。<br>  $$<br>  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m \cdot 1^{h} \equiv m \pmod p<br>  $$</li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
     <url>/2022/07/25/2022WFLS-Invigilate/</url>
     <content><![CDATA[<p>为什么叫划水记呢？</p>
@@ -789,21 +625,167 @@
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+    <title>【游记】2022年回眸</title>
+    <url>/2022/12/31/2022-Lookback/</url>
+    <content><![CDATA[<p>2022 年就这么过去了，</p>
+<p>我也从一个高三学生变成了一个大一新生了。</p>
+<hr>
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<p><img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png" alt="换微信头像啦！"></p>
 <span id="more"></span>
 
-<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+<h2 id="一月至五月"><a href="#一月至五月" class="headerlink" title="一月至五月"></a>一月至五月</h2><p><strong>2022-02-05 自己的 18 岁生日</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg" alt="蛋糕"></p>
+<p><strong>各种调考</strong></p>
+<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
+<h2 id="六月"><a href="#六月" class="headerlink" title="六月"></a>六月</h2><p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
+<p>数学卷子好难。</p>
+<p><strong>2022-06-16 回初中看老师</strong></p>
+<p>感觉外初变新了，装修得非常漂亮。</p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg" alt="一行人"></p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg" alt="内景"></p>
+<p><img src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg" alt="外景"></p>
+<p><strong>2022-06-25 高考出分</strong></p>
+<p>超常发挥吧。</p>
+<h2 id="七月"><a href="#七月" class="headerlink" title="七月"></a>七月</h2><p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
+<p>感谢 Q 宝的邀请</p>
+<p><img src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg" alt="大汉"></p>
+<p><img src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg" alt="小火车"></p>
+<p><strong>2022-07-25 收到录取通知书</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg" alt="二校门"></p>
+<h2 id="八月"><a href="#八月" class="headerlink" title="八月"></a>八月</h2><p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
+<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
+<p><strong>2022-08-19 开始军训</strong></p>
+<p><strong>2022-08-24 第一次定向越野</strong></p>
+<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg" alt="map"></p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg" alt="成绩！"></p>
+<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg" alt="奇怪的出入校审批"></p>
+<p><strong>2022-08-28 参加 20km 拉练</strong></p>
+<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg" alt="丑陋的背包"></p>
+<p><img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg" alt="夜景"></p>
+<h2 id="九月"><a href="#九月" class="headerlink" title="九月"></a>九月</h2><p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg" alt="可惜的是缺了 Jett 和罗总"></p>
+<p><strong>2022-09-17 参加篮球运动周</strong></p>
+<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2</del></p>
+<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至 bilibili 观看</a></p>
+<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg" alt="文学长在进行操作"></p>
+<p><img src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg" alt="在享受"></p>
+<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
+<p>问题就在于，背完了没太大用。</p>
+<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
+<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
+<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg" alt="GRE"></p>
+<h2 id="十月"><a href="#十月" class="headerlink" title="十月"></a>十月</h2><p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
+<p>十分震撼。</p>
+<p><img src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg" alt="仪仗队在出旗"></p>
+<p><img src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg" alt="国旗"></p>
+<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg" alt="5人合影（我拍的）"></p>
+<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
+<p><del>什么叫物美价廉啊（战术后仰</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg" alt="《差距》"></p>
+<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
+<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
+<p><a href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至 bilibili 观看</a></p>
+<p><strong>2022-10-03 参观工字厅</strong></p>
+<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg" alt="外部"></p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg" alt="内部1"></p>
+<p><img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg" alt="内部2"></p>
+<p><del>值得一提的是，偶遇了<a href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
+<p><strong>2022-10-06 成功脱单</strong></p>
+<p>感谢我能遇见你。</p>
+<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
+<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg" alt="外部"></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg" alt="国旗飘扬"></p>
+<p><img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg" alt="武汉战疫"></p>
+<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
+<p>勇夺全校并列第七！</p>
+<p><img src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg" alt="选手照片"></p>
+<p><img src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg" alt="并列第7！"></p>
+<p>比我初一时候的成绩提高了大概 40 个（确信</p>
+<h2 id="十一月"><a href="#十一月" class="headerlink" title="十一月"></a>十一月</h2><p><strong>2022-11-01 写了一首诗</strong></p>
+<blockquote>
+<p>To Autumn</p>
+<hr>
+<p>Golden leaves of autumn</p>
+<p>danced and drifted to the ground.</p>
+<p>They dotted the picturesque view of mother nature,</p>
+<p>when the color of gold conquered the world.</p>
+<p>Leaves are leaving,</p>
+<p>but I’m not.</p>
+<hr>
+<p>My hand holds yours,</p>
+<p>your hand fits mine.</p>
+<p>By chance,</p>
+<p>my eyes meet thine.</p>
+</blockquote>
+<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
+<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
+<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
+<blockquote>
+<p>Blossom and I -</p>
+<p>Her oath, and mine -</p>
+<p>Will surely come again.</p>
+</blockquote>
+<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
+<p>能代表系里参加马杯，属实是我的荣幸。</p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg" alt="在排队参赛"></p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg" alt="横幅"></p>
+<p>还不错，甲组全校第四！</p>
+<p><img src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg" alt="第四！"></p>
+<p><strong>2022-11-27 完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
+<p>学到许多。</p>
+<p>$\LaTeX$ 熟练度增加了！</p>
+<p><img src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg" alt="算法课报告"></p>
+<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
+<p>我们班的篮球队最后 3 秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
+<p><del>当然，我超常发挥也可能是因为神秘嘉宾来看比赛了</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg" alt="最后的罚篮"></p>
+<p><strong>2022-11-28 第一次封寝</strong></p>
+<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
+<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
+<p><img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg" alt="自习位置"></p>
+<h2 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h2><p><strong>2022-12-03 第一次参加志愿服务</strong></p>
+<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg" alt="空空旷旷"></p>
+<p><del>和女朋友一起参加志愿服务！</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg" alt="合照！你能找到我吗？"></p>
+<p>送完第二波大巴之后，天刚刚亮。</p>
+<p><img src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg" alt="送完大巴之后，天也亮了"></p>
+<p><strong>2022-12-08 返乡</strong></p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg" alt="在寝室清东西"></p>
+<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg" alt="返乡大巴"></p>
+<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
+<p><del>实名diss听涛园的热干面不咋地</del></p>
+<p><img src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg" alt="热！干！面！"></p>
+<p><strong>2022-12-16 感染新冠病毒</strong></p>
+<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
+<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
+<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
+<p><img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg" alt="蒸橙子"></p>
+<p><strong>2022-12-20 复习期末</strong></p>
+<p>线代好难。</p>
+<p>微积分好难。</p>
+<p>基物好难。</p>
+<p>我想睡觉。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
+<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
+<p>新的一年里继续努力吧！</p>
 ]]></content>
       <categories>
-        <category>教材习题解答</category>
+        <category>游记</category>
       </categories>
       <tags>
-        <tag>微积分</tag>
+        <tag>生活</tag>
+        <tag>回眸</tag>
       </tags>
   </entry>
   <entry>
@@ -816,6 +798,24 @@
 <span id="more"></span>
 
 <div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: <a href="https://git.tsinghua.edu.cn/xze22/calculus-1-solution">https://git.tsinghua.edu.cn/xze22/calculus-1-solution</a></p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+
+<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
