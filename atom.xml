@@ -223,7 +223,7 @@
     <summary type="html">&lt;p&gt;为什么叫划水记呢？&lt;/p&gt;
 &lt;p&gt;因为我以划水的心态&lt;del&gt;做了&lt;/del&gt;看了考试的卷子，所以叫划水记（确信）。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350 \mathrm{ min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350 &#92;mathrm{ min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;试着做做卷子顺便监考一下再吃大餐（是）&lt;/del&gt;&lt;/p&gt;</summary>
     
     
@@ -231,13 +231,13 @@
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
