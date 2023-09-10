@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。 目录  NewsApp(头条大师) 作业描述 代码结构 具体实现 新闻详情获取 新闻列表上拉刷新下划加载 图片展示和视频播放 修改列表分类时的抖动特效 新闻查找 浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序 对手机“返回键”行为的处理   遇到的问题及其解决方法 JDK 安装包重复导入的问题 如何通过报错信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）">
+<meta property="og:url" content="https://leverimmy.top/2023/09/10/2023Summer-Java/index.html">
+<meta property="og:site_name" content="Clever_Jimmy 的博客">
+<meta property="og:description" content="清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。 目录  NewsApp(头条大师) 作业描述 代码结构 具体实现 新闻详情获取 新闻列表上拉刷新下划加载 图片展示和视频播放 修改列表分类时的抖动特效 新闻查找 浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序 对手机“返回键”行为的处理   遇到的问题及其解决方法 JDK 安装包重复导入的问题 如何通过报错信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-10T05:16:13.000Z">
+<meta property="article:modified_time" content="2023-09-10T05:20:48.275Z">
+<meta property="article:author" content="Clever_Jimmy">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="程序设计训练">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leverimmy.top/2023/09/10/2023Summer-Java/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2023/09/10/2023Summer-Java/","path":"2023/09/10/2023Summer-Java/","title":"【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏） | Clever_Jimmy 的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Clever_Jimmy 的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Clever_Jimmy 的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">作业描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%97%BB%E8%AF%A6%E6%83%85%E8%8E%B7%E5%8F%96"><span class="nav-number">3.1.</span> <span class="nav-text">新闻详情获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8B%E5%88%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.2.</span> <span class="nav-text">新闻列表上拉刷新下划加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E5%92%8C%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE"><span class="nav-number">3.3.</span> <span class="nav-text">图片展示和视频播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%88%86%E7%B1%BB%E6%97%B6%E7%9A%84%E6%8A%96%E5%8A%A8%E7%89%B9%E6%95%88"><span class="nav-number">3.4.</span> <span class="nav-text">修改列表分类时的抖动特效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%97%BB%E6%9F%A5%E6%89%BE"><span class="nav-number">3.5.</span> <span class="nav-text">新闻查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95%E4%BB%A5%E5%8F%8A%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%9A%84%E5%B1%95%E7%A4%BA%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.6.</span> <span class="nav-text">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%89%8B%E6%9C%BA%E2%80%9C%E8%BF%94%E5%9B%9E%E9%94%AE%E2%80%9D%E8%A1%8C%E4%B8%BA%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">3.7.</span> <span class="nav-text">对手机“返回键”行为的处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">遇到的问题及其解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK-%E5%AE%89%E8%A3%85%E5%8C%85%E9%87%8D%E5%A4%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">JDK 安装包重复导入的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE-bug"><span class="nav-number">4.2.</span> <span class="nav-text">如何通过报错信息查找 bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%96%B0%E9%97%BB%E6%97%B6%E7%9A%84%E6%97%B6%E9%97%B4%E8%8C%83%E5%9B%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.3.</span> <span class="nav-text">查找新闻时的时间范围设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98"><span class="nav-number">4.4.</span> <span class="nav-text">视频播放问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%88%87%E6%8D%A2%E5%88%B0%E5%90%8E%E5%8F%B0%E6%97%B6%E5%BD%93%E5%89%8D%E7%95%8C%E9%9D%A2%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E4%BF%9D%E7%95%99"><span class="nav-number">4.5.</span> <span class="nav-text">应用切换到后台时当前界面及数据如何保留</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repo-%E5%9B%9E%E6%BB%9A"><span class="nav-number">4.6.</span> <span class="nav-text">repo 回滚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%BF%83%E5%BE%97"><span class="nav-number">5.</span> <span class="nav-text">总结和心得</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Clever_Jimmy"
+      src="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+  <p class="site-author-name" itemprop="name">Clever_Jimmy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeverImmy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeverImmy" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xze22@mails.tsinghua.edu.cn" title="E-Mail → mailto:xze22@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2023/09/10/2023Summer-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+      <meta itemprop="name" content="Clever_Jimmy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clever_Jimmy 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏） | Clever_Jimmy 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-09-10 13:16:13 / 修改时间：13:20:48" itemprop="dateCreated datePublished" datetime="2023-09-10T13:16:13+08:00">2023-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BE%E7%A8%8B%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">课程报告</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。</p>
+<p><strong>目录</strong></p>
+<ul>
+<li><a href="#newsapp">NewsApp(头条大师)</a><ul>
+<li><a href="#%E4%BD%9C%E4%B8%9A%E6%8F%8F%E8%BF%B0">作业描述</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">代码结构</a></li>
+<li><a href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">具体实现</a><ul>
+<li><a href="#%E6%96%B0%E9%97%BB%E8%AF%A6%E6%83%85%E8%8E%B7%E5%8F%96">新闻详情获取</a></li>
+<li><a href="#%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8B%E5%88%92%E5%8A%A0%E8%BD%BD">新闻列表上拉刷新下划加载</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E5%92%8C%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE">图片展示和视频播放</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%88%86%E7%B1%BB%E6%97%B6%E7%9A%84%E6%8A%96%E5%8A%A8%E7%89%B9%E6%95%88">修改列表分类时的抖动特效</a></li>
+<li><a href="#%E6%96%B0%E9%97%BB%E6%9F%A5%E6%89%BE">新闻查找</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95%E4%BB%A5%E5%8F%8A%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BB%A5%E5%8F%8A%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%9A%84%E5%B1%95%E7%A4%BA%E9%A1%BA%E5%BA%8F">浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</a></li>
+<li><a href="#%E5%AF%B9%E6%89%8B%E6%9C%BA%E2%80%9C%E8%BF%94%E5%9B%9E%E9%94%AE%E2%80%9D%E8%A1%8C%E4%B8%BA%E7%9A%84%E5%A4%84%E7%90%86">对手机“返回键”行为的处理</a></li>
+</ul>
+</li>
+<li><a href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">遇到的问题及其解决方法</a><ul>
+<li><a href="#jdk-%E5%AE%89%E8%A3%85%E5%8C%85%E9%87%8D%E5%A4%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98">JDK 安装包重复导入的问题</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE-bug">如何通过报错信息查找 bug</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E6%96%B0%E9%97%BB%E6%97%B6%E7%9A%84%E6%97%B6%E9%97%B4%E8%8C%83%E5%9B%B4%E8%AE%BE%E7%BD%AE">查找新闻时的时间范围设置</a></li>
+<li><a href="#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98">视频播放问题</a></li>
+<li><a href="#repo-%E5%9B%9E%E6%BB%9A">repo 回滚</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%BF%83%E5%BE%97">总结和心得</a></li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="作业描述"><a href="#作业描述" class="headerlink" title="作业描述"></a>作业描述</h2><p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机 app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app 让大家随时随地掏出手机即可看天下事，手机新闻 app 不再是一个简简单单的新闻获取工具，许多 app 已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如 <a target="_blank" rel="noopener" href="https://www.toutiao.com/">今日头条</a>、<a target="_blank" rel="noopener" href="http://www.ttkbao.com/">天天快报</a> 等。</p>
+<p>现在让我们也来尝试一下做一个新闻 app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由 <a target="_blank" rel="noopener" href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a> 进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的 Java 和 Android 开发知识实现一个新闻客户端即可。</p>
+<h2 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h2><p>代码结构如下图所示。</p>
+<pre><code class="highlight mermaid">flowchart LR
+    A&#123;&#123;NewsApp&#125;&#125; --&gt; B(data)
+    A --&gt; C(service)
+    A --&gt; D(ui)
+    A --&gt; E[MainActivity.java]
+    A --&gt; F[MyApplication.java]
+
+    B --&gt; G[Category.java]
+    B --&gt; H[News.java]
+    B --&gt; I[Page.java]
+    B --&gt; J[User.java]
+
+    C --&gt; K[DBManager.java]
+    C --&gt; L[FetchFromAPIManager.java]
+    C --&gt; M[MySQLiteOpenHelper.java]
+    C --&gt; N[NewsManager.java]
+    C --&gt; O[PictureLoader.java]
+    C --&gt; P[TaskRunner.java]
+    C --&gt; Q[Utils.java]
+
+    D --&gt; R[EndlessRecyclerViewScrollListener.java]
+    D --&gt; S[NewsDetailFragment.java]
+    D --&gt; T[NewsListAdapter.java]
+    D --&gt; U[NewsListFragment.java]
+    D --&gt; V[RecordListFragment.java]
+    D --&gt; W[SearchFragment.java]
+    D --&gt; X[SearchListFragment.java]
+    D --&gt; Y[SelectPaddleAdapter.java]
+    D --&gt; Z[SelectPaddleFragment.java]
+    D --&gt; AA[TabListFragment.java]
+    D --&gt; AB[UserPageFragment.java]
+    D --&gt; AC[VideoFragment.java]</code></pre>
+
+<ul>
+<li><code>data</code><ul>
+<li><code>Category.java</code> 是一个枚举类，包含可被搜索的八个分类。</li>
+<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含 <code>title</code>，<code>content</code> 等属性。</li>
+<li><code>Page.java</code> 是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
+<li><code>User.java</code> 是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
+</ul>
+</li>
+<li><code>service</code><ul>
+<li><code>DBManager.java</code> 用于数据库管理。</li>
+<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
+<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
+<li><code>NewsManager.java</code> 用于新闻相关处理，包含已浏览新闻列表的读写。</li>
+<li><code>PictureLoader.java</code> 用于展示图片。</li>
+<li><code>TaskRunner.java</code> 用于管理进程。</li>
+<li><code>Utils.java</code> 是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
+</ul>
+</li>
+<li><code>ui</code><ul>
+<li><code>EndlessRecyclerViewScrollListener.java</code> 是展示新闻列表所需要的 Listener。</li>
+<li><code>NewsDetailFragment.java</code> 是展示新闻详情的 Fragment。</li>
+<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的 Adapter。</li>
+<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的 Fragment。</li>
+<li><code>RecordListFragment.java</code> 是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
+<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
+<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的 Fragment。</li>
+<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的 Adapter。</li>
+<li><code>SelectPaddleFragment.java</code> 是修改分类界面的 Fragment。</li>
+<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的 Fragment。</li>
+<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
+<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
+</ul>
+</li>
+<li><code>MainActivity.java</code></li>
+<li><code>MyApplication.java</code></li>
+</ul>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="新闻详情获取"><a href="#新闻详情获取" class="headerlink" title="新闻详情获取"></a>新闻详情获取</h3><p>新闻详情获取部分我使用了 <code>URLConnection</code> 和 <code>JSONObject</code> 等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON 格式的数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我在 <code>data/News.java</code> 这个类中重载了由 <code>JSONObject</code> 构造 <code>News</code> 的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data 项构造每条新闻：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="新闻列表上拉刷新下划加载"><a href="#新闻列表上拉刷新下划加载" class="headerlink" title="新闻列表上拉刷新下划加载"></a>新闻列表上拉刷新下划加载</h3><p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code> 中，通过重载 <code>onScrolled()</code> 方法，来实现下划加载更多新闻的功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过在 <code>ui/NewsListFragment.java</code> 和 <code>ui/SearchListFragment.java</code> 中对 <code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置 Listener，程序就能在合适的情况下调用 <code>reloadNews()</code> 方法从而达到新闻列表刷新的效果。</p>
+<h3 id="图片展示和视频播放"><a href="#图片展示和视频播放" class="headerlink" title="图片展示和视频播放"></a>图片展示和视频播放</h3><p>图片展示使用的是 Glide 和 ImageView。在 <code>service/PictureLoader.java</code> 中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
+<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的 <code>onCreateView()</code> 重载如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改列表分类时的抖动特效"><a href="#修改列表分类时的抖动特效" class="headerlink" title="修改列表分类时的抖动特效"></a>修改列表分类时的抖动特效</h3><p>我在 <code>res/anim/shake_animation.xml</code> 中设置了每个分类的抖动特效：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但若直接设置，会导致每个分类抖动的行为 <strong>一模一样</strong>。所以我在 <code>ui/SelectPaddleAdapter.java</code> 中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现 <strong>随机抖动</strong> 的效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
+
+<h3 id="新闻查找"><a href="#新闻查找" class="headerlink" title="新闻查找"></a>新闻查找</h3><p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
+<p>其次，我设置了 <strong>可复选的</strong> 分类选择框。在查询时，多个分类用 <code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
+<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的 DatePicker 组件来接受查询的时间范围。</p>
+<p>接收到了这些查询的信息之后，利用 <code>service/FetchFromAPIManager.java</code> 中的 <code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
+<h3 id="浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序"><a href="#浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序" class="headerlink" title="浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序"></a>浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3><p>具体的新闻详情使用 SQLite 数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
+<p>程序使用 SharedPreference 来本地存储一个从新闻列表的 <code>newsID</code> 到最近一次访问&#x2F;收藏它们的时间戳的 Map，<code>service/NewsManager.java</code> 中展示了这一过程。而通过一个新闻的 <code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map 来找到对应它新闻详情。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
+
+<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个 Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对手机“返回键”行为的处理"><a href="#对手机“返回键”行为的处理" class="headerlink" title="对手机“返回键”行为的处理"></a>对手机“返回键”行为的处理</h3><p>在 <code>app/MainAcitivity.java</code> 中，我重载了 <code>onBackButtonClicked()</code> 函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用 <code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
+<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下 2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在 <code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳 <code>firstTime</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code> 的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行 <code>super.onBackPressed()</code> 方法即可。</p>
+<h2 id="遇到的问题及其解决方法"><a href="#遇到的问题及其解决方法" class="headerlink" title="遇到的问题及其解决方法"></a>遇到的问题及其解决方法</h2><h3 id="JDK-安装包重复导入的问题"><a href="#JDK-安装包重复导入的问题" class="headerlink" title="JDK 安装包重复导入的问题"></a>JDK 安装包重复导入的问题</h3><p>由于新版本的 JDK 移除了 <code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和 <code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的 Android 库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
+<p>经过查找相关资料，我通过 <a target="_blank" rel="noopener" href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误 - 大数据知识库</a> 和 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I get a Duplicate Class error when running my Android project - StackOverflow</a> 两个网站检索到了解决方案。</p>
+<p>在 <code>app/build.gradle.kts</code> 中添加以下代码即可解决此问题。</p>
+<figure class="highlight kts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何通过报错信息查找-bug"><a href="#如何通过报错信息查找-bug" class="headerlink" title="如何通过报错信息查找 bug"></a>如何通过报错信息查找 bug</h3><p>查找 bug 以及调试的过程是非常复杂的。我最后使用 <code>Log.d(FILE_NAME, MSG);</code> 的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code> 是当前文件名，这样我能知道日志信息的来源；<code>MSG</code> 是个性化的调试信息，一般为某个数据，或者是“Button Clicked”这样的信息。</p>
+<h3 id="查找新闻时的时间范围设置"><a href="#查找新闻时的时间范围设置" class="headerlink" title="查找新闻时的时间范围设置"></a>查找新闻时的时间范围设置</h3><p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a> 插件，但我希望能够 <strong>使起始时间的 DatePicker 能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
+<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该 DatePicker 上的日期改变时，就检查开始时间的 DatePicker 上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的 DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker 的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的 DatePicker 的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="视频播放问题"><a href="#视频播放问题" class="headerlink" title="视频播放问题"></a>视频播放问题</h3><p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat 我查询到了该视频的地址为 <code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在 <strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
+<blockquote>
+<p>默认情况下，Android 9（API 级别 28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。<br>这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如 <strong>与非加密的服务器通信或调试时</strong>。</p>
+</blockquote>
+<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code> 传输，所以需要将 <code>res/xml/network_security_config.xml</code> 中的代码更改为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="应用切换到后台时当前界面及数据如何保留"><a href="#应用切换到后台时当前界面及数据如何保留" class="headerlink" title="应用切换到后台时当前界面及数据如何保留"></a>应用切换到后台时当前界面及数据如何保留</h3><p>最初我遇到了一个 bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了 <code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和 <code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="repo-回滚"><a href="#repo-回滚" class="headerlink" title="repo 回滚"></a>repo 回滚</h3><p>整个开发过程中，我将代码托管在了 GitHub 上 <a target="_blank" rel="noopener" href="https://github.com/LeverImmy/NewsApp/">LeverImmy&#x2F;NewsApp</a>，并使用 Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的 bug，并且我逐步排查 Logcat 也毫无头绪。</p>
+<p>虽然当时我没有找到解决办法，但幸亏我每次 commit 的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug 的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个 Listener 没有得到 notify 导致的。</p>
+<h2 id="总结和心得"><a href="#总结和心得" class="headerlink" title="总结和心得"></a>总结和心得</h2><p>在整个开发过程中，我遇到了 <a href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对 Java 的熟练程度，并且初步认识到了 Android 应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug 的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
+<p>感谢清华大学计算机系 <a target="_blank" rel="noopener" href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a> 老师的指导，助教们在微信群中的答疑，以及 <a target="_blank" rel="noopener" href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a> 提供的 <a target="_blank" rel="noopener" href="https://api2.newsminer.net/svc/news/queryNewsList?size=&startDate=&endDate=&words=&categories=&page=">新闻搜索接口</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83/" rel="tag"># 程序设计训练</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/12/IATLC-Chap1/" rel="prev" title="【学习笔记】自动机理论、语言和计算导论 - 第一章">
+                  <i class="fa fa-chevron-left"></i> 【学习笔记】自动机理论、语言和计算导论 - 第一章
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clever_Jimmy</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js","integrity":"sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

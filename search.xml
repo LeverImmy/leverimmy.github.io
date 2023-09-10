@@ -1,8 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【学习笔记】数理逻辑与集合论</title>
+    <url>/2023/07/01/Shuliluoji-Yu-Jihelun/</url>
+    <content><![CDATA[<p>摘要待填。</p>
+<span id="more"></span>
+
+<h2 id="第1章-命题逻辑的基本概念"><a href="#第1章-命题逻辑的基本概念" class="headerlink" title="第1章 命题逻辑的基本概念"></a>第1章 命题逻辑的基本概念</h2><h3 id="代入规则"><a href="#代入规则" class="headerlink" title="代入规则"></a>代入规则</h3><ol>
+<li><p>公式中被代换的只能是命题变元，而不能是复合命题。<br>例如，可以用 $(R\land S)$ 来代替某公式中的 $P$，记作 $\frac{P}{(R\land S)}$，但不能反过来将公式中的 $(R\land S)$ 以 $P$ 代之。</p>
+</li>
+<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。<br>其实就是说，要代换就所有都代换完。对于重言式 $(P\lor\lnot P)$，仅仅代换前一部分的 $P &#x3D; \lnot Q$，那么就变成了 $(\lnot Q \lor \lnot P)$，这并非重言式。</p>
+</li>
+</ol>
+<h3 id="波兰式与逆波兰式"><a href="#波兰式与逆波兰式" class="headerlink" title="波兰式与逆波兰式"></a>波兰式与逆波兰式</h3><p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<ul>
+<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p>
+</li>
+<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p>
+</li>
+</ul>
+<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
+<blockquote>
+<p>例1.1 将下列公式写成波兰式。<br>$\lnot\lnot P \lor(W\land R)\lor \lnot Q$</p>
+</blockquote>
+<p>这题的正确答案应该是 $\lor\lor\lnot\lnot P \land W R \lnot Q$。（而不是 $\lor\lnot\lnot P\lor\land W R \lnot Q$！）</p>
+<h2 id="第2章-命题逻辑的等值和推理演算"><a href="#第2章-命题逻辑的等值和推理演算" class="headerlink" title="第2章 命题逻辑的等值和推理演算"></a>第2章 命题逻辑的等值和推理演算</h2><h3 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h3><p><del>妈的，与和或之间没有交换律。</del></p>
+<ol>
+<li><p>$(P \to Q) \to R \neq P \to (Q \to R)$<br>不知道逻辑上这两者不等的原因是什么，但显然左式是 $P \land \lnot Q \lor R$，但右式是 $\lnot P \lor \lnot Q \lor R$，二者不等。</p>
+</li>
+<li><p>$P \leftrightarrow (Q \leftrightarrow R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow Q)$<br>当 $P &#x3D; Q &#x3D; R &#x3D; \mathrm{F}$ 时，左式为假，右式为真。</p>
+</li>
+<li><p>$P \to \lnot P &#x3D; \lnot P, \lnot P \to P &#x3D; P$<br>十分合理，拆开发现是俩相同东西的或。</p>
+</li>
+<li><p>$P \leftrightarrow Q &#x3D; (P \land Q) \lor (\lnot P \land \lnot Q)$<br>这可解释为 $P \leftrightarrow Q$ 为真，有两种可能的情形，即 $(P \land Q)$ 为真，或 $(\lnot P \land \lnot Q)$ 为真。其实就是 $P$ 和 $Q$ 二者同真同假。</p>
+</li>
+<li><p>$P \leftrightarrow Q &#x3D; (P \lor \lnot Q) \land (\lnot P \lor Q)$<br>这可解释为 $P \leftrightarrow Q$ 为假，有两种可能的情形，即 $(P \lor \lnot Q)$ 为假，或 $(\lnot P \lor Q)$ 为假。其实就是 $P$ 和 $Q$ 二者真假不同。</p>
+</li>
+<li><p>$P \to (Q \to R) &#x3D; (P \land Q) \to R$<br>$P$ 是 $(Q \to R)$ 的前提，$Q$ 是 $R$ 的前提，于是可将两个前提的合取 $(P \land Q)$ 作为总的前提。</p>
+</li>
+<li><p>$(P \to R) \land (Q \to R) &#x3D; (P \lor Q) \to R$<br>左端说明由 $P$ 而且由 $Q$ 都有 $R$ 成立，从而可以说明由 $P$ 或由 $Q$ 就有 $R$ 成立，即右端。</p>
+</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="第3章-命题逻辑的公理化"><a href="#第3章-命题逻辑的公理化" class="headerlink" title="第3章 命题逻辑的公理化"></a>第3章 命题逻辑的公理化</h2><h2 id="第4章-谓词逻辑的基本概念"><a href="#第4章-谓词逻辑的基本概念" class="headerlink" title="第4章 谓词逻辑的基本概念"></a>第4章 谓词逻辑的基本概念</h2><h2 id="第5章-谓词逻辑的等值和推理演算"><a href="#第5章-谓词逻辑的等值和推理演算" class="headerlink" title="第5章 谓词逻辑的等值和推理演算"></a>第5章 谓词逻辑的等值和推理演算</h2><h2 id="第9章-集合"><a href="#第9章-集合" class="headerlink" title="第9章 集合"></a>第9章 集合</h2><h2 id="第10章-关系"><a href="#第10章-关系" class="headerlink" title="第10章 关系"></a>第10章 关系</h2><h2 id="第11章-函数"><a href="#第11章-函数" class="headerlink" title="第11章 函数"></a>第11章 函数</h2><h2 id="第12章-实数集合与集合的基数"><a href="#第12章-实数集合与集合的基数" class="headerlink" title="第12章 实数集合与集合的基数"></a>第12章 实数集合与集合的基数</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+        <tag>数理逻辑</tag>
+        <tag>集合论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章</title>
+    <url>/2023/08/12/IATLC-Chap1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>有穷自动机</tag>
+        <tag>数学归纳法</tag>
+        <tag>互归纳法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>十六进制</li>
+<li>二进制中的补码与余码<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul>
+</li>
+<li>浮点数及其规范化形式<ul>
+<li>浮点数的二进制表示</li>
+<li>浮点数的规范化形式</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p><img src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png" alt="逻辑门"></p>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code> 就是右侧加一个小圆圈，<code>X</code> 就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下 skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端<br>如果是与运算，就得有容乃大，所以开口得胖一点<br>或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在 C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="C-中的字符常量"><a href="#C-中的字符常量" class="headerlink" title="C 中的字符常量"></a>C 中的字符常量</h2><p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成 <code>char str = &#39;123&#39;;</code>，虽然 <strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于 <strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C&#x2F;C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个 byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以 <code>&#39;</code> 内一共可以最多包含 4 个字符，它会被看做成一个 <code>int</code> 类型的常量。其实就是四个 <code>char</code> 并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>(&#39;1&#39; &lt;&lt; 8) + &#39;2&#39;</code> 和 <code>&#39;12&#39;</code> 是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>&#39;</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制中的补码与余码"><a href="#二进制中的补码与余码" class="headerlink" title="二进制中的补码与余码"></a>二进制中的补码与余码</h2><h3 id="补码记数法"><a href="#补码记数法" class="headerlink" title="补码记数法"></a>补码记数法</h3><p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit 二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示 $-2^{31}$，其余各位分别表示 $2^{30}, \cdots, 2^1, 2^0$。因此一个 32 bit 二进制串的表示范围为 $[-2^{31}, 2^{31}-1]$。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法"><a href="#余码记数法" class="headerlink" title="余码记数法"></a>余码记数法</h3><p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0 的数。这个数在所有 32 bit 二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="浮点数及其规范化形式"><a href="#浮点数及其规范化形式" class="headerlink" title="浮点数及其规范化形式"></a>浮点数及其规范化形式</h2><h3 id="浮点数的二进制表示"><a href="#浮点数的二进制表示" class="headerlink" title="浮点数的二进制表示"></a>浮点数的二进制表示</h3><p>浮点数由“符号位”，“指数域”和“尾数域”三个部分组成。以下以 8 bit 浮点数为例。</p>
+<ul>
+<li>符号位为 0，则为正数；符号位为 1，则为负数。</li>
+<li>尾数域（共 4 bit）为可看做为一个二进制小数，小数点位于最高位之前。</li>
+<li>指数域（共 3 bit）被解释为 <strong>余码</strong>，如果为正数，则表示小数点向右移动；如果为负数，则表示小数点向左移动。</li>
+</ul>
+<p>例如 <code>0 | 110 | 1011</code> 被解释为 <code>.1011</code> 且小数点向右移动 2 位，即 <code>10.11</code>，此即 2.75。</p>
+<h3 id="浮点数的规范化形式"><a href="#浮点数的规范化形式" class="headerlink" title="浮点数的规范化形式"></a>浮点数的规范化形式</h3><p>假设我们想要表示 0.375，即 <code>.011</code>。尾数域到底应该怎么表示呢？是 <code>.0110</code> 还是 <code>.1100</code>，或者是 <code>.0011</code> 呢？毕竟，0.375 可以是 <code>.0110</code> 小数点不移动，也可以是 <code>.1100</code> 小数点向左移动一位，还可以是 <code>.0011</code>小数点向右移动一位。</p>
+<p>浮点数的规范化形式规定，尾数域必须以 <code>1</code> 开头。因此，0.375 被唯一表示为 <code>0 | 011 | 1100</code> 而不是 <code>0 | 000 | 0110</code> 或 <code>0 | 101 | 0011</code>。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>二进制</tag>
+        <tag>浮点数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul>
+</li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><p>一个通用程序设计语言。</p>
+<ul>
+<li>一种基本数据类型。<br>所有的变量本质上都是二进制数。</li>
+<li>三条赋值语句。<br><code>clear name</code> 表示把 <code>name</code> 清零。<br><code>incr name</code> 表示使 <code>name</code> 自增 1。<br><code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
+<li>一条控制结构语句。<br><code>while name not 0:</code> 在 <code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</li>
+</ul>
+<blockquote>
+<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones 语言实现。</p>
+<h3 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a>复制操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code> 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作"><a href="#交换操作" class="headerlink" title="交换操作"></a>交换操作</h3><p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
+<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
+<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>RSA 是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="RSA-密钥的生成与分发"><a href="#RSA-密钥的生成与分发" class="headerlink" title="RSA 密钥的生成与分发"></a>RSA 密钥的生成与分发</h3><blockquote>
+<p>$\lambda(n)$ 为 <a href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael function</a>，是指最小的正整数 $m$，满足对于所有的与 $n$ 互质的 $a$，均有 $a^{m} \equiv 1 \pmod n$。</p>
+</blockquote>
+<ol>
+<li>选择两个大质数 $p, q$，记 $n &#x3D; pq$。</li>
+<li>计算 $\lambda(n) &#x3D; \mathrm{lcm}(p - 1, q - 1)$。</li>
+<li>选择一个 $e$ 使得 $e$ 与 $\lambda(n)$ 互质。</li>
+<li>计算 $d$ 满足 $d \equiv e^{-1} \pmod{\lambda(n)}$。</li>
+</ol>
+<p>$n, e$ 作为公钥，$d$ 作为密钥。</p>
+<h3 id="RSA-的加密与解密"><a href="#RSA-的加密与解密" class="headerlink" title="RSA 的加密与解密"></a>RSA 的加密与解密</h3><p>由于所有的运算都会对 $n$ 取模，所以一个很自然的要求是明文 $m$ 的长度小于 $n$。</p>
+<ul>
+<li><p>加密：密文 $c \equiv m^e \pmod n$</p>
+</li>
+<li><p>解密：明文 $m \equiv m^{de} \equiv c^d \pmod n$</p>
+</li>
+</ul>
+<h3 id="RSA-的正确性"><a href="#RSA-的正确性" class="headerlink" title="RSA 的正确性"></a>RSA 的正确性</h3><p>只需要证明 $m \equiv m^{de} \pmod {pq}$ 即可，更简化地说，只需要证明 $m \equiv m^{de} \pmod p$ 即可，对 $q$ 同理。</p>
+<p>由于 $de \equiv 1 \pmod {\lambda(pq)}$，而 $\lambda(pq) &#x3D; (p - 1)(q - 1)$。所以不妨记 $de - 1 &#x3D; h(p - 1) &#x3D; k(q - 1)$。</p>
+<ol>
+<li>若 $m \equiv 0 \pmod p$，则 $m^{ed} \equiv 0 \equiv m \pmod p$。</li>
+<li>若 $m \not\equiv 0 \pmod p$，则由费马小定理 $m^{p-1} \equiv 1 \pmod p$。<br>  $$<br>  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m \cdot 1^{h} \equiv m \pmod p<br>  $$</li>
+</ol>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【游记】2022年回眸</title>
-    <url>/2022/12/31/2022-Lookback/</url>
+    <url>/2022/12/31/2022Lookback/</url>
     <content><![CDATA[<p>2022 年就这么过去了，</p>
 <p>我也从一个高三学生变成了一个大一新生了。</p>
 <hr>
@@ -45,7 +261,7 @@
 <h2 id="九月"><a href="#九月" class="headerlink" title="九月"></a>九月</h2><p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
 <p><img src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg" alt="可惜的是缺了 Jett 和罗总"></p>
 <p><strong>2022-09-17 参加篮球运动周</strong></p>
-<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2</del></p>
+<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2。</del></p>
 <p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至 bilibili 观看</a></p>
 <p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
 <p><img src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg" alt="文学长在进行操作"></p>
@@ -122,7 +338,7 @@
 <p><img src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg" alt="算法课报告"></p>
 <p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
 <p>我们班的篮球队最后 3 秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
-<p><del>当然，我超常发挥也可能是因为神秘嘉宾来看比赛了</del></p>
+<p><del>当然，我超常发挥也可能是因为女朋友来看比赛了。</del> 当然，我超常发挥也可能是因为前女友来看比赛了。</p>
 <p><img src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg" alt="最后的罚篮"></p>
 <p><strong>2022-11-28 第一次封寝</strong></p>
 <p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
@@ -131,7 +347,7 @@
 <h2 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h2><p><strong>2022-12-03 第一次参加志愿服务</strong></p>
 <p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
 <p><img src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg" alt="空空旷旷"></p>
-<p><del>和女朋友一起参加志愿服务！</del></p>
+<p><del>和女朋友一起参加志愿服务！</del> 和前女友一起参加志愿服务。</p>
 <p><img src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg" alt="合照！你能找到我吗？"></p>
 <p>送完第二波大巴之后，天刚刚亮。</p>
 <p><img src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg" alt="送完大巴之后，天也亮了"></p>
@@ -162,57 +378,6 @@
       <tags>
         <tag>生活</tag>
         <tag>回眸</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】数理逻辑与集合论（第2版）</title>
-    <url>/2023/07/01/Shuliluoji-Yu-Jihelun-2ed/</url>
-    <content><![CDATA[<p>摘要待填。</p>
-<span id="more"></span>
-
-<h2 id="第1章-命题逻辑的基本概念"><a href="#第1章-命题逻辑的基本概念" class="headerlink" title="第1章 命题逻辑的基本概念"></a>第1章 命题逻辑的基本概念</h2><h3 id="代入规则"><a href="#代入规则" class="headerlink" title="代入规则"></a>代入规则</h3><ol>
-<li><p>公式中被代换的只能是命题变元，而不能是复合命题。<br>例如，可以用 $(R\land S)$ 来代替某公式中的 $P$，记作 $\frac{P}{(R\land S)}$，但不能反过来将公式中的 $(R\land S)$ 以 $P$ 代之。</p>
-</li>
-<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。<br>其实就是说，要代换就所有都代换完。对于重言式 $(P\lor\lnot P)$，仅仅代换前一部分的 $P &#x3D; \lnot Q$，那么就变成了 $(\lnot Q \lor \lnot P)$，这并非重言式。</p>
-</li>
-</ol>
-<h3 id="波兰式与逆波兰式"><a href="#波兰式与逆波兰式" class="headerlink" title="波兰式与逆波兰式"></a>波兰式与逆波兰式</h3><p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
-<ul>
-<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p>
-</li>
-<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p>
-</li>
-</ul>
-<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
-<blockquote>
-<p>例1.1 将下列公式写成波兰式。<br>$\lnot\lnot P \lor(W\land R)\lor \lnot Q$</p>
-</blockquote>
-<p>这题的正确答案应该是 $\lor\lor\lnot\lnot P \land W R \lnot Q$。（而不是 $\lor\lnot\lnot P\lor\land W R \lnot Q$！）</p>
-<h2 id="第2章-命题逻辑的等值和推理演算"><a href="#第2章-命题逻辑的等值和推理演算" class="headerlink" title="第2章 命题逻辑的等值和推理演算"></a>第2章 命题逻辑的等值和推理演算</h2><h3 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h3><p><del>妈的，与和或之间没有交换律。</del></p>
-<ol>
-<li><p>$(P \to Q) \to R \neq P \to (Q \to R)$<br>不知道逻辑上这两者不等的原因是什么，但显然左式是 $P \land \lnot Q \lor R$，但右式是 $\lnot P \lor \lnot Q \lor R$，二者不等。</p>
-</li>
-<li><p>$P \leftrightarrow (Q \leftrightarrow R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow Q)$<br>当 $P &#x3D; Q &#x3D; R &#x3D; \mathrm{F}$ 时，左式为假，右式为真。</p>
-</li>
-<li><p>$P \to \lnot P &#x3D; \lnot P, \lnot P \to P &#x3D; P$<br>十分合理，拆开发现是俩相同东西的或。</p>
-</li>
-<li><p>$P \leftrightarrow Q &#x3D; (P \land Q) \lor (\lnot P \land \lnot Q)$<br>这可解释为 $P \leftrightarrow Q$ 为真，有两种可能的情形，即 $(P \land Q)$ 为真，或 $(\lnot P \land \lnot Q)$ 为真。其实就是 $P$ 和 $Q$ 二者同真同假。</p>
-</li>
-<li><p>$P \leftrightarrow Q &#x3D; (P \lor \lnot Q) \land (\lnot P \lor Q)$<br>这可解释为 $P \leftrightarrow Q$ 为假，有两种可能的情形，即 $(P \lor \lnot Q)$ 为假，或 $(\lnot P \lor Q)$ 为假。其实就是 $P$ 和 $Q$ 二者真假不同。</p>
-</li>
-<li><p>$P \to (Q \to R) &#x3D; (P \land Q) \to R$<br>$P$ 是 $(Q \to R)$ 的前提，$Q$ 是 $R$ 的前提，于是可将两个前提的合取 $(P \land Q)$ 作为总的前提。</p>
-</li>
-<li><p>$(P \to R) \land (Q \to R) &#x3D; (P \lor Q) \to R$<br>左端说明由 $P$ 而且由 $Q$ 都有 $R$ 成立，从而可以说明由 $P$ 或由 $Q$ 就有 $R$ 成立，即右端。</p>
-</li>
-</ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="第3章-命题逻辑的公理化"><a href="#第3章-命题逻辑的公理化" class="headerlink" title="第3章 命题逻辑的公理化"></a>第3章 命题逻辑的公理化</h2><h2 id="第4章-谓词逻辑的基本概念"><a href="#第4章-谓词逻辑的基本概念" class="headerlink" title="第4章 谓词逻辑的基本概念"></a>第4章 谓词逻辑的基本概念</h2><h2 id="第5章-谓词逻辑的等值和推理演算"><a href="#第5章-谓词逻辑的等值和推理演算" class="headerlink" title="第5章 谓词逻辑的等值和推理演算"></a>第5章 谓词逻辑的等值和推理演算</h2><h2 id="第9章-集合"><a href="#第9章-集合" class="headerlink" title="第9章 集合"></a>第9章 集合</h2><h2 id="第10章-关系"><a href="#第10章-关系" class="headerlink" title="第10章 关系"></a>第10章 关系</h2><h2 id="第11章-函数"><a href="#第11章-函数" class="headerlink" title="第11章 函数"></a>第11章 函数</h2><h2 id="第12章-实数集合与集合的基数"><a href="#第12章-实数集合与集合的基数" class="headerlink" title="第12章 实数集合与集合的基数"></a>第12章 实数集合与集合的基数</h2>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-        <tag>数理逻辑</tag>
-        <tag>集合论</tag>
       </tags>
   </entry>
   <entry>
@@ -638,157 +803,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>十六进制</li>
-<li>二进制中的补码与余码<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul>
-</li>
-<li>浮点数及其规范化形式<ul>
-<li>浮点数的二进制表示</li>
-<li>浮点数的规范化形式</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p><img src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png" alt="逻辑门"></p>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code> 就是右侧加一个小圆圈，<code>X</code> 就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下 skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端<br>如果是与运算，就得有容乃大，所以开口得胖一点<br>或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在 C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="C-中的字符常量"><a href="#C-中的字符常量" class="headerlink" title="C 中的字符常量"></a>C 中的字符常量</h2><p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成 <code>char str = &#39;123&#39;;</code>，虽然 <strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于 <strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C&#x2F;C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个 byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以 <code>&#39;</code> 内一共可以最多包含 4 个字符，它会被看做成一个 <code>int</code> 类型的常量。其实就是四个 <code>char</code> 并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>(&#39;1&#39; &lt;&lt; 8) + &#39;2&#39;</code> 和 <code>&#39;12&#39;</code> 是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>&#39;</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-
-<h2 id="二进制中的补码与余码"><a href="#二进制中的补码与余码" class="headerlink" title="二进制中的补码与余码"></a>二进制中的补码与余码</h2><h3 id="补码记数法"><a href="#补码记数法" class="headerlink" title="补码记数法"></a>补码记数法</h3><p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit 二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示 $-2^{31}$，其余各位分别表示 $2^{30}, \cdots, 2^1, 2^0$。因此一个 32 bit 二进制串的表示范围为 $[-2^{31}, 2^{31}-1]$。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法"><a href="#余码记数法" class="headerlink" title="余码记数法"></a>余码记数法</h3><p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0 的数。这个数在所有 32 bit 二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="浮点数及其规范化形式"><a href="#浮点数及其规范化形式" class="headerlink" title="浮点数及其规范化形式"></a>浮点数及其规范化形式</h2><h3 id="浮点数的二进制表示"><a href="#浮点数的二进制表示" class="headerlink" title="浮点数的二进制表示"></a>浮点数的二进制表示</h3><p>浮点数由“符号位”，“指数域”和“尾数域”三个部分组成。以下以 8 bit 浮点数为例。</p>
-<ul>
-<li>符号位为 0，则为正数；符号位为 1，则为负数。</li>
-<li>尾数域（共 4 bit）为可看做为一个二进制小数，小数点位于最高位之前。</li>
-<li>指数域（共 3 bit）被解释为 <strong>余码</strong>，如果为正数，则表示小数点向右移动；如果为负数，则表示小数点向左移动。</li>
-</ul>
-<p>例如 <code>0 | 110 | 1011</code> 被解释为 <code>.1011</code> 且小数点向右移动 2 位，即 <code>10.11</code>，此即 2.75。</p>
-<h3 id="浮点数的规范化形式"><a href="#浮点数的规范化形式" class="headerlink" title="浮点数的规范化形式"></a>浮点数的规范化形式</h3><p>假设我们想要表示 0.375，即 <code>.011</code>。尾数域到底应该怎么表示呢？是 <code>.0110</code> 还是 <code>.1100</code>，或者是 <code>.0011</code> 呢？毕竟，0.375 可以是 <code>.0110</code> 小数点不移动，也可以是 <code>.1100</code> 小数点向左移动一位，还可以是 <code>.0011</code>小数点向右移动一位。</p>
-<p>浮点数的规范化形式规定，尾数域必须以 <code>1</code> 开头。因此，0.375 被唯一表示为 <code>0 | 011 | 1100</code> 而不是 <code>0 | 000 | 0110</code> 或 <code>0 | 101 | 0011</code>。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>二进制</tag>
-        <tag>浮点数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul>
-</li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="可计算性"><a href="#可计算性" class="headerlink" title="可计算性"></a>可计算性</h2><p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是 <strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="Bare-Bones-语言"><a href="#Bare-Bones-语言" class="headerlink" title="Bare Bones 语言"></a>Bare Bones 语言</h2><p>一个通用程序设计语言。</p>
-<ul>
-<li>一种基本数据类型。<br>所有的变量本质上都是二进制数。</li>
-<li>三条赋值语句。<br><code>clear name</code> 表示把 <code>name</code> 清零。<br><code>incr name</code> 表示使 <code>name</code> 自增 1。<br><code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
-<li>一条控制结构语句。<br><code>while name not 0:</code> 在 <code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</li>
-</ul>
-<blockquote>
-<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones 语言实现。</p>
-<h3 id="复制操作"><a href="#复制操作" class="headerlink" title="复制操作"></a>复制操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code> 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作"><a href="#交换操作" class="headerlink" title="交换操作"></a>交换操作</h3><p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题"><a href="#停机问题" class="headerlink" title="停机问题"></a>停机问题</h2><p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个 Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones 程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare Bones 程序 <code>test</code>，产生的输出是 <code>test</code> 是否是自终止的：若是自终止的，则输出 <code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在 <code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code> 既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li>若 <code>B</code> 是自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入 <code>while</code> 死循环，则 <code>B</code> 不是自终止的。矛盾。</li>
-<li>若 <code>B</code> 是非自终止的：<br>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序 <code>A</code>，使得它能判断一段 Bare Bones 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序 <code>B</code>。因此停机问题不可解。</p>
-<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>RSA 是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="RSA-密钥的生成与分发"><a href="#RSA-密钥的生成与分发" class="headerlink" title="RSA 密钥的生成与分发"></a>RSA 密钥的生成与分发</h3><blockquote>
-<p>$\lambda(n)$ 为 <a href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael function</a>，是指最小的正整数 $m$，满足对于所有的与 $n$ 互质的 $a$，均有 $a^{m} \equiv 1 \pmod n$。</p>
-</blockquote>
-<ol>
-<li>选择两个大质数 $p, q$，记 $n &#x3D; pq$。</li>
-<li>计算 $\lambda(n) &#x3D; \mathrm{lcm}(p - 1, q - 1)$。</li>
-<li>选择一个 $e$ 使得 $e$ 与 $\lambda(n)$ 互质。</li>
-<li>计算 $d$ 满足 $d \equiv e^{-1} \pmod{\lambda(n)}$。</li>
-</ol>
-<p>$n, e$ 作为公钥，$d$ 作为密钥。</p>
-<h3 id="RSA-的加密与解密"><a href="#RSA-的加密与解密" class="headerlink" title="RSA 的加密与解密"></a>RSA 的加密与解密</h3><p>由于所有的运算都会对 $n$ 取模，所以一个很自然的要求是明文 $m$ 的长度小于 $n$。</p>
-<ul>
-<li><p>加密：密文 $c \equiv m^e \pmod n$</p>
-</li>
-<li><p>解密：明文 $m \equiv m^{de} \equiv c^d \pmod n$</p>
-</li>
-</ul>
-<h3 id="RSA-的正确性"><a href="#RSA-的正确性" class="headerlink" title="RSA 的正确性"></a>RSA 的正确性</h3><p>只需要证明 $m \equiv m^{de} \pmod {pq}$ 即可，更简化地说，只需要证明 $m \equiv m^{de} \pmod p$ 即可，对 $q$ 同理。</p>
-<p>由于 $de \equiv 1 \pmod {\lambda(pq)}$，而 $\lambda(pq) &#x3D; (p - 1)(q - 1)$。所以不妨记 $de - 1 &#x3D; h(p - 1) &#x3D; k(q - 1)$。</p>
-<ol>
-<li>若 $m \equiv 0 \pmod p$，则 $m^{ed} \equiv 0 \equiv m \pmod p$。</li>
-<li>若 $m \not\equiv 0 \pmod p$，则由费马小定理 $m^{p-1} \equiv 1 \pmod p$。<br>  $$<br>  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m \cdot 1^{h} \equiv m \pmod p<br>  $$</li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【答案】《高等微积分教程(上)》教材习题解答</title>
     <url>/2023/07/01/Tsinghua-Calculus-1/</url>
     <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
@@ -822,6 +836,214 @@
       </categories>
       <tags>
         <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
+    <url>/2023/09/10/2023Summer-Java/</url>
+    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。</p>
+<p><strong>目录</strong></p>
+<ul>
+<li><a href="#newsapp">NewsApp(头条大师)</a><ul>
+<li><a href="#%E4%BD%9C%E4%B8%9A%E6%8F%8F%E8%BF%B0">作业描述</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">代码结构</a></li>
+<li><a href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">具体实现</a><ul>
+<li><a href="#%E6%96%B0%E9%97%BB%E8%AF%A6%E6%83%85%E8%8E%B7%E5%8F%96">新闻详情获取</a></li>
+<li><a href="#%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8B%E5%88%92%E5%8A%A0%E8%BD%BD">新闻列表上拉刷新下划加载</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E5%92%8C%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE">图片展示和视频播放</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%88%86%E7%B1%BB%E6%97%B6%E7%9A%84%E6%8A%96%E5%8A%A8%E7%89%B9%E6%95%88">修改列表分类时的抖动特效</a></li>
+<li><a href="#%E6%96%B0%E9%97%BB%E6%9F%A5%E6%89%BE">新闻查找</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95%E4%BB%A5%E5%8F%8A%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BB%A5%E5%8F%8A%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%9A%84%E5%B1%95%E7%A4%BA%E9%A1%BA%E5%BA%8F">浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</a></li>
+<li><a href="#%E5%AF%B9%E6%89%8B%E6%9C%BA%E2%80%9C%E8%BF%94%E5%9B%9E%E9%94%AE%E2%80%9D%E8%A1%8C%E4%B8%BA%E7%9A%84%E5%A4%84%E7%90%86">对手机“返回键”行为的处理</a></li>
+</ul>
+</li>
+<li><a href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">遇到的问题及其解决方法</a><ul>
+<li><a href="#jdk-%E5%AE%89%E8%A3%85%E5%8C%85%E9%87%8D%E5%A4%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98">JDK 安装包重复导入的问题</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE-bug">如何通过报错信息查找 bug</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E6%96%B0%E9%97%BB%E6%97%B6%E7%9A%84%E6%97%B6%E9%97%B4%E8%8C%83%E5%9B%B4%E8%AE%BE%E7%BD%AE">查找新闻时的时间范围设置</a></li>
+<li><a href="#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98">视频播放问题</a></li>
+<li><a href="#repo-%E5%9B%9E%E6%BB%9A">repo 回滚</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%BF%83%E5%BE%97">总结和心得</a></li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="作业描述"><a href="#作业描述" class="headerlink" title="作业描述"></a>作业描述</h2><p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机 app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app 让大家随时随地掏出手机即可看天下事，手机新闻 app 不再是一个简简单单的新闻获取工具，许多 app 已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如 <a href="https://www.toutiao.com/">今日头条</a>、<a href="http://www.ttkbao.com/">天天快报</a> 等。</p>
+<p>现在让我们也来尝试一下做一个新闻 app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由 <a href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a> 进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的 Java 和 Android 开发知识实现一个新闻客户端即可。</p>
+<h2 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h2><p>代码结构如下图所示。</p>
+<pre><code class="highlight mermaid">flowchart LR
+    A&#123;&#123;NewsApp&#125;&#125; --&gt; B(data)
+    A --&gt; C(service)
+    A --&gt; D(ui)
+    A --&gt; E[MainActivity.java]
+    A --&gt; F[MyApplication.java]
+
+    B --&gt; G[Category.java]
+    B --&gt; H[News.java]
+    B --&gt; I[Page.java]
+    B --&gt; J[User.java]
+
+    C --&gt; K[DBManager.java]
+    C --&gt; L[FetchFromAPIManager.java]
+    C --&gt; M[MySQLiteOpenHelper.java]
+    C --&gt; N[NewsManager.java]
+    C --&gt; O[PictureLoader.java]
+    C --&gt; P[TaskRunner.java]
+    C --&gt; Q[Utils.java]
+
+    D --&gt; R[EndlessRecyclerViewScrollListener.java]
+    D --&gt; S[NewsDetailFragment.java]
+    D --&gt; T[NewsListAdapter.java]
+    D --&gt; U[NewsListFragment.java]
+    D --&gt; V[RecordListFragment.java]
+    D --&gt; W[SearchFragment.java]
+    D --&gt; X[SearchListFragment.java]
+    D --&gt; Y[SelectPaddleAdapter.java]
+    D --&gt; Z[SelectPaddleFragment.java]
+    D --&gt; AA[TabListFragment.java]
+    D --&gt; AB[UserPageFragment.java]
+    D --&gt; AC[VideoFragment.java]</code></pre>
+
+<ul>
+<li><code>data</code><ul>
+<li><code>Category.java</code> 是一个枚举类，包含可被搜索的八个分类。</li>
+<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含 <code>title</code>，<code>content</code> 等属性。</li>
+<li><code>Page.java</code> 是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
+<li><code>User.java</code> 是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
+</ul>
+</li>
+<li><code>service</code><ul>
+<li><code>DBManager.java</code> 用于数据库管理。</li>
+<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
+<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
+<li><code>NewsManager.java</code> 用于新闻相关处理，包含已浏览新闻列表的读写。</li>
+<li><code>PictureLoader.java</code> 用于展示图片。</li>
+<li><code>TaskRunner.java</code> 用于管理进程。</li>
+<li><code>Utils.java</code> 是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
+</ul>
+</li>
+<li><code>ui</code><ul>
+<li><code>EndlessRecyclerViewScrollListener.java</code> 是展示新闻列表所需要的 Listener。</li>
+<li><code>NewsDetailFragment.java</code> 是展示新闻详情的 Fragment。</li>
+<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的 Adapter。</li>
+<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的 Fragment。</li>
+<li><code>RecordListFragment.java</code> 是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
+<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
+<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的 Fragment。</li>
+<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的 Adapter。</li>
+<li><code>SelectPaddleFragment.java</code> 是修改分类界面的 Fragment。</li>
+<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的 Fragment。</li>
+<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
+<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
+</ul>
+</li>
+<li><code>MainActivity.java</code></li>
+<li><code>MyApplication.java</code></li>
+</ul>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="新闻详情获取"><a href="#新闻详情获取" class="headerlink" title="新闻详情获取"></a>新闻详情获取</h3><p>新闻详情获取部分我使用了 <code>URLConnection</code> 和 <code>JSONObject</code> 等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON 格式的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我在 <code>data/News.java</code> 这个类中重载了由 <code>JSONObject</code> 构造 <code>News</code> 的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data 项构造每条新闻：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="新闻列表上拉刷新下划加载"><a href="#新闻列表上拉刷新下划加载" class="headerlink" title="新闻列表上拉刷新下划加载"></a>新闻列表上拉刷新下划加载</h3><p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code> 中，通过重载 <code>onScrolled()</code> 方法，来实现下划加载更多新闻的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过在 <code>ui/NewsListFragment.java</code> 和 <code>ui/SearchListFragment.java</code> 中对 <code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置 Listener，程序就能在合适的情况下调用 <code>reloadNews()</code> 方法从而达到新闻列表刷新的效果。</p>
+<h3 id="图片展示和视频播放"><a href="#图片展示和视频播放" class="headerlink" title="图片展示和视频播放"></a>图片展示和视频播放</h3><p>图片展示使用的是 Glide 和 ImageView。在 <code>service/PictureLoader.java</code> 中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
+<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的 <code>onCreateView()</code> 重载如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改列表分类时的抖动特效"><a href="#修改列表分类时的抖动特效" class="headerlink" title="修改列表分类时的抖动特效"></a>修改列表分类时的抖动特效</h3><p>我在 <code>res/anim/shake_animation.xml</code> 中设置了每个分类的抖动特效：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但若直接设置，会导致每个分类抖动的行为 <strong>一模一样</strong>。所以我在 <code>ui/SelectPaddleAdapter.java</code> 中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现 <strong>随机抖动</strong> 的效果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
+
+<h3 id="新闻查找"><a href="#新闻查找" class="headerlink" title="新闻查找"></a>新闻查找</h3><p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
+<p>其次，我设置了 <strong>可复选的</strong> 分类选择框。在查询时，多个分类用 <code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
+<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的 DatePicker 组件来接受查询的时间范围。</p>
+<p>接收到了这些查询的信息之后，利用 <code>service/FetchFromAPIManager.java</code> 中的 <code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
+<h3 id="浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序"><a href="#浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序" class="headerlink" title="浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序"></a>浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3><p>具体的新闻详情使用 SQLite 数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
+<p>程序使用 SharedPreference 来本地存储一个从新闻列表的 <code>newsID</code> 到最近一次访问&#x2F;收藏它们的时间戳的 Map，<code>service/NewsManager.java</code> 中展示了这一过程。而通过一个新闻的 <code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map 来找到对应它新闻详情。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
+
+<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个 Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对手机“返回键”行为的处理"><a href="#对手机“返回键”行为的处理" class="headerlink" title="对手机“返回键”行为的处理"></a>对手机“返回键”行为的处理</h3><p>在 <code>app/MainAcitivity.java</code> 中，我重载了 <code>onBackButtonClicked()</code> 函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用 <code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
+<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下 2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在 <code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳 <code>firstTime</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code> 的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行 <code>super.onBackPressed()</code> 方法即可。</p>
+<h2 id="遇到的问题及其解决方法"><a href="#遇到的问题及其解决方法" class="headerlink" title="遇到的问题及其解决方法"></a>遇到的问题及其解决方法</h2><h3 id="JDK-安装包重复导入的问题"><a href="#JDK-安装包重复导入的问题" class="headerlink" title="JDK 安装包重复导入的问题"></a>JDK 安装包重复导入的问题</h3><p>由于新版本的 JDK 移除了 <code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和 <code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的 Android 库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
+<p>经过查找相关资料，我通过 <a href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误 - 大数据知识库</a> 和 <a href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I get a Duplicate Class error when running my Android project - StackOverflow</a> 两个网站检索到了解决方案。</p>
+<p>在 <code>app/build.gradle.kts</code> 中添加以下代码即可解决此问题。</p>
+<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何通过报错信息查找-bug"><a href="#如何通过报错信息查找-bug" class="headerlink" title="如何通过报错信息查找 bug"></a>如何通过报错信息查找 bug</h3><p>查找 bug 以及调试的过程是非常复杂的。我最后使用 <code>Log.d(FILE_NAME, MSG);</code> 的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code> 是当前文件名，这样我能知道日志信息的来源；<code>MSG</code> 是个性化的调试信息，一般为某个数据，或者是“Button Clicked”这样的信息。</p>
+<h3 id="查找新闻时的时间范围设置"><a href="#查找新闻时的时间范围设置" class="headerlink" title="查找新闻时的时间范围设置"></a>查找新闻时的时间范围设置</h3><p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a> 插件，但我希望能够 <strong>使起始时间的 DatePicker 能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
+<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该 DatePicker 上的日期改变时，就检查开始时间的 DatePicker 上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的 DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker 的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的 DatePicker 的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="视频播放问题"><a href="#视频播放问题" class="headerlink" title="视频播放问题"></a>视频播放问题</h3><p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat 我查询到了该视频的地址为 <code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在 <strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
+<blockquote>
+<p>默认情况下，Android 9（API 级别 28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。<br>这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如 <strong>与非加密的服务器通信或调试时</strong>。</p>
+</blockquote>
+<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code> 传输，所以需要将 <code>res/xml/network_security_config.xml</code> 中的代码更改为：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="应用切换到后台时当前界面及数据如何保留"><a href="#应用切换到后台时当前界面及数据如何保留" class="headerlink" title="应用切换到后台时当前界面及数据如何保留"></a>应用切换到后台时当前界面及数据如何保留</h3><p>最初我遇到了一个 bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了 <code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和 <code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="repo-回滚"><a href="#repo-回滚" class="headerlink" title="repo 回滚"></a>repo 回滚</h3><p>整个开发过程中，我将代码托管在了 GitHub 上 <a href="https://github.com/LeverImmy/NewsApp/">LeverImmy&#x2F;NewsApp</a>，并使用 Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的 bug，并且我逐步排查 Logcat 也毫无头绪。</p>
+<p>虽然当时我没有找到解决办法，但幸亏我每次 commit 的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug 的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个 Listener 没有得到 notify 导致的。</p>
+<h2 id="总结和心得"><a href="#总结和心得" class="headerlink" title="总结和心得"></a>总结和心得</h2><p>在整个开发过程中，我遇到了 <a href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对 Java 的熟练程度，并且初步认识到了 Android 应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug 的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
+<p>感谢清华大学计算机系 <a href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a> 老师的指导，助教们在微信群中的答疑，以及 <a href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a> 提供的 <a href="https://api2.newsminer.net/svc/news/queryNewsList?size=&startDate=&endDate=&words=&categories=&page=">新闻搜索接口</a>。</p>
+]]></content>
+      <categories>
+        <category>课程报告</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Android</tag>
+        <tag>程序设计训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【随笔】听说集齐三个专业的校园卡就能召唤神龙</title>
+    <url>/2023/08/09/Major-Transfer/</url>
+    <content><![CDATA[<p>从转专业公示名单到现在已经有三个月了。</p>
+<p>在为转专业做准备的时候，总觉得同步记录下当时的心情会很做作，毕竟万一转专业失败了呢；但等到所有尘埃落定之后再回忆，却已经有些忘记了。</p>
+<p>截至目前，转专业是我大学生活中最重要的一件事。因此，我想以时间顺序，叙述我这一年来的心路历程和所做的准备。</p>
+<span id="more"></span>
+
+<h2 id="高考后的暑假"><a href="#高考后的暑假" class="headerlink" title="高考后的暑假"></a>高考后的暑假</h2><h3 id="心态调整"><a href="#心态调整" class="headerlink" title="心态调整"></a>心态调整</h3><p>能做什么呢？现在</p>
+<h3 id="军训"><a href="#军训" class="headerlink" title="军训"></a>军训</h3><p>为了提高我的 GPA，军训自然是要满绩通过。</p>
+<h2 id="大一上学期"><a href="#大一上学期" class="headerlink" title="大一上学期"></a>大一上学期</h2><h3 id="选课"><a href="#选课" class="headerlink" title="选课"></a>选课</h3><p>选了雍俊海老师开设的《算法设计及其复杂性分析》。</p>
+<h3 id="社工"><a href="#社工" class="headerlink" title="社工"></a>社工</h3><p>当了班长</p>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>很卷，只有一门《基础物理学(1)》拿了 3.6，</p>
+<h2 id="大一寒假"><a href="#大一寒假" class="headerlink" title="大一寒假"></a>大一寒假</h2><h3 id="选课-1"><a href="#选课-1" class="headerlink" title="选课"></a>选课</h3><h3 id="学习-1"><a href="#学习-1" class="headerlink" title="学习"></a>学习</h3><p>参加了工物系新生 C 语言大赛</p>
+<p>学了点面向对象</p>
+<h2 id="大一下学期"><a href="#大一下学期" class="headerlink" title="大一下学期"></a>大一下学期</h2><h3 id="参加“乐学”公众号的转专业讲座"><a href="#参加“乐学”公众号的转专业讲座" class="headerlink" title="参加“乐学”公众号的转专业讲座"></a>参加“乐学”公众号的转专业讲座</h3><p>荣誉少讲，能力多讲。</p>
+<p>实话实话，保持谦虚。</p>
+<p>原院系与我的什么什么期望不符，新院系与我的什么什么期望相符，自己怎么怎么技能更适合新院系。不要说“不喜欢”，说“不合适”。</p>
+<p>如果有刁钻的问题怎么办？承认错误+解释原因+未来展望。</p>
+<h3 id="填写转专业申请表"><a href="#填写转专业申请表" class="headerlink" title="填写转专业申请表"></a>填写转专业申请表</h3><div class="pdf-container" data-target="../../../../pdf/major-transfer.pdf" data-height="[500px]"></div>
+
+<h3 id="预约学习指导发展中心的面试咨询"><a href="#预约学习指导发展中心的面试咨询" class="headerlink" title="预约学习指导发展中心的面试咨询"></a>预约学习指导发展中心的面试咨询</h3><h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><h3 id="等待录取"><a href="#等待录取" class="headerlink" title="等待录取"></a>等待录取</h3><h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>现在，我已经成为清华大学计算机系的一员。</p>
+<hr>
+<p>最后，祝愿屏幕前的你，也能顺利转入自己心爱的专业。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>转专业</tag>
       </tags>
   </entry>
 </search>

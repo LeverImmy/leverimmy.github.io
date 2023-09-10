@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-07-27T02:04:23.203Z</updated>
+  <updated>2023-09-10T05:20:48.275Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
+    <link href="https://leverimmy.top/2023/09/10/2023Summer-Java/"/>
+    <id>https://leverimmy.top/2023/09/10/2023Summer-Java/</id>
+    <published>2023-09-10T05:16:13.000Z</published>
+    <updated>2023-09-10T05:20:48.275Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#newsapp&quot;&gt;NewsApp(头条大师)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BD%9C%E4%B8%9A%E6%8F%8F%E8%BF%B0&quot;&gt;作业描述&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84&quot;&gt;代码结构&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0&quot;&gt;具体实现&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%96%B0%E9%97%BB%E8%AF%A6%E6%83%85%E8%8E%B7%E5%8F%96&quot;&gt;新闻详情获取&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8B%E5%88%92%E5%8A%A0%E8%BD%BD&quot;&gt;新闻列表上拉刷新下划加载&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E5%92%8C%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE&quot;&gt;图片展示和视频播放&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%88%86%E7%B1%BB%E6%97%B6%E7%9A%84%E6%8A%96%E5%8A%A8%E7%89%B9%E6%95%88&quot;&gt;修改列表分类时的抖动特效&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%96%B0%E9%97%BB%E6%9F%A5%E6%89%BE&quot;&gt;新闻查找&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95%E4%BB%A5%E5%8F%8A%E6%94%B6%E8%97%8F%E5%A4%B9%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BB%A5%E5%8F%8A%E6%96%B0%E9%97%BB%E5%88%97%E8%A1%A8%E7%9A%84%E5%B1%95%E7%A4%BA%E9%A1%BA%E5%BA%8F&quot;&gt;浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%AF%B9%E6%89%8B%E6%9C%BA%E2%80%9C%E8%BF%94%E5%9B%9E%E9%94%AE%E2%80%9D%E8%A1%8C%E4%B8%BA%E7%9A%84%E5%A4%84%E7%90%86&quot;&gt;对手机“返回键”行为的处理&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95&quot;&gt;遇到的问题及其解决方法&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#jdk-%E5%AE%89%E8%A3%85%E5%8C%85%E9%87%8D%E5%A4%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98&quot;&gt;JDK 安装包重复导入的问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%9F%A5%E6%89%BE-bug&quot;&gt;如何通过报错信息查找 bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%9F%A5%E6%89%BE%E6%96%B0%E9%97%BB%E6%97%B6%E7%9A%84%E6%97%B6%E9%97%B4%E8%8C%83%E5%9B%B4%E8%AE%BE%E7%BD%AE&quot;&gt;查找新闻时的时间范围设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98&quot;&gt;视频播放问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#repo-%E5%9B%9E%E6%BB%9A&quot;&gt;repo 回滚&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%80%BB%E7%BB%93%E5%92%8C%E5%BF%83%E5%BE%97&quot;&gt;总结和心得&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="课程报告" scheme="https://leverimmy.top/categories/%E8%AF%BE%E7%A8%8B%E6%8A%A5%E5%91%8A/"/>
+    
+    
+    <category term="Java" scheme="https://leverimmy.top/tags/Java/"/>
+    
+    <category term="Android" scheme="https://leverimmy.top/tags/Android/"/>
+    
+    <category term="程序设计训练" scheme="https://leverimmy.top/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章</title>
+    <link href="https://leverimmy.top/2023/08/12/IATLC-Chap1/"/>
+    <id>https://leverimmy.top/2023/08/12/IATLC-Chap1/</id>
+    <published>2023-08-12T06:49:56.000Z</published>
+    <updated>2023-08-12T06:57:18.172Z</updated>
+    
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="自动机理论、语言和计算导论" scheme="https://leverimmy.top/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%90%86%E8%AE%BA%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/"/>
+    
+    <category term="有穷自动机" scheme="https://leverimmy.top/tags/%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+    <category term="数学归纳法" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6%E5%BD%92%E7%BA%B3%E6%B3%95/"/>
+    
+    <category term="互归纳法" scheme="https://leverimmy.top/tags/%E4%BA%92%E5%BD%92%E7%BA%B3%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【随笔】听说集齐三个专业的校园卡就能召唤神龙</title>
+    <link href="https://leverimmy.top/2023/08/09/Major-Transfer/"/>
+    <id>https://leverimmy.top/2023/08/09/Major-Transfer/</id>
+    <published>2023-08-09T06:06:40.000Z</published>
+    <updated>2023-08-10T07:01:43.212Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;从转专业公示名单到现在已经有三个月了。&lt;/p&gt;
+&lt;p&gt;在为转专业做准备的时候，总觉得同步记录下当时的心情会很做作，毕竟万一转专业失败了呢；但等到所有尘埃落定之后再回忆，却已经有些忘记了。&lt;/p&gt;
+&lt;p&gt;截至目前，转专业是我大学生活中最重要的一件事。因此，我想以时间顺序，叙述我这一年来的心路历程和所做的准备。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://leverimmy.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="转专业" scheme="https://leverimmy.top/tags/%E8%BD%AC%E4%B8%93%E4%B8%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】计算机科学概论 - 第十二章</title>
@@ -58,7 +154,7 @@
     <link href="https://leverimmy.top/2023/07/20/CSAO-Chap1/"/>
     <id>https://leverimmy.top/2023/07/20/CSAO-Chap1/</id>
     <published>2023-07-20T11:39:27.000Z</published>
-    <updated>2023-07-26T03:56:16.518Z</updated>
+    <updated>2023-08-12T06:57:36.983Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -165,11 +261,11 @@
   </entry>
   
   <entry>
-    <title>【学习笔记】数理逻辑与集合论（第2版）</title>
-    <link href="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun-2ed/"/>
-    <id>https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun-2ed/</id>
+    <title>【学习笔记】数理逻辑与集合论</title>
+    <link href="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/"/>
+    <id>https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/</id>
     <published>2023-07-01T13:34:22.000Z</published>
-    <updated>2023-07-26T03:50:36.380Z</updated>
+    <updated>2023-08-12T06:57:21.944Z</updated>
     
     
     <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
@@ -189,10 +285,10 @@
   
   <entry>
     <title>【游记】2022年回眸</title>
-    <link href="https://leverimmy.top/2022/12/31/2022-Lookback/"/>
-    <id>https://leverimmy.top/2022/12/31/2022-Lookback/</id>
+    <link href="https://leverimmy.top/2022/12/31/2022Lookback/"/>
+    <id>https://leverimmy.top/2022/12/31/2022Lookback/</id>
     <published>2022-12-31T06:38:14.000Z</published>
-    <updated>2023-07-26T08:06:28.944Z</updated>
+    <updated>2023-08-09T06:07:48.580Z</updated>
     
     
     <summary type="html">&lt;p&gt;2022 年就这么过去了，&lt;/p&gt;
