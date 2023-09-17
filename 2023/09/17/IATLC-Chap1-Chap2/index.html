@@ -19,30 +19,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="摘要待填。">
+    <meta name="description" content="字母表、串、语言和问题字母表字母表 是符号的有穷非空集合，记为 $\Sigma$。 串串（单词） 是从某个字母表中选择的符号组成的有穷序列。  串的长度选择出来的符号个数被称为串的长度。  空串 $\epsilon$它的长度为 $0$，且属于任何字母表。  字母表的幂如果 $\Sigma$ 是一个字母表，则 $\Sigma^k$ 表示这个字母表长度为 $k$ 的所有串所组成的集合。   $$\">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】数理逻辑与集合论">
-<meta property="og:url" content="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/index.html">
+<meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章">
+<meta property="og:url" content="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="摘要待填。">
+<meta property="og:description" content="字母表、串、语言和问题字母表字母表 是符号的有穷非空集合，记为 $\Sigma$。 串串（单词） 是从某个字母表中选择的符号组成的有穷序列。  串的长度选择出来的符号个数被称为串的长度。  空串 $\epsilon$它的长度为 $0$，且属于任何字母表。  字母表的幂如果 $\Sigma$ 是一个字母表，则 $\Sigma^k$ 表示这个字母表长度为 $k$ 的所有串所组成的集合。   $$\">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-01T13:34:22.000Z">
-<meta property="article:modified_time" content="2023-08-12T06:57:21.944Z">
+<meta property="article:published_time" content="2023-09-17T06:49:56.000Z">
+<meta property="article:modified_time" content="2023-09-17T06:33:47.168Z">
 <meta property="article:author" content="Clever_Jimmy">
-<meta property="article:tag" content="离散数学">
-<meta property="article:tag" content="数理逻辑">
-<meta property="article:tag" content="集合论">
+<meta property="article:tag" content="自动机理论、语言和计算导论">
+<meta property="article:tag" content="有穷自动机">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/">
+<link rel="canonical" href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/","path":"2023/07/01/Shuliluoji-Yu-Jihelun/","title":"【学习笔记】数理逻辑与集合论"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/","path":"2023/09/17/IATLC-Chap1-Chap2/","title":"【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【学习笔记】数理逻辑与集合论 | Clever_Jimmy 的博客</title>
+<title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章 | Clever_Jimmy 的博客</title>
   
 
 
@@ -142,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">第1章 命题逻辑的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text">代入规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E5%85%B0%E5%BC%8F%E4%B8%8E%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">波兰式与逆波兰式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">第2章 命题逻辑的等值和推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">等值公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第3章 命题逻辑的公理化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">第4章 谓词逻辑的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">第5章 谓词逻辑的等值和推理演算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-%E9%9B%86%E5%90%88"><span class="nav-number">6.</span> <span class="nav-text">第9章 集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-%E5%85%B3%E7%B3%BB"><span class="nav-number">7.</span> <span class="nav-text">第10章 关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC11%E7%AB%A0-%E5%87%BD%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">第11章 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E5%AE%9E%E6%95%B0%E9%9B%86%E5%90%88%E4%B8%8E%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">9.</span> <span class="nav-text">第12章 实数集合与集合的基数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8%E3%80%81%E4%B8%B2%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">字母表、串、语言和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">字母表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2"><span class="nav-number">1.2.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80"><span class="nav-number">1.3.</span> <span class="nav-text">语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">有穷自动机的形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88DFA%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">确定性有穷自动机（DFA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">DFA 的表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%87%BD%E6%95%B0-delta"><span class="nav-number">2.1.2.</span> <span class="nav-text">转移函数 $\delta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.3.</span> <span class="nav-text">DFA 的语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88NFA%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">非确定性有穷自动机（NFA）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFA-%E5%92%8C-NFA-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text">DFA 和 NFA 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.</span> <span class="nav-text">$\epsilon$ 转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-NFA-%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">$\epsilon$-NFA 的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-%E9%97%AD%E5%8C%85%E4%BB%A5%E5%8F%8A%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.2.</span> <span class="nav-text">$\epsilon$ 闭包以及消除 $\epsilon$ 转移</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -203,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/">
+    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
@@ -216,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【学习笔记】数理逻辑与集合论 | Clever_Jimmy 的博客">
+      <meta itemprop="name" content="【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章 | Clever_Jimmy 的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【学习笔记】数理逻辑与集合论
+          【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章
         </h1>
 
         <div class="post-meta-container">
@@ -231,15 +230,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-07-01 21:34:22" itemprop="dateCreated datePublished" datetime="2023-07-01T21:34:22+08:00">2023-07-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-12 14:57:21" itemprop="dateModified" datetime="2023-08-12T14:57:21+08:00">2023-08-12</time>
+      <time title="创建时间：2023-09-17 14:49:56 / 修改时间：14:33:47" itemprop="dateCreated datePublished" datetime="2023-09-17T14:49:56+08:00">2023-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,45 +261,86 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>摘要待填。</p>
-<span id="more"></span>
+        <span id="more"></span>
 
-<h2 id="第1章-命题逻辑的基本概念"><a href="#第1章-命题逻辑的基本概念" class="headerlink" title="第1章 命题逻辑的基本概念"></a>第1章 命题逻辑的基本概念</h2><h3 id="代入规则"><a href="#代入规则" class="headerlink" title="代入规则"></a>代入规则</h3><ol>
-<li><p>公式中被代换的只能是命题变元，而不能是复合命题。<br>例如，可以用 $(R\land S)$ 来代替某公式中的 $P$，记作 $\frac{P}{(R\land S)}$，但不能反过来将公式中的 $(R\land S)$ 以 $P$ 代之。</p>
-</li>
-<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。<br>其实就是说，要代换就所有都代换完。对于重言式 $(P\lor\lnot P)$，仅仅代换前一部分的 $P &#x3D; \lnot Q$，那么就变成了 $(\lnot Q \lor \lnot P)$，这并非重言式。</p>
-</li>
-</ol>
-<h3 id="波兰式与逆波兰式"><a href="#波兰式与逆波兰式" class="headerlink" title="波兰式与逆波兰式"></a>波兰式与逆波兰式</h3><p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<h2 id="字母表、串、语言和问题"><a href="#字母表、串、语言和问题" class="headerlink" title="字母表、串、语言和问题"></a>字母表、串、语言和问题</h2><h3 id="字母表"><a href="#字母表" class="headerlink" title="字母表"></a>字母表</h3><p><strong>字母表</strong> 是符号的有穷非空集合，记为 $\Sigma$。</p>
+<h3 id="串"><a href="#串" class="headerlink" title="串"></a>串</h3><p><strong>串（单词）</strong> 是从某个字母表中选择的符号组成的有穷序列。</p>
 <ul>
-<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p>
+<li><p>串的长度<br>选择出来的符号个数被称为串的长度。</p>
 </li>
-<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p>
+<li><p>空串 $\epsilon$<br>它的长度为 $0$，且属于任何字母表。</p>
+</li>
+<li><p>字母表的幂<br>如果 $\Sigma$ 是一个字母表，则 $\Sigma^k$ 表示这个字母表长度为 $k$ 的所有串所组成的集合。</p>
 </li>
 </ul>
-<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
+<p>$$<br>\Sigma^0 &#x3D; {\epsilon} \<br>\Sigma^{+} &#x3D; \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \<br>\Sigma^{*} &#x3D; \Sigma^{+} \cup {\epsilon}<br>$$</p>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>设 $\Sigma$ 为一个字母表，$L \subseteq \Sigma^{*}$ 被称为 $\Sigma$ 上的 <strong>语言</strong>。</p>
+<ul>
+<li><p>空语言 $\varnothing$ 与只包含空串的语言 ${\epsilon}$<br>$\varnothing$ 和 ${\epsilon}$ 都是任意字母表上的语言，但 $\varnothing \neq {\epsilon}$，前者没有穿，后者有一个串。</p>
+</li>
+<li><p>若 $L$ 是 $\Sigma$ 上的语言，则 $L$ 是任何是 $\Sigma$ 的超集的字母表上的语言。</p>
+</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在自动机理论中，一个 <strong>问题</strong> 就是 “判定一个给定的串是否属于某个具体语言” 这一行为。</p>
+<p>问题和语言是可以相互等价的。如果 $\Sigma$ 是字母表，$L$ 是 $\Sigma$ 上的语言，则问题 $L$ 就是“给定 $\Sigma^{*}$ 中的一个串 $w$，判断 $w$ 是否属于 $L$。这说明 $L$ 是一个语言，也可以被看成是一个问题。</p>
+<h2 id="有穷自动机的形式化定义"><a href="#有穷自动机的形式化定义" class="headerlink" title="有穷自动机的形式化定义"></a>有穷自动机的形式化定义</h2><h3 id="确定性有穷自动机（DFA）"><a href="#确定性有穷自动机（DFA）" class="headerlink" title="确定性有穷自动机（DFA）"></a>确定性有穷自动机（DFA）</h3><p>通常使用一个五元组 $A &#x3D; (Q, \Sigma, \delta, q_0, F)$ 来表示一个 DFA。其中 $A$ 是 DFA 的名称，$Q$ 是状态集合，$\Sigma$ 是输入符号，$\delta$ 是转移函数，$q_0$ 是初始状态，$F$ 是接受状态集合。</p>
+<h4 id="DFA-的表示方法"><a href="#DFA-的表示方法" class="headerlink" title="DFA 的表示方法"></a>DFA 的表示方法</h4><ul>
+<li><p>转移图</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0$| C(($q_2$))
+A --&gt; |$1$| A
+C --&gt; |$0$| C
+C --&gt; |$1$| B((($q_1$)))
+B --&gt; |$0, 1$| B</code></pre>
+
+<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 $q_1$）。</p>
+</li>
+<li><p>转移表<br>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 $\delta$。</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">$0$</th>
+<th align="center">$1$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">$\to q_0$</td>
+<td align="center">$q_2$</td>
+<td align="center">$q_0$</td>
+</tr>
+<tr>
+<td align="right">$*q_1$</td>
+<td align="center">$q_1$</td>
+<td align="center">$q_1$</td>
+</tr>
+<tr>
+<td align="right">$q_2$</td>
+<td align="center">$q_2$</td>
+<td align="center">$q_1$</td>
+</tr>
+</tbody></table>
+<p>初始状态用箭头标记，接受状态用星号标记。</p>
+</li>
+</ul>
+<h4 id="转移函数-delta"><a href="#转移函数-delta" class="headerlink" title="转移函数 $\delta$"></a>转移函数 $\delta$</h4><p>本质上就是转移图上的边。</p>
+<ul>
+<li><p>扩展转移函数<br>感性地说，就是 <strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
+<p>形式化的定义如下：</p>
 <blockquote>
-<p>例1.1 将下列公式写成波兰式。<br>$\lnot\lnot P \lor(W\land R)\lor \lnot Q$</p>
+<p>基础：$\hat\delta(q, \epsilon) &#x3D; q$。<br>归纳：$\hat\delta(q, w) &#x3D; \delta(\hat\delta(q, x), a)$，其中 $w &#x3D; xa$。</p>
 </blockquote>
-<p>这题的正确答案应该是 $\lor\lor\lnot\lnot P \land W R \lnot Q$。（而不是 $\lor\lnot\lnot P\lor\land W R \lnot Q$！）</p>
-<h2 id="第2章-命题逻辑的等值和推理演算"><a href="#第2章-命题逻辑的等值和推理演算" class="headerlink" title="第2章 命题逻辑的等值和推理演算"></a>第2章 命题逻辑的等值和推理演算</h2><h3 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h3><p><del>妈的，与和或之间没有交换律。</del></p>
-<ol>
-<li><p>$(P \to Q) \to R \neq P \to (Q \to R)$<br>不知道逻辑上这两者不等的原因是什么，但显然左式是 $P \land \lnot Q \lor R$，但右式是 $\lnot P \lor \lnot Q \lor R$，二者不等。</p>
 </li>
-<li><p>$P \leftrightarrow (Q \leftrightarrow R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow Q)$<br>当 $P &#x3D; Q &#x3D; R &#x3D; \mathrm{F}$ 时，左式为假，右式为真。</p>
-</li>
-<li><p>$P \to \lnot P &#x3D; \lnot P, \lnot P \to P &#x3D; P$<br>十分合理，拆开发现是俩相同东西的或。</p>
-</li>
-<li><p>$P \leftrightarrow Q &#x3D; (P \land Q) \lor (\lnot P \land \lnot Q)$<br>这可解释为 $P \leftrightarrow Q$ 为真，有两种可能的情形，即 $(P \land Q)$ 为真，或 $(\lnot P \land \lnot Q)$ 为真。其实就是 $P$ 和 $Q$ 二者同真同假。</p>
-</li>
-<li><p>$P \leftrightarrow Q &#x3D; (P \lor \lnot Q) \land (\lnot P \lor Q)$<br>这可解释为 $P \leftrightarrow Q$ 为假，有两种可能的情形，即 $(P \lor \lnot Q)$ 为假，或 $(\lnot P \lor Q)$ 为假。其实就是 $P$ 和 $Q$ 二者真假不同。</p>
-</li>
-<li><p>$P \to (Q \to R) &#x3D; (P \land Q) \to R$<br>$P$ 是 $(Q \to R)$ 的前提，$Q$ 是 $R$ 的前提，于是可将两个前提的合取 $(P \land Q)$ 作为总的前提。</p>
-</li>
-<li><p>$(P \to R) \land (Q \to R) &#x3D; (P \lor Q) \to R$<br>左端说明由 $P$ 而且由 $Q$ 都有 $R$ 成立，从而可以说明由 $P$ 或由 $Q$ 就有 $R$ 成立，即右端。</p>
-</li>
-</ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="第3章-命题逻辑的公理化"><a href="#第3章-命题逻辑的公理化" class="headerlink" title="第3章 命题逻辑的公理化"></a>第3章 命题逻辑的公理化</h2><h2 id="第4章-谓词逻辑的基本概念"><a href="#第4章-谓词逻辑的基本概念" class="headerlink" title="第4章 谓词逻辑的基本概念"></a>第4章 谓词逻辑的基本概念</h2><h2 id="第5章-谓词逻辑的等值和推理演算"><a href="#第5章-谓词逻辑的等值和推理演算" class="headerlink" title="第5章 谓词逻辑的等值和推理演算"></a>第5章 谓词逻辑的等值和推理演算</h2><h2 id="第9章-集合"><a href="#第9章-集合" class="headerlink" title="第9章 集合"></a>第9章 集合</h2><h2 id="第10章-关系"><a href="#第10章-关系" class="headerlink" title="第10章 关系"></a>第10章 关系</h2><h2 id="第11章-函数"><a href="#第11章-函数" class="headerlink" title="第11章 函数"></a>第11章 函数</h2><h2 id="第12章-实数集合与集合的基数"><a href="#第12章-实数集合与集合的基数" class="headerlink" title="第12章 实数集合与集合的基数"></a>第12章 实数集合与集合的基数</h2>
+</ul>
+<h4 id="DFA-的语言"><a href="#DFA-的语言" class="headerlink" title="DFA 的语言"></a>DFA 的语言</h4><p>定义 DFA $A &#x3D; (Q, \Sigma, \delta, q_0, F)$ 的语言 $L(A)$ 如下：</p>
+<p>$$<br>L(A) &#x3D; {w | \hat\delta(q_0, w) \in F}<br>$$</p>
+<p>$L(A)$ 是 $A$ 的 <strong>所有可接受的串</strong> 所组成的集合。如果对于某个 DFA $A$ 来说 $L$ 是 $L(A)$，则我们称 $L$ 是一个 <strong>正则语言</strong>。</p>
+<h3 id="非确定性有穷自动机（NFA）"><a href="#非确定性有穷自动机（NFA）" class="headerlink" title="非确定性有穷自动机（NFA）"></a>非确定性有穷自动机（NFA）</h3><p><del>NFA 就是多线程 DFA（确信）</del></p>
+<h3 id="DFA-和-NFA-的区别"><a href="#DFA-和-NFA-的区别" class="headerlink" title="DFA 和 NFA 的区别"></a>DFA 和 NFA 的区别</h3><h2 id="epsilon-转移"><a href="#epsilon-转移" class="headerlink" title="$\epsilon$ 转移"></a>$\epsilon$ 转移</h2><h3 id="epsilon-NFA-的形式化定义"><a href="#epsilon-NFA-的形式化定义" class="headerlink" title="$\epsilon$-NFA 的形式化定义"></a>$\epsilon$-NFA 的形式化定义</h3><h3 id="epsilon-闭包以及消除-epsilon-转移"><a href="#epsilon-闭包以及消除-epsilon-转移" class="headerlink" title="$\epsilon$ 闭包以及消除 $\epsilon$ 转移"></a>$\epsilon$ 闭包以及消除 $\epsilon$ 转移</h3>
     </div>
 
     
@@ -315,23 +349,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag"># 离散数学</a>
-              <a href="/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/" rel="tag"># 数理逻辑</a>
-              <a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/" rel="tag"># 集合论</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%90%86%E8%AE%BA%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/" rel="tag"># 自动机理论、语言和计算导论</a>
+              <a href="/tags/%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA/" rel="tag"># 有穷自动机</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/31/2022Lookback/" rel="prev" title="【游记】2022年回眸">
-                  <i class="fa fa-chevron-left"></i> 【游记】2022年回眸
+                <a href="/2023/09/10/2023Summer-Java/" rel="prev" title="【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）">
+                  <i class="fa fa-chevron-left"></i> 【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/07/01/2023Chongqing-SocialPractice/" rel="next" title="【游记】2023暑假重庆璧山乡村振兴实践">
-                  【游记】2023暑假重庆璧山乡村振兴实践 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

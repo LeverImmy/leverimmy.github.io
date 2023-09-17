@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-11T10:48:54.964Z</updated>
+  <updated>2023-09-17T06:33:47.168Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -17,15 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
+    <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/"/>
+    <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/</id>
+    <published>2023-09-17T06:49:56.000Z</published>
+    <updated>2023-09-17T06:33:47.168Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h2 id=&quot;字母表、串、语言和问题&quot;&gt;&lt;a href=&quot;#字母表、串、语言和问题&quot; class=&quot;headerlink&quot; title=&quot;字母表、串、语言和问题&quot;&gt;&lt;/a&gt;字母表、串、语言和问题&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="自动机理论、语言和计算导论" scheme="https://leverimmy.top/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%90%86%E8%AE%BA%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/"/>
+    
+    <category term="有穷自动机" scheme="https://leverimmy.top/tags/%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
     <link href="https://leverimmy.top/2023/09/10/2023Summer-Java/"/>
     <id>https://leverimmy.top/2023/09/10/2023Summer-Java/</id>
     <published>2023-09-10T05:16:13.000Z</published>
-    <updated>2023-09-11T10:48:54.964Z</updated>
+    <updated>2023-09-17T04:12:17.176Z</updated>
     
     
     <summary type="html">&lt;p&gt;清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=/NewsApp.apk&quot;&gt;NewsApp(头条大师) 下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub repo 在 &lt;a href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy&amp;#x2F;NewsApp&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;NewsApp(头条大师)&lt;ul&gt;
@@ -282,13 +312,13 @@
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
