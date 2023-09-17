@@ -224,7 +224,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-09-17 14:49:56 / 修改时间：14:33:47" itemprop="dateCreated datePublished" datetime="2023-09-17T14:49:56+08:00">2023-09-17</time>
+      <time title="创建时间：2023-09-17 14:49:56 / 修改时间：15:57:42" itemprop="dateCreated datePublished" datetime="2023-09-17T14:49:56+08:00">2023-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,86 +246,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<h2 id="字母表、串、语言和问题"><a href="#字母表、串、语言和问题" class="headerlink" title="字母表、串、语言和问题"></a>字母表、串、语言和问题</h2><h3 id="字母表"><a href="#字母表" class="headerlink" title="字母表"></a>字母表</h3><p><strong>字母表</strong> 是符号的有穷非空集合，记为 $\Sigma$。</p>
-<h3 id="串"><a href="#串" class="headerlink" title="串"></a>串</h3><p><strong>串（单词）</strong> 是从某个字母表中选择的符号组成的有穷序列。</p>
+          <p>本文主要包括以下内容：</p>
+<p><strong>第一章 第二章 有穷自动机</strong></p>
 <ul>
-<li><p>串的长度<br>选择出来的符号个数被称为串的长度。</p>
+<li>字母表、串、语言和问题<ul>
+<li>字母表</li>
+<li>串</li>
+<li>语言</li>
+<li>问题</li>
+</ul>
 </li>
-<li><p>空串 $\epsilon$<br>它的长度为 $0$，且属于任何字母表。</p>
+<li>有穷自动机的形式化定义<ul>
+<li>确定性有穷自动机（DFA）<ul>
+<li>DFA 的表示方法</li>
+<li>转移函数 $\delta$</li>
+<li>DFA 的语言</li>
+</ul>
 </li>
-<li><p>字母表的幂<br>如果 $\Sigma$ 是一个字母表，则 $\Sigma^k$ 表示这个字母表长度为 $k$ 的所有串所组成的集合。</p>
+<li>非确定性有穷自动机（NFA）</li>
+<li>DFA 和 NFA 的区别和联系<ul>
+<li>DFA 和 NFA 的等价性</li>
+<li>子集构造的最劣情形</li>
+</ul>
 </li>
 </ul>
-<p>$$<br>\Sigma^0 &#x3D; {\epsilon} \<br>\Sigma^{+} &#x3D; \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \<br>\Sigma^{*} &#x3D; \Sigma^{+} \cup {\epsilon}<br>$$</p>
-<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>设 $\Sigma$ 为一个字母表，$L \subseteq \Sigma^{*}$ 被称为 $\Sigma$ 上的 <strong>语言</strong>。</p>
-<ul>
-<li><p>空语言 $\varnothing$ 与只包含空串的语言 ${\epsilon}$<br>$\varnothing$ 和 ${\epsilon}$ 都是任意字母表上的语言，但 $\varnothing \neq {\epsilon}$，前者没有穿，后者有一个串。</p>
 </li>
-<li><p>若 $L$ 是 $\Sigma$ 上的语言，则 $L$ 是任何是 $\Sigma$ 的超集的字母表上的语言。</p>
+<li>$\epsilon$ 转移<ul>
+<li>$\epsilon$ - NFA 的形式化定义</li>
+<li>$\epsilon$ 闭包以及消除 $\epsilon$ 转移</li>
+</ul>
 </li>
 </ul>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在自动机理论中，一个 <strong>问题</strong> 就是 “判定一个给定的串是否属于某个具体语言” 这一行为。</p>
-<p>问题和语言是可以相互等价的。如果 $\Sigma$ 是字母表，$L$ 是 $\Sigma$ 上的语言，则问题 $L$ 就是“给定 $\Sigma^{*}$ 中的一个串 $w$，判断 $w$ 是否属于 $L$。这说明 $L$ 是一个语言，也可以被看成是一个问题。</p>
-<h2 id="有穷自动机的形式化定义"><a href="#有穷自动机的形式化定义" class="headerlink" title="有穷自动机的形式化定义"></a>有穷自动机的形式化定义</h2><h3 id="确定性有穷自动机（DFA）"><a href="#确定性有穷自动机（DFA）" class="headerlink" title="确定性有穷自动机（DFA）"></a>确定性有穷自动机（DFA）</h3><p>通常使用一个五元组 $A &#x3D; (Q, \Sigma, \delta, q_0, F)$ 来表示一个 DFA。其中 $A$ 是 DFA 的名称，$Q$ 是状态集合，$\Sigma$ 是输入符号，$\delta$ 是转移函数，$q_0$ 是初始状态，$F$ 是接受状态集合。</p>
-<h4 id="DFA-的表示方法"><a href="#DFA-的表示方法" class="headerlink" title="DFA 的表示方法"></a>DFA 的表示方法</h4><ul>
-<li><p>转移图</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0$| C(($q_2$))
-A --&gt; |$1$| A
-C --&gt; |$0$| C
-C --&gt; |$1$| B((($q_1$)))
-B --&gt; |$0, 1$| B</code></pre>
-
-<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 $q_1$）。</p>
-</li>
-<li><p>转移表<br>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 $\delta$。</p>
-<table>
-<thead>
-<tr>
-<th align="right"></th>
-<th align="center">$0$</th>
-<th align="center">$1$</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="right">$\to q_0$</td>
-<td align="center">$q_2$</td>
-<td align="center">$q_0$</td>
-</tr>
-<tr>
-<td align="right">$*q_1$</td>
-<td align="center">$q_1$</td>
-<td align="center">$q_1$</td>
-</tr>
-<tr>
-<td align="right">$q_2$</td>
-<td align="center">$q_2$</td>
-<td align="center">$q_1$</td>
-</tr>
-</tbody></table>
-<p>初始状态用箭头标记，接受状态用星号标记。</p>
-</li>
-</ul>
-<h4 id="转移函数-delta"><a href="#转移函数-delta" class="headerlink" title="转移函数 $\delta$"></a>转移函数 $\delta$</h4><p>本质上就是转移图上的边。</p>
-<ul>
-<li><p>扩展转移函数<br>感性地说，就是 <strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
-<p>形式化的定义如下：</p>
-<blockquote>
-<p>基础：$\hat\delta(q, \epsilon) &#x3D; q$。<br>归纳：$\hat\delta(q, w) &#x3D; \delta(\hat\delta(q, x), a)$，其中 $w &#x3D; xa$。</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="DFA-的语言"><a href="#DFA-的语言" class="headerlink" title="DFA 的语言"></a>DFA 的语言</h4><p>定义 DFA $A &#x3D; (Q, \Sigma, \delta, q_0, F)$ 的语言 $L(A)$ 如下：</p>
-<p>$$<br>L(A) &#x3D; {w | \hat\delta(q_0, w) \in F}<br>$$</p>
-<p>$L(A)$ 是 $A$ 的 <strong>所有可接受的串</strong> 所组成的集合。如果对于某个 DFA $A$ 来说 $L$ 是 $L(A)$，则我们称 $L$ 是一个 <strong>正则语言</strong>。</p>
-<h3 id="非确定性有穷自动机（NFA）"><a href="#非确定性有穷自动机（NFA）" class="headerlink" title="非确定性有穷自动机（NFA）"></a>非确定性有穷自动机（NFA）</h3><p><del>NFA 就是多线程 DFA（确信）</del></p>
-<h3 id="DFA-和-NFA-的区别"><a href="#DFA-和-NFA-的区别" class="headerlink" title="DFA 和 NFA 的区别"></a>DFA 和 NFA 的区别</h3><h2 id="epsilon-转移"><a href="#epsilon-转移" class="headerlink" title="$\epsilon$ 转移"></a>$\epsilon$ 转移</h2><h3 id="epsilon-NFA-的形式化定义"><a href="#epsilon-NFA-的形式化定义" class="headerlink" title="$\epsilon$-NFA 的形式化定义"></a>$\epsilon$-NFA 的形式化定义</h3><h3 id="epsilon-闭包以及消除-epsilon-转移"><a href="#epsilon-闭包以及消除-epsilon-转移" class="headerlink" title="$\epsilon$ 闭包以及消除 $\epsilon$ 转移"></a>$\epsilon$ 闭包以及消除 $\epsilon$ 转移</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/17/IATLC-Chap1-Chap2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

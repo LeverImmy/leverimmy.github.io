@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-17T06:33:47.168Z</updated>
+  <updated>2023-09-17T07:57:42.930Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,18 +21,40 @@
     <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/"/>
     <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/</id>
     <published>2023-09-17T06:49:56.000Z</published>
-    <updated>2023-09-17T06:33:47.168Z</updated>
+    <updated>2023-09-17T07:57:42.930Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h2 id=&quot;字母表、串、语言和问题&quot;&gt;&lt;a href=&quot;#字母表、串、语言和问题&quot; class=&quot;headerlink&quot; title=&quot;字母表、串、语言和问题&quot;&gt;&lt;/a&gt;字母表、串、语言和问题&lt;/h2&gt;&lt;h3</summary>
-        
-      
+    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一章 第二章 有穷自动机&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字母表、串、语言和问题&lt;ul&gt;
+&lt;li&gt;字母表&lt;/li&gt;
+&lt;li&gt;串&lt;/li&gt;
+&lt;li&gt;语言&lt;/li&gt;
+&lt;li&gt;问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;有穷自动机的形式化定义&lt;ul&gt;
+&lt;li&gt;确定性有穷自动机（DFA）&lt;ul&gt;
+&lt;li&gt;DFA 的表示方法&lt;/li&gt;
+&lt;li&gt;转移函数 $&#92;delta$&lt;/li&gt;
+&lt;li&gt;DFA 的语言&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;非确定性有穷自动机（NFA）&lt;/li&gt;
+&lt;li&gt;DFA 和 NFA 的区别和联系&lt;ul&gt;
+&lt;li&gt;DFA 和 NFA 的等价性&lt;/li&gt;
+&lt;li&gt;子集构造的最劣情形&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$&#92;epsilon$ 转移&lt;ul&gt;
+&lt;li&gt;$&#92;epsilon$ - NFA 的形式化定义&lt;/li&gt;
+&lt;li&gt;$&#92;epsilon$ 闭包以及消除 $&#92;epsilon$ 转移&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
