@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-18T03:05:44.469Z</updated>
+  <updated>2023-09-18T03:41:51.826Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,39 +21,41 @@
     <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/"/>
     <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/</id>
     <published>2023-09-17T06:49:56.000Z</published>
-    <updated>2023-09-18T03:05:44.469Z</updated>
+    <updated>2023-09-18T03:41:51.826Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第一章 自动机：方法与体验 | 第二章 有穷自动机&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;字母表、串、语言和问题&lt;ul&gt;
+&lt;li&gt;字母表、串、语言和问题
+&lt;ul&gt;
 &lt;li&gt;字母表&lt;/li&gt;
 &lt;li&gt;串&lt;/li&gt;
 &lt;li&gt;语言&lt;/li&gt;
 &lt;li&gt;问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;有穷自动机的形式化定义&lt;ul&gt;
-&lt;li&gt;确定性有穷自动机（DFA）&lt;ul&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;有穷自动机的形式化定义
+&lt;ul&gt;
+&lt;li&gt;确定性有穷自动机（DFA）
+&lt;ul&gt;
 &lt;li&gt;DFA 的表示方法&lt;/li&gt;
-&lt;li&gt;转移函数 $&#92;delta$&lt;/li&gt;
+&lt;li&gt;转移函数 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;delta&#92;)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;DFA 的语言&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;非确定性有穷自动机（NFA）&lt;/li&gt;
-&lt;li&gt;DFA 和 NFA 的区别和联系&lt;ul&gt;
+&lt;li&gt;DFA 和 NFA 的区别和联系
+&lt;ul&gt;
 &lt;li&gt;DFA 和 NFA 的等价性&lt;/li&gt;
 &lt;li&gt;子集构造的最劣情形&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;$&#92;epsilon$ 转移&lt;ul&gt;
-&lt;li&gt;$&#92;epsilon$ - NFA 的形式化定义&lt;/li&gt;
-&lt;li&gt;$&#92;epsilon$ 闭包以及消除 $&#92;epsilon$ 转移&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 转移
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; - NFA
+的形式化定义&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 闭包以及消除 &lt;span
+class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 转移&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -75,36 +77,20 @@
     <updated>2023-09-17T04:12:17.176Z</updated>
     
     
-    <summary type="html">&lt;p&gt;清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=/NewsApp.apk&quot;&gt;NewsApp(头条大师) 下载地址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;GitHub repo 在 &lt;a href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy&amp;#x2F;NewsApp&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;NewsApp(头条大师)&lt;ul&gt;
-&lt;li&gt;作业描述&lt;/li&gt;
-&lt;li&gt;代码结构&lt;/li&gt;
-&lt;li&gt;具体实现&lt;ul&gt;
-&lt;li&gt;新闻详情获取&lt;/li&gt;
-&lt;li&gt;新闻列表上拉刷新下划加载&lt;/li&gt;
-&lt;li&gt;图片展示和视频播放&lt;/li&gt;
-&lt;li&gt;修改列表分类时的抖动特效&lt;/li&gt;
-&lt;li&gt;新闻查找&lt;/li&gt;
-&lt;li&gt;浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序&lt;/li&gt;
-&lt;li&gt;对手机“返回键”行为的处理&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;遇到的问题及其解决方法&lt;ul&gt;
-&lt;li&gt;JDK 安装包重复导入的问题&lt;/li&gt;
-&lt;li&gt;如何通过报错信息查找 bug&lt;/li&gt;
-&lt;li&gt;查找新闻时的时间范围设置&lt;/li&gt;
-&lt;li&gt;视频播放问题&lt;/li&gt;
-&lt;li&gt;repo 回滚&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;总结和心得&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <summary type="html">&lt;p&gt;清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
+夏）。&lt;/p&gt;
+&lt;p&gt;&lt;a
+href=&quot;https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk&quot;&gt;NewsApp(头条大师)
+下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub repo 在 &lt;a
+href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt; - NewsApp(头条大师) - 作业描述 - 代码结构 -
+具体实现 - 新闻详情获取 - 新闻列表上拉刷新下划加载 - 图片展示和视频播放
+- 修改列表分类时的抖动特效 - 新闻查找 -
+浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序 -
+对手机“返回键”行为的处理 - 遇到的问题及其解决方法 - JDK
+安装包重复导入的问题 - 如何通过报错信息查找 bug -
+查找新闻时的时间范围设置 - 视频播放问题 - repo 回滚 - 总结和心得&lt;/p&gt;</summary>
     
     
     
@@ -131,12 +117,12 @@
 &lt;p&gt;&lt;strong&gt;第十二章 计算理论&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;可计算性&lt;/li&gt;
-&lt;li&gt;Bare Bones 语言&lt;ul&gt;
+&lt;li&gt;Bare Bones 语言
+&lt;ul&gt;
 &lt;li&gt;复制操作&lt;/li&gt;
 &lt;li&gt;交换操作&lt;/li&gt;
 &lt;li&gt;分支结构&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;停机问题&lt;/li&gt;
 &lt;li&gt;RSA&lt;/li&gt;
 &lt;/ul&gt;</summary>
@@ -169,16 +155,16 @@
 &lt;ul&gt;
 &lt;li&gt;逻辑门&lt;/li&gt;
 &lt;li&gt;十六进制&lt;/li&gt;
-&lt;li&gt;二进制中的补码与余码&lt;ul&gt;
+&lt;li&gt;二进制中的补码与余码
+&lt;ul&gt;
 &lt;li&gt;补码记数法&lt;/li&gt;
 &lt;li&gt;余码记数法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;浮点数及其规范化形式&lt;ul&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;浮点数及其规范化形式
+&lt;ul&gt;
 &lt;li&gt;浮点数的二进制表示&lt;/li&gt;
 &lt;li&gt;浮点数的规范化形式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -204,7 +190,7 @@
     
     <summary type="html">&lt;p&gt;这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。&lt;/p&gt;
 &lt;p&gt;本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
-&lt;p&gt;repo 地址: &lt;a href=&quot;https://git.tsinghua.edu.cn/xze22/calculus-2-solution&quot;&gt;https://git.tsinghua.edu.cn/xze22/calculus-2-solution&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution&lt;/p&gt;
 &lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
     
     
@@ -226,7 +212,7 @@
     
     <summary type="html">&lt;p&gt;这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。&lt;/p&gt;
 &lt;p&gt;本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
-&lt;p&gt;repo 地址: &lt;a href=&quot;https://git.tsinghua.edu.cn/xze22/calculus-1-solution&quot;&gt;https://git.tsinghua.edu.cn/xze22/calculus-1-solution&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution&lt;/p&gt;
 &lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
     
     
@@ -300,9 +286,13 @@
     
     <summary type="html">&lt;p&gt;2022 年就这么过去了，&lt;/p&gt;
 &lt;p&gt;我也从一个高三学生变成了一个大一新生了。&lt;/p&gt;
-&lt;hr&gt;
+&lt;hr /&gt;
 &lt;p&gt;一年发生了很多事情。现在，是时候回顾一下了？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png&quot; alt=&quot;换微信头像啦！&quot;&gt;&lt;/p&gt;</summary>
+&lt;figure&gt;
+&lt;img src=&quot;https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png&quot;
+alt=&quot;换微信头像啦！&quot; /&gt;
+&lt;figcaption aria-hidden=&quot;true&quot;&gt;换微信头像啦！&lt;/figcaption&gt;
+&lt;/figure&gt;</summary>
     
     
     
@@ -325,8 +315,9 @@
     
     <summary type="html">&lt;p&gt;为什么叫划水记呢？&lt;/p&gt;
 &lt;p&gt;因为我以划水的心态&lt;del&gt;做了&lt;/del&gt;看了考试的卷子，所以叫划水记（确信）。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;老老实实监考并且坐牢 $100 + 100 + 150 &amp;#x3D; 350 &#92;mathrm{ min}$ &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;老老实实监考并且坐牢 &lt;span class=&quot;math inline&quot;&gt;&#92;(100 + 100 + 150 =
+350 &#92;mathrm{ min}&#92;)&lt;/span&gt; &lt;del&gt;（不是）&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;试着做做卷子顺便监考一下再吃大餐（是）&lt;/del&gt;&lt;/p&gt;</summary>
     
     
