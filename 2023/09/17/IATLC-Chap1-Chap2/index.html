@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第一章 第二章 有穷自动机  字母表、串、语言和问题 字母表 串 语言 问题   有穷自动机的形式化定义 确定性有穷自动机（DFA） DFA 的表示方法 转移函数 $\delta$ DFA 的语言   非确定性有穷自动机（NFA） DFA 和 NFA 的区别和联系 DFA 和 NFA 的等价性 子集构造的最劣情形     $\epsilon$ 转移 $\epsilon$ -">
+    <meta name="description" content="本文主要包括以下内容： 第一章 自动机：方法与体验 | 第二章 有穷自动机  字母表、串、语言和问题 字母表 串 语言 问题   有穷自动机的形式化定义 确定性有穷自动机（DFA） DFA 的表示方法 转移函数 $\delta$ DFA 的语言   非确定性有穷自动机（NFA） DFA 和 NFA 的区别和联系 DFA 和 NFA 的等价性 子集构造的最劣情形     $\epsilon$ 转移">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第一章 第二章 有穷自动机  字母表、串、语言和问题 字母表 串 语言 问题   有穷自动机的形式化定义 确定性有穷自动机（DFA） DFA 的表示方法 转移函数 $\delta$ DFA 的语言   非确定性有穷自动机（NFA） DFA 和 NFA 的区别和联系 DFA 和 NFA 的等价性 子集构造的最劣情形     $\epsilon$ 转移 $\epsilon$ -">
+<meta property="og:description" content="本文主要包括以下内容： 第一章 自动机：方法与体验 | 第二章 有穷自动机  字母表、串、语言和问题 字母表 串 语言 问题   有穷自动机的形式化定义 确定性有穷自动机（DFA） DFA 的表示方法 转移函数 $\delta$ DFA 的语言   非确定性有穷自动机（NFA） DFA 和 NFA 的区别和联系 DFA 和 NFA 的等价性 子集构造的最劣情形     $\epsilon$ 转移">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T06:49:56.000Z">
-<meta property="article:modified_time" content="2023-09-17T07:57:42.930Z">
+<meta property="article:modified_time" content="2023-09-18T03:05:44.469Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="有穷自动机">
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8%E3%80%81%E4%B8%B2%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">字母表、串、语言和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">字母表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2"><span class="nav-number">1.2.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80"><span class="nav-number">1.3.</span> <span class="nav-text">语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">有穷自动机的形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88DFA%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">确定性有穷自动机（DFA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">DFA 的表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%87%BD%E6%95%B0-delta"><span class="nav-number">2.1.2.</span> <span class="nav-text">转移函数 $\delta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.3.</span> <span class="nav-text">DFA 的语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88NFA%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">非确定性有穷自动机（NFA）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFA-%E5%92%8C-NFA-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">DFA 和 NFA 的区别与联系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E5%92%8C-NFA-%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">DFA 和 NFA 的等价性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E9%9B%86%E6%9E%84%E9%80%A0%E7%9A%84%E6%9C%80%E5%8A%A3%E6%83%85%E5%BD%A2"><span class="nav-number">2.3.2.</span> <span class="nav-text">子集构造的最劣情形</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.</span> <span class="nav-text">$\epsilon$ 转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-NFA-%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">$\epsilon$ - NFA 的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-%E9%97%AD%E5%8C%85%E4%BB%A5%E5%8F%8A%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.2.</span> <span class="nav-text">$\epsilon$ 闭包以及消除 $\epsilon$ 转移</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8%E3%80%81%E4%B8%B2%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">字母表、串、语言和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">字母表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2"><span class="nav-number">1.2.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80"><span class="nav-number">1.3.</span> <span class="nav-text">语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">有穷自动机的形式化定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88DFA%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">确定性有穷自动机（DFA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">DFA 的表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%87%BD%E6%95%B0-delta"><span class="nav-number">2.1.2.</span> <span class="nav-text">转移函数 $\delta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.3.</span> <span class="nav-text">DFA 的语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88NFA%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">非确定性有穷自动机（NFA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA-%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">NFA 的表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E5%87%BD%E6%95%B0-delta-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">转移函数 $\delta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA-%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.2.3.</span> <span class="nav-text">NFA 的语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFA-%E5%92%8C-NFA-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">DFA 和 NFA 的区别与联系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFA-%E5%92%8C-NFA-%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">DFA 和 NFA 的等价性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E9%9B%86%E6%9E%84%E9%80%A0%E7%9A%84%E6%9C%80%E5%8A%A3%E6%83%85%E5%BD%A2"><span class="nav-number">2.3.2.</span> <span class="nav-text">子集构造的最劣情形</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.</span> <span class="nav-text">$\epsilon$ 转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-NFA-%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">$\epsilon$ - NFA 的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epsilon-%E9%97%AD%E5%8C%85%E4%BB%A5%E5%8F%8A%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB"><span class="nav-number">3.2.</span> <span class="nav-text">$\epsilon$ 闭包以及消除 $\epsilon$ 转移</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,9 +230,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-09-17 14:49:56 / 修改时间：15:57:42" itemprop="dateCreated datePublished" datetime="2023-09-17T14:49:56+08:00">2023-09-17</time>
+      <time title="创建时间：2023-09-17 14:49:56" itemprop="dateCreated datePublished" datetime="2023-09-17T14:49:56+08:00">2023-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-18 11:05:44" itemprop="dateModified" datetime="2023-09-18T11:05:44+08:00">2023-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,7 +268,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本文主要包括以下内容：</p>
-<p><strong>第一章 第二章 有穷自动机</strong></p>
+<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
 <ul>
 <li>字母表、串、语言和问题<ul>
 <li>字母表</li>
@@ -307,7 +313,7 @@
 <p>$$<br>\Sigma^0 &#x3D; {\epsilon} \<br>\Sigma^{+} &#x3D; \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \<br>\Sigma^{*} &#x3D; \Sigma^{+} \cup {\epsilon}<br>$$</p>
 <h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>设 $\Sigma$ 为一个字母表，$L \subseteq \Sigma^{*}$ 被称为 $\Sigma$ 上的 <strong>语言</strong>。</p>
 <ul>
-<li><p>空语言 $\varnothing$ 与只包含空串的语言 ${\epsilon}$<br>$\varnothing$ 和 ${\epsilon}$ 都是任意字母表上的语言，但 $\varnothing \neq {\epsilon}$，前者没有穿，后者有一个串。</p>
+<li><p>空语言 $\varnothing$ 与只包含空串的语言 ${\epsilon}$<br>$\varnothing$ 和 ${\epsilon}$ 都是任意字母表上的语言，但 $\varnothing \neq {\epsilon}$，前者没有串，后者有一个串。</p>
 </li>
 <li><p>若 $L$ 是 $\Sigma$ 上的语言，则 $L$ 是任何是 $\Sigma$ 的超集的字母表上的语言。</p>
 </li>
@@ -358,7 +364,7 @@ B --&gt; |$0, 1$| B</code></pre>
 <p>初始状态用箭头标记，接受状态用星号标记。</p>
 </li>
 </ul>
-<h4 id="转移函数-delta"><a href="#转移函数-delta" class="headerlink" title="转移函数 $\delta$"></a>转移函数 $\delta$</h4><p>本质上就是转移图上的边。</p>
+<h4 id="转移函数-delta"><a href="#转移函数-delta" class="headerlink" title="转移函数 $\delta$"></a>转移函数 $\delta$</h4><p>本质上就是转移图上的有向边。</p>
 <ul>
 <li><p>扩展转移函数<br>感性地说，就是 <strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
 <p>形式化的定义如下：</p>
@@ -371,7 +377,54 @@ B --&gt; |$0, 1$| B</code></pre>
 <p>$$<br>L(A) &#x3D; {w | \hat\delta(q_0, w) \in F}<br>$$</p>
 <p>$L(A)$ 是 $A$ 的 <strong>所有可接受的串</strong> 所组成的集合。如果对于某个 DFA $A$ 来说 $L$ 是 $L(A)$，则我们称 $L$ 是一个 <strong>正则语言</strong>。</p>
 <h3 id="非确定性有穷自动机（NFA）"><a href="#非确定性有穷自动机（NFA）" class="headerlink" title="非确定性有穷自动机（NFA）"></a>非确定性有穷自动机（NFA）</h3><p><del>NFA 就是多线程 DFA（确信）</del></p>
-<h3 id="DFA-和-NFA-的区别与联系"><a href="#DFA-和-NFA-的区别与联系" class="headerlink" title="DFA 和 NFA 的区别与联系"></a>DFA 和 NFA 的区别与联系</h3><h4 id="DFA-和-NFA-的等价性"><a href="#DFA-和-NFA-的等价性" class="headerlink" title="DFA 和 NFA 的等价性"></a>DFA 和 NFA 的等价性</h4><h4 id="子集构造的最劣情形"><a href="#子集构造的最劣情形" class="headerlink" title="子集构造的最劣情形"></a>子集构造的最劣情形</h4><h2 id="epsilon-转移"><a href="#epsilon-转移" class="headerlink" title="$\epsilon$ 转移"></a>$\epsilon$ 转移</h2><h3 id="epsilon-NFA-的形式化定义"><a href="#epsilon-NFA-的形式化定义" class="headerlink" title="$\epsilon$ - NFA 的形式化定义"></a>$\epsilon$ - NFA 的形式化定义</h3><h3 id="epsilon-闭包以及消除-epsilon-转移"><a href="#epsilon-闭包以及消除-epsilon-转移" class="headerlink" title="$\epsilon$ 闭包以及消除 $\epsilon$ 转移"></a>$\epsilon$ 闭包以及消除 $\epsilon$ 转移</h3>
+<p>在读入每个串的时候，NFA 可以向多个方向同时转移，最后只取可接受状态组成的状态集合。</p>
+<h4 id="NFA-的表示方法"><a href="#NFA-的表示方法" class="headerlink" title="NFA 的表示方法"></a>NFA 的表示方法</h4><p>转移表既可以表示 NFA 的转移函数，也可以用来规定 DFA 的转移函数，区别在于，NFA 转移表中的 <strong>每一项都是集合</strong>，即使是单元素集合；如果在某个状态上不存在向其他状态的转移时，应该填入 $\varnothing$。</p>
+<h4 id="转移函数-delta-1"><a href="#转移函数-delta-1" class="headerlink" title="转移函数 $\delta$"></a>转移函数 $\delta$</h4><ul>
+<li><p>扩展转移函数<br>形式化的表述如下：</p>
+<blockquote>
+<p>基础：$\hat\delta(q, \epsilon) &#x3D; {q}$。<br>归纳：$\hat\delta(q, w) &#x3D; \bigcup\limits_{p \in \hat\delta(q, x)}\delta(p, a)$，其中 $w &#x3D; xa$。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="NFA-的语言"><a href="#NFA-的语言" class="headerlink" title="NFA 的语言"></a>NFA 的语言</h4><p>相应地，由于 NFA 可以同时向多个方向转移，所以对于一个串来说，只要存在一个状态使得 NFA 能接受该串，那么这个串就属于这个 NFA 对应的语言。</p>
+<p>$$<br>L(A) &#x3D; {w | \hat\delta(q_0, w) \cap F \neq \varnothing}<br>$$</p>
+<h3 id="DFA-和-NFA-的区别与联系"><a href="#DFA-和-NFA-的区别与联系" class="headerlink" title="DFA 和 NFA 的区别与联系"></a>DFA 和 NFA 的区别与联系</h3><p>DFA 和 NFA 之间的唯一区别在于，$\delta$ 在 DFA 的情况下，返回的是 <strong>单个状态</strong>；而在 NFA 的情况下，返回的是一个 <strong>状态集合</strong>。</p>
+<h4 id="DFA-和-NFA-的等价性"><a href="#DFA-和-NFA-的等价性" class="headerlink" title="DFA 和 NFA 的等价性"></a>DFA 和 NFA 的等价性</h4><p>显然一个 DFA 可以转化成一个 NFA，只需要把状态中的每个元素写成其对应的单元素集合即可。重点在于怎么通过一个 NFA $N &#x3D; (Q_N, \Sigma, \delta_N, {q_0}, F_N)$ 开始，描述一个 DFA $D &#x3D; (Q_D, \Sigma, \delta_D, q_0, F_D)$ 使得 $L(N) &#x3D; L(D)$。可以采用 <strong>子集构造</strong> 的方式来解决此问题。</p>
+<ul>
+<li><p>$Q_D &#x3D; P(Q_N)$，即 $Q_D$ 是 $Q_N$ 的幂集合。但值得注意的一点是，虽然它们是“集合”，但它们是单个状态，而不是状态的集合。换句话说，构造出来的 $D$ 中，每个状态本身都是集合。</p>
+</li>
+<li><p>$F_D &#x3D; {S \subseteq Q_N | S \cap F_N &#x3D; \neq \varnothing}$。也就是说，$F_D$ 是所有至少含有一个 $N$ 的接受状态的 $N$ 的状态集合的集合。</p>
+</li>
+<li><p>对于每个集合 $S \subseteq Q_N$ 以及 $a \in \Sigma$，构造转移函数如下：</p>
+<p>$$<br>\delta_D(S, a) &#x3D; \bigcup_{p \in S}\delta_N(p, a)<br>$$</p>
+<p>也就是说，对于 $S$ 中所有状态 $p$，在 $N$ 中从 $p$ 上通过输入 $a$ 进入的状态，这些状态的并集，就是 $\delta_D(S, a)$。</p>
+</li>
+</ul>
+<blockquote>
+<p>定理：如果 $D &#x3D; (Q_D, \Sigma, \delta_D, {q_0}, F_D)$ 是用子集构造从 NFA $N &#x3D; (Q_N, \Sigma, \delta_N, q_0, F_N)$ 构造出来的 DFA，那么 $L(D) &#x3D; L(N)$。</p>
+</blockquote>
+<p><strong>证明</strong>：只需证明 $\hat\delta_D({q_0}, w) &#x3D; \hat\delta_N(q_0, w)$。</p>
+<p>基础：设 $|w| &#x3D; 0$，则 $w &#x3D; \epsilon$，显然有 $\hat\delta_D({q_0}, \epsilon) &#x3D; \hat\delta_N(q_0, \epsilon)$。</p>
+<p>归纳：设 $|w| &#x3D; n + 1$，且命题对 $|v| &#x3D; n$ 的所有 $v$ 均成立。记 $w &#x3D; xa$，假设 $\hat\delta_D({q_0}, x) &#x3D; \hat\delta_N(q_0, x) &#x3D; {p_1, p_2, \cdots, p_k}$。</p>
+<p>由 NFA 的 $\hat\delta$ 的定义的归纳部分说明 $\hat\delta(q_0, w) &#x3D; \cup_{i &#x3D; 1}^k\delta_N(p_i, a)$。另一方面，子集构造说明 $\delta_D({p_1, p_2, \cdots, p_k}, a) &#x3D; \cup_{i &#x3D; 1}^k\delta_N(p_i, a)$。因此</p>
+<p>$$<br>\hat\delta_D({q_0}, w) &#x3D; \delta_D(\hat\delta_D({q_0}, x), a) &#x3D; \delta_D({p_1, p_2, \cdots, p_k}, a) &#x3D; \bigcup_{i &#x3D; 1}^k\delta_N(p_i, a) &#x3D; \hat\delta(q_0, w)<br>$$</p>
+<p>所以对于某个串 $w$ 而言，它在 $D$ 和 $N$ 中的可达性是相同的。</p>
+<p>因此 $\hat\delta_D({q_0}, w)q_{n - 1} &#x3D; \hat\delta_N(q_0, w) \iff L(D) &#x3D; L(N)$。命题得证。</p>
+<h4 id="子集构造的最劣情形"><a href="#子集构造的最劣情形" class="headerlink" title="子集构造的最劣情形"></a>子集构造的最劣情形</h4><p>考虑 $L(N)$ 是所有使得倒数第 $n$ 位是 $1$ 的 01 串集合。</p>
+  <pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+style ... fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0, 1$| A
+A --&gt; |$1$| B(($q_1$))
+B --&gt; |$0, 1$| C(($q_1$))
+C --&gt; |$0, 1$| ...
+... --&gt; |$0, 1$| D(($q_n\,_-\,_1$))
+D --&gt; |$0, 1$| E((($q_n$)))</code></pre>
+
+<h2 id="epsilon-转移"><a href="#epsilon-转移" class="headerlink" title="$\epsilon$ 转移"></a>$\epsilon$ 转移</h2><h3 id="epsilon-NFA-的形式化定义"><a href="#epsilon-NFA-的形式化定义" class="headerlink" title="$\epsilon$ - NFA 的形式化定义"></a>$\epsilon$ - NFA 的形式化定义</h3><h3 id="epsilon-闭包以及消除-epsilon-转移"><a href="#epsilon-闭包以及消除-epsilon-转移" class="headerlink" title="$\epsilon$ 闭包以及消除 $\epsilon$ 转移"></a>$\epsilon$ 闭包以及消除 $\epsilon$ 转移</h3>
     </div>
 
     
