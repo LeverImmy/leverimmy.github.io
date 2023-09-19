@@ -1,249 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="可计算性">可计算性</h2>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="bare-bones-语言">Bare Bones 语言</h2>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li>一种基本数据类型。 所有的变量本质上都是二进制数。</li>
-<li>三条赋值语句。 <code>clear name</code> 表示把 <code>name</code>
-清零。 <code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
-<li>一条控制结构语句。 <code>while name not 0:</code> 在
-<code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和
-Python 类似）。</li>
-</ul>
-<blockquote>
-<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h3 id="复制操作">复制操作</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作">交换操作</h3>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构">分支结构</h3>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题">停机问题</h2>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li>若 <code>B</code> 是自终止的： 将 <code>B</code> 作为自己的输入，则
-<code>x</code> 为 1。此时进入 <code>while</code> 死循环，则
-<code>B</code> 不是自终止的。矛盾。</li>
-<li>若 <code>B</code> 是非自终止的： 将 <code>B</code>
-作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code>
-循环，则 <code>B</code> 是自终止的。矛盾。</li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h2 id="rsa">RSA</h2>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h3 id="rsa-的正确性">RSA 的正确性</h3>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。 <span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-  \]</span></li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】数理逻辑与集合论</title>
-    <url>/2023/07/01/Shuliluoji-Yu-Jihelun/</url>
-    <content><![CDATA[<p>摘要待填。</p>
-<span id="more"></span>
-<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
-<h3 id="代入规则">代入规则</h3>
-<ol type="1">
-<li><p>公式中被代换的只能是命题变元，而不能是复合命题。 例如，可以用
-<span class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
-class="math inline">\(P\)</span>，记作 <span
-class="math inline">\(\frac{P}{(R\land
-S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
-S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
-<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
-其实就是说，要代换就所有都代换完。对于重言式 <span
-class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
-class="math inline">\(P = \lnot Q\)</span>，那么就变成了 <span
-class="math inline">\((\lnot Q \lor \lnot
-P)\)</span>，这并非重言式。</p></li>
-</ol>
-<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
-<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
-<ul>
-<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
-<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
-</ul>
-<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
-<blockquote>
-<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
-\lor(W\land R)\lor \lnot Q\)</span></p>
-</blockquote>
-<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
-\land W R \lnot Q\)</span>。（而不是 <span
-class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
-Q\)</span>！）</p>
-<h2 id="第2章-命题逻辑的等值和推理演算">第2章
-命题逻辑的等值和推理演算</h2>
-<h3 id="等值公式">等值公式</h3>
-<p><del>妈的，与和或之间没有交换律。</del></p>
-<ol type="1">
-<li><p><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
-R)\)</span> 不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
-class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
-class="math inline">\(\lnot P \lor \lnot Q \lor
-R\)</span>，二者不等。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow
-R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
-Q)\)</span> 当 <span class="math inline">\(P = Q = R =
-\mathrm{F}\)</span> 时，左式为假，右式为真。</p></li>
-<li><p><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to
-P = P\)</span> 十分合理，拆开发现是俩相同东西的或。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \land Q)
-\lor (\lnot P \land \lnot Q)\)</span> 这可解释为 <span
-class="math inline">\(P \leftrightarrow Q\)</span>
-为真，有两种可能的情形，即 <span class="math inline">\((P \land
-Q)\)</span> 为真，或 <span class="math inline">\((\lnot P \land \lnot
-Q)\)</span> 为真。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者同真同假。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot
-Q) \land (\lnot P \lor Q)\)</span> 这可解释为 <span
-class="math inline">\(P \leftrightarrow Q\)</span>
-为假，有两种可能的情形，即 <span class="math inline">\((P \lor \lnot
-Q)\)</span> 为假，或 <span class="math inline">\((\lnot P \lor
-Q)\)</span> 为假。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者真假不同。</p></li>
-<li><p><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
-R\)</span> <span class="math inline">\(P\)</span> 是 <span
-class="math inline">\((Q \to R)\)</span> 的前提，<span
-class="math inline">\(Q\)</span> 是 <span
-class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
-class="math inline">\((P \land Q)\)</span> 作为总的前提。</p></li>
-<li><p><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor
-Q) \to R\)</span> 左端说明由 <span class="math inline">\(P\)</span>
-而且由 <span class="math inline">\(Q\)</span> 都有 <span
-class="math inline">\(R\)</span> 成立，从而可以说明由 <span
-class="math inline">\(P\)</span> 或由 <span
-class="math inline">\(Q\)</span> 就有 <span
-class="math inline">\(R\)</span> 成立，即右端。</p></li>
-</ol>
-<h3 id="section"></h3>
-<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
-<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
-<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
-谓词逻辑的等值和推理演算</h2>
-<h2 id="第9章-集合">第9章 集合</h2>
-<h2 id="第10章-关系">第10章 关系</h2>
-<h2 id="第11章-函数">第11章 函数</h2>
-<h2 id="第12章-实数集合与集合的基数">第12章 实数集合与集合的基数</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-        <tag>数理逻辑</tag>
-        <tag>集合论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-Chap2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -264,19 +21,24 @@ class="math inline">\(R\)</span> 成立，即右端。</p></li>
 <li>转移函数 <span class="math inline">\(\delta\)</span></li>
 <li>DFA 的语言</li>
 </ul></li>
-<li>非确定性有穷自动机（NFA）</li>
-<li>DFA 和 NFA 的区别和联系
+<li>非确定性有穷自动机（NFA）
+<ul>
+<li>NFA 的表示方法</li>
+<li>转移函数 <span class="math inline">\(\delta\)</span></li>
+<li>NFA 的语言</li>
+</ul></li>
+<li>DFA 和 NFA 的区别与联系
 <ul>
 <li>DFA 和 NFA 的等价性</li>
 <li>子集构造的最劣情形</li>
 </ul></li>
 </ul></li>
-<li><span class="math inline">\(\epsilon\)</span> 转移
+<li><span class="math inline">\(\epsilon 转移\)</span>
 <ul>
 <li><span class="math inline">\(\epsilon\)</span> - NFA
 的形式化定义</li>
-<li><span class="math inline">\(\epsilon\)</span> 闭包以及消除 <span
-class="math inline">\(\epsilon\)</span> 转移</li>
+<li><span class="math inline">\(\epsilon\)</span> 闭包</li>
+<li>消除 <span class="math inline">\(\epsilon\)</span> 转移</li>
 </ul></li>
 </ul>
 <span id="more"></span>
@@ -728,6 +490,123 @@ class="math inline">\(D\)</span> 接受。</p>
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章和第四章</title>
+    <url>/2023/09/19/IATLC-Chap3-Chap4/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：《自动机理论、语言和计算导论》</p>
+<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
+<span id="more"></span>
+<h2 id="section"></h2>
+<h3 id="section-1"></h3>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】数理逻辑与集合论</title>
+    <url>/2023/07/01/Shuliluoji-Yu-Jihelun/</url>
+    <content><![CDATA[<p>摘要待填。</p>
+<span id="more"></span>
+<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
+<h3 id="代入规则">代入规则</h3>
+<ol type="1">
+<li><p>公式中被代换的只能是命题变元，而不能是复合命题。 例如，可以用
+<span class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
+class="math inline">\(P\)</span>，记作 <span
+class="math inline">\(\frac{P}{(R\land
+S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
+S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
+<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
+其实就是说，要代换就所有都代换完。对于重言式 <span
+class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
+class="math inline">\(P = \lnot Q\)</span>，那么就变成了 <span
+class="math inline">\((\lnot Q \lor \lnot
+P)\)</span>，这并非重言式。</p></li>
+</ol>
+<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
+<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<ul>
+<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
+<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
+</ul>
+<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
+<blockquote>
+<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
+\lor(W\land R)\lor \lnot Q\)</span></p>
+</blockquote>
+<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
+\land W R \lnot Q\)</span>。（而不是 <span
+class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
+Q\)</span>！）</p>
+<h2 id="第2章-命题逻辑的等值和推理演算">第2章
+命题逻辑的等值和推理演算</h2>
+<h3 id="等值公式">等值公式</h3>
+<p><del>妈的，与和或之间没有交换律。</del></p>
+<ol type="1">
+<li><p><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
+R)\)</span> 不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
+class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
+class="math inline">\(\lnot P \lor \lnot Q \lor
+R\)</span>，二者不等。</p></li>
+<li><p><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow
+R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
+Q)\)</span> 当 <span class="math inline">\(P = Q = R =
+\mathrm{F}\)</span> 时，左式为假，右式为真。</p></li>
+<li><p><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to
+P = P\)</span> 十分合理，拆开发现是俩相同东西的或。</p></li>
+<li><p><span class="math inline">\(P \leftrightarrow Q = (P \land Q)
+\lor (\lnot P \land \lnot Q)\)</span> 这可解释为 <span
+class="math inline">\(P \leftrightarrow Q\)</span>
+为真，有两种可能的情形，即 <span class="math inline">\((P \land
+Q)\)</span> 为真，或 <span class="math inline">\((\lnot P \land \lnot
+Q)\)</span> 为真。其实就是 <span class="math inline">\(P\)</span> 和
+<span class="math inline">\(Q\)</span> 二者同真同假。</p></li>
+<li><p><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot
+Q) \land (\lnot P \lor Q)\)</span> 这可解释为 <span
+class="math inline">\(P \leftrightarrow Q\)</span>
+为假，有两种可能的情形，即 <span class="math inline">\((P \lor \lnot
+Q)\)</span> 为假，或 <span class="math inline">\((\lnot P \lor
+Q)\)</span> 为假。其实就是 <span class="math inline">\(P\)</span> 和
+<span class="math inline">\(Q\)</span> 二者真假不同。</p></li>
+<li><p><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
+R\)</span> <span class="math inline">\(P\)</span> 是 <span
+class="math inline">\((Q \to R)\)</span> 的前提，<span
+class="math inline">\(Q\)</span> 是 <span
+class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
+class="math inline">\((P \land Q)\)</span> 作为总的前提。</p></li>
+<li><p><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor
+Q) \to R\)</span> 左端说明由 <span class="math inline">\(P\)</span>
+而且由 <span class="math inline">\(Q\)</span> 都有 <span
+class="math inline">\(R\)</span> 成立，从而可以说明由 <span
+class="math inline">\(P\)</span> 或由 <span
+class="math inline">\(Q\)</span> 就有 <span
+class="math inline">\(R\)</span> 成立，即右端。</p></li>
+</ol>
+<h3 id="section"></h3>
+<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
+<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
+<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
+谓词逻辑的等值和推理演算</h2>
+<h2 id="第9章-集合">第9章 集合</h2>
+<h2 id="第10章-关系">第10章 关系</h2>
+<h2 id="第11章-函数">第11章 函数</h2>
+<h2 id="第12章-实数集合与集合的基数">第12章 实数集合与集合的基数</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+        <tag>数理逻辑</tag>
+        <tag>集合论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】计算机科学概论 - 第一章</title>
     <url>/2023/07/20/CSAO-Chap1/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -827,6 +706,150 @@ bit）为可看做为一个二进制小数，小数点位于最高位之前。</
         <tag>计算机科学概论</tag>
         <tag>二进制</tag>
         <tag>浮点数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="可计算性">可计算性</h2>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="bare-bones-语言">Bare Bones 语言</h2>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li>一种基本数据类型。 所有的变量本质上都是二进制数。</li>
+<li>三条赋值语句。 <code>clear name</code> 表示把 <code>name</code>
+清零。 <code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</li>
+<li>一条控制结构语句。 <code>while name not 0:</code> 在
+<code>name</code> 不为 0 的时候，会一直做下方缩进的语句或语句序列（和
+Python 类似）。</li>
+</ul>
+<blockquote>
+<p>定理：Bare Bones 语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h3 id="复制操作">复制操作</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作">交换操作</h3>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构">分支结构</h3>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题">停机问题</h2>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li>若 <code>B</code> 是自终止的： 将 <code>B</code> 作为自己的输入，则
+<code>x</code> 为 1。此时进入 <code>while</code> 死循环，则
+<code>B</code> 不是自终止的。矛盾。</li>
+<li>若 <code>B</code> 是非自终止的： 将 <code>B</code>
+作为自己的输入，则 <code>x</code> 为 0。此时不进入 <code>while</code>
+循环，则 <code>B</code> 是自终止的。矛盾。</li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h2 id="rsa">RSA</h2>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h3 id="rsa-的正确性">RSA 的正确性</h3>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。 <span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+  \]</span></li>
+</ol>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
       </tags>
   </entry>
   <entry>
@@ -2117,14 +2140,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
@@ -2134,14 +2157,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
