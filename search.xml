@@ -100,24 +100,6 @@ class="math inline">\(R\)</span> 成立，即右端。</p></li>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
-    <url>/2023/09/19/IATLC-Chap3/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第三章 正则表达式与正则语言</strong></p>
-<span id="more"></span>
-<h2 id="section"></h2>
-<h3 id="section-1"></h3>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-Chap2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -150,7 +132,7 @@ class="math inline">\(R\)</span> 成立，即右端。</p></li>
 <li>子集构造的最劣情形</li>
 </ul></li>
 </ul></li>
-<li><span class="math inline">\(\epsilon 转移\)</span>
+<li><span class="math inline">\(\epsilon\)</span> 转移
 <ul>
 <li><span class="math inline">\(\epsilon\)</span> - NFA
 的形式化定义</li>
@@ -618,7 +600,7 @@ class="math inline">\(D\)</span> 接受。</p>
 <h3 id="section-1"></h3>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>笔记</category>
       </categories>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
@@ -636,7 +618,54 @@ class="math inline">\(D\)</span> 接受。</p>
 <h3 id="section-1"></h3>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
+    <url>/2023/09/19/IATLC-Chap3/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第三章 正则表达式与正则语言</strong></p>
+<ul>
+<li>正则表达式的运算符
+<ul>
+<li>并</li>
+<li>连接</li>
+<li>闭包</li>
+</ul></li>
+<li>正则表达式的定义</li>
+<li>自动机与正则表达式间的关系
+<ul>
+<li>由 DFA 构建正则表达式</li>
+<li>消除状态法</li>
+<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
+NFA</li>
+</ul></li>
+<li>正则表达式代数定律
+<ul>
+<li>代入规则</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
+<h3 id="并">并</h3>
+<h3 id="连接">连接</h3>
+<h3 id="闭包">闭包</h3>
+<h2 id="正则表达式的定义">正则表达式的定义</h2>
+<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
+<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
+<h3 id="消除状态法">消除状态法</h3>
+<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
+class="math inline">\(\epsilon\)</span> - NFA</h3>
+<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
       </categories>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
@@ -1514,23 +1543,6 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="../../../../pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
     <url>/2023/07/01/2023Chongqing-SocialPractice/</url>
     <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
@@ -2195,6 +2207,23 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【答案】《高等微积分教程(下)》教材习题解答</title>
     <url>/2023/07/01/Tsinghua-Calculus-2/</url>
     <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
@@ -2202,7 +2231,7 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
 <p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="../../../../pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
