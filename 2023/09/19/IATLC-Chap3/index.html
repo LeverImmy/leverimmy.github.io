@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并 连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
+    <meta name="description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第三章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/19/IATLC-Chap3/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并 连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
+<meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-21T08:12:13.915Z">
+<meta property="article:modified_time" content="2023-09-21T09:30:50.096Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6"><span class="nav-number">1.1.</span> <span class="nav-text">并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-epsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\epsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\epsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">并与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-epsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\epsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\epsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-21 16:12:13" itemprop="dateModified" datetime="2023-09-21T16:12:13+08:00">2023-09-21</time>
+      <time title="修改时间：2023-09-21 17:30:50" itemprop="dateModified" datetime="2023-09-21T17:30:50+08:00">2023-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,8 +273,7 @@
 <ul>
 <li>正则表达式的运算符
 <ul>
-<li>并</li>
-<li>连接</li>
+<li>并与连接</li>
 <li>闭包</li>
 </ul></li>
 <li>正则表达式的定义</li>
@@ -294,11 +293,93 @@ NFA</li>
 </ul>
 <span id="more"></span>
 <h2 id="正则表达式的运算符">正则表达式的运算符</h2>
-<h3 id="并">并</h3>
-<h3 id="连接">连接</h3>
+<h3 id="并与连接">并与连接</h3>
+<ul>
+<li>并 <span class="math display">\[
+L \cup M = \{w | w \in L \lor w \in M\}
+\]</span></li>
+<li>连接 <span class="math display">\[
+LM = \{w = uv | u \in L \land v \in M\}
+\]</span></li>
+</ul>
 <h3 id="闭包">闭包</h3>
+<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
+class="math inline">\(L^*\)</span>。形式化的定义是：</p>
+<p><span class="math display">\[
+L^* = \bigcup_{i \ge 0}L^i
+\]</span></p>
+<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
+L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
+class="math inline">\(i\)</span> 个 <span
+class="math inline">\(L\)</span> 的连接。</p>
+<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
+class="math inline">\(L^*\)</span>
+通常是无穷的。<strong>仅有两个</strong>
+特殊的语言，它们的闭包是有限的。</p>
+<ul>
+<li><p><span class="math inline">\(\varnothing^*\)</span></p>
+<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
+class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
+class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
+class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
+<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
+<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
+无论连接多少次都不会改变它是 <span
+class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
+class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
+</ul>
 <h2 id="正则表达式的定义">正则表达式的定义</h2>
+<p>正则表达式仍然采用递归的定义方法：</p>
+<blockquote>
+<p>基础：</p>
+<ol type="1">
+<li><span class="math inline">\(\epsilon\)</span> 和 <span
+class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
+<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
+class="math inline">\(\varnothing\)</span>。也就是说，<span
+class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
+\varnothing\)</span>。</li>
+<li>若 <span class="math inline">\(a\)</span> 是任意
+<strong>符号</strong>，则 <span
+class="math inline">\(\textbf{a}\)</span>
+是正则表达式。这个表达式表示语言 <span
+class="math inline">\(\{a\}\)</span>。也就是说，<span
+class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
+</ol>
+<p>归纳：</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的并。也就是说，<span
+class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(EF\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
+class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
+class="math inline">\(E\)</span> 的闭包。也就是说，<span
+class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
+class="math inline">\(E\)</span> 相同的语言。也就是说 <span
+class="math inline">\((L(E)) = L(E)\)</span>。</li>
+</ol>
+</blockquote>
 <h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
+<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
+和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
+<pre><code class="highlight mermaid">graph LR
+A($NFA) --&gt; |1|B(DFA)
+B --&gt; |2|C($\epsilon$ - NFA)
+C --&gt; |3|B
+B --&gt; |4|D(RE)
+D --&gt; |5|C</code></pre>
+<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
 <h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
 <h3 id="消除状态法">消除状态法</h3>
 <h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
