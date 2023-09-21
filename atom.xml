@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-21T08:08:34.761Z</updated>
+  <updated>2023-09-21T08:16:48.000Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,11 +21,32 @@
     <link href="https://leverimmy.top/2023/09/29/IATLC-Chap5/"/>
     <id>https://leverimmy.top/2023/09/29/IATLC-Chap5/</id>
     <published>2023-09-29T02:50:23.000Z</published>
-    <updated>2023-09-21T08:08:34.761Z</updated>
+    <updated>2023-09-21T08:16:48.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第五章 上下文无关文法及上下文无关语言&lt;/strong&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;strong&gt;第五章 上下文无关文法及上下文无关语言&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上下文无关文法
+&lt;ul&gt;
+&lt;li&gt;上下文无关文法的定义&lt;/li&gt;
+&lt;li&gt;推理与推导&lt;/li&gt;
+&lt;li&gt;最左与最右推导&lt;/li&gt;
+&lt;li&gt;文法的语言&lt;/li&gt;
+&lt;li&gt;句型&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;语法分析树
+&lt;ul&gt;
+&lt;li&gt;语法分析树的构造&lt;/li&gt;
+&lt;li&gt;推理、推导与语法分析树的等价性&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;文法与语言的歧义性
+&lt;ul&gt;
+&lt;li&gt;歧义文法&lt;/li&gt;
+&lt;li&gt;去除文法的歧义性&lt;/li&gt;
+&lt;li&gt;固有歧义&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -45,11 +66,33 @@
     <link href="https://leverimmy.top/2023/09/20/IATLC-Chap4/"/>
     <id>https://leverimmy.top/2023/09/20/IATLC-Chap4/</id>
     <published>2023-09-20T02:50:23.000Z</published>
-    <updated>2023-09-21T08:08:32.385Z</updated>
+    <updated>2023-09-21T08:15:08.123Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第四章 正则语言的性质&lt;/strong&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;strong&gt;第四章 正则语言的性质&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;泵引理&lt;/li&gt;
+&lt;li&gt;正则语言的封闭性
+&lt;ul&gt;
+&lt;li&gt;并&lt;/li&gt;
+&lt;li&gt;补&lt;/li&gt;
+&lt;li&gt;交
+&lt;ul&gt;
+&lt;li&gt;乘积构造法&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;差&lt;/li&gt;
+&lt;li&gt;反转&lt;/li&gt;
+&lt;li&gt;同态&lt;/li&gt;
+&lt;li&gt;逆同态&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动机的等价性和最小化
+&lt;ul&gt;
+&lt;li&gt;测试状态的等价性&lt;/li&gt;
+&lt;li&gt;测试正则语言的等价性&lt;/li&gt;
+&lt;li&gt;DFA 的最小化&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -69,7 +112,7 @@
     <link href="https://leverimmy.top/2023/09/19/IATLC-Chap3/"/>
     <id>https://leverimmy.top/2023/09/19/IATLC-Chap3/</id>
     <published>2023-09-19T02:50:23.000Z</published>
-    <updated>2023-09-21T08:08:29.761Z</updated>
+    <updated>2023-09-21T08:12:13.915Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -88,6 +131,8 @@
 &lt;li&gt;消除状态法&lt;/li&gt;
 &lt;li&gt;由正则表达式构造 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; -
 NFA&lt;/li&gt;
+&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt;
+转移时的注意事项&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;正则表达式代数定律
 &lt;ul&gt;
