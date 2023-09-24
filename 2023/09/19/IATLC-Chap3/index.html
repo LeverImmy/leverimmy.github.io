@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-24T08:49:16.907Z">
+<meta property="article:modified_time" content="2023-09-24T09:08:15.513Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-24 16:49:16" itemprop="dateModified" datetime="2023-09-24T16:49:16+08:00">2023-09-24</time>
+      <time title="修改时间：2023-09-24 17:08:15" itemprop="dateModified" datetime="2023-09-24T17:08:15+08:00">2023-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -712,11 +712,11 @@ A --&gt; | $\epsilon$ | B((&quot; &quot;))
 A --&gt; | $\epsilon$ | D((&quot; &quot;))
 
 subgraph $R$
-B -.- C(((&quot; &quot;)))
+B -.- C((&quot; &quot;))
 end
 
 subgraph $S$
-D -.- E(((&quot; &quot;)))
+D -.- E((&quot; &quot;))
 end
 
 C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
@@ -753,6 +753,44 @@ A --&gt; | $\epsilon$ | D</code></pre>
 <span class="math inline">\(\epsilon\)</span> - NFA。</p>
 <h3 id="消除-epsilon-转移时的注意事项">消除 <span
 class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
+<p>在上述构造中，有些地方可以化简：</p>
+<ol type="1">
+<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B(((&quot; &quot;)))
+A -.- | $S$ | B
+end</code></pre></li>
+<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B((&quot; &quot;))
+B -.- | $S$ | C(((&quot; &quot;)))
+end</code></pre></li>
+<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
+class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
+A --&gt; | $\epsilon$ | B
+A -.- | $R$ | B
+end</code></pre></li>
+</ol>
+<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
+<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
+class="math inline">\(R + S^*\)</span>）。</p>
 <h2 id="正则表达式代数定律">正则表达式代数定律</h2>
 <p><span class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
 <!--### 代入规则
