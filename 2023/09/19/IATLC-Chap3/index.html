@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律  代入规则">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-24T03:36:55.307Z">
+<meta property="article:modified_time" content="2023-09-24T08:49:16.907Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-24 11:36:55" itemprop="dateModified" datetime="2023-09-24T11:36:55+08:00">2023-09-24</time>
+      <time title="修改时间：2023-09-24 16:49:16" itemprop="dateModified" datetime="2023-09-24T16:49:16+08:00">2023-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,11 +374,11 @@ class="math inline">\((L(E)) = L(E)\)</span>。</li>
 <p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
 和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
 <pre><code class="highlight mermaid">graph LR
-A($NFA) --&gt; |1|B(DFA)
-B --&gt; |2|C($\epsilon$ - NFA)
-C --&gt; |3|B
-B --&gt; |4|D(RE)
-D --&gt; |5|C</code></pre>
+A(NFA) --&gt; |1| B(DFA)
+B --&gt; |2| C($\epsilon$ - NFA)
+C --&gt; |3| B
+B --&gt; |4| D(RE)
+D --&gt; |5| C</code></pre>
 <p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
 <h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
 <p>我们想要解决的问题是：给定一个 DFA <span
@@ -431,11 +431,14 @@ R_{ij}^{(k-1)}\)</span>。</p></li>
 至少一次。 于是我们可以把整个路径分成几段：</p></li>
 </ol>
 <p><pre><code class="highlight mermaid">graph LR
-A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;|B((k))
+
+style ... fill:none,stroke-width:0px
+
+A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
 subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
 B((k)) --&gt; C((k))
-C((k)) --&gt; D((k))
-D((k)) --&gt; E((k))
+C((k)) --&gt; ...
+... --&gt; E((k))
 end
 E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
 <p>那么这种路径可以表示成正则表达式 <span
@@ -448,11 +451,306 @@ class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
 <p>比如考虑下图表示的 DFA：</p>
 <pre><code class="highlight mermaid">graph LR
 
+style Start fill:none,stroke-width:0px
 
-</code></pre>
+Start --&gt; A(($1$))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((($2$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>由 <strong>基础</strong> 部分可得：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
+class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
+<p><span class="math display">\[
+R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
+(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>又有</p>
+<p><span class="math display">\[
+R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
++ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(1)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0} +
+\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
+\mathbf{0} + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
++ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
++ \mathbf{1})^*\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
+class="math inline">\(2\)</span>
+是唯一一个接收状态，则整体的正则表达式为 <span
+class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span>。</p>
+<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
 <h3 id="消除状态法">消除状态法</h3>
+<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
+的方式来化简自动机。考虑下图中即将被消除的状态 <span
+class="math inline">\(s\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
+A --&gt; |$Q_1$| C(($s$))
+C --&gt; |$P_1$| B
+C --&gt; |$S$| C
+C --&gt; |$P_m$| E
+D --&gt; |$Q_k$| C
+D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
+<p>消除状态 <span class="math inline">\(s\)</span>
+时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
+相关的转移边。消除状态 <span class="math inline">\(s\)</span>
+后如下：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
+D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
+<p>从有穷自动构造正则表达式的策略如下：</p>
+<ol type="1">
+<li><p>对于每个接受状态 <span
+class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
+class="math inline">\(q\)</span> 和初始状态 <span
+class="math inline">\(q_0\)</span>
+之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
+<li><p>如果 <span class="math inline">\(q \neq
+q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
+<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot; &quot;))
+A --&gt; |$R$| A
+A --&gt; |$S$| B(((&quot; &quot;)))
+B --&gt; |$T$| A
+B --&gt; |$U$| B</code></pre></p></li>
+<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
+<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(((&quot; &quot;)))
+A --&gt; |$R$| A</code></pre></p></li>
+<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
+所得出的所有表达式之和（并）。</p></li>
+</ol>
 <h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
 class="math inline">\(\epsilon\)</span> - NFA</h3>
+<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
+class="math inline">\(\epsilon\)</span> - NFA。</p>
+<p><strong>基础</strong>：先构造 <span
+class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
+对应的三个自动机：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
+A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $\varnothing$
+A
+B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\mathbf&#123;a&#125;$&quot;
+A --&gt; | $a$ | B(((&quot; &quot;)))
+end</code></pre>
+<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
+S, RS, R^*\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+A --&gt; | $\epsilon$ | D((&quot; &quot;))
+
+subgraph $R$
+B -.- C(((&quot; &quot;)))
+end
+
+subgraph $S$
+D -.- E(((&quot; &quot;)))
+end
+
+C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
+E --&gt; | $\epsilon$ | F</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $R$
+A -.- B((&quot; &quot;))
+end
+
+B --&gt; | $\epsilon$ | C((&quot; &quot;))
+
+subgraph $S$
+C -.- D(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+
+subgraph $R$
+C --&gt; | $\epsilon$ | B
+B -.- C((&quot; &quot;))
+end
+
+C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
+A --&gt; | $\epsilon$ | D</code></pre>
+<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
+<span class="math inline">\(\epsilon\)</span> - NFA。</p>
 <h3 id="消除-epsilon-转移时的注意事项">消除 <span
 class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
 <h2 id="正则表达式代数定律">正则表达式代数定律</h2>
