@@ -66,7 +66,7 @@
     <link href="https://leverimmy.top/2023/09/20/IATLC-Chap4/"/>
     <id>https://leverimmy.top/2023/09/20/IATLC-Chap4/</id>
     <published>2023-09-20T02:50:23.000Z</published>
-    <updated>2023-09-24T09:17:13.747Z</updated>
+    <updated>2023-09-24T14:47:37.544Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -113,7 +113,7 @@
     <link href="https://leverimmy.top/2023/09/19/IATLC-Chap3/"/>
     <id>https://leverimmy.top/2023/09/19/IATLC-Chap3/</id>
     <published>2023-09-19T02:50:23.000Z</published>
-    <updated>2023-09-24T09:15:09.134Z</updated>
+    <updated>2023-09-24T14:04:13.033Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -134,10 +134,7 @@ NFA&lt;/li&gt;
 &lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt;
 转移时的注意事项&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;正则表达式代数定律
-&lt;ul&gt;
-&lt;li&gt;代入规则&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;正则表达式代数定律&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -158,7 +155,7 @@ NFA&lt;/li&gt;
     <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/"/>
     <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-Chap2/</id>
     <published>2023-09-17T06:49:56.000Z</published>
-    <updated>2023-09-21T09:03:29.825Z</updated>
+    <updated>2023-09-24T14:48:38.679Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -216,7 +213,7 @@ NFA&lt;/li&gt;
     <link href="https://leverimmy.top/2023/09/10/2023Summer-Java/"/>
     <id>https://leverimmy.top/2023/09/10/2023Summer-Java/</id>
     <published>2023-09-10T05:16:13.000Z</published>
-    <updated>2023-09-17T04:12:17.176Z</updated>
+    <updated>2023-09-26T05:14:58.948Z</updated>
     
     
     <summary type="html">&lt;p&gt;清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
@@ -226,13 +223,33 @@ href=&quot;https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNews
 下载地址&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;GitHub repo 在 &lt;a
 href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt; - NewsApp(头条大师) - 作业描述 - 代码结构 -
-具体实现 - 新闻详情获取 - 新闻列表上拉刷新下划加载 - 图片展示和视频播放
-- 修改列表分类时的抖动特效 - 新闻查找 -
-浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序 -
-对手机“返回键”行为的处理 - 遇到的问题及其解决方法 - JDK
-安装包重复导入的问题 - 如何通过报错信息查找 bug -
-查找新闻时的时间范围设置 - 视频播放问题 - repo 回滚 - 总结和心得&lt;/p&gt;</summary>
+&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NewsApp(头条大师)
+&lt;ul&gt;
+&lt;li&gt;作业描述&lt;/li&gt;
+&lt;li&gt;代码结构&lt;/li&gt;
+&lt;li&gt;具体实现
+&lt;ul&gt;
+&lt;li&gt;新闻详情获取&lt;/li&gt;
+&lt;li&gt;新闻列表上拉刷新下划加载&lt;/li&gt;
+&lt;li&gt;图片展示和视频播放&lt;/li&gt;
+&lt;li&gt;修改列表分类时的抖动特效&lt;/li&gt;
+&lt;li&gt;新闻查找&lt;/li&gt;
+&lt;li&gt;浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序&lt;/li&gt;
+&lt;li&gt;对手机“返回键”行为的处理&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;遇到的问题及其解决方法
+&lt;ul&gt;
+&lt;li&gt;JDK 安装包重复导入的问题&lt;/li&gt;
+&lt;li&gt;如何通过报错信息查找 bug&lt;/li&gt;
+&lt;li&gt;查找新闻时的时间范围设置&lt;/li&gt;
+&lt;li&gt;视频播放问题&lt;/li&gt;
+&lt;li&gt;repo 回滚&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;总结和心得&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -467,13 +484,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
