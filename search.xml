@@ -527,45 +527,62 @@ Q\)</span>！）</p>
 <h3 id="等值公式">等值公式</h3>
 <p><del>妈的，与和或之间没有交换律。</del></p>
 <ol type="1">
-<li><p><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
-R)\)</span> 不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
+<li><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
+R)\)</span></li>
+</ol>
+<p>不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
 class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
 class="math inline">\(\lnot P \lor \lnot Q \lor
-R\)</span>，二者不等。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow
-R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
-Q)\)</span> 当 <span class="math inline">\(P = Q = R =
-\mathrm{F}\)</span> 时，左式为假，右式为真。</p></li>
-<li><p><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to
-P = P\)</span> 十分合理，拆开发现是俩相同东西的或。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \land Q)
-\lor (\lnot P \land \lnot Q)\)</span> 这可解释为 <span
-class="math inline">\(P \leftrightarrow Q\)</span>
+R\)</span>，二者不等。</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow R)
+\neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
+Q)\)</span></li>
+</ol>
+<p>当 <span class="math inline">\(P = Q = R = \mathrm{F}\)</span>
+时，左式为假，右式为真。</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to P =
+P\)</span></li>
+</ol>
+<p>十分合理，拆开发现是俩相同东西的或。</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(P \leftrightarrow Q = (P \land Q) \lor
+(\lnot P \land \lnot Q)\)</span></li>
+</ol>
+<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
 为真，有两种可能的情形，即 <span class="math inline">\((P \land
 Q)\)</span> 为真，或 <span class="math inline">\((\lnot P \land \lnot
 Q)\)</span> 为真。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者同真同假。</p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot
-Q) \land (\lnot P \lor Q)\)</span> 这可解释为 <span
-class="math inline">\(P \leftrightarrow Q\)</span>
+<span class="math inline">\(Q\)</span> 二者同真同假。</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot Q)
+\land (\lnot P \lor Q)\)</span></li>
+</ol>
+<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
 为假，有两种可能的情形，即 <span class="math inline">\((P \lor \lnot
 Q)\)</span> 为假，或 <span class="math inline">\((\lnot P \lor
 Q)\)</span> 为假。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者真假不同。</p></li>
-<li><p><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
-R\)</span> <span class="math inline">\(P\)</span> 是 <span
+<span class="math inline">\(Q\)</span> 二者真假不同。</p>
+<ol start="6" type="1">
+<li><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
+R\)</span></li>
+</ol>
+<p><span class="math inline">\(P\)</span> 是 <span
 class="math inline">\((Q \to R)\)</span> 的前提，<span
 class="math inline">\(Q\)</span> 是 <span
 class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
-class="math inline">\((P \land Q)\)</span> 作为总的前提。</p></li>
-<li><p><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor
-Q) \to R\)</span> 左端说明由 <span class="math inline">\(P\)</span>
-而且由 <span class="math inline">\(Q\)</span> 都有 <span
+class="math inline">\((P \land Q)\)</span> 作为总的前提。</p>
+<ol start="7" type="1">
+<li><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor Q)
+\to R\)</span></li>
+</ol>
+<p>左端说明由 <span class="math inline">\(P\)</span> 而且由 <span
+class="math inline">\(Q\)</span> 都有 <span
 class="math inline">\(R\)</span> 成立，从而可以说明由 <span
 class="math inline">\(P\)</span> 或由 <span
 class="math inline">\(Q\)</span> 就有 <span
-class="math inline">\(R\)</span> 成立，即右端。</p></li>
-</ol>
+class="math inline">\(R\)</span> 成立，即右端。</p>
 <h3 id="section"></h3>
 <h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
 <h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
@@ -1136,45 +1153,6 @@ class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
-    <url>/2023/09/29/IATLC-Chap5/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第五章 上下文无关文法及上下文无关语言</strong></p>
-<ul>
-<li>上下文无关文法
-<ul>
-<li>上下文无关文法的定义</li>
-<li>推理与推导</li>
-<li>最左与最右推导</li>
-<li>文法的语言</li>
-<li>句型</li>
-</ul></li>
-<li>语法分析树
-<ul>
-<li>语法分析树的构造</li>
-<li>推理、推导与语法分析树的等价性</li>
-</ul></li>
-<li>文法与语言的歧义性
-<ul>
-<li>歧义文法</li>
-<li>去除文法的歧义性</li>
-<li>固有歧义</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="section"></h2>
-<h3 id="section-1"></h3>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
     <url>/2023/09/20/IATLC-Chap4/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -1388,6 +1366,57 @@ A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$
         <tag>自动机理论、语言和计算导论</tag>
         <tag>正则表达式</tag>
         <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
+    <url>/2023/09/29/IATLC-Chap5/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第五章 上下文无关文法及上下文无关语言</strong></p>
+<ul>
+<li>上下文无关文法
+<ul>
+<li>上下文无关文法的定义</li>
+<li>推理与推导</li>
+<li>最左与最右推导</li>
+<li>文法的语言</li>
+<li>句型</li>
+</ul></li>
+<li>语法分析树
+<ul>
+<li>语法分析树的构造</li>
+<li>推理、推导与语法分析树的等价性</li>
+</ul></li>
+<li>文法与语言的歧义性
+<ul>
+<li>歧义文法</li>
+<li>去除文法的歧义性</li>
+<li>固有歧义</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="上下文无关文法">上下文无关文法</h2>
+<h3 id="上下文无关文法的定义">上下文无关文法的定义</h3>
+<h3 id="推理与推导">推理与推导</h3>
+<h3 id="最左与最右推导">最左与最右推导</h3>
+<h3 id="文法的语言">文法的语言</h3>
+<h3 id="句型">句型</h3>
+<h2 id="语法分析树">语法分析树</h2>
+<h3 id="语法分析树的构造">语法分析树的构造</h3>
+<h3
+id="推理推导与语法分析树的等价性">推理、推导与语法分析树的等价性</h3>
+<h2 id="文法与语言的歧义性">文法与语言的歧义性</h2>
+<h3 id="歧义文法">歧义文法</h3>
+<h3 id="去除文法的歧义性">去除文法的歧义性</h3>
+<h3 id="固有歧义">固有歧义</h3>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
       </tags>
   </entry>
   <entry>
@@ -2264,6 +2293,23 @@ alt="监考老师们的合照" />
       </tags>
   </entry>
   <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
     <url>/2023/07/01/2023Chongqing-SocialPractice/</url>
     <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
@@ -2925,23 +2971,6 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
         <tag>璧山</tag>
         <tag>乡村振兴</tag>
         <tag>暑期实践</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
       </tags>
   </entry>
   <entry>
