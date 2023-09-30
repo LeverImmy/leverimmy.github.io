@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-28T05:47:16.936Z</updated>
+  <updated>2023-09-30T04:31:22.520Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://leverimmy.top/2023/09/29/IATLC-Chap5/"/>
     <id>https://leverimmy.top/2023/09/29/IATLC-Chap5/</id>
     <published>2023-09-29T02:50:23.000Z</published>
-    <updated>2023-09-28T05:47:16.936Z</updated>
+    <updated>2023-09-30T04:31:22.520Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;li&gt;上下文无关文法
 &lt;ul&gt;
 &lt;li&gt;上下文无关文法的定义&lt;/li&gt;
-&lt;li&gt;推理与推导&lt;/li&gt;
+&lt;li&gt;推导与递归推理&lt;/li&gt;
 &lt;li&gt;最左与最右推导&lt;/li&gt;
 &lt;li&gt;文法的语言&lt;/li&gt;
 &lt;li&gt;句型&lt;/li&gt;
@@ -38,7 +38,12 @@
 &lt;li&gt;语法分析树
 &lt;ul&gt;
 &lt;li&gt;语法分析树的构造&lt;/li&gt;
-&lt;li&gt;推理、推导与语法分析树的等价性&lt;/li&gt;
+&lt;li&gt;递归推理、推导与语法分析树的等价性
+&lt;ul&gt;
+&lt;li&gt;从递归推理到语法分析树&lt;/li&gt;
+&lt;li&gt;从语法分析树到最左推导&lt;/li&gt;
+&lt;li&gt;从最左推导到递归推理&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;文法与语言的歧义性
 &lt;ul&gt;
@@ -66,7 +71,7 @@
     <link href="https://leverimmy.top/2023/09/20/IATLC-Chap4/"/>
     <id>https://leverimmy.top/2023/09/20/IATLC-Chap4/</id>
     <published>2023-09-20T02:50:23.000Z</published>
-    <updated>2023-09-26T08:50:04.802Z</updated>
+    <updated>2023-09-30T01:56:17.176Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -105,7 +110,7 @@
     <link href="https://leverimmy.top/2023/09/19/IATLC-Chap3/"/>
     <id>https://leverimmy.top/2023/09/19/IATLC-Chap3/</id>
     <published>2023-09-19T02:50:23.000Z</published>
-    <updated>2023-09-24T14:04:13.033Z</updated>
+    <updated>2023-09-30T00:44:20.022Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;

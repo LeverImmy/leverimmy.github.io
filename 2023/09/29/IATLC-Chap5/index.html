@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推理与推导 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 推理、推导与语法分析树的等价性  文法与语言的歧义性  歧义文法 去除文法的歧义性 固有歧义">
+    <meta name="description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推导与递归推理 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 递归推理、推导与语法分析树的等价性  从递归推理到语法分析树 从语法分析树到最左推导 从最左推导到递归推理   文法与语言的歧义性  歧义文法 去除文法的歧义性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第五章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/29/IATLC-Chap5/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推理与推导 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 推理、推导与语法分析树的等价性  文法与语言的歧义性  歧义文法 去除文法的歧义性 固有歧义">
+<meta property="og:description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推导与递归推理 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 递归推理、推导与语法分析树的等价性  从递归推理到语法分析树 从语法分析树到最左推导 从最左推导到递归推理   文法与语言的歧义性  歧义文法 去除文法的歧义性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-29T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-28T05:47:16.936Z">
+<meta property="article:modified_time" content="2023-09-30T04:31:22.520Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">上下文无关文法的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.2.</span> <span class="nav-text">推理与推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B7%A6%E4%B8%8E%E6%9C%80%E5%8F%B3%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.3.</span> <span class="nav-text">最左与最右推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">1.4.</span> <span class="nav-text">文法的语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E5%9E%8B"><span class="nav-number">1.5.</span> <span class="nav-text">句型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">语法分析树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-number">2.1.</span> <span class="nav-text">语法分析树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E6%8E%A8%E5%AF%BC%E4%B8%8E%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">推理、推导与语法分析树的等价性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E4%B8%8E%E8%AF%AD%E8%A8%80%E7%9A%84%E6%AD%A7%E4%B9%89%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">文法与语言的歧义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A7%E4%B9%89%E6%96%87%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">歧义文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E6%96%87%E6%B3%95%E7%9A%84%E6%AD%A7%E4%B9%89%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">去除文法的歧义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E6%9C%89%E6%AD%A7%E4%B9%89"><span class="nav-number">3.3.</span> <span class="nav-text">固有歧义</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">上下文无关文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">上下文无关文法的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC%E4%B8%8E%E9%80%92%E5%BD%92%E6%8E%A8%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">推导与递归推理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B7%A6%E4%B8%8E%E6%9C%80%E5%8F%B3%E6%8E%A8%E5%AF%BC"><span class="nav-number">1.3.</span> <span class="nav-text">最左与最右推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">1.4.</span> <span class="nav-text">文法的语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E5%9E%8B"><span class="nav-number">1.5.</span> <span class="nav-text">句型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">语法分析树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-number">2.1.</span> <span class="nav-text">语法分析树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%8E%A8%E7%90%86%E6%8E%A8%E5%AF%BC%E4%B8%8E%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">递归推理、推导与语法分析树的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E9%80%92%E5%BD%92%E6%8E%A8%E7%90%86%E5%88%B0%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="nav-number">2.2.1.</span> <span class="nav-text">从递归推理到语法分析树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91%E5%88%B0%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.2.2.</span> <span class="nav-text">从语法分析树到推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E6%8E%A8%E5%AF%BC%E5%88%B0%E9%80%92%E5%BD%92%E6%8E%A8%E7%90%86"><span class="nav-number">2.2.3.</span> <span class="nav-text">从推导到递归推理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%B3%95%E4%B8%8E%E8%AF%AD%E8%A8%80%E7%9A%84%E6%AD%A7%E4%B9%89%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">文法与语言的歧义性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A7%E4%B9%89%E6%96%87%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">歧义文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E6%96%87%E6%B3%95%E7%9A%84%E6%AD%A7%E4%B9%89%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">去除文法的歧义性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E6%9C%89%E6%AD%A7%E4%B9%89"><span class="nav-number">3.3.</span> <span class="nav-text">固有歧义</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-28 13:47:16" itemprop="dateModified" datetime="2023-09-28T13:47:16+08:00">2023-09-28</time>
+      <time title="修改时间：2023-09-30 12:31:22" itemprop="dateModified" datetime="2023-09-30T12:31:22+08:00">2023-09-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,7 +274,7 @@
 <li>上下文无关文法
 <ul>
 <li>上下文无关文法的定义</li>
-<li>推理与推导</li>
+<li>推导与递归推理</li>
 <li>最左与最右推导</li>
 <li>文法的语言</li>
 <li>句型</li>
@@ -282,7 +282,12 @@
 <li>语法分析树
 <ul>
 <li>语法分析树的构造</li>
-<li>推理、推导与语法分析树的等价性</li>
+<li>递归推理、推导与语法分析树的等价性
+<ul>
+<li>从递归推理到语法分析树</li>
+<li>从语法分析树到最左推导</li>
+<li>从最左推导到递归推理</li>
+</ul></li>
 </ul></li>
 <li>文法与语言的歧义性
 <ul>
@@ -294,18 +299,297 @@
 <span id="more"></span>
 <h2 id="上下文无关文法">上下文无关文法</h2>
 <h3 id="上下文无关文法的定义">上下文无关文法的定义</h3>
-<h3 id="推理与推导">推理与推导</h3>
+<p>一个上下文无关文法（CFG）由四个重要部分组成：</p>
+<ol type="1">
+<li>一个有穷字母表 <span class="math inline">\(T\)</span>，由 <span
+class="math inline">\(T\)</span>
+中的字母构成了这个文法所定义的语言中的串，这个字母表称为
+<strong>终结符</strong>（Terminal）。</li>
+<li>一个 <strong>非终结符</strong> （Variable）的有穷集合 <span
+class="math inline">\(V\)</span>。</li>
+<li>有一个非终结符 <span class="math inline">\(S\)</span> 称为
+<strong>初始符号</strong>（Start
+Symbol），它代表语言开始被定义的地方。</li>
+<li>一个 <strong>产生式</strong> （Production）的有穷集合 <span
+class="math inline">\(P\)</span>，它用来表示语言的递归定义。每个产生式被定义为
+<code>&lt;head&gt; -&gt; &lt;body&gt;</code>，具体的构造过程是，保持终结符不变，把任何所有的
+<code>&lt;head&gt;</code> 替换成 <code>&lt;body&gt;</code>。</li>
+</ol>
+<p>一个上下文无关文法可以表示为 <span class="math inline">\(G = (V, T,
+P, S)\)</span>。</p>
+<hr />
+<p>以下是可以表示语言 <span class="math inline">\((\textbf{a}
++\textbf{b})(\textbf{a} + \textbf{b} + \textbf{0} +
+\textbf{1})^*\)</span> 的一个上下文无关文法。 <span
+class="math display">\[
+\begin{aligned}
+E &amp; \to I \\
+E &amp; \to E + E \\
+E &amp; \to E * E \\
+E &amp; \to (E) \\
+I &amp; \to a \\
+I &amp; \to b \\
+I &amp; \to Ia \\
+I &amp; \to Ib \\
+I &amp; \to I0 \\
+I &amp; \to I1
+\end{aligned}
+\]</span> 产生式可以使用简捷表示法，比如上面的产生式可以化简为： <span
+class="math display">\[
+\begin{aligned}
+E &amp; \to I | E + E | E * E | (E) \\
+I &amp; \to a | b | Ia | Ib | I0 | I1
+\end{aligned}
+\]</span></p>
+<h3 id="推导与递归推理">推导与递归推理</h3>
+<p><strong>推导</strong> 的过程通过符号 <span
+class="math inline">\(\implies\)</span> 表示。设 <span
+class="math inline">\(G = (V, T, P, S)\)</span> 为一个 CFG，<span
+class="math inline">\(\alpha A \beta\)</span>
+是一个包含终结符和非终结符的串，其中 <span
+class="math inline">\(A\)</span> 是一个非终结符，而 <span
+class="math inline">\(\alpha, \beta \in (V \cup T)^*\)</span>。设 <span
+class="math inline">\(A \to \gamma\)</span> 是一个产生式，则我们称 <span
+class="math inline">\(\alpha A \beta \underset{G}{\implies}
+\alpha\gamma\beta\)</span>。通常省略掉 <span
+class="math inline">\(G\)</span>，而仅仅记作 <span
+class="math inline">\(\alpha A \beta \implies
+\alpha\gamma\beta\)</span>。 多步推导则使用 <span
+class="math inline">\(\overset{*}{\implies}\)</span> 来表示。</p>
+<p><strong>递归推理</strong> 的过程类似于推导的逆过程，是从具体的
+<strong>产生式的体</strong> 递归到抽象的 <strong>产生式的头</strong>
+的过程。</p>
 <h3 id="最左与最右推导">最左与最右推导</h3>
+<p>在每一步推导中，如果要求只讲最左边的非终结符替换成该非终结符的某个产生式的体，那么这种方式的推导称为
+<strong>最左推导</strong>。类似地可以定义
+<strong>最右推导</strong>。最左推导和最右推导分别用 <span
+class="math inline">\(\underset{lm}{\implies},
+\underset{lm}{\overset{*}{\implies}}\)</span> 和 <span
+class="math inline">\(\underset{rm}{\implies},
+\underset{rm}{\overset{*}{\implies}}\)</span> 表示。</p>
+<p>个人认为，如果每次推导的时候按照随机的顺序来替换，那么整个推导的逻辑就会变得杂乱无章。最左推导和最右推导就限制了替换产生式的头的顺序：前者是从左往右，后者是从右往左。</p>
 <h3 id="文法的语言">文法的语言</h3>
+<p>对于 CFG <span class="math inline">\(G = (V, T, P,
+S)\)</span>，它的语言 <span class="math inline">\(L(G)\)</span>
+被定义为所有终结符串的集合： <span class="math display">\[
+L(G) = \{w \in T^* | S \underset{G}{\overset{*}{\implies}}w\}
+\]</span> 如果我们要证明某个文法 <span class="math inline">\(G\)</span>
+确实定义了某个已经非形式化定义好的语言 <span
+class="math inline">\(L\)</span>，通常需要分两步：</p>
+<ol type="1">
+<li>充分性：如果一个串 <span class="math inline">\(w \in L\)</span>
+满足这个非形式化定义的性质，那么 <span class="math inline">\(S
+\overset{*}{\implies}w\)</span>，来说明 <span class="math inline">\(w
+\in L(G)\)</span>。通常，我们通过 <strong>对 <span
+class="math inline">\(w\)</span> 的长度</strong> 进行归纳证明。</li>
+<li>必要性：如果 <span class="math inline">\(S
+\overset{*}{\implies}w\)</span>，那么 <span
+class="math inline">\(w\)</span> 应该满足这个非形式化定义的性质，来说明
+<span class="math inline">\(w \in L\)</span>。通常，我们需要
+<strong>对推导的步数</strong> 进行归纳证明。</li>
+</ol>
 <h3 id="句型">句型</h3>
+<p>由初始符号推导出来的串称为 <strong>句型</strong>（Sentence）。<span
+class="math inline">\(G = (V, T, P, S)\)</span> 的所有句型 <span
+class="math inline">\(\alpha\)</span> 组成的集合是 <span
+class="math display">\[
+\{\alpha \in (V \cup T)^* | S \overset{*}{\implies}\alpha\}
+\]</span> 另外，如果 <span class="math inline">\(S
+\underset{lm}{\overset{*}{\implies}} \alpha\)</span> 则 <span
+class="math inline">\(\alpha\)</span> 是左句型，如果 <span
+class="math inline">\(S \underset{rm}{\overset{*}{\implies}}
+\alpha\)</span> 则 <span class="math inline">\(\alpha\)</span>
+是右句型。句型可以包含非终结符。语言 <span
+class="math inline">\(L(G)\)</span> 是由所有属于 <span
+class="math inline">\(T^*\)</span> 的句型组成的。</p>
 <h2 id="语法分析树">语法分析树</h2>
 <h3 id="语法分析树的构造">语法分析树的构造</h3>
+<p>对于 CFG <span class="math inline">\(G = (V, T, P, S)\)</span>，<span
+class="math inline">\(G\)</span> 的 <strong>语法分析树</strong>
+是满足下列条件的树：</p>
+<ol type="1">
+<li>每个内部节点的标号是 <span class="math inline">\(V\)</span>
+中的一个非终结符。</li>
+<li>每个叶节点的标号可以是一个非终结符，一个终结符，或者 <span
+class="math inline">\(\epsilon\)</span>。但是，如果叶节点的标号是 <span
+class="math inline">\(\epsilon\)</span>，那么它一定是其父节点唯一的子节点。</li>
+<li>如果某个内部节点的标号是 <span
+class="math inline">\(A\)</span>，并且它的子节点的标号从左到右分别为
+<span class="math inline">\(X_1, X_2, \cdots, X_k\)</span>，那么 <span
+class="math inline">\(A \to X_1X_2\cdots X_k\)</span> 一定是 <span
+class="math inline">\(P\)</span> 中的一个产生式。注意：如果其中某个
+<span class="math inline">\(X\)</span> 为 <span
+class="math inline">\(\epsilon\)</span>，那么 <span
+class="math inline">\(X\)</span> 一定是 <span
+class="math inline">\(A\)</span> 唯一的子节点，并且 <span
+class="math inline">\(A \to \epsilon\)</span> 是 <span
+class="math inline">\(G\)</span> 的一个产生式。</li>
+</ol>
+<p>最重要的语法分析树，是那些 <strong>所有叶节点的标号都是终结符或 <span
+class="math inline">\(\epsilon\)</span>，且根节点的标号是初始符号</strong>
+的语法分析树。</p>
 <h3
-id="推理推导与语法分析树的等价性">推理、推导与语法分析树的等价性</h3>
+id="递归推理推导与语法分析树的等价性">递归推理、推导与语法分析树的等价性</h3>
+<pre><code class="highlight mermaid">graph LR
+
+A(语法分析树) --&gt; B(最左推导)
+A --&gt; C(最右推导)
+B --&gt; D(推导)
+C --&gt; D
+D --&gt; E(递归推理)
+E --&gt; A</code></pre>
+<p>其中从最左推导到推导是显然的，而最右推导相关箭头都与最左推导类似，因此我们只需要证明以下三个等价性：</p>
+<h4 id="从递归推理到语法分析树">从递归推理到语法分析树</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>。如果通过递归推理过程得出终结符串 <span
+class="math inline">\(w\)</span> 在非终结符 <span
+class="math inline">\(A\)</span> 的语言中，则一定存在一棵根为 <span
+class="math inline">\(A\)</span>、产物为 <span
+class="math inline">\(w\)</span> 的语法分析树。</p>
+<p><strong>证明</strong>：对推理的步数进行归纳。</p>
+<p>基础：</p>
+<p>归纳：</p>
+<h4 id="从语法分析树到推导">从语法分析树到推导</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>，假设有一棵语法分析树，它的根的标号为非终结符 <span
+class="math inline">\(A\)</span>，产物为 <span class="math inline">\(w
+\in T^*\)</span>。那么一定存在一个 <span
+class="math inline">\(G\)</span> 中的最左推导 <span
+class="math inline">\(A
+\underset{lm}{\overset{*}{\implies}}w\)</span>。</p>
+<p><strong>证明</strong>：对树的高度进行归纳。</p>
+<p>基础：</p>
+<p>归纳：</p>
+<h4 id="从推导到递归推理">从推导到递归推理</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>，假设有一个推导 <span class="math inline">\(A
+\underset{G}{\overset{*}{\implies}}w\)</span>，其中 <span
+class="math inline">\(w \in T^*\)</span>。那么应用于 <span
+class="math inline">\(G\)</span> 的递归推理过程决定了 <span
+class="math inline">\(w\)</span> 在非终结符 <span
+class="math inline">\(A\)</span> 的语言中。</p>
+<p><strong>证明</strong>：对推导 <span class="math inline">\(A
+\overset{*}{\implies}w\)</span> 的步数进行归纳。</p>
+<p>基础：</p>
+<p>归纳：</p>
 <h2 id="文法与语言的歧义性">文法与语言的歧义性</h2>
 <h3 id="歧义文法">歧义文法</h3>
+<p>一个 CFG <span class="math inline">\(G = (V, T, P, S)\)</span> 是
+<strong>歧义的</strong>，如果 <span class="math inline">\(\exists w \in
+T^*\)</span> 使得有两棵不同的语法分析树满足根为 <span
+class="math inline">\(S\)</span> 且产物为 <span
+class="math inline">\(w\)</span>。</p>
+<p>正如这篇博文最初给的例子，当产物 <span class="math inline">\(w = a +
+a * a\)</span> 时，有两棵语法分析树：</p>
+<pre><code class="highlight mermaid">graph TD
+
+subgraph &quot; &quot;
+style S1 stroke:none,fill:none
+style A1 stroke:none,fill:none
+style B1 stroke:none,fill:none
+style C1 stroke:none,fill:none
+style D1 stroke:none,fill:none
+style E1 stroke:none,fill:none
+style F1 stroke:none,fill:none
+style G1 stroke:none,fill:none
+style H1 stroke:none,fill:none
+style I1 stroke:none,fill:none
+style J1 stroke:none,fill:none
+style K1 stroke:none,fill:none
+style L1 stroke:none,fill:none
+
+S1(E) --&gt; A1(E)
+S1 --&gt; B1(+)
+S1 --&gt; C1(E)
+A1 --&gt; D1(I)
+D1 --&gt; E1(a)
+C1 --&gt; F1(E)
+C1 --&gt; G1(*)
+C1 --&gt; H1(E)
+F1 --&gt; I1(I)
+I1 --&gt; J1(a)
+H1 --&gt; K1(I)
+K1 --&gt; L1(a)
+end
+
+subgraph &quot; &quot;
+style S2 stroke:none,fill:none
+style A2 stroke:none,fill:none
+style B2 stroke:none,fill:none
+style C2 stroke:none,fill:none
+style D2 stroke:none,fill:none
+style E2 stroke:none,fill:none
+style F2 stroke:none,fill:none
+style G2 stroke:none,fill:none
+style H2 stroke:none,fill:none
+style I2 stroke:none,fill:none
+style J2 stroke:none,fill:none
+style K2 stroke:none,fill:none
+style L2 stroke:none,fill:none
+
+S2(E) --&gt; A2(E)
+S2 --&gt; B2(*)
+S2 --&gt; C2(E)
+A2 --&gt; D2(E)
+A2 --&gt; E2(+)
+A2 --&gt; F2(E)
+D2 --&gt; G2(I)
+G2 --&gt; H2(a)
+F2 --&gt; I2(I)
+I2 --&gt; J2(a)
+C2 --&gt; K2(I)
+K2 --&gt; L2(a)
+end
+</code></pre>
+<p>这说明该文法是歧义的。</p>
+<hr />
+<p>注意，并不是多种推导导致了歧义性，而是存在多棵不同的语法分析树导致的。比如</p>
+<ol type="1">
+<li><span class="math inline">\(E \implies E + E \implies I + E \implies
+a + E \implies a + I \implies a + b\)</span></li>
+<li><span class="math inline">\(E \implies E + E \implies E + I \implies
+E + b \implies I + b \implies a + b\)</span></li>
+</ol>
+<p>这两个推导所提供的结构并没有本质的区别，它们对应同一棵语法分析树。</p>
 <h3 id="去除文法的歧义性">去除文法的歧义性</h3>
+<p><strong>不存在算法能够判定某个文法的歧义性。</strong>而且，存在一些文法，对它们而言只存在歧义的文法（即
+<a href="#固有歧义">固有歧义</a>
+的文法）。对于这篇博文最初给的例子而言，有两个缺陷导致了文法的歧义性：</p>
+<ol type="1">
+<li>没有考虑运算符的优先级。我们需要使所有的 <span
+class="math inline">\(*\)</span> 操作在 <span
+class="math inline">\(+\)</span> 操作之前被结合。</li>
+<li>一系列运算符既可从左到右也可以从右到左地结合。事实上，即使我们正确地保持了运算符优先级，<span
+class="math inline">\(E+E+E\)</span>
+仍然会得到两棵不同的语法分析树。一个习惯的做法是坚持从左到右地结合，我们需要通过一些结构来固定这个顺序。</li>
+</ol>
+<p>事实上，我们可以引入几个不同的非终结符，来解决强制优先级的问题：</p>
+<ol type="1">
+<li><strong>因子</strong>（Factor）是不能被相邻的运算符（包括 <span
+class="math inline">\(*\)</span> 和 <span
+class="math inline">\(+\)</span>）打断的表达式。在此例中，因子只会是标识符
+<span class="math inline">\(I\)</span>
+以及任何被括号括起来的表达式。</li>
+<li><strong>项</strong>（Term）是不能被相邻的 <span
+class="math inline">\(+\)</span>
+打断的表达式。在此例中，项只会是一个或多个因子的乘积。</li>
+<li><strong>表达式</strong>（Expression）是指任何可能得串，其中包含可以被相邻的
+<span class="math inline">\(*\)</span> 或 <span
+class="math inline">\(+\)</span>
+打断的表达式。在此例中，表达式就是一个或多个项的和。</li>
+</ol>
+<p>修改之后的 CFG 如下：</p>
+<p><span class="math display">\[
+\begin{aligned}
+I &amp; \to a | b | Ia | Ib | I0 | I1 \\
+F &amp; \to I | (E) \\
+T &amp; \to F | T * F \\
+E &amp; \to T | E + T
+\end{aligned}
+\]</span></p>
 <h3 id="固有歧义">固有歧义</h3>
+<p>如果一个上下文无关语言 <span class="math inline">\(L\)</span>
+的所有文法都是歧义的，那么我们称它是 <strong>固有歧义</strong> 的。</p>
 
     </div>
 
