@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-30T05:36:56.490Z</updated>
+  <updated>2023-09-30T05:39:30.363Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <link href="https://leverimmy.top/2023/09/30/IATLC-Chap6/"/>
+    <id>https://leverimmy.top/2023/09/30/IATLC-Chap6/</id>
+    <published>2023-09-30T05:38:23.000Z</published>
+    <updated>2023-09-30T05:39:30.363Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第六章 下推自动机&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="自动机理论、语言和计算导论" scheme="https://leverimmy.top/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%90%86%E8%AE%BA%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/"/>
+    
+    <category term="上下文无关文法" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/"/>
+    
+    <category term="上下文无关语言" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="下推自动机" scheme="https://leverimmy.top/tags/%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
@@ -303,23 +332,18 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
     <link href="https://leverimmy.top/2023/07/20/CSAO-Chap1/"/>
     <id>https://leverimmy.top/2023/07/20/CSAO-Chap1/</id>
     <published>2023-07-20T11:39:27.000Z</published>
-    <updated>2023-08-12T06:57:36.983Z</updated>
+    <updated>2023-09-30T05:40:27.028Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第一章 数据存储&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;逻辑门&lt;/li&gt;
-&lt;li&gt;十六进制&lt;/li&gt;
+&lt;li&gt;C 中的字符常量&lt;/li&gt;
 &lt;li&gt;二进制中的补码与余码
 &lt;ul&gt;
 &lt;li&gt;补码记数法&lt;/li&gt;
 &lt;li&gt;余码记数法&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;浮点数及其规范化形式
-&lt;ul&gt;
-&lt;li&gt;浮点数的二进制表示&lt;/li&gt;
-&lt;li&gt;浮点数的规范化形式&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
@@ -329,10 +353,6 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
     
     
     <category term="计算机科学概论" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA/"/>
-    
-    <category term="二进制" scheme="https://leverimmy.top/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
-    <category term="浮点数" scheme="https://leverimmy.top/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/"/>
     
   </entry>
   
