@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推导与递归推理 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 递归推理、推导与语法分析树的等价性  从递归推理到语法分析树 从语法分析树到最左推导 从最左推导到递归推理   文法与语言的歧义性  歧义文法 去除文法的歧义性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-29T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-30T04:31:22.520Z">
+<meta property="article:modified_time" content="2023-09-30T05:36:56.490Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-30 12:31:22" itemprop="dateModified" datetime="2023-09-30T12:31:22+08:00">2023-09-30</time>
+      <time title="修改时间：2023-09-30 13:36:56" itemprop="dateModified" datetime="2023-09-30T13:36:56+08:00">2023-09-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -447,8 +447,61 @@ class="math inline">\(A\)</span> 的语言中，则一定存在一棵根为 <spa
 class="math inline">\(A\)</span>、产物为 <span
 class="math inline">\(w\)</span> 的语法分析树。</p>
 <p><strong>证明</strong>：对推理的步数进行归纳。</p>
-<p>基础：</p>
-<p>归纳：</p>
+<p>基础：如果该推理只有一步，则该推理过程只需要基础，因此一定存在产生式
+<span class="math inline">\(A \to w\)</span>。这样就能构造出：</p>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+
+A --&gt; B($w_1$)
+A --&gt; C(...)
+A --&gt; D($w_k$)</code></pre>
+<p>其中 <span class="math inline">\(w = w_1w_2 \cdots w_k\)</span>。</p>
+<p>归纳：假定在 <span class="math inline">\(n + 1\)</span>
+个推理步骤之后能够得出 <span class="math inline">\(w\)</span> 在 <span
+class="math inline">\(A\)</span> 的语言里这个事实，并且这个定理对于使得
+<span class="math inline">\(B\)</span> 的语言中的 <span
+class="math inline">\(x\)</span> 成员用小于等于 <span
+class="math inline">\(n\)</span> 步推理推得的所有串 <span
+class="math inline">\(x\)</span> 和非终结符 <span
+class="math inline">\(B\)</span> 成立。考虑得出 <span
+class="math inline">\(w\)</span> 在 <span
+class="math inline">\(A\)</span>
+的语言里的这个推理的最后一步，这一步使用了 <span
+class="math inline">\(A\)</span> 的某个产生式，不妨设为 <span
+class="math inline">\(A \to X_1X_2 \cdots X_k\)</span>，其中 <span
+class="math inline">\(X_i\)</span> 是一个终结符或非终结符。</p>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
+class="math inline">\(X_i = w_i\)</span>。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
+class="math inline">\(w_i\)</span> 是一个先前推理出在 <span
+class="math inline">\(X_i\)</span> 语言中的串，而由于 <span
+class="math inline">\(A \to X_1X_2 \cdots X_k\)</span> 消耗了 <span
+class="math inline">\(1\)</span> 步，所以 <span
+class="math inline">\(w_i\)</span> 在 <span
+class="math inline">\(X_i\)</span> 中的推导最多只会有 <span
+class="math inline">\(n\)</span> 步，根据归纳假设则可得出存在一个根为
+<span class="math inline">\(X_i\)</span>，产物为 <span
+class="math inline">\(w\)</span> 的语法分析树。</li>
+</ul>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+style E stroke:none,fill:none
+style F stroke:none,fill:none
+
+A --&gt; B($X_1$)
+A --&gt; C(...)
+A --&gt; D($X_k$)
+B -.- E($w_1$)
+D -.- F($w_k$)</code></pre>
 <h4 id="从语法分析树到推导">从语法分析树到推导</h4>
 <p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
 P, S)\)</span>，假设有一棵语法分析树，它的根的标号为非终结符 <span
@@ -457,9 +510,35 @@ class="math inline">\(A\)</span>，产物为 <span class="math inline">\(w
 class="math inline">\(G\)</span> 中的最左推导 <span
 class="math inline">\(A
 \underset{lm}{\overset{*}{\implies}}w\)</span>。</p>
-<p><strong>证明</strong>：对树的高度进行归纳。</p>
-<p>基础：</p>
-<p>归纳：</p>
+<p><strong>证明</strong>：对树的高度进行归纳。设 <span
+class="math inline">\(w = w_1w_2\cdots w_k\)</span>。</p>
+<p>基础：如果树高为 <span class="math inline">\(1\)</span>，那么 <span
+class="math inline">\(G\)</span> 一定包含 <span class="math inline">\(A
+\to w\)</span> 这一产生式，最左推导可以单步完成，即为 <span
+class="math inline">\(A \underset{lm}{\implies}w\)</span>。</p>
+<p>归纳：如果树高为 <span class="math inline">\(n\)</span>，其中 <span
+class="math inline">\(n &gt; 1\)</span>，且定理对所有树高小于 <span
+class="math inline">\(n\)</span> 的树成立。考虑树：</p>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+
+A --&gt; B($X_1$)
+A --&gt; C(...)
+A --&gt; D($X_k$)</code></pre>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么定义
+<span class="math inline">\(w_i\)</span> 为只包含 <span
+class="math inline">\(X_i\)</span> 的串。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
+class="math inline">\(X_i\)</span> 一定是一个树高小于 <span
+class="math inline">\(n\)</span>
+的子树的根节点，因此通过归纳假设，存在一个最左推导 <span
+class="math inline">\(X_i \underset{lm}{\implies}w_i\)</span>。</li>
+</ul>
 <h4 id="从推导到递归推理">从推导到递归推理</h4>
 <p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
 P, S)\)</span>，假设有一个推导 <span class="math inline">\(A
@@ -470,8 +549,29 @@ class="math inline">\(w\)</span> 在非终结符 <span
 class="math inline">\(A\)</span> 的语言中。</p>
 <p><strong>证明</strong>：对推导 <span class="math inline">\(A
 \overset{*}{\implies}w\)</span> 的步数进行归纳。</p>
-<p>基础：</p>
-<p>归纳：</p>
+<p>基础：如果该推导只有一步，那么 <span class="math inline">\(A \to
+w\)</span> 一定是一个产生式。由于 <span class="math inline">\(w\)</span>
+只包含终结符，因此 <span class="math inline">\(w\)</span> 一定在 <span
+class="math inline">\(A\)</span> 的语言中。</p>
+<p>归纳：假设该推导包含 <span class="math inline">\(n + 1\)</span>
+步，并且假定对于所有少于或等于 <span class="math inline">\(n\)</span>
+步的推导来说命题都成立。把推导写为 <span class="math inline">\(A
+\implies X_1X_2\cdots X_k \overset{*}{\implies}w = w_1w_2\cdots
+w_k\)</span>。</p>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
+class="math inline">\(w_i = X_i\)</span>。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么有
+<span class="math inline">\(X_i
+\overset{*}{\implies}w_i\)</span>，这是因为这个推导的步数少于或等于
+<span class="math inline">\(n\)</span> 步。</li>
+</ul>
+<p>现在已经有了产生式 <span class="math inline">\(A \to X_1X_2\cdots
+X_k\)</span>，且对于 <span class="math inline">\(w = w_1w_2\cdots
+w_k\)</span> 有 <span class="math inline">\(w_i\)</span> 在 <span
+class="math inline">\(X_i\)</span> 的语言中。下一步即得 <span
+class="math inline">\(w = w_1w_2\cdots w_k\)</span> 在 <span
+class="math inline">\(A\)</span> 的语言中。</p>
 <h2 id="文法与语言的歧义性">文法与语言的歧义性</h2>
 <h3 id="歧义文法">歧义文法</h3>
 <p>一个 CFG <span class="math inline">\(G = (V, T, P, S)\)</span> 是
