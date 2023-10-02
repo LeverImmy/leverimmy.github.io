@@ -539,22 +539,171 @@ R)\}\)</span>。</li>
 <h3 id="偏序关系">偏序关系</h3>
 <h3 id="全序关系和良序关系">全序关系和良序关系</h3>
 <h2 id="第11章-函数">第11章 函数</h2>
-<h3 id="函数的定义">函数的定义</h3>
+<h3 id="函数的定义与性质">函数的定义与性质</h3>
+<div class="note primary"><h4 id="定义函数">定义：函数</h4>
+<p>对集合 <span class="math inline">\(A\)</span> 到集合 <span
+class="math inline">\(B\)</span> 的关系 <span
+class="math inline">\(f\)</span>，若满足以下条件：</p>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\forall y_1)(\forall
+y_2)((xfy_1 \land xfy_2) \to y_1 = y_2)\)</span></li>
+<li><span class="math inline">\((\forall x)(x \in A \to (\exists y)(y
+\in B \land xfy))\)</span></li>
+</ol>
+<p>则称 <span class="math inline">\(f\)</span> 为从 <span
+class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的 <strong>函数</strong>。</p>
+</div>
+<p>第一个条件是为了保证 <span class="math inline">\(f\)</span>
+的单值性，第二个条件是为了保证 <span class="math inline">\(f\)</span>
+的定义域内的所有 <span class="math inline">\(x\)</span> 都能有象。</p>
+<div class="note primary"><h4 id="定义所有函数的集合">定义：所有函数的集合</h4>
+<p>对集合 <span class="math inline">\(A\)</span> 到集合 <span
+class="math inline">\(B\)</span>，从 <span
+class="math inline">\(A\)</span> 到 <span
+class="math inline">\(B\)</span> 的 <strong>所有函数的集合</strong> 记为
+<span class="math inline">\(A_B\)</span>。形式化地， <span
+class="math display">\[
+A_B = \{f|f:A\to B\}
+\]</span></p>
+</div>
+<p>若 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 都是有限集合，且 <span
+class="math inline">\(|A| = m, |B| = n\)</span>，则 <span
+class="math inline">\(|A_B| = n^m\)</span>。因此，<span
+class="math inline">\(\varnothing_\varnothing = \varnothing_B =
+\{\varnothing\}, A_\varnothing = \varnothing(A \neq
+\varnothing)\)</span>。</p>
+<div class="note info"><h4 id="性质函数">性质：函数</h4>
+<ol type="1">
+<li>若 <span class="math inline">\(f \circ g\)</span> 为满射，则 <span
+class="math inline">\(f\)</span> 为满射。</li>
+<li>若 <span class="math inline">\(f \circ g\)</span> 为单射，则 <span
+class="math inline">\(g\)</span> 为单射。</li>
+<li>若 <span class="math inline">\(f \circ g\)</span> 为双射，则 <span
+class="math inline">\(f\)</span> 为满射，<span
+class="math inline">\(g\)</span> 为单射。</li>
+</ol>
+</div>
+<p>“单看里，满看外。”性质 3 是 性质 1 和性质 2 的直接推论。</p>
 <h3 id="选择公理">选择公理</h3>
+<div class="note default"><h4 id="公理选择公理">公理：选择公理</h4>
+<p>对任意的关系 <span class="math inline">\(R\)</span>，存在函数 <span
+class="math inline">\(f\)</span>，使得 <span class="math inline">\(f
+\subseteq R\)</span> 且 <span class="math inline">\(\text{dom}(f) =
+\text{dom}(R)\)</span>。</p>
+</div>
+<p>一般的关系 <span class="math inline">\(R\)</span>
+不一定有单值性，所以不一定是函数；但对每个原象，我们只选取 <span
+class="math inline">\(R\)</span> 中对应的一个象，将这个映射组合放到
+<span class="math inline">\(f\)</span> 中。这样构造出的函数 <span
+class="math inline">\(f\)</span>，满足 <span class="math inline">\(f
+\subseteq R\)</span> 且 <span class="math inline">\(\text{dom}(f) =
+\text{dom}(R)\)</span>。</p>
 <h3 id="函数的相容性">函数的相容性</h3>
+<div class="note primary"><h4 id="定义函数的相容性">定义：函数的相容性</h4>
+<ul>
+<li>设 <span class="math inline">\(f:A\to B, g:C \to
+D\)</span>，如果对任意的 <span class="math inline">\(x \in A \cap
+C\)</span> 都有 <span class="math inline">\(f(x) = g(x)\)</span>，则称
+<span class="math inline">\(f\)</span> 和 <span
+class="math inline">\(g\)</span> 是 <strong>相容的</strong>。</li>
+<li>若函数的集合 <span class="math inline">\(C\)</span>
+满足其中任意两个函数都是相容的，则称 <span
+class="math inline">\(C\)</span> 是相容的。</li>
+</ul>
+</div>
+<div class="note default"><h4 id="定理函数的相容性的等价条件">定理：函数的相容性的等价条件</h4>
+<p>设 <span class="math inline">\(f:A\to B, g:C \to D\)</span>，则 <span
+class="math inline">\(f\)</span> 和 <span
+class="math inline">\(g\)</span> 是相容的当且仅当 <span
+class="math inline">\(f \cup g\)</span> 是函数。</p>
+</div>
+<p>这两个说法都在叙述同样的一件事：两函数定义域相交的部分是单值的。</p>
 <h3 id="函数与等价关系的相容性">函数与等价关系的相容性</h3>
+<div class="note primary"><h4 id="定义函数与等价关系的相容性">定义：函数与等价关系的相容性</h4>
+<p>设 <span class="math inline">\(R\)</span> 是 <span
+class="math inline">\(A\)</span> 上的等价关系，且 <span
+class="math inline">\(f:A \to A\)</span>，如果对任意的 <span
+class="math inline">\(x , y \in A\)</span> 都有 <span
+class="math inline">\(\left&lt;x, y\right&gt; \in R \implies
+\left&lt;f(x), f(y)\right&gt; \in R\)</span>，则称关系 <span
+class="math inline">\(R\)</span> 与函数 <span
+class="math inline">\(f\)</span> 是相容的。</p>
+</div>
+<p>这个相容的等价关系诱导出一个 <span class="math inline">\(A/R\)</span>
+上的自映射 <span class="math inline">\(F = \{\left&lt;[x]_R,
+[f(x)]_R\right&gt; | x \in A\}\)</span>。感性地理解，就是等价关系将
+<span class="math inline">\(A\)</span> 分成了很多个连通块，而函数 <span
+class="math inline">\(f\)</span>
+也能被抽象成连通块间的函数（而不导致矛盾）。</p>
 <h3 id="特征函数与模糊子集">特征函数与模糊子集</h3>
-<h4 id="定义特征函数">定义：特征函数</h4>
-<h4 id="定义模糊子集">定义：模糊子集</h4>
-<h4 id="模糊子集的运算">模糊子集的运算</h4>
+<div class="note primary"><h4 id="定义特征函数">定义：特征函数</h4>
+<p>设 <span class="math inline">\(E\)</span> 是全集，对 <span
+class="math inline">\(A \subseteq E\)</span>，定义 <span
+class="math inline">\(A\)</span> 的 <strong>特征函数</strong> 为 <span
+class="math display">\[
+\chi_A:E \to \{0, 1\}, \chi_A(a) = \begin{cases}1, a \in A, \\ 0,
+a\notin A. \end{cases}
+\]</span></p>
+</div>
+<div class="note primary"><h4 id="定义模糊子集">定义：模糊子集</h4>
+<p>设 <span class="math inline">\(E\)</span> 是论域，<span
+class="math inline">\(E\)</span> 上的一个<strong>模糊子集</strong> <span
+class="math inline">\(\underset{\sim}{A}\)</span> 是指：存在一个函数
+<span class="math inline">\(\mu_{\underset{\sim}{A}}:E \to [0,
+1]\)</span>，并称 <span
+class="math inline">\(\mu_{\underset{\sim}{A}}\)</span> 为 <span
+class="math inline">\(\underset{\sim}{A}\)</span> 的
+<strong>隶属函数</strong>。</p>
+</div>
+<p>这个定义说明，<span
+class="math inline">\(\mu_{\underset{\sim}{A}}(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 属于 <span
+class="math inline">\(\underset{\sim}{A}\)</span> 的程度。<span
+class="math inline">\(\mu_{\underset{\sim}{A}}(x) = 1\)</span> 表示
+<span class="math inline">\(x \in \underset{\sim}{A}\)</span>，<span
+class="math inline">\(\mu_{\underset{\sim}{A}} = 0\)</span> 表示 <span
+class="math inline">\(x \notin \underset{\sim}{A}\)</span>。<span
+class="math inline">\(0 &lt; \mu_{\underset{\sim}{A}}(x) &lt; 1\)</span>
+表示 <span class="math inline">\(x\)</span> 在一定程度上属于 <span
+class="math inline">\(\underset{\sim}{A}\)</span>，此时 <span
+class="math inline">\(x \in \underset{\sim}{A}\)</span> 和 <span
+class="math inline">\(x \notin \underset{\sim}{A}\)</span>
+都不成立。</p>
+<div class="note info"><h4 id="性质模糊子集">性质：模糊子集</h4>
+<p>设 <span class="math inline">\(E\)</span> 是全集，<span
+class="math inline">\(F(E)\)</span> 表示 <span
+class="math inline">\(E\)</span> 上全体模糊子集组成的集合，<span
+class="math inline">\(\underset{\sim}{A}, \underset{\sim}{B} \in
+F(E)\)</span>，则 <span class="math inline">\(\underset{\sim}{A} \cup
+\underset{\sim}{B}, \underset{\sim}{A} \cap \underset{\sim}{B},
+-\underset{\sim}{A}\)</span> 具有下列隶属函数：</p>
+<ol type="1">
+<li><span class="math inline">\(\mu_{\underset{\sim}{A} \cup
+\underset{\sim}{B}}(x) = \max\{\mu_{\underset{\sim}{A}}(x),
+\mu_{\underset{\sim}{B}}(x)\}\)</span></li>
+<li><span class="math inline">\(\mu_{\underset{\sim}{A} \cap
+\underset{\sim}{B}}(x) = \min\{\mu_{\underset{\sim}{A}}(x),
+\mu_{\underset{\sim}{B}}(x)\}\)</span></li>
+<li><span class="math inline">\(\mu_{-\underset{\sim}{A}}(x) = 1 -
+\mu_{\underset{\sim}{A}}(x)\)</span></li>
+</ol>
+</div>
 <h3 id="截集和分解定理">截集和分解定理</h3>
-<h4 id="定义截集">定义：截集</h4>
-<h4 id="性质截集">性质：截集</h4>
-<h4 id="定理分解定理">定理：分解定理</h4>
+<div class="note primary"><h4 id="定义截集">定义：截集</h4>
+</div>
+<div class="note info"><h4 id="性质截集">性质：截集</h4>
+</div>
+<div class="note default"><h4 id="定理分解定理">定理：分解定理</h4>
+</div>
 <h3 id="支集边界和核">支集、边界和核</h3>
-<h4 id="定义截集-1">定义：截集</h4>
-<h4 id="定义边界">定义：边界</h4>
-<h4 id="定义核">定义：核</h4>
+<div class="note primary"><h4 id="定义截集">定义：截集</h4>
+</div>
+<div class="note primary"><h4 id="定义边界">定义：边界</h4>
+</div>
+<div class="note primary"><h4 id="定义核">定义：核</h4>
+</div>
 <h2 id="第12章-实数集合与集合的基数">第12章 实数集合与集合的基数</h2>
 ]]></content>
       <categories>
@@ -1601,6 +1750,26 @@ class="math inline">\(D\)</span> 接受。</p>
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <url>/2023/09/30/IATLC-Chap6/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第六章 下推自动机</strong></p>
+<ul>
+<li></li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
     <url>/2023/09/29/IATLC-Chap5/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2036,26 +2205,6 @@ E &amp; \to T | E + T
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
-    <url>/2023/09/30/IATLC-Chap6/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第六章 下推自动机</strong></p>
-<ul>
-<li></li>
-</ul>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
     <url>/2023/09/20/IATLC-Chap4/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2272,79 +2421,6 @@ A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="逻辑门">逻辑门</h2>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="c-中的字符常量">C 中的字符常量</h2>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
-<h3 id="补码记数法">补码记数法</h3>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法">余码记数法</h3>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】计算机科学概论 - 第十二章</title>
     <url>/2023/07/26/CSAO-Chap12/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2493,249 +2569,76 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr />
-<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
-350 \mathrm{ min}\)</span> <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
 <span id="more"></span>
-<h2 id="准备工作">准备工作</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
-alt="@全体成员" />
-<figcaption aria-hidden="true"><span class="citation"
-data-cites="全体成员">@全体成员</span></figcaption>
-</figure>
-<p><del>（后面两次@没有<span class="citation"
-data-cites="上">@上</span>）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<h2 id="物理">物理</h2>
-<p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
+<h2 id="逻辑门">逻辑门</h2>
 <figure>
 <img
-src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
-alt="物理卷子T2" />
-<figcaption aria-hidden="true">物理卷子T2</figcaption>
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
 </figure>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
-alt="物理卷子T6" />
-<figcaption aria-hidden="true">物理卷子T6</figcaption>
-</figure>
-<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
-的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
-<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
-class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
-class="math inline">\(2G\)</span>。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 <span
-class="math inline">\(\dfrac{1}{3}\)</span>
-准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学">化学</h2>
-<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
-alt="化学卷子P1,P2" />
-<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
-</figure>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
-<span class="math inline">\(3\)</span> 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
-alt="笑谈化学卷子" />
-<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
-</figure>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭">吃午饭</h2>
-<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
-data-cites="数学">@数学</span></p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学">数学</h2>
-<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
-alt="细致入微" />
-<figcaption aria-hidden="true">细致入微</figcaption>
-</figure>
-<p>写了几道能力范围之内的题目。</p>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
 <blockquote>
-<ol type="1">
-<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
-<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
-是一个完全平方数.</li>
-</ol>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
 </blockquote>
-<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
-class="math inline">\(4\)</span> 就可以知道 <span
-class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
-class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
-<blockquote>
-<ol start="6" type="1">
-<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
-<span class="math inline">\(xyz = 1\)</span>，证明： <span
-class="math display">\[
-\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \le 1
-\]</span></li>
-</ol>
-</blockquote>
-<p>注意到 <span class="math display">\[
-\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
-\]</span> 则 <span class="math display">\[
-\begin{aligned}
-&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \\\\
-\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
-\dfrac{1}{z^2+zx+1} \\\\
-= &amp; 1
-\end{aligned}
-\]</span></p>
-<blockquote>
-<ol start="7" type="1">
-<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
-d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
-class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
-n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
-1\)</span>.</li>
-</ol>
-</blockquote>
-<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
-<span class="math inline">\(3 \nmid n\)</span>。因 <span
-class="math inline">\(m\)</span> 为完全平方数，则 <span
-class="math inline">\(\alpha\)</span> 必为偶数。</p>
-<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
-class="math inline">\(3\nmid n\)</span>，则 <span
-class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
-class="math inline">\(d_{\alpha} = 1\)</span>。</p>
-<hr />
-<p>当我不知道干啥的时候，我看到了这个</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
-alt="来了来了" />
-<figcaption aria-hidden="true">来了来了</figcaption>
-</figure>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
-<p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭">吃晚饭</h2>
-<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
-alt="海底捞吃饭前" />
-<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
-</figure>
-<p>吃吃吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
-alt="杯盘狼藉" />
-<figcaption aria-hidden="true">杯盘狼藉</figcaption>
-</figure>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
-alt="椰子" />
-<figcaption aria-hidden="true">椰子</figcaption>
-</figure>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结">总结</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
-alt="监考老师们的合照" />
-<figcaption aria-hidden="true">监考老师们的合照</figcaption>
-</figure>
-<p>嗝。</p>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="c-中的字符常量">C 中的字符常量</h2>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
+<h3 id="补码记数法">补码记数法</h3>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法">余码记数法</h3>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
 ]]></content>
       <categories>
-        <category>游记</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
-        <tag>生活</tag>
+        <tag>计算机科学概论</tag>
       </tags>
   </entry>
   <entry>
@@ -3113,6 +3016,252 @@ alt="蒸橙子" />
       <tags>
         <tag>生活</tag>
         <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr />
+<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
+350 \mathrm{ min}\)</span> <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+<span id="more"></span>
+<h2 id="准备工作">准备工作</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
+alt="@全体成员" />
+<figcaption aria-hidden="true"><span class="citation"
+data-cites="全体成员">@全体成员</span></figcaption>
+</figure>
+<p><del>（后面两次@没有<span class="citation"
+data-cites="上">@上</span>）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<h2 id="物理">物理</h2>
+<p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
+alt="物理卷子T2" />
+<figcaption aria-hidden="true">物理卷子T2</figcaption>
+</figure>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
+alt="物理卷子T6" />
+<figcaption aria-hidden="true">物理卷子T6</figcaption>
+</figure>
+<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
+的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
+<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
+class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
+class="math inline">\(2G\)</span>。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 <span
+class="math inline">\(\dfrac{1}{3}\)</span>
+准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学">化学</h2>
+<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
+alt="化学卷子P1,P2" />
+<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
+</figure>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
+<span class="math inline">\(3\)</span> 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
+alt="笑谈化学卷子" />
+<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
+</figure>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭">吃午饭</h2>
+<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
+data-cites="数学">@数学</span></p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学">数学</h2>
+<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
+alt="细致入微" />
+<figcaption aria-hidden="true">细致入微</figcaption>
+</figure>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol type="1">
+<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
+<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
+是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
+class="math inline">\(4\)</span> 就可以知道 <span
+class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
+class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<blockquote>
+<ol start="6" type="1">
+<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
+<span class="math inline">\(xyz = 1\)</span>，证明： <span
+class="math display">\[
+\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \le 1
+\]</span></li>
+</ol>
+</blockquote>
+<p>注意到 <span class="math display">\[
+\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
+\]</span> 则 <span class="math display">\[
+\begin{aligned}
+&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \\\\
+\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
+\dfrac{1}{z^2+zx+1} \\\\
+= &amp; 1
+\end{aligned}
+\]</span></p>
+<blockquote>
+<ol start="7" type="1">
+<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
+d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
+class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
+n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
+1\)</span>.</li>
+</ol>
+</blockquote>
+<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
+<span class="math inline">\(3 \nmid n\)</span>。因 <span
+class="math inline">\(m\)</span> 为完全平方数，则 <span
+class="math inline">\(\alpha\)</span> 必为偶数。</p>
+<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
+class="math inline">\(3\nmid n\)</span>，则 <span
+class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
+class="math inline">\(d_{\alpha} = 1\)</span>。</p>
+<hr />
+<p>当我不知道干啥的时候，我看到了这个</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
+alt="来了来了" />
+<figcaption aria-hidden="true">来了来了</figcaption>
+</figure>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
+<p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭">吃晚饭</h2>
+<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
+alt="海底捞吃饭前" />
+<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
+</figure>
+<p>吃吃吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
+alt="杯盘狼藉" />
+<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+</figure>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
+alt="椰子" />
+<figcaption aria-hidden="true">椰子</figcaption>
+</figure>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结">总结</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
+alt="监考老师们的合照" />
+<figcaption aria-hidden="true">监考老师们的合照</figcaption>
+</figure>
+<p>嗝。</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
       </tags>
   </entry>
   <entry>
@@ -3780,14 +3929,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
@@ -3797,14 +3946,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
