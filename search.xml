@@ -724,29 +724,30 @@ class="math inline">\(\underset{\sim}{A} \in F(E), \lambda \in [0,
 <span class="math inline">\(A_\lambda\)</span> 的特征函数，则 <span
 class="math display">\[
 \mu_{\underset{\sim}{A}}(u) = \sup_{\lambda \in [0, 1]}\{\inf\{\lambda,
-\chi_{A_\lambda}\}\}
+\chi_{A_\lambda}(u)\}\}
 \]</span></p>
 </div>
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{\lambda \in [0, 1]}\{\inf\{\lambda, \chi_{A_\lambda}\}\} =
 \max\{&amp; \sup_{\lambda \in [0,
-\mu_{\underset{\sim}{A}}]}\{\inf\{\lambda, \chi_{A_\lambda}\}\}, \\
-&amp; \sup_{\lambda \in [\mu_{\underset{\sim}{A}}, 1]}\{\inf\{\lambda,
-\chi_{A_\lambda}\}\} &amp; \}
+\mu_{\underset{\sim}{A}}(u)]}\{\inf\{\lambda, \chi_{A_\lambda}(u)\}\},
+\\
+&amp; \sup_{\lambda \in [\mu_{\underset{\sim}{A}}(u),
+1]}\{\inf\{\lambda, \chi_{A_\lambda}(u)\}\} &amp; \}
 \end{aligned}
 \]</span> 当 <span class="math inline">\(\mu_{\underset{\sim}{A}}(u)
 &lt; \lambda \le 1\)</span> 时，<span class="math inline">\(u \notin
 A_{\lambda}\)</span>，则 <span class="math inline">\(\chi_{A_\lambda}(u)
-= 0, \inf\{\lambda, \chi_{A_\lambda}\} = 0\)</span>。所以 <span
+= 0, \inf\{\lambda, \chi_{A_\lambda}(u)\} = 0\)</span>。所以 <span
 class="math display">\[
 \begin{aligned}
-\sup_{\lambda \in [0, 1]}\{\inf\{\lambda, \chi_{A_\lambda}\}\} &amp; =
-\sup_{\lambda \in [0, \mu_{\underset{\sim}{A}}]}\{\inf\{\lambda,
-\chi_{A_\lambda}\}\} \\
-&amp; = \sup_{\lambda \in [0, \mu_{\underset{\sim}{A}}]}\{\inf\{\lambda,
-1\}\} \\
-&amp; = \sup_{\lambda \in [0, \mu_{\underset{\sim}{A}}]}\lambda \\
+\sup_{\lambda \in [0, 1]}\{\inf\{\lambda, \chi_{A_\lambda}(u)\}\} &amp;
+= \sup_{\lambda \in [0, \mu_{\underset{\sim}{A}}(u)]}\{\inf\{\lambda,
+\chi_{A_\lambda}(u)\}\} \\
+&amp; = \sup_{\lambda \in [0,
+\mu_{\underset{\sim}{A}}(u)]}\{\inf\{\lambda, 1\}\} \\
+&amp; = \sup_{\lambda \in [0, \mu_{\underset{\sim}{A}}(u)]}\lambda \\
 &amp; = \mu_{\underset{\sim}{A}}(u)
 \end{aligned}
 \]</span> <div class="note primary"><h4 id="定义支集核和边界">定义：支集、核和边界</h4>
@@ -1710,6 +1711,26 @@ E &amp; \to T | E + T
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <url>/2023/09/30/IATLC-Chap6/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第六章 下推自动机</strong></p>
+<ul>
+<li></li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
     <url>/2023/09/19/IATLC-Chap3/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2258,26 +2279,6 @@ class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
-    <url>/2023/09/30/IATLC-Chap6/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第六章 下推自动机</strong></p>
-<ul>
-<li></li>
-</ul>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
     <url>/2023/09/20/IATLC-Chap4/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2494,79 +2495,6 @@ A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="逻辑门">逻辑门</h2>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="c-中的字符常量">C 中的字符常量</h2>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
-<h3 id="补码记数法">补码记数法</h3>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法">余码记数法</h3>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】计算机科学概论 - 第十二章</title>
     <url>/2023/07/26/CSAO-Chap12/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2712,6 +2640,79 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
         <tag>计算理论</tag>
         <tag>Bare Bones</tag>
         <tag>RSA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="逻辑门">逻辑门</h2>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="c-中的字符常量">C 中的字符常量</h2>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
+<h3 id="补码记数法">补码记数法</h3>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法">余码记数法</h3>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
       </tags>
   </entry>
   <entry>
@@ -4002,14 +4003,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
@@ -4019,14 +4020,14 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
 <p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
 <span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
 ]]></content>
       <categories>
         <category>教材习题解答</category>
