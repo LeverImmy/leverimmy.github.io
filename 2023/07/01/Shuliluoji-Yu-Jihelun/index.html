@@ -27,7 +27,7 @@
 <meta property="og:description" content="摘要待填。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-01T13:34:22.000Z">
-<meta property="article:modified_time" content="2023-10-02T05:05:19.395Z">
+<meta property="article:modified_time" content="2023-10-02T05:15:23.697Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="离散数学">
 <meta property="article:tag" content="数理逻辑">
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 13:05:19" itemprop="dateModified" datetime="2023-10-02T13:05:19+08:00">2023-10-02</time>
+      <time title="修改时间：2023-10-02 13:15:23" itemprop="dateModified" datetime="2023-10-02T13:15:23+08:00">2023-10-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -668,8 +668,44 @@ B\)</span> 且 <span class="math inline">\(A \cap B =
 \]</span></p>
 </div>
 <p>正则公理是说，任意非空集合都有极小元。</p>
-<div class="note info">
+<div class="note info"><h4 id="推论正则公理">推论：正则公理</h4>
+<ol type="1">
+<li>对任意的集合 <span class="math inline">\(A\)</span>，<span
+class="math inline">\(A \notin A\)</span>。</li>
+<li>对任何非空的传递集合 <span class="math inline">\(A\)</span>，有
+<span class="math inline">\(\varnothing \in A\)</span>。</li>
+</ol>
 </div>
+<p><strong>推论 1</strong>：</p>
+<p>假设存在集合 <span class="math inline">\(A\)</span>，使得 <span
+class="math inline">\(A \in A\)</span>，则构造 <span
+class="math inline">\(\{A\}\)</span>。由正则公理知 <span
+class="math inline">\(\{A\}\)</span> 一定有极小元，而 <span
+class="math inline">\(\{A\}\)</span>
+是一个单元素集合，所以极小元只可能为 <span
+class="math inline">\(A\)</span>。但是 <span class="math inline">\(A \in
+A\)</span> 所以 <span class="math inline">\(A \cap \{A\} = A\)</span>
+不满足极小元的定义，产生矛盾。故 <span class="math inline">\(A \notin
+A\)</span>。</p>
+<p><strong>推论 2</strong>：</p>
+<p>假设存在一个非空传递集合 <span class="math inline">\(A\)</span> 满足
+<span class="math inline">\(\varnothing \notin A\)</span>。由正则公理知
+<span class="math inline">\(A\)</span> 中一定存在极小元 <span
+class="math inline">\(y\)</span>，满足 <span class="math inline">\(y \in
+A \land y \cap A = \varnothing\)</span>。因为 <span
+class="math inline">\(\varnothing \notin A\)</span>，故 <span
+class="math inline">\(y \neq \varnothing\)</span>。由正则公理知 <span
+class="math inline">\(y\)</span> 中一定存在极小元 <span
+class="math inline">\(z\)</span>，满足 <span class="math inline">\(z \in
+y \land z \cap y = \varnothing\)</span>。由于 <span
+class="math inline">\(A\)</span> 是传递集合，且 <span
+class="math inline">\(z \in y \land y \in A\)</span>，所以 <span
+class="math inline">\(z \in A\)</span>。又因为 <span
+class="math inline">\(z \in y\)</span>，因此 <span
+class="math inline">\(y \cap A\)</span> 至少包含 <span
+class="math inline">\(z\)</span>，则 <span class="math inline">\(y \cap
+A \neq \varnothing\)</span>，不满足极小元的定义，产生矛盾。故 <span
+class="math inline">\(\varnothing \in A\)</span>。</p>
 <div class="note primary"><h4 id="定义奇异集合">定义：奇异集合</h4>
 <p>如果集合 <span class="math inline">\(A\)</span> 中有集合的序列 <span
 class="math inline">\(A_0 \in A, A_1 \in A, \cdots, A_n \in
@@ -727,8 +763,8 @@ class="math display">\[
 <ul>
 <li><span class="math inline">\(R\)</span> 在 <span
 class="math inline">\(A\)</span> 上的限制 <span class="math inline">\(R
-A = \{\left&lt;x, y\right&gt; | \left&lt;x, y\right&gt; \in R \land x
-\in A\}\)</span>。</li>
+\upharpoonright A = \{\left&lt;x, y\right&gt; | \left&lt;x, y\right&gt;
+\in R \land x \in A\}\)</span>。</li>
 <li><span class="math inline">\(A\)</span> 在 <span
 class="math inline">\(R\)</span> 下的象 <span class="math inline">\(R[A]
 = \{y | (\exists x)(x \in A \land \left&lt;x, y\right&gt; \in
