@@ -113,558 +113,9 @@ class="math inline">\(R\)</span> 成立，即右端。</p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
-    <url>/2023/09/19/IATLC-Chap3/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第三章 正则表达式与正则语言</strong></p>
-<ul>
-<li>正则表达式的运算符
-<ul>
-<li>并与连接</li>
-<li>闭包</li>
-</ul></li>
-<li>正则表达式的定义</li>
-<li>自动机与正则表达式间的关系
-<ul>
-<li>由 DFA 构建正则表达式</li>
-<li>消除状态法</li>
-<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
-NFA</li>
-<li>消除 <span class="math inline">\(\epsilon\)</span>
-转移时的注意事项</li>
-</ul></li>
-<li>正则表达式代数定律</li>
-</ul>
-<span id="more"></span>
-<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
-<h3 id="并与连接">并与连接</h3>
-<ul>
-<li>并 <span class="math display">\[
-L \cup M = \{w | w \in L \lor w \in M\}
-\]</span></li>
-<li>连接 <span class="math display">\[
-LM = \{w = uv | u \in L \land v \in M\}
-\]</span></li>
-</ul>
-<h3 id="闭包">闭包</h3>
-<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
-class="math inline">\(L^*\)</span>。形式化的定义是：</p>
-<p><span class="math display">\[
-L^* = \bigcup_{i \ge 0}L^i
-\]</span></p>
-<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
-L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
-class="math inline">\(i\)</span> 个 <span
-class="math inline">\(L\)</span> 的连接。</p>
-<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
-class="math inline">\(L^*\)</span>
-通常是无穷的。<strong>仅有两个</strong>
-特殊的语言，它们的闭包是有限的。</p>
-<ul>
-<li><p><span class="math inline">\(\varnothing^*\)</span></p>
-<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
-class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
-class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
-class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
-<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
-<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
-无论连接多少次都不会改变它是 <span
-class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
-class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
-</ul>
-<h2 id="正则表达式的定义">正则表达式的定义</h2>
-<p>正则表达式仍然采用递归的定义方法：</p>
-<p><strong>基础</strong>：</p>
-<ol type="1">
-<li><span class="math inline">\(\epsilon\)</span> 和 <span
-class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
-<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
-class="math inline">\(\varnothing\)</span>。也就是说，<span
-class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
-\varnothing\)</span>。</li>
-<li>若 <span class="math inline">\(a\)</span> 是任意
-<strong>符号</strong>，则 <span
-class="math inline">\(\textbf{a}\)</span>
-是正则表达式。这个表达式表示语言 <span
-class="math inline">\(\{a\}\)</span>。也就是说，<span
-class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
-</ol>
-<p><strong>归纳</strong>：</p>
-<ol type="1">
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的并。也就是说，<span
-class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(EF\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
-class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
-class="math inline">\(E\)</span> 的闭包。也就是说，<span
-class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
-class="math inline">\(E\)</span> 相同的语言。也就是说 <span
-class="math inline">\((L(E)) = L(E)\)</span>。</li>
-</ol>
-<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
-<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
-和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
-<pre><code class="highlight mermaid">graph LR
-A(NFA) --&gt; |1| B(DFA)
-B --&gt; |2| C($\epsilon$ - NFA)
-C --&gt; |3| B
-B --&gt; |4| D(RE)
-D --&gt; |5| C</code></pre>
-<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
-<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
-<p>我们想要解决的问题是：给定一个 DFA <span
-class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
-L(A)\)</span>，求一个正则表达式 <span
-class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
-L(R)\)</span>。</p>
-<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
-class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
-class="math inline">\(1\)</span> 为初始状态。设 <span
-class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
-class="math inline">\(w\)</span> 所组成的集合：<span
-class="math inline">\(w\)</span> 是 <span
-class="math inline">\(A\)</span> 中从状态 <span
-class="math inline">\(i\)</span> 到状态 <span
-class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
-<span class="math inline">\(k\)</span> 的
-<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
-和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
-class="math inline">\(k\)</span>。</p>
-<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
-class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
-class="math inline">\(j\)</span> 为一个接受状态。</p>
-<p>仍然考虑使用递归的思路来推导 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
-<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
-时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
-以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
-<ul>
-<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
-class="math inline">\(R_{ii}^{(0)} = \epsilon + \textbf{a}_1 +
-\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
-class="math inline">\(i\)</span> 有自环 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
-class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
-\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
-到状态 <span class="math inline">\(j\)</span> 有 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-</ul>
-<p><strong>归纳</strong>：假设有 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
-<ol type="1">
-<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
-这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
-R_{ij}^{(k-1)}\)</span>。</p></li>
-<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
-至少一次。 于是我们可以把整个路径分成几段：</p></li>
-</ol>
-<p><pre><code class="highlight mermaid">graph LR
-
-style ... fill:none,stroke-width:0px
-
-A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
-subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
-B((k)) --&gt; C((k))
-C((k)) --&gt; ...
-... --&gt; E((k))
-end
-E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
-<p>那么这种路径可以表示成正则表达式 <span
-class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。</p>
-<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
-1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
-class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
-<p>比如考虑下图表示的 DFA：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($1$))
-A --&gt; |$1$| A
-A --&gt; |$0$| B((($2$)))
-B --&gt; |$0, 1$| B</code></pre>
-<p>由 <strong>基础</strong> 部分可得：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
-class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
-<p><span class="math display">\[
-R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
-(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
-\mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>又有</p>
-<p><span class="math display">\[
-R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
-+ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(1)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0} +
-\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
-\mathbf{0} + \mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
-+ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
-+ \mathbf{1})^*\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
-class="math inline">\(2\)</span>
-是唯一一个接收状态，则整体的正则表达式为 <span
-class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span>。</p>
-<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
-<h3 id="消除状态法">消除状态法</h3>
-<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
-的方式来化简自动机。考虑下图中即将被消除的状态 <span
-class="math inline">\(s\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
-A --&gt; |$Q_1$| C(($s$))
-C --&gt; |$P_1$| B
-C --&gt; |$S$| C
-C --&gt; |$P_m$| E
-D --&gt; |$Q_k$| C
-D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
-<p>消除状态 <span class="math inline">\(s\)</span>
-时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
-相关的转移边。消除状态 <span class="math inline">\(s\)</span>
-后如下：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
-D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
-<p>从有穷自动构造正则表达式的策略如下：</p>
-<ol type="1">
-<li><p>对于每个接受状态 <span
-class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
-class="math inline">\(q\)</span> 和初始状态 <span
-class="math inline">\(q_0\)</span>
-之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
-<li><p>如果 <span class="math inline">\(q \neq
-q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
-<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A((&quot; &quot;))
-A --&gt; |$R$| A
-A --&gt; |$S$| B(((&quot; &quot;)))
-B --&gt; |$T$| A
-B --&gt; |$U$| B</code></pre></p></li>
-<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
-<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(((&quot; &quot;)))
-A --&gt; |$R$| A</code></pre></p></li>
-<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
-所得出的所有表达式之和（并）。</p></li>
-</ol>
-<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
-class="math inline">\(\epsilon\)</span> - NFA</h3>
-<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
-class="math inline">\(\epsilon\)</span> - NFA。</p>
-<p><strong>基础</strong>：先构造 <span
-class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
-对应的三个自动机：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
-A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $\varnothing$
-A
-B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\mathbf&#123;a&#125;$&quot;
-A --&gt; | $a$ | B(((&quot; &quot;)))
-end</code></pre>
-<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
-S, RS, R^*\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
-A --&gt; | $\epsilon$ | D((&quot; &quot;))
-
-subgraph $R$
-B -.- C((&quot; &quot;))
-end
-
-subgraph $S$
-D -.- E((&quot; &quot;))
-end
-
-C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
-E --&gt; | $\epsilon$ | F</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $R$
-A -.- B((&quot; &quot;))
-end
-
-B --&gt; | $\epsilon$ | C((&quot; &quot;))
-
-subgraph $S$
-C -.- D(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
-
-subgraph $R$
-C --&gt; | $\epsilon$ | B
-B -.- C((&quot; &quot;))
-end
-
-C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
-A --&gt; | $\epsilon$ | D</code></pre>
-<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
-<span class="math inline">\(\epsilon\)</span> - NFA。</p>
-<h3 id="消除-epsilon-转移时的注意事项">消除 <span
-class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
-<p>在上述构造中，有些地方可以化简：</p>
-<ol type="1">
-<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B(((&quot; &quot;)))
-A -.- | $S$ | B
-end</code></pre></li>
-<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B((&quot; &quot;))
-B -.- | $S$ | C(((&quot; &quot;)))
-end</code></pre></li>
-<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
-class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
-A --&gt; | $\epsilon$ | B
-A -.- | $R$ | B
-end</code></pre></li>
-</ol>
-<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
-<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
-class="math inline">\(R + S^*\)</span>）。</p>
-<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
-是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
-的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
-m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
-的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
-形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
-class="math inline">\(\forall w = w_1w_2\cdots w_k \in
-L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
-都属于任意的语言之一（如 <span
-class="math inline">\(L_{j_i}\)</span>），都有 <span
-class="math inline">\(w\)</span> 对应的正则表达式 <span
-class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
-<span class="math inline">\(L(C)\)</span>。</p>
-<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
-<p><del>附赠一个可能会有用的公式</del> <span
-class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数理逻辑与集合论 - 第九至十二章</title>
     <url>/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</url>
-    <content><![CDATA[<p>这是《数理逻辑与集合论（第 2
-版）》第九至十二章的学习笔记，主要内容为集合论。</p>
+    <content><![CDATA[<p>这是《数理逻辑与集合论（第2版）》第九至十二章的学习笔记，主要内容为集合论。</p>
 <span id="more"></span>
 <h2 id="第9章-集合">第9章 集合</h2>
 <h3 id="集合间的关系">集合间的关系</h3>
@@ -1014,7 +465,7 @@ A\)</span>，使得 <span class="math display">\[
 </ol>
 </div>
 <p><strong>性质 1</strong>：</p>
-<p>设 <span class="math inline">\(A\)</span>​ 为奇异集合，取序列 <span
+<p>设 <span class="math inline">\(A\)</span> 为奇异集合，取序列 <span
 class="math inline">\(A_0 \in A, A_1 \in A, \cdots, A_n \in
 A\)</span>，使得 <span class="math display">\[
 \cdots \in A_{n + 1} \in A_n \in A_{n - 1} \in \cdots \in A_2 \in A_1
@@ -1921,8 +1372,11 @@ class="math inline">\(\mathbb{Q}\)</span></h4>
 class="math inline">\(Q_1\)</span> 对等价关系 <span
 class="math inline">\(\simeq\)</span> 的商集，则称 <span
 class="math inline">\(\mathbb{Q}\)</span> 的元素为
-<strong>有理数</strong>，一般用 <span class="math inline">\(a/b\)</span>
-表示 <span class="math inline">\(\mathbb{Q}\)</span> 中的元素 <span
+<strong>有理数</strong>，称 <span
+class="math inline">\(\mathbb{Q}\)</span> 为
+<strong>有理数集合</strong>。</p>
+<p>一般用 <span class="math inline">\(a/b\)</span> 表示 <span
+class="math inline">\(\mathbb{Q}\)</span> 中的元素 <span
 class="math inline">\([\left&lt;a,
 b\right&gt;]_{\simeq}\)</span>。习惯上取 <span class="math inline">\(a,
 b\)</span> 为互素的整数，且 <span class="math inline">\(b &gt;
@@ -1942,7 +1396,7 @@ c/d\)</span> 当且仅当 <span class="math inline">\(a \cdot d
 上定义小于关系 <span class="math inline">\(&lt;_{\mathbb{Q}}\)</span>
 为：</p></li>
 </ul>
-<p>​ 对任意的 <span class="math inline">\(xa/b, c/d \in
+<p>​ 对任意的 <span class="math inline">\(a/b, c/d \in
 \mathbb{Q}\)</span>，<span class="math inline">\(a/b &lt;_{\mathbb{Q}}
 c/d\)</span> 当且仅当 <span class="math inline">\((a/b \le_{\mathbb{Q}}
 c/d) \land (a/b \neq c/d)\)</span>。</p>
@@ -1950,7 +1404,68 @@ c/d) \land (a/b \neq c/d)\)</span>。</p>
 <h3 id="实数集合-mathbbr">实数集合 <span
 class="math inline">\(\mathbb{R}\)</span></h3>
 <div class="note primary"><h4 id="定义基本函数">定义：基本函数</h4>
+<p>如果 <span class="math inline">\(f:\mathbb{N} \to \mathbb{Q}\)</span>
+满足条件：</p>
+<ol type="1">
+<li><span class="math inline">\((\exists x)(x \in \mathbb{Q} \land
+(\forall n)(n \in \mathbb{N} \to \left|f(n)\right| &lt;
+x))\)</span></li>
+<li><span class="math inline">\((\exists n)(n \in \mathbb{N} \land
+(\forall m)(\forall i)((m \in \mathbb{N} \land i \in \mathbb{N} \land n
+\le m \land n \le i \land m \le i) \to (f(m) \le f(i))))\)</span></li>
+</ol>
+<p>则称 <span class="math inline">\(f\)</span> 是一个
+<strong>基本函数</strong>，或 <strong>有界非递减函数</strong>。记 <span
+class="math inline">\(B\)</span> 为由所有基本函数组成的集合。</p>
+<p>在 <span class="math inline">\(B\)</span> 上定义等价关系 <span
+class="math inline">\(\simeq\)</span> 为对任意的 <span
+class="math inline">\(f, g \in B\)</span>，有： <span
+class="math display">\[
+f \simeq g \iff (\forall \epsilon)((\epsilon \in \mathbb{Q} \land
+\epsilon &gt; 0) \to (\exists n)(n \in \mathbb{N} \land (\forall m)((m
+\in \mathbb{N} \land n \le m) \to \left|f(m) - f(n)\right| &lt;
+\epsilon)))
+\]</span></p>
 </div>
+<p>直观上说，<span class="math inline">\(f \simeq g\)</span> 等价于
+<span class="math inline">\(f\)</span> 和 <span
+class="math inline">\(g\)</span> 的极限相同。</p>
+<div class="note primary"><h4 id="定义实数集合-mathbbr">定义：实数集合 <span
+class="math inline">\(\mathbb{R}\)</span></h4>
+<p>令 <span class="math inline">\(\mathbb{R} = B / \simeq\)</span>，即
+<span class="math inline">\(\mathbb{R}\)</span> 是集合 <span
+class="math inline">\(B\)</span> 对等价关系 <span
+class="math inline">\(\simeq\)</span> 的商集，则称 <span
+class="math inline">\(\mathbb{R}\)</span> 的元素为
+<strong>实数</strong>，称 <span
+class="math inline">\(\mathbb{R}\)</span> 为
+<strong>实数集合</strong>。</p>
+</div>
+<div class="note primary"><h4 id="定义mathbbr-上的偏序关系">定义：<span
+class="math inline">\(\mathbb{R}\)</span> 上的偏序关系</h4>
+<ul>
+<li><p>在集合 <span class="math inline">\(\mathbb{R}\)</span>
+上定义小于关系 <span class="math inline">\(&lt;_{\mathbb{R}}\)</span>
+为：</p>
+<p>对任意的 <span class="math inline">\(f, g \in B\)</span>，<span
+class="math inline">\(f &lt;_{\mathbb{R}} g\)</span> 当且仅当 <span
+class="math display">\[
+(\exists \epsilon)((\epsilon \in \mathbb{Q} \land 0 &lt; \epsilon) \land
+(\exists n)(n \in \mathbb{N} \land (\forall m)((m \in \mathbb{N} \land n
+\le m) \to (g(m) - f(m) &gt; \epsilon))))
+\]</span></p></li>
+<li><p>在集合 <span class="math inline">\(\mathbb{R}\)</span>
+上定义小于等于关系 <span class="math inline">\(\le_{\mathbb{R}}\)</span>
+为：</p>
+<p>对任意的 <span class="math inline">\(f, g \in B\)</span>，<span
+class="math inline">\(f \le_{\mathbb{R}} g\)</span> 当且仅当 (<span
+class="math inline">\(f &lt;_{\mathbb{R}} g) \lor (f \simeq
+g)\)</span>。</p></li>
+</ul>
+</div>
+<p>直观上说，<span class="math inline">\(f \le_{\mathbb{R}}g\)</span>
+等价于 <span class="math inline">\(f\)</span> 的极限小于等于 <span
+class="math inline">\(g\)</span> 的极限。</p>
 <h3 id="集合的等势">集合的等势</h3>
 <div class="note primary"><h4 id="定义等势">定义：等势</h4>
 <p>对集合 <span class="math inline">\(A, B\)</span>，如果存在从 <span
@@ -2101,10 +1616,10 @@ class="math inline">\(P(K)\)</span> 是不可数的。</li>
 </div>
 <div class="note default"><h4 id="假设连续统假设">假设：连续统假设</h4>
 <p>已知的基数按从小到大的次序排列就是 <span class="math display">\[
-0, 1, \cdots, n, \cdots, \alef_0, \alef_1, 2^{\alef_1}, \cdots
+0, 1, \cdots, n, \cdots, \aleph_0, \aleph_1, 2^{\aleph_1}, \cdots
 \]</span> <strong>连续统假设</strong> 是指，不存在基数 <span
 class="math inline">\(k\)</span>，使 <span class="math display">\[
-\alef_0 &lt; k &lt; 2^{\alef_0}
+\aleph_0 &lt; k &lt; 2^{\aleph_0}
 \]</span></p>
 </div>
 ]]></content>
@@ -2114,6 +1629,554 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       <tags>
         <tag>离散数学</tag>
         <tag>集合论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
+    <url>/2023/09/19/IATLC-Chap3/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第三章 正则表达式与正则语言</strong></p>
+<ul>
+<li>正则表达式的运算符
+<ul>
+<li>并与连接</li>
+<li>闭包</li>
+</ul></li>
+<li>正则表达式的定义</li>
+<li>自动机与正则表达式间的关系
+<ul>
+<li>由 DFA 构建正则表达式</li>
+<li>消除状态法</li>
+<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
+NFA</li>
+<li>消除 <span class="math inline">\(\epsilon\)</span>
+转移时的注意事项</li>
+</ul></li>
+<li>正则表达式代数定律</li>
+</ul>
+<span id="more"></span>
+<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
+<h3 id="并与连接">并与连接</h3>
+<ul>
+<li>并 <span class="math display">\[
+L \cup M = \{w | w \in L \lor w \in M\}
+\]</span></li>
+<li>连接 <span class="math display">\[
+LM = \{w = uv | u \in L \land v \in M\}
+\]</span></li>
+</ul>
+<h3 id="闭包">闭包</h3>
+<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
+class="math inline">\(L^*\)</span>。形式化的定义是：</p>
+<p><span class="math display">\[
+L^* = \bigcup_{i \ge 0}L^i
+\]</span></p>
+<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
+L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
+class="math inline">\(i\)</span> 个 <span
+class="math inline">\(L\)</span> 的连接。</p>
+<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
+class="math inline">\(L^*\)</span>
+通常是无穷的。<strong>仅有两个</strong>
+特殊的语言，它们的闭包是有限的。</p>
+<ul>
+<li><p><span class="math inline">\(\varnothing^*\)</span></p>
+<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
+class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
+class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
+class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
+<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
+<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
+无论连接多少次都不会改变它是 <span
+class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
+class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
+</ul>
+<h2 id="正则表达式的定义">正则表达式的定义</h2>
+<p>正则表达式仍然采用递归的定义方法：</p>
+<p><strong>基础</strong>：</p>
+<ol type="1">
+<li><span class="math inline">\(\epsilon\)</span> 和 <span
+class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
+<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
+class="math inline">\(\varnothing\)</span>。也就是说，<span
+class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
+\varnothing\)</span>。</li>
+<li>若 <span class="math inline">\(a\)</span> 是任意
+<strong>符号</strong>，则 <span
+class="math inline">\(\textbf{a}\)</span>
+是正则表达式。这个表达式表示语言 <span
+class="math inline">\(\{a\}\)</span>。也就是说，<span
+class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
+</ol>
+<p><strong>归纳</strong>：</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的并。也就是说，<span
+class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(EF\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
+class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
+class="math inline">\(E\)</span> 的闭包。也就是说，<span
+class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
+class="math inline">\(E\)</span> 相同的语言。也就是说 <span
+class="math inline">\((L(E)) = L(E)\)</span>。</li>
+</ol>
+<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
+<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
+和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
+<pre><code class="highlight mermaid">graph LR
+A(NFA) --&gt; |1| B(DFA)
+B --&gt; |2| C($\epsilon$ - NFA)
+C --&gt; |3| B
+B --&gt; |4| D(RE)
+D --&gt; |5| C</code></pre>
+<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
+<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
+<p>我们想要解决的问题是：给定一个 DFA <span
+class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
+L(A)\)</span>，求一个正则表达式 <span
+class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
+L(R)\)</span>。</p>
+<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
+class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
+class="math inline">\(1\)</span> 为初始状态。设 <span
+class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
+class="math inline">\(w\)</span> 所组成的集合：<span
+class="math inline">\(w\)</span> 是 <span
+class="math inline">\(A\)</span> 中从状态 <span
+class="math inline">\(i\)</span> 到状态 <span
+class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
+<span class="math inline">\(k\)</span> 的
+<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
+和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
+class="math inline">\(k\)</span>。</p>
+<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
+class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
+class="math inline">\(j\)</span> 为一个接受状态。</p>
+<p>仍然考虑使用递归的思路来推导 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
+<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
+时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
+以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
+<ul>
+<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
+class="math inline">\(R_{ii}^{(0)} = \epsilon + \textbf{a}_1 +
+\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
+class="math inline">\(i\)</span> 有自环 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
+class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
+\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
+到状态 <span class="math inline">\(j\)</span> 有 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+</ul>
+<p><strong>归纳</strong>：假设有 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
+<ol type="1">
+<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
+这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
+R_{ij}^{(k-1)}\)</span>。</p></li>
+<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
+至少一次。 于是我们可以把整个路径分成几段：</p></li>
+</ol>
+<p><pre><code class="highlight mermaid">graph LR
+
+style ... fill:none,stroke-width:0px
+
+A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
+subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
+B((k)) --&gt; C((k))
+C((k)) --&gt; ...
+... --&gt; E((k))
+end
+E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
+<p>那么这种路径可以表示成正则表达式 <span
+class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。</p>
+<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
+1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
+class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
+<p>比如考虑下图表示的 DFA：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($1$))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((($2$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>由 <strong>基础</strong> 部分可得：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
+class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
+<p><span class="math display">\[
+R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
+(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>又有</p>
+<p><span class="math display">\[
+R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
++ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(1)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0} +
+\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
+\mathbf{0} + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
++ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
++ \mathbf{1})^*\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
+class="math inline">\(2\)</span>
+是唯一一个接收状态，则整体的正则表达式为 <span
+class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span>。</p>
+<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
+<h3 id="消除状态法">消除状态法</h3>
+<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
+的方式来化简自动机。考虑下图中即将被消除的状态 <span
+class="math inline">\(s\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
+A --&gt; |$Q_1$| C(($s$))
+C --&gt; |$P_1$| B
+C --&gt; |$S$| C
+C --&gt; |$P_m$| E
+D --&gt; |$Q_k$| C
+D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
+<p>消除状态 <span class="math inline">\(s\)</span>
+时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
+相关的转移边。消除状态 <span class="math inline">\(s\)</span>
+后如下：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
+D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
+<p>从有穷自动构造正则表达式的策略如下：</p>
+<ol type="1">
+<li><p>对于每个接受状态 <span
+class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
+class="math inline">\(q\)</span> 和初始状态 <span
+class="math inline">\(q_0\)</span>
+之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
+<li><p>如果 <span class="math inline">\(q \neq
+q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
+<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot; &quot;))
+A --&gt; |$R$| A
+A --&gt; |$S$| B(((&quot; &quot;)))
+B --&gt; |$T$| A
+B --&gt; |$U$| B</code></pre></p></li>
+<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
+<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(((&quot; &quot;)))
+A --&gt; |$R$| A</code></pre></p></li>
+<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
+所得出的所有表达式之和（并）。</p></li>
+</ol>
+<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
+class="math inline">\(\epsilon\)</span> - NFA</h3>
+<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
+class="math inline">\(\epsilon\)</span> - NFA。</p>
+<p><strong>基础</strong>：先构造 <span
+class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
+对应的三个自动机：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
+A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $\varnothing$
+A
+B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\mathbf&#123;a&#125;$&quot;
+A --&gt; | $a$ | B(((&quot; &quot;)))
+end</code></pre>
+<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
+S, RS, R^*\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+A --&gt; | $\epsilon$ | D((&quot; &quot;))
+
+subgraph $R$
+B -.- C((&quot; &quot;))
+end
+
+subgraph $S$
+D -.- E((&quot; &quot;))
+end
+
+C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
+E --&gt; | $\epsilon$ | F</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $R$
+A -.- B((&quot; &quot;))
+end
+
+B --&gt; | $\epsilon$ | C((&quot; &quot;))
+
+subgraph $S$
+C -.- D(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+
+subgraph $R$
+C --&gt; | $\epsilon$ | B
+B -.- C((&quot; &quot;))
+end
+
+C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
+A --&gt; | $\epsilon$ | D</code></pre>
+<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
+<span class="math inline">\(\epsilon\)</span> - NFA。</p>
+<h3 id="消除-epsilon-转移时的注意事项">消除 <span
+class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
+<p>在上述构造中，有些地方可以化简：</p>
+<ol type="1">
+<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B(((&quot; &quot;)))
+A -.- | $S$ | B
+end</code></pre></li>
+<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B((&quot; &quot;))
+B -.- | $S$ | C(((&quot; &quot;)))
+end</code></pre></li>
+<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
+class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
+A --&gt; | $\epsilon$ | B
+A -.- | $R$ | B
+end</code></pre></li>
+</ol>
+<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
+<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
+class="math inline">\(R + S^*\)</span>）。</p>
+<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
+是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
+的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
+m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
+的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
+形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
+class="math inline">\(\forall w = w_1w_2\cdots w_k \in
+L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
+都属于任意的语言之一（如 <span
+class="math inline">\(L_{j_i}\)</span>），都有 <span
+class="math inline">\(w\)</span> 对应的正则表达式 <span
+class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
+<span class="math inline">\(L(C)\)</span>。</p>
+<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
+<p><del>附赠一个可能会有用的公式</del> <span
+class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
@@ -3058,79 +3121,6 @@ E &amp; \to T | E + T
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="逻辑门">逻辑门</h2>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="c-中的字符常量">C 中的字符常量</h2>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
-<h3 id="补码记数法">补码记数法</h3>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法">余码记数法</h3>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
     <url>/2023/09/20/IATLC-Chap4/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -3344,6 +3334,79 @@ A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$
         <tag>自动机理论、语言和计算导论</tag>
         <tag>正则表达式</tag>
         <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="逻辑门">逻辑门</h2>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="c-中的字符常量">C 中的字符常量</h2>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
+<h3 id="补码记数法">补码记数法</h3>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法">余码记数法</h3>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
       </tags>
   </entry>
   <entry>
