@@ -27,7 +27,7 @@
 <meta property="og:description" content="摘要待填。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-01T13:34:22.000Z">
-<meta property="article:modified_time" content="2023-10-02T03:07:11.251Z">
+<meta property="article:modified_time" content="2023-10-02T04:02:46.938Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="离散数学">
 <meta property="article:tag" content="数理逻辑">
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 11:07:11" itemprop="dateModified" datetime="2023-10-02T11:07:11+08:00">2023-10-02</time>
+      <time title="修改时间：2023-10-02 12:02:46" itemprop="dateModified" datetime="2023-10-02T12:02:46+08:00">2023-10-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -408,25 +408,6 @@ A\)</span> 恒为假，所以对任意集合 <span class="math inline">\(B\)</sp
 <p>上述的 6 个性质中，我们可以发现 <span
 class="math inline">\(\subseteq\)</span> 与 <span
 class="math inline">\(\le\)</span> 类似。</p>
-<h4 id="传递集合">传递集合</h4>
-<div class="note primary"><h4 id="定义传递集合">定义：传递集合</h4>
-<p>若集合的集合 <span class="math inline">\(A\)</span> 的任意元素都是
-<span class="math inline">\(A\)</span> 的元素，则称 <span
-class="math inline">\(A\)</span> 为
-<strong>传递集合</strong>。形式化地表述，<span
-class="math inline">\(A\)</span> 是传递集合等价于 <span
-class="math display">\[
-(\forall x)(\forall y)((x \in y \land y \in A) \to x \in A)
-\]</span></p>
-</div>
-<div class="note info"><h4 id="性质传递集合">性质：传递集合</h4>
-<ol type="1">
-<li><span class="math inline">\(A\)</span> 是传递集合等价于 <span
-class="math inline">\(A \subseteq P(A)\)</span>。</li>
-<li><span class="math inline">\(A\)</span> 是传递集合等价于 <span
-class="math inline">\(P(A)\)</span> 是传递集合。</li>
-</ol>
-</div>
 <h4 id="幂集合">幂集合</h4>
 <div class="note info"><h4 id="性质幂集合">性质：幂集合</h4>
 <ol type="1">
@@ -442,28 +423,85 @@ B)\)</span></li>
 \{\varnothing\}\)</span></li>
 </ol>
 </div>
-<p>第一个推论是 <span class="math inline">\(A = B \iff P(A) =
+<p>性质 1 的推论是 <span class="math inline">\(A = B \iff P(A) =
 P(B)\)</span>。</p>
-<p>第二个公式的逆定理不成立。</p>
-<p>第四个公式的左式缺少的是同时含 <span class="math inline">\(A,
-B\)</span> 元素的集合。</p>
-<p>第五个公式要并上 <span class="math inline">\(\{\varnothing\}\)</span>
-是因为左式的差运算把 <span
-class="math inline">\(\{\varnothing\}\)</span> 消去了。</p>
+<p>性质 2： <span class="math display">\[
+\begin{aligned}
+P(A) \in P(B) &amp; \iff P(A) \subseteq B \\
+&amp; \iff (P(A) \subseteq B) \land (A \in P(A)) \\
+&amp; \implies A \in B
+\end{aligned}
+\]</span></p>
+<p>性质 2 的逆定理不成立。</p>
+<p>性质 4 的左式缺少的是同时含 <span class="math inline">\(A\)</span> 和
+<span class="math inline">\(B\)</span> 中元素的集合。</p>
+<p>性质 5 的右式要并上 <span
+class="math inline">\(\{\varnothing\}\)</span>，是因为左式的差运算把
+<span class="math inline">\(\{\varnothing\}\)</span>
+消去了。左式缺少的是同时含 <span class="math inline">\(A - B\)</span> 和
+<span class="math inline">\(A \cap B\)</span> 中元素的集合。</p>
+<h4 id="传递集合">传递集合</h4>
+<div class="note primary"><h4 id="定义传递集合">定义：传递集合</h4>
+<p>若集合的集合 <span class="math inline">\(A\)</span> 的任意元素都是
+<span class="math inline">\(A\)</span> 的元素，则称 <span
+class="math inline">\(A\)</span> 为
+<strong>传递集合</strong>。形式化地表述，<span
+class="math inline">\(A\)</span> 是传递集合等价于 <span
+class="math display">\[
+(\forall x)(\forall y)((x \in y \land y \in A) \to x \in A)
+\]</span></p>
+</div>
+<p>由定义可知，<span class="math inline">\(A\)</span> 的任意元素都是
+<span class="math inline">\(A\)</span> 的子集。</p>
+<div class="note info"><h4 id="性质传递集合">性质：传递集合</h4>
+<ol type="1">
+<li><span class="math inline">\(A\)</span> 是传递集合等价于 <span
+class="math inline">\(A \subseteq P(A)\)</span>。</li>
+<li><span class="math inline">\(A\)</span> 是传递集合等价于 <span
+class="math inline">\(P(A)\)</span> 是传递集合。</li>
+</ol>
+</div>
+<p>性质 1：</p>
+<p>必要性：显然。</p>
+<p>充分性：已知 <span class="math inline">\(A \subseteq P(A)\)</span>。
+<span class="math display">\[
+\begin{aligned}
+x \in y \land y \in A &amp; \implies x \in y \land y \in P(A) \\
+&amp; \iff x \in y \land y \subseteq A \\
+&amp; \implies x \in A
+\end{aligned}
+\]</span> 性质 2：</p>
+<p>必要性：已知 <span class="math inline">\(A\)</span> 是传递集合。
+<span class="math display">\[
+\begin{aligned}
+x \in y \land y \in P(A) &amp; \iff x \in y \land y \subseteq A \\
+&amp; \implies x \in A \\
+&amp; \iff x \subseteq P(A) \\
+&amp; \iff x \in P(A)
+\end{aligned}
+\]</span> 充分性：已知 <span class="math inline">\(P(A)\)</span>
+是传递集合。 <span class="math display">\[
+\begin{aligned}
+x \in y \land y \in A &amp; \iff x \in y \land \{y\} \subseteq A \\
+&amp; \iff x \in y \land y \in \{y\} \land \{y\} \in P(A) \\
+&amp; \implies x \in y \land y \in P(A) \\
+&amp; \iff x \in y \land y \subseteq A \\
+&amp; \implies x \in A
+\end{aligned}
+\]</span></p>
 <h3 id="集合的运算">集合的运算</h3>
 <h4 id="差运算">差运算</h4>
 <div class="note info"><h4 id="性质差运算">性质：差运算</h4>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;A - B = A - (A \cap B) \\
-&amp;A - B = A \cap -B \\
-&amp;A \cup (B - A) = A \cup B \\
-&amp;A \cap (B - C) = (A \cap B) - C
-\end{aligned}
-\]</span></p>
+<ol type="1">
+<li><span class="math inline">\(A - B = A - (A \cap B)\)</span></li>
+<li><span class="math inline">\(A - B = A \cap -B\)</span></li>
+<li><span class="math inline">\(A \cup (B - A) = A \cup B\)</span></li>
+<li><span class="math inline">\(A \cap (B - C) = (A \cap B) -
+C\)</span></li>
+</ol>
+</div>
 <p>用 <span class="math inline">\(A - B = A \cap -B\)</span>
 的代换可以在推导过程中消去差运算。</p>
-</div>
 <h4 id="广义交和广义并">广义交和广义并</h4>
 <div class="note primary"><h4 id="定义广义交和广义并">定义：广义交和广义并</h4>
 <ol type="1">
@@ -494,12 +532,14 @@ B)\)</span></p></li>
 <li><p><span class="math inline">\(\cup(P(A)) = A\)</span></p></li>
 <li><p><span class="math inline">\(A\)</span> 是传递集合可以推出 <span
 class="math inline">\(\cup A, \cap A\)</span> 均为传递集合。</p></li>
-<li><p><span class="math inline">\(A\)</span> 的元素都是传递集合也能推出
+<li><p><span class="math inline">\(A\)</span> 的元素都是传递集合能推出
 <span class="math inline">\(\cup A, \cap A\)</span>
 均为传递集合。</p></li>
 </ol>
 </div>
-<p>性质 5 说明广义并是幂集的左逆运算，但它并不是幂集的右逆运算。</p>
+<p>性质 5
+说明广义并是幂集的左逆运算，<strong>但它并不是幂集的右逆运算</strong>。</p>
+<p>性质 6 和性质 7 说明广义并、广义交对于传递集合有封闭性。</p>
 <h4 id="笛卡尔积">笛卡尔积</h4>
 <div class="note primary"><h4 id="定义有序数对">定义：有序数对</h4>
 <p>使用归纳法定义 <strong>有序数对</strong> 如下：</p>
@@ -531,6 +571,19 @@ class="math inline">\(x, y \in A\)</span>，则 <span
 class="math inline">\(\left&lt;x, y\right&gt; \in PP(A)\)</span>。</li>
 </ol>
 </div>
+<p>性质 1 的解释是自然的，因为你无法从 <span
+class="math inline">\(\varnothing\)</span> 中选出元素来和 <span
+class="math inline">\(A\)</span>
+中的元素进行组合，也就表明了这个笛卡尔积是空集。</p>
+<p>性质 2： <span class="math display">\[
+\begin{aligned}
+x \in A \land y \in A &amp; \iff \{x\}, \{x, y\} \subseteq A \\
+&amp; \iff \{x\}, \{x, y\} \in P(A) \\
+&amp; \iff \{\{x\}, \{x, y\}\} \subseteq P(A) \\
+&amp; \iff \left&lt;x, y\right&gt; \subseteq P(A) \\
+&amp; \iff \left&lt;x, y\right&gt; \in PP(A)
+\end{aligned}
+\]</span></p>
 <h4 id="运算符优先级">运算符优先级</h4>
 <p>符号优先级从上到下。</p>
 <table>
@@ -575,9 +628,49 @@ class="math inline">\(\lnot\)</span></td>
 </table>
 <h3 id="集合论公理系统">集合论公理系统</h3>
 <h4 id="子集公理模式">子集公理模式</h4>
+<div class="note default"><h4 id="公理子集公理模式">公理：子集公理模式</h4>
+<p><span class="math display">\[
+(\forall x)(\exists y)(\forall z)(z \in y \leftrightarrow(z \in x \land
+p(z)))
+\]</span></p>
+</div>
+<p>子集公理模式是说，对任意的集合 <span
+class="math inline">\(x\)</span>，存在 <span
+class="math inline">\(x\)</span> 的子集 <span
+class="math inline">\(y\)</span>，<span class="math inline">\(y\)</span>
+的元素 <span class="math inline">\(z\)</span> 都能使 <span
+class="math inline">\(p(z)\)</span>
+成立。它能用于以下情况：已知若干满足条件 <span
+class="math inline">\(p(z)\)</span> 的元素 <span
+class="math inline">\(z\)</span>，但不知道这些元素能否组成一个集合。此时找到一个集合
+<span class="math inline">\(A\)</span>，使得这些满足 <span
+class="math inline">\(p(z)\)</span> 的 <span
+class="math inline">\(z\)</span> 都有 <span class="math inline">\(z \in
+A\)</span>，这样就可由 <span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(p(x)\)</span> 用子集公理得到满足条件的集合 <span
+class="math display">\[
+\{x | x \in A \land p(x)\}
+\]</span></p>
 <h4 id="正则公理与奇异集合">正则公理与奇异集合</h4>
 <h2 id="第10章-关系">第10章 关系</h2>
 <h3 id="关系运算">关系运算</h3>
+<div class="note primary"><h4 id="定义限制和象">定义：限制和象</h4>
+<ul>
+<li><span class="math inline">\(R\)</span> 在 <span
+class="math inline">\(A\)</span> 上的限制 <span class="math inline">\(R
+A = \{\left&lt;x, y\right&gt; | \left&lt;x, y\right&gt; \in R \land x
+\in A\}\)</span>。</li>
+<li><span class="math inline">\(A\)</span> 在 <span
+class="math inline">\(R\)</span> 下的象 <span class="math inline">\(R[A]
+= \{y | (\exists x)(x \in A \land \left&lt;x, y\right&gt; \in
+R)\}\)</span>。</li>
+</ul>
+</div>
+<div class="note info"><h4 id="性质关系运算">性质：关系运算</h4>
+<ol type="1">
+<li><span class="math inline">\(R_1\)</span></li>
+</ol>
+</div>
 <h3 id="关系的性质">关系的性质</h3>
 <h3 id="闭包">闭包</h3>
 <h4 id="闭包的定义">闭包的定义</h4>
