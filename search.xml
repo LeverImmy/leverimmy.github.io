@@ -1,117 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
-    <url>/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</url>
-    <content><![CDATA[<p>摘要待填。</p>
-<span id="more"></span>
-<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
-<h3 id="代入规则">代入规则</h3>
-<ol type="1">
-<li><p>公式中被代换的只能是命题变元，而不能是复合命题。 例如，可以用
-<span class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
-class="math inline">\(P\)</span>，记作 <span
-class="math inline">\(\frac{P}{(R\land
-S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
-S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
-<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
-其实就是说，要代换就所有都代换完。对于重言式 <span
-class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
-class="math inline">\(P = \lnot Q\)</span>，那么就变成了 <span
-class="math inline">\((\lnot Q \lor \lnot
-P)\)</span>，这并非重言式。</p></li>
-</ol>
-<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
-<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
-<ul>
-<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
-<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
-</ul>
-<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
-<blockquote>
-<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
-\lor(W\land R)\lor \lnot Q\)</span></p>
-</blockquote>
-<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
-\land W R \lnot Q\)</span>。（而不是 <span
-class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
-Q\)</span>！）</p>
-<h2 id="第2章-命题逻辑的等值和推理演算">第2章
-命题逻辑的等值和推理演算</h2>
-<h3 id="等值公式">等值公式</h3>
-<p><del>妈的，与和或之间没有交换律。</del></p>
-<ol type="1">
-<li><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
-R)\)</span></li>
-</ol>
-<p>不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
-class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
-class="math inline">\(\lnot P \lor \lnot Q \lor
-R\)</span>，二者不等。</p>
-<ol start="2" type="1">
-<li><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow R)
-\neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
-Q)\)</span></li>
-</ol>
-<p>当 <span class="math inline">\(P = Q = R = \mathrm{F}\)</span>
-时，左式为假，右式为真。</p>
-<ol start="3" type="1">
-<li><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to P =
-P\)</span></li>
-</ol>
-<p>十分合理，拆开发现是俩相同东西的或。</p>
-<ol start="4" type="1">
-<li><span class="math inline">\(P \leftrightarrow Q = (P \land Q) \lor
-(\lnot P \land \lnot Q)\)</span></li>
-</ol>
-<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
-为真，有两种可能的情形，即 <span class="math inline">\((P \land
-Q)\)</span> 为真，或 <span class="math inline">\((\lnot P \land \lnot
-Q)\)</span> 为真。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者同真同假。</p>
-<ol start="5" type="1">
-<li><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot Q)
-\land (\lnot P \lor Q)\)</span></li>
-</ol>
-<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
-为假，有两种可能的情形，即 <span class="math inline">\((P \lor \lnot
-Q)\)</span> 为假，或 <span class="math inline">\((\lnot P \lor
-Q)\)</span> 为假。其实就是 <span class="math inline">\(P\)</span> 和
-<span class="math inline">\(Q\)</span> 二者真假不同。</p>
-<ol start="6" type="1">
-<li><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
-R\)</span></li>
-</ol>
-<p><span class="math inline">\(P\)</span> 是 <span
-class="math inline">\((Q \to R)\)</span> 的前提，<span
-class="math inline">\(Q\)</span> 是 <span
-class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
-class="math inline">\((P \land Q)\)</span> 作为总的前提。</p>
-<ol start="7" type="1">
-<li><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor Q)
-\to R\)</span></li>
-</ol>
-<p>左端说明由 <span class="math inline">\(P\)</span> 而且由 <span
-class="math inline">\(Q\)</span> 都有 <span
-class="math inline">\(R\)</span> 成立，从而可以说明由 <span
-class="math inline">\(P\)</span> 或由 <span
-class="math inline">\(Q\)</span> 就有 <span
-class="math inline">\(R\)</span> 成立，即右端。</p>
-<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
-<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
-<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
-谓词逻辑的等值和推理演算</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-        <tag>数理逻辑</tag>
-        <tag>集合论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数理逻辑与集合论 - 第九至十二章</title>
     <url>/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</url>
     <content><![CDATA[<p>摘要待填。</p>
@@ -524,6 +413,42 @@ R)\}\)</span>。</li>
 \circ R_3 \cup R_2 \circ R_3\)</span></li>
 </ol>
 </div>
+<p><strong>性质 2</strong>：</p>
+<p>左式缺少下图的 <span class="math inline">\(\left&lt;x,
+z\right&gt;\)</span>，因为 <span class="math inline">\(\left&lt;y_1,
+z\right&gt;\)</span> 和 <span class="math inline">\(\left&lt;y_2,
+z\right&gt;\)</span> 在 <span class="math inline">\(R_2 \cap
+R_3\)</span> 的过程中被除去了；但右式含有 <span
+class="math inline">\(\left&lt;x, z\right&gt;\)</span>。</p>
+<pre><code class="highlight mermaid">graph LR
+subgraph $A$
+A
+end
+subgraph $B$
+D
+end
+A(($x$)) --&gt; |$R_1$| B(($y_1$))
+A --&gt; |$R_1$| C(($y_2$))
+B --&gt; |$R_2$| D(($z$))
+C --&gt; |$R_3$| D</code></pre>
+<p><strong>性质 4</strong>：</p>
+<p>左式缺少下图的 <span class="math inline">\(\left&lt;x,
+z\right&gt;\)</span>，因为 <span class="math inline">\(\left&lt;x,
+y_1\right&gt;\)</span> 和 <span class="math inline">\(\left&lt;x,
+y_2\right&gt;\)</span> 在 <span class="math inline">\(R_1 \cap
+R_2\)</span> 的过程中被除去了；但右式含有 <span
+class="math inline">\(\left&lt;x, z\right&gt;\)</span>。</p>
+<pre><code class="highlight mermaid">graph LR
+subgraph $A$
+A
+end
+subgraph $B$
+D
+end
+A(($x$)) --&gt; |$R_1$| B(($y_1$))
+A --&gt; |$R_2$| C(($y_2$))
+B --&gt; |$R_3$| D(($z$))
+C --&gt; |$R_3$| D</code></pre>
 <div class="note info"><h4 id="性质象">性质：象</h4>
 <ol type="1">
 <li><span class="math inline">\(R[A \cup B] = R[A] \cup
@@ -538,15 +463,92 @@ A\}\)</span></li>
 B]\)</span></li>
 </ol>
 </div>
+<p><strong>性质 3</strong>：</p>
+<p>左式缺少下图的 <span class="math inline">\(z\)</span>，因为 <span
+class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 在 <span class="math inline">\(A \cap
+B\)</span> 的过程中被除去了；但右式含有 <span
+class="math inline">\(z\)</span>。</p>
+<pre><code class="highlight mermaid">graph LR
+subgraph $A$
+A
+end
+subgraph $B$
+B
+end
+subgraph $C$
+C
+end
+A(($x$)) --&gt; C(($z$))
+B(($y$)) --&gt; C</code></pre>
+<p><strong>性质 5</strong>：</p>
+<p>左式缺少下图的 <span class="math inline">\(z\)</span>，因为 <span
+class="math inline">\(z\)</span> 在 <span class="math inline">\(R[A] -
+R[B]\)</span> 的过程中因为重复而被除去了；但 <span
+class="math inline">\(A - B\)</span> 仍含有 <span
+class="math inline">\(x\)</span>，故右式含有 <span
+class="math inline">\(z\)</span>。</p>
+<pre><code class="highlight mermaid">graph LR
+subgraph $A$
+A
+end
+subgraph $B$
+B
+end
+subgraph $C$
+C
+end
+A(($x$)) --&gt; C(($z$))
+B(($y$)) --&gt; C</code></pre>
 <h3 id="关系的性质">关系的性质</h3>
 <div class="note primary"><h4 id="定义自反性对称性和传递性">定义：自反性、对称性和传递性</h4>
+<p>对 <span class="math inline">\(A\)</span> 上的关系 <span
+class="math inline">\(R\)</span>：</p>
 <ul>
-<li>自反性：</li>
-<li>对称性：</li>
-<li>传递性：</li>
+<li><p>自反性</p>
+<ul>
+<li>若 <span class="math inline">\((\forall x)(x \in A \to x R
+x)\)</span>，则称 <span class="math inline">\(R\)</span> 是
+<strong>自反的</strong>。</li>
+<li>若 <span class="math inline">\((\forall x)(x \in A \to x \not R
+x)\)</span>，则称 <span class="math inline">\(R\)</span> 是
+<strong>非自反的</strong>。</li>
+</ul></li>
+<li><p>对称性</p>
+<ul>
+<li>若 <span class="math inline">\((\forall x)(\forall y)((x \in A \land
+y \in A \land xRy) \to yRx)\)</span>，则称 <span
+class="math inline">\(R\)</span> 是 <strong>对称的</strong>。</li>
+<li>若 <span class="math inline">\((\forall x)(\forall y)((x \in A \land
+y \in A \land xRy \land yRx) \to x = y)\)</span>，则称 <span
+class="math inline">\(R\)</span> 是 <strong>反对称的</strong>。</li>
+</ul></li>
+<li><p>传递性</p>
+<p>若 <span class="math inline">\((\forall x)(\forall y)(\forall z)((x
+\in A \land y \in A \land z \in A \land xRy \land yRz) \to
+xRz)\)</span>，则称 <span class="math inline">\(R\)</span> 是
+<strong>传递的</strong>。</p></li>
 </ul>
-<p><span class="math inline">\(R\)</span> 对称等价于</p>
 </div>
+<p>自反性的充要条件是 <span class="math inline">\(I_A \subseteq
+R\)</span>，也就是每个顶点上都得有自环。需要注意的是，“自反的”和“非自反的”并不构成命题上的否定。</p>
+<p>对于交、并、补等运算而言，需要注意的是 <span
+class="math inline">\(R_1\)</span> 和 <span
+class="math inline">\(R_2\)</span> 是传递的并不能推出 <span
+class="math inline">\(R_1 \cup R_2\)</span> 是传递的，因为可能 <span
+class="math inline">\(R_1\)</span> 中的 <span
+class="math inline">\(\left&lt;x, y\right&gt;\)</span> 和 <span
+class="math inline">\(R_2\)</span> 中的 <span
+class="math inline">\(\left&lt;y, z\right&gt;\)</span> 接上之后得出的
+<span class="math inline">\(\left&lt;x, z\right&gt; \notin R_1 \cup
+R_2\)</span>。 <span class="math inline">\(R_1\)</span> 和 <span
+class="math inline">\(R_2\)</span> 是反对称的也不能推出 <span
+class="math inline">\(R_1 \cup R_2\)</span>
+是反对称的。反对称等价于每个顶点上都不能有长度为 <span
+class="math inline">\(2\)</span> 的不经过自己的环，<span
+class="math inline">\(R_1 \cup R_2\)</span>
+之后可能会有两个半环刚好拼起来变成一个整的环，导致 <span
+class="math inline">\(R_1 \cup R_2\)</span> 并非是反对称的。</p>
 <div class="note info"><h4 id="性质自反性对称性和传递性">性质：自反性、对称性和传递性</h4>
 <ol type="1">
 <li><span class="math inline">\(R\)</span> 对称等价于 <span
@@ -557,11 +559,50 @@ class="math inline">\(R \cap R^{-1} \subseteq I_A\)</span>。</li>
 </div>
 <h3 id="闭包">闭包</h3>
 <div class="note primary"><h4 id="定义闭包">定义：闭包</h4>
+<p>对非空集合 <span class="math inline">\(A\)</span> 上的关系 <span
+class="math inline">\(R\)</span>，若 <span
+class="math inline">\(A\)</span> 上有另一关系 <span
+class="math inline">\(R&#39;\)</span> 满足：</p>
+<ol type="1">
+<li><span class="math inline">\(R&#39;\)</span>
+是自反的（对称的，传递的）</li>
+<li><span class="math inline">\(R \subseteq R&#39;\)</span></li>
+<li>对 <span class="math inline">\(A\)</span>
+上任何自反的（对称的，传递的）关系 <span
+class="math inline">\(R&#39;&#39;\)</span> 均有 <span
+class="math inline">\(R\subseteq R&#39;&#39; \to R&#39; \subseteq
+R&#39;&#39;\)</span></li>
+</ol>
+<p>则称 <span class="math inline">\(R&#39;\)</span> 为 <span
+class="math inline">\(R\)</span>
+的<strong>自反（对称，传递）闭包</strong>，记作 <span
+class="math inline">\(r(R)(s(R), t(R))\)</span>。</p>
 </div>
+<p>闭包就是 <span class="math inline">\(A\)</span> 上满足该性质的 <span
+class="math inline">\(R\)</span> 的最小的超集合。</p>
 <div class="note info"><h4 id="性质闭包">性质：闭包</h4>
 </div>
 <h4 id="闭包的构造方法">闭包的构造方法</h4>
+<ul>
+<li><span class="math inline">\(r(R) = R \cup R^{0}\)</span></li>
+<li><span class="math inline">\(s(R) = R \cup R^{-1}\)</span></li>
+<li><span class="math inline">\(t(R) = R \cup R^2 \cup \cdots \cup R^{n}
+\cup \cdots = R^{+}\)</span></li>
+</ul>
 <div class="note info"><h4 id="性质闭包的复合">性质：闭包的复合</h4>
+<ol type="1">
+<li>若 <span class="math inline">\(R\)</span> 是自反的，则 <span
+class="math inline">\(s(R), t(R)\)</span> 是自反的。</li>
+<li>若 <span class="math inline">\(R\)</span> 是对称的，则 <span
+class="math inline">\(r(R), t(R)\)</span> 是对称的。</li>
+<li>若 <span class="math inline">\(R\)</span> 是传递的，则 <span
+class="math inline">\(r(R)\)</span> 是传递的。</li>
+</ol>
+</div>
+<div class="note warning"><h4 id="注意复合闭包的顺序">注意：复合闭包的顺序</h4>
+<p>要求出 <span class="math inline">\(R\)</span>
+的自反、对称且传递的闭包，则应求 <span
+class="math inline">\(tsr(R)\)</span>。</p>
 </div>
 <h3 id="相容关系和覆盖">相容关系和覆盖</h3>
 <h4 id="相容关系">相容关系</h4>
@@ -603,8 +644,9 @@ class="math inline">\(B\)</span> 都是有限集合，且 <span
 class="math inline">\(|A| = m, |B| = n\)</span>，则 <span
 class="math inline">\(|A_B| = n^m\)</span>。因此，<span
 class="math inline">\(\varnothing_\varnothing = \varnothing_B =
-\{\varnothing\}, A_\varnothing = \varnothing(A \neq
-\varnothing)\)</span>。</p>
+\{\varnothing\}\)</span>；当 <span class="math inline">\(A \neq
+\varnothing\)</span> 时 <span class="math inline">\(A_\varnothing =
+\varnothing\)</span>。</p>
 <div class="note info"><h4 id="性质函数">性质：函数</h4>
 <ol type="1">
 <li>若 <span class="math inline">\(f \circ g\)</span> 为满射，则 <span
@@ -819,6 +861,117 @@ class="math inline">\(\mathbb{R}\)</span></h3>
 <h3 id="集合的等势">集合的等势</h3>
 <h3 id="集合的基数">集合的基数</h3>
 <h3 id="可数集合与连续统假设">可数集合与连续统假设</h3>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+        <tag>数理逻辑</tag>
+        <tag>集合论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
+    <url>/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</url>
+    <content><![CDATA[<p>摘要待填。</p>
+<span id="more"></span>
+<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
+<h3 id="代入规则">代入规则</h3>
+<ol type="1">
+<li><p>公式中被代换的只能是命题变元，而不能是复合命题。 例如，可以用
+<span class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
+class="math inline">\(P\)</span>，记作 <span
+class="math inline">\(\frac{P}{(R\land
+S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
+S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
+<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
+其实就是说，要代换就所有都代换完。对于重言式 <span
+class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
+class="math inline">\(P = \lnot Q\)</span>，那么就变成了 <span
+class="math inline">\((\lnot Q \lor \lnot
+P)\)</span>，这并非重言式。</p></li>
+</ol>
+<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
+<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<ul>
+<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
+<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
+</ul>
+<p><strong>注意，越先运算的式子的深度应该越深。</strong></p>
+<blockquote>
+<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
+\lor(W\land R)\lor \lnot Q\)</span></p>
+</blockquote>
+<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
+\land W R \lnot Q\)</span>。（而不是 <span
+class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
+Q\)</span>！）</p>
+<h2 id="第2章-命题逻辑的等值和推理演算">第2章
+命题逻辑的等值和推理演算</h2>
+<h3 id="等值公式">等值公式</h3>
+<p><del>妈的，与和或之间没有交换律。</del></p>
+<ol type="1">
+<li><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
+R)\)</span></li>
+</ol>
+<p>不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
+class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
+class="math inline">\(\lnot P \lor \lnot Q \lor
+R\)</span>，二者不等。</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow R)
+\neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
+Q)\)</span></li>
+</ol>
+<p>当 <span class="math inline">\(P = Q = R = \mathrm{F}\)</span>
+时，左式为假，右式为真。</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to P =
+P\)</span></li>
+</ol>
+<p>十分合理，拆开发现是俩相同东西的或。</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(P \leftrightarrow Q = (P \land Q) \lor
+(\lnot P \land \lnot Q)\)</span></li>
+</ol>
+<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
+为真，有两种可能的情形，即 <span class="math inline">\((P \land
+Q)\)</span> 为真，或 <span class="math inline">\((\lnot P \land \lnot
+Q)\)</span> 为真。其实就是 <span class="math inline">\(P\)</span> 和
+<span class="math inline">\(Q\)</span> 二者同真同假。</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot Q)
+\land (\lnot P \lor Q)\)</span></li>
+</ol>
+<p>这可解释为 <span class="math inline">\(P \leftrightarrow Q\)</span>
+为假，有两种可能的情形，即 <span class="math inline">\((P \lor \lnot
+Q)\)</span> 为假，或 <span class="math inline">\((\lnot P \lor
+Q)\)</span> 为假。其实就是 <span class="math inline">\(P\)</span> 和
+<span class="math inline">\(Q\)</span> 二者真假不同。</p>
+<ol start="6" type="1">
+<li><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
+R\)</span></li>
+</ol>
+<p><span class="math inline">\(P\)</span> 是 <span
+class="math inline">\((Q \to R)\)</span> 的前提，<span
+class="math inline">\(Q\)</span> 是 <span
+class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
+class="math inline">\((P \land Q)\)</span> 作为总的前提。</p>
+<ol start="7" type="1">
+<li><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor Q)
+\to R\)</span></li>
+</ol>
+<p>左端说明由 <span class="math inline">\(P\)</span> 而且由 <span
+class="math inline">\(Q\)</span> 都有 <span
+class="math inline">\(R\)</span> 成立，从而可以说明由 <span
+class="math inline">\(P\)</span> 或由 <span
+class="math inline">\(Q\)</span> 就有 <span
+class="math inline">\(R\)</span> 成立，即右端。</p>
+<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
+<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
+<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
+谓词逻辑的等值和推理演算</h2>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1884,6 +2037,222 @@ class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
+    <url>/2023/09/20/IATLC-Chap4/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第四章 正则语言的性质</strong></p>
+<ul>
+<li>泵引理</li>
+<li>正则语言的封闭性
+<ul>
+<li>交运算的乘积构造法</li>
+<li>反转</li>
+<li>逆同态</li>
+</ul></li>
+<li>自动机的等价性和最小化
+<ul>
+<li>测试状态的等价性</li>
+<li>测试正则语言的等价性</li>
+<li>DFA 的最小化</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="泵引理">泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
+<span class="math inline">\(n\)</span> 满足：<span
+class="math inline">\(\forall w \in L\)</span> 满足 <span
+class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
+class="math inline">\(\exists x, y, z\)</span> 满足 <span
+class="math inline">\(w = xyz\)</span> 且：</p>
+<ol type="1">
+<li><span class="math inline">\(y \neq \epsilon\)</span></li>
+<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
+<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
+L\)</span></li>
+</ol>
+<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
+是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
+class="math inline">\(L = L(A)\)</span>。设 <span
+class="math inline">\(A\)</span> 有 <span
+class="math inline">\(n\)</span> 个状态，考虑 <span
+class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
+class="math inline">\(a_i\)</span> 为输入符号。</p>
+<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
+a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
+<span class="math inline">\(A\)</span> 的初始状态。则 <span
+class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
+不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
+n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
+<p>所以可以画出如下的转移图：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($p_0$))
+A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
+B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
+B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
+<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
+class="math inline">\(y \neq \epsilon\)</span>，由 <span
+class="math inline">\(j \le n\)</span> 得到 <span
+class="math inline">\(\left|xy\right| \le n\)</span>。<span
+class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
+class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
+<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
+<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
+<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
+class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
+F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
+\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
+L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
+<p><span class="math display">\[
+A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
+\]</span></p>
+<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
+class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
+a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
+接受 <span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
+是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
+w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
+均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
+class="math inline">\(L\cap M\)</span>。</p>
+<h3 id="逆同态">逆同态</h3>
+<p>定义 <span class="math inline">\(L\)</span> 对于 <span
+class="math inline">\(h\)</span> 的逆同态 <span
+class="math inline">\(h^{-1}\)</span> 如下：</p>
+<p><span class="math display">\[
+h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
+\]</span></p>
+<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
+L\)</span>，<strong>并不一定等于</strong> <span
+class="math inline">\(L\)</span>！</p>
+<hr />
+<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
+\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
+class="math inline">\(h^{-1}(L)\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
+<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
+有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
+F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
+<span class="math inline">\(h\)</span> 构造 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
+class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
+<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
+h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
+\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
+<span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(A\)</span> 接受 <span
+class="math inline">\(h(w)\)</span>，故 <span
+class="math inline">\(B\)</span> 就是 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
+<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
+class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
+class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
+class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
+<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
+<h3 id="测试状态的等价性">测试状态的等价性</h3>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
+w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
+w)\)</span> 是可接受的。</p>
+<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
+\hat\delta(q,
+w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>可区分的</strong>，如果它们不是等价的。</p>
+<hr />
+<p>至此，我们可以构造
+<strong>填表算法</strong>，来测试状态的等价性：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
+<span class="math inline">\(q\)</span>
+一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
+q\)</span> 是可区分的。</p>
+<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
+满足 <span class="math inline">\(\exists a\)</span> 使得 <span
+class="math inline">\(r = \delta(p, a)\)</span> 与 <span
+class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
+<span class="math inline">\(w\)</span> 可以区分 <span
+class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>，那么 <span
+class="math inline">\(aw\)</span> 一定可以区分 <span
+class="math inline">\(p,
+q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
+<hr />
+<p>接下来，我们需要证明填表算法的正确性。</p>
+<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
+<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
+class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
+class="math inline">\(\exists w \in L\)</span>，满足 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span>
+本应可区分，但填表算法没有发现它们可区分。</p>
+<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
+是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
+<span class="math inline">\(\{p, q\}\)</span>。则 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
+<p>注意到一个事实，<span class="math inline">\(w \neq
+\epsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
+class="math inline">\(w = \epsilon\)</span>
+的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
+class="math inline">\(r = \delta(p, a_1), s = \delta(q,
+a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
+a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>。</p>
+<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
+class="math inline">\(w&#39;\)</span> 比 <span
+class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
+<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
+class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
+<span class="math inline">\(\{r, s\}\)</span>
+是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
+q\}\)</span> 也是可区分的，这也产生矛盾。</p>
+<p>所以填表算法是正确的。</p>
+<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
+<p>至此，我们已经能够测试同一个 DFA
+中的两个状态是否等价。对于两个正则语言 <span
+class="math inline">\(L\)</span> 和 <span
+class="math inline">\(M\)</span> 而言，构造 DFA <span
+class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
+L(A), M = L(B)\)</span>。</p>
+<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
+class="math inline">\(p_0\)</span>，<span
+class="math inline">\(B\)</span> 的初始状态为 <span
+class="math inline">\(q_0\)</span>。构造 DFA <span
+class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
+class="math inline">\(p_0\)</span> 和 <span
+class="math inline">\(q_0\)</span> 是否等价即可。</p>
+<h3 id="dfa-的最小化">DFA 的最小化</h3>
+<p>用以下流程可以最小化一个 DFA：</p>
+<ol type="1">
+<li>排除所有不能从初始状态到达的状态</li>
+<li>将所有等价的状态划分到同一个连通块</li>
+</ol>
+<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
+等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
+<pre><code class="highlight mermaid">graph LR
+A(($p$)) --&gt; |$1$| C(($r$))
+B(($q$)) --&gt; |$1$| D(($s$))</code></pre>
+<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
+class="math inline">\(q\)</span> 都不会通过 <span
+class="math inline">\(1\)</span> 转移到 <span
+class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
+<pre><code class="highlight mermaid">graph LR
+A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
     <url>/2023/09/29/IATLC-Chap5/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2316,222 +2685,6 @@ E &amp; \to T | E + T
         <tag>自动机理论、语言和计算导论</tag>
         <tag>上下文无关文法</tag>
         <tag>上下文无关语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
-    <url>/2023/09/20/IATLC-Chap4/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第四章 正则语言的性质</strong></p>
-<ul>
-<li>泵引理</li>
-<li>正则语言的封闭性
-<ul>
-<li>交运算的乘积构造法</li>
-<li>反转</li>
-<li>逆同态</li>
-</ul></li>
-<li>自动机的等价性和最小化
-<ul>
-<li>测试状态的等价性</li>
-<li>测试正则语言的等价性</li>
-<li>DFA 的最小化</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="泵引理">泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
-<span class="math inline">\(n\)</span> 满足：<span
-class="math inline">\(\forall w \in L\)</span> 满足 <span
-class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
-class="math inline">\(\exists x, y, z\)</span> 满足 <span
-class="math inline">\(w = xyz\)</span> 且：</p>
-<ol type="1">
-<li><span class="math inline">\(y \neq \epsilon\)</span></li>
-<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
-<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
-L\)</span></li>
-</ol>
-<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
-是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
-class="math inline">\(L = L(A)\)</span>。设 <span
-class="math inline">\(A\)</span> 有 <span
-class="math inline">\(n\)</span> 个状态，考虑 <span
-class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
-class="math inline">\(a_i\)</span> 为输入符号。</p>
-<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
-a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
-<span class="math inline">\(A\)</span> 的初始状态。则 <span
-class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
-不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
-n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
-<p>所以可以画出如下的转移图：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($p_0$))
-A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
-B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
-B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
-<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
-class="math inline">\(y \neq \epsilon\)</span>，由 <span
-class="math inline">\(j \le n\)</span> 得到 <span
-class="math inline">\(\left|xy\right| \le n\)</span>。<span
-class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
-class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
-<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
-<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
-<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
-class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
-F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
-\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
-L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
-<p><span class="math display">\[
-A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
-\]</span></p>
-<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
-class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
-a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
-接受 <span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
-是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
-w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
-均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
-class="math inline">\(L\cap M\)</span>。</p>
-<h3 id="逆同态">逆同态</h3>
-<p>定义 <span class="math inline">\(L\)</span> 对于 <span
-class="math inline">\(h\)</span> 的逆同态 <span
-class="math inline">\(h^{-1}\)</span> 如下：</p>
-<p><span class="math display">\[
-h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
-\]</span></p>
-<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
-L\)</span>，<strong>并不一定等于</strong> <span
-class="math inline">\(L\)</span>！</p>
-<hr />
-<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
-\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
-class="math inline">\(h^{-1}(L)\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
-<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
-有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
-F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
-<span class="math inline">\(h\)</span> 构造 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
-class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
-<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
-h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
-\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
-<span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(A\)</span> 接受 <span
-class="math inline">\(h(w)\)</span>，故 <span
-class="math inline">\(B\)</span> 就是 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
-<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
-class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
-class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
-class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
-<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
-<h3 id="测试状态的等价性">测试状态的等价性</h3>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
-w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
-w)\)</span> 是可接受的。</p>
-<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
-\hat\delta(q,
-w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>可区分的</strong>，如果它们不是等价的。</p>
-<hr />
-<p>至此，我们可以构造
-<strong>填表算法</strong>，来测试状态的等价性：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
-<span class="math inline">\(q\)</span>
-一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
-q\)</span> 是可区分的。</p>
-<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
-满足 <span class="math inline">\(\exists a\)</span> 使得 <span
-class="math inline">\(r = \delta(p, a)\)</span> 与 <span
-class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
-<span class="math inline">\(w\)</span> 可以区分 <span
-class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>，那么 <span
-class="math inline">\(aw\)</span> 一定可以区分 <span
-class="math inline">\(p,
-q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
-<hr />
-<p>接下来，我们需要证明填表算法的正确性。</p>
-<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
-<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
-class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
-class="math inline">\(\exists w \in L\)</span>，满足 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span>
-本应可区分，但填表算法没有发现它们可区分。</p>
-<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
-是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
-<span class="math inline">\(\{p, q\}\)</span>。则 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
-<p>注意到一个事实，<span class="math inline">\(w \neq
-\epsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
-class="math inline">\(w = \epsilon\)</span>
-的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
-class="math inline">\(r = \delta(p, a_1), s = \delta(q,
-a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
-a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>。</p>
-<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
-class="math inline">\(w&#39;\)</span> 比 <span
-class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
-<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
-class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
-<span class="math inline">\(\{r, s\}\)</span>
-是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
-q\}\)</span> 也是可区分的，这也产生矛盾。</p>
-<p>所以填表算法是正确的。</p>
-<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
-<p>至此，我们已经能够测试同一个 DFA
-中的两个状态是否等价。对于两个正则语言 <span
-class="math inline">\(L\)</span> 和 <span
-class="math inline">\(M\)</span> 而言，构造 DFA <span
-class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
-L(A), M = L(B)\)</span>。</p>
-<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
-class="math inline">\(p_0\)</span>，<span
-class="math inline">\(B\)</span> 的初始状态为 <span
-class="math inline">\(q_0\)</span>。构造 DFA <span
-class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
-class="math inline">\(p_0\)</span> 和 <span
-class="math inline">\(q_0\)</span> 是否等价即可。</p>
-<h3 id="dfa-的最小化">DFA 的最小化</h3>
-<p>用以下流程可以最小化一个 DFA：</p>
-<ol type="1">
-<li>排除所有不能从初始状态到达的状态</li>
-<li>将所有等价的状态划分到同一个连通块</li>
-</ol>
-<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
-等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
-<pre><code class="highlight mermaid">graph LR
-A(($p$)) --&gt; |$1$| C(($r$))
-B(($q$)) --&gt; |$1$| D(($s$))</code></pre>
-<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
-class="math inline">\(q\)</span> 都不会通过 <span
-class="math inline">\(1\)</span> 转移到 <span
-class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
-<pre><code class="highlight mermaid">graph LR
-A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
