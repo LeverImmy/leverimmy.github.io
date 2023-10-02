@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-09-30T06:04:32.634Z</updated>
+  <updated>2023-10-02T05:30:22.298Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】数理逻辑与集合论 - 第九至十二章</title>
+    <link href="https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/"/>
+    <id>https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</id>
+    <published>2023-10-02T03:34:22.000Z</published>
+    <updated>2023-10-02T05:30:22.298Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="离散数学" scheme="https://leverimmy.top/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="数理逻辑" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"/>
+    
+    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
@@ -291,6 +314,29 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
   </entry>
   
   <entry>
+    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
+    <link href="https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/"/>
+    <id>https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</id>
+    <published>2023-09-02T02:14:22.000Z</published>
+    <updated>2023-10-02T05:30:50.561Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="离散数学" scheme="https://leverimmy.top/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="数理逻辑" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"/>
+    
+    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【学习笔记】计算机科学概论 - 第十二章</title>
     <link href="https://leverimmy.top/2023/07/26/CSAO-Chap12/"/>
     <id>https://leverimmy.top/2023/07/26/CSAO-Chap12/</id>
@@ -426,29 +472,6 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
     <category term="乡村振兴" scheme="https://leverimmy.top/tags/%E4%B9%A1%E6%9D%91%E6%8C%AF%E5%85%B4/"/>
     
     <category term="暑期实践" scheme="https://leverimmy.top/tags/%E6%9A%91%E6%9C%9F%E5%AE%9E%E8%B7%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】数理逻辑与集合论</title>
-    <link href="https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/"/>
-    <id>https://leverimmy.top/2023/07/01/Shuliluoji-Yu-Jihelun/</id>
-    <published>2023-07-01T13:34:22.000Z</published>
-    <updated>2023-10-02T05:21:34.976Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;摘要待填。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="离散数学" scheme="https://leverimmy.top/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="数理逻辑" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"/>
-    
-    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
     
   </entry>
   
