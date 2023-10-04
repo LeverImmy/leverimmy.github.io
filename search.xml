@@ -1,705 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
-    <url>/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</url>
-    <content><![CDATA[<p>这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。</p>
-<span id="more"></span>
-<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
-<h3 id="代入规则">代入规则</h3>
-<div class="note warning"><h4 id="注意代入规则">注意：代入规则</h4>
-<ol type="1">
-<li><p>公式中被代换的只能是
-<strong>命题变元</strong>，而不能是复合命题。 例如，可以用 <span
-class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
-class="math inline">\(P\)</span>，记作 <span
-class="math inline">\(\frac{P}{(R\land
-S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
-S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
-<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
-其实就是说，要代换就所有都代换完。对于重言式 <span
-class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
-class="math inline">\(P \gets \lnot Q\)</span>，那么就变成了 <span
-class="math inline">\((\lnot Q \lor \lnot
-P)\)</span>，这并非重言式。</p></li>
-</ol>
-</div>
-<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
-<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
-<ul>
-<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
-<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
-</ul>
-<div class="note warning"><h4 id="注意波兰式与逆波兰式">注意：波兰式与逆波兰式</h4>
-<p>越 <strong>先运算</strong> 的式子的深度应该越
-<strong>深</strong>。</p>
-<blockquote>
-<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
-\lor(W\land R)\lor \lnot Q\)</span></p>
-</blockquote>
-<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
-\land W R \lnot Q\)</span>。（而不是 <span
-class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
-Q\)</span>！）</p>
-</div>
-<h2 id="第2章-命题逻辑的等值和推理演算">第2章
-命题逻辑的等值和推理演算</h2>
-<h3 id="等值公式">等值公式</h3>
-<div class="note info"><h4 id="公式等值公式">公式：等值公式</h4>
-<ol type="1">
-<li><p><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
-R)\)</span></p></li>
-<li><p><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow
-R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
-Q)\)</span></p></li>
-<li><p><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to
-P = P\)</span></p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \land Q)
-\lor (\lnot P \land \lnot Q)\)</span></p></li>
-<li><p><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot
-Q) \land (\lnot P \lor Q)\)</span></p></li>
-<li><p><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
-R\)</span></p></li>
-<li><p><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor
-Q) \to R\)</span></p></li>
-</ol>
-</div>
-<p><del>妈的，与和或之间没有交换律。</del></p>
-<p><strong>定理
-1</strong>：不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
-class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
-class="math inline">\(\lnot P \lor \lnot Q \lor
-R\)</span>，二者不等。</p>
-<p><strong>定理 2</strong>：当 <span class="math inline">\(P = Q = R =
-\mathrm{F}\)</span> 时，左式为假，右式为真。</p>
-<p><strong>定理 3</strong>：十分合理，拆开发现是俩相同东西的或。</p>
-<p><strong>定理 4</strong>：这可解释为 <span class="math inline">\(P
-\leftrightarrow Q\)</span> 为真，有两种可能的情形，即 <span
-class="math inline">\((P \land Q)\)</span> 为真，或 <span
-class="math inline">\((\lnot P \land \lnot Q)\)</span> 为真。其实就是
-<span class="math inline">\(P\)</span> 和 <span
-class="math inline">\(Q\)</span> 二者同真同假。</p>
-<p><strong>定理 5</strong>：这可解释为 <span class="math inline">\(P
-\leftrightarrow Q\)</span> 为假，有两种可能的情形，即 <span
-class="math inline">\((P \lor \lnot Q)\)</span> 为假，或 <span
-class="math inline">\((\lnot P \lor Q)\)</span> 为假。其实就是 <span
-class="math inline">\(P\)</span> 和 <span
-class="math inline">\(Q\)</span> 二者真假不同。</p>
-<p><strong>定理 6</strong>：<span class="math inline">\(P\)</span> 是
-<span class="math inline">\((Q \to R)\)</span> 的前提，<span
-class="math inline">\(Q\)</span> 是 <span
-class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
-class="math inline">\((P \land Q)\)</span> 作为总的前提。</p>
-<p><strong>定理 7</strong>：左端说明由 <span
-class="math inline">\(P\)</span> 而且由 <span
-class="math inline">\(Q\)</span> 都有 <span
-class="math inline">\(R\)</span> 成立，从而可以说明由 <span
-class="math inline">\(P\)</span> 或由 <span
-class="math inline">\(Q\)</span> 就有 <span
-class="math inline">\(R\)</span> 成立，即右端。</p>
-<h3 id="对偶式">对偶式</h3>
-<div class="note primary"><h4 id="定义对偶式">定义：对偶式</h4>
-<p>假定命题公式 <span class="math inline">\(A\)</span> 中仅出现 <span
-class="math inline">\(\lnot, \lor, \land\)</span> 三个联结词。将 <span
-class="math inline">\(A\)</span> 中出现的 <span
-class="math inline">\(\lor, \land, \text{T}, \text{F}\)</span> 分别以
-<span class="math inline">\(\land, \lor, \text{F}, \text{T}\)</span>
-代换，得到公式 <span class="math inline">\(A^*\)</span>，则称 <span
-class="math inline">\(A^*\)</span> 是 <span
-class="math inline">\(A\)</span> 的 <strong>对偶式</strong>，或说 <span
-class="math inline">\(A\)</span> 和 <span
-class="math inline">\(A^*\)</span> 互为对偶式。</p>
-</div>
-<div class="note info"><h4 id="性质对偶式">性质：对偶式</h4>
-<p>为方便，若 <span class="math inline">\(A = A(P_1, P_2, \cdots,
-P_n)\)</span>，令 <span class="math inline">\(A^- = A(\lnot P_1, \lnot
-P_2, \cdots, \lnot P_n)\)</span>。</p>
-<ol type="1">
-<li><span class="math inline">\(\lnot(A^*) = (\lnot A)^*, \lnot(A^-) =
-(\lnot A)^-\)</span></li>
-<li><span class="math inline">\((A^*)^* = A, (A^-)^- = A\)</span></li>
-<li><span class="math inline">\(\lnot A = A^{*-}\)</span></li>
-</ol>
-</div>
-<p>证明的思路是对 <span class="math inline">\(A\)</span>
-中出现的联结词个数进行归纳证明。</p>
-<h3 id="范式">范式</h3>
-<div class="note info"><h4 id="性质极小项与极大项">性质：极小项与极大项</h4>
-<p><strong>极小项</strong>：</p>
-<ol type="1">
-<li><p>对一个含有 <span class="math inline">\(n\)</span>
-个变项的公式来说，所有可能的极小项个数和该公式的解释个数一样多，都是
-<span class="math inline">\(2^n\)</span>。</p></li>
-<li><p>每个极小项只在一个解释下为真。</p></li>
-<li><p>极小项两两不等值，而且 <span class="math inline">\(m_i \land m_j
-= \text{F}(i \neq j)\)</span>。</p></li>
-<li><p>恰由 <span class="math inline">\(2^n\)</span>
-个极小项的析取构成的公式，必为重言式。即 <span class="math display">\[
-\bigvee_{i = 0}^{2^n-1}m_i = \text{T}
-\]</span></p></li>
-</ol>
-<p><strong>极大项</strong>：</p>
-<ol type="1">
-<li><p>对一个含有 <span class="math inline">\(n\)</span>
-个变项的公式来说，所有可能的极大项个数和该公式的解释个数一样多，都是
-<span class="math inline">\(2^n\)</span>。</p></li>
-<li><p>每个极大项只在一个解释下为假。</p></li>
-<li><p>极大项两两不等值，而且 <span class="math inline">\(M_i \lor M_j =
-\text{T}(i \neq j)\)</span>。</p></li>
-<li><p>恰由 <span class="math inline">\(2^n\)</span>
-个极大项的合取构成的公式，必为矛盾式。即 <span class="math display">\[
-\bigwedge_{i = 0}^{2^n-1}M_i = \text{F}
-\]</span></p></li>
-</ol>
-</div>
-<p>可以理解为极小项（极大项）构成了含 <span
-class="math inline">\(n\)</span>
-个命题变项的命题组成的空间的一组基底，极小项（极大项）两两不等值且与（或）得到的结果为
-<span class="math inline">\(\text{F}\)</span>（<span
-class="math inline">\(\text{T}\)</span>）类似于基底中基向量的正交性。</p>
-<h4
-id="主合取范式与主析取范式之间的转换">主合取范式与主析取范式之间的转换</h4>
-<p>若已知 <span class="math inline">\(A\)</span> 的主析取范式，如 <span
-class="math display">\[
-\begin{aligned}
-A &amp; = \lor_{0, 1, 4, 5, 7} \\
-&amp; = \land_{(\{0, 1, \cdots, 7\} - \{0, 1, 4, 5, 7\})_\text{ 补}} \\
-&amp; = \land_{\{2, 3, 6\}_{\text{ 补}}} \\
-&amp; = \land_{5, 4, 1}
-\end{aligned}
-\]</span> 若已知 <span class="math inline">\(A\)</span> 的主合取范式，如
-<span class="math display">\[
-\begin{aligned}
-A &amp; = \land_{1, 4, 5} \\
-&amp; = \lor_{(\{0, 1, \cdots, 7\} - \{1, 4, 5\})_\text{ 补}} \\
-&amp; = \lor_{\{0, 2, 3, 6, 7\}_\text{ 补}} \\
-&amp; = \lor_{7, 5, 4, 1, 0}
-\end{aligned}
-\]</span></p>
-<p>取补是为了求出命题变项的否定。在此例中，<span
-class="math inline">\(2^n-1 = 7\)</span>，所以取补就是用 <span
-class="math inline">\(7\)</span> 减去其他的值。</p>
-<h3 id="推理演算">推理演算</h3>
-<div class="note warning"><h4 id="注意推理形式">注意：推理形式</h4>
-<p>前提真，结论必真的推理形式为正确的推理形式。</p>
-<p><span class="math inline">\(A \implies B\)</span> 表示一种 <span
-class="math inline">\(A\)</span> 和 <span
-class="math inline">\(B\)</span> 之间的真值关系，<span
-class="math inline">\(\implies\)</span> 不是逻辑联结词，<span
-class="math inline">\(A \implies B\)</span> 也不是合式公式。</p>
-<p><span class="math inline">\(A \implies B\)</span> 说明推理形式 <span
-class="math inline">\(A \to B\)</span> 是正确的。</p>
-</div>
-<div class="note info"><h4 id="公式基本的推理公式">公式：基本的推理公式</h4>
-<ol type="1">
-<li><span class="math inline">\(P \land Q \implies P\)</span></li>
-<li><span class="math inline">\(\lnot(P \to Q) \implies P\)</span></li>
-<li><span class="math inline">\(\lnot(P \to Q) \implies \lnot
-Q\)</span></li>
-<li><span class="math inline">\(P \implies P \lor Q\)</span></li>
-<li><span class="math inline">\(\lnot P \implies P \to Q\)</span></li>
-<li><span class="math inline">\(Q \implies P \to Q\)</span></li>
-<li><span class="math inline">\(\lnot P \land (P \lor Q) \implies
-Q\)</span></li>
-<li><span class="math inline">\(P \land (P \to Q)\implies
-Q\)</span></li>
-<li><span class="math inline">\(\lnot Q \land (P \to Q) \implies \lnot
-P\)</span></li>
-<li><span class="math inline">\((P \to Q) \land (Q \to R) \implies P \to
-R\)</span></li>
-<li><span class="math inline">\((P \leftrightarrow Q) \land (Q
-\leftrightarrow R) \implies P \leftrightarrow R\)</span></li>
-<li><span class="math inline">\((P \to R) \land (Q \to R) \land (P \lor
-Q) \implies R\)</span></li>
-<li><span class="math inline">\((P \to Q) \land (R \to S) \land (P \lor
-R) \implies Q \lor S\)</span></li>
-<li><span class="math inline">\((P \to Q) \land (R \to S) \land (\lnot Q
-\lor \lnot S) \implies \lnot P \lor \lnot R\)</span></li>
-<li><span class="math inline">\((Q \to R) \implies ((P \lor Q) \to (P
-\lor R))\)</span></li>
-<li><span class="math inline">\((Q \to R) \implies ((P \to Q) \to (P \to
-R))\)</span></li>
-</ol>
-</div>
-<p>公式 8 常称作假言推理，或称作分离规则，是最常使用的推理公式。</p>
-<p>公式 10 常称作三段论。</p>
-<p>公式 15 和 公式 16 值得玩味。</p>
-<h4 id="证明推理公式的方法">证明推理公式的方法</h4>
-<div class="note default"><h4 id="定理a-implies-b-的充要条件">定理：<span class="math inline">\(A
-\implies B\)</span> 的充要条件</h4>
-<ol type="1">
-<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
-class="math inline">\(A \to B\)</span> 是重言式。</li>
-<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
-class="math inline">\(A \land \lnot B\)</span> 是矛盾式。</li>
-</ol>
-</div>
-<div class="note default"><h4 id="规则推理规则">规则：推理规则</h4>
-<ol type="1">
-<li><p>前提引入规则</p>
-<p>在推理过程中，可以随时引入前提。</p></li>
-<li><p>结论引用规则</p>
-<p>在推理过程中所得到的中间结论，可作为后续推理的前提。</p></li>
-<li><p>代入规则</p>
-<p>在推理过程中，对重言式中的命题变项可使用代入规则。</p></li>
-<li><p>置换规则</p>
-<p>在推理过程中，命题公式中的任何部分公式都可以用与之等值的命题公式来置换。</p></li>
-<li><p>分离规则（假言推理）</p>
-<p>如果已知命题公式 <span class="math inline">\(A \to B\)</span> 和
-<span class="math inline">\(A\)</span>，则有命题公式 <span
-class="math inline">\(B\)</span>。</p></li>
-<li><p>条件证明规则</p>
-<p><span class="math inline">\(A_1 \land A_2 \implies B\)</span> 与
-<span class="math inline">\(A_1 \implies A_2 \to B\)</span>
-是等价的。</p></li>
-</ol>
-</div>
-<p>规则 6 将 <span class="math inline">\(A_1 \implies A_2 \to B\)</span>
-的证明化为 <span class="math inline">\(A_1 \land A_2 \implies B\)</span>
-的证明。意思是说，可以将要证明的结论 <span class="math inline">\(A_2 \to
-B\)</span> 中的 <span class="math inline">\(A_2\)</span>
-作为条件来使用，从而简化了证明。</p>
-<div class="note warning"><h4 id="注意推理规则">注意：推理规则</h4>
-<p>在证明过程中，将 <span class="math inline">\(P \lor Q\)</span> 写成
-<span class="math inline">\(\lnot P \to Q\)</span> 更便于推理。</p>
-</div>
-<h3 id="归结推理法">归结推理法</h3>
-<div class="note primary"><h4 id="定义归结式">定义：归结式</h4>
-<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
-\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
-class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
-L\)</span>。则新子句 <span class="math display">\[
-R(C_1, C_2) = C_1&#39; \lor C_2&#39;
-\]</span> 称作 <span class="math inline">\(C_1, C_2\)</span> 的
-<strong>归结式</strong>。</p>
-</div>
-<div class="note default"><h4 id="定理归结证明">定理：归结证明</h4>
-<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
-\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
-class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
-L\)</span>。则 <span class="math display">\[
-C_1 \land C_2 \implies R(C_1, C_2)
-\]</span> 这说明归结式 <span class="math inline">\(R(C_1, C_2)\)</span>
-是子句 <span class="math inline">\(C_1\)</span> 和 <span
-class="math inline">\(C_2\)</span>
-的逻辑推论，从而归结是正确推理规则。</p>
-</div>
-<p>设在任意解释下 <span class="math inline">\(C_1\)</span> 和 <span
-class="math inline">\(C_2\)</span> 均为真，则若 <span
-class="math inline">\(L\)</span> 为真，则 <span
-class="math inline">\(\lnot L\)</span> 为假，<span
-class="math inline">\(C_2&#39;\)</span> 必为真，<span
-class="math inline">\(R(C_1, C_2)\)</span> 为真。反之则 <span
-class="math inline">\(L\)</span> 为假，<span
-class="math inline">\(C_1&#39;\)</span> 必为真，<span
-class="math inline">\(R(C_1, C_2)\)</span> 仍为真。</p>
-<h4 id="归结证明过程">归结证明过程</h4>
-<ol type="1">
-<li><p>为证明 <span class="math inline">\(A \to B\)</span>
-是重言式，这等价于证明 <span class="math inline">\(A \land \lnot
-B\)</span> 是矛盾式。使用归结证明法，就是从 <span
-class="math inline">\(A \land \lnot B\)</span> 出发。</p></li>
-<li><p>建立子句集 <span class="math inline">\(S\)</span></p>
-<p>将 <span class="math inline">\(A \land \lnot B\)</span>
-化成合取范式，如 <span class="math display">\[
-P \land (P \lor R) \land (\lnot P \lor \lnot Q) \land (\lnot P \lor R)
-\]</span> 进而将所有子句（析取式）构成子句集 <span
-class="math display">\[
-S = \{P, (P \lor R), (\lnot P \lor \lnot Q), (\lnot P \lor R)\}
-\]</span>
-以集合来描述合取范式，这种表示法对归结过程的阐明是方便的。</p></li>
-<li><p>对 <span class="math inline">\(S\)</span> 作归结</p>
-<p>进而对 <span class="math inline">\(S\)</span>
-的子句作归结（消互补对），如子句 <span class="math inline">\(P \lor
-R\)</span> 与 <span class="math inline">\(\lnot P \lor \lnot Q\)</span>
-作归结，得归结式 <span class="math inline">\(R \lor \lnot
-Q\)</span>，并将这归结式仍放入 <span class="math inline">\(S\)</span>
-中。重复此过程。</p></li>
-<li><p>直至归结出矛盾式 <span
-class="math inline">\(\square\)</span>。</p></li>
-</ol>
-<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
-<h3 id="罗素公理系统">罗素公理系统</h3>
-<div class="note default"><h4 id="公理罗素公理系统">公理：罗素公理系统</h4>
-<ol type="1">
-<li><span class="math inline">\(\vdash((P \lor P) \to P)\)</span></li>
-<li><span class="math inline">\(\vdash (P \to (P \lor Q))\)</span></li>
-<li><span class="math inline">\(\vdash((P \lor Q)\to(Q \lor
-P))\)</span></li>
-<li><span class="math inline">\(\vdash((Q \to R)\to((P \lor Q)\to(P \lor
-R))\)</span></li>
-</ol>
-</div>
-<div class="note default"><h4 id="规则罗素公理系统">规则：罗素公理系统</h4>
-<ol type="1">
-<li><p>代入规则</p>
-<p>将合式公式 <span class="math inline">\(A\)</span> 中出现的某一符号
-<span class="math inline">\(\pi\)</span> 到处都代以某一合式公式 <span
-class="math inline">\(B\)</span>，得到合式公式 <span
-class="math inline">\(A \dfrac{\pi}{B}\)</span> 叫代入。代入规则说，如果
-<span class="math inline">\(\vdash A\)</span>，那么 <span
-class="math inline">\(\vdash A \dfrac{\pi}{B}\)</span>。</p></li>
-<li><p>分离规则</p>
-<p>如果 <span class="math inline">\(\vdash A, \vdash A \to
-B\)</span>，那么 <span class="math inline">\(\vdash
-B\)</span>。</p></li>
-<li><p>置换规则</p>
-<p>定义的左右两方可以互相替换。设公式 <span
-class="math inline">\(A\)</span>，替换后为 <span
-class="math inline">\(B\)</span>。置换规则说，如果 <span
-class="math inline">\(\vdash A\)</span>，那么 <span
-class="math inline">\(\vdash B\)</span>。</p></li>
-</ol>
-</div>
-<div class="note default"><h4 id="定理罗素公理系统">定理：罗素公理系统</h4>
-<ol type="1">
-<li><span class="math inline">\(\vdash (Q \to R)\to((P \to Q) \to (P \to
-R))\)</span></li>
-<li><span class="math inline">\(\vdash P \to P\)</span></li>
-<li><span class="math inline">\(\vdash \lnot P \lor P\)</span></li>
-<li><span class="math inline">\(\vdash P \lor \lnot P\)</span></li>
-<li><span class="math inline">\(\vdash P \to \lnot\lnot P\)</span></li>
-<li><span class="math inline">\(\vdash \lnot\lnot P \to P\)</span></li>
-<li><span class="math inline">\(\vdash (P \to Q)\to(\lnot Q \to \lnot
-P)\)</span></li>
-</ol>
-</div>
-<p><del>懒得推。</del></p>
-<h3 id="公理系统的完备性">公理系统的完备性</h3>
-<p>设 <span class="math inline">\(A\)</span>
-是任意一个重言式，需要说明它在公理系统中是可证明的。先将 <span
-class="math inline">\(A\)</span> 写成与之等值的合取范式 <span
-class="math inline">\(A_1 \land A_2 \land \cdots \land
-A_n\)</span>。其中 <span class="math inline">\(A_i(i = 1, 2, \cdots,
-n)\)</span> 必为 <span class="math inline">\(\pi \lor \lnot \pi \lor
-B\)</span> 的形式，<span class="math inline">\(\pi\)</span>
-是命题变项。依公理系统 <span class="math inline">\(\vdash P \lor \lnot
-P, \vdash P \lor \lnot P \lor Q\)</span> 都成立，从而有 <span
-class="math inline">\(\vdash A_i\)</span>。</p>
-<p>又因为 <span class="math inline">\(\vdash P \to (Q \to P \land
-Q)\)</span>，使用分离规则可得 <span class="math inline">\(\vdash
-A_1\land A_2 \land \cdots \land A_n\)</span>。故 <span
-class="math inline">\(A\)</span> 是可证明的。</p>
-<h3 id="王浩算法">王浩算法</h3>
-<div class="note primary"><h4 id="定义初始符号">定义：初始符号</h4>
-<ol type="1">
-<li><span class="math inline">\(A, B, \cdots, X, Y, Z\)</span>
-表示命题</li>
-<li><span class="math inline">\(\lnot, \land, \lor, \to,
-\leftrightarrow\)</span> 表示联结词</li>
-<li><span class="math inline">\((, ), ,\)</span> 圆括号和逗点</li>
-<li><span class="math inline">\(\alpha, \beta, \gamma, \cdots\)</span>
-表示公式串</li>
-</ol>
-</div>
-<div class="note primary"><h4 id="定义相继式">定义：相继式</h4>
-<ol type="1">
-<li><p>如果 <span class="math inline">\(\alpha\)</span> 和 <span
-class="math inline">\(\beta\)</span> 都是公式串，则称 <span
-class="math display">\[
-\alpha \overset{s}{\to} \beta
-\]</span> 是 <strong>相继式</strong>，<span
-class="math inline">\(\alpha\)</span> 为前件，<span
-class="math inline">\(\beta\)</span> 为后件。</p></li>
-<li><p>规定 <span class="math inline">\(\overset{s}{\to}\)</span>
-前件中的”<span class="math inline">\(,\)</span>“以 <span
-class="math inline">\(\land\)</span> 表示，后件中的”<span
-class="math inline">\(,\)</span>“以 <span
-class="math inline">\(\lor\)</span> 表示，便可将 <span
-class="math inline">\(\alpha \overset{s}{\to} \beta\)</span> 化为 <span
-class="math inline">\(\gamma \to \delta\)</span>。</p></li>
-<li><p>相继式 <span class="math inline">\(\alpha \overset{s}{\to}
-\beta\)</span> 为真，便以 <span class="math inline">\(\alpha
-\overset{s}{\implies} \beta\)</span> 表示。</p></li>
-</ol>
-</div>
-<div class="note default"><h4 id="规则变形规则">规则：变形规则</h4>
-<p><strong>前件规则</strong>：</p>
-<ol type="1">
-<li><p><span class="math inline">\(\lnot\implies\)</span></p>
-<p>如果 <span class="math inline">\(\alpha, \beta
-\overset{s}{\implies}X, \gamma\)</span>，那么 <span
-class="math inline">\(\alpha, \lnot X, \beta
-\overset{s}{\implies}\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\land\implies\)</span></p>
-<p>如果 <span class="math inline">\(X, Y, \alpha, \beta
-\overset{s}{\implies}\gamma\)</span>，那么 <span
-class="math inline">\(\alpha, X\land Y, \beta
-\overset{s}{\implies}\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\lor\implies\)</span></p>
-<p>如果 <span class="math inline">\(X, \alpha, \beta
-\overset{s}{\implies}\gamma\)</span> 而且 <span class="math inline">\(Y,
-\alpha, \beta \overset{s}{\implies}\gamma\)</span>，那么 <span
-class="math inline">\(\alpha, X \lor Y, \beta
-\overset{s}{\implies}\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\to\implies\)</span></p>
-<p>如果 <span class="math inline">\(Y, \alpha, \beta
-\overset{s}{\implies}\gamma\)</span> 而且 <span
-class="math inline">\(\alpha, \beta \overset{s}{\implies}X,
-\gamma\)</span>，那么 <span class="math inline">\(\alpha, X \to Y, \beta
-\overset{s}{\implies}\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\leftrightarrow\implies\)</span></p>
-<p>如果 <span class="math inline">\(X, Y, \alpha, \beta
-\overset{s}{\implies}\gamma\)</span> 而且 <span
-class="math inline">\(\alpha, \beta \overset{s}{\implies}X, Y,
-\gamma\)</span>，那么 <span class="math inline">\(\alpha, X
-\leftrightarrow Y, \beta \overset{s}{\implies}\gamma\)</span>。</p></li>
-</ol>
-<p><strong>后件规则</strong>：</p>
-<ol type="1">
-<li><p><span class="math inline">\(\implies\lnot\)</span></p>
-<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}\beta,
-\gamma\)</span>，那么 <span
-class="math inline">\(\alpha\overset{s}{\implies}\beta, \lnot X,
-\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\implies\land\)</span></p>
-<p>如果 <span class="math inline">\(\alpha \overset{s}{\implies} X,
-\beta, \gamma\)</span> 而且 <span class="math inline">\(\alpha
-\overset{s}{\implies} Y, \beta, \gamma\)</span>，那么 <span
-class="math inline">\(\alpha \overset{s}{\implies}\beta, X\land Y,
-\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\implies\lor\)</span></p>
-<p>如果 <span class="math inline">\(\alpha \overset{s}{\implies} X, Y,
-\beta, \gamma\)</span>，那么 <span class="math inline">\(\alpha
-\overset{s}{\implies} \beta, X\lor Y, \gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\implies\to\)</span></p>
-<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}Y,
-\beta, \gamma\)</span>，那么 <span
-class="math inline">\(\alpha\overset{s}{\implies}\beta, X \to Y,
-\gamma\)</span>。</p></li>
-<li><p><span class="math inline">\(\implies\leftrightarrow\)</span></p>
-<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}Y,
-\beta, \gamma\)</span> 而且 <span class="math inline">\(Y,
-\alpha\overset{s}{\implies}X, \beta, \gamma\)</span>，那么 <span
-class="math inline">\(\alpha \overset{s}{\implies} \beta, X
-\leftrightarrow Y, \gamma\)</span>。</p></li>
-</ol>
-</div>
-<p>在符号 <span class="math inline">\(\overset{s}{\implies}\)</span>
-两边移动符号 <span class="math inline">\(X\)</span>
-会导致其取反，这是因为 <span class="math display">\[
-\begin{aligned}
-\alpha \land \beta \implies&amp; X \lor \gamma \\
-\alpha \land \beta \implies&amp; \lnot X \to \gamma \\
-\alpha \land \beta \land \lnot X \implies&amp; \gamma \\
-\alpha, \beta, \lnot X \overset{s}{\implies}&amp; \gamma
-\end{aligned}
-\]</span></p>
-<h3 id="命题逻辑的自然演绎系统">命题逻辑的自然演绎系统</h3>
-<div class="note primary"><h4 id="定义初始符号">定义：初始符号</h4>
-<p><span class="math display">\[
-\Gamma = \{A_1, A_2, \cdots, A_n\} = A_1, A_2, \cdots, A_n
-\]</span></p>
-<p>表示有限个命题公式的集合。 <span class="math display">\[
-\Gamma \vdash A
-\]</span> 表示 <span class="math inline">\(\Gamma, A\)</span>
-间有形式推理关系，<span class="math inline">\(\Gamma\)</span>
-为形式前提，<span class="math inline">\(A\)</span>
-为形式结论，或说使用推理规则可由 <span
-class="math inline">\(\Gamma\)</span> 得 <span
-class="math inline">\(A\)</span>。</p>
-</div>
-<div class="note default"><h4 id="规则变形规则">规则：变形规则</h4>
-<ol type="1">
-<li><p><span class="math inline">\(A_1, A_2, \cdots, A_n \vdash A_i(i =
-1, 2, \cdots, n)\)</span>。肯定前提律。</p>
-<p>推理过程中前提总是被肯定的，前提中任何命题都可作为结论。</p></li>
-<li><p>如果 <span class="math inline">\(\Gamma \vdash A, A \vdash
-B\)</span>，则 <span class="math inline">\(\Gamma \vdash
-B\)</span>。传递律。</p></li>
-<li><p>如果 <span class="math inline">\(\Gamma, \lnot A \vdash
-B\)</span>，且 <span class="math inline">\(\Gamma, \lnot A \vdash \lnot
-B\)</span>，则 <span class="math inline">\(\Gamma \vdash
-A\)</span>。反证律。</p>
-<p>在前提 <span class="math inline">\(\Gamma\)</span> 下，再假设 <span
-class="math inline">\(A\)</span> 是假的，若可推出矛盾命题，则可由前提
-<span class="math inline">\(\Gamma\)</span> 推出 <span
-class="math inline">\(A\)</span>。</p></li>
-<li><p><span class="math inline">\(A \to B, A \vdash
-B\)</span>。蕴涵词消去律（分离规则）。</p></li>
-<li><p>如果 <span class="math inline">\(\Gamma, A \vdash B\)</span>，则
-<span class="math inline">\(\Gamma \vdash A \to
-B\)</span>。蕴涵词引入律。</p>
-<p>在前提 <span class="math inline">\(\Gamma\)</span> 下，又知 <span
-class="math inline">\(A\)</span> 为真，可得 <span
-class="math inline">\(B\)</span>。那么在原前提 <span
-class="math inline">\(\Gamma\)</span> 下可推得如果 <span
-class="math inline">\(A\)</span> 那么 <span
-class="math inline">\(B\)</span>。</p></li>
-</ol>
-</div>
-<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
-<h3 id="合式公式">合式公式</h3>
-<div class="note warning"><h4 id="注意合式公式">注意：合式公式</h4>
-<ol type="1">
-<li>如果 <span class="math inline">\(A, B\)</span> 是合式公式，而无变元
-<span class="math inline">\(x\)</span> 在 <span class="math inline">\(A,
-B\)</span> 的一个中是约束的而在另一个中是自由的，则 <span
-class="math inline">\(A \land B, A \lor B, A \to B, A \leftrightarrow
-B\)</span> 也算是合式公式。</li>
-<li>如果 <span class="math inline">\(A\)</span> 是合式公式，而 <span
-class="math inline">\(x\)</span> 在 <span
-class="math inline">\(A\)</span> 中是自由变元，则 <span
-class="math inline">\((\forall x)A, (\exists x)A\)</span>
-也是合式公式。</li>
-</ol>
-</div>
-<p>第 1 点说明 <span class="math inline">\((\forall x)P(x) \lor
-Q(x)\)</span> 不是合式公式。一个恰当的写法是 <span
-class="math inline">\((\forall x)P(x) \lor Q(y)\)</span>。</p>
-<p>第 2 点说明 <span class="math inline">\((\exists x)((\forall
-x)F(x))\)</span> 不是合式公式，因为内层 <span
-class="math inline">\(x\)</span> 并不是自由变元。</p>
-<h3 id="自然语句的形式化">自然语句的形式化</h3>
-<h4
-id="所有的有理数都是实数的形式化">“所有的有理数都是实数”的形式化</h4>
-<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
-class="math inline">\(x\)</span> 是有理数，<span
-class="math inline">\(Q(x)\)</span> 表示 <span
-class="math inline">\(x\)</span>
-是实数。则“所有的有理数都是实数”可以被形式化地描述为 <span
-class="math display">\[
-(\forall x)(P(x) \to Q(x))
-\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\forall
-x)(P(x) \land Q(x))\)</span>。当论域包含不是有理数的东西的时候，<span
-class="math inline">\((\forall x)(P(x) \land Q(x))\)</span>
-恒为假，这不是我们希望看到的。</p>
-<h4 id="有的实数是有理数的形式化">”有的实数是有理数“的形式化</h4>
-<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
-class="math inline">\(x\)</span> 是有理数，<span
-class="math inline">\(Q(x)\)</span> 表示 <span
-class="math inline">\(x\)</span>
-是实数。则“有的实数是有理数”可以被形式化地描述为 <span
-class="math display">\[
-(\exists x)(Q(x) \land P(x))
-\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\exists
-x)(Q(x) \to P(x))\)</span>。当论域包含不是实数的东西的时候，<span
-class="math inline">\(x\)</span> 取这些事物时恒有 <span
-class="math inline">\(Q(x)\)</span> 为假，那么 <span
-class="math inline">\((\exists x)(Q(x) \to P(x))\)</span>
-恒为真，这也不是我们希望看到的。</p>
-<h4 id="没有无理数是有理数的形式化">“没有无理数是有理数”的形式化</h4>
-<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
-class="math inline">\(x\)</span> 是无理数，<span
-class="math inline">\(B(x)\)</span> 表示 <span
-class="math inline">\(x\)</span>
-是有理数。则“没有无理数是有理数”可以被形式化地描述为 <span
-class="math display">\[
-\lnot (\exists x)(A(x) \land B(x))
-\]</span></p>
-<h4 id="有的实数不是有理数的形式化">“有的实数不是有理数”的形式化</h4>
-<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
-class="math inline">\(x\)</span> 是实数，<span
-class="math inline">\(B(x)\)</span> 表示 <span
-class="math inline">\(x\)</span>
-是有理数。则“有的实数不是有理数”可以被形式化地描述为 <span
-class="math display">\[
-(\exists x)(A(x) \land \lnot B(x))
-\]</span></p>
-<h4 id="自然数集的形式描述">自然数集的形式描述</h4>
-<p>自然数集的定义：</p>
-<ol type="1">
-<li>对每个数，有且仅有一个相继后元。</li>
-<li>没有这样的数，<span class="math inline">\(0\)</span>
-是其相继后元。</li>
-<li>对除 <span class="math inline">\(0\)</span>
-以外的数，有且仅有一个相继前元。</li>
-</ol>
-<p>一个比较常用的描述唯一性的方法是，“如果有两个则它们必相等”。即若对每个
-<span class="math inline">\(x\)</span> 都存在 <span
-class="math inline">\(y\)</span>，使得 <span
-class="math inline">\(y\)</span> 是 <span
-class="math inline">\(x\)</span> 的相继后元，且对任意 <span
-class="math inline">\(z\)</span>，如果 <span
-class="math inline">\(z\)</span> 也是 <span
-class="math inline">\(x\)</span> 的相继后元，则 <span
-class="math inline">\(z = y\)</span>。</p>
-<p>引入谓词 <span class="math inline">\(\mathsf{E}(x, y)\)</span> 表示
-<span class="math inline">\(x = y\)</span>。函数 <span
-class="math inline">\(f(x)\)</span> 表示个体 <span
-class="math inline">\(x\)</span> 的相继后元，即 <span
-class="math inline">\(f(x) = x + 1\)</span>。函数 <span
-class="math inline">\(g(x)\)</span> 表示个体 <span
-class="math inline">\(x\)</span> 的相继前元，即 <span
-class="math inline">\(g(x) = x - 1\)</span>。</p>
-<ol type="1">
-<li><span class="math inline">\((\forall x)(\exists y)(\mathsf{E}(y,
-f(x))\land (\forall z)(\mathsf{E}(z, f(x)) \to \mathsf{E}(y,
-z)))\)</span></li>
-<li><span class="math inline">\(\lnot (\exists x)\mathsf{E}(0,
-f(x))\)</span></li>
-<li><span class="math inline">\((\forall x)(\lnot\mathsf{E}(x, 0) \to
-(\exists y)(\mathsf{E}(y, g(x)) \land (\forall z)(\mathsf{E}(z, g(x))
-\to \mathsf{E}(y, z))))\)</span></li>
-</ol>
-<div class="note warning"><h4
-id="注意对谓词变元多次量化的分析">注意：对谓词变元多次量化的分析</h4>
-<ol type="1">
-<li><span class="math inline">\((\forall x)(\forall y)P(x, y) = (\forall
-y)(\forall x)P(x, y)\)</span></li>
-<li><span class="math inline">\((\exists x)(\exists y)P(x, y) = (\exists
-y)(\exists x)P(x, y)\)</span></li>
-<li><span class="math inline">\((\forall x)(\exists y)P(x, y) \neq
-(\exists y)(\forall x)P(x, y)\)</span></li>
-</ol>
-</div>
-<p>注意第 3 点左式表明 <span class="math inline">\(y\)</span> 是 <span
-class="math inline">\(x\)</span> 的函数 <span
-class="math inline">\(y(x)\)</span>，也就是 <span
-class="math inline">\(x_1\)</span> 可以对应存在 <span
-class="math inline">\(y_1\)</span>，<span
-class="math inline">\(x_2\)</span> 对应存在 <span
-class="math inline">\(y_2\)</span>……但右式要求一个固定的 <span
-class="math inline">\(y\)</span> 对所有的 <span
-class="math inline">\(x\)</span> 都成立。</p>
-<h3 id="公式的普遍有效性和判定问题">公式的普遍有效性和判定问题</h3>
-<div class="note primary"><h4 id="定义普遍有效性">定义：普遍有效性</h4>
-<p>对一个谓词公式：</p>
-<ol type="1">
-<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
-下真值都为真，便称它是 <strong>普遍有效的</strong>。</li>
-<li>如果在它的某个解释 <span class="math inline">\(I\)</span>
-下真值为真，便称它是 <strong>可满足的</strong>。</li>
-<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
-下真值都为假，便称它是 <strong>不可满足的</strong>。</li>
-</ol>
-</div>
-<p>有限域上一个公式的可满足性和普遍有效性仅依赖于个体域个体的数目。即在某个含
-<span class="math inline">\(k\)</span> 个元素的 <span
-class="math inline">\(k\)</span> 个体域上普遍有效（可满足），则在任一
-<span class="math inline">\(k\)</span>
-个体域上也普遍有效（可满足）。</p>
-<p>如果某公式在 <span class="math inline">\(k\)</span>
-个体域上普遍有效，则在 <span class="math inline">\(k - 1\)</span>
-个体域上也普遍有效。</p>
-<p>如果某公式在 <span class="math inline">\(k\)</span>
-个体域上可满足，则在 <span class="math inline">\(k + 1\)</span>
-个体域上也可满足。</p>
-<h4 id="判定问题">判定问题</h4>
-<ol type="1">
-<li><p>谓词逻辑是不可判定的。</p>
-<p>对任一谓词公式而言，没有可行方法能判明它是否是普遍有效的。但这并不排除谓词公式有子类是可判定的。判定问题的困难在于个体域是个无穷集以及对谓词设定的任意性。</p></li>
-<li><p>只含有一元谓词变项的公式是可判定的。</p></li>
-<li><p><span class="math display">\[
-(\forall x_1)(\forall x_2)\cdots(\forall x_n)P(x_1, x_2, \cdots, x_n)
-\]</span></p>
-<p>和 <span class="math display">\[
-(\exists x_1)(\exists x_2)\cdots(\exists x_n)P(x_1, x_2, \cdots x_n)
-\]</span> 型公式，若 <span class="math inline">\(P\)</span>
-中无量词和其他自由变项时是可判定的。</p></li>
-</ol>
-<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
-谓词逻辑的等值和推理演算</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>离散数学</tag>
-        <tag>数理逻辑</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数理逻辑与集合论 - 第九至十二章</title>
     <url>/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</url>
     <content><![CDATA[<p>这是《数理逻辑与集合论（第2版）》第九至十二章的学习笔记，主要内容为集合论。</p>
@@ -2219,6 +1520,441 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
+    <url>/2023/09/29/IATLC-Chap5/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第五章 上下文无关文法及上下文无关语言</strong></p>
+<ul>
+<li>上下文无关文法
+<ul>
+<li>上下文无关文法的定义</li>
+<li>推导与递归推理</li>
+<li>最左与最右推导</li>
+<li>文法的语言</li>
+<li>句型</li>
+</ul></li>
+<li>语法分析树
+<ul>
+<li>语法分析树的构造</li>
+<li>递归推理、推导与语法分析树的等价性
+<ul>
+<li>从递归推理到语法分析树</li>
+<li>从语法分析树到最左推导</li>
+<li>从最左推导到递归推理</li>
+</ul></li>
+</ul></li>
+<li>文法与语言的歧义性
+<ul>
+<li>歧义文法</li>
+<li>去除文法的歧义性</li>
+<li>固有歧义</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="上下文无关文法">上下文无关文法</h2>
+<h3 id="上下文无关文法的定义">上下文无关文法的定义</h3>
+<p>一个上下文无关文法（CFG）由四个重要部分组成：</p>
+<ol type="1">
+<li>一个有穷字母表 <span class="math inline">\(T\)</span>，由 <span
+class="math inline">\(T\)</span>
+中的字母构成了这个文法所定义的语言中的串，这个字母表称为
+<strong>终结符</strong>（Terminal）。</li>
+<li>一个 <strong>非终结符</strong> （Variable）的有穷集合 <span
+class="math inline">\(V\)</span>。</li>
+<li>有一个非终结符 <span class="math inline">\(S\)</span> 称为
+<strong>初始符号</strong>（Start
+Symbol），它代表语言开始被定义的地方。</li>
+<li>一个 <strong>产生式</strong> （Production）的有穷集合 <span
+class="math inline">\(P\)</span>，它用来表示语言的递归定义。每个产生式被定义为
+<code>&lt;head&gt; -&gt; &lt;body&gt;</code>，具体的构造过程是，保持终结符不变，把任何所有的
+<code>&lt;head&gt;</code> 替换成 <code>&lt;body&gt;</code>。</li>
+</ol>
+<p>一个上下文无关文法可以表示为 <span class="math inline">\(G = (V, T,
+P, S)\)</span>。</p>
+<hr />
+<p>以下是可以表示语言 <span class="math inline">\((\textbf{a}
++\textbf{b})(\textbf{a} + \textbf{b} + \textbf{0} +
+\textbf{1})^*\)</span> 的一个上下文无关文法。 <span
+class="math display">\[
+\begin{aligned}
+E &amp; \to I \\
+E &amp; \to E + E \\
+E &amp; \to E * E \\
+E &amp; \to (E) \\
+I &amp; \to a \\
+I &amp; \to b \\
+I &amp; \to Ia \\
+I &amp; \to Ib \\
+I &amp; \to I0 \\
+I &amp; \to I1
+\end{aligned}
+\]</span> 产生式可以使用简捷表示法，比如上面的产生式可以化简为： <span
+class="math display">\[
+\begin{aligned}
+E &amp; \to I | E + E | E * E | (E) \\
+I &amp; \to a | b | Ia | Ib | I0 | I1
+\end{aligned}
+\]</span></p>
+<h3 id="推导与递归推理">推导与递归推理</h3>
+<p><strong>推导</strong> 的过程通过符号 <span
+class="math inline">\(\implies\)</span> 表示。设 <span
+class="math inline">\(G = (V, T, P, S)\)</span> 为一个 CFG，<span
+class="math inline">\(\alpha A \beta\)</span>
+是一个包含终结符和非终结符的串，其中 <span
+class="math inline">\(A\)</span> 是一个非终结符，而 <span
+class="math inline">\(\alpha, \beta \in (V \cup T)^*\)</span>。设 <span
+class="math inline">\(A \to \gamma\)</span> 是一个产生式，则我们称 <span
+class="math inline">\(\alpha A \beta \underset{G}{\implies}
+\alpha\gamma\beta\)</span>。通常省略掉 <span
+class="math inline">\(G\)</span>，而仅仅记作 <span
+class="math inline">\(\alpha A \beta \implies
+\alpha\gamma\beta\)</span>。 多步推导则使用 <span
+class="math inline">\(\overset{*}{\implies}\)</span> 来表示。</p>
+<p><strong>递归推理</strong> 的过程类似于推导的逆过程，是从具体的
+<strong>产生式的体</strong> 递归到抽象的 <strong>产生式的头</strong>
+的过程。</p>
+<h3 id="最左与最右推导">最左与最右推导</h3>
+<p>在每一步推导中，如果要求只讲最左边的非终结符替换成该非终结符的某个产生式的体，那么这种方式的推导称为
+<strong>最左推导</strong>。类似地可以定义
+<strong>最右推导</strong>。最左推导和最右推导分别用 <span
+class="math inline">\(\underset{lm}{\implies},
+\underset{lm}{\overset{*}{\implies}}\)</span> 和 <span
+class="math inline">\(\underset{rm}{\implies},
+\underset{rm}{\overset{*}{\implies}}\)</span> 表示。</p>
+<p>个人认为，如果每次推导的时候按照随机的顺序来替换，那么整个推导的逻辑就会变得杂乱无章。最左推导和最右推导就限制了替换产生式的头的顺序：前者是从左往右，后者是从右往左。</p>
+<h3 id="文法的语言">文法的语言</h3>
+<p>对于 CFG <span class="math inline">\(G = (V, T, P,
+S)\)</span>，它的语言 <span class="math inline">\(L(G)\)</span>
+被定义为所有终结符串的集合： <span class="math display">\[
+L(G) = \{w \in T^* | S \underset{G}{\overset{*}{\implies}}w\}
+\]</span> 如果我们要证明某个文法 <span class="math inline">\(G\)</span>
+确实定义了某个已经非形式化定义好的语言 <span
+class="math inline">\(L\)</span>，通常需要分两步：</p>
+<ol type="1">
+<li>充分性：如果一个串 <span class="math inline">\(w \in L\)</span>
+满足这个非形式化定义的性质，那么 <span class="math inline">\(S
+\overset{*}{\implies}w\)</span>，来说明 <span class="math inline">\(w
+\in L(G)\)</span>。通常，我们通过 <strong>对 <span
+class="math inline">\(w\)</span> 的长度</strong> 进行归纳证明。</li>
+<li>必要性：如果 <span class="math inline">\(S
+\overset{*}{\implies}w\)</span>，那么 <span
+class="math inline">\(w\)</span> 应该满足这个非形式化定义的性质，来说明
+<span class="math inline">\(w \in L\)</span>。通常，我们需要
+<strong>对推导的步数</strong> 进行归纳证明。</li>
+</ol>
+<h3 id="句型">句型</h3>
+<p>由初始符号推导出来的串称为 <strong>句型</strong>（Sentence）。<span
+class="math inline">\(G = (V, T, P, S)\)</span> 的所有句型 <span
+class="math inline">\(\alpha\)</span> 组成的集合是 <span
+class="math display">\[
+\{\alpha \in (V \cup T)^* | S \overset{*}{\implies}\alpha\}
+\]</span> 另外，如果 <span class="math inline">\(S
+\underset{lm}{\overset{*}{\implies}} \alpha\)</span> 则 <span
+class="math inline">\(\alpha\)</span> 是左句型，如果 <span
+class="math inline">\(S \underset{rm}{\overset{*}{\implies}}
+\alpha\)</span> 则 <span class="math inline">\(\alpha\)</span>
+是右句型。句型可以包含非终结符。语言 <span
+class="math inline">\(L(G)\)</span> 是由所有属于 <span
+class="math inline">\(T^*\)</span> 的句型组成的。</p>
+<h2 id="语法分析树">语法分析树</h2>
+<h3 id="语法分析树的构造">语法分析树的构造</h3>
+<p>对于 CFG <span class="math inline">\(G = (V, T, P, S)\)</span>，<span
+class="math inline">\(G\)</span> 的 <strong>语法分析树</strong>
+是满足下列条件的树：</p>
+<ol type="1">
+<li>每个内部节点的标号是 <span class="math inline">\(V\)</span>
+中的一个非终结符。</li>
+<li>每个叶节点的标号可以是一个非终结符，一个终结符，或者 <span
+class="math inline">\(\epsilon\)</span>。但是，如果叶节点的标号是 <span
+class="math inline">\(\epsilon\)</span>，那么它一定是其父节点唯一的子节点。</li>
+<li>如果某个内部节点的标号是 <span
+class="math inline">\(A\)</span>，并且它的子节点的标号从左到右分别为
+<span class="math inline">\(X_1, X_2, \cdots, X_k\)</span>，那么 <span
+class="math inline">\(A \to X_1X_2\cdots X_k\)</span> 一定是 <span
+class="math inline">\(P\)</span> 中的一个产生式。注意：如果其中某个
+<span class="math inline">\(X\)</span> 为 <span
+class="math inline">\(\epsilon\)</span>，那么 <span
+class="math inline">\(X\)</span> 一定是 <span
+class="math inline">\(A\)</span> 唯一的子节点，并且 <span
+class="math inline">\(A \to \epsilon\)</span> 是 <span
+class="math inline">\(G\)</span> 的一个产生式。</li>
+</ol>
+<p>最重要的语法分析树，是那些 <strong>所有叶节点的标号都是终结符或 <span
+class="math inline">\(\epsilon\)</span>，且根节点的标号是初始符号</strong>
+的语法分析树。</p>
+<h3
+id="递归推理推导与语法分析树的等价性">递归推理、推导与语法分析树的等价性</h3>
+<pre><code class="highlight mermaid">graph LR
+
+A(语法分析树) --&gt; B(最左推导)
+A --&gt; C(最右推导)
+B --&gt; D(推导)
+C --&gt; D
+D --&gt; E(递归推理)
+E --&gt; A</code></pre>
+<p>其中从最左推导到推导是显然的，而最右推导相关箭头都与最左推导类似，因此我们只需要证明以下三个等价性：</p>
+<h4 id="从递归推理到语法分析树">从递归推理到语法分析树</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>。如果通过递归推理过程得出终结符串 <span
+class="math inline">\(w\)</span> 在非终结符 <span
+class="math inline">\(A\)</span> 的语言中，则一定存在一棵根为 <span
+class="math inline">\(A\)</span>、产物为 <span
+class="math inline">\(w\)</span> 的语法分析树。</p>
+<p><strong>证明</strong>：对推理的步数进行归纳。</p>
+<p>基础：如果该推理只有一步，则该推理过程只需要基础，因此一定存在产生式
+<span class="math inline">\(A \to w\)</span>。这样就能构造出：</p>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+
+A --&gt; B($w_1$)
+A --&gt; C(...)
+A --&gt; D($w_k$)</code></pre>
+<p>其中 <span class="math inline">\(w = w_1w_2 \cdots w_k\)</span>。</p>
+<p>归纳：假定在 <span class="math inline">\(n + 1\)</span>
+个推理步骤之后能够得出 <span class="math inline">\(w\)</span> 在 <span
+class="math inline">\(A\)</span> 的语言里这个事实，并且这个定理对于使得
+<span class="math inline">\(B\)</span> 的语言中的 <span
+class="math inline">\(x\)</span> 成员用小于等于 <span
+class="math inline">\(n\)</span> 步推理推得的所有串 <span
+class="math inline">\(x\)</span> 和非终结符 <span
+class="math inline">\(B\)</span> 成立。考虑得出 <span
+class="math inline">\(w\)</span> 在 <span
+class="math inline">\(A\)</span>
+的语言里的这个推理的最后一步，这一步使用了 <span
+class="math inline">\(A\)</span> 的某个产生式，不妨设为 <span
+class="math inline">\(A \to X_1X_2 \cdots X_k\)</span>，其中 <span
+class="math inline">\(X_i\)</span> 是一个终结符或非终结符。</p>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
+class="math inline">\(X_i = w_i\)</span>。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
+class="math inline">\(w_i\)</span> 是一个先前推理出在 <span
+class="math inline">\(X_i\)</span> 语言中的串，而由于 <span
+class="math inline">\(A \to X_1X_2 \cdots X_k\)</span> 消耗了 <span
+class="math inline">\(1\)</span> 步，所以 <span
+class="math inline">\(w_i\)</span> 在 <span
+class="math inline">\(X_i\)</span> 中的推导最多只会有 <span
+class="math inline">\(n\)</span> 步，根据归纳假设则可得出存在一个根为
+<span class="math inline">\(X_i\)</span>，产物为 <span
+class="math inline">\(w\)</span> 的语法分析树。</li>
+</ul>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+style E stroke:none,fill:none
+style F stroke:none,fill:none
+
+A --&gt; B($X_1$)
+A --&gt; C(...)
+A --&gt; D($X_k$)
+B -.- E($w_1$)
+D -.- F($w_k$)</code></pre>
+<h4 id="从语法分析树到推导">从语法分析树到推导</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>，假设有一棵语法分析树，它的根的标号为非终结符 <span
+class="math inline">\(A\)</span>，产物为 <span class="math inline">\(w
+\in T^*\)</span>。那么一定存在一个 <span
+class="math inline">\(G\)</span> 中的最左推导 <span
+class="math inline">\(A
+\underset{lm}{\overset{*}{\implies}}w\)</span>。</p>
+<p><strong>证明</strong>：对树的高度进行归纳。设 <span
+class="math inline">\(w = w_1w_2\cdots w_k\)</span>。</p>
+<p>基础：如果树高为 <span class="math inline">\(1\)</span>，那么 <span
+class="math inline">\(G\)</span> 一定包含 <span class="math inline">\(A
+\to w\)</span> 这一产生式，最左推导可以单步完成，即为 <span
+class="math inline">\(A \underset{lm}{\implies}w\)</span>。</p>
+<p>归纳：如果树高为 <span class="math inline">\(n\)</span>，其中 <span
+class="math inline">\(n &gt; 1\)</span>，且定理对所有树高小于 <span
+class="math inline">\(n\)</span> 的树成立。考虑树：</p>
+<pre><code class="highlight mermaid">graph TD
+
+style A stroke:none,fill:none
+style B stroke:none,fill:none
+style C stroke:none,fill:none
+style D stroke:none,fill:none
+
+A --&gt; B($X_1$)
+A --&gt; C(...)
+A --&gt; D($X_k$)</code></pre>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么定义
+<span class="math inline">\(w_i\)</span> 为只包含 <span
+class="math inline">\(X_i\)</span> 的串。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
+class="math inline">\(X_i\)</span> 一定是一个树高小于 <span
+class="math inline">\(n\)</span>
+的子树的根节点，因此通过归纳假设，存在一个最左推导 <span
+class="math inline">\(X_i \underset{lm}{\implies}w_i\)</span>。</li>
+</ul>
+<h4 id="从推导到递归推理">从推导到递归推理</h4>
+<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
+P, S)\)</span>，假设有一个推导 <span class="math inline">\(A
+\underset{G}{\overset{*}{\implies}}w\)</span>，其中 <span
+class="math inline">\(w \in T^*\)</span>。那么应用于 <span
+class="math inline">\(G\)</span> 的递归推理过程决定了 <span
+class="math inline">\(w\)</span> 在非终结符 <span
+class="math inline">\(A\)</span> 的语言中。</p>
+<p><strong>证明</strong>：对推导 <span class="math inline">\(A
+\overset{*}{\implies}w\)</span> 的步数进行归纳。</p>
+<p>基础：如果该推导只有一步，那么 <span class="math inline">\(A \to
+w\)</span> 一定是一个产生式。由于 <span class="math inline">\(w\)</span>
+只包含终结符，因此 <span class="math inline">\(w\)</span> 一定在 <span
+class="math inline">\(A\)</span> 的语言中。</p>
+<p>归纳：假设该推导包含 <span class="math inline">\(n + 1\)</span>
+步，并且假定对于所有少于或等于 <span class="math inline">\(n\)</span>
+步的推导来说命题都成立。把推导写为 <span class="math inline">\(A
+\implies X_1X_2\cdots X_k \overset{*}{\implies}w = w_1w_2\cdots
+w_k\)</span>。</p>
+<ul>
+<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
+class="math inline">\(w_i = X_i\)</span>。</li>
+<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么有
+<span class="math inline">\(X_i
+\overset{*}{\implies}w_i\)</span>，这是因为这个推导的步数少于或等于
+<span class="math inline">\(n\)</span> 步。</li>
+</ul>
+<p>现在已经有了产生式 <span class="math inline">\(A \to X_1X_2\cdots
+X_k\)</span>，且对于 <span class="math inline">\(w = w_1w_2\cdots
+w_k\)</span> 有 <span class="math inline">\(w_i\)</span> 在 <span
+class="math inline">\(X_i\)</span> 的语言中。下一步即得 <span
+class="math inline">\(w = w_1w_2\cdots w_k\)</span> 在 <span
+class="math inline">\(A\)</span> 的语言中。</p>
+<h2 id="文法与语言的歧义性">文法与语言的歧义性</h2>
+<h3 id="歧义文法">歧义文法</h3>
+<p>一个 CFG <span class="math inline">\(G = (V, T, P, S)\)</span> 是
+<strong>歧义的</strong>，如果 <span class="math inline">\(\exists w \in
+T^*\)</span> 使得有两棵不同的语法分析树满足根为 <span
+class="math inline">\(S\)</span> 且产物为 <span
+class="math inline">\(w\)</span>。</p>
+<p>正如这篇博文最初给的例子，当产物 <span class="math inline">\(w = a +
+a * a\)</span> 时，有两棵语法分析树：</p>
+<pre><code class="highlight mermaid">graph TD
+
+subgraph &quot; &quot;
+style S1 stroke:none,fill:none
+style A1 stroke:none,fill:none
+style B1 stroke:none,fill:none
+style C1 stroke:none,fill:none
+style D1 stroke:none,fill:none
+style E1 stroke:none,fill:none
+style F1 stroke:none,fill:none
+style G1 stroke:none,fill:none
+style H1 stroke:none,fill:none
+style I1 stroke:none,fill:none
+style J1 stroke:none,fill:none
+style K1 stroke:none,fill:none
+style L1 stroke:none,fill:none
+
+S1(E) --&gt; A1(E)
+S1 --&gt; B1(+)
+S1 --&gt; C1(E)
+A1 --&gt; D1(I)
+D1 --&gt; E1(a)
+C1 --&gt; F1(E)
+C1 --&gt; G1(*)
+C1 --&gt; H1(E)
+F1 --&gt; I1(I)
+I1 --&gt; J1(a)
+H1 --&gt; K1(I)
+K1 --&gt; L1(a)
+end
+
+subgraph &quot; &quot;
+style S2 stroke:none,fill:none
+style A2 stroke:none,fill:none
+style B2 stroke:none,fill:none
+style C2 stroke:none,fill:none
+style D2 stroke:none,fill:none
+style E2 stroke:none,fill:none
+style F2 stroke:none,fill:none
+style G2 stroke:none,fill:none
+style H2 stroke:none,fill:none
+style I2 stroke:none,fill:none
+style J2 stroke:none,fill:none
+style K2 stroke:none,fill:none
+style L2 stroke:none,fill:none
+
+S2(E) --&gt; A2(E)
+S2 --&gt; B2(*)
+S2 --&gt; C2(E)
+A2 --&gt; D2(E)
+A2 --&gt; E2(+)
+A2 --&gt; F2(E)
+D2 --&gt; G2(I)
+G2 --&gt; H2(a)
+F2 --&gt; I2(I)
+I2 --&gt; J2(a)
+C2 --&gt; K2(I)
+K2 --&gt; L2(a)
+end
+</code></pre>
+<p>这说明该文法是歧义的。</p>
+<hr />
+<p>注意，并不是多种推导导致了歧义性，而是存在多棵不同的语法分析树导致的。比如</p>
+<ol type="1">
+<li><span class="math inline">\(E \implies E + E \implies I + E \implies
+a + E \implies a + I \implies a + b\)</span></li>
+<li><span class="math inline">\(E \implies E + E \implies E + I \implies
+E + b \implies I + b \implies a + b\)</span></li>
+</ol>
+<p>这两个推导所提供的结构并没有本质的区别，它们对应同一棵语法分析树。</p>
+<h3 id="去除文法的歧义性">去除文法的歧义性</h3>
+<p><strong>不存在算法能够判定某个文法的歧义性。</strong>而且，存在一些文法，对它们而言只存在歧义的文法（即
+<a href="#固有歧义">固有歧义</a>
+的文法）。对于这篇博文最初给的例子而言，有两个缺陷导致了文法的歧义性：</p>
+<ol type="1">
+<li>没有考虑运算符的优先级。我们需要使所有的 <span
+class="math inline">\(*\)</span> 操作在 <span
+class="math inline">\(+\)</span> 操作之前被结合。</li>
+<li>一系列运算符既可从左到右也可以从右到左地结合。事实上，即使我们正确地保持了运算符优先级，<span
+class="math inline">\(E+E+E\)</span>
+仍然会得到两棵不同的语法分析树。一个习惯的做法是坚持从左到右地结合，我们需要通过一些结构来固定这个顺序。</li>
+</ol>
+<p>事实上，我们可以引入几个不同的非终结符，来解决强制优先级的问题：</p>
+<ol type="1">
+<li><strong>因子</strong>（Factor）是不能被相邻的运算符（包括 <span
+class="math inline">\(*\)</span> 和 <span
+class="math inline">\(+\)</span>）打断的表达式。在此例中，因子只会是标识符
+<span class="math inline">\(I\)</span>
+以及任何被括号括起来的表达式。</li>
+<li><strong>项</strong>（Term）是不能被相邻的 <span
+class="math inline">\(+\)</span>
+打断的表达式。在此例中，项只会是一个或多个因子的乘积。</li>
+<li><strong>表达式</strong>（Expression）是指任何可能得串，其中包含可以被相邻的
+<span class="math inline">\(*\)</span> 或 <span
+class="math inline">\(+\)</span>
+打断的表达式。在此例中，表达式就是一个或多个项的和。</li>
+</ol>
+<p>修改之后的 CFG 如下：</p>
+<p><span class="math display">\[
+\begin{aligned}
+I &amp; \to a | b | Ia | Ib | I0 | I1 \\
+F &amp; \to I | (E) \\
+T &amp; \to F | T * F \\
+E &amp; \to T | E + T
+\end{aligned}
+\]</span></p>
+<h3 id="固有歧义">固有歧义</h3>
+<p>如果一个上下文无关语言 <span class="math inline">\(L\)</span>
+的所有文法都是歧义的，那么我们称它是 <strong>固有歧义</strong> 的。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-Chap2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2702,6 +2438,707 @@ class="math inline">\(D\)</span> 接受。</p>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
         <tag>有穷自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
+    <url>/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</url>
+    <content><![CDATA[<p>这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。</p>
+<span id="more"></span>
+<h2 id="第1章-命题逻辑的基本概念">第1章 命题逻辑的基本概念</h2>
+<h3 id="代入规则">代入规则</h3>
+<div class="note warning"><h4 id="注意代入规则">注意：代入规则</h4>
+<ol type="1">
+<li><p>公式中被代换的只能是
+<strong>命题变元</strong>，而不能是复合命题。 例如，可以用 <span
+class="math inline">\((R\land S)\)</span> 来代替某公式中的 <span
+class="math inline">\(P\)</span>，记作 <span
+class="math inline">\(\frac{P}{(R\land
+S)}\)</span>，但不能反过来将公式中的 <span class="math inline">\((R\land
+S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
+<li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
+其实就是说，要代换就所有都代换完。对于重言式 <span
+class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
+class="math inline">\(P \gets \lnot Q\)</span>，那么就变成了 <span
+class="math inline">\((\lnot Q \lor \lnot
+P)\)</span>，这并非重言式。</p></li>
+</ol>
+</div>
+<h3 id="波兰式与逆波兰式">波兰式与逆波兰式</h3>
+<p>简而言之，如果将一个合式公式用二叉树来表示，那么</p>
+<ul>
+<li><p>波兰式就是前缀表达式，即先序遍历，先输出自己，再依次遍历左、右子树。</p></li>
+<li><p>逆波兰式就是后缀表达式，即后序遍历，先依次遍历左、右子树，再输出自己。</p></li>
+</ul>
+<div class="note warning"><h4 id="注意波兰式与逆波兰式">注意：波兰式与逆波兰式</h4>
+<p>越 <strong>先运算</strong> 的式子的深度应该越
+<strong>深</strong>。</p>
+<blockquote>
+<p>例1.1 将下列公式写成波兰式。 <span class="math inline">\(\lnot\lnot P
+\lor(W\land R)\lor \lnot Q\)</span></p>
+</blockquote>
+<p>这题的正确答案应该是 <span class="math inline">\(\lor\lor\lnot\lnot P
+\land W R \lnot Q\)</span>。（而不是 <span
+class="math inline">\(\lor\lnot\lnot P\lor\land W R \lnot
+Q\)</span>！）</p>
+</div>
+<h2 id="第2章-命题逻辑的等值和推理演算">第2章
+命题逻辑的等值和推理演算</h2>
+<h3 id="等值公式">等值公式</h3>
+<div class="note info"><h4 id="公式等值公式">公式：等值公式</h4>
+<ol type="1">
+<li><p><span class="math inline">\((P \to Q) \to R \neq P \to (Q \to
+R)\)</span></p></li>
+<li><p><span class="math inline">\(P \leftrightarrow (Q \leftrightarrow
+R) \neq (P \leftrightarrow Q) \leftrightarrow (P \leftrightarrow
+Q)\)</span></p></li>
+<li><p><span class="math inline">\(P \to \lnot P = \lnot P, \lnot P \to
+P = P\)</span></p></li>
+<li><p><span class="math inline">\(P \leftrightarrow Q = (P \land Q)
+\lor (\lnot P \land \lnot Q)\)</span></p></li>
+<li><p><span class="math inline">\(P \leftrightarrow Q = (P \lor \lnot
+Q) \land (\lnot P \lor Q)\)</span></p></li>
+<li><p><span class="math inline">\(P \to (Q \to R) = (P \land Q) \to
+R\)</span></p></li>
+<li><p><span class="math inline">\((P \to R) \land (Q \to R) = (P \lor
+Q) \to R\)</span></p></li>
+</ol>
+</div>
+<p><del>妈的，与和或之间没有交换律。</del></p>
+<p><strong>定理
+1</strong>：不知道逻辑上这两者不等的原因是什么，但显然左式是 <span
+class="math inline">\(P \land \lnot Q \lor R\)</span>，但右式是 <span
+class="math inline">\(\lnot P \lor \lnot Q \lor
+R\)</span>，二者不等。</p>
+<p><strong>定理 2</strong>：当 <span class="math inline">\(P = Q = R =
+\mathrm{F}\)</span> 时，左式为假，右式为真。</p>
+<p><strong>定理 3</strong>：十分合理，拆开发现是俩相同东西的或。</p>
+<p><strong>定理 4</strong>：这可解释为 <span class="math inline">\(P
+\leftrightarrow Q\)</span> 为真，有两种可能的情形，即 <span
+class="math inline">\((P \land Q)\)</span> 为真，或 <span
+class="math inline">\((\lnot P \land \lnot Q)\)</span> 为真。其实就是
+<span class="math inline">\(P\)</span> 和 <span
+class="math inline">\(Q\)</span> 二者同真同假。</p>
+<p><strong>定理 5</strong>：这可解释为 <span class="math inline">\(P
+\leftrightarrow Q\)</span> 为假，有两种可能的情形，即 <span
+class="math inline">\((P \lor \lnot Q)\)</span> 为假，或 <span
+class="math inline">\((\lnot P \lor Q)\)</span> 为假。其实就是 <span
+class="math inline">\(P\)</span> 和 <span
+class="math inline">\(Q\)</span> 二者真假不同。</p>
+<p><strong>定理 6</strong>：<span class="math inline">\(P\)</span> 是
+<span class="math inline">\((Q \to R)\)</span> 的前提，<span
+class="math inline">\(Q\)</span> 是 <span
+class="math inline">\(R\)</span> 的前提，于是可将两个前提的合取 <span
+class="math inline">\((P \land Q)\)</span> 作为总的前提。</p>
+<p><strong>定理 7</strong>：左端说明由 <span
+class="math inline">\(P\)</span> 而且由 <span
+class="math inline">\(Q\)</span> 都有 <span
+class="math inline">\(R\)</span> 成立，从而可以说明由 <span
+class="math inline">\(P\)</span> 或由 <span
+class="math inline">\(Q\)</span> 就有 <span
+class="math inline">\(R\)</span> 成立，即右端。</p>
+<h3 id="对偶式">对偶式</h3>
+<div class="note primary"><h4 id="定义对偶式">定义：对偶式</h4>
+<p>假定命题公式 <span class="math inline">\(A\)</span> 中仅出现 <span
+class="math inline">\(\lnot, \lor, \land\)</span> 三个联结词。将 <span
+class="math inline">\(A\)</span> 中出现的 <span
+class="math inline">\(\lor, \land, \text{T}, \text{F}\)</span> 分别以
+<span class="math inline">\(\land, \lor, \text{F}, \text{T}\)</span>
+代换，得到公式 <span class="math inline">\(A^*\)</span>，则称 <span
+class="math inline">\(A^*\)</span> 是 <span
+class="math inline">\(A\)</span> 的 <strong>对偶式</strong>，或说 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(A^*\)</span> 互为对偶式。</p>
+</div>
+<div class="note info"><h4 id="性质对偶式">性质：对偶式</h4>
+<p>为方便，若 <span class="math inline">\(A = A(P_1, P_2, \cdots,
+P_n)\)</span>，令 <span class="math inline">\(A^- = A(\lnot P_1, \lnot
+P_2, \cdots, \lnot P_n)\)</span>。</p>
+<ol type="1">
+<li><span class="math inline">\(\lnot(A^*) = (\lnot A)^*, \lnot(A^-) =
+(\lnot A)^-\)</span></li>
+<li><span class="math inline">\((A^*)^* = A, (A^-)^- = A\)</span></li>
+<li><span class="math inline">\(\lnot A = A^{*-}\)</span></li>
+</ol>
+</div>
+<p>证明的思路是对 <span class="math inline">\(A\)</span>
+中出现的联结词个数进行归纳证明。</p>
+<h3 id="范式">范式</h3>
+<div class="note info"><h4 id="性质极小项与极大项">性质：极小项与极大项</h4>
+<p><strong>极小项</strong>：</p>
+<ol type="1">
+<li><p>对一个含有 <span class="math inline">\(n\)</span>
+个变项的公式来说，所有可能的极小项个数和该公式的解释个数一样多，都是
+<span class="math inline">\(2^n\)</span>。</p></li>
+<li><p>每个极小项只在一个解释下为真。</p></li>
+<li><p>极小项两两不等值，而且 <span class="math inline">\(m_i \land m_j
+= \text{F}(i \neq j)\)</span>。</p></li>
+<li><p>恰由 <span class="math inline">\(2^n\)</span>
+个极小项的析取构成的公式，必为重言式。即 <span class="math display">\[
+\bigvee_{i = 0}^{2^n-1}m_i = \text{T}
+\]</span></p></li>
+</ol>
+<p><strong>极大项</strong>：</p>
+<ol type="1">
+<li><p>对一个含有 <span class="math inline">\(n\)</span>
+个变项的公式来说，所有可能的极大项个数和该公式的解释个数一样多，都是
+<span class="math inline">\(2^n\)</span>。</p></li>
+<li><p>每个极大项只在一个解释下为假。</p></li>
+<li><p>极大项两两不等值，而且 <span class="math inline">\(M_i \lor M_j =
+\text{T}(i \neq j)\)</span>。</p></li>
+<li><p>恰由 <span class="math inline">\(2^n\)</span>
+个极大项的合取构成的公式，必为矛盾式。即 <span class="math display">\[
+\bigwedge_{i = 0}^{2^n-1}M_i = \text{F}
+\]</span></p></li>
+</ol>
+</div>
+<p>可以理解为极小项（极大项）构成了含 <span
+class="math inline">\(n\)</span>
+个命题变项的命题组成的空间的一组基底，极小项（极大项）两两不等值且与（或）得到的结果为
+<span class="math inline">\(\text{F}\)</span>（<span
+class="math inline">\(\text{T}\)</span>）类似于基底中基向量的正交性。</p>
+<h4
+id="主合取范式与主析取范式之间的转换">主合取范式与主析取范式之间的转换</h4>
+<p>若已知 <span class="math inline">\(A\)</span> 的主析取范式，如 <span
+class="math display">\[
+\begin{aligned}
+A &amp; = \lor_{0, 1, 4, 5, 7} \\
+&amp; = \land_{(\{0, 1, \cdots, 7\} - \{0, 1, 4, 5, 7\})_\text{ 补}} \\
+&amp; = \land_{\{2, 3, 6\}_{\text{ 补}}} \\
+&amp; = \land_{5, 4, 1}
+\end{aligned}
+\]</span> 若已知 <span class="math inline">\(A\)</span> 的主合取范式，如
+<span class="math display">\[
+\begin{aligned}
+A &amp; = \land_{1, 4, 5} \\
+&amp; = \lor_{(\{0, 1, \cdots, 7\} - \{1, 4, 5\})_\text{ 补}} \\
+&amp; = \lor_{\{0, 2, 3, 6, 7\}_\text{ 补}} \\
+&amp; = \lor_{7, 5, 4, 1, 0}
+\end{aligned}
+\]</span></p>
+<p>取补是为了求出命题变项的否定。在此例中，<span
+class="math inline">\(2^n-1 = 7\)</span>，所以取补就是用 <span
+class="math inline">\(7\)</span> 减去其他的值。</p>
+<h3 id="推理演算">推理演算</h3>
+<div class="note warning"><h4 id="注意推理形式">注意：推理形式</h4>
+<p>前提真，结论必真的推理形式为正确的推理形式。</p>
+<p><span class="math inline">\(A \implies B\)</span> 表示一种 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 之间的真值关系，<span
+class="math inline">\(\implies\)</span> 不是逻辑联结词，<span
+class="math inline">\(A \implies B\)</span> 也不是合式公式。</p>
+<p><span class="math inline">\(A \implies B\)</span> 说明推理形式 <span
+class="math inline">\(A \to B\)</span> 是正确的。</p>
+</div>
+<div class="note info"><h4 id="公式基本的推理公式">公式：基本的推理公式</h4>
+<ol type="1">
+<li><span class="math inline">\(P \land Q \implies P\)</span></li>
+<li><span class="math inline">\(\lnot(P \to Q) \implies P\)</span></li>
+<li><span class="math inline">\(\lnot(P \to Q) \implies \lnot
+Q\)</span></li>
+<li><span class="math inline">\(P \implies P \lor Q\)</span></li>
+<li><span class="math inline">\(\lnot P \implies P \to Q\)</span></li>
+<li><span class="math inline">\(Q \implies P \to Q\)</span></li>
+<li><span class="math inline">\(\lnot P \land (P \lor Q) \implies
+Q\)</span></li>
+<li><span class="math inline">\(P \land (P \to Q)\implies
+Q\)</span></li>
+<li><span class="math inline">\(\lnot Q \land (P \to Q) \implies \lnot
+P\)</span></li>
+<li><span class="math inline">\((P \to Q) \land (Q \to R) \implies P \to
+R\)</span></li>
+<li><span class="math inline">\((P \leftrightarrow Q) \land (Q
+\leftrightarrow R) \implies P \leftrightarrow R\)</span></li>
+<li><span class="math inline">\((P \to R) \land (Q \to R) \land (P \lor
+Q) \implies R\)</span></li>
+<li><span class="math inline">\((P \to Q) \land (R \to S) \land (P \lor
+R) \implies Q \lor S\)</span></li>
+<li><span class="math inline">\((P \to Q) \land (R \to S) \land (\lnot Q
+\lor \lnot S) \implies \lnot P \lor \lnot R\)</span></li>
+<li><span class="math inline">\((Q \to R) \implies ((P \lor Q) \to (P
+\lor R))\)</span></li>
+<li><span class="math inline">\((Q \to R) \implies ((P \to Q) \to (P \to
+R))\)</span></li>
+</ol>
+</div>
+<p>公式 8 常称作假言推理，或称作分离规则，是最常使用的推理公式。</p>
+<p>公式 10 常称作三段论。</p>
+<p>公式 15 和 公式 16 值得玩味。</p>
+<h4 id="证明推理公式的方法">证明推理公式的方法</h4>
+<div class="note default"><h4 id="定理a-implies-b-的充要条件">定理：<span class="math inline">\(A
+\implies B\)</span> 的充要条件</h4>
+<ol type="1">
+<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
+class="math inline">\(A \to B\)</span> 是重言式。</li>
+<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
+class="math inline">\(A \land \lnot B\)</span> 是矛盾式。</li>
+</ol>
+</div>
+<div class="note default"><h4 id="规则推理规则">规则：推理规则</h4>
+<ol type="1">
+<li><p>前提引入规则</p>
+<p>在推理过程中，可以随时引入前提。</p></li>
+<li><p>结论引用规则</p>
+<p>在推理过程中所得到的中间结论，可作为后续推理的前提。</p></li>
+<li><p>代入规则</p>
+<p>在推理过程中，对重言式中的命题变项可使用代入规则。</p></li>
+<li><p>置换规则</p>
+<p>在推理过程中，命题公式中的任何部分公式都可以用与之等值的命题公式来置换。</p></li>
+<li><p>分离规则（假言推理）</p>
+<p>如果已知命题公式 <span class="math inline">\(A \to B\)</span> 和
+<span class="math inline">\(A\)</span>，则有命题公式 <span
+class="math inline">\(B\)</span>。</p></li>
+<li><p>条件证明规则</p>
+<p><span class="math inline">\(A_1 \land A_2 \implies B\)</span> 与
+<span class="math inline">\(A_1 \implies A_2 \to B\)</span>
+是等价的。</p></li>
+</ol>
+</div>
+<p>规则 6 将 <span class="math inline">\(A_1 \implies A_2 \to B\)</span>
+的证明化为 <span class="math inline">\(A_1 \land A_2 \implies B\)</span>
+的证明。意思是说，可以将要证明的结论 <span class="math inline">\(A_2 \to
+B\)</span> 中的 <span class="math inline">\(A_2\)</span>
+作为条件来使用，从而简化了证明。</p>
+<div class="note warning"><h4 id="注意推理规则">注意：推理规则</h4>
+<p>在证明过程中，将 <span class="math inline">\(P \lor Q\)</span> 写成
+<span class="math inline">\(\lnot P \to Q\)</span> 更便于推理。</p>
+</div>
+<h3 id="归结推理法">归结推理法</h3>
+<div class="note primary"><h4 id="定义归结式">定义：归结式</h4>
+<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
+\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
+class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
+L\)</span>。则新子句 <span class="math display">\[
+R(C_1, C_2) = C_1&#39; \lor C_2&#39;
+\]</span> 称作 <span class="math inline">\(C_1, C_2\)</span> 的
+<strong>归结式</strong>。</p>
+</div>
+<div class="note default"><h4 id="定理归结证明">定理：归结证明</h4>
+<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
+\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
+class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
+L\)</span>。则 <span class="math display">\[
+C_1 \land C_2 \implies R(C_1, C_2)
+\]</span> 这说明归结式 <span class="math inline">\(R(C_1, C_2)\)</span>
+是子句 <span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span>
+的逻辑推论，从而归结是正确推理规则。</p>
+</div>
+<p>设在任意解释下 <span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span> 均为真，则若 <span
+class="math inline">\(L\)</span> 为真，则 <span
+class="math inline">\(\lnot L\)</span> 为假，<span
+class="math inline">\(C_2&#39;\)</span> 必为真，<span
+class="math inline">\(R(C_1, C_2)\)</span> 为真。反之则 <span
+class="math inline">\(L\)</span> 为假，<span
+class="math inline">\(C_1&#39;\)</span> 必为真，<span
+class="math inline">\(R(C_1, C_2)\)</span> 仍为真。</p>
+<h4 id="归结证明过程">归结证明过程</h4>
+<ol type="1">
+<li><p>为证明 <span class="math inline">\(A \to B\)</span>
+是重言式，这等价于证明 <span class="math inline">\(A \land \lnot
+B\)</span> 是矛盾式。使用归结证明法，就是从 <span
+class="math inline">\(A \land \lnot B\)</span> 出发。</p></li>
+<li><p>建立子句集 <span class="math inline">\(S\)</span></p>
+<p>将 <span class="math inline">\(A \land \lnot B\)</span>
+化成合取范式，如 <span class="math display">\[
+P \land (P \lor R) \land (\lnot P \lor \lnot Q) \land (\lnot P \lor R)
+\]</span> 进而将所有子句（析取式）构成子句集 <span
+class="math display">\[
+S = \{P, (P \lor R), (\lnot P \lor \lnot Q), (\lnot P \lor R)\}
+\]</span>
+以集合来描述合取范式，这种表示法对归结过程的阐明是方便的。</p></li>
+<li><p>对 <span class="math inline">\(S\)</span> 作归结</p>
+<p>进而对 <span class="math inline">\(S\)</span>
+的子句作归结（消互补对），如子句 <span class="math inline">\(P \lor
+R\)</span> 与 <span class="math inline">\(\lnot P \lor \lnot Q\)</span>
+作归结，得归结式 <span class="math inline">\(R \lor \lnot
+Q\)</span>，并将这归结式仍放入 <span class="math inline">\(S\)</span>
+中。重复此过程。</p></li>
+<li><p>直至归结出矛盾式 <span
+class="math inline">\(\square\)</span>。</p></li>
+</ol>
+<h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
+<h3 id="罗素公理系统">罗素公理系统</h3>
+<div class="note default"><h4 id="公理罗素公理系统">公理：罗素公理系统</h4>
+<ol type="1">
+<li><span class="math inline">\(\vdash((P \lor P) \to P)\)</span></li>
+<li><span class="math inline">\(\vdash (P \to (P \lor Q))\)</span></li>
+<li><span class="math inline">\(\vdash((P \lor Q)\to(Q \lor
+P))\)</span></li>
+<li><span class="math inline">\(\vdash((Q \to R)\to((P \lor Q)\to(P \lor
+R))\)</span></li>
+</ol>
+</div>
+<div class="note default"><h4 id="规则罗素公理系统">规则：罗素公理系统</h4>
+<ol type="1">
+<li><p>代入规则</p>
+<p>将合式公式 <span class="math inline">\(A\)</span> 中出现的某一符号
+<span class="math inline">\(\pi\)</span> 到处都代以某一合式公式 <span
+class="math inline">\(B\)</span>，得到合式公式 <span
+class="math inline">\(A \dfrac{\pi}{B}\)</span> 叫代入。代入规则说，如果
+<span class="math inline">\(\vdash A\)</span>，那么 <span
+class="math inline">\(\vdash A \dfrac{\pi}{B}\)</span>。</p></li>
+<li><p>分离规则</p>
+<p>如果 <span class="math inline">\(\vdash A, \vdash A \to
+B\)</span>，那么 <span class="math inline">\(\vdash
+B\)</span>。</p></li>
+<li><p>置换规则</p>
+<p>定义的左右两方可以互相替换。设公式 <span
+class="math inline">\(A\)</span>，替换后为 <span
+class="math inline">\(B\)</span>。置换规则说，如果 <span
+class="math inline">\(\vdash A\)</span>，那么 <span
+class="math inline">\(\vdash B\)</span>。</p></li>
+</ol>
+</div>
+<div class="note default"><h4 id="定理罗素公理系统">定理：罗素公理系统</h4>
+<ol type="1">
+<li><span class="math inline">\(\vdash (Q \to R)\to((P \to Q) \to (P \to
+R))\)</span></li>
+<li><span class="math inline">\(\vdash P \to P\)</span></li>
+<li><span class="math inline">\(\vdash \lnot P \lor P\)</span></li>
+<li><span class="math inline">\(\vdash P \lor \lnot P\)</span></li>
+<li><span class="math inline">\(\vdash P \to \lnot\lnot P\)</span></li>
+<li><span class="math inline">\(\vdash \lnot\lnot P \to P\)</span></li>
+<li><span class="math inline">\(\vdash (P \to Q)\to(\lnot Q \to \lnot
+P)\)</span></li>
+</ol>
+</div>
+<p><del>懒得推。</del></p>
+<h3 id="公理系统的完备性">公理系统的完备性</h3>
+<p>设 <span class="math inline">\(A\)</span>
+是任意一个重言式，需要说明它在公理系统中是可证明的。先将 <span
+class="math inline">\(A\)</span> 写成与之等值的合取范式 <span
+class="math inline">\(A_1 \land A_2 \land \cdots \land
+A_n\)</span>。其中 <span class="math inline">\(A_i(i = 1, 2, \cdots,
+n)\)</span> 必为 <span class="math inline">\(\pi \lor \lnot \pi \lor
+B\)</span> 的形式，<span class="math inline">\(\pi\)</span>
+是命题变项。依公理系统 <span class="math inline">\(\vdash P \lor \lnot
+P, \vdash P \lor \lnot P \lor Q\)</span> 都成立，从而有 <span
+class="math inline">\(\vdash A_i\)</span>。</p>
+<p>又因为 <span class="math inline">\(\vdash P \to (Q \to P \land
+Q)\)</span>，使用分离规则可得 <span class="math inline">\(\vdash
+A_1\land A_2 \land \cdots \land A_n\)</span>。故 <span
+class="math inline">\(A\)</span> 是可证明的。</p>
+<h3 id="王浩算法">王浩算法</h3>
+<div class="note primary"><h4 id="定义初始符号">定义：初始符号</h4>
+<ol type="1">
+<li><span class="math inline">\(A, B, \cdots, X, Y, Z\)</span>
+表示命题</li>
+<li><span class="math inline">\(\lnot, \land, \lor, \to,
+\leftrightarrow\)</span> 表示联结词</li>
+<li><span class="math inline">\((, ), ,\)</span> 圆括号和逗点</li>
+<li><span class="math inline">\(\alpha, \beta, \gamma, \cdots\)</span>
+表示公式串</li>
+</ol>
+</div>
+<div class="note primary"><h4 id="定义相继式">定义：相继式</h4>
+<ol type="1">
+<li><p>如果 <span class="math inline">\(\alpha\)</span> 和 <span
+class="math inline">\(\beta\)</span> 都是公式串，则称 <span
+class="math display">\[
+\alpha \overset{s}{\to} \beta
+\]</span> 是 <strong>相继式</strong>，<span
+class="math inline">\(\alpha\)</span> 为前件，<span
+class="math inline">\(\beta\)</span> 为后件。</p></li>
+<li><p>规定 <span class="math inline">\(\overset{s}{\to}\)</span>
+前件中的”<span class="math inline">\(,\)</span>“以 <span
+class="math inline">\(\land\)</span> 表示，后件中的”<span
+class="math inline">\(,\)</span>“以 <span
+class="math inline">\(\lor\)</span> 表示，便可将 <span
+class="math inline">\(\alpha \overset{s}{\to} \beta\)</span> 化为 <span
+class="math inline">\(\gamma \to \delta\)</span>。</p></li>
+<li><p>相继式 <span class="math inline">\(\alpha \overset{s}{\to}
+\beta\)</span> 为真，便以 <span class="math inline">\(\alpha
+\overset{s}{\implies} \beta\)</span> 表示。</p></li>
+</ol>
+</div>
+<div class="note default"><h4 id="规则变形规则">规则：变形规则</h4>
+<p><strong>前件规则</strong>：</p>
+<ol type="1">
+<li><p><span class="math inline">\(\lnot\implies\)</span></p>
+<p>如果 <span class="math inline">\(\alpha, \beta
+\overset{s}{\implies}X, \gamma\)</span>，那么 <span
+class="math inline">\(\alpha, \lnot X, \beta
+\overset{s}{\implies}\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\land\implies\)</span></p>
+<p>如果 <span class="math inline">\(X, Y, \alpha, \beta
+\overset{s}{\implies}\gamma\)</span>，那么 <span
+class="math inline">\(\alpha, X\land Y, \beta
+\overset{s}{\implies}\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\lor\implies\)</span></p>
+<p>如果 <span class="math inline">\(X, \alpha, \beta
+\overset{s}{\implies}\gamma\)</span> 而且 <span class="math inline">\(Y,
+\alpha, \beta \overset{s}{\implies}\gamma\)</span>，那么 <span
+class="math inline">\(\alpha, X \lor Y, \beta
+\overset{s}{\implies}\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\to\implies\)</span></p>
+<p>如果 <span class="math inline">\(Y, \alpha, \beta
+\overset{s}{\implies}\gamma\)</span> 而且 <span
+class="math inline">\(\alpha, \beta \overset{s}{\implies}X,
+\gamma\)</span>，那么 <span class="math inline">\(\alpha, X \to Y, \beta
+\overset{s}{\implies}\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\leftrightarrow\implies\)</span></p>
+<p>如果 <span class="math inline">\(X, Y, \alpha, \beta
+\overset{s}{\implies}\gamma\)</span> 而且 <span
+class="math inline">\(\alpha, \beta \overset{s}{\implies}X, Y,
+\gamma\)</span>，那么 <span class="math inline">\(\alpha, X
+\leftrightarrow Y, \beta \overset{s}{\implies}\gamma\)</span>。</p></li>
+</ol>
+<p><strong>后件规则</strong>：</p>
+<ol type="1">
+<li><p><span class="math inline">\(\implies\lnot\)</span></p>
+<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}\beta,
+\gamma\)</span>，那么 <span
+class="math inline">\(\alpha\overset{s}{\implies}\beta, \lnot X,
+\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\implies\land\)</span></p>
+<p>如果 <span class="math inline">\(\alpha \overset{s}{\implies} X,
+\beta, \gamma\)</span> 而且 <span class="math inline">\(\alpha
+\overset{s}{\implies} Y, \beta, \gamma\)</span>，那么 <span
+class="math inline">\(\alpha \overset{s}{\implies}\beta, X\land Y,
+\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\implies\lor\)</span></p>
+<p>如果 <span class="math inline">\(\alpha \overset{s}{\implies} X, Y,
+\beta, \gamma\)</span>，那么 <span class="math inline">\(\alpha
+\overset{s}{\implies} \beta, X\lor Y, \gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\implies\to\)</span></p>
+<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}Y,
+\beta, \gamma\)</span>，那么 <span
+class="math inline">\(\alpha\overset{s}{\implies}\beta, X \to Y,
+\gamma\)</span>。</p></li>
+<li><p><span class="math inline">\(\implies\leftrightarrow\)</span></p>
+<p>如果 <span class="math inline">\(X, \alpha\overset{s}{\implies}Y,
+\beta, \gamma\)</span> 而且 <span class="math inline">\(Y,
+\alpha\overset{s}{\implies}X, \beta, \gamma\)</span>，那么 <span
+class="math inline">\(\alpha \overset{s}{\implies} \beta, X
+\leftrightarrow Y, \gamma\)</span>。</p></li>
+</ol>
+</div>
+<p>在符号 <span class="math inline">\(\overset{s}{\implies}\)</span>
+两边移动符号 <span class="math inline">\(X\)</span>
+会导致其取反，这是因为 <span class="math display">\[
+\begin{aligned}
+\alpha \land \beta \implies&amp; X \lor \gamma \\
+\alpha \land \beta \implies&amp; \lnot X \to \gamma \\
+\alpha \land \beta \land \lnot X \implies&amp; \gamma \\
+\alpha, \beta, \lnot X \overset{s}{\implies}&amp; \gamma
+\end{aligned}
+\]</span></p>
+<h3 id="命题逻辑的自然演绎系统">命题逻辑的自然演绎系统</h3>
+<div class="note primary"><h4 id="定义初始符号">定义：初始符号</h4>
+<p><span class="math display">\[
+\Gamma = \{A_1, A_2, \cdots, A_n\} = A_1, A_2, \cdots, A_n
+\]</span></p>
+<p>表示有限个命题公式的集合。 <span class="math display">\[
+\Gamma \vdash A
+\]</span> 表示 <span class="math inline">\(\Gamma, A\)</span>
+间有形式推理关系，<span class="math inline">\(\Gamma\)</span>
+为形式前提，<span class="math inline">\(A\)</span>
+为形式结论，或说使用推理规则可由 <span
+class="math inline">\(\Gamma\)</span> 得 <span
+class="math inline">\(A\)</span>。</p>
+</div>
+<div class="note default"><h4 id="规则变形规则">规则：变形规则</h4>
+<ol type="1">
+<li><p><span class="math inline">\(A_1, A_2, \cdots, A_n \vdash A_i(i =
+1, 2, \cdots, n)\)</span>。肯定前提律。</p>
+<p>推理过程中前提总是被肯定的，前提中任何命题都可作为结论。</p></li>
+<li><p>如果 <span class="math inline">\(\Gamma \vdash A, A \vdash
+B\)</span>，则 <span class="math inline">\(\Gamma \vdash
+B\)</span>。传递律。</p></li>
+<li><p>如果 <span class="math inline">\(\Gamma, \lnot A \vdash
+B\)</span>，且 <span class="math inline">\(\Gamma, \lnot A \vdash \lnot
+B\)</span>，则 <span class="math inline">\(\Gamma \vdash
+A\)</span>。反证律。</p>
+<p>在前提 <span class="math inline">\(\Gamma\)</span> 下，再假设 <span
+class="math inline">\(A\)</span> 是假的，若可推出矛盾命题，则可由前提
+<span class="math inline">\(\Gamma\)</span> 推出 <span
+class="math inline">\(A\)</span>。</p></li>
+<li><p><span class="math inline">\(A \to B, A \vdash
+B\)</span>。蕴涵词消去律（分离规则）。</p></li>
+<li><p>如果 <span class="math inline">\(\Gamma, A \vdash B\)</span>，则
+<span class="math inline">\(\Gamma \vdash A \to
+B\)</span>。蕴涵词引入律。</p>
+<p>在前提 <span class="math inline">\(\Gamma\)</span> 下，又知 <span
+class="math inline">\(A\)</span> 为真，可得 <span
+class="math inline">\(B\)</span>。那么在原前提 <span
+class="math inline">\(\Gamma\)</span> 下可推得如果 <span
+class="math inline">\(A\)</span> 那么 <span
+class="math inline">\(B\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
+<h3 id="合式公式">合式公式</h3>
+<div class="note warning"><h4 id="注意合式公式">注意：合式公式</h4>
+<ol type="1">
+<li>如果 <span class="math inline">\(A, B\)</span> 是合式公式，而无变元
+<span class="math inline">\(x\)</span> 在 <span class="math inline">\(A,
+B\)</span> 的一个中是约束的而在另一个中是自由的，则 <span
+class="math inline">\(A \land B, A \lor B, A \to B, A \leftrightarrow
+B\)</span> 也算是合式公式。</li>
+<li>如果 <span class="math inline">\(A\)</span> 是合式公式，而 <span
+class="math inline">\(x\)</span> 在 <span
+class="math inline">\(A\)</span> 中是自由变元，则 <span
+class="math inline">\((\forall x)A, (\exists x)A\)</span>
+也是合式公式。</li>
+</ol>
+</div>
+<p>第 1 点说明 <span class="math inline">\((\forall x)P(x) \lor
+Q(x)\)</span> 不是合式公式。一个恰当的写法是 <span
+class="math inline">\((\forall x)P(x) \lor Q(y)\)</span>。</p>
+<p>第 2 点说明 <span class="math inline">\((\exists x)((\forall
+x)F(x))\)</span> 不是合式公式，因为内层 <span
+class="math inline">\(x\)</span> 并不是自由变元。</p>
+<h3 id="自然语句的形式化">自然语句的形式化</h3>
+<h4
+id="所有的有理数都是实数的形式化">“所有的有理数都是实数”的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“所有的有理数都是实数”可以被形式化地描述为 <span
+class="math display">\[
+(\forall x)(P(x) \to Q(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\forall
+x)(P(x) \land Q(x))\)</span>。当论域包含不是有理数的东西的时候，<span
+class="math inline">\((\forall x)(P(x) \land Q(x))\)</span>
+恒为假，这不是我们希望看到的。</p>
+<h4 id="有的实数是有理数的形式化">”有的实数是有理数“的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“有的实数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(Q(x) \land P(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\exists
+x)(Q(x) \to P(x))\)</span>。当论域包含不是实数的东西的时候，<span
+class="math inline">\(x\)</span> 取这些事物时恒有 <span
+class="math inline">\(Q(x)\)</span> 为假，那么 <span
+class="math inline">\((\exists x)(Q(x) \to P(x))\)</span>
+恒为真，这也不是我们希望看到的。</p>
+<h4 id="没有无理数是有理数的形式化">“没有无理数是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是无理数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“没有无理数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+\lnot (\exists x)(A(x) \land B(x))
+\]</span></p>
+<h4 id="有的实数不是有理数的形式化">“有的实数不是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是实数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“有的实数不是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(A(x) \land \lnot B(x))
+\]</span></p>
+<h4 id="自然数集的形式描述">自然数集的形式描述</h4>
+<p>自然数集的定义：</p>
+<ol type="1">
+<li>对每个数，有且仅有一个相继后元。</li>
+<li>没有这样的数，<span class="math inline">\(0\)</span>
+是其相继后元。</li>
+<li>对除 <span class="math inline">\(0\)</span>
+以外的数，有且仅有一个相继前元。</li>
+</ol>
+<p>一个比较常用的描述唯一性的方法是，“如果有两个则它们必相等”。即若对每个
+<span class="math inline">\(x\)</span> 都存在 <span
+class="math inline">\(y\)</span>，使得 <span
+class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的相继后元，且对任意 <span
+class="math inline">\(z\)</span>，如果 <span
+class="math inline">\(z\)</span> 也是 <span
+class="math inline">\(x\)</span> 的相继后元，则 <span
+class="math inline">\(z = y\)</span>。</p>
+<p>引入谓词 <span class="math inline">\(\mathsf{E}(x, y)\)</span> 表示
+<span class="math inline">\(x = y\)</span>。函数 <span
+class="math inline">\(f(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继后元，即 <span
+class="math inline">\(f(x) = x + 1\)</span>。函数 <span
+class="math inline">\(g(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继前元，即 <span
+class="math inline">\(g(x) = x - 1\)</span>。</p>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\exists y)(\mathsf{E}(y,
+f(x))\land (\forall z)(\mathsf{E}(z, f(x)) \to \mathsf{E}(y,
+z)))\)</span></li>
+<li><span class="math inline">\(\lnot (\exists x)\mathsf{E}(0,
+f(x))\)</span></li>
+<li><span class="math inline">\((\forall x)(\lnot\mathsf{E}(x, 0) \to
+(\exists y)(\mathsf{E}(y, g(x)) \land (\forall z)(\mathsf{E}(z, g(x))
+\to \mathsf{E}(y, z))))\)</span></li>
+</ol>
+<div class="note warning"><h4
+id="注意对谓词变元多次量化的分析">注意：对谓词变元多次量化的分析</h4>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\forall y)P(x, y) = (\forall
+y)(\forall x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\exists x)(\exists y)P(x, y) = (\exists
+y)(\exists x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\forall x)(\exists y)P(x, y) \neq
+(\exists y)(\forall x)P(x, y)\)</span></li>
+</ol>
+</div>
+<p>注意第 3 点左式表明 <span class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的函数 <span
+class="math inline">\(y(x)\)</span>，也就是 <span
+class="math inline">\(x_1\)</span> 可以对应存在 <span
+class="math inline">\(y_1\)</span>，<span
+class="math inline">\(x_2\)</span> 对应存在 <span
+class="math inline">\(y_2\)</span>……但右式要求一个固定的 <span
+class="math inline">\(y\)</span> 对所有的 <span
+class="math inline">\(x\)</span> 都成立。</p>
+<p>事实上，<span class="math inline">\((\exists y)(\forall x)P(x, y)
+\implies (\forall x)(\exists y)P(x, y)\)</span>。</p>
+<h3 id="公式的普遍有效性和判定问题">公式的普遍有效性和判定问题</h3>
+<div class="note primary"><h4 id="定义普遍有效性">定义：普遍有效性</h4>
+<p>对一个谓词公式：</p>
+<ol type="1">
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为真，便称它是 <strong>普遍有效的</strong>。</li>
+<li>如果在它的某个解释 <span class="math inline">\(I\)</span>
+下真值为真，便称它是 <strong>可满足的</strong>。</li>
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为假，便称它是 <strong>不可满足的</strong>。</li>
+</ol>
+</div>
+<p>有限域上一个公式的可满足性和普遍有效性仅依赖于个体域个体的数目。即在某个含
+<span class="math inline">\(k\)</span> 个元素的 <span
+class="math inline">\(k\)</span> 个体域上普遍有效（可满足），则在任一
+<span class="math inline">\(k\)</span>
+个体域上也普遍有效（可满足）。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上普遍有效，则在 <span class="math inline">\(k - 1\)</span>
+个体域上也普遍有效。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上可满足，则在 <span class="math inline">\(k + 1\)</span>
+个体域上也可满足。</p>
+<h4 id="判定问题">判定问题</h4>
+<ol type="1">
+<li><p>谓词逻辑是不可判定的。</p>
+<p>对任一谓词公式而言，没有可行方法能判明它是否是普遍有效的。但这并不排除谓词公式有子类是可判定的。判定问题的困难在于个体域是个无穷集以及对谓词设定的任意性。</p></li>
+<li><p>只含有一元谓词变项的公式是可判定的。</p></li>
+<li><p><span class="math display">\[
+(\forall x_1)(\forall x_2)\cdots(\forall x_n)P(x_1, x_2, \cdots, x_n)
+\]</span></p>
+<p>和 <span class="math display">\[
+(\exists x_1)(\exists x_2)\cdots(\exists x_n)P(x_1, x_2, \cdots x_n)
+\]</span> 型公式，若 <span class="math inline">\(P\)</span>
+中无量词和其他自由变项时是可判定的。</p></li>
+</ol>
+<h2 id="第5章-谓词逻辑的等值和推理演算">第5章
+谓词逻辑的等值和推理演算</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>离散数学</tag>
+        <tag>数理逻辑</tag>
       </tags>
   </entry>
   <entry>
@@ -3273,878 +3710,6 @@ class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
-    <url>/2023/09/20/IATLC-Chap4/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第四章 正则语言的性质</strong></p>
-<ul>
-<li>泵引理</li>
-<li>正则语言的封闭性
-<ul>
-<li>交运算的乘积构造法</li>
-<li>反转</li>
-<li>逆同态</li>
-</ul></li>
-<li>自动机的等价性和最小化
-<ul>
-<li>测试状态的等价性</li>
-<li>测试正则语言的等价性</li>
-<li>DFA 的最小化</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="泵引理">泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
-<span class="math inline">\(n\)</span> 满足：<span
-class="math inline">\(\forall w \in L\)</span> 满足 <span
-class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
-class="math inline">\(\exists x, y, z\)</span> 满足 <span
-class="math inline">\(w = xyz\)</span> 且：</p>
-<ol type="1">
-<li><span class="math inline">\(y \neq \epsilon\)</span></li>
-<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
-<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
-L\)</span></li>
-</ol>
-<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
-是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
-class="math inline">\(L = L(A)\)</span>。设 <span
-class="math inline">\(A\)</span> 有 <span
-class="math inline">\(n\)</span> 个状态，考虑 <span
-class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
-class="math inline">\(a_i\)</span> 为输入符号。</p>
-<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
-a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
-<span class="math inline">\(A\)</span> 的初始状态。则 <span
-class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
-不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
-n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
-<p>所以可以画出如下的转移图：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($p_0$))
-A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
-B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
-B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
-<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
-class="math inline">\(y \neq \epsilon\)</span>，由 <span
-class="math inline">\(j \le n\)</span> 得到 <span
-class="math inline">\(\left|xy\right| \le n\)</span>。<span
-class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
-class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
-<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
-<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
-<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
-class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
-F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
-\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
-L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
-<p><span class="math display">\[
-A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
-\]</span></p>
-<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
-class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
-a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
-接受 <span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
-是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
-w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
-均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
-class="math inline">\(L\cap M\)</span>。</p>
-<h3 id="逆同态">逆同态</h3>
-<p>定义 <span class="math inline">\(L\)</span> 对于 <span
-class="math inline">\(h\)</span> 的逆同态 <span
-class="math inline">\(h^{-1}\)</span> 如下：</p>
-<p><span class="math display">\[
-h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
-\]</span></p>
-<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
-L\)</span>，<strong>并不一定等于</strong> <span
-class="math inline">\(L\)</span>！</p>
-<hr />
-<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
-\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
-class="math inline">\(h^{-1}(L)\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
-<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
-有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
-F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
-<span class="math inline">\(h\)</span> 构造 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
-class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
-<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
-h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
-\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
-<span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(A\)</span> 接受 <span
-class="math inline">\(h(w)\)</span>，故 <span
-class="math inline">\(B\)</span> 就是 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
-<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
-class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
-class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
-class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
-<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
-<h3 id="测试状态的等价性">测试状态的等价性</h3>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
-w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
-w)\)</span> 是可接受的。</p>
-<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
-\hat\delta(q,
-w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>可区分的</strong>，如果它们不是等价的。</p>
-<hr />
-<p>至此，我们可以构造
-<strong>填表算法</strong>，来测试状态的等价性：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
-<span class="math inline">\(q\)</span>
-一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
-q\)</span> 是可区分的。</p>
-<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
-满足 <span class="math inline">\(\exists a\)</span> 使得 <span
-class="math inline">\(r = \delta(p, a)\)</span> 与 <span
-class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
-<span class="math inline">\(w\)</span> 可以区分 <span
-class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>，那么 <span
-class="math inline">\(aw\)</span> 一定可以区分 <span
-class="math inline">\(p,
-q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
-<hr />
-<p>接下来，我们需要证明填表算法的正确性。</p>
-<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
-<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
-class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
-class="math inline">\(\exists w \in L\)</span>，满足 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span>
-本应可区分，但填表算法没有发现它们可区分。</p>
-<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
-是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
-<span class="math inline">\(\{p, q\}\)</span>。则 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
-<p>注意到一个事实，<span class="math inline">\(w \neq
-\epsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
-class="math inline">\(w = \epsilon\)</span>
-的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
-class="math inline">\(r = \delta(p, a_1), s = \delta(q,
-a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
-a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>。</p>
-<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
-class="math inline">\(w&#39;\)</span> 比 <span
-class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
-<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
-class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
-<span class="math inline">\(\{r, s\}\)</span>
-是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
-q\}\)</span> 也是可区分的，这也产生矛盾。</p>
-<p>所以填表算法是正确的。</p>
-<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
-<p>至此，我们已经能够测试同一个 DFA
-中的两个状态是否等价。对于两个正则语言 <span
-class="math inline">\(L\)</span> 和 <span
-class="math inline">\(M\)</span> 而言，构造 DFA <span
-class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
-L(A), M = L(B)\)</span>。</p>
-<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
-class="math inline">\(p_0\)</span>，<span
-class="math inline">\(B\)</span> 的初始状态为 <span
-class="math inline">\(q_0\)</span>。构造 DFA <span
-class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
-class="math inline">\(p_0\)</span> 和 <span
-class="math inline">\(q_0\)</span> 是否等价即可。</p>
-<h3 id="dfa-的最小化">DFA 的最小化</h3>
-<p>用以下流程可以最小化一个 DFA：</p>
-<ol type="1">
-<li>排除所有不能从初始状态到达的状态</li>
-<li>将所有等价的状态划分到同一个连通块</li>
-</ol>
-<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
-等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
-<pre><code class="highlight mermaid">graph LR
-A(($p$)) --&gt; |$1$| C(($r$))
-B(($q$)) --&gt; |$1$| D(($s$))</code></pre>
-<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
-class="math inline">\(q\)</span> 都不会通过 <span
-class="math inline">\(1\)</span> 转移到 <span
-class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
-<pre><code class="highlight mermaid">graph LR
-A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
-    <url>/2023/09/29/IATLC-Chap5/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第五章 上下文无关文法及上下文无关语言</strong></p>
-<ul>
-<li>上下文无关文法
-<ul>
-<li>上下文无关文法的定义</li>
-<li>推导与递归推理</li>
-<li>最左与最右推导</li>
-<li>文法的语言</li>
-<li>句型</li>
-</ul></li>
-<li>语法分析树
-<ul>
-<li>语法分析树的构造</li>
-<li>递归推理、推导与语法分析树的等价性
-<ul>
-<li>从递归推理到语法分析树</li>
-<li>从语法分析树到最左推导</li>
-<li>从最左推导到递归推理</li>
-</ul></li>
-</ul></li>
-<li>文法与语言的歧义性
-<ul>
-<li>歧义文法</li>
-<li>去除文法的歧义性</li>
-<li>固有歧义</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="上下文无关文法">上下文无关文法</h2>
-<h3 id="上下文无关文法的定义">上下文无关文法的定义</h3>
-<p>一个上下文无关文法（CFG）由四个重要部分组成：</p>
-<ol type="1">
-<li>一个有穷字母表 <span class="math inline">\(T\)</span>，由 <span
-class="math inline">\(T\)</span>
-中的字母构成了这个文法所定义的语言中的串，这个字母表称为
-<strong>终结符</strong>（Terminal）。</li>
-<li>一个 <strong>非终结符</strong> （Variable）的有穷集合 <span
-class="math inline">\(V\)</span>。</li>
-<li>有一个非终结符 <span class="math inline">\(S\)</span> 称为
-<strong>初始符号</strong>（Start
-Symbol），它代表语言开始被定义的地方。</li>
-<li>一个 <strong>产生式</strong> （Production）的有穷集合 <span
-class="math inline">\(P\)</span>，它用来表示语言的递归定义。每个产生式被定义为
-<code>&lt;head&gt; -&gt; &lt;body&gt;</code>，具体的构造过程是，保持终结符不变，把任何所有的
-<code>&lt;head&gt;</code> 替换成 <code>&lt;body&gt;</code>。</li>
-</ol>
-<p>一个上下文无关文法可以表示为 <span class="math inline">\(G = (V, T,
-P, S)\)</span>。</p>
-<hr />
-<p>以下是可以表示语言 <span class="math inline">\((\textbf{a}
-+\textbf{b})(\textbf{a} + \textbf{b} + \textbf{0} +
-\textbf{1})^*\)</span> 的一个上下文无关文法。 <span
-class="math display">\[
-\begin{aligned}
-E &amp; \to I \\
-E &amp; \to E + E \\
-E &amp; \to E * E \\
-E &amp; \to (E) \\
-I &amp; \to a \\
-I &amp; \to b \\
-I &amp; \to Ia \\
-I &amp; \to Ib \\
-I &amp; \to I0 \\
-I &amp; \to I1
-\end{aligned}
-\]</span> 产生式可以使用简捷表示法，比如上面的产生式可以化简为： <span
-class="math display">\[
-\begin{aligned}
-E &amp; \to I | E + E | E * E | (E) \\
-I &amp; \to a | b | Ia | Ib | I0 | I1
-\end{aligned}
-\]</span></p>
-<h3 id="推导与递归推理">推导与递归推理</h3>
-<p><strong>推导</strong> 的过程通过符号 <span
-class="math inline">\(\implies\)</span> 表示。设 <span
-class="math inline">\(G = (V, T, P, S)\)</span> 为一个 CFG，<span
-class="math inline">\(\alpha A \beta\)</span>
-是一个包含终结符和非终结符的串，其中 <span
-class="math inline">\(A\)</span> 是一个非终结符，而 <span
-class="math inline">\(\alpha, \beta \in (V \cup T)^*\)</span>。设 <span
-class="math inline">\(A \to \gamma\)</span> 是一个产生式，则我们称 <span
-class="math inline">\(\alpha A \beta \underset{G}{\implies}
-\alpha\gamma\beta\)</span>。通常省略掉 <span
-class="math inline">\(G\)</span>，而仅仅记作 <span
-class="math inline">\(\alpha A \beta \implies
-\alpha\gamma\beta\)</span>。 多步推导则使用 <span
-class="math inline">\(\overset{*}{\implies}\)</span> 来表示。</p>
-<p><strong>递归推理</strong> 的过程类似于推导的逆过程，是从具体的
-<strong>产生式的体</strong> 递归到抽象的 <strong>产生式的头</strong>
-的过程。</p>
-<h3 id="最左与最右推导">最左与最右推导</h3>
-<p>在每一步推导中，如果要求只讲最左边的非终结符替换成该非终结符的某个产生式的体，那么这种方式的推导称为
-<strong>最左推导</strong>。类似地可以定义
-<strong>最右推导</strong>。最左推导和最右推导分别用 <span
-class="math inline">\(\underset{lm}{\implies},
-\underset{lm}{\overset{*}{\implies}}\)</span> 和 <span
-class="math inline">\(\underset{rm}{\implies},
-\underset{rm}{\overset{*}{\implies}}\)</span> 表示。</p>
-<p>个人认为，如果每次推导的时候按照随机的顺序来替换，那么整个推导的逻辑就会变得杂乱无章。最左推导和最右推导就限制了替换产生式的头的顺序：前者是从左往右，后者是从右往左。</p>
-<h3 id="文法的语言">文法的语言</h3>
-<p>对于 CFG <span class="math inline">\(G = (V, T, P,
-S)\)</span>，它的语言 <span class="math inline">\(L(G)\)</span>
-被定义为所有终结符串的集合： <span class="math display">\[
-L(G) = \{w \in T^* | S \underset{G}{\overset{*}{\implies}}w\}
-\]</span> 如果我们要证明某个文法 <span class="math inline">\(G\)</span>
-确实定义了某个已经非形式化定义好的语言 <span
-class="math inline">\(L\)</span>，通常需要分两步：</p>
-<ol type="1">
-<li>充分性：如果一个串 <span class="math inline">\(w \in L\)</span>
-满足这个非形式化定义的性质，那么 <span class="math inline">\(S
-\overset{*}{\implies}w\)</span>，来说明 <span class="math inline">\(w
-\in L(G)\)</span>。通常，我们通过 <strong>对 <span
-class="math inline">\(w\)</span> 的长度</strong> 进行归纳证明。</li>
-<li>必要性：如果 <span class="math inline">\(S
-\overset{*}{\implies}w\)</span>，那么 <span
-class="math inline">\(w\)</span> 应该满足这个非形式化定义的性质，来说明
-<span class="math inline">\(w \in L\)</span>。通常，我们需要
-<strong>对推导的步数</strong> 进行归纳证明。</li>
-</ol>
-<h3 id="句型">句型</h3>
-<p>由初始符号推导出来的串称为 <strong>句型</strong>（Sentence）。<span
-class="math inline">\(G = (V, T, P, S)\)</span> 的所有句型 <span
-class="math inline">\(\alpha\)</span> 组成的集合是 <span
-class="math display">\[
-\{\alpha \in (V \cup T)^* | S \overset{*}{\implies}\alpha\}
-\]</span> 另外，如果 <span class="math inline">\(S
-\underset{lm}{\overset{*}{\implies}} \alpha\)</span> 则 <span
-class="math inline">\(\alpha\)</span> 是左句型，如果 <span
-class="math inline">\(S \underset{rm}{\overset{*}{\implies}}
-\alpha\)</span> 则 <span class="math inline">\(\alpha\)</span>
-是右句型。句型可以包含非终结符。语言 <span
-class="math inline">\(L(G)\)</span> 是由所有属于 <span
-class="math inline">\(T^*\)</span> 的句型组成的。</p>
-<h2 id="语法分析树">语法分析树</h2>
-<h3 id="语法分析树的构造">语法分析树的构造</h3>
-<p>对于 CFG <span class="math inline">\(G = (V, T, P, S)\)</span>，<span
-class="math inline">\(G\)</span> 的 <strong>语法分析树</strong>
-是满足下列条件的树：</p>
-<ol type="1">
-<li>每个内部节点的标号是 <span class="math inline">\(V\)</span>
-中的一个非终结符。</li>
-<li>每个叶节点的标号可以是一个非终结符，一个终结符，或者 <span
-class="math inline">\(\epsilon\)</span>。但是，如果叶节点的标号是 <span
-class="math inline">\(\epsilon\)</span>，那么它一定是其父节点唯一的子节点。</li>
-<li>如果某个内部节点的标号是 <span
-class="math inline">\(A\)</span>，并且它的子节点的标号从左到右分别为
-<span class="math inline">\(X_1, X_2, \cdots, X_k\)</span>，那么 <span
-class="math inline">\(A \to X_1X_2\cdots X_k\)</span> 一定是 <span
-class="math inline">\(P\)</span> 中的一个产生式。注意：如果其中某个
-<span class="math inline">\(X\)</span> 为 <span
-class="math inline">\(\epsilon\)</span>，那么 <span
-class="math inline">\(X\)</span> 一定是 <span
-class="math inline">\(A\)</span> 唯一的子节点，并且 <span
-class="math inline">\(A \to \epsilon\)</span> 是 <span
-class="math inline">\(G\)</span> 的一个产生式。</li>
-</ol>
-<p>最重要的语法分析树，是那些 <strong>所有叶节点的标号都是终结符或 <span
-class="math inline">\(\epsilon\)</span>，且根节点的标号是初始符号</strong>
-的语法分析树。</p>
-<h3
-id="递归推理推导与语法分析树的等价性">递归推理、推导与语法分析树的等价性</h3>
-<pre><code class="highlight mermaid">graph LR
-
-A(语法分析树) --&gt; B(最左推导)
-A --&gt; C(最右推导)
-B --&gt; D(推导)
-C --&gt; D
-D --&gt; E(递归推理)
-E --&gt; A</code></pre>
-<p>其中从最左推导到推导是显然的，而最右推导相关箭头都与最左推导类似，因此我们只需要证明以下三个等价性：</p>
-<h4 id="从递归推理到语法分析树">从递归推理到语法分析树</h4>
-<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
-P, S)\)</span>。如果通过递归推理过程得出终结符串 <span
-class="math inline">\(w\)</span> 在非终结符 <span
-class="math inline">\(A\)</span> 的语言中，则一定存在一棵根为 <span
-class="math inline">\(A\)</span>、产物为 <span
-class="math inline">\(w\)</span> 的语法分析树。</p>
-<p><strong>证明</strong>：对推理的步数进行归纳。</p>
-<p>基础：如果该推理只有一步，则该推理过程只需要基础，因此一定存在产生式
-<span class="math inline">\(A \to w\)</span>。这样就能构造出：</p>
-<pre><code class="highlight mermaid">graph TD
-
-style A stroke:none,fill:none
-style B stroke:none,fill:none
-style C stroke:none,fill:none
-style D stroke:none,fill:none
-
-A --&gt; B($w_1$)
-A --&gt; C(...)
-A --&gt; D($w_k$)</code></pre>
-<p>其中 <span class="math inline">\(w = w_1w_2 \cdots w_k\)</span>。</p>
-<p>归纳：假定在 <span class="math inline">\(n + 1\)</span>
-个推理步骤之后能够得出 <span class="math inline">\(w\)</span> 在 <span
-class="math inline">\(A\)</span> 的语言里这个事实，并且这个定理对于使得
-<span class="math inline">\(B\)</span> 的语言中的 <span
-class="math inline">\(x\)</span> 成员用小于等于 <span
-class="math inline">\(n\)</span> 步推理推得的所有串 <span
-class="math inline">\(x\)</span> 和非终结符 <span
-class="math inline">\(B\)</span> 成立。考虑得出 <span
-class="math inline">\(w\)</span> 在 <span
-class="math inline">\(A\)</span>
-的语言里的这个推理的最后一步，这一步使用了 <span
-class="math inline">\(A\)</span> 的某个产生式，不妨设为 <span
-class="math inline">\(A \to X_1X_2 \cdots X_k\)</span>，其中 <span
-class="math inline">\(X_i\)</span> 是一个终结符或非终结符。</p>
-<ul>
-<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
-class="math inline">\(X_i = w_i\)</span>。</li>
-<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
-class="math inline">\(w_i\)</span> 是一个先前推理出在 <span
-class="math inline">\(X_i\)</span> 语言中的串，而由于 <span
-class="math inline">\(A \to X_1X_2 \cdots X_k\)</span> 消耗了 <span
-class="math inline">\(1\)</span> 步，所以 <span
-class="math inline">\(w_i\)</span> 在 <span
-class="math inline">\(X_i\)</span> 中的推导最多只会有 <span
-class="math inline">\(n\)</span> 步，根据归纳假设则可得出存在一个根为
-<span class="math inline">\(X_i\)</span>，产物为 <span
-class="math inline">\(w\)</span> 的语法分析树。</li>
-</ul>
-<pre><code class="highlight mermaid">graph TD
-
-style A stroke:none,fill:none
-style B stroke:none,fill:none
-style C stroke:none,fill:none
-style D stroke:none,fill:none
-style E stroke:none,fill:none
-style F stroke:none,fill:none
-
-A --&gt; B($X_1$)
-A --&gt; C(...)
-A --&gt; D($X_k$)
-B -.- E($w_1$)
-D -.- F($w_k$)</code></pre>
-<h4 id="从语法分析树到推导">从语法分析树到推导</h4>
-<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
-P, S)\)</span>，假设有一棵语法分析树，它的根的标号为非终结符 <span
-class="math inline">\(A\)</span>，产物为 <span class="math inline">\(w
-\in T^*\)</span>。那么一定存在一个 <span
-class="math inline">\(G\)</span> 中的最左推导 <span
-class="math inline">\(A
-\underset{lm}{\overset{*}{\implies}}w\)</span>。</p>
-<p><strong>证明</strong>：对树的高度进行归纳。设 <span
-class="math inline">\(w = w_1w_2\cdots w_k\)</span>。</p>
-<p>基础：如果树高为 <span class="math inline">\(1\)</span>，那么 <span
-class="math inline">\(G\)</span> 一定包含 <span class="math inline">\(A
-\to w\)</span> 这一产生式，最左推导可以单步完成，即为 <span
-class="math inline">\(A \underset{lm}{\implies}w\)</span>。</p>
-<p>归纳：如果树高为 <span class="math inline">\(n\)</span>，其中 <span
-class="math inline">\(n &gt; 1\)</span>，且定理对所有树高小于 <span
-class="math inline">\(n\)</span> 的树成立。考虑树：</p>
-<pre><code class="highlight mermaid">graph TD
-
-style A stroke:none,fill:none
-style B stroke:none,fill:none
-style C stroke:none,fill:none
-style D stroke:none,fill:none
-
-A --&gt; B($X_1$)
-A --&gt; C(...)
-A --&gt; D($X_k$)</code></pre>
-<ul>
-<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么定义
-<span class="math inline">\(w_i\)</span> 为只包含 <span
-class="math inline">\(X_i\)</span> 的串。</li>
-<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么 <span
-class="math inline">\(X_i\)</span> 一定是一个树高小于 <span
-class="math inline">\(n\)</span>
-的子树的根节点，因此通过归纳假设，存在一个最左推导 <span
-class="math inline">\(X_i \underset{lm}{\implies}w_i\)</span>。</li>
-</ul>
-<h4 id="从推导到递归推理">从推导到递归推理</h4>
-<p><strong>定理</strong>：设 CFG <span class="math inline">\(G = (V, T,
-P, S)\)</span>，假设有一个推导 <span class="math inline">\(A
-\underset{G}{\overset{*}{\implies}}w\)</span>，其中 <span
-class="math inline">\(w \in T^*\)</span>。那么应用于 <span
-class="math inline">\(G\)</span> 的递归推理过程决定了 <span
-class="math inline">\(w\)</span> 在非终结符 <span
-class="math inline">\(A\)</span> 的语言中。</p>
-<p><strong>证明</strong>：对推导 <span class="math inline">\(A
-\overset{*}{\implies}w\)</span> 的步数进行归纳。</p>
-<p>基础：如果该推导只有一步，那么 <span class="math inline">\(A \to
-w\)</span> 一定是一个产生式。由于 <span class="math inline">\(w\)</span>
-只包含终结符，因此 <span class="math inline">\(w\)</span> 一定在 <span
-class="math inline">\(A\)</span> 的语言中。</p>
-<p>归纳：假设该推导包含 <span class="math inline">\(n + 1\)</span>
-步，并且假定对于所有少于或等于 <span class="math inline">\(n\)</span>
-步的推导来说命题都成立。把推导写为 <span class="math inline">\(A
-\implies X_1X_2\cdots X_k \overset{*}{\implies}w = w_1w_2\cdots
-w_k\)</span>。</p>
-<ul>
-<li>如果 <span class="math inline">\(X_i\)</span> 是终结符，那么 <span
-class="math inline">\(w_i = X_i\)</span>。</li>
-<li>如果 <span class="math inline">\(X_i\)</span> 是非终结符，那么有
-<span class="math inline">\(X_i
-\overset{*}{\implies}w_i\)</span>，这是因为这个推导的步数少于或等于
-<span class="math inline">\(n\)</span> 步。</li>
-</ul>
-<p>现在已经有了产生式 <span class="math inline">\(A \to X_1X_2\cdots
-X_k\)</span>，且对于 <span class="math inline">\(w = w_1w_2\cdots
-w_k\)</span> 有 <span class="math inline">\(w_i\)</span> 在 <span
-class="math inline">\(X_i\)</span> 的语言中。下一步即得 <span
-class="math inline">\(w = w_1w_2\cdots w_k\)</span> 在 <span
-class="math inline">\(A\)</span> 的语言中。</p>
-<h2 id="文法与语言的歧义性">文法与语言的歧义性</h2>
-<h3 id="歧义文法">歧义文法</h3>
-<p>一个 CFG <span class="math inline">\(G = (V, T, P, S)\)</span> 是
-<strong>歧义的</strong>，如果 <span class="math inline">\(\exists w \in
-T^*\)</span> 使得有两棵不同的语法分析树满足根为 <span
-class="math inline">\(S\)</span> 且产物为 <span
-class="math inline">\(w\)</span>。</p>
-<p>正如这篇博文最初给的例子，当产物 <span class="math inline">\(w = a +
-a * a\)</span> 时，有两棵语法分析树：</p>
-<pre><code class="highlight mermaid">graph TD
-
-subgraph &quot; &quot;
-style S1 stroke:none,fill:none
-style A1 stroke:none,fill:none
-style B1 stroke:none,fill:none
-style C1 stroke:none,fill:none
-style D1 stroke:none,fill:none
-style E1 stroke:none,fill:none
-style F1 stroke:none,fill:none
-style G1 stroke:none,fill:none
-style H1 stroke:none,fill:none
-style I1 stroke:none,fill:none
-style J1 stroke:none,fill:none
-style K1 stroke:none,fill:none
-style L1 stroke:none,fill:none
-
-S1(E) --&gt; A1(E)
-S1 --&gt; B1(+)
-S1 --&gt; C1(E)
-A1 --&gt; D1(I)
-D1 --&gt; E1(a)
-C1 --&gt; F1(E)
-C1 --&gt; G1(*)
-C1 --&gt; H1(E)
-F1 --&gt; I1(I)
-I1 --&gt; J1(a)
-H1 --&gt; K1(I)
-K1 --&gt; L1(a)
-end
-
-subgraph &quot; &quot;
-style S2 stroke:none,fill:none
-style A2 stroke:none,fill:none
-style B2 stroke:none,fill:none
-style C2 stroke:none,fill:none
-style D2 stroke:none,fill:none
-style E2 stroke:none,fill:none
-style F2 stroke:none,fill:none
-style G2 stroke:none,fill:none
-style H2 stroke:none,fill:none
-style I2 stroke:none,fill:none
-style J2 stroke:none,fill:none
-style K2 stroke:none,fill:none
-style L2 stroke:none,fill:none
-
-S2(E) --&gt; A2(E)
-S2 --&gt; B2(*)
-S2 --&gt; C2(E)
-A2 --&gt; D2(E)
-A2 --&gt; E2(+)
-A2 --&gt; F2(E)
-D2 --&gt; G2(I)
-G2 --&gt; H2(a)
-F2 --&gt; I2(I)
-I2 --&gt; J2(a)
-C2 --&gt; K2(I)
-K2 --&gt; L2(a)
-end
-</code></pre>
-<p>这说明该文法是歧义的。</p>
-<hr />
-<p>注意，并不是多种推导导致了歧义性，而是存在多棵不同的语法分析树导致的。比如</p>
-<ol type="1">
-<li><span class="math inline">\(E \implies E + E \implies I + E \implies
-a + E \implies a + I \implies a + b\)</span></li>
-<li><span class="math inline">\(E \implies E + E \implies E + I \implies
-E + b \implies I + b \implies a + b\)</span></li>
-</ol>
-<p>这两个推导所提供的结构并没有本质的区别，它们对应同一棵语法分析树。</p>
-<h3 id="去除文法的歧义性">去除文法的歧义性</h3>
-<p><strong>不存在算法能够判定某个文法的歧义性。</strong>而且，存在一些文法，对它们而言只存在歧义的文法（即
-<a href="#固有歧义">固有歧义</a>
-的文法）。对于这篇博文最初给的例子而言，有两个缺陷导致了文法的歧义性：</p>
-<ol type="1">
-<li>没有考虑运算符的优先级。我们需要使所有的 <span
-class="math inline">\(*\)</span> 操作在 <span
-class="math inline">\(+\)</span> 操作之前被结合。</li>
-<li>一系列运算符既可从左到右也可以从右到左地结合。事实上，即使我们正确地保持了运算符优先级，<span
-class="math inline">\(E+E+E\)</span>
-仍然会得到两棵不同的语法分析树。一个习惯的做法是坚持从左到右地结合，我们需要通过一些结构来固定这个顺序。</li>
-</ol>
-<p>事实上，我们可以引入几个不同的非终结符，来解决强制优先级的问题：</p>
-<ol type="1">
-<li><strong>因子</strong>（Factor）是不能被相邻的运算符（包括 <span
-class="math inline">\(*\)</span> 和 <span
-class="math inline">\(+\)</span>）打断的表达式。在此例中，因子只会是标识符
-<span class="math inline">\(I\)</span>
-以及任何被括号括起来的表达式。</li>
-<li><strong>项</strong>（Term）是不能被相邻的 <span
-class="math inline">\(+\)</span>
-打断的表达式。在此例中，项只会是一个或多个因子的乘积。</li>
-<li><strong>表达式</strong>（Expression）是指任何可能得串，其中包含可以被相邻的
-<span class="math inline">\(*\)</span> 或 <span
-class="math inline">\(+\)</span>
-打断的表达式。在此例中，表达式就是一个或多个项的和。</li>
-</ol>
-<p>修改之后的 CFG 如下：</p>
-<p><span class="math display">\[
-\begin{aligned}
-I &amp; \to a | b | Ia | Ib | I0 | I1 \\
-F &amp; \to I | (E) \\
-T &amp; \to F | T * F \\
-E &amp; \to T | E + T
-\end{aligned}
-\]</span></p>
-<h3 id="固有歧义">固有歧义</h3>
-<p>如果一个上下文无关语言 <span class="math inline">\(L\)</span>
-的所有文法都是歧义的，那么我们称它是 <strong>固有歧义</strong> 的。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="可计算性">可计算性</h2>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="bare-bones-语言">Bare Bones 语言</h2>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h3 id="复制操作">复制操作</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作">交换操作</h3>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构">分支结构</h3>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题">停机问题</h2>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h2 id="rsa">RSA</h2>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h3 id="rsa-的正确性">RSA 的正确性</h3>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。 <span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-  \]</span></li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="逻辑门">逻辑门</h2>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="c-中的字符常量">C 中的字符常量</h2>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
-<h3 id="补码记数法">补码记数法</h3>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法">余码记数法</h3>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2022年回眸</title>
     <url>/2022/12/31/2022Lookback/</url>
     <content><![CDATA[<p>2022 年就这么过去了，</p>
@@ -4522,6 +4087,79 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="逻辑门">逻辑门</h2>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="c-中的字符常量">C 中的字符常量</h2>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
+<h3 id="补码记数法">补码记数法</h3>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法">余码记数法</h3>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
     <url>/2022/07/25/2022WFLS-Invigilate/</url>
     <content><![CDATA[<p>为什么叫划水记呢？</p>
@@ -4765,6 +4403,387 @@ alt="监考老师们的合照" />
         <tag>数学</tag>
         <tag>物理</tag>
         <tag>化学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="可计算性">可计算性</h2>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="bare-bones-语言">Bare Bones 语言</h2>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h3 id="复制操作">复制操作</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作">交换操作</h3>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构">分支结构</h3>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题">停机问题</h2>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h2 id="rsa">RSA</h2>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h3 id="rsa-的正确性">RSA 的正确性</h3>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。 <span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+  \]</span></li>
+</ol>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
+    <url>/2023/09/20/IATLC-Chap4/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第四章 正则语言的性质</strong></p>
+<ul>
+<li>泵引理</li>
+<li>正则语言的封闭性
+<ul>
+<li>交运算的乘积构造法</li>
+<li>反转</li>
+<li>逆同态</li>
+</ul></li>
+<li>自动机的等价性和最小化
+<ul>
+<li>测试状态的等价性</li>
+<li>测试正则语言的等价性</li>
+<li>DFA 的最小化</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="泵引理">泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
+<span class="math inline">\(n\)</span> 满足：<span
+class="math inline">\(\forall w \in L\)</span> 满足 <span
+class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
+class="math inline">\(\exists x, y, z\)</span> 满足 <span
+class="math inline">\(w = xyz\)</span> 且：</p>
+<ol type="1">
+<li><span class="math inline">\(y \neq \epsilon\)</span></li>
+<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
+<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
+L\)</span></li>
+</ol>
+<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
+是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
+class="math inline">\(L = L(A)\)</span>。设 <span
+class="math inline">\(A\)</span> 有 <span
+class="math inline">\(n\)</span> 个状态，考虑 <span
+class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
+class="math inline">\(a_i\)</span> 为输入符号。</p>
+<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
+a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
+<span class="math inline">\(A\)</span> 的初始状态。则 <span
+class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
+不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
+n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
+<p>所以可以画出如下的转移图：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($p_0$))
+A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
+B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
+B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
+<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
+class="math inline">\(y \neq \epsilon\)</span>，由 <span
+class="math inline">\(j \le n\)</span> 得到 <span
+class="math inline">\(\left|xy\right| \le n\)</span>。<span
+class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
+class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
+<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
+<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
+<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
+class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
+F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
+\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
+L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
+<p><span class="math display">\[
+A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
+\]</span></p>
+<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
+class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
+a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
+接受 <span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
+是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
+w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
+均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
+class="math inline">\(L\cap M\)</span>。</p>
+<h3 id="逆同态">逆同态</h3>
+<p>定义 <span class="math inline">\(L\)</span> 对于 <span
+class="math inline">\(h\)</span> 的逆同态 <span
+class="math inline">\(h^{-1}\)</span> 如下：</p>
+<p><span class="math display">\[
+h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
+\]</span></p>
+<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
+L\)</span>，<strong>并不一定等于</strong> <span
+class="math inline">\(L\)</span>！</p>
+<hr />
+<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
+\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
+class="math inline">\(h^{-1}(L)\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
+<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
+有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
+F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
+<span class="math inline">\(h\)</span> 构造 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
+class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
+<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
+h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
+\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
+<span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(A\)</span> 接受 <span
+class="math inline">\(h(w)\)</span>，故 <span
+class="math inline">\(B\)</span> 就是 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
+<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
+class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
+class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
+class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
+<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
+<h3 id="测试状态的等价性">测试状态的等价性</h3>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
+w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
+w)\)</span> 是可接受的。</p>
+<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
+\hat\delta(q,
+w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>可区分的</strong>，如果它们不是等价的。</p>
+<hr />
+<p>至此，我们可以构造
+<strong>填表算法</strong>，来测试状态的等价性：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
+<span class="math inline">\(q\)</span>
+一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
+q\)</span> 是可区分的。</p>
+<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
+满足 <span class="math inline">\(\exists a\)</span> 使得 <span
+class="math inline">\(r = \delta(p, a)\)</span> 与 <span
+class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
+<span class="math inline">\(w\)</span> 可以区分 <span
+class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>，那么 <span
+class="math inline">\(aw\)</span> 一定可以区分 <span
+class="math inline">\(p,
+q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
+<hr />
+<p>接下来，我们需要证明填表算法的正确性。</p>
+<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
+<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
+class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
+class="math inline">\(\exists w \in L\)</span>，满足 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span>
+本应可区分，但填表算法没有发现它们可区分。</p>
+<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
+是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
+<span class="math inline">\(\{p, q\}\)</span>。则 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
+<p>注意到一个事实，<span class="math inline">\(w \neq
+\epsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
+class="math inline">\(w = \epsilon\)</span>
+的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
+class="math inline">\(r = \delta(p, a_1), s = \delta(q,
+a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
+a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>。</p>
+<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
+class="math inline">\(w&#39;\)</span> 比 <span
+class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
+<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
+class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
+<span class="math inline">\(\{r, s\}\)</span>
+是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
+q\}\)</span> 也是可区分的，这也产生矛盾。</p>
+<p>所以填表算法是正确的。</p>
+<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
+<p>至此，我们已经能够测试同一个 DFA
+中的两个状态是否等价。对于两个正则语言 <span
+class="math inline">\(L\)</span> 和 <span
+class="math inline">\(M\)</span> 而言，构造 DFA <span
+class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
+L(A), M = L(B)\)</span>。</p>
+<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
+class="math inline">\(p_0\)</span>，<span
+class="math inline">\(B\)</span> 的初始状态为 <span
+class="math inline">\(q_0\)</span>。构造 DFA <span
+class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
+class="math inline">\(p_0\)</span> 和 <span
+class="math inline">\(q_0\)</span> 是否等价即可。</p>
+<h3 id="dfa-的最小化">DFA 的最小化</h3>
+<p>用以下流程可以最小化一个 DFA：</p>
+<ol type="1">
+<li>排除所有不能从初始状态到达的状态</li>
+<li>将所有等价的状态划分到同一个连通块</li>
+</ol>
+<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
+等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
+<pre><code class="highlight mermaid">graph LR
+A(($p$)) --&gt; |$1$| C(($r$))
+B(($q$)) --&gt; |$1$| D(($s$))</code></pre>
+<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
+class="math inline">\(q\)</span> 都不会通过 <span
+class="math inline">\(1\)</span> 转移到 <span
+class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
+<pre><code class="highlight mermaid">graph LR
+A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
   <entry>
@@ -5432,40 +5451,6 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
     <url>/2023/09/10/2023Summer-Java/</url>
     <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
@@ -5765,6 +5750,23 @@ href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp
         <tag>Java</tag>
         <tag>Android</tag>
         <tag>程序设计训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
 </search>
