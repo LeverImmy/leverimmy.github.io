@@ -364,6 +364,7 @@ R))\)</span></li>
 P)\)</span></li>
 </ol>
 </div>
+<p><del>懒得推。</del></p>
 <h3 id="公理系统的完备性">公理系统的完备性</h3>
 <p>设 <span class="math inline">\(A\)</span>
 是任意一个重言式，需要说明它在公理系统中是可证明的。先将 <span
@@ -528,6 +529,165 @@ class="math inline">\(B\)</span>。</p></li>
 </ol>
 </div>
 <h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
+<h3 id="合式公式">合式公式</h3>
+<div class="note warning"><h4 id="注意合式公式">注意：合式公式</h4>
+<ol type="1">
+<li>如果 <span class="math inline">\(A, B\)</span> 是合式公式，而无变元
+<span class="math inline">\(x\)</span> 在 <span class="math inline">\(A,
+B\)</span> 的一个中是约束的而在另一个中是自由的，则 <span
+class="math inline">\(A \land B, A \lor B, A \to B, A \leftrightarrow
+B\)</span> 也算是合式公式。</li>
+<li>如果 <span class="math inline">\(A\)</span> 是合式公式，而 <span
+class="math inline">\(x\)</span> 在 <span
+class="math inline">\(A\)</span> 中是自由变元，则 <span
+class="math inline">\((\forall x)A, (\exists x)A\)</span>
+也是合式公式。</li>
+</ol>
+</div>
+<p>第 1 点说明 <span class="math inline">\((\forall x)P(x) \lor
+Q(x)\)</span> 不是合式公式。一个恰当的写法是 <span
+class="math inline">\((\forall x)P(x) \lor Q(y)\)</span>。</p>
+<p>第 2 点说明 <span class="math inline">\((\exists x)((\forall
+x)F(x))\)</span> 不是合式公式，因为内层 <span
+class="math inline">\(x\)</span> 并不是自由变元。</p>
+<h3 id="自然语句的形式化">自然语句的形式化</h3>
+<h4
+id="所有的有理数都是实数的形式化">“所有的有理数都是实数”的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“所有的有理数都是实数”可以被形式化地描述为 <span
+class="math display">\[
+(\forall x)(P(x) \to Q(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\forall
+x)(P(x) \land Q(x))\)</span>。当论域包含不是有理数的东西的时候，<span
+class="math inline">\((\forall x)(P(x) \land Q(x))\)</span>
+恒为假，这不是我们希望看到的。</p>
+<h4 id="有的实数是有理数的形式化">”有的实数是有理数“的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“有的实数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(Q(x) \land P(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\exists
+x)(Q(x) \to P(x))\)</span>。当论域包含不是实数的东西的时候，<span
+class="math inline">\(x\)</span> 取这些事物时恒有 <span
+class="math inline">\(Q(x)\)</span> 为假，那么 <span
+class="math inline">\((\exists x)(Q(x) \to P(x))\)</span>
+恒为真，这也不是我们希望看到的。</p>
+<h4 id="没有无理数是有理数的形式化">“没有无理数是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是无理数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“没有无理数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+\lnot (\exists x)(A(x) \land B(x))
+\]</span></p>
+<h4 id="有的实数不是有理数的形式化">“有的实数不是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是实数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“有的实数不是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(A(x) \land \lnot B(x))
+\]</span></p>
+<h4 id="自然数集的形式描述">自然数集的形式描述</h4>
+<p>自然数集的定义：</p>
+<ol type="1">
+<li>对每个数，有且仅有一个相继后元。</li>
+<li>没有这样的数，<span class="math inline">\(0\)</span>
+是其相继后元。</li>
+<li>对除 <span class="math inline">\(0\)</span>
+以外的数，有且仅有一个相继前元。</li>
+</ol>
+<p>一个比较常用的描述唯一性的方法是，“如果有两个则它们必相等”。即若对每个
+<span class="math inline">\(x\)</span> 都存在 <span
+class="math inline">\(y\)</span>，使得 <span
+class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的相继后元，且对任意 <span
+class="math inline">\(z\)</span>，如果 <span
+class="math inline">\(z\)</span> 也是 <span
+class="math inline">\(x\)</span> 的相继后元，则 <span
+class="math inline">\(z = y\)</span>。</p>
+<p>引入谓词 <span class="math inline">\(\mathsf{E}(x, y)\)</span> 表示
+<span class="math inline">\(x = y\)</span>。函数 <span
+class="math inline">\(f(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继后元，即 <span
+class="math inline">\(f(x) = x + 1\)</span>。函数 <span
+class="math inline">\(g(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继前元，即 <span
+class="math inline">\(g(x) = x - 1\)</span>。</p>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\exists y)(\mathsf{E}(y,
+f(x))\land (\forall z)(\mathsf{E}(z, f(x)) \to \mathsf{E}(y,
+z)))\)</span></li>
+<li><span class="math inline">\(\lnot (\exists x)\mathsf{E}(0,
+f(x))\)</span></li>
+<li><span class="math inline">\((\forall x)(\lnot\mathsf{E}(x, 0) \to
+(\exists y)(\mathsf{E}(y, g(x)) \land (\forall z)(\mathsf{E}(z, g(x))
+\to \mathsf{E}(y, z))))\)</span></li>
+</ol>
+<div class="note warning"><h4
+id="注意对谓词变元多次量化的分析">注意：对谓词变元多次量化的分析</h4>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\forall y)P(x, y) = (\forall
+y)(\forall x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\exists x)(\exists y)P(x, y) = (\exists
+y)(\exists x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\forall x)(\exists y)P(x, y) \neq
+(\exists y)(\forall x)P(x, y)\)</span></li>
+</ol>
+</div>
+<p>注意第 3 点左式表明 <span class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的函数 <span
+class="math inline">\(y(x)\)</span>，也就是 <span
+class="math inline">\(x_1\)</span> 可以对应存在 <span
+class="math inline">\(y_1\)</span>，<span
+class="math inline">\(x_2\)</span> 对应存在 <span
+class="math inline">\(y_2\)</span>……但右式要求一个固定的 <span
+class="math inline">\(y\)</span> 对所有的 <span
+class="math inline">\(x\)</span> 都成立。</p>
+<h3 id="公式的普遍有效性和判定问题">公式的普遍有效性和判定问题</h3>
+<div class="note primary"><h4 id="定义普遍有效性">定义：普遍有效性</h4>
+<p>对一个谓词公式：</p>
+<ol type="1">
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为真，便称它是 <strong>普遍有效的</strong>。</li>
+<li>如果在它的某个解释 <span class="math inline">\(I\)</span>
+下真值为真，便称它是 <strong>可满足的</strong>。</li>
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为假，便称它是 <strong>不可满足的</strong>。</li>
+</ol>
+</div>
+<p>有限域上一个公式的可满足性和普遍有效性仅依赖于个体域个体的数目。即在某个含
+<span class="math inline">\(k\)</span> 个元素的 <span
+class="math inline">\(k\)</span> 个体域上普遍有效（可满足），则在任一
+<span class="math inline">\(k\)</span>
+个体域上也普遍有效（可满足）。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上普遍有效，则在 <span class="math inline">\(k - 1\)</span>
+个体域上也普遍有效。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上可满足，则在 <span class="math inline">\(k + 1\)</span>
+个体域上也可满足。</p>
+<h4 id="判定问题">判定问题</h4>
+<ol type="1">
+<li><p>谓词逻辑是不可判定的。</p>
+<p>对任一谓词公式而言，没有可行方法能判明它是否是普遍有效的。但这并不排除谓词公式有子类是可判定的。判定问题的困难在于个体域是个无穷集以及对谓词设定的任意性。</p></li>
+<li><p>只含有一元谓词变项的公式是可判定的。</p></li>
+<li><p><span class="math display">\[
+(\forall x_1)(\forall x_2)\cdots(\forall x_n)P(x_1, x_2, \cdots, x_n)
+\]</span></p>
+<p>和 <span class="math display">\[
+(\exists x_1)(\exists x_2)\cdots(\exists x_n)P(x_1, x_2, \cdots x_n)
+\]</span> 型公式，若 <span class="math inline">\(P\)</span>
+中无量词和其他自由变项时是可判定的。</p></li>
+</ol>
 <h2 id="第5章-谓词逻辑的等值和推理演算">第5章
 谓词逻辑的等值和推理演算</h2>
 ]]></content>
@@ -2059,492 +2219,6 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
-    <url>/2023/09/17/IATLC-Chap1-Chap2/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
-<ul>
-<li>字母表、串、语言和问题
-<ul>
-<li>字母表</li>
-<li>串</li>
-<li>语言</li>
-<li>问题</li>
-</ul></li>
-<li>有穷自动机的形式化定义
-<ul>
-<li>确定性有穷自动机（DFA）
-<ul>
-<li>DFA 的表示方法</li>
-<li>转移函数 <span class="math inline">\(\delta\)</span></li>
-<li>DFA 的语言</li>
-</ul></li>
-<li>非确定性有穷自动机（NFA）
-<ul>
-<li>NFA 的表示方法</li>
-<li>转移函数 <span class="math inline">\(\delta\)</span></li>
-<li>NFA 的语言</li>
-</ul></li>
-<li>DFA 和 NFA 的区别与联系
-<ul>
-<li>DFA 和 NFA 的等价性</li>
-<li>子集构造的最劣情形</li>
-</ul></li>
-</ul></li>
-<li><span class="math inline">\(\epsilon\)</span> 转移
-<ul>
-<li><span class="math inline">\(\epsilon\)</span> - NFA
-的形式化定义</li>
-<li><span class="math inline">\(\epsilon\)</span> 闭包</li>
-<li>消除 <span class="math inline">\(\epsilon\)</span> 转移</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="字母表串语言和问题">字母表、串、语言和问题</h2>
-<h3 id="字母表">字母表</h3>
-<p><strong>字母表</strong> 是符号的有穷非空集合，记为 <span
-class="math inline">\(\Sigma\)</span>。</p>
-<h3 id="串">串</h3>
-<p><strong>串（单词）</strong>
-是从某个字母表中选择的符号组成的有穷序列。</p>
-<ul>
-<li><p>串的长度</p>
-<p>选择出来的符号个数被称为串的长度。</p></li>
-<li><p>空串 <span class="math inline">\(\epsilon\)</span></p>
-<p>它的长度为 <span
-class="math inline">\(0\)</span>，是可以从任何字母表中选择的串。<strong>但它不属于任何字母表</strong>。<span
-class="math inline">\(\epsilon \not\in \Sigma\)</span>。</p></li>
-<li><p>字母表的幂</p>
-<p>如果 <span class="math inline">\(\Sigma\)</span> 是一个字母表，则
-<span class="math inline">\(\Sigma^k\)</span> 表示这个字母表长度为 <span
-class="math inline">\(k\)</span> 的所有串所组成的集合。</p></li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-  \Sigma^0 &amp;= \{\epsilon\} \\
-  \Sigma^{+} &amp;= \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \\
-  \Sigma^{*} &amp;= \Sigma^{+} \cup \{\epsilon\}
-\end{aligned}
-\]</span></p>
-<h3 id="语言">语言</h3>
-<p>设 <span class="math inline">\(\Sigma\)</span> 为一个字母表，<span
-class="math inline">\(L \subseteq \Sigma^{*}\)</span> 被称为 <span
-class="math inline">\(\Sigma\)</span> 上的 <strong>语言</strong>。</p>
-<ul>
-<li><p>空语言 <span class="math inline">\(\varnothing\)</span>
-与只包含空串的语言 <span class="math inline">\(\{\epsilon\}\)</span></p>
-<p><span class="math inline">\(\varnothing\)</span> 和 <span
-class="math inline">\(\{\epsilon\}\)</span> 都是任意字母表上的语言，但
-<span class="math inline">\(\varnothing \neq
-\{\epsilon\}\)</span>，前者没有串，后者有一个串。</p></li>
-<li><p>若 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的语言，则 <span
-class="math inline">\(L\)</span> 是任何是 <span
-class="math inline">\(\Sigma\)</span> 的超集的字母表上的语言。</p></li>
-</ul>
-<h3 id="问题">问题</h3>
-<p>在自动机理论中，一个 <strong>问题</strong> 就是
-“判定一个给定的串是否属于某个具体语言” 这一行为。</p>
-<p>问题和语言是可以相互等价的。如果 <span
-class="math inline">\(\Sigma\)</span> 是字母表，<span
-class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的语言，则问题 <span
-class="math inline">\(L\)</span> 就是“给定 <span
-class="math inline">\(\Sigma^{*}\)</span> 中的一个串 <span
-class="math inline">\(w\)</span>，判断 <span
-class="math inline">\(w\)</span> 是否属于 <span
-class="math inline">\(L\)</span>。这说明 <span
-class="math inline">\(L\)</span>
-是一个语言，也可以被看成是一个问题。</p>
-<h2 id="有穷自动机的形式化定义">有穷自动机的形式化定义</h2>
-<h3 id="确定性有穷自动机dfa">确定性有穷自动机（DFA）</h3>
-<p>通常使用一个五元组 <span class="math inline">\(A = (Q, \Sigma,
-\delta, q_0, F)\)</span> 来表示一个 DFA。其中 <span
-class="math inline">\(A\)</span> 是 DFA 的名称，<span
-class="math inline">\(Q\)</span> 是状态集合，<span
-class="math inline">\(\Sigma\)</span> 是输入符号，<span
-class="math inline">\(\delta\)</span> 是转移函数，<span
-class="math inline">\(q_0\)</span> 是初始状态，<span
-class="math inline">\(F\)</span> 是接受状态集合。</p>
-<h4 id="dfa-的表示方法">DFA 的表示方法</h4>
-<ul>
-<li><p>转移图</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0$| C(($q_2$))
-A --&gt; |$1$| A
-C --&gt; |$0$| C
-C --&gt; |$1$| B((($q_1$)))
-B --&gt; |$0, 1$| B</code></pre>
-<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 <span
-class="math inline">\(q_1\)</span>）。</p></li>
-<li><p>转移表</p>
-<p>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 <span
-class="math inline">\(\delta\)</span>。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;"><span
-class="math inline">\(0\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(\to
-q_0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_0\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span
-class="math inline">\(*q_1\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>初始状态用箭头标记，接受状态用星号标记。</p></li>
-</ul>
-<h4 id="转移函数-delta">转移函数 <span
-class="math inline">\(\delta\)</span></h4>
-<p>本质上就是转移图上的有向边，边权为字母表中的字符。</p>
-<ul>
-<li><p>扩展转移函数 <span class="math inline">\(\hat\delta\)</span></p>
-<p>感性地说，就是
-<strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
-<p>形式化的定义如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(\hat\delta(q, \epsilon) =
-q\)</span>。</p>
-<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
-\delta(\hat\delta(q, x), a)\)</span>，其中 <span class="math inline">\(w
-= xa\)</span>。</p>
-</blockquote></li>
-</ul>
-<h4 id="dfa-的语言">DFA 的语言</h4>
-<p>定义 DFA <span class="math inline">\(A = (Q, \Sigma, \delta, q_0,
-F)\)</span> 的语言 <span class="math inline">\(L(A)\)</span> 如下：</p>
-<p><span class="math display">\[
-L(A) = \{w | \hat\delta(q_0, w) \in F\}
-\]</span></p>
-<p><span class="math inline">\(L(A)\)</span> 是 <span
-class="math inline">\(A\)</span> 的 <strong>所有可接受的串</strong>
-所组成的集合。如果对于某个 DFA <span class="math inline">\(A\)</span>
-来说 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(L(A)\)</span>，则我们称 <span
-class="math inline">\(L\)</span> 是一个 <strong>正则语言</strong>。</p>
-<h3 id="非确定性有穷自动机nfa">非确定性有穷自动机（NFA）</h3>
-<p><del>NFA 就是多线程 DFA（确信）</del></p>
-<p>在读入每个串的时候，NFA
-可以向多个方向同时转移，最后只取可接受状态组成的状态集合。</p>
-<h4 id="nfa-的表示方法">NFA 的表示方法</h4>
-<p>转移表既可以表示 NFA 的转移函数，也可以用来规定 DFA
-的转移函数，区别在于，NFA 转移表中的
-<strong>每一项都是集合</strong>，即使是单元素集合；如果在某个状态上不存在向其他状态的转移时，应该填入
-<span class="math inline">\(\varnothing\)</span>。</p>
-<h4 id="转移函数-delta-1">转移函数 <span
-class="math inline">\(\delta\)</span></h4>
-<ul>
-<li><p>扩展转移函数 <span class="math inline">\(\hat\delta(q,
-w)\)</span></p>
-<p>形式化的表述如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(\hat\delta(q, \epsilon) =
-\{q\}\)</span>。</p>
-<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
-\bigcup\limits_{p \in \hat\delta(q, x)}\delta(p, a)\)</span>，其中 <span
-class="math inline">\(w = xa\)</span>。</p>
-</blockquote></li>
-</ul>
-<h4 id="nfa-的语言">NFA 的语言</h4>
-<p>相应地，由于 NFA
-可以同时向多个方向转移，所以对于一个串来说，只要存在一个状态使得 NFA
-能接受该串，那么这个串就属于这个 NFA 对应的语言。</p>
-<p><span class="math display">\[
-L(A) = \{w | \hat\delta(q_0, w) \cap F \neq \varnothing\}
-\]</span></p>
-<h3 id="dfa-和-nfa-的区别与联系">DFA 和 NFA 的区别与联系</h3>
-<p>DFA 和 NFA 之间的唯一区别在于，<span
-class="math inline">\(\delta\)</span> 在 DFA 的情况下，返回的是
-<strong>单个状态</strong>；而在 NFA 的情况下，返回的是一个
-<strong>状态集合</strong>。</p>
-<h4 id="dfa-和-nfa-的等价性">DFA 和 NFA 的等价性</h4>
-<p>显然一个 DFA 可以转化成一个
-NFA，只需要把状态中的每个元素写成其对应的单元素集合即可。重点在于怎么通过一个
-NFA <span class="math inline">\(N = (Q_N, \Sigma, \delta_N, \{q_0\},
-F_N)\)</span> 开始，描述一个 DFA <span class="math inline">\(D = (Q_D,
-\Sigma, \delta_D, q_0, F_D)\)</span> 使得 <span
-class="math inline">\(L(N) = L(D)\)</span>。可以采用
-<strong>子集构造</strong> 的方式来解决此问题。</p>
-<ul>
-<li><span class="math inline">\(Q_D = P(Q_N)\)</span>，即 <span
-class="math inline">\(Q_D\)</span> 是 <span
-class="math inline">\(Q_N\)</span>
-的幂集合。但值得注意的一点是，虽然它们是“集合”，但它们是单个状态，而不是状态的集合。换句话说，构造出来的
-<span class="math inline">\(D\)</span> 中，每个状态本身都是集合。</li>
-<li><span class="math inline">\(F_D = \{S \subseteq Q_N | S \cap F_N
-\neq \varnothing\}\)</span>。也就是说，<span
-class="math inline">\(F_D\)</span> 是所有至少含有一个 <span
-class="math inline">\(N\)</span> 的接受状态的 <span
-class="math inline">\(N\)</span> 的状态集合的集合。</li>
-<li>对于每个集合 <span class="math inline">\(S \subseteq Q_N\)</span>
-以及 <span class="math inline">\(a \in
-\Sigma\)</span>，构造转移函数如下： <span class="math display">\[
-\delta_D(S, a) = \bigcup_{p \in S}\delta_N(p, a)
-\]</span> 也就是说，对于 <span class="math inline">\(S\)</span>
-中所有状态 <span class="math inline">\(p\)</span>，在 <span
-class="math inline">\(N\)</span> 中从 <span
-class="math inline">\(p\)</span> 上通过输入 <span
-class="math inline">\(a\)</span> 进入的状态，这些状态的并集，就是 <span
-class="math inline">\(\delta_D(S, a)\)</span>。</li>
-</ul>
-<p><strong>定理</strong>：如果 <span class="math inline">\(D = (Q_D,
-\Sigma, \delta_D, \{q_0\}, F_D)\)</span> 是用子集构造从 NFA <span
-class="math inline">\(N = (Q_N, \Sigma, \delta_N, q_0, F_N)\)</span>
-构造出来的 DFA，那么 <span class="math inline">\(L(D) =
-L(N)\)</span>。</p>
-<p><strong>证明</strong>：只需证明 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, w) = \hat\delta_N(q_0,
-w)\)</span>。</p>
-<p>基础：设 <span class="math inline">\(|w| = 0\)</span>，则 <span
-class="math inline">\(w = \epsilon\)</span>，显然有 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, \epsilon) =
-\hat\delta_N(q_0, \epsilon)\)</span>。</p>
-<p>归纳：设 <span class="math inline">\(|w| = n + 1\)</span>，且命题对
-<span class="math inline">\(|v| = n\)</span> 的所有 <span
-class="math inline">\(v\)</span> 均成立。记 <span
-class="math inline">\(w = xa\)</span>，假设 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, x) = \hat\delta_N(q_0, x) =
-\{p_1, p_2, \cdots, p_k\}\)</span>。</p>
-<p>由 NFA 的 <span class="math inline">\(\hat\delta\)</span>
-的定义的归纳部分说明 <span class="math inline">\(\hat\delta(q_0, w) =
-\cup_{i = 1}^k\delta_N(p_i, a)\)</span>。另一方面，子集构造说明 <span
-class="math inline">\(\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \cup_{i =
-1}^k\delta_N(p_i, a)\)</span>。因此</p>
-<p><span class="math display">\[
-\hat\delta_D(\{q_0\}, w) = \delta_D(\hat\delta_D(\{q_0\}, x), a) =
-\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \bigcup_{i = 1}^k\delta_N(p_i,
-a) = \hat\delta(q_0, w)
-\]</span></p>
-<p>所以对于某个串 <span class="math inline">\(w\)</span> 而言，它在
-<span class="math inline">\(D\)</span> 和 <span
-class="math inline">\(N\)</span> 中的可达性是相同的。</p>
-<p>因此 <span class="math inline">\(\hat\delta_D(\{q_0\}, w)q_{n - 1} =
-\hat\delta_N(q_0, w) \iff L(D) = L(N)\)</span>。命题得证。</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0, 1$| A
-A --&gt; |$0$| B(($q_1$))
-B --&gt; |$1$| C((($q_2$)))</code></pre>
-<p>这是一个接受所有以 <code>01</code> 结尾的 01 串的 NFA。它所对应的 DFA
-为</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A((&quot;$\&#123;q_0\&#125;$&quot;))
-A --&gt; |$1$| A
-A --&gt; |$0$| B((&quot;$\&#123;q_0, q_1\&#125;$&quot;))
-B --&gt; |$0$| B
-B --&gt; |$1$| C(((&quot;$\&#123;q_0, q_2\&#125;$&quot;)))
-C --&gt; |$0$| B
-C --&gt; |$1$| A</code></pre>
-<p>转移表如下：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;"><span
-class="math inline">\(0\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(\to
-\{q_0\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_0\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(\{q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span
-class="math inline">\(*\{q_2\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(*\{q_0,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_0\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(*\{q_1,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(*\{q_0, q_1,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_2\}\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="子集构造的最劣情形">子集构造的最劣情形</h4>
-<p>考虑 <span class="math inline">\(L(N)\)</span> 是所有使得倒数第 <span
-class="math inline">\(n\)</span> 位是 <span
-class="math inline">\(1\)</span> 的 01 串集合。</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-style ... fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0, 1$| A
-A --&gt; |$1$| B(($q_1$))
-B --&gt; |$0, 1$| C(($q_2$))
-C --&gt; |$0, 1$| ...
-... --&gt; |$0, 1$| D((&quot;$q_&#123;n-1&#125;$&quot;))
-D --&gt; |$0, 1$| E((($q_n$)))</code></pre>
-<p>这个 NFA 没有少于 <span class="math inline">\(2^n\)</span>
-个状态的等价 DFA。这很好理解，因为你最少要存下来每个 01 串的最后 <span
-class="math inline">\(n - 1\)</span> 位，所以会导致 DFA
-的状态数指数型增长。</p>
-<h2 id="epsilon-转移"><span class="math inline">\(\epsilon\)</span>
-转移</h2>
-<p><span class="math inline">\(\epsilon\)</span>
-转移可以理解成边权为空串 <span class="math inline">\(\epsilon\)</span>
-的边。</p>
-<h3 id="epsilon---nfa-的形式化定义"><span
-class="math inline">\(\epsilon\)</span> - NFA 的形式化定义</h3>
-<p>只有转移函数 <span class="math inline">\(\delta\)</span> 与 NFA
-不同。在 <span class="math inline">\(\epsilon\)</span> - NFA 中，<span
-class="math inline">\(\delta\)</span> 的定义域被拓展为 <span
-class="math inline">\(Q \times \left(\Sigma \cup
-\{\epsilon\}\right)\)</span>，它需要包含所有通过 <span
-class="math inline">\(\epsilon\)</span> 边转移的信息。</p>
-<h3 id="epsilon-闭包"><span class="math inline">\(\epsilon\)</span>
-闭包</h3>
-<p>这就有点类似于在有向图中缩点了。<span
-class="math inline">\(\epsilon\)</span>
-闭包就是能被缩成一个点的块儿，消除 <span
-class="math inline">\(\epsilon\)</span> 转移就是缩点的过程。</p>
-<p>递归地定义 <span class="math inline">\(q\)</span> 的 <span
-class="math inline">\(\epsilon\)</span> 闭包如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(q \in \text{ECLOSE}(q)\)</span></p>
-<p>归纳：若 <span class="math inline">\(p \in
-\text{ECLOSE}(q)\)</span>，且存在 <span class="math inline">\(p\)</span>
-到 <span class="math inline">\(r\)</span> 的 <span
-class="math inline">\(\epsilon\)</span> 转移，则 <span
-class="math inline">\(r \in \text{ECLOSE}(q)\)</span>。</p>
-</blockquote>
-<ul>
-<li>扩展转移函数 <span class="math inline">\(\hat\delta(q, w)\)</span>
-形式化的定义如下： &gt; 基础：<span class="math inline">\(\hat\delta(q,
-\epsilon) = \text{ECLOSE}(q)\)</span>。 &gt; &gt; 归纳：<span
-class="math inline">\(\hat\delta(q, w) = \bigcup\limits_{p \in
-\hat\delta(q, x)}\text{ECLOSE}(\delta(p, a))\)</span>，其中 <span
-class="math inline">\(w = xa\)</span>。</li>
-</ul>
-<p>用通俗的话说，通过 <span class="math inline">\(\epsilon\)</span>
-的边将状态 <span class="math inline">\(q\)</span>
-和它周围的状态联系起来，它们本质上是“同一个状态”，“同一个状态”对应的就是
-<span class="math inline">\(\text{ECLOSE}(q)\)</span>。</p>
-<h3 id="消除-epsilon-转移">消除 <span
-class="math inline">\(\epsilon\)</span> 转移</h3>
-<p>给定一个 <span class="math inline">\(\epsilon\)</span> - NFA <span
-class="math inline">\(E = (Q_E, \Sigma, \delta_E, q_0,
-F_E)\)</span>，求满足 <span class="math inline">\(L(E) = L(D)\)</span>
-的 DFA <span class="math inline">\(D = (Q_D, \Sigma, \delta_D, q_D,
-F_D)\)</span>。</p>
-<ul>
-<li><span class="math inline">\(Q_D = \{S \subseteq Q_E | S =
-\text{ECLOSE}(S)\}\)</span></li>
-<li><span class="math inline">\(q_D = \text{ECLOSE}(q_0)\)</span></li>
-<li><span class="math inline">\(F_D = \{S \subseteq Q_D | S \cap F_E
-\neq \varnothing\}\)</span></li>
-<li><span class="math inline">\(\delta_D\)</span> 满足 <span
-class="math display">\[
-\delta_D(S, a) = \bigcup_{p \in S}\text{ECLOSE}(\delta(p, a))
-\]</span></li>
-</ul>
-<p>对于 <span class="math inline">\(E\)</span> 和其对应的 <span
-class="math inline">\(D\)</span>，也有</p>
-<p><strong>定理</strong>：<span class="math inline">\(L\)</span> 被
-<span class="math inline">\(\epsilon\)</span> - NFA <span
-class="math inline">\(E\)</span> 接受，当且仅当 <span
-class="math inline">\(L\)</span> 被 DFA <span
-class="math inline">\(D\)</span> 接受。</p>
-<p>定理的证明与 NFA 和 DFA 的等价性处的证明类似。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>有穷自动机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
     <url>/2023/09/19/IATLC-Chap3/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -3093,23 +2767,489 @@ class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
-    <url>/2023/09/30/IATLC-Chap6/</url>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
+    <url>/2023/09/17/IATLC-Chap1-Chap2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第六章 下推自动机</strong></p>
+<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
 <ul>
-<li></li>
+<li>字母表、串、语言和问题
+<ul>
+<li>字母表</li>
+<li>串</li>
+<li>语言</li>
+<li>问题</li>
+</ul></li>
+<li>有穷自动机的形式化定义
+<ul>
+<li>确定性有穷自动机（DFA）
+<ul>
+<li>DFA 的表示方法</li>
+<li>转移函数 <span class="math inline">\(\delta\)</span></li>
+<li>DFA 的语言</li>
+</ul></li>
+<li>非确定性有穷自动机（NFA）
+<ul>
+<li>NFA 的表示方法</li>
+<li>转移函数 <span class="math inline">\(\delta\)</span></li>
+<li>NFA 的语言</li>
+</ul></li>
+<li>DFA 和 NFA 的区别与联系
+<ul>
+<li>DFA 和 NFA 的等价性</li>
+<li>子集构造的最劣情形</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(\epsilon\)</span> 转移
+<ul>
+<li><span class="math inline">\(\epsilon\)</span> - NFA
+的形式化定义</li>
+<li><span class="math inline">\(\epsilon\)</span> 闭包</li>
+<li>消除 <span class="math inline">\(\epsilon\)</span> 转移</li>
+</ul></li>
 </ul>
 <span id="more"></span>
+<h2 id="字母表串语言和问题">字母表、串、语言和问题</h2>
+<h3 id="字母表">字母表</h3>
+<p><strong>字母表</strong> 是符号的有穷非空集合，记为 <span
+class="math inline">\(\Sigma\)</span>。</p>
+<h3 id="串">串</h3>
+<p><strong>串（单词）</strong>
+是从某个字母表中选择的符号组成的有穷序列。</p>
+<ul>
+<li><p>串的长度</p>
+<p>选择出来的符号个数被称为串的长度。</p></li>
+<li><p>空串 <span class="math inline">\(\epsilon\)</span></p>
+<p>它的长度为 <span
+class="math inline">\(0\)</span>，是可以从任何字母表中选择的串。<strong>但它不属于任何字母表</strong>。<span
+class="math inline">\(\epsilon \not\in \Sigma\)</span>。</p></li>
+<li><p>字母表的幂</p>
+<p>如果 <span class="math inline">\(\Sigma\)</span> 是一个字母表，则
+<span class="math inline">\(\Sigma^k\)</span> 表示这个字母表长度为 <span
+class="math inline">\(k\)</span> 的所有串所组成的集合。</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+  \Sigma^0 &amp;= \{\epsilon\} \\
+  \Sigma^{+} &amp;= \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \\
+  \Sigma^{*} &amp;= \Sigma^{+} \cup \{\epsilon\}
+\end{aligned}
+\]</span></p>
+<h3 id="语言">语言</h3>
+<p>设 <span class="math inline">\(\Sigma\)</span> 为一个字母表，<span
+class="math inline">\(L \subseteq \Sigma^{*}\)</span> 被称为 <span
+class="math inline">\(\Sigma\)</span> 上的 <strong>语言</strong>。</p>
+<ul>
+<li><p>空语言 <span class="math inline">\(\varnothing\)</span>
+与只包含空串的语言 <span class="math inline">\(\{\epsilon\}\)</span></p>
+<p><span class="math inline">\(\varnothing\)</span> 和 <span
+class="math inline">\(\{\epsilon\}\)</span> 都是任意字母表上的语言，但
+<span class="math inline">\(\varnothing \neq
+\{\epsilon\}\)</span>，前者没有串，后者有一个串。</p></li>
+<li><p>若 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的语言，则 <span
+class="math inline">\(L\)</span> 是任何是 <span
+class="math inline">\(\Sigma\)</span> 的超集的字母表上的语言。</p></li>
+</ul>
+<h3 id="问题">问题</h3>
+<p>在自动机理论中，一个 <strong>问题</strong> 就是
+“判定一个给定的串是否属于某个具体语言” 这一行为。</p>
+<p>问题和语言是可以相互等价的。如果 <span
+class="math inline">\(\Sigma\)</span> 是字母表，<span
+class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的语言，则问题 <span
+class="math inline">\(L\)</span> 就是“给定 <span
+class="math inline">\(\Sigma^{*}\)</span> 中的一个串 <span
+class="math inline">\(w\)</span>，判断 <span
+class="math inline">\(w\)</span> 是否属于 <span
+class="math inline">\(L\)</span>。这说明 <span
+class="math inline">\(L\)</span>
+是一个语言，也可以被看成是一个问题。</p>
+<h2 id="有穷自动机的形式化定义">有穷自动机的形式化定义</h2>
+<h3 id="确定性有穷自动机dfa">确定性有穷自动机（DFA）</h3>
+<p>通常使用一个五元组 <span class="math inline">\(A = (Q, \Sigma,
+\delta, q_0, F)\)</span> 来表示一个 DFA。其中 <span
+class="math inline">\(A\)</span> 是 DFA 的名称，<span
+class="math inline">\(Q\)</span> 是状态集合，<span
+class="math inline">\(\Sigma\)</span> 是输入符号，<span
+class="math inline">\(\delta\)</span> 是转移函数，<span
+class="math inline">\(q_0\)</span> 是初始状态，<span
+class="math inline">\(F\)</span> 是接受状态集合。</p>
+<h4 id="dfa-的表示方法">DFA 的表示方法</h4>
+<ul>
+<li><p>转移图</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0$| C(($q_2$))
+A --&gt; |$1$| A
+C --&gt; |$0$| C
+C --&gt; |$1$| B((($q_1$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 <span
+class="math inline">\(q_1\)</span>）。</p></li>
+<li><p>转移表</p>
+<p>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 <span
+class="math inline">\(\delta\)</span>。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\to
+q_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span
+class="math inline">\(*q_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>初始状态用箭头标记，接受状态用星号标记。</p></li>
+</ul>
+<h4 id="转移函数-delta">转移函数 <span
+class="math inline">\(\delta\)</span></h4>
+<p>本质上就是转移图上的有向边，边权为字母表中的字符。</p>
+<ul>
+<li><p>扩展转移函数 <span class="math inline">\(\hat\delta\)</span></p>
+<p>感性地说，就是
+<strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
+<p>形式化的定义如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(\hat\delta(q, \epsilon) =
+q\)</span>。</p>
+<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
+\delta(\hat\delta(q, x), a)\)</span>，其中 <span class="math inline">\(w
+= xa\)</span>。</p>
+</blockquote></li>
+</ul>
+<h4 id="dfa-的语言">DFA 的语言</h4>
+<p>定义 DFA <span class="math inline">\(A = (Q, \Sigma, \delta, q_0,
+F)\)</span> 的语言 <span class="math inline">\(L(A)\)</span> 如下：</p>
+<p><span class="math display">\[
+L(A) = \{w | \hat\delta(q_0, w) \in F\}
+\]</span></p>
+<p><span class="math inline">\(L(A)\)</span> 是 <span
+class="math inline">\(A\)</span> 的 <strong>所有可接受的串</strong>
+所组成的集合。如果对于某个 DFA <span class="math inline">\(A\)</span>
+来说 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(L(A)\)</span>，则我们称 <span
+class="math inline">\(L\)</span> 是一个 <strong>正则语言</strong>。</p>
+<h3 id="非确定性有穷自动机nfa">非确定性有穷自动机（NFA）</h3>
+<p><del>NFA 就是多线程 DFA（确信）</del></p>
+<p>在读入每个串的时候，NFA
+可以向多个方向同时转移，最后只取可接受状态组成的状态集合。</p>
+<h4 id="nfa-的表示方法">NFA 的表示方法</h4>
+<p>转移表既可以表示 NFA 的转移函数，也可以用来规定 DFA
+的转移函数，区别在于，NFA 转移表中的
+<strong>每一项都是集合</strong>，即使是单元素集合；如果在某个状态上不存在向其他状态的转移时，应该填入
+<span class="math inline">\(\varnothing\)</span>。</p>
+<h4 id="转移函数-delta-1">转移函数 <span
+class="math inline">\(\delta\)</span></h4>
+<ul>
+<li><p>扩展转移函数 <span class="math inline">\(\hat\delta(q,
+w)\)</span></p>
+<p>形式化的表述如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(\hat\delta(q, \epsilon) =
+\{q\}\)</span>。</p>
+<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
+\bigcup\limits_{p \in \hat\delta(q, x)}\delta(p, a)\)</span>，其中 <span
+class="math inline">\(w = xa\)</span>。</p>
+</blockquote></li>
+</ul>
+<h4 id="nfa-的语言">NFA 的语言</h4>
+<p>相应地，由于 NFA
+可以同时向多个方向转移，所以对于一个串来说，只要存在一个状态使得 NFA
+能接受该串，那么这个串就属于这个 NFA 对应的语言。</p>
+<p><span class="math display">\[
+L(A) = \{w | \hat\delta(q_0, w) \cap F \neq \varnothing\}
+\]</span></p>
+<h3 id="dfa-和-nfa-的区别与联系">DFA 和 NFA 的区别与联系</h3>
+<p>DFA 和 NFA 之间的唯一区别在于，<span
+class="math inline">\(\delta\)</span> 在 DFA 的情况下，返回的是
+<strong>单个状态</strong>；而在 NFA 的情况下，返回的是一个
+<strong>状态集合</strong>。</p>
+<h4 id="dfa-和-nfa-的等价性">DFA 和 NFA 的等价性</h4>
+<p>显然一个 DFA 可以转化成一个
+NFA，只需要把状态中的每个元素写成其对应的单元素集合即可。重点在于怎么通过一个
+NFA <span class="math inline">\(N = (Q_N, \Sigma, \delta_N, \{q_0\},
+F_N)\)</span> 开始，描述一个 DFA <span class="math inline">\(D = (Q_D,
+\Sigma, \delta_D, q_0, F_D)\)</span> 使得 <span
+class="math inline">\(L(N) = L(D)\)</span>。可以采用
+<strong>子集构造</strong> 的方式来解决此问题。</p>
+<ul>
+<li><span class="math inline">\(Q_D = P(Q_N)\)</span>，即 <span
+class="math inline">\(Q_D\)</span> 是 <span
+class="math inline">\(Q_N\)</span>
+的幂集合。但值得注意的一点是，虽然它们是“集合”，但它们是单个状态，而不是状态的集合。换句话说，构造出来的
+<span class="math inline">\(D\)</span> 中，每个状态本身都是集合。</li>
+<li><span class="math inline">\(F_D = \{S \subseteq Q_N | S \cap F_N
+\neq \varnothing\}\)</span>。也就是说，<span
+class="math inline">\(F_D\)</span> 是所有至少含有一个 <span
+class="math inline">\(N\)</span> 的接受状态的 <span
+class="math inline">\(N\)</span> 的状态集合的集合。</li>
+<li>对于每个集合 <span class="math inline">\(S \subseteq Q_N\)</span>
+以及 <span class="math inline">\(a \in
+\Sigma\)</span>，构造转移函数如下： <span class="math display">\[
+\delta_D(S, a) = \bigcup_{p \in S}\delta_N(p, a)
+\]</span> 也就是说，对于 <span class="math inline">\(S\)</span>
+中所有状态 <span class="math inline">\(p\)</span>，在 <span
+class="math inline">\(N\)</span> 中从 <span
+class="math inline">\(p\)</span> 上通过输入 <span
+class="math inline">\(a\)</span> 进入的状态，这些状态的并集，就是 <span
+class="math inline">\(\delta_D(S, a)\)</span>。</li>
+</ul>
+<p><strong>定理</strong>：如果 <span class="math inline">\(D = (Q_D,
+\Sigma, \delta_D, \{q_0\}, F_D)\)</span> 是用子集构造从 NFA <span
+class="math inline">\(N = (Q_N, \Sigma, \delta_N, q_0, F_N)\)</span>
+构造出来的 DFA，那么 <span class="math inline">\(L(D) =
+L(N)\)</span>。</p>
+<p><strong>证明</strong>：只需证明 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, w) = \hat\delta_N(q_0,
+w)\)</span>。</p>
+<p>基础：设 <span class="math inline">\(|w| = 0\)</span>，则 <span
+class="math inline">\(w = \epsilon\)</span>，显然有 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, \epsilon) =
+\hat\delta_N(q_0, \epsilon)\)</span>。</p>
+<p>归纳：设 <span class="math inline">\(|w| = n + 1\)</span>，且命题对
+<span class="math inline">\(|v| = n\)</span> 的所有 <span
+class="math inline">\(v\)</span> 均成立。记 <span
+class="math inline">\(w = xa\)</span>，假设 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, x) = \hat\delta_N(q_0, x) =
+\{p_1, p_2, \cdots, p_k\}\)</span>。</p>
+<p>由 NFA 的 <span class="math inline">\(\hat\delta\)</span>
+的定义的归纳部分说明 <span class="math inline">\(\hat\delta(q_0, w) =
+\cup_{i = 1}^k\delta_N(p_i, a)\)</span>。另一方面，子集构造说明 <span
+class="math inline">\(\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \cup_{i =
+1}^k\delta_N(p_i, a)\)</span>。因此</p>
+<p><span class="math display">\[
+\hat\delta_D(\{q_0\}, w) = \delta_D(\hat\delta_D(\{q_0\}, x), a) =
+\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \bigcup_{i = 1}^k\delta_N(p_i,
+a) = \hat\delta(q_0, w)
+\]</span></p>
+<p>所以对于某个串 <span class="math inline">\(w\)</span> 而言，它在
+<span class="math inline">\(D\)</span> 和 <span
+class="math inline">\(N\)</span> 中的可达性是相同的。</p>
+<p>因此 <span class="math inline">\(\hat\delta_D(\{q_0\}, w)q_{n - 1} =
+\hat\delta_N(q_0, w) \iff L(D) = L(N)\)</span>。命题得证。</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0, 1$| A
+A --&gt; |$0$| B(($q_1$))
+B --&gt; |$1$| C((($q_2$)))</code></pre>
+<p>这是一个接受所有以 <code>01</code> 结尾的 01 串的 NFA。它所对应的 DFA
+为</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot;$\&#123;q_0\&#125;$&quot;))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((&quot;$\&#123;q_0, q_1\&#125;$&quot;))
+B --&gt; |$0$| B
+B --&gt; |$1$| C(((&quot;$\&#123;q_0, q_2\&#125;$&quot;)))
+C --&gt; |$0$| B
+C --&gt; |$1$| A</code></pre>
+<p>转移表如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\to
+\{q_0\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(\{q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span
+class="math inline">\(*\{q_2\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(*\{q_0,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(*\{q_1,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(*\{q_0, q_1,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_2\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="子集构造的最劣情形">子集构造的最劣情形</h4>
+<p>考虑 <span class="math inline">\(L(N)\)</span> 是所有使得倒数第 <span
+class="math inline">\(n\)</span> 位是 <span
+class="math inline">\(1\)</span> 的 01 串集合。</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+style ... fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0, 1$| A
+A --&gt; |$1$| B(($q_1$))
+B --&gt; |$0, 1$| C(($q_2$))
+C --&gt; |$0, 1$| ...
+... --&gt; |$0, 1$| D((&quot;$q_&#123;n-1&#125;$&quot;))
+D --&gt; |$0, 1$| E((($q_n$)))</code></pre>
+<p>这个 NFA 没有少于 <span class="math inline">\(2^n\)</span>
+个状态的等价 DFA。这很好理解，因为你最少要存下来每个 01 串的最后 <span
+class="math inline">\(n - 1\)</span> 位，所以会导致 DFA
+的状态数指数型增长。</p>
+<h2 id="epsilon-转移"><span class="math inline">\(\epsilon\)</span>
+转移</h2>
+<p><span class="math inline">\(\epsilon\)</span>
+转移可以理解成边权为空串 <span class="math inline">\(\epsilon\)</span>
+的边。</p>
+<h3 id="epsilon---nfa-的形式化定义"><span
+class="math inline">\(\epsilon\)</span> - NFA 的形式化定义</h3>
+<p>只有转移函数 <span class="math inline">\(\delta\)</span> 与 NFA
+不同。在 <span class="math inline">\(\epsilon\)</span> - NFA 中，<span
+class="math inline">\(\delta\)</span> 的定义域被拓展为 <span
+class="math inline">\(Q \times \left(\Sigma \cup
+\{\epsilon\}\right)\)</span>，它需要包含所有通过 <span
+class="math inline">\(\epsilon\)</span> 边转移的信息。</p>
+<h3 id="epsilon-闭包"><span class="math inline">\(\epsilon\)</span>
+闭包</h3>
+<p>这就有点类似于在有向图中缩点了。<span
+class="math inline">\(\epsilon\)</span>
+闭包就是能被缩成一个点的块儿，消除 <span
+class="math inline">\(\epsilon\)</span> 转移就是缩点的过程。</p>
+<p>递归地定义 <span class="math inline">\(q\)</span> 的 <span
+class="math inline">\(\epsilon\)</span> 闭包如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(q \in \text{ECLOSE}(q)\)</span></p>
+<p>归纳：若 <span class="math inline">\(p \in
+\text{ECLOSE}(q)\)</span>，且存在 <span class="math inline">\(p\)</span>
+到 <span class="math inline">\(r\)</span> 的 <span
+class="math inline">\(\epsilon\)</span> 转移，则 <span
+class="math inline">\(r \in \text{ECLOSE}(q)\)</span>。</p>
+</blockquote>
+<ul>
+<li>扩展转移函数 <span class="math inline">\(\hat\delta(q, w)\)</span>
+形式化的定义如下： &gt; 基础：<span class="math inline">\(\hat\delta(q,
+\epsilon) = \text{ECLOSE}(q)\)</span>。 &gt; &gt; 归纳：<span
+class="math inline">\(\hat\delta(q, w) = \bigcup\limits_{p \in
+\hat\delta(q, x)}\text{ECLOSE}(\delta(p, a))\)</span>，其中 <span
+class="math inline">\(w = xa\)</span>。</li>
+</ul>
+<p>用通俗的话说，通过 <span class="math inline">\(\epsilon\)</span>
+的边将状态 <span class="math inline">\(q\)</span>
+和它周围的状态联系起来，它们本质上是“同一个状态”，“同一个状态”对应的就是
+<span class="math inline">\(\text{ECLOSE}(q)\)</span>。</p>
+<h3 id="消除-epsilon-转移">消除 <span
+class="math inline">\(\epsilon\)</span> 转移</h3>
+<p>给定一个 <span class="math inline">\(\epsilon\)</span> - NFA <span
+class="math inline">\(E = (Q_E, \Sigma, \delta_E, q_0,
+F_E)\)</span>，求满足 <span class="math inline">\(L(E) = L(D)\)</span>
+的 DFA <span class="math inline">\(D = (Q_D, \Sigma, \delta_D, q_D,
+F_D)\)</span>。</p>
+<ul>
+<li><span class="math inline">\(Q_D = \{S \subseteq Q_E | S =
+\text{ECLOSE}(S)\}\)</span></li>
+<li><span class="math inline">\(q_D = \text{ECLOSE}(q_0)\)</span></li>
+<li><span class="math inline">\(F_D = \{S \subseteq Q_D | S \cap F_E
+\neq \varnothing\}\)</span></li>
+<li><span class="math inline">\(\delta_D\)</span> 满足 <span
+class="math display">\[
+\delta_D(S, a) = \bigcup_{p \in S}\text{ECLOSE}(\delta(p, a))
+\]</span></li>
+</ul>
+<p>对于 <span class="math inline">\(E\)</span> 和其对应的 <span
+class="math inline">\(D\)</span>，也有</p>
+<p><strong>定理</strong>：<span class="math inline">\(L\)</span> 被
+<span class="math inline">\(\epsilon\)</span> - NFA <span
+class="math inline">\(E\)</span> 接受，当且仅当 <span
+class="math inline">\(L\)</span> 被 DFA <span
+class="math inline">\(D\)</span> 接受。</p>
+<p>定理的证明与 NFA 和 DFA 的等价性处的证明类似。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
+        <tag>有穷自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -3545,6 +3685,99 @@ E &amp; \to T | E + T
         <tag>自动机理论、语言和计算导论</tag>
         <tag>上下文无关文法</tag>
         <tag>上下文无关语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第一章</title>
+    <url>/2023/07/20/CSAO-Chap1/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="逻辑门">逻辑门</h2>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h2 id="c-中的字符常量">C 中的字符常量</h2>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
+<h3 id="补码记数法">补码记数法</h3>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h3 id="余码记数法">余码记数法</h3>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <url>/2023/09/30/IATLC-Chap6/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第六章 下推自动机</strong></p>
+<ul>
+<li></li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -4141,79 +4374,6 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <url>/2023/07/20/CSAO-Chap1/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="逻辑门">逻辑门</h2>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h2 id="c-中的字符常量">C 中的字符常量</h2>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h2 id="二进制中的补码与余码">二进制中的补码与余码</h2>
-<h3 id="补码记数法">补码记数法</h3>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h3 id="余码记数法">余码记数法</h3>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】计算机科学概论 - 第十二章</title>
     <url>/2023/07/26/CSAO-Chap12/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -4605,23 +4765,6 @@ alt="监考老师们的合照" />
         <tag>数学</tag>
         <tag>物理</tag>
         <tag>化学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
       </tags>
   </entry>
   <entry>
@@ -5286,6 +5429,23 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
         <tag>璧山</tag>
         <tag>乡村振兴</tag>
         <tag>暑期实践</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
   <entry>

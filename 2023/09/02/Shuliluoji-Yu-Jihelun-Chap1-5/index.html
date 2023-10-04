@@ -27,7 +27,7 @@
 <meta property="og:description" content="这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-02T02:14:22.000Z">
-<meta property="article:modified_time" content="2023-10-04T02:51:01.677Z">
+<meta property="article:modified_time" content="2023-10-04T09:02:28.889Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="离散数学">
 <meta property="article:tag" content="数理逻辑">
@@ -143,7 +143,7 @@
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">第1章 命题逻辑的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text">代入规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BB%A3%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.1.</span> <span class="nav-text">注意：代入规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E5%85%B0%E5%BC%8F%E4%B8%8E%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">波兰式与逆波兰式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%B3%A2%E5%85%B0%E5%BC%8F%E4%B8%8E%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">注意：波兰式与逆波兰式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">第2章
 命题逻辑的等值和推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">等值公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">公式：等值公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">对偶式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：对偶式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">性质：对偶式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E6%9E%81%E5%B0%8F%E9%A1%B9%E4%B8%8E%E6%9E%81%E5%A4%A7%E9%A1%B9"><span class="nav-number">2.3.1.</span> <span class="nav-text">性质：极小项与极大项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B8%8E%E4%B8%BB%E6%9E%90%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.3.2.</span> <span class="nav-text">主合取范式与主析取范式之间的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.4.</span> <span class="nav-text">推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.4.1.</span> <span class="nav-text">注意：推理形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F"><span class="nav-number">2.4.2.</span> <span class="nav-text">公式：基本的推理公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.3.</span> <span class="nav-text">证明推理公式的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86a-implies-b-%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.4.4.</span> <span class="nav-text">定理：\(A
-\implies B\) 的充要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.5.</span> <span class="nav-text">规则：推理规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.6.</span> <span class="nav-text">注意：推理规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E6%8E%A8%E7%90%86%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">归结推理法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BD%92%E7%BB%93%E5%BC%8F"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：归结式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E"><span class="nav-number">2.5.2.</span> <span class="nav-text">定理：归结证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B"><span class="nav-number">2.5.3.</span> <span class="nav-text">归结证明过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第3章 命题逻辑的公理化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.</span> <span class="nav-text">罗素公理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%90%86%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">公理：罗素公理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.2.</span> <span class="nav-text">规则：罗素公理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.3.</span> <span class="nav-text">定理：罗素公理系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%8C%E5%A4%87%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">公理系统的完备性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%8B%E6%B5%A9%E7%AE%97%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">王浩算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9D%E5%A7%8B%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.3.1.</span> <span class="nav-text">定义：初始符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%BB%A7%E5%BC%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">定义：相继式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E5%8F%98%E5%BD%A2%E8%A7%84%E5%88%99"><span class="nav-number">3.3.3.</span> <span class="nav-text">规则：变形规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.4.</span> <span class="nav-text">命题逻辑的自然演绎系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9D%E5%A7%8B%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.4.1.</span> <span class="nav-text">定义：初始符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E5%8F%98%E5%BD%A2%E8%A7%84%E5%88%99"><span class="nav-number">3.4.2.</span> <span class="nav-text">规则：变形规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">第4章 谓词逻辑的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">第5章
+\implies B\) 的充要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.5.</span> <span class="nav-text">规则：推理规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.6.</span> <span class="nav-text">注意：推理规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E6%8E%A8%E7%90%86%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">归结推理法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BD%92%E7%BB%93%E5%BC%8F"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：归结式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E"><span class="nav-number">2.5.2.</span> <span class="nav-text">定理：归结证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B"><span class="nav-number">2.5.3.</span> <span class="nav-text">归结证明过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第3章 命题逻辑的公理化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.</span> <span class="nav-text">罗素公理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E7%90%86%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">公理：罗素公理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.2.</span> <span class="nav-text">规则：罗素公理系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E7%BD%97%E7%B4%A0%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.3.</span> <span class="nav-text">定理：罗素公理系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%8C%E5%A4%87%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">公理系统的完备性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%8B%E6%B5%A9%E7%AE%97%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">王浩算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9D%E5%A7%8B%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.3.1.</span> <span class="nav-text">定义：初始符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%BB%A7%E5%BC%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">定义：相继式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E5%8F%98%E5%BD%A2%E8%A7%84%E5%88%99"><span class="nav-number">3.3.3.</span> <span class="nav-text">规则：变形规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.4.</span> <span class="nav-text">命题逻辑的自然演绎系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9D%E5%A7%8B%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.4.1.</span> <span class="nav-text">定义：初始符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E5%8F%98%E5%BD%A2%E8%A7%84%E5%88%99"><span class="nav-number">3.4.2.</span> <span class="nav-text">规则：变形规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">第4章 谓词逻辑的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%BC%8F%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">合式公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%90%88%E5%BC%8F%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.1.</span> <span class="nav-text">注意：合式公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">4.2.</span> <span class="nav-text">自然语句的形式化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E7%9A%84%E6%9C%89%E7%90%86%E6%95%B0%E9%83%BD%E6%98%AF%E5%AE%9E%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">4.2.1.</span> <span class="nav-text">“所有的有理数都是实数”的形式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E7%9A%84%E5%AE%9E%E6%95%B0%E6%98%AF%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">4.2.2.</span> <span class="nav-text">”有的实数是有理数“的形式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E6%97%A0%E7%90%86%E6%95%B0%E6%98%AF%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">4.2.3.</span> <span class="nav-text">“没有无理数是有理数”的形式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E7%9A%84%E5%AE%9E%E6%95%B0%E4%B8%8D%E6%98%AF%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96"><span class="nav-number">4.2.4.</span> <span class="nav-text">“有的实数不是有理数”的形式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%95%B0%E9%9B%86%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%8F%8F%E8%BF%B0"><span class="nav-number">4.2.5.</span> <span class="nav-text">自然数集的形式描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%AF%B9%E8%B0%93%E8%AF%8D%E5%8F%98%E5%85%83%E5%A4%9A%E6%AC%A1%E9%87%8F%E5%8C%96%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-number">4.2.6.</span> <span class="nav-text">注意：对谓词变元多次量化的分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%9C%89%E6%95%88%E6%80%A7%E5%92%8C%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">公式的普遍有效性和判定问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%99%AE%E9%81%8D%E6%9C%89%E6%95%88%E6%80%A7"><span class="nav-number">4.3.1.</span> <span class="nav-text">定义：普遍有效性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.2.</span> <span class="nav-text">判定问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">第5章
 谓词逻辑的等值和推理演算</span></a></li></ol></div>
         </div>
         <!--/noindex-->
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-04 10:51:01" itemprop="dateModified" datetime="2023-10-04T10:51:01+08:00">2023-10-04</time>
+      <time title="修改时间：2023-10-04 17:02:28" itemprop="dateModified" datetime="2023-10-04T17:02:28+08:00">2023-10-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -631,6 +631,7 @@ R))\)</span></li>
 P)\)</span></li>
 </ol>
 </div>
+<p><del>懒得推。</del></p>
 <h3 id="公理系统的完备性">公理系统的完备性</h3>
 <p>设 <span class="math inline">\(A\)</span>
 是任意一个重言式，需要说明它在公理系统中是可证明的。先将 <span
@@ -795,6 +796,165 @@ class="math inline">\(B\)</span>。</p></li>
 </ol>
 </div>
 <h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
+<h3 id="合式公式">合式公式</h3>
+<div class="note warning"><h4 id="注意合式公式">注意：合式公式</h4>
+<ol type="1">
+<li>如果 <span class="math inline">\(A, B\)</span> 是合式公式，而无变元
+<span class="math inline">\(x\)</span> 在 <span class="math inline">\(A,
+B\)</span> 的一个中是约束的而在另一个中是自由的，则 <span
+class="math inline">\(A \land B, A \lor B, A \to B, A \leftrightarrow
+B\)</span> 也算是合式公式。</li>
+<li>如果 <span class="math inline">\(A\)</span> 是合式公式，而 <span
+class="math inline">\(x\)</span> 在 <span
+class="math inline">\(A\)</span> 中是自由变元，则 <span
+class="math inline">\((\forall x)A, (\exists x)A\)</span>
+也是合式公式。</li>
+</ol>
+</div>
+<p>第 1 点说明 <span class="math inline">\((\forall x)P(x) \lor
+Q(x)\)</span> 不是合式公式。一个恰当的写法是 <span
+class="math inline">\((\forall x)P(x) \lor Q(y)\)</span>。</p>
+<p>第 2 点说明 <span class="math inline">\((\exists x)((\forall
+x)F(x))\)</span> 不是合式公式，因为内层 <span
+class="math inline">\(x\)</span> 并不是自由变元。</p>
+<h3 id="自然语句的形式化">自然语句的形式化</h3>
+<h4
+id="所有的有理数都是实数的形式化">“所有的有理数都是实数”的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“所有的有理数都是实数”可以被形式化地描述为 <span
+class="math display">\[
+(\forall x)(P(x) \to Q(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\forall
+x)(P(x) \land Q(x))\)</span>。当论域包含不是有理数的东西的时候，<span
+class="math inline">\((\forall x)(P(x) \land Q(x))\)</span>
+恒为假，这不是我们希望看到的。</p>
+<h4 id="有的实数是有理数的形式化">”有的实数是有理数“的形式化</h4>
+<p>以 <span class="math inline">\(P(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是有理数，<span
+class="math inline">\(Q(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是实数。则“有的实数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(Q(x) \land P(x))
+\]</span> 注意，这句话并不能表示为 <span class="math inline">\((\exists
+x)(Q(x) \to P(x))\)</span>。当论域包含不是实数的东西的时候，<span
+class="math inline">\(x\)</span> 取这些事物时恒有 <span
+class="math inline">\(Q(x)\)</span> 为假，那么 <span
+class="math inline">\((\exists x)(Q(x) \to P(x))\)</span>
+恒为真，这也不是我们希望看到的。</p>
+<h4 id="没有无理数是有理数的形式化">“没有无理数是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是无理数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“没有无理数是有理数”可以被形式化地描述为 <span
+class="math display">\[
+\lnot (\exists x)(A(x) \land B(x))
+\]</span></p>
+<h4 id="有的实数不是有理数的形式化">“有的实数不是有理数”的形式化</h4>
+<p>以 <span class="math inline">\(A(x)\)</span> 表示 <span
+class="math inline">\(x\)</span> 是实数，<span
+class="math inline">\(B(x)\)</span> 表示 <span
+class="math inline">\(x\)</span>
+是有理数。则“有的实数不是有理数”可以被形式化地描述为 <span
+class="math display">\[
+(\exists x)(A(x) \land \lnot B(x))
+\]</span></p>
+<h4 id="自然数集的形式描述">自然数集的形式描述</h4>
+<p>自然数集的定义：</p>
+<ol type="1">
+<li>对每个数，有且仅有一个相继后元。</li>
+<li>没有这样的数，<span class="math inline">\(0\)</span>
+是其相继后元。</li>
+<li>对除 <span class="math inline">\(0\)</span>
+以外的数，有且仅有一个相继前元。</li>
+</ol>
+<p>一个比较常用的描述唯一性的方法是，“如果有两个则它们必相等”。即若对每个
+<span class="math inline">\(x\)</span> 都存在 <span
+class="math inline">\(y\)</span>，使得 <span
+class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的相继后元，且对任意 <span
+class="math inline">\(z\)</span>，如果 <span
+class="math inline">\(z\)</span> 也是 <span
+class="math inline">\(x\)</span> 的相继后元，则 <span
+class="math inline">\(z = y\)</span>。</p>
+<p>引入谓词 <span class="math inline">\(\mathsf{E}(x, y)\)</span> 表示
+<span class="math inline">\(x = y\)</span>。函数 <span
+class="math inline">\(f(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继后元，即 <span
+class="math inline">\(f(x) = x + 1\)</span>。函数 <span
+class="math inline">\(g(x)\)</span> 表示个体 <span
+class="math inline">\(x\)</span> 的相继前元，即 <span
+class="math inline">\(g(x) = x - 1\)</span>。</p>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\exists y)(\mathsf{E}(y,
+f(x))\land (\forall z)(\mathsf{E}(z, f(x)) \to \mathsf{E}(y,
+z)))\)</span></li>
+<li><span class="math inline">\(\lnot (\exists x)\mathsf{E}(0,
+f(x))\)</span></li>
+<li><span class="math inline">\((\forall x)(\lnot\mathsf{E}(x, 0) \to
+(\exists y)(\mathsf{E}(y, g(x)) \land (\forall z)(\mathsf{E}(z, g(x))
+\to \mathsf{E}(y, z))))\)</span></li>
+</ol>
+<div class="note warning"><h4
+id="注意对谓词变元多次量化的分析">注意：对谓词变元多次量化的分析</h4>
+<ol type="1">
+<li><span class="math inline">\((\forall x)(\forall y)P(x, y) = (\forall
+y)(\forall x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\exists x)(\exists y)P(x, y) = (\exists
+y)(\exists x)P(x, y)\)</span></li>
+<li><span class="math inline">\((\forall x)(\exists y)P(x, y) \neq
+(\exists y)(\forall x)P(x, y)\)</span></li>
+</ol>
+</div>
+<p>注意第 3 点左式表明 <span class="math inline">\(y\)</span> 是 <span
+class="math inline">\(x\)</span> 的函数 <span
+class="math inline">\(y(x)\)</span>，也就是 <span
+class="math inline">\(x_1\)</span> 可以对应存在 <span
+class="math inline">\(y_1\)</span>，<span
+class="math inline">\(x_2\)</span> 对应存在 <span
+class="math inline">\(y_2\)</span>……但右式要求一个固定的 <span
+class="math inline">\(y\)</span> 对所有的 <span
+class="math inline">\(x\)</span> 都成立。</p>
+<h3 id="公式的普遍有效性和判定问题">公式的普遍有效性和判定问题</h3>
+<div class="note primary"><h4 id="定义普遍有效性">定义：普遍有效性</h4>
+<p>对一个谓词公式：</p>
+<ol type="1">
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为真，便称它是 <strong>普遍有效的</strong>。</li>
+<li>如果在它的某个解释 <span class="math inline">\(I\)</span>
+下真值为真，便称它是 <strong>可满足的</strong>。</li>
+<li>如果在它的任一解释 <span class="math inline">\(I\)</span>
+下真值都为假，便称它是 <strong>不可满足的</strong>。</li>
+</ol>
+</div>
+<p>有限域上一个公式的可满足性和普遍有效性仅依赖于个体域个体的数目。即在某个含
+<span class="math inline">\(k\)</span> 个元素的 <span
+class="math inline">\(k\)</span> 个体域上普遍有效（可满足），则在任一
+<span class="math inline">\(k\)</span>
+个体域上也普遍有效（可满足）。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上普遍有效，则在 <span class="math inline">\(k - 1\)</span>
+个体域上也普遍有效。</p>
+<p>如果某公式在 <span class="math inline">\(k\)</span>
+个体域上可满足，则在 <span class="math inline">\(k + 1\)</span>
+个体域上也可满足。</p>
+<h4 id="判定问题">判定问题</h4>
+<ol type="1">
+<li><p>谓词逻辑是不可判定的。</p>
+<p>对任一谓词公式而言，没有可行方法能判明它是否是普遍有效的。但这并不排除谓词公式有子类是可判定的。判定问题的困难在于个体域是个无穷集以及对谓词设定的任意性。</p></li>
+<li><p>只含有一元谓词变项的公式是可判定的。</p></li>
+<li><p><span class="math display">\[
+(\forall x_1)(\forall x_2)\cdots(\forall x_n)P(x_1, x_2, \cdots, x_n)
+\]</span></p>
+<p>和 <span class="math display">\[
+(\exists x_1)(\exists x_2)\cdots(\exists x_n)P(x_1, x_2, \cdots x_n)
+\]</span> 型公式，若 <span class="math inline">\(P\)</span>
+中无量词和其他自由变项时是可判定的。</p></li>
+</ol>
 <h2 id="第5章-谓词逻辑的等值和推理演算">第5章
 谓词逻辑的等值和推理演算</h2>
 
