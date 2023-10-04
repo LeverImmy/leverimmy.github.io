@@ -27,7 +27,7 @@
 <meta property="og:description" content="这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-02T02:14:22.000Z">
-<meta property="article:modified_time" content="2023-10-03T16:29:30.278Z">
+<meta property="article:modified_time" content="2023-10-04T01:20:00.978Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="离散数学">
 <meta property="article:tag" content="数理逻辑">
@@ -142,7 +142,8 @@
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">第1章 命题逻辑的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text">代入规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BB%A3%E5%85%A5%E8%A7%84%E5%88%99"><span class="nav-number">1.1.1.</span> <span class="nav-text">注意：代入规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A2%E5%85%B0%E5%BC%8F%E4%B8%8E%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">波兰式与逆波兰式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%B3%A2%E5%85%B0%E5%BC%8F%E4%B8%8E%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">注意：波兰式与逆波兰式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">第2章
-命题逻辑的等值和推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">等值公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">公式：等值公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">对偶式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：对偶式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">性质：对偶式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E6%9E%81%E5%B0%8F%E9%A1%B9%E4%B8%8E%E6%9E%81%E5%A4%A7%E9%A1%B9"><span class="nav-number">2.3.1.</span> <span class="nav-text">性质：极小项与极大项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B8%8E%E4%B8%BB%E6%9E%90%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.3.2.</span> <span class="nav-text">主合取范式与主析取范式之间的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.4.</span> <span class="nav-text">推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.4.1.</span> <span class="nav-text">注意：推理形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F"><span class="nav-number">2.4.2.</span> <span class="nav-text">公式：基本的推理公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.3.</span> <span class="nav-text">证明推理公式的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.4.</span> <span class="nav-text">定理：推理规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E6%8E%A8%E7%90%86%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">归结推理法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">归结证明过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BD%92%E7%BB%93%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.5.2.</span> <span class="nav-text">定义：归结推理规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第3章 命题逻辑的公理化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">第4章 谓词逻辑的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">第5章
+命题逻辑的等值和推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">等值公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">公式：等值公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">对偶式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义：对偶式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E5%AF%B9%E5%81%B6%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">性质：对偶式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E6%9E%81%E5%B0%8F%E9%A1%B9%E4%B8%8E%E6%9E%81%E5%A4%A7%E9%A1%B9"><span class="nav-number">2.3.1.</span> <span class="nav-text">性质：极小项与极大项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B8%8E%E4%B8%BB%E6%9E%90%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.3.2.</span> <span class="nav-text">主合取范式与主析取范式之间的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">2.4.</span> <span class="nav-text">推理演算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.4.1.</span> <span class="nav-text">注意：推理形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F"><span class="nav-number">2.4.2.</span> <span class="nav-text">公式：基本的推理公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E6%8E%A8%E7%90%86%E5%85%AC%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.3.</span> <span class="nav-text">证明推理公式的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86a-implies-b-%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.4.4.</span> <span class="nav-text">定理：\(A
+\implies B\) 的充要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.5.</span> <span class="nav-text">定理：推理规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%8E%A8%E7%90%86%E8%A7%84%E5%88%99"><span class="nav-number">2.4.6.</span> <span class="nav-text">注意：推理规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E6%8E%A8%E7%90%86%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">归结推理法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BD%92%E7%BB%93%E5%BC%8F"><span class="nav-number">2.5.1.</span> <span class="nav-text">定义：归结式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E"><span class="nav-number">2.5.2.</span> <span class="nav-text">定理：归结证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BD%92%E7%BB%93%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B"><span class="nav-number">2.5.3.</span> <span class="nav-text">归结证明过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E7%9A%84%E5%85%AC%E7%90%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">第3章 命题逻辑的公理化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.</span> <span class="nav-text">第4章 谓词逻辑的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91%E7%9A%84%E7%AD%89%E5%80%BC%E5%92%8C%E6%8E%A8%E7%90%86%E6%BC%94%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">第5章
 谓词逻辑的等值和推理演算</span></a></li></ol></div>
         </div>
         <!--/noindex-->
@@ -240,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-04 00:29:30" itemprop="dateModified" datetime="2023-10-04T00:29:30+08:00">2023-10-04</time>
+      <time title="修改时间：2023-10-04 09:20:00" itemprop="dateModified" datetime="2023-10-04T09:20:00+08:00">2023-10-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,7 +286,7 @@ S)\)</span> 以 <span class="math inline">\(P\)</span> 代之。</p></li>
 <li><p>对公式中某命题变项施以代入，必须对该公式中出现的所有同一命题变项代换同一公式。
 其实就是说，要代换就所有都代换完。对于重言式 <span
 class="math inline">\((P\lor\lnot P)\)</span>，仅仅代换前一部分的 <span
-class="math inline">\(P = \lnot Q\)</span>，那么就变成了 <span
+class="math inline">\(P \gets \lnot Q\)</span>，那么就变成了 <span
 class="math inline">\((\lnot Q \lor \lnot
 P)\)</span>，这并非重言式。</p></li>
 </ol>
@@ -418,6 +419,11 @@ P_2, \cdots, \lnot P_n)\)</span>。</p>
 \]</span></p></li>
 </ol>
 </div>
+<p>可以理解为极小项（极大项）构成了含 <span
+class="math inline">\(n\)</span>
+个命题变项的命题组成的空间的一组基底，极小项（极大项）两两不等值且与（或）得到的结果为
+<span class="math inline">\(\text{F}\)</span>（<span
+class="math inline">\(\text{T}\)</span>）类似于基底中基向量的正交性。</p>
 <h4
 id="主合取范式与主析取范式之间的转换">主合取范式与主析取范式之间的转换</h4>
 <p>若已知 <span class="math inline">\(A\)</span> 的主析取范式，如 <span
@@ -431,12 +437,15 @@ A &amp; = \lor_{0, 1, 4, 5, 7} \\
 \]</span> 若已知 <span class="math inline">\(A\)</span> 的主合取范式，如
 <span class="math display">\[
 \begin{aligned}
-A &amp; = \land_{5, 4, 1} \\
-&amp; = \lor_{\{0, 1, \cdots, 7\} - \{1, 4, 5\}_\text{ 补}} \\
-&amp; = \lor_{\{0, 1, \cdots, 7\} - \{6, 3, 2\}} \\
-&amp; = \lor_{0, 1, 4, 5, 7}
+A &amp; = \land_{1, 4, 5} \\
+&amp; = \lor_{(\{0, 1, \cdots, 7\} - \{1, 4, 5\})_\text{ 补}} \\
+&amp; = \lor_{\{0, 2, 3, 6, 7\}_\text{ 补}} \\
+&amp; = \lor_{7, 5, 4, 1, 0}
 \end{aligned}
 \]</span></p>
+<p>取补是为了求出命题变项的否定。在此例中，<span
+class="math inline">\(2^n-1 = 7\)</span>，所以取补就是用 <span
+class="math inline">\(7\)</span> 减去其他的值。</p>
 <h3 id="推理演算">推理演算</h3>
 <div class="note warning"><h4 id="注意推理形式">注意：推理形式</h4>
 <p>前提真，结论必真的推理形式为正确的推理形式。</p>
@@ -479,13 +488,103 @@ R) \implies Q \lor S\)</span></li>
 R))\)</span></li>
 </ol>
 </div>
+<p>公式 8 常称作假言推理，或称作分离规则，是最常使用的推理公式。</p>
+<p>公式 10 常称作三段论。</p>
+<p>公式 15 和 公式 16 值得玩味。</p>
 <h4 id="证明推理公式的方法">证明推理公式的方法</h4>
+<div class="note default"><h4 id="定理a-implies-b-的充要条件">定理：<span class="math inline">\(A
+\implies B\)</span> 的充要条件</h4>
+<ol type="1">
+<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
+class="math inline">\(A \to B\)</span> 是重言式。</li>
+<li><span class="math inline">\(A \implies B\)</span> 等价于 <span
+class="math inline">\(A \land \lnot B\)</span> 是矛盾式。</li>
+</ol>
+</div>
 <div class="note default"><h4 id="定理推理规则">定理：推理规则</h4>
+<ol type="1">
+<li><p>前提引入规则</p>
+<p>在推理过程中，可以随时引入前提。</p></li>
+<li><p>结论引用规则</p>
+<p>在推理过程中所得到的中间结论，可作为后续推理的前提。</p></li>
+<li><p>代入规则</p>
+<p>在推理过程中，对重言式中的命题变项可使用代入规则。</p></li>
+<li><p>置换规则</p>
+<p>在推理过程中，命题公式中的任何部分公式都可以用与之等值的命题公式来置换。</p></li>
+<li><p>分离规则（假言推理）</p>
+<p>如果已知命题公式 <span class="math inline">\(A \to B\)</span> 和
+<span class="math inline">\(A\)</span>，则有命题公式 <span
+class="math inline">\(B\)</span>。</p></li>
+<li><p>条件证明规则</p>
+<p><span class="math inline">\(A_1 \land A_2 \implies B\)</span> 与
+<span class="math inline">\(A_1 \implies A_2 \to B\)</span>
+是等价的。</p></li>
+</ol>
+</div>
+<p>规则 6 将 <span class="math inline">\(A_1 \implies A_2 \to B\)</span>
+的证明化为 <span class="math inline">\(A_1 \land A_2 \implies B\)</span>
+的证明。意思是说，可以将要证明的结论 <span class="math inline">\(A_2 \to
+B\)</span> 中的 <span class="math inline">\(A_2\)</span>
+作为条件来使用，从而简化了证明。</p>
+<div class="note warning"><h4 id="注意推理规则">注意：推理规则</h4>
+<p>在证明过程中，将 <span class="math inline">\(P \lor Q\)</span> 写成
+<span class="math inline">\(\lnot P \to Q\)</span> 更便于推理。</p>
 </div>
 <h3 id="归结推理法">归结推理法</h3>
-<h4 id="归结证明过程">归结证明过程</h4>
-<div class="note primary"><h4 id="定义归结推理规则">定义：归结推理规则</h4>
+<div class="note primary"><h4 id="定义归结式">定义：归结式</h4>
+<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
+\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
+class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
+L\)</span>。则新子句 <span class="math display">\[
+R(C_1, C_2) = C_1&#39; \lor C_2&#39;
+\]</span> 称作 <span class="math inline">\(C_1, C_2\)</span> 的
+<strong>归结式</strong>。</p>
 </div>
+<div class="note default"><h4 id="定理归结证明">定理：归结证明</h4>
+<p>设 <span class="math inline">\(C_1 = L \lor C_1&#39;, C_2 = \lnot L
+\lor C_2&#39;\)</span> 为两个子句，有互补对 <span
+class="math inline">\(L\)</span> 和 <span class="math inline">\(\lnot
+L\)</span>。则 <span class="math display">\[
+C_1 \land C_2 \implies R(C_1, C_2)
+\]</span> 这说明归结式 <span class="math inline">\(R(C_1, C_2)\)</span>
+是子句 <span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span>
+的逻辑推论，从而归结是正确推理规则。</p>
+</div>
+<p>设在任意解释下 <span class="math inline">\(C_1\)</span> 和 <span
+class="math inline">\(C_2\)</span> 均为真，则若 <span
+class="math inline">\(L\)</span> 为真，则 <span
+class="math inline">\(\lnot L\)</span> 为假，<span
+class="math inline">\(C_2&#39;\)</span> 必为真，<span
+class="math inline">\(R(C_1, C_2)\)</span> 为真。反之则 <span
+class="math inline">\(L\)</span> 为假，<span
+class="math inline">\(C_1&#39;\)</span> 必为真，<span
+class="math inline">\(R(C_1, C_2)\)</span> 仍为真。</p>
+<h4 id="归结证明过程">归结证明过程</h4>
+<ol type="1">
+<li><p>为证明 <span class="math inline">\(A \to B\)</span>
+是重言式，这等价于证明 <span class="math inline">\(A \land \lnot
+B\)</span> 是矛盾式。使用归结证明法，就是从 <span
+class="math inline">\(A \land \lnot B\)</span> 出发。</p></li>
+<li><p>建立子句集 <span class="math inline">\(S\)</span></p>
+<p>将 <span class="math inline">\(A \land \lnot B\)</span>
+化成合取范式，如 <span class="math display">\[
+P \land (P \lor R) \land (\lnot P \lor \lnot Q) \land (\lnot P \lor R)
+\]</span> 进而将所有子句（析取式）构成子句集 <span
+class="math display">\[
+S = \{P, (P \lor R), (\lnot P \lor \lnot Q), (\lnot P \lor R)\}
+\]</span>
+以集合来描述合取范式，这种表示法对归结过程的阐明是方便的。</p></li>
+<li><p>对 <span class="math inline">\(S\)</span> 作归结</p>
+<p>进而对 <span class="math inline">\(S\)</span>
+的子句作归结（消互补对），如子句 <span class="math inline">\(P \lor
+R\)</span> 与 <span class="math inline">\(\lnot P \lor \lnot Q\)</span>
+作归结，得归结式 <span class="math inline">\(R \lor \lnot
+Q\)</span>，并将这归结式仍放入 <span class="math inline">\(S\)</span>
+中。重复此过程。</p></li>
+<li><p>直至归结出矛盾式 <span
+class="math inline">\(\square\)</span>。</p></li>
+</ol>
 <h2 id="第3章-命题逻辑的公理化">第3章 命题逻辑的公理化</h2>
 <h2 id="第4章-谓词逻辑的基本概念">第4章 谓词逻辑的基本概念</h2>
 <h2 id="第5章-谓词逻辑的等值和推理演算">第5章
