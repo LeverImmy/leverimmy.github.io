@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-10-10T08:12:22.170Z</updated>
+  <updated>2023-10-10T08:21:13.226Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://leverimmy.top/2023/10/10/IATLC-Chap7/"/>
     <id>https://leverimmy.top/2023/10/10/IATLC-Chap7/</id>
     <published>2023-10-10T05:38:23.000Z</published>
-    <updated>2023-10-10T08:12:22.170Z</updated>
+    <updated>2023-10-10T08:21:13.226Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第六章 下推自动机&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第七章 上下文无关语言的性质&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
@@ -71,13 +71,29 @@
     <link href="https://leverimmy.top/2023/09/30/IATLC-Chap6/"/>
     <id>https://leverimmy.top/2023/09/30/IATLC-Chap6/</id>
     <published>2023-09-30T05:38:23.000Z</published>
-    <updated>2023-09-30T06:04:32.634Z</updated>
+    <updated>2023-10-10T11:41:37.436Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第六章 下推自动机&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;下推自动机的定义
+&lt;ul&gt;
+&lt;li&gt;下推自动机的形式化定义&lt;/li&gt;
+&lt;li&gt;下推自动机的瞬时描述&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;终结方式接受和空栈方式接受的等价性&lt;/li&gt;
+&lt;li&gt;PDA 和 CFG 的等价性
+&lt;ul&gt;
+&lt;li&gt;由 CFG 得 PDA&lt;/li&gt;
+&lt;li&gt;由 PDA 得 CFG&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;确定性下推自动机（DPDA）
+&lt;ul&gt;
+&lt;li&gt;正则语言与 DPDA&lt;/li&gt;
+&lt;li&gt;上下文无关语言与 DPDA&lt;/li&gt;
+&lt;li&gt;DPDA 与歧义文法&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
@@ -345,7 +361,7 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
     <link href="https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/"/>
     <id>https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</id>
     <published>2023-09-02T02:14:22.000Z</published>
-    <updated>2023-10-05T06:41:35.792Z</updated>
+    <updated>2023-10-10T11:47:40.988Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。&lt;/p&gt;</summary>
@@ -549,13 +565,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   

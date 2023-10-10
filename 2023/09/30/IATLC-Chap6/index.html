@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第六章 下推自动机">
+    <meta name="description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述  终结方式接受和空栈方式接受的等价性 PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上下文无关语言与 DPDA DPDA 与歧义文法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第六章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/30/IATLC-Chap6/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机">
+<meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述  终结方式接受和空栈方式接受的等价性 PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上下文无关语言与 DPDA DPDA 与歧义文法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-30T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-09-30T06:04:32.634Z">
+<meta property="article:modified_time" content="2023-10-10T11:41:37.436Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -130,7 +130,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -143,6 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BApda%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">下推自动机（PDA）的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">下推自动机的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E7%9E%AC%E6%97%B6%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">下推自动机的瞬时描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E7%BB%88%E7%BB%93%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97%E5%92%8C%E4%BB%A5%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.</span> <span class="nav-text">以终结方式接受和以空栈方式接受</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%BB%88%E7%BB%93%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.1.</span> <span class="nav-text">以终结方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.2.</span> <span class="nav-text">以空栈方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%8E%A5%E6%94%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">两种接收方式的等价性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pda-%E5%92%8C-cfg-%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">PDA 和 CFG 的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-cfg-%E5%BE%97-pda"><span class="nav-number">3.1.</span> <span class="nav-text">由 CFG 得 PDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-pda-%E5%BE%97-cfg"><span class="nav-number">3.2.</span> <span class="nav-text">由 PDA 得 CFG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BAdpda"><span class="nav-number">4.</span> <span class="nav-text">确定性下推自动机（DPDA）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.1.</span> <span class="nav-text">正则语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.2.</span> <span class="nav-text">上下文无关语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dpda-%E4%B8%8E%E6%AD%A7%E4%B9%89%E6%96%87%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">DPDA 与歧义文法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,9 +232,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-09-30 13:38:23 / 修改时间：14:04:32" itemprop="dateCreated datePublished" datetime="2023-09-30T13:38:23+08:00">2023-09-30</time>
+      <time title="创建时间：2023-09-30 13:38:23" itemprop="dateCreated datePublished" datetime="2023-09-30T13:38:23+08:00">2023-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-10 19:41:37" itemprop="dateModified" datetime="2023-10-10T19:41:37+08:00">2023-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,9 +272,40 @@
         <p>本文主要包括以下内容：</p>
 <p><strong>第六章 下推自动机</strong></p>
 <ul>
-<li></li>
+<li>下推自动机的定义
+<ul>
+<li>下推自动机的形式化定义</li>
+<li>下推自动机的瞬时描述</li>
+</ul></li>
+<li>终结方式接受和空栈方式接受的等价性</li>
+<li>PDA 和 CFG 的等价性
+<ul>
+<li>由 CFG 得 PDA</li>
+<li>由 PDA 得 CFG</li>
+</ul></li>
+<li>确定性下推自动机（DPDA）
+<ul>
+<li>正则语言与 DPDA</li>
+<li>上下文无关语言与 DPDA</li>
+<li>DPDA 与歧义文法</li>
+</ul></li>
 </ul>
 <span id="more"></span>
+<h2 id="下推自动机pda的定义">下推自动机（PDA）的定义</h2>
+<h3 id="下推自动机的形式化定义">下推自动机的形式化定义</h3>
+<h3 id="下推自动机的瞬时描述">下推自动机的瞬时描述</h3>
+<h2
+id="以终结方式接受和以空栈方式接受">以终结方式接受和以空栈方式接受</h2>
+<h3 id="以终结方式接受">以终结方式接受</h3>
+<h3 id="以空栈方式接受">以空栈方式接受</h3>
+<h3 id="两种接收方式的等价性">两种接收方式的等价性</h3>
+<h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
+<h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
+<h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
+<h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
+<h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
+<h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
+<h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
 
     </div>
 
