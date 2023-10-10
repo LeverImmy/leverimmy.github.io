@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结方式接受 以空栈方式接受 两种接收方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上下文">
+    <meta name="description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结状态方式接受 以空栈方式接受 两种接受方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第六章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/30/IATLC-Chap6/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结方式接受 以空栈方式接受 两种接收方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上下文">
+<meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结状态方式接受 以空栈方式接受 两种接受方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-30T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-10T12:28:26.853Z">
+<meta property="article:modified_time" content="2023-10-10T13:12:54.837Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">下推自动机的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">下推自动机的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E7%9E%AC%E6%97%B6%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">下推自动机的瞬时描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%B8%B2%E4%B8%8E%E6%A0%88%E5%BA%95%E4%B8%B2%E7%9A%84%E7%AE%80%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">输入串与栈底串的简化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">下推自动机的语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%BB%88%E7%BB%93%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.1.</span> <span class="nav-text">以终结方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.2.</span> <span class="nav-text">以空栈方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%8E%A5%E6%94%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">两种接收方式的等价性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pda-%E5%92%8C-cfg-%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">PDA 和 CFG 的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-cfg-%E5%BE%97-pda"><span class="nav-number">3.1.</span> <span class="nav-text">由 CFG 得 PDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-pda-%E5%BE%97-cfg"><span class="nav-number">3.2.</span> <span class="nav-text">由 PDA 得 CFG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BAdpda"><span class="nav-number">4.</span> <span class="nav-text">确定性下推自动机（DPDA）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.1.</span> <span class="nav-text">正则语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.2.</span> <span class="nav-text">上下文无关语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dpda-%E4%B8%8E%E6%AD%A7%E4%B9%89%E6%96%87%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">DPDA 与歧义文法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">下推自动机的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">下推自动机的形式化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E7%9E%AC%E6%97%B6%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">下推自动机的瞬时描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%B8%B2%E4%B8%8E%E6%A0%88%E5%BA%95%E4%B8%B2%E7%9A%84%E7%AE%80%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">输入串与栈底串的简化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">下推自动机的语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%BB%88%E7%BB%93%E7%8A%B6%E6%80%81%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.1.</span> <span class="nav-text">以终结状态方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%97"><span class="nav-number">2.2.</span> <span class="nav-text">以空栈方式接受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%8E%A5%E5%8F%97%E6%96%B9%E5%BC%8F%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">两种接受方式的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F%E5%88%B0%E7%BB%88%E7%BB%93%E7%8A%B6%E6%80%81%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">从空栈方式到终结状态方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E7%BB%88%E7%BB%93%E7%8A%B6%E6%80%81%E6%96%B9%E5%BC%8F%E5%88%B0%E7%A9%BA%E6%A0%88%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.2.</span> <span class="nav-text">从终结状态方式到空栈方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pda-%E5%92%8C-cfg-%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">PDA 和 CFG 的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-cfg-%E5%BE%97-pda"><span class="nav-number">3.1.</span> <span class="nav-text">由 CFG 得 PDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-pda-%E5%BE%97-cfg"><span class="nav-number">3.2.</span> <span class="nav-text">由 PDA 得 CFG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BAdpda"><span class="nav-number">4.</span> <span class="nav-text">确定性下推自动机（DPDA）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.1.</span> <span class="nav-text">正则语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E4%B8%8E-dpda"><span class="nav-number">4.2.</span> <span class="nav-text">上下文无关语言与 DPDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dpda-%E4%B8%8E%E6%AD%A7%E4%B9%89%E6%96%87%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">DPDA 与歧义文法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -240,7 +240,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-10 20:28:26" itemprop="dateModified" datetime="2023-10-10T20:28:26+08:00">2023-10-10</time>
+      <time title="修改时间：2023-10-10 21:12:54" itemprop="dateModified" datetime="2023-10-10T21:12:54+08:00">2023-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,9 +280,9 @@
 </ul></li>
 <li>下推自动机的语言
 <ul>
-<li>以终结方式接受</li>
+<li>以终结状态方式接受</li>
 <li>以空栈方式接受</li>
-<li>两种接收方式的等价性</li>
+<li>两种接受方式的等价性</li>
 </ul></li>
 <li>PDA 和 CFG 的等价性
 <ul>
@@ -357,10 +357,99 @@ class="math inline">\(p\)</span> 的转移。</p>
 class="math inline">\(\vdash_P^*\)</span> 来表示 PDA
 的零步或多步转移。</p>
 <h3 id="输入串与栈底串的简化">输入串与栈底串的简化</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有 <span class="math display">\[
+(q, xw, \alpha\gamma) \vdash_P^* (p, yw, \beta\gamma)
+\]</span> <strong>证明</strong>：由于 <span class="math inline">\((q, x,
+\alpha) \vdash_P^* (p, y, \beta)\)</span> 的过程中都没有使用与 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\gamma\)</span> 相关的转移，所以只需要对 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y, \beta)\)</span>
+进行转移步数上的归纳即可得证。</p>
+<p><strong>补充
+1</strong>：定理的逆定理关于栈的简化的那一部分不成立。原因很好理解，因为我们在转移的过程中<del>偷偷地</del>从
+<span class="math inline">\(\gamma\)</span>
+中弹出一些符号，再在之后的过程中压回去，效果仍然是 <span
+class="math inline">\(\gamma\)</span> 不变，但是转移的过程改变了。</p>
+<p><strong>补充
+2</strong>：定理的逆定理关于输入串的简化的那一部分成立。原因是输入串被消耗后没法重新添加回去。</p>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, xw, \alpha) \vdash_P^* (p, yw,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有有 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>。</p>
 <h2 id="下推自动机的语言">下推自动机的语言</h2>
-<h3 id="以终结方式接受">以终结方式接受</h3>
+<h3 id="以终结状态方式接受">以终结状态方式接受</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，那么 <span class="math inline">\(P\)</span>
+<strong>以终结状态方式接受的语言</strong> <span
+class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
+\{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \alpha)\}
+\]</span> 其中 <span class="math inline">\(q \in F\)</span>
+为某个接受状态，<span class="math inline">\(\alpha \in \Gamma^*\)</span>
+是任何堆栈符号串。</p>
+<p>也就是说，以 <span class="math inline">\(w\)</span>
+为等待输入的串从初始状态 <span class="math inline">\(q_0\)</span>
+出发，消耗完了 <span class="math inline">\(w\)</span>
+后进入了接受状态，<strong>无论此时堆栈中的状态如何</strong>。</p>
 <h3 id="以空栈方式接受">以空栈方式接受</h3>
-<h3 id="两种接收方式的等价性">两种接收方式的等价性</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，我们定义 <span
+class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
+N(P)$ 是 <span class="math display">\[
+N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \epsilon)\}
+\]</span> 其中 <span class="math inline">\(q \in Q\)</span>
+为<strong>任意状态</strong>。</p>
+<p>也就是说，<span class="math inline">\(N(P)\)</span> 中的元素 <span
+class="math inline">\(w\)</span> 能在被 <span
+class="math inline">\(P\)</span>
+消耗完的同时使堆栈为空。事实上，由于我们只关心堆栈是否为空而不关心接受状态，故我们可以去掉
+PDA <span class="math inline">\(P\)</span>
+的描述中的最后一个分量，而写作一个六元组 <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, Z_0)\)</span>。</p>
+<h3 id="两种接受方式的等价性">两种接受方式的等价性</h3>
+<h4 id="从空栈方式到终结状态方式">从空栈方式到终结状态方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_F$
+B -.- C((&quot; &quot;))
+B -.- D((&quot; &quot;))
+B -.- E((&quot; &quot;))
+end
+B --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
+C --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
+D --&gt; | $\epsilon, X_0/\epsilon$ | F
+E --&gt; | $\epsilon, X_0/\epsilon$ | F</code></pre>
+<h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_F$
+B -.- C(((&quot; &quot;)))
+B -.- D(((&quot; &quot;)))
+end
+
+C --&gt; | $\epsilon, any/\epsilon$ | E(($p$))
+D --&gt; | $\epsilon, any/\epsilon$ | E
+E --&gt; | $\epsilon, any/\epsilon$ | E</code></pre>
 <h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
 <h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
 <h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
