@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结状态方式接受 以空栈方式接受 两种接受方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-30T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-10T13:12:54.837Z">
+<meta property="article:modified_time" content="2023-10-10T23:49:24.362Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -240,7 +240,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-10 21:12:54" itemprop="dateModified" datetime="2023-10-10T21:12:54+08:00">2023-10-10</time>
+      <time title="修改时间：2023-10-11 07:49:24" itemprop="dateModified" datetime="2023-10-11T07:49:24+08:00">2023-10-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -435,6 +435,25 @@ B --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
 C --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
 D --&gt; | $\epsilon, X_0/\epsilon$ | F
 E --&gt; | $\epsilon, X_0/\epsilon$ | F</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。这样，在 <span
+class="math inline">\(P_F\)</span> 中不会弹出 <span
+class="math inline">\(X_0\)</span>；且如果栈顶为 <span
+class="math inline">\(X_0\)</span>，则说明此时 <span
+class="math inline">\(P_F\)</span> 的栈为空，因此 <span
+class="math inline">\(P_F\)</span> 接受该状态。在 <span
+class="math inline">\(P_N\)</span> 中，不仅包含所有 <span
+class="math inline">\(P_F\)</span> 中的转移，还要加上 <span
+class="math inline">\(\forall q \in Q\)</span>，对接受状态 <span
+class="math inline">\(p\)</span> 的 <span
+class="math inline">\(\epsilon, X_0/\epsilon\)</span> 转移，这样当 <span
+class="math inline">\(P_F\)</span> 中堆栈为空时，<span
+class="math inline">\(P_N\)</span> 能经过这条 <span
+class="math inline">\(\epsilon\)</span> 转移边，弹出栈顶的标记符号 <span
+class="math inline">\(X_0\)</span>，使得<span
+class="math inline">\(P_N\)</span> 能接受该状态。</p>
 <h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
 <pre><code class="highlight mermaid">graph LR
 style Start fill:none,stroke:none
@@ -450,6 +469,10 @@ end
 C --&gt; | $\epsilon, any/\epsilon$ | E(($p$))
 D --&gt; | $\epsilon, any/\epsilon$ | E
 E --&gt; | $\epsilon, any/\epsilon$ | E</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。</p>
 <h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
 <h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
 <h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
