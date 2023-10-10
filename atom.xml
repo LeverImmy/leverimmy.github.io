@@ -71,7 +71,7 @@
     <link href="https://leverimmy.top/2023/09/30/IATLC-Chap6/"/>
     <id>https://leverimmy.top/2023/09/30/IATLC-Chap6/</id>
     <published>2023-09-30T05:38:23.000Z</published>
-    <updated>2023-10-10T11:41:37.436Z</updated>
+    <updated>2023-10-10T12:28:26.853Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -81,8 +81,14 @@
 &lt;ul&gt;
 &lt;li&gt;下推自动机的形式化定义&lt;/li&gt;
 &lt;li&gt;下推自动机的瞬时描述&lt;/li&gt;
+&lt;li&gt;输入串与栈底串的简化&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;终结方式接受和空栈方式接受的等价性&lt;/li&gt;
+&lt;li&gt;下推自动机的语言
+&lt;ul&gt;
+&lt;li&gt;以终结方式接受&lt;/li&gt;
+&lt;li&gt;以空栈方式接受&lt;/li&gt;
+&lt;li&gt;两种接收方式的等价性&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;PDA 和 CFG 的等价性
 &lt;ul&gt;
 &lt;li&gt;由 CFG 得 PDA&lt;/li&gt;
