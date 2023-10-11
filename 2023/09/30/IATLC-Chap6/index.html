@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第六章 下推自动机  下推自动机的定义  下推自动机的形式化定义 下推自动机的瞬时描述 输入串与栈底串的简化  下推自动机的语言  以终结状态方式接受 以空栈方式接受 两种接受方式的等价性  PDA 和 CFG 的等价性  由 CFG 得 PDA 由 PDA 得 CFG  确定性下推自动机（DPDA）  正则语言与 DPDA 上">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-30T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-11T00:00:35.576Z">
+<meta property="article:modified_time" content="2023-10-11T00:29:36.712Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -240,7 +240,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-11 08:00:35" itemprop="dateModified" datetime="2023-10-11T08:00:35+08:00">2023-10-11</time>
+      <time title="修改时间：2023-10-11 08:29:36" itemprop="dateModified" datetime="2023-10-11T08:29:36+08:00">2023-10-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -509,9 +509,78 @@ class="math inline">\(w\)</span>，在达到接受状态后一定能将栈清空
 <h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
 <h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
 <h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
+<figure>
+<img src="" alt="几类语言模型的计算能力对比" />
+<figcaption aria-hidden="true">几类语言模型的计算能力对比</figcaption>
+</figure>
 <h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(L\)</span>
+是正则语言，则对于某个 DPDA <span class="math inline">\(P\)</span> 有
+<span class="math inline">\(L = L(P)\)</span>。</p>
+<p>这就是显然的，因为 DFA 是一个没有使用堆栈的
+DPDA。我们只需要额外设计一个初始状态来压入标记符号 <span
+class="math inline">\(X_0\)</span>，一个 <span
+class="math inline">\(\epsilon\)</span> 转移来弹出 <span
+class="math inline">\(X_0\)</span> 并连接 DFA 的接受状态和 DPDA
+的接受状态即可。</p>
+<p>另外，语言 <span class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P\)</span> 的 <span
+class="math inline">\(N(P)\)</span> 当且仅当 <span
+class="math inline">\(L\)</span> 有 <strong>前缀性质</strong> 且 <span
+class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P&#39;\)</span> 的 <span
+class="math inline">\(L(P&#39;)\)</span>。前缀性质是指 <span
+class="math inline">\(L\)</span> 中不存在不相等的两个串 <span
+class="math inline">\(w_1, w_2\)</span> 使得 <span
+class="math inline">\(w_1\)</span> 是 <span
+class="math inline">\(w_2\)</span> 的前缀。</p>
 <h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
+<p><strong>定理</strong>：DPDA 以终结状态方式接受的语言
+<strong>真包含于</strong> CFL。</p>
+<p>例如 <span class="math inline">\(L_{wwr}\)</span>，DPDA
+为了判断是否回文，需要将串的对称部分的前半部分存放在栈里，然后对后半部分进行比较。<strong>比较完一个回文串后一定会使栈清空。</strong>
+所以，类似于 <span class="math inline">\(\{0^n10^n0^m10^m | n, m \in
+\mathbb{N}\}\)</span> 的串，读完第一个回文串 <span
+class="math inline">\(0^n10^n\)</span>
+后栈为空，接着读第二个回文串，读完第二个回文串后 DPDA 并不能确定 <span
+class="math inline">\(m\)</span> 是否等于 <span
+class="math inline">\(n\)</span>，因为关于第一个回文串的信息都已经被弹出了。</p>
 <h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
+<p><strong>定理 1</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+N(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>已经知道 PDA 可以生成一个
+CFG，接下来只需要证明该文法的最左推导是唯一的即可。这几乎是显然的，因为
+<span class="math inline">\(P\)</span> 是一个 <strong>确定型</strong>
+下推自动机，对某个可被接受的串 <span
+class="math inline">\(w\)</span>，<span class="math inline">\(w\)</span>
+在上面进行的移动序列是唯一的，所以对应的最左推导也都是唯一的。因此该 CFG
+是无歧义的。</p>
+<p><strong>定理 2</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+L(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>在 <span class="math inline">\(L\)</span>
+的串的末尾全部加上不在字母表中出现的符号（例如 <span
+class="math inline">\(\$\)</span>）作为终止符。令 <span
+class="math inline">\(L&#39; = L\$\)</span>，显然 <span
+class="math inline">\(L&#39;\)</span> 具有前缀性质，则存在一个 DPDA
+<span class="math inline">\(P&#39;\)</span>，使得 <span
+class="math inline">\(L&#39; = N(P&#39;)\)</span>。由定理 1 知存在一个
+CFG <span class="math inline">\(G\)</span>，使得 <span
+class="math inline">\(G\)</span> 能产生 <span
+class="math inline">\(N(P&#39;) = L&#39;\)</span>。</p>
+<p>接下来构造 CFG <span class="math inline">\(G\)</span> 使得 <span
+class="math inline">\(L(G) = L\)</span>。在 <span
+class="math inline">\(G&#39;\)</span> 中引入产生式 <span
+class="math inline">\(\$ \to \epsilon\)</span> 成为 <span
+class="math inline">\(G\)</span>，则 <span
+class="math inline">\(L(G&#39;) = L&#39; \implies L(G) =
+L\)</span>。而且 <span class="math inline">\(G\)</span>
+中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
+中的最左推导，因为 <span class="math inline">\(\$\)</span>
+在串的最右侧，一定是最后一个被替换的变元。</p>
 
     </div>
 
