@@ -949,6 +949,26 @@ class="math inline">\(\square\)</span>。</p></li>
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
+    <url>/2023/10/10/IATLC-Chap7/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第七章 上下文无关语言的性质</strong></p>
+<ul>
+<li></li>
+</ul>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -1435,23 +1455,551 @@ class="math inline">\(D\)</span> 接受。</p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
-    <url>/2023/10/10/IATLC-Chap7/</url>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
+    <url>/2023/09/19/IATLC-Chap3/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第七章 上下文无关语言的性质</strong></p>
+<p><strong>第三章 正则表达式与正则语言</strong></p>
 <ul>
-<li></li>
+<li>正则表达式的运算符
+<ul>
+<li>并与连接</li>
+<li>闭包</li>
+</ul></li>
+<li>正则表达式的定义</li>
+<li>自动机与正则表达式间的关系
+<ul>
+<li>由 DFA 构建正则表达式</li>
+<li>消除状态法</li>
+<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
+NFA</li>
+<li>消除 <span class="math inline">\(\epsilon\)</span>
+转移时的注意事项</li>
+</ul></li>
+<li>正则表达式代数定律</li>
 </ul>
 <span id="more"></span>
+<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
+<h3 id="并与连接">并与连接</h3>
+<ul>
+<li>并 <span class="math display">\[
+L \cup M = \{w | w \in L \lor w \in M\}
+\]</span></li>
+<li>连接 <span class="math display">\[
+LM = \{w = uv | u \in L \land v \in M\}
+\]</span></li>
+</ul>
+<h3 id="闭包">闭包</h3>
+<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
+class="math inline">\(L^*\)</span>。形式化的定义是：</p>
+<p><span class="math display">\[
+L^* = \bigcup_{i \ge 0}L^i
+\]</span></p>
+<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
+L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
+class="math inline">\(i\)</span> 个 <span
+class="math inline">\(L\)</span> 的连接。</p>
+<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
+class="math inline">\(L^*\)</span>
+通常是无穷的。<strong>仅有两个</strong>
+特殊的语言，它们的闭包是有限的。</p>
+<ul>
+<li><p><span class="math inline">\(\varnothing^*\)</span></p>
+<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
+class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
+class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
+class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
+<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
+<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
+无论连接多少次都不会改变它是 <span
+class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
+class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
+</ul>
+<h2 id="正则表达式的定义">正则表达式的定义</h2>
+<p>正则表达式仍然采用递归的定义方法：</p>
+<p><strong>基础</strong>：</p>
+<ol type="1">
+<li><span class="math inline">\(\epsilon\)</span> 和 <span
+class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
+<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
+class="math inline">\(\varnothing\)</span>。也就是说，<span
+class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
+\varnothing\)</span>。</li>
+<li>若 <span class="math inline">\(a\)</span> 是任意
+<strong>符号</strong>，则 <span
+class="math inline">\(\textbf{a}\)</span>
+是正则表达式。这个表达式表示语言 <span
+class="math inline">\(\{a\}\)</span>。也就是说，<span
+class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
+</ol>
+<p><strong>归纳</strong>：</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的并。也就是说，<span
+class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(EF\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
+class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
+class="math inline">\(E\)</span> 的闭包。也就是说，<span
+class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
+class="math inline">\(E\)</span> 相同的语言。也就是说 <span
+class="math inline">\((L(E)) = L(E)\)</span>。</li>
+</ol>
+<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
+<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
+和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
+<pre><code class="highlight mermaid">graph LR
+A(NFA) --&gt; |1| B(DFA)
+B --&gt; |2| C($\epsilon$ - NFA)
+C --&gt; |3| B
+B --&gt; |4| D(RE)
+D --&gt; |5| C</code></pre>
+<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
+<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
+<p>我们想要解决的问题是：给定一个 DFA <span
+class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
+L(A)\)</span>，求一个正则表达式 <span
+class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
+L(R)\)</span>。</p>
+<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
+class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
+class="math inline">\(1\)</span> 为初始状态。设 <span
+class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
+class="math inline">\(w\)</span> 所组成的集合：<span
+class="math inline">\(w\)</span> 是 <span
+class="math inline">\(A\)</span> 中从状态 <span
+class="math inline">\(i\)</span> 到状态 <span
+class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
+<span class="math inline">\(k\)</span> 的
+<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
+和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
+class="math inline">\(k\)</span>。</p>
+<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
+class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
+class="math inline">\(j\)</span> 为一个接受状态。</p>
+<p>仍然考虑使用递归的思路来推导 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
+<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
+时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
+以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
+<ul>
+<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
+class="math inline">\(R_{ii}^{(0)} = \epsilon + \textbf{a}_1 +
+\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
+class="math inline">\(i\)</span> 有自环 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
+class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
+\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
+到状态 <span class="math inline">\(j\)</span> 有 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+</ul>
+<p><strong>归纳</strong>：假设有 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
+<ol type="1">
+<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
+这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
+R_{ij}^{(k-1)}\)</span>。</p></li>
+<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
+至少一次。 于是我们可以把整个路径分成几段：</p></li>
+</ol>
+<p><pre><code class="highlight mermaid">graph LR
+
+style ... fill:none,stroke-width:0px
+
+A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
+subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
+B((k)) --&gt; C((k))
+C((k)) --&gt; ...
+... --&gt; E((k))
+end
+E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
+<p>那么这种路径可以表示成正则表达式 <span
+class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。</p>
+<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
+1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
+class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
+<p>比如考虑下图表示的 DFA：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($1$))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((($2$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>由 <strong>基础</strong> 部分可得：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
+class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
+<p><span class="math display">\[
+R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
+(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>又有</p>
+<p><span class="math display">\[
+R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
++ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(1)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0} +
+\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
+\mathbf{0} + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\epsilon +
+\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
++ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
++ \mathbf{1})^*\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
+class="math inline">\(2\)</span>
+是唯一一个接收状态，则整体的正则表达式为 <span
+class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span>。</p>
+<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
+<h3 id="消除状态法">消除状态法</h3>
+<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
+的方式来化简自动机。考虑下图中即将被消除的状态 <span
+class="math inline">\(s\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
+A --&gt; |$Q_1$| C(($s$))
+C --&gt; |$P_1$| B
+C --&gt; |$S$| C
+C --&gt; |$P_m$| E
+D --&gt; |$Q_k$| C
+D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
+<p>消除状态 <span class="math inline">\(s\)</span>
+时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
+相关的转移边。消除状态 <span class="math inline">\(s\)</span>
+后如下：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
+D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
+<p>从有穷自动构造正则表达式的策略如下：</p>
+<ol type="1">
+<li><p>对于每个接受状态 <span
+class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
+class="math inline">\(q\)</span> 和初始状态 <span
+class="math inline">\(q_0\)</span>
+之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
+<li><p>如果 <span class="math inline">\(q \neq
+q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
+<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot; &quot;))
+A --&gt; |$R$| A
+A --&gt; |$S$| B(((&quot; &quot;)))
+B --&gt; |$T$| A
+B --&gt; |$U$| B</code></pre></p></li>
+<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
+<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(((&quot; &quot;)))
+A --&gt; |$R$| A</code></pre></p></li>
+<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
+所得出的所有表达式之和（并）。</p></li>
+</ol>
+<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
+class="math inline">\(\epsilon\)</span> - NFA</h3>
+<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
+class="math inline">\(\epsilon\)</span> - NFA。</p>
+<p><strong>基础</strong>：先构造 <span
+class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
+对应的三个自动机：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
+A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $\varnothing$
+A
+B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\mathbf&#123;a&#125;$&quot;
+A --&gt; | $a$ | B(((&quot; &quot;)))
+end</code></pre>
+<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
+S, RS, R^*\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+A --&gt; | $\epsilon$ | D((&quot; &quot;))
+
+subgraph $R$
+B -.- C((&quot; &quot;))
+end
+
+subgraph $S$
+D -.- E((&quot; &quot;))
+end
+
+C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
+E --&gt; | $\epsilon$ | F</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $R$
+A -.- B((&quot; &quot;))
+end
+
+B --&gt; | $\epsilon$ | C((&quot; &quot;))
+
+subgraph $S$
+C -.- D(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\epsilon$ | B((&quot; &quot;))
+
+subgraph $R$
+C --&gt; | $\epsilon$ | B
+B -.- C((&quot; &quot;))
+end
+
+C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
+A --&gt; | $\epsilon$ | D</code></pre>
+<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
+<span class="math inline">\(\epsilon\)</span> - NFA。</p>
+<h3 id="消除-epsilon-转移时的注意事项">消除 <span
+class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
+<p>在上述构造中，有些地方可以化简：</p>
+<ol type="1">
+<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B(((&quot; &quot;)))
+A -.- | $S$ | B
+end</code></pre></li>
+<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B((&quot; &quot;))
+B -.- | $S$ | C(((&quot; &quot;)))
+end</code></pre></li>
+<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
+class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
+A --&gt; | $\epsilon$ | B
+A -.- | $R$ | B
+end</code></pre></li>
+</ol>
+<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
+<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
+class="math inline">\(R + S^*\)</span>）。</p>
+<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
+是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
+的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
+m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
+的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
+形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
+class="math inline">\(\forall w = w_1w_2\cdots w_k \in
+L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
+都属于任意的语言之一（如 <span
+class="math inline">\(L_{j_i}\)</span>），都有 <span
+class="math inline">\(w\)</span> 对应的正则表达式 <span
+class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
+<span class="math inline">\(L(C)\)</span>。</p>
+<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
+<p><del>附赠一个可能会有用的公式</del> <span
+class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
@@ -3409,331 +3957,151 @@ E &amp; \to T | E + T
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
-    <url>/2023/09/30/IATLC-Chap6/</url>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第六章 下推自动机</strong></p>
+<p><strong>第十二章 计算理论</strong></p>
 <ul>
-<li>下推自动机的定义
+<li>可计算性</li>
+<li>Bare Bones 语言
 <ul>
-<li>下推自动机的形式化定义</li>
-<li>下推自动机的瞬时描述</li>
-<li>输入串与栈底串的简化</li>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
 </ul></li>
-<li>下推自动机的语言
-<ul>
-<li>以终结状态方式接受</li>
-<li>以空栈方式接受</li>
-<li>两种接受方式的等价性</li>
-</ul></li>
-<li>PDA 和 CFG 的等价性
-<ul>
-<li>由 CFG 得 PDA</li>
-<li>由 PDA 得 CFG</li>
-</ul></li>
-<li>确定性下推自动机（DPDA）
-<ul>
-<li>正则语言与 DPDA</li>
-<li>上下文无关语言与 DPDA</li>
-<li>DPDA 与歧义文法</li>
-</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
 </ul>
 <span id="more"></span>
-<h2 id="下推自动机的定义">下推自动机的定义</h2>
-<h3 id="下推自动机的形式化定义">下推自动机的形式化定义</h3>
-<p>一个下推自动机（PDA）由七个部分组成： <span class="math display">\[
-P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
-\]</span></p>
-<ol type="1">
-<li><p><span class="math inline">\(Q\)</span>：状态的有穷集合。</p></li>
-<li><p><span
-class="math inline">\(\Sigma\)</span>：输入符号的有穷集合。</p></li>
-<li><p><span
-class="math inline">\(\Gamma\)</span>：有限的堆栈字母表，该部分是能够被推入堆栈的符号的集合。</p></li>
-<li><p><span
-class="math inline">\(\delta\)</span>：转移函数，自变量为一个三元组
-<span class="math inline">\(\delta(q, a, X)\)</span>，其中</p>
+<h2 id="可计算性">可计算性</h2>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="bare-bones-语言">Bare Bones 语言</h2>
+<p>一个通用程序设计语言。</p>
 <ul>
-<li><span class="math inline">\(q \in Q\)</span></li>
-<li><span class="math inline">\(a \in \Sigma\)</span> 或 <span
-class="math inline">\(a = \epsilon\)</span></li>
-<li><span class="math inline">\(X \in \Gamma\)</span></li>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
 </ul>
-<p><span class="math inline">\(\delta\)</span> 的输出是有序对 <span
-class="math inline">\((p, \gamma)\)</span> 的有穷集合，其中 <span
-class="math inline">\(p\)</span> 是新状态，<span
-class="math inline">\(\gamma\)</span> 是堆栈符号串，<span
-class="math inline">\(\gamma\)</span> 用来代替栈顶符号 <span
-class="math inline">\(X\)</span>。</p></li>
-<li><p><span class="math inline">\(q_0\)</span>：初始状态。</p></li>
-<li><p><span
-class="math inline">\(Z_0\)</span>：初始堆栈中的符号。</p></li>
-<li><p><span class="math inline">\(F\)</span>：接受状态的集合。</p></li>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h3 id="复制操作">复制操作</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作">交换操作</h3>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构">分支结构</h3>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题">停机问题</h2>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h2 id="rsa">RSA</h2>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
 </ol>
-<p>PDA 相较于 DFA
-的区别是引入了一个栈用于存储数据，以及多了一个参数（栈顶元素）来控制转移方向。</p>
-<h3 id="下推自动机的瞬时描述">下推自动机的瞬时描述</h3>
-<p>使用 <span class="math inline">\((q, w, \gamma)\)</span> 三元组来表示
-PDA 的配置，其中 <span class="math inline">\(q\)</span> 是状态，<span
-class="math inline">\(w\)</span> 是剩余的输入串，<span
-class="math inline">\(\gamma\)</span>
-是堆栈的内容。这样的一个三元组被称为下推自动机的一个
-<strong>瞬时描述</strong>。</p>
-<p>我们定义 <span class="math inline">\(\vdash_P\)</span>（如果 <span
-class="math inline">\(P\)</span> 已知，那么简写为 <span
-class="math inline">\(\vdash\)</span>）为：假设 <span
-class="math inline">\((p, \alpha) \in \delta(q, a,
-X)\)</span>，那么对于所有 <span class="math inline">\(\Sigma^*\)</span>
-中的串 <span class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有： <span
-class="math display">\[
-(q, aw, X\beta) \vdash (p, w, \alpha\beta)
-\]</span> 这相当于处理了输入串 <span class="math inline">\(aw\)</span>
-中最前面的一个字符 <span class="math inline">\(a\)</span>，并且用 <span
-class="math inline">\(\alpha\)</span> 来替换栈顶的 <span
-class="math inline">\(X\)</span>，这导致了一次从状态 <span
-class="math inline">\(q\)</span> 到状态 <span
-class="math inline">\(p\)</span> 的转移。</p>
-<p>同样地，我们也使用符号 <span
-class="math inline">\(\vdash_P^*\)</span> 来表示 PDA
-的零步或多步转移。</p>
-<h3 id="输入串与栈底串的简化">输入串与栈底串的简化</h3>
-<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
-\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
-\beta)\)</span>，那么对于所有 <span
-class="math inline">\(\Sigma^*\)</span> 中的串 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有 <span class="math display">\[
-(q, xw, \alpha\gamma) \vdash_P^* (p, yw, \beta\gamma)
-\]</span> <strong>证明</strong>：由于 <span class="math inline">\((q, x,
-\alpha) \vdash_P^* (p, y, \beta)\)</span> 的过程中都没有使用与 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\gamma\)</span> 相关的转移，所以只需要对 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y, \beta)\)</span>
-进行转移步数上的归纳即可得证。</p>
-<p><strong>补充
-1</strong>：定理的逆定理关于栈的简化的那一部分不成立。原因很好理解，因为我们在转移的过程中<del>偷偷地</del>从
-<span class="math inline">\(\gamma\)</span>
-中弹出一些符号，再在之后的过程中压回去，效果仍然是 <span
-class="math inline">\(\gamma\)</span> 不变，但是转移的过程改变了。</p>
-<p><strong>补充
-2</strong>：定理的逆定理关于输入串的简化的那一部分成立。原因是输入串被消耗后没法重新添加回去。</p>
-<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
-\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
-class="math inline">\((q, xw, \alpha) \vdash_P^* (p, yw,
-\beta)\)</span>，那么对于所有 <span
-class="math inline">\(\Sigma^*\)</span> 中的串 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有有 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
-\beta)\)</span>。</p>
-<h2 id="下推自动机的语言">下推自动机的语言</h2>
-<h3 id="以终结状态方式接受">以终结状态方式接受</h3>
-<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
-Z_0, F)\)</span> 是一个 PDA，那么 <span class="math inline">\(P\)</span>
-<strong>以终结状态方式接受的语言</strong> <span
-class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
-\{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \alpha)\}
-\]</span> 其中 <span class="math inline">\(q \in F\)</span>
-为某个接受状态，<span class="math inline">\(\alpha \in \Gamma^*\)</span>
-是任何堆栈符号串。</p>
-<p>也就是说，以 <span class="math inline">\(w\)</span>
-为等待输入的串从初始状态 <span class="math inline">\(q_0\)</span>
-出发，消耗完了 <span class="math inline">\(w\)</span>
-后进入了接受状态，<strong>无论此时堆栈中的状态如何</strong>。</p>
-<h3 id="以空栈方式接受">以空栈方式接受</h3>
-<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
-Z_0, F)\)</span> 是一个 PDA，我们定义 <span
-class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
-N(P)$ 是 <span class="math display">\[
-N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \epsilon)\}
-\]</span> 其中 <span class="math inline">\(q \in Q\)</span>
-为<strong>任意状态</strong>。</p>
-<p>也就是说，<span class="math inline">\(N(P)\)</span> 中的元素 <span
-class="math inline">\(w\)</span> 能在被 <span
-class="math inline">\(P\)</span>
-消耗完的同时使堆栈为空。事实上，由于我们只关心堆栈是否为空而不关心接受状态，故我们可以去掉
-PDA <span class="math inline">\(P\)</span>
-的描述中的最后一个分量，而写成一个六元组 <span class="math inline">\((Q,
-\Sigma, \Gamma, \delta, q_0, Z_0)\)</span>。</p>
-<h3 id="两种接受方式的等价性">两种接受方式的等价性</h3>
-<h4 id="从空栈方式到终结状态方式">从空栈方式到终结状态方式</h4>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke:none
-
-Start --&gt; A(($p_0$))
-A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
-
-subgraph $P_N$
-B -.- C((&quot; &quot;))
-B -.- D((&quot; &quot;))
-B -.- E((&quot; &quot;))
-end
-B --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
-C --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
-D --&gt; | $\epsilon, X_0/\epsilon$ | F
-E --&gt; | $\epsilon, X_0/\epsilon$ | F</code></pre>
-<p>构造初始状态 <span
-class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
-<span class="math inline">\(\Gamma\)</span> 的符号 <span
-class="math inline">\(X_0\)</span>。这样，在 <span
-class="math inline">\(P_F\)</span> 中不会弹出 <span
-class="math inline">\(X_0\)</span>；且如果栈顶为 <span
-class="math inline">\(X_0\)</span>，则说明此时 <span
-class="math inline">\(P_F\)</span> 的栈为空，因此 <span
-class="math inline">\(P_F\)</span> 接受该状态。在 <span
-class="math inline">\(P_N\)</span> 中，不仅包含所有 <span
-class="math inline">\(P_F\)</span> 中的转移，还要加上 <span
-class="math inline">\(Q\)</span> 中的任意状态 <span
-class="math inline">\(q\)</span>，对 <span
-class="math inline">\(P_F\)</span> 的唯一接受状态 <span
-class="math inline">\(p\)</span> 的 <span
-class="math inline">\(\epsilon\)</span> 转移：这样当 <span
-class="math inline">\(P_F\)</span> 中堆栈为空时，<span
-class="math inline">\(P_N\)</span> 能经过这条 <span
-class="math inline">\(\epsilon\)</span> 转移边，弹出栈顶的标记符号 <span
-class="math inline">\(X_0\)</span>，使得<span
-class="math inline">\(P_N\)</span> 能接受该状态。</p>
-<p><span class="math inline">\(P_F\)</span> 保证了，在<span
-class="math inline">\(P_N\)</span> 中使栈为空的输入串 <span
-class="math inline">\(w\)</span>，才会使得栈顶为标记符号 <span
-class="math inline">\(X_0\)</span>，然后经过 <span
-class="math inline">\(\epsilon\)</span> 转移将 <span
-class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
-class="math inline">\(p\)</span> 被 <span
-class="math inline">\(P_F\)</span> 接受；而无法使 <span
-class="math inline">\(P_N\)</span> 中栈为空的串 <span
-class="math inline">\(w\)</span>，一定无法使栈底的 <span
-class="math inline">\(X_0\)</span> 被暴露出来，从而也不会经过 <span
-class="math inline">\(\epsilon\)</span> 转移将 <span
-class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
-class="math inline">\(p\)</span> 被 <span
-class="math inline">\(P_F\)</span> 接受。</p>
-<h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke:none
-
-Start --&gt; A(($p_0$))
-A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
-
-subgraph $P_F$
-B -.- C(((&quot; &quot;)))
-B -.- D(((&quot; &quot;)))
-end
-
-C --&gt; | $\epsilon, any/\epsilon$ | E(($p$))
-D --&gt; | $\epsilon, any/\epsilon$ | E
-E --&gt; | $\epsilon, any/\epsilon$ | E</code></pre>
-<p>构造初始状态 <span
-class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
-<span class="math inline">\(\Gamma\)</span> 的符号 <span
-class="math inline">\(X_0\)</span>。这是为了防止在 <span
-class="math inline">\(P_F\)</span>
-中出现栈被清空但又不是接受状态的情况。在 <span
-class="math inline">\(P_F\)</span> 中，不仅包含所有 <span
-class="math inline">\(P_N\)</span> 中的转移，还要加上 <span
-class="math inline">\(P_F\)</span> 的所有接受状态 <span
-class="math inline">\(q\)</span>，对 <span
-class="math inline">\(p\)</span> 的 <span
-class="math inline">\(\epsilon\)</span> 转移：这个 <span
-class="math inline">\(\epsilon\)</span>
-转移清空栈上的所有东西，使得输入串能够以空栈方式被接受。</p>
-<p><span class="math inline">\(P_N\)</span> 保证了，能在 <span
-class="math inline">\(P_F\)</span> 中达到接受状态的串 <span
-class="math inline">\(w\)</span>，在达到接受状态后一定能将栈清空被空栈方式接受；而未达到接受状态的串，在转移过程中栈底一定有标记符号
-<span class="math inline">\(X_0\)</span>
-未被弹出，而不会被空栈方式接受。</p>
-<h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
-<h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
-<p>考虑这个 CFG 的最左推导。</p>
-<h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
-<h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
-<figure>
-<img src="https://img.picgo.net/2023/10/11/models73ebb5a7a410ebe8.jpeg"
-alt="几类语言模型的计算能力对比" />
-<figcaption aria-hidden="true">几类语言模型的计算能力对比</figcaption>
-</figure>
-<h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
-<p><strong>定理</strong>：如果 <span class="math inline">\(L\)</span>
-是正则语言，则对于某个 DPDA <span class="math inline">\(P\)</span> 有
-<span class="math inline">\(L = L(P)\)</span>。</p>
-<p>这就是显然的，因为 DFA 是一个没有使用堆栈的
-DPDA。我们只需要额外设计一个初始状态来压入标记符号 <span
-class="math inline">\(X_0\)</span>，一个 <span
-class="math inline">\(\epsilon\)</span> 转移来弹出 <span
-class="math inline">\(X_0\)</span> 并连接 DFA 的接受状态和 DPDA
-的接受状态即可。</p>
-<p>另外，语言 <span class="math inline">\(L\)</span> 是某个 DPDA <span
-class="math inline">\(P\)</span> 的 <span
-class="math inline">\(N(P)\)</span> 当且仅当 <span
-class="math inline">\(L\)</span> 有 <strong>前缀性质</strong> 且 <span
-class="math inline">\(L\)</span> 是某个 DPDA <span
-class="math inline">\(P&#39;\)</span> 的 <span
-class="math inline">\(L(P&#39;)\)</span>。前缀性质是指 <span
-class="math inline">\(L\)</span> 中不存在不相等的两个串 <span
-class="math inline">\(w_1, w_2\)</span> 使得 <span
-class="math inline">\(w_1\)</span> 是 <span
-class="math inline">\(w_2\)</span> 的前缀。</p>
-<h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
-<p><strong>定理</strong>：DPDA 以终结状态方式接受的语言
-<strong>真包含于</strong> CFL。</p>
-<p>例如 <span class="math inline">\(L_{wwr}\)</span>，DPDA
-为了判断是否回文，需要将串的对称部分的前半部分存放在栈里，然后对后半部分进行比较。<strong>比较完一个回文串后一定会使栈清空。</strong>
-所以，类似于 <span class="math inline">\(\{0^n10^n0^m10^m | n, m \in
-\mathbb{N}\}\)</span> 的串，读完第一个回文串 <span
-class="math inline">\(0^n10^n\)</span>
-后栈为空，接着读第二个回文串，读完第二个回文串后 DPDA 并不能确定 <span
-class="math inline">\(m\)</span> 是否等于 <span
-class="math inline">\(n\)</span>，因为关于第一个回文串的信息都已经被弹出了。</p>
-<h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
-<p><strong>定理 1</strong>：如果对于某个 DPDA <span
-class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
-N(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
-CFG。</p>
-<p>已经知道 PDA 可以生成一个
-CFG，接下来只需要证明该文法的最左推导是唯一的即可。这几乎是显然的，因为
-<span class="math inline">\(P\)</span> 是一个 <strong>确定型</strong>
-下推自动机，对某个可被接受的串 <span
-class="math inline">\(w\)</span>，<span class="math inline">\(w\)</span>
-在上面进行的移动序列是唯一的，所以对应的最左推导也都是唯一的。因此该 CFG
-是无歧义的。</p>
-<p><strong>定理 2</strong>：如果对于某个 DPDA <span
-class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
-L(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
-CFG。</p>
-<p>在 <span class="math inline">\(L\)</span>
-的串的末尾全部加上不在字母表中出现的符号（例如 <span
-class="math inline">\(\$\)</span>）作为终止符。令 <span
-class="math inline">\(L&#39; = L\$\)</span>，显然 <span
-class="math inline">\(L&#39;\)</span> 具有前缀性质，则存在一个 DPDA
-<span class="math inline">\(P&#39;\)</span>，使得 <span
-class="math inline">\(L&#39; = N(P&#39;)\)</span>。由定理 1 知存在一个
-CFG <span class="math inline">\(G\)</span>，使得 <span
-class="math inline">\(G\)</span> 能产生 <span
-class="math inline">\(N(P&#39;) = L&#39;\)</span>。</p>
-<p>接下来构造 CFG <span class="math inline">\(G\)</span> 使得 <span
-class="math inline">\(L(G) = L\)</span>。在 <span
-class="math inline">\(G&#39;\)</span> 中引入产生式 <span
-class="math inline">\(\$ \to \epsilon\)</span> 成为 <span
-class="math inline">\(G\)</span>，则 <span
-class="math inline">\(L(G&#39;) = L&#39; \implies L(G) =
-L\)</span>。而且 <span class="math inline">\(G\)</span>
-中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
-中的最左推导，因为 <span class="math inline">\(\$\)</span>
-在串的最右侧，一定是最后一个被替换的变元。</p>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h3 id="rsa-的正确性">RSA 的正确性</h3>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。 <span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+  \]</span></li>
+</ol>
+<p>因此命题得证。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
       </tags>
   </entry>
   <entry>
@@ -3942,554 +4310,6 @@ class="math inline">\(1\)</span> 转移到 <span
 class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
 <pre><code class="highlight mermaid">graph LR
 A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
-    <url>/2023/09/19/IATLC-Chap3/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第三章 正则表达式与正则语言</strong></p>
-<ul>
-<li>正则表达式的运算符
-<ul>
-<li>并与连接</li>
-<li>闭包</li>
-</ul></li>
-<li>正则表达式的定义</li>
-<li>自动机与正则表达式间的关系
-<ul>
-<li>由 DFA 构建正则表达式</li>
-<li>消除状态法</li>
-<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
-NFA</li>
-<li>消除 <span class="math inline">\(\epsilon\)</span>
-转移时的注意事项</li>
-</ul></li>
-<li>正则表达式代数定律</li>
-</ul>
-<span id="more"></span>
-<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
-<h3 id="并与连接">并与连接</h3>
-<ul>
-<li>并 <span class="math display">\[
-L \cup M = \{w | w \in L \lor w \in M\}
-\]</span></li>
-<li>连接 <span class="math display">\[
-LM = \{w = uv | u \in L \land v \in M\}
-\]</span></li>
-</ul>
-<h3 id="闭包">闭包</h3>
-<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
-class="math inline">\(L^*\)</span>。形式化的定义是：</p>
-<p><span class="math display">\[
-L^* = \bigcup_{i \ge 0}L^i
-\]</span></p>
-<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
-L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
-class="math inline">\(i\)</span> 个 <span
-class="math inline">\(L\)</span> 的连接。</p>
-<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
-class="math inline">\(L^*\)</span>
-通常是无穷的。<strong>仅有两个</strong>
-特殊的语言，它们的闭包是有限的。</p>
-<ul>
-<li><p><span class="math inline">\(\varnothing^*\)</span></p>
-<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
-class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
-class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
-class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
-<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
-<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
-无论连接多少次都不会改变它是 <span
-class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
-class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
-</ul>
-<h2 id="正则表达式的定义">正则表达式的定义</h2>
-<p>正则表达式仍然采用递归的定义方法：</p>
-<p><strong>基础</strong>：</p>
-<ol type="1">
-<li><span class="math inline">\(\epsilon\)</span> 和 <span
-class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
-<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
-class="math inline">\(\varnothing\)</span>。也就是说，<span
-class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
-\varnothing\)</span>。</li>
-<li>若 <span class="math inline">\(a\)</span> 是任意
-<strong>符号</strong>，则 <span
-class="math inline">\(\textbf{a}\)</span>
-是正则表达式。这个表达式表示语言 <span
-class="math inline">\(\{a\}\)</span>。也就是说，<span
-class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
-</ol>
-<p><strong>归纳</strong>：</p>
-<ol type="1">
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的并。也就是说，<span
-class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(EF\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
-class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
-class="math inline">\(E\)</span> 的闭包。也就是说，<span
-class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
-class="math inline">\(E\)</span> 相同的语言。也就是说 <span
-class="math inline">\((L(E)) = L(E)\)</span>。</li>
-</ol>
-<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
-<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
-和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
-<pre><code class="highlight mermaid">graph LR
-A(NFA) --&gt; |1| B(DFA)
-B --&gt; |2| C($\epsilon$ - NFA)
-C --&gt; |3| B
-B --&gt; |4| D(RE)
-D --&gt; |5| C</code></pre>
-<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
-<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
-<p>我们想要解决的问题是：给定一个 DFA <span
-class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
-L(A)\)</span>，求一个正则表达式 <span
-class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
-L(R)\)</span>。</p>
-<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
-class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
-class="math inline">\(1\)</span> 为初始状态。设 <span
-class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
-class="math inline">\(w\)</span> 所组成的集合：<span
-class="math inline">\(w\)</span> 是 <span
-class="math inline">\(A\)</span> 中从状态 <span
-class="math inline">\(i\)</span> 到状态 <span
-class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
-<span class="math inline">\(k\)</span> 的
-<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
-和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
-class="math inline">\(k\)</span>。</p>
-<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
-class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
-class="math inline">\(j\)</span> 为一个接受状态。</p>
-<p>仍然考虑使用递归的思路来推导 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
-<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
-时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
-以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
-<ul>
-<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
-class="math inline">\(R_{ii}^{(0)} = \epsilon + \textbf{a}_1 +
-\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
-class="math inline">\(i\)</span> 有自环 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
-class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
-\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
-到状态 <span class="math inline">\(j\)</span> 有 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-</ul>
-<p><strong>归纳</strong>：假设有 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
-<ol type="1">
-<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
-这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
-R_{ij}^{(k-1)}\)</span>。</p></li>
-<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
-至少一次。 于是我们可以把整个路径分成几段：</p></li>
-</ol>
-<p><pre><code class="highlight mermaid">graph LR
-
-style ... fill:none,stroke-width:0px
-
-A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
-subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
-B((k)) --&gt; C((k))
-C((k)) --&gt; ...
-... --&gt; E((k))
-end
-E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
-<p>那么这种路径可以表示成正则表达式 <span
-class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。</p>
-<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
-1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
-class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
-<p>比如考虑下图表示的 DFA：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($1$))
-A --&gt; |$1$| A
-A --&gt; |$0$| B((($2$)))
-B --&gt; |$0, 1$| B</code></pre>
-<p>由 <strong>基础</strong> 部分可得：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
-class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
-<p><span class="math display">\[
-R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
-(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
-\mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>又有</p>
-<p><span class="math display">\[
-R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
-+ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(1)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0} +
-\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
-\mathbf{0} + \mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
-+ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
-+ \mathbf{1})^*\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
-class="math inline">\(2\)</span>
-是唯一一个接收状态，则整体的正则表达式为 <span
-class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span>。</p>
-<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
-<h3 id="消除状态法">消除状态法</h3>
-<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
-的方式来化简自动机。考虑下图中即将被消除的状态 <span
-class="math inline">\(s\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
-A --&gt; |$Q_1$| C(($s$))
-C --&gt; |$P_1$| B
-C --&gt; |$S$| C
-C --&gt; |$P_m$| E
-D --&gt; |$Q_k$| C
-D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
-<p>消除状态 <span class="math inline">\(s\)</span>
-时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
-相关的转移边。消除状态 <span class="math inline">\(s\)</span>
-后如下：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
-D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
-<p>从有穷自动构造正则表达式的策略如下：</p>
-<ol type="1">
-<li><p>对于每个接受状态 <span
-class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
-class="math inline">\(q\)</span> 和初始状态 <span
-class="math inline">\(q_0\)</span>
-之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
-<li><p>如果 <span class="math inline">\(q \neq
-q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
-<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A((&quot; &quot;))
-A --&gt; |$R$| A
-A --&gt; |$S$| B(((&quot; &quot;)))
-B --&gt; |$T$| A
-B --&gt; |$U$| B</code></pre></p></li>
-<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
-<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(((&quot; &quot;)))
-A --&gt; |$R$| A</code></pre></p></li>
-<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
-所得出的所有表达式之和（并）。</p></li>
-</ol>
-<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
-class="math inline">\(\epsilon\)</span> - NFA</h3>
-<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
-class="math inline">\(\epsilon\)</span> - NFA。</p>
-<p><strong>基础</strong>：先构造 <span
-class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
-对应的三个自动机：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
-A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $\varnothing$
-A
-B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\mathbf&#123;a&#125;$&quot;
-A --&gt; | $a$ | B(((&quot; &quot;)))
-end</code></pre>
-<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
-S, RS, R^*\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
-A --&gt; | $\epsilon$ | D((&quot; &quot;))
-
-subgraph $R$
-B -.- C((&quot; &quot;))
-end
-
-subgraph $S$
-D -.- E((&quot; &quot;))
-end
-
-C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
-E --&gt; | $\epsilon$ | F</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $R$
-A -.- B((&quot; &quot;))
-end
-
-B --&gt; | $\epsilon$ | C((&quot; &quot;))
-
-subgraph $S$
-C -.- D(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
-
-subgraph $R$
-C --&gt; | $\epsilon$ | B
-B -.- C((&quot; &quot;))
-end
-
-C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
-A --&gt; | $\epsilon$ | D</code></pre>
-<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
-<span class="math inline">\(\epsilon\)</span> - NFA。</p>
-<h3 id="消除-epsilon-转移时的注意事项">消除 <span
-class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
-<p>在上述构造中，有些地方可以化简：</p>
-<ol type="1">
-<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B(((&quot; &quot;)))
-A -.- | $S$ | B
-end</code></pre></li>
-<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B((&quot; &quot;))
-B -.- | $S$ | C(((&quot; &quot;)))
-end</code></pre></li>
-<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
-class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
-A --&gt; | $\epsilon$ | B
-A -.- | $R$ | B
-end</code></pre></li>
-</ol>
-<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
-<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
-class="math inline">\(R + S^*\)</span>）。</p>
-<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
-是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
-的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
-m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
-的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
-形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
-class="math inline">\(\forall w = w_1w_2\cdots w_k \in
-L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
-都属于任意的语言之一（如 <span
-class="math inline">\(L_{j_i}\)</span>），都有 <span
-class="math inline">\(w\)</span> 对应的正则表达式 <span
-class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
-<span class="math inline">\(L(C)\)</span>。</p>
-<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
-<p><del>附赠一个可能会有用的公式</del> <span
-class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -4951,154 +4771,6 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="可计算性">可计算性</h2>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="bare-bones-语言">Bare Bones 语言</h2>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h3 id="复制操作">复制操作</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作">交换操作</h3>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构">分支结构</h3>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题">停机问题</h2>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h2 id="rsa">RSA</h2>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h3 id="rsa-的正确性">RSA 的正确性</h3>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。 <span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-  \]</span></li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【答案】《高等微积分教程(上)》教材习题解答</title>
     <url>/2023/07/01/Tsinghua-Calculus-1/</url>
     <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
@@ -5116,249 +4788,430 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr />
-<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
-350 \mathrm{ min}\)</span> <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <url>/2023/09/30/IATLC-Chap6/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第六章 下推自动机</strong></p>
+<ul>
+<li>下推自动机的定义
+<ul>
+<li>下推自动机的形式化定义</li>
+<li>下推自动机的瞬时描述</li>
+<li>输入串与栈底串的简化</li>
+</ul></li>
+<li>下推自动机的语言
+<ul>
+<li>以终结状态方式接受</li>
+<li>以空栈方式接受</li>
+<li>两种接受方式的等价性</li>
+</ul></li>
+<li>PDA 和 CFG 的等价性
+<ul>
+<li>由 CFG 得 PDA</li>
+<li>由 PDA 得 CFG</li>
+</ul></li>
+<li>确定性下推自动机（DPDA）
+<ul>
+<li>正则语言与 DPDA</li>
+<li>上下文无关语言与 DPDA</li>
+<li>DPDA 与歧义文法</li>
+</ul></li>
+</ul>
 <span id="more"></span>
-<h2 id="准备工作">准备工作</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
-alt="@全体成员" />
-<figcaption aria-hidden="true"><span class="citation"
-data-cites="全体成员">@全体成员</span></figcaption>
-</figure>
-<p><del>（后面两次@没有<span class="citation"
-data-cites="上">@上</span>）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<h2 id="物理">物理</h2>
-<p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
-alt="物理卷子T2" />
-<figcaption aria-hidden="true">物理卷子T2</figcaption>
-</figure>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
-alt="物理卷子T6" />
-<figcaption aria-hidden="true">物理卷子T6</figcaption>
-</figure>
-<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
-的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
-<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
-class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
-class="math inline">\(2G\)</span>。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 <span
-class="math inline">\(\dfrac{1}{3}\)</span>
-准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学">化学</h2>
-<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
-alt="化学卷子P1,P2" />
-<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
-</figure>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
-<span class="math inline">\(3\)</span> 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
-alt="笑谈化学卷子" />
-<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
-</figure>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭">吃午饭</h2>
-<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
-data-cites="数学">@数学</span></p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学">数学</h2>
-<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
-alt="细致入微" />
-<figcaption aria-hidden="true">细致入微</figcaption>
-</figure>
-<p>写了几道能力范围之内的题目。</p>
-<blockquote>
-<ol type="1">
-<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
-<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
-是一个完全平方数.</li>
-</ol>
-</blockquote>
-<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
-class="math inline">\(4\)</span> 就可以知道 <span
-class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
-class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
-<blockquote>
-<ol start="6" type="1">
-<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
-<span class="math inline">\(xyz = 1\)</span>，证明： <span
-class="math display">\[
-\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \le 1
-\]</span></li>
-</ol>
-</blockquote>
-<p>注意到 <span class="math display">\[
-\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
-\]</span> 则 <span class="math display">\[
-\begin{aligned}
-&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \\\\
-\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
-\dfrac{1}{z^2+zx+1} \\\\
-= &amp; 1
-\end{aligned}
+<h2 id="下推自动机的定义">下推自动机的定义</h2>
+<h3 id="下推自动机的形式化定义">下推自动机的形式化定义</h3>
+<p>一个下推自动机（PDA）由七个部分组成： <span class="math display">\[
+P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
 \]</span></p>
-<blockquote>
-<ol start="7" type="1">
-<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
-d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
-class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
-n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
-1\)</span>.</li>
+<ol type="1">
+<li><p><span class="math inline">\(Q\)</span>：状态的有穷集合。</p></li>
+<li><p><span
+class="math inline">\(\Sigma\)</span>：输入符号的有穷集合。</p></li>
+<li><p><span
+class="math inline">\(\Gamma\)</span>：有限的堆栈字母表，该部分是能够被推入堆栈的符号的集合。</p></li>
+<li><p><span
+class="math inline">\(\delta\)</span>：转移函数，自变量为一个三元组
+<span class="math inline">\(\delta(q, a, X)\)</span>，其中</p>
+<ul>
+<li><span class="math inline">\(q \in Q\)</span></li>
+<li><span class="math inline">\(a \in \Sigma\)</span> 或 <span
+class="math inline">\(a = \epsilon\)</span></li>
+<li><span class="math inline">\(X \in \Gamma\)</span></li>
+</ul>
+<p><span class="math inline">\(\delta\)</span> 的输出是有序对 <span
+class="math inline">\((p, \gamma)\)</span> 的有穷集合，其中 <span
+class="math inline">\(p\)</span> 是新状态，<span
+class="math inline">\(\gamma\)</span> 是堆栈符号串，<span
+class="math inline">\(\gamma\)</span> 用来代替栈顶符号 <span
+class="math inline">\(X\)</span>。</p></li>
+<li><p><span class="math inline">\(q_0\)</span>：初始状态。</p></li>
+<li><p><span
+class="math inline">\(Z_0\)</span>：初始堆栈中的符号。</p></li>
+<li><p><span class="math inline">\(F\)</span>：接受状态的集合。</p></li>
 </ol>
-</blockquote>
-<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
-<span class="math inline">\(3 \nmid n\)</span>。因 <span
-class="math inline">\(m\)</span> 为完全平方数，则 <span
-class="math inline">\(\alpha\)</span> 必为偶数。</p>
-<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
-class="math inline">\(3\nmid n\)</span>，则 <span
-class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
-class="math inline">\(d_{\alpha} = 1\)</span>。</p>
-<hr />
-<p>当我不知道干啥的时候，我看到了这个</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
-alt="来了来了" />
-<figcaption aria-hidden="true">来了来了</figcaption>
-</figure>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
-<p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭">吃晚饭</h2>
-<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
+<p>PDA 相较于 DFA
+的区别是引入了一个栈用于存储数据，以及多了一个参数（栈顶元素）来控制转移方向。</p>
+<h3 id="下推自动机的瞬时描述">下推自动机的瞬时描述</h3>
+<p>使用 <span class="math inline">\((q, w, \gamma)\)</span> 三元组来表示
+PDA 的配置，其中 <span class="math inline">\(q\)</span> 是状态，<span
+class="math inline">\(w\)</span> 是剩余的输入串，<span
+class="math inline">\(\gamma\)</span>
+是堆栈的内容。这样的一个三元组被称为下推自动机的一个
+<strong>瞬时描述</strong>。</p>
+<p>我们定义 <span class="math inline">\(\vdash_P\)</span>（如果 <span
+class="math inline">\(P\)</span> 已知，那么简写为 <span
+class="math inline">\(\vdash\)</span>）为：假设 <span
+class="math inline">\((p, \alpha) \in \delta(q, a,
+X)\)</span>，那么对于所有 <span class="math inline">\(\Sigma^*\)</span>
+中的串 <span class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有： <span
+class="math display">\[
+(q, aw, X\beta) \vdash (p, w, \alpha\beta)
+\]</span> 这相当于处理了输入串 <span class="math inline">\(aw\)</span>
+中最前面的一个字符 <span class="math inline">\(a\)</span>，并且用 <span
+class="math inline">\(\alpha\)</span> 来替换栈顶的 <span
+class="math inline">\(X\)</span>，这导致了一次从状态 <span
+class="math inline">\(q\)</span> 到状态 <span
+class="math inline">\(p\)</span> 的转移。</p>
+<p>同样地，我们也使用符号 <span
+class="math inline">\(\vdash_P^*\)</span> 来表示 PDA
+的零步或多步转移。</p>
+<h3 id="输入串与栈底串的简化">输入串与栈底串的简化</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有 <span class="math display">\[
+(q, xw, \alpha\gamma) \vdash_P^* (p, yw, \beta\gamma)
+\]</span> <strong>证明</strong>：由于 <span class="math inline">\((q, x,
+\alpha) \vdash_P^* (p, y, \beta)\)</span> 的过程中都没有使用与 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\gamma\)</span> 相关的转移，所以只需要对 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y, \beta)\)</span>
+进行转移步数上的归纳即可得证。</p>
+<p><strong>补充
+1</strong>：定理的逆定理关于栈的简化的那一部分不成立。原因很好理解，因为我们在转移的过程中<del>偷偷地</del>从
+<span class="math inline">\(\gamma\)</span>
+中弹出一些符号，再在之后的过程中压回去，效果仍然是 <span
+class="math inline">\(\gamma\)</span> 不变，但是转移的过程改变了。</p>
+<p><strong>补充
+2</strong>：定理的逆定理关于输入串的简化的那一部分成立。原因是输入串被消耗后没法重新添加回去。</p>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, xw, \alpha) \vdash_P^* (p, yw,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有有 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>。</p>
+<h2 id="下推自动机的语言">下推自动机的语言</h2>
+<h3 id="以终结状态方式接受">以终结状态方式接受</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，那么 <span class="math inline">\(P\)</span>
+<strong>以终结状态方式接受的语言</strong> <span
+class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
+\{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \alpha)\}
+\]</span> 其中 <span class="math inline">\(q \in F\)</span>
+为某个接受状态，<span class="math inline">\(\alpha \in \Gamma^*\)</span>
+是任何堆栈符号串。</p>
+<p>也就是说，以 <span class="math inline">\(w\)</span>
+为等待输入的串从初始状态 <span class="math inline">\(q_0\)</span>
+出发，消耗完了 <span class="math inline">\(w\)</span>
+后进入了接受状态，<strong>无论此时堆栈中的状态如何</strong>。</p>
+<h3 id="以空栈方式接受">以空栈方式接受</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，我们定义 <span
+class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
+N(P)$ 是 <span class="math display">\[
+N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \epsilon, \epsilon)\}
+\]</span> 其中 <span class="math inline">\(q \in Q\)</span>
+为<strong>任意状态</strong>。</p>
+<p>也就是说，<span class="math inline">\(N(P)\)</span> 中的元素 <span
+class="math inline">\(w\)</span> 能在被 <span
+class="math inline">\(P\)</span>
+消耗完的同时使堆栈为空。事实上，由于我们只关心堆栈是否为空而不关心接受状态，故我们可以去掉
+PDA <span class="math inline">\(P\)</span>
+的描述中的最后一个分量，而写成一个六元组 <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, Z_0)\)</span>。</p>
+<h3 id="两种接受方式的等价性">两种接受方式的等价性</h3>
+<h4 id="从空栈方式到终结状态方式">从空栈方式到终结状态方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_N$
+B -.- C((&quot; &quot;))
+B -.- D((&quot; &quot;))
+B -.- E((&quot; &quot;))
+end
+B --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
+C --&gt; | $\epsilon, X_0/\epsilon$ | F((($p$)))
+D --&gt; | $\epsilon, X_0/\epsilon$ | F
+E --&gt; | $\epsilon, X_0/\epsilon$ | F</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。这样，在 <span
+class="math inline">\(P_F\)</span> 中不会弹出 <span
+class="math inline">\(X_0\)</span>；且如果栈顶为 <span
+class="math inline">\(X_0\)</span>，则说明此时 <span
+class="math inline">\(P_F\)</span> 的栈为空，因此 <span
+class="math inline">\(P_F\)</span> 接受该状态。在 <span
+class="math inline">\(P_N\)</span> 中，不仅包含所有 <span
+class="math inline">\(P_F\)</span> 中的转移，还要加上 <span
+class="math inline">\(Q\)</span> 中的任意状态 <span
+class="math inline">\(q\)</span>，对 <span
+class="math inline">\(P_F\)</span> 的唯一接受状态 <span
+class="math inline">\(p\)</span> 的 <span
+class="math inline">\(\epsilon\)</span> 转移：这样当 <span
+class="math inline">\(P_F\)</span> 中堆栈为空时，<span
+class="math inline">\(P_N\)</span> 能经过这条 <span
+class="math inline">\(\epsilon\)</span> 转移边，弹出栈顶的标记符号 <span
+class="math inline">\(X_0\)</span>，使得<span
+class="math inline">\(P_N\)</span> 能接受该状态。</p>
+<p><span class="math inline">\(P_F\)</span> 保证了，在<span
+class="math inline">\(P_N\)</span> 中使栈为空的输入串 <span
+class="math inline">\(w\)</span>，才会使得栈顶为标记符号 <span
+class="math inline">\(X_0\)</span>，然后经过 <span
+class="math inline">\(\epsilon\)</span> 转移将 <span
+class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
+class="math inline">\(p\)</span> 被 <span
+class="math inline">\(P_F\)</span> 接受；而无法使 <span
+class="math inline">\(P_N\)</span> 中栈为空的串 <span
+class="math inline">\(w\)</span>，一定无法使栈底的 <span
+class="math inline">\(X_0\)</span> 被暴露出来，从而也不会经过 <span
+class="math inline">\(\epsilon\)</span> 转移将 <span
+class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
+class="math inline">\(p\)</span> 被 <span
+class="math inline">\(P_F\)</span> 接受。</p>
+<h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\epsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_F$
+B -.- C(((&quot; &quot;)))
+B -.- D(((&quot; &quot;)))
+end
+
+C --&gt; | $\epsilon, any/\epsilon$ | E(($p$))
+D --&gt; | $\epsilon, any/\epsilon$ | E
+E --&gt; | $\epsilon, any/\epsilon$ | E</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。这是为了防止在 <span
+class="math inline">\(P_F\)</span>
+中出现栈被清空但又不是接受状态的情况。在 <span
+class="math inline">\(P_F\)</span> 中，不仅包含所有 <span
+class="math inline">\(P_N\)</span> 中的转移，还要加上 <span
+class="math inline">\(P_F\)</span> 的所有接受状态 <span
+class="math inline">\(q\)</span>，对 <span
+class="math inline">\(p\)</span> 的 <span
+class="math inline">\(\epsilon\)</span> 转移：这个 <span
+class="math inline">\(\epsilon\)</span>
+转移清空栈上的所有东西，使得输入串能够以空栈方式被接受。</p>
+<p><span class="math inline">\(P_N\)</span> 保证了，能在 <span
+class="math inline">\(P_F\)</span> 中达到接受状态的串 <span
+class="math inline">\(w\)</span>，在达到接受状态后一定能将栈清空被空栈方式接受；而未达到接受状态的串，在转移过程中栈底一定有标记符号
+<span class="math inline">\(X_0\)</span>
+未被弹出，而不会被空栈方式接受。</p>
+<h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
+<h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
+<p>考虑这个 CFG 的最左推导。构造一个
+PDA，使得每一次推导的过程都是弹出栈顶上的非终结符（产生式的头），然后以产生式的体代替。此后，如果栈顶为终结符，则不断弹出直至暴露出第一个非终结符。继续上述过程直至栈被清空，以空栈方式接受。</p>
+<p>形式化地，设 <span class="math inline">\(G = (V, T, Q, S)\)</span>
+是一个 CFG，构造以空栈方式接受 <span class="math inline">\(L(G)\)</span>
+的 PDA <span class="math inline">\(P\)</span> 如下： <span
+class="math display">\[
+P = (\{q\}, T, V \cup T, \delta, q, S)
+\]</span> 其中转移函数 <span class="math inline">\(\delta\)</span>
+的定义是：</p>
+<ol type="1">
+<li><p>对于每一个非终结符 <span class="math inline">\(A\)</span>， <span
+class="math display">\[
+\delta(q, \epsilon, A) = \{(q, \beta) | A \to \beta \text{ 是 } G \text{
+的一个产生式}\}
+\]</span>
+这对应着弹出栈顶的产生式的头并以产生式的体代替的过程。</p></li>
+<li><p>对于每一个终结符 <span class="math inline">\(a\)</span>， <span
+class="math display">\[
+\delta(q, a, a) = \{(q, \epsilon)\}
+\]</span> 这对应着将栈顶的终结符不断弹出的过程。</p></li>
+</ol>
+<h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
 <figure>
 <img
-src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
-alt="海底捞吃饭前" />
-<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
+src="https://img.picgo.net/2023/10/11/Y-x-graph9050a03d07a8b78a.jpeg"
+alt="Y-x 图" />
+<figcaption aria-hidden="true">Y-x 图</figcaption>
 </figure>
-<p>吃吃吃：</p>
+<p>如图所示，从堆栈中弹出一系列的符号 <span class="math inline">\(Y_1,
+Y_2, \cdots, Y_k\)</span>。当弹出 <span
+class="math inline">\(Y_1\)</span> 时读入了某个输入 <span
+class="math inline">\(x_1\)</span>。应该注意的是这里的“弹出”实际上是许多移动的
+<strong>净效应</strong>。例如，第一步移动也许会把 <span
+class="math inline">\(Y\)</span> 变为其他的符号 <span
+class="math inline">\(Z\)</span>，接下来的移动也许会用 <span
+class="math inline">\(UV\)</span> 来替换 <span
+class="math inline">\(Z\)</span>，后面的一些移动的效应是弹出了 <span
+class="math inline">\(U\)</span>，再后面的一些动作的效应是弹出了 <span
+class="math inline">\(V\)</span>。所有这些移动的净效应是把 <span
+class="math inline">\(Y\)</span>
+用空来替换，即把它弹出，而在这个过程中所消耗的输入就是 <span
+class="math inline">\(x_1\)</span>。这样的计算会不断继续下去，直到堆栈中的每一个符号都被去掉为止。</p>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0)\)</span> 是一个 PDA，构造 CFG <span class="math inline">\(G = (V,
+\Sigma, R, S)\)</span> 满足 <span class="math inline">\(L(G) =
+N(P)\)</span>。其中非终结符的集合 <span class="math inline">\(V\)</span>
+包含：</p>
+<ol type="1">
+<li><p>特殊的符号 <span class="math inline">\(S\)</span>
+表示初始符号。</p></li>
+<li><p>所有 <span class="math inline">\([pXq]\)</span> 形式的符号，其中
+<span class="math inline">\(p\)</span> 和 <span
+class="math inline">\(q\)</span> 是 <span
+class="math inline">\(Q\)</span> 中的状态，<span
+class="math inline">\(X\)</span> 是 <span
+class="math inline">\(\Gamma\)</span> 中的堆栈符号。</p></li>
+</ol>
+<p><span class="math inline">\(G\)</span> 的产生式的集合 <span
+class="math inline">\(R\)</span> 如下：</p>
+<ul>
+<li><p>对于每个状态 <span class="math inline">\(p\)</span>，<span
+class="math inline">\(G\)</span> 都有产生式 <span
+class="math inline">\(S \to [q_0Z_0p]\)</span>。</p>
+<p>考虑 <span class="math inline">\(w = [q_0Z_0p]\)</span>
+的作用，它将栈底 <span class="math inline">\(Z_0\)</span>
+弹出，说明此时栈被清空，并且从状态 <span
+class="math inline">\(q_0\)</span> 转到状态 <span
+class="math inline">\(p\)</span>。因此，初始符号 <span
+class="math inline">\(S\)</span> 生成所有导致 <span
+class="math inline">\(P\)</span>
+在初始瞬时状态出发之后能进入空栈状态的串 <span
+class="math inline">\(w\)</span>。</p></li>
+<li><p>令 <span class="math inline">\(\delta(q, a, X)\)</span>
+包含有序对 <span class="math inline">\((r, Y_1Y_2\cdots
+Y_k)\)</span>，其中：</p>
+<ol type="1">
+<li><p><span class="math inline">\(a\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 中的一个符号，或者 <span
+class="math inline">\(a = \epsilon\)</span>。</p></li>
+<li><p><span class="math inline">\(k\)</span> 可以是任何数，包括 <span
+class="math inline">\(0\)</span>，此时 <span class="math inline">\((r,
+Y_1Y_2\cdots Y_k) = (r, \epsilon)\)</span>。</p></li>
+</ol>
+<p>那么对 <strong>所有的</strong> 序列 <span class="math inline">\(r_1,
+r_2, \cdots, r_k\)</span>，<span class="math inline">\(G\)</span>
+都有产生式 <span class="math display">\[
+[q X r_k] \to a[q Y_1 r_1][r_1Y_2r_3]\cdots[r_{k-1}Y_kr_k]
+\]</span> 其中 <span class="math inline">\(r_k\)</span> 是 <span
+class="math inline">\(r\)</span>。</p>
+<p>这样的产生式有 <span class="math inline">\(n^k\)</span>
+个。它的意思是，在栈顶弹出 <span class="math inline">\(X\)</span> 并且从
+<span class="math inline">\(q\)</span> 转移到 <span
+class="math inline">\(r = r_k\)</span> 的一种方法是读入 <span
+class="math inline">\(a\)</span>，接着通过消耗某个输入从堆栈中弹出 <span
+class="math inline">\(Y_1\)</span>，同时从状态 <span
+class="math inline">\(r\)</span> 转移到状态 <span
+class="math inline">\(r_1\)</span>；然后读入另一个输入来从堆栈中弹出
+<span class="math inline">\(Y_2\)</span>，同时从状态 <span
+class="math inline">\(r_1\)</span> 转到状态 <span
+class="math inline">\(r_2\)</span>；依此类推。</p></li>
+</ul>
+<h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
 <figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
-alt="杯盘狼藉" />
-<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+<img src="https://img.picgo.net/2023/10/11/models73ebb5a7a410ebe8.jpeg"
+alt="几类语言模型的计算能力对比" />
+<figcaption aria-hidden="true">几类语言模型的计算能力对比</figcaption>
 </figure>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
-alt="椰子" />
-<figcaption aria-hidden="true">椰子</figcaption>
-</figure>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结">总结</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
-alt="监考老师们的合照" />
-<figcaption aria-hidden="true">监考老师们的合照</figcaption>
-</figure>
-<p>嗝。</p>
+<h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(L\)</span>
+是正则语言，则对于某个 DPDA <span class="math inline">\(P\)</span> 有
+<span class="math inline">\(L = L(P)\)</span>。</p>
+<p>这就是显然的，因为 DFA 是一个没有使用堆栈的
+DPDA。我们只需要额外设计一个初始状态来压入标记符号 <span
+class="math inline">\(X_0\)</span>，一个 <span
+class="math inline">\(\epsilon\)</span> 转移来弹出 <span
+class="math inline">\(X_0\)</span> 并连接 DFA 的接受状态和 DPDA
+的接受状态即可。</p>
+<p>另外，语言 <span class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P\)</span> 的 <span
+class="math inline">\(N(P)\)</span> 当且仅当 <span
+class="math inline">\(L\)</span> 有 <strong>前缀性质</strong> 且 <span
+class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P&#39;\)</span> 的 <span
+class="math inline">\(L(P&#39;)\)</span>。前缀性质是指 <span
+class="math inline">\(L\)</span> 中不存在不相等的两个串 <span
+class="math inline">\(w_1, w_2\)</span> 使得 <span
+class="math inline">\(w_1\)</span> 是 <span
+class="math inline">\(w_2\)</span> 的前缀。</p>
+<h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
+<p><strong>定理</strong>：DPDA 以终结状态方式接受的语言
+<strong>真包含于</strong> CFL。</p>
+<p>例如 <span class="math inline">\(L_{wwr}\)</span>，DPDA
+为了判断是否回文，需要将串的对称部分的前半部分存放在栈里，然后对后半部分进行比较。<strong>比较完一个回文串后一定会使栈清空。</strong>
+所以，类似于 <span class="math inline">\(\{0^n10^n0^m10^m | n, m \in
+\mathbb{N}\}\)</span> 的串，读完第一个回文串 <span
+class="math inline">\(0^n10^n\)</span>
+后栈为空，接着读第二个回文串，读完第二个回文串后 DPDA 并不能确定 <span
+class="math inline">\(m\)</span> 是否等于 <span
+class="math inline">\(n\)</span>，因为关于第一个回文串的信息都已经被弹出了。</p>
+<h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
+<p><strong>定理 1</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+N(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>已经知道 PDA 可以生成一个
+CFG，接下来只需要证明该文法的最左推导是唯一的即可。这几乎是显然的，因为
+<span class="math inline">\(P\)</span> 是一个 <strong>确定型</strong>
+下推自动机，对某个可被接受的串 <span
+class="math inline">\(w\)</span>，<span class="math inline">\(w\)</span>
+在上面进行的移动序列是唯一的，所以对应的最左推导也都是唯一的。因此该 CFG
+是无歧义的。</p>
+<p><strong>定理 2</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+L(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>在 <span class="math inline">\(L\)</span>
+的串的末尾全部加上不在字母表中出现的符号（例如 <span
+class="math inline">\(\$\)</span>）作为终止符。令 <span
+class="math inline">\(L&#39; = L\$\)</span>，显然 <span
+class="math inline">\(L&#39;\)</span> 具有前缀性质，则存在一个 DPDA
+<span class="math inline">\(P&#39;\)</span>，使得 <span
+class="math inline">\(L&#39; = N(P&#39;)\)</span>。由定理 1 知存在一个
+CFG <span class="math inline">\(G\)</span>，使得 <span
+class="math inline">\(G\)</span> 能产生 <span
+class="math inline">\(N(P&#39;) = L&#39;\)</span>。</p>
+<p>接下来构造 CFG <span class="math inline">\(G\)</span> 使得 <span
+class="math inline">\(L(G) = L\)</span>。在 <span
+class="math inline">\(G&#39;\)</span> 中引入产生式 <span
+class="math inline">\(\$ \to \epsilon\)</span> 成为 <span
+class="math inline">\(G\)</span>，则 <span
+class="math inline">\(L(G&#39;) = L&#39; \implies L(G) =
+L\)</span>。而且 <span class="math inline">\(G\)</span>
+中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
+中的最左推导，因为 <span class="math inline">\(\$\)</span>
+在串的最右侧，一定是最后一个被替换的变元。</p>
 ]]></content>
       <categories>
-        <category>游记</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>生活</tag>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -6026,20 +5879,249 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr />
+<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
+350 \mathrm{ min}\)</span> <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
 <span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+<h2 id="准备工作">准备工作</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
+alt="@全体成员" />
+<figcaption aria-hidden="true"><span class="citation"
+data-cites="全体成员">@全体成员</span></figcaption>
+</figure>
+<p><del>（后面两次@没有<span class="citation"
+data-cites="上">@上</span>）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<h2 id="物理">物理</h2>
+<p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
+alt="物理卷子T2" />
+<figcaption aria-hidden="true">物理卷子T2</figcaption>
+</figure>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
+alt="物理卷子T6" />
+<figcaption aria-hidden="true">物理卷子T6</figcaption>
+</figure>
+<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
+的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
+<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
+class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
+class="math inline">\(2G\)</span>。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 <span
+class="math inline">\(\dfrac{1}{3}\)</span>
+准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学">化学</h2>
+<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
+alt="化学卷子P1,P2" />
+<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
+</figure>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
+<span class="math inline">\(3\)</span> 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
+alt="笑谈化学卷子" />
+<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
+</figure>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭">吃午饭</h2>
+<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
+data-cites="数学">@数学</span></p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学">数学</h2>
+<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
+alt="细致入微" />
+<figcaption aria-hidden="true">细致入微</figcaption>
+</figure>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol type="1">
+<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
+<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
+是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
+class="math inline">\(4\)</span> 就可以知道 <span
+class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
+class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<blockquote>
+<ol start="6" type="1">
+<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
+<span class="math inline">\(xyz = 1\)</span>，证明： <span
+class="math display">\[
+\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \le 1
+\]</span></li>
+</ol>
+</blockquote>
+<p>注意到 <span class="math display">\[
+\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
+\]</span> 则 <span class="math display">\[
+\begin{aligned}
+&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \\\\
+\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
+\dfrac{1}{z^2+zx+1} \\\\
+= &amp; 1
+\end{aligned}
+\]</span></p>
+<blockquote>
+<ol start="7" type="1">
+<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
+d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
+class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
+n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
+1\)</span>.</li>
+</ol>
+</blockquote>
+<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
+<span class="math inline">\(3 \nmid n\)</span>。因 <span
+class="math inline">\(m\)</span> 为完全平方数，则 <span
+class="math inline">\(\alpha\)</span> 必为偶数。</p>
+<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
+class="math inline">\(3\nmid n\)</span>，则 <span
+class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
+class="math inline">\(d_{\alpha} = 1\)</span>。</p>
+<hr />
+<p>当我不知道干啥的时候，我看到了这个</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
+alt="来了来了" />
+<figcaption aria-hidden="true">来了来了</figcaption>
+</figure>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
+<p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭">吃晚饭</h2>
+<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
+alt="海底捞吃饭前" />
+<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
+</figure>
+<p>吃吃吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
+alt="杯盘狼藉" />
+<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+</figure>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
+alt="椰子" />
+<figcaption aria-hidden="true">椰子</figcaption>
+</figure>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结">总结</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
+alt="监考老师们的合照" />
+<figcaption aria-hidden="true">监考老师们的合照</figcaption>
+</figure>
+<p>嗝。</p>
 ]]></content>
       <categories>
-        <category>教材习题解答</category>
+        <category>游记</category>
       </categories>
       <tags>
-        <tag>微积分</tag>
+        <tag>生活</tag>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
       </tags>
   </entry>
   <entry>
@@ -6342,6 +6424,23 @@ href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp
         <tag>Java</tag>
         <tag>Android</tag>
         <tag>程序设计训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
       </tags>
   </entry>
 </search>
