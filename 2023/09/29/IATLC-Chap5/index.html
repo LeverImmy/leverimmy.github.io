@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第五章 上下文无关文法及上下文无关语言  上下文无关文法  上下文无关文法的定义 推导与递归推理 最左与最右推导 文法的语言 句型  语法分析树  语法分析树的构造 递归推理、推导与语法分析树的等价性  从递归推理到语法分析树 从语法分析树到最左推导 从最左推导到递归推理   文法与语言的歧义性  歧义文法 去除文法的歧义性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-29T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-30T05:36:56.490Z">
+<meta property="article:modified_time" content="2023-10-15T03:44:50.720Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-30 13:36:56" itemprop="dateModified" datetime="2023-09-30T13:36:56+08:00">2023-09-30</time>
+      <time title="修改时间：2023-10-15 11:44:50" itemprop="dateModified" datetime="2023-10-15T11:44:50+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -411,22 +411,23 @@ class="math inline">\(G\)</span> 的 <strong>语法分析树</strong>
 <li>每个内部节点的标号是 <span class="math inline">\(V\)</span>
 中的一个非终结符。</li>
 <li>每个叶节点的标号可以是一个非终结符，一个终结符，或者 <span
-class="math inline">\(\epsilon\)</span>。但是，如果叶节点的标号是 <span
-class="math inline">\(\epsilon\)</span>，那么它一定是其父节点唯一的子节点。</li>
+class="math inline">\(\varepsilon\)</span>。但是，如果叶节点的标号是
+<span
+class="math inline">\(\varepsilon\)</span>，那么它一定是其父节点唯一的子节点。</li>
 <li>如果某个内部节点的标号是 <span
 class="math inline">\(A\)</span>，并且它的子节点的标号从左到右分别为
 <span class="math inline">\(X_1, X_2, \cdots, X_k\)</span>，那么 <span
 class="math inline">\(A \to X_1X_2\cdots X_k\)</span> 一定是 <span
 class="math inline">\(P\)</span> 中的一个产生式。注意：如果其中某个
 <span class="math inline">\(X\)</span> 为 <span
-class="math inline">\(\epsilon\)</span>，那么 <span
+class="math inline">\(\varepsilon\)</span>，那么 <span
 class="math inline">\(X\)</span> 一定是 <span
 class="math inline">\(A\)</span> 唯一的子节点，并且 <span
-class="math inline">\(A \to \epsilon\)</span> 是 <span
+class="math inline">\(A \to \varepsilon\)</span> 是 <span
 class="math inline">\(G\)</span> 的一个产生式。</li>
 </ol>
 <p>最重要的语法分析树，是那些 <strong>所有叶节点的标号都是终结符或 <span
-class="math inline">\(\epsilon\)</span>，且根节点的标号是初始符号</strong>
+class="math inline">\(\varepsilon\)</span>，且根节点的标号是初始符号</strong>
 的语法分析树。</p>
 <h3
 id="递归推理推导与语法分析树的等价性">递归推理、推导与语法分析树的等价性</h3>

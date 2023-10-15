@@ -26,16 +26,17 @@
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
 <meta property="og:description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质  上下文无关文法的范式  去除无用的符号 去除 \(\varepsilon\) 产生式 去除单位式 乔姆斯基范式（CNF）  上下文无关语言的泵引理 上下文无关语言的封闭性  代入定理 与正则语言的交 逆同态  上下文无关语言的判定性质  CFG 和 PDA 之间相互转化的时间复杂度 CFG 变换到 CN">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.picgo.net/2023/10/15/pump80177706fd416192.png">
 <meta property="og:image" content="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png">
 <meta property="article:published_time" content="2023-10-10T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-15T03:13:03.848Z">
+<meta property="article:modified_time" content="2023-10-15T03:40:28.997Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
 <meta property="article:tag" content="上下文无关语言">
 <meta property="article:tag" content="下推自动机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png">
+<meta name="twitter:image" content="https://img.picgo.net/2023/10/15/pump80177706fd416192.png">
 
 
 <link rel="canonical" href="https://leverimmy.top/2023/10/10/IATLC-Chap7/">
@@ -243,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-15 11:13:03" itemprop="dateModified" datetime="2023-10-15T11:13:03+08:00">2023-10-15</time>
+      <time title="修改时间：2023-10-15 11:40:28" itemprop="dateModified" datetime="2023-10-15T11:40:28+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,8 +302,21 @@
 <span id="more"></span>
 <h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
 <h3 id="去除无用的符号">去除无用的符号</h3>
-<p>先去除不是产生的符号，再去除不可达的符号。顺序不能弄反。</p>
-<p>否则会保留一些不可达的子树。</p>
+<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
+<p>例：考虑文法 <span class="math display">\[
+\begin{aligned}
+S &amp;\to AB | a \\
+A &amp;\to b
+\end{aligned}
+\]</span> 正确的做法是先去除不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
+导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
+class="math inline">\(S \to a\)</span>。</p>
+<p>错误的做法会导致没有不可达的符号，仅去除了不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>。此时仍然有冗余的 <span class="math inline">\(A \to
+b\)</span>。</p>
 <h3 id="去除-varepsilon-产生式">去除 <span
 class="math inline">\(\varepsilon\)</span> 产生式</h3>
 <p>先定义可空符号，再枚举这个符号是否为空，产生 <span
@@ -333,7 +347,44 @@ class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <
 class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
 class="math inline">\(L\)</span>。</li>
 </ol>
-<p><strong>证明</strong>：</p>
+<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
+对应的 CNF <span
+class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
+class="math inline">\(G\)</span> 有 <span
+class="math inline">\(m\)</span> 个非终结符，取 <span
+class="math inline">\(n = 2^m\)</span>。假设 <span
+class="math inline">\(z \in L\)</span> 且长度至少为 <span
+class="math inline">\(n\)</span>。任何产物为 <span
+class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
+<span class="math inline">\(m + 1\)</span>
+的路径，因为如果某个语法分析树的最长路径长度仅为 <span
+class="math inline">\(m\)</span>，则它的产物最长只能为 <span
+class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
+n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
+的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
+1\)</span>。由于 <span class="math inline">\(k \ge
+m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
+1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
+A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
+class="math inline">\(m\)</span>
+种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
+class="math inline">\(A_i = A_j = A\)</span>，其中 <span
+class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
+<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
+class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
+<span class="math inline">\(A_i\)</span> 和 <span
+class="math inline">\(A_j\)</span>。</p>
+<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
+<span class="math inline">\(A_j\)</span>
+为根的这两棵子树相互替代，从而达到“泵”出 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 零次或多次的效果。</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
+alt="“泵”出 v 和 x，重复 0 次和 2 次" />
+<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
+次</figcaption>
+</figure>
 <h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
 <h3 id="代入定理">代入定理</h3>
 <h3 id="与正则语言的交">与正则语言的交</h3>

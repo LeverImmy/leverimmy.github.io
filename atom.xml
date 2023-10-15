@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-10-15T03:13:03.848Z</updated>
+  <updated>2023-10-15T03:40:28.997Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://leverimmy.top/2023/10/10/IATLC-Chap7/"/>
     <id>https://leverimmy.top/2023/10/10/IATLC-Chap7/</id>
     <published>2023-10-10T05:38:23.000Z</published>
-    <updated>2023-10-15T03:13:03.848Z</updated>
+    <updated>2023-10-15T03:40:28.997Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -71,7 +71,7 @@
     <link href="https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/"/>
     <id>https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</id>
     <published>2023-10-02T03:34:22.000Z</published>
-    <updated>2023-10-02T12:11:04.130Z</updated>
+    <updated>2023-10-15T03:44:46.980Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是《数理逻辑与集合论（第2版）》第九至十二章的学习笔记，主要内容为集合论。&lt;/p&gt;</summary>
@@ -92,7 +92,7 @@
     <link href="https://leverimmy.top/2023/09/30/IATLC-Chap6/"/>
     <id>https://leverimmy.top/2023/09/30/IATLC-Chap6/</id>
     <published>2023-09-30T05:38:23.000Z</published>
-    <updated>2023-10-11T02:49:47.012Z</updated>
+    <updated>2023-10-15T03:44:48.131Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -143,7 +143,7 @@
     <link href="https://leverimmy.top/2023/09/29/IATLC-Chap5/"/>
     <id>https://leverimmy.top/2023/09/29/IATLC-Chap5/</id>
     <published>2023-09-29T02:50:23.000Z</published>
-    <updated>2023-09-30T05:36:56.490Z</updated>
+    <updated>2023-10-15T03:44:50.720Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -193,7 +193,7 @@
     <link href="https://leverimmy.top/2023/09/20/IATLC-Chap4/"/>
     <id>https://leverimmy.top/2023/09/20/IATLC-Chap4/</id>
     <published>2023-09-20T02:50:23.000Z</published>
-    <updated>2023-09-30T01:56:17.176Z</updated>
+    <updated>2023-10-15T03:44:49.856Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -232,7 +232,7 @@
     <link href="https://leverimmy.top/2023/09/19/IATLC-Chap3/"/>
     <id>https://leverimmy.top/2023/09/19/IATLC-Chap3/</id>
     <published>2023-09-19T02:50:23.000Z</published>
-    <updated>2023-09-30T00:44:20.022Z</updated>
+    <updated>2023-10-15T03:44:49.049Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -248,9 +248,9 @@
 &lt;ul&gt;
 &lt;li&gt;由 DFA 构建正则表达式&lt;/li&gt;
 &lt;li&gt;消除状态法&lt;/li&gt;
-&lt;li&gt;由正则表达式构造 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; -
+&lt;li&gt;由正则表达式构造 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; -
 NFA&lt;/li&gt;
-&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt;
+&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt;
 转移时的注意事项&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;正则表达式代数定律&lt;/li&gt;
@@ -274,7 +274,7 @@ NFA&lt;/li&gt;
     <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-2/"/>
     <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-2/</id>
     <published>2023-09-17T06:49:56.000Z</published>
-    <updated>2023-10-10T08:12:55.206Z</updated>
+    <updated>2023-10-15T03:43:33.109Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -307,12 +307,12 @@ NFA&lt;/li&gt;
 &lt;li&gt;子集构造的最劣情形&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 转移
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 转移
 &lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; - NFA
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; - NFA
 的形式化定义&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 闭包&lt;/li&gt;
-&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;epsilon&#92;)&lt;/span&gt; 转移&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 闭包&lt;/li&gt;
+&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 转移&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
@@ -497,7 +497,7 @@ href=&quot;https://github.com/LeverImmy/NewsApp/&quot;&gt;LeverImmy/NewsApp&lt;/
     <link href="https://leverimmy.top/2023/07/01/Tsinghua-Calculus-1/"/>
     <id>https://leverimmy.top/2023/07/01/Tsinghua-Calculus-1/</id>
     <published>2023-07-01T13:53:46.000Z</published>
-    <updated>2023-09-21T08:11:24.285Z</updated>
+    <updated>2023-10-15T03:44:46.096Z</updated>
     
     
     <summary type="html">&lt;p&gt;这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。&lt;/p&gt;

@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律">
+    <meta name="description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\varepsilon\) - NFA 消除 \(\varepsilon\) 转移时的注意事项  正则表达式代数定律">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第三章">
 <meta property="og:url" content="https://leverimmy.top/2023/09/19/IATLC-Chap3/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\epsilon\) - NFA 消除 \(\epsilon\) 转移时的注意事项  正则表达式代数定律">
+<meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\varepsilon\) - NFA 消除 \(\varepsilon\) 转移时的注意事项  正则表达式代数定律">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-30T00:44:20.022Z">
+<meta property="article:modified_time" content="2023-10-15T03:44:49.049Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">并与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-epsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\epsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-epsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\epsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">并与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-varepsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\varepsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-varepsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\varepsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-30 08:44:20" itemprop="dateModified" datetime="2023-09-30T08:44:20+08:00">2023-09-30</time>
+      <time title="修改时间：2023-10-15 11:44:49" itemprop="dateModified" datetime="2023-10-15T11:44:49+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,9 +281,9 @@
 <ul>
 <li>由 DFA 构建正则表达式</li>
 <li>消除状态法</li>
-<li>由正则表达式构造 <span class="math inline">\(\epsilon\)</span> -
+<li>由正则表达式构造 <span class="math inline">\(\varepsilon\)</span> -
 NFA</li>
-<li>消除 <span class="math inline">\(\epsilon\)</span>
+<li>消除 <span class="math inline">\(\varepsilon\)</span>
 转移时的注意事项</li>
 </ul></li>
 <li>正则表达式代数定律</li>
@@ -305,7 +305,7 @@ class="math inline">\(L^*\)</span>。形式化的定义是：</p>
 <p><span class="math display">\[
 L^* = \bigcup_{i \ge 0}L^i
 \]</span></p>
-<p>其中 <span class="math inline">\(L^0 = \{\epsilon\}, L^1 =
+<p>其中 <span class="math inline">\(L^0 = \{\varepsilon\}, L^1 =
 L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
 class="math inline">\(i\)</span> 个 <span
 class="math inline">\(L\)</span> 的连接。</p>
@@ -317,23 +317,25 @@ class="math inline">\(L^*\)</span>
 <li><p><span class="math inline">\(\varnothing^*\)</span></p>
 <p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
 class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
-class="math inline">\(\varnothing^0 = \{\epsilon\}\)</span>。故 <span
-class="math inline">\(\varnothing^* = \{\epsilon\}\)</span>。</p></li>
-<li><p><span class="math inline">\(\{\epsilon\}^*\)</span></p>
-<p>注意到 <span class="math inline">\(\{\epsilon\}\)</span>
+class="math inline">\(\varnothing^0 = \{\varepsilon\}\)</span>。故 <span
+class="math inline">\(\varnothing^* =
+\{\varepsilon\}\)</span>。</p></li>
+<li><p><span class="math inline">\(\{\varepsilon\}^*\)</span></p>
+<p>注意到 <span class="math inline">\(\{\varepsilon\}\)</span>
 无论连接多少次都不会改变它是 <span
-class="math inline">\(\{\epsilon\}\)</span> 的事实，所以 <span
-class="math inline">\(\{\epsilon\}^* = \{\epsilon\}\)</span>。</p></li>
+class="math inline">\(\{\varepsilon\}\)</span> 的事实，所以 <span
+class="math inline">\(\{\varepsilon\}^* =
+\{\varepsilon\}\)</span>。</p></li>
 </ul>
 <h2 id="正则表达式的定义">正则表达式的定义</h2>
 <p>正则表达式仍然采用递归的定义方法：</p>
 <p><strong>基础</strong>：</p>
 <ol type="1">
-<li><span class="math inline">\(\epsilon\)</span> 和 <span
+<li><span class="math inline">\(\varepsilon\)</span> 和 <span
 class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
-<span class="math inline">\(\{\epsilon\}\)</span> 和 <span
+<span class="math inline">\(\{\varepsilon\}\)</span> 和 <span
 class="math inline">\(\varnothing\)</span>。也就是说，<span
-class="math inline">\(L(\epsilon) = \{\epsilon\}, L(\varnothing) =
+class="math inline">\(L(\varepsilon) = \{\varepsilon\}, L(\varnothing) =
 \varnothing\)</span>。</li>
 <li>若 <span class="math inline">\(a\)</span> 是任意
 <strong>符号</strong>，则 <span
@@ -366,11 +368,11 @@ class="math inline">\(E\)</span> 相同的语言。也就是说 <span
 class="math inline">\((L(E)) = L(E)\)</span>。</li>
 </ol>
 <h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
-<p>DFA、NFA、<span class="math inline">\(\epsilon\)</span> - NFA
+<p>DFA、NFA、<span class="math inline">\(\varepsilon\)</span> - NFA
 和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
 <pre><code class="highlight mermaid">graph LR
 A(NFA) --&gt; |1| B(DFA)
-B --&gt; |2| C($\epsilon$ - NFA)
+B --&gt; |2| C($\varepsilon$ - NFA)
 C --&gt; |3| B
 B --&gt; |4| D(RE)
 D --&gt; |5| C</code></pre>
@@ -404,7 +406,7 @@ class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
 以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
 <ul>
 <li>如果 <span class="math inline">\(i = j\)</span>，则 <span
-class="math inline">\(R_{ii}^{(0)} = \epsilon + \textbf{a}_1 +
+class="math inline">\(R_{ii}^{(0)} = \varepsilon + \textbf{a}_1 +
 \textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
 class="math inline">\(i\)</span> 有自环 <span
 class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
@@ -464,8 +466,8 @@ B --&gt; |$0, 1$| B</code></pre>
 <tr class="odd">
 <td style="text-align: center;"><span
 class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{1}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span
@@ -482,8 +484,8 @@ class="math inline">\(\varnothing\)</span></td>
 <tr class="even">
 <td style="text-align: center;"><span
 class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -510,9 +512,9 @@ R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
 <tr class="odd">
 <td style="text-align: center;"><span
 class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{1} + (\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*(\epsilon +
-\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{1} + (\varepsilon + \mathbf{1})(\varepsilon +
+\mathbf{1})^*(\varepsilon + \mathbf{1})\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbf{1}^*\)</span></td>
 </tr>
@@ -520,7 +522,8 @@ class="math inline">\(\mathbf{1}^*\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(R_{12}^{(0)}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
-(\epsilon + \mathbf{1})(\epsilon + \mathbf{1})^*\mathbf{0}\)</span></td>
+(\varepsilon + \mathbf{1})(\varepsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
 </tr>
@@ -528,7 +531,7 @@ class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(R_{21}^{(0)}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\varnothing
-+ \varnothing(\epsilon + \mathbf{1})^*(\epsilon +
++ \varnothing(\varepsilon + \mathbf{1})^*(\varepsilon +
 \mathbf{1})\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\varnothing\)</span></td>
@@ -536,11 +539,11 @@ class="math inline">\(\varnothing\)</span></td>
 <tr class="even">
 <td style="text-align: center;"><span
 class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + \varnothing(\epsilon +
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1} + \varnothing(\varepsilon +
 \mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -567,7 +570,7 @@ R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
 <td style="text-align: center;"><span
 class="math inline">\(R_{11}^{(1)}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
-+ \mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} +
++ \mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
 \mathbf{1})^*\varnothing\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbf{1}^*\)</span></td>
@@ -577,8 +580,8 @@ class="math inline">\(\mathbf{1}^*\)</span></td>
 class="math inline">\(R_{12}^{(1)}\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbf{1}^*\mathbf{0} +
-\mathbf{1}^*\mathbf{0}(\epsilon + \mathbf{0} + \mathbf{1})^*(\epsilon +
-\mathbf{0} + \mathbf{1})\)</span></td>
+\mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
+\mathbf{1})^*(\varepsilon + \mathbf{0} + \mathbf{1})\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
 \mathbf{1})^*\)</span></td>
@@ -587,7 +590,7 @@ class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
 <td style="text-align: center;"><span
 class="math inline">\(R_{21}^{(1)}\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(\varnothing
-+ (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon + \mathbf{0} +
++ (\varepsilon + \mathbf{0} + \mathbf{1})(\varepsilon + \mathbf{0} +
 \mathbf{1})^*\varnothing\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\varnothing\)</span></td>
@@ -595,10 +598,10 @@ class="math inline">\(\varnothing\)</span></td>
 <tr class="even">
 <td style="text-align: center;"><span
 class="math inline">\(R_{22}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\epsilon +
-\mathbf{0} + \mathbf{1} + (\epsilon + \mathbf{0} + \mathbf{1})(\epsilon
-+ \mathbf{0} + \mathbf{1})^*(\epsilon + \mathbf{0} +
-\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1} + (\varepsilon + \mathbf{0} +
+\mathbf{1})(\varepsilon + \mathbf{0} + \mathbf{1})^*(\varepsilon +
+\mathbf{0} + \mathbf{1})\)</span></td>
 <td style="text-align: center;"><span class="math inline">\((\mathbf{0}
 + \mathbf{1})^*\)</span></td>
 </tr>
@@ -662,12 +665,12 @@ A --&gt; |$R$| A</code></pre></p></li>
 <li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
 所得出的所有表达式之和（并）。</p></li>
 </ol>
-<h3 id="由正则表达式构造-epsilon---nfa">由正则表达式构造 <span
-class="math inline">\(\epsilon\)</span> - NFA</h3>
+<h3 id="由正则表达式构造-varepsilon---nfa">由正则表达式构造 <span
+class="math inline">\(\varepsilon\)</span> - NFA</h3>
 <p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
-class="math inline">\(\epsilon\)</span> - NFA。</p>
+class="math inline">\(\varepsilon\)</span> - NFA。</p>
 <p><strong>基础</strong>：先构造 <span
-class="math inline">\(\{\epsilon\}, \varnothing, \mathbf{a}\)</span>
+class="math inline">\(\{\varepsilon\}, \varnothing, \mathbf{a}\)</span>
 对应的三个自动机：</p>
 <pre><code class="highlight mermaid">graph LR
 
@@ -675,8 +678,8 @@ style Start fill:none,stroke-width:0px
 
 Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
 
-subgraph &quot;$\&#123;\epsilon\&#125;$&quot;
-A --&gt; | $\epsilon$ | B(((&quot; &quot;)))
+subgraph &quot;$\&#123;\varepsilon\&#125;$&quot;
+A --&gt; | $\varepsilon$ | B(((&quot; &quot;)))
 end</code></pre>
 <pre><code class="highlight mermaid">graph LR
 style Start fill:none,stroke-width:0px
@@ -703,8 +706,8 @@ style Start fill:none,stroke-width:0px
 
 Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
 
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
-A --&gt; | $\epsilon$ | D((&quot; &quot;))
+A --&gt; | $\varepsilon$ | B((&quot; &quot;))
+A --&gt; | $\varepsilon$ | D((&quot; &quot;))
 
 subgraph $R$
 B -.- C((&quot; &quot;))
@@ -714,8 +717,8 @@ subgraph $S$
 D -.- E((&quot; &quot;))
 end
 
-C --&gt; | $\epsilon$ | F(((&quot; &quot;)))
-E --&gt; | $\epsilon$ | F</code></pre>
+C --&gt; | $\varepsilon$ | F(((&quot; &quot;)))
+E --&gt; | $\varepsilon$ | F</code></pre>
 <pre><code class="highlight mermaid">graph LR
 style Start fill:none,stroke-width:0px
 
@@ -725,7 +728,7 @@ subgraph $R$
 A -.- B((&quot; &quot;))
 end
 
-B --&gt; | $\epsilon$ | C((&quot; &quot;))
+B --&gt; | $\varepsilon$ | C((&quot; &quot;))
 
 subgraph $S$
 C -.- D(((&quot; &quot;)))
@@ -735,19 +738,19 @@ style Start fill:none,stroke-width:0px
 
 Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
 
-A --&gt; | $\epsilon$ | B((&quot; &quot;))
+A --&gt; | $\varepsilon$ | B((&quot; &quot;))
 
 subgraph $R$
-C --&gt; | $\epsilon$ | B
+C --&gt; | $\varepsilon$ | B
 B -.- C((&quot; &quot;))
 end
 
-C --&gt; | $\epsilon$ | D(((&quot; &quot;)))
-A --&gt; | $\epsilon$ | D</code></pre>
+C --&gt; | $\varepsilon$ | D(((&quot; &quot;)))
+A --&gt; | $\varepsilon$ | D</code></pre>
 <p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
-<span class="math inline">\(\epsilon\)</span> - NFA。</p>
-<h3 id="消除-epsilon-转移时的注意事项">消除 <span
-class="math inline">\(\epsilon\)</span> 转移时的注意事项</h3>
+<span class="math inline">\(\varepsilon\)</span> - NFA。</p>
+<h3 id="消除-varepsilon-转移时的注意事项">消除 <span
+class="math inline">\(\varepsilon\)</span> 转移时的注意事项</h3>
 <p>在上述构造中，有些地方可以化简：</p>
 <ol type="1">
 <li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
@@ -772,14 +775,14 @@ A -.- | $R$ | B((&quot; &quot;))
 B -.- | $S$ | C(((&quot; &quot;)))
 end</code></pre></li>
 <li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
-class="math inline">\(\epsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
+class="math inline">\(\varepsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
 style Start fill:none,stroke-width:0px
 
 Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
 
 subgraph &quot; &quot;
-B(((&quot; &quot;))) --&gt; | $\epsilon$ | A
-A --&gt; | $\epsilon$ | B
+B(((&quot; &quot;))) --&gt; | $\varepsilon$ | A
+A --&gt; | $\varepsilon$ | B
 A -.- | $R$ | B
 end</code></pre></li>
 </ol>

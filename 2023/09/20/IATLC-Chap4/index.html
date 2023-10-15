@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第四章 正则语言的性质  泵引理 正则语言的封闭性  交运算的乘积构造法 反转 逆同态  自动机的等价性和最小化  测试状态的等价性 测试正则语言的等价性 DFA 的最小化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-20T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-09-30T01:56:17.176Z">
+<meta property="article:modified_time" content="2023-10-15T03:44:49.856Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-30 09:56:17" itemprop="dateModified" datetime="2023-09-30T09:56:17+08:00">2023-09-30</time>
+      <time title="修改时间：2023-10-15 11:44:49" itemprop="dateModified" datetime="2023-10-15T11:44:49+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,7 +295,7 @@ class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
 class="math inline">\(\exists x, y, z\)</span> 满足 <span
 class="math inline">\(w = xyz\)</span> 且：</p>
 <ol type="1">
-<li><span class="math inline">\(y \neq \epsilon\)</span></li>
+<li><span class="math inline">\(y \neq \varepsilon\)</span></li>
 <li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
 <li><span class="math inline">\(\forall k \ge 0, xy^kz \in
 L\)</span></li>
@@ -323,7 +323,7 @@ A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
 B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
 B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
 <p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
-class="math inline">\(y \neq \epsilon\)</span>，由 <span
+class="math inline">\(y \neq \varepsilon\)</span>，由 <span
 class="math inline">\(j \le n\)</span> 得到 <span
 class="math inline">\(\left|xy\right| \le n\)</span>。<span
 class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
@@ -424,8 +424,8 @@ class="math inline">\(\hat\delta(q, w)\)</span>
 class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
 class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
 <p>注意到一个事实，<span class="math inline">\(w \neq
-\epsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
-class="math inline">\(w = \epsilon\)</span>
+\varepsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
+class="math inline">\(w = \varepsilon\)</span>
 的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
 class="math inline">\(r = \delta(p, a_1), s = \delta(q,
 a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
