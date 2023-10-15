@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-10-15T02:05:29.755Z</updated>
+  <updated>2023-10-15T03:13:03.848Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -21,13 +21,34 @@
     <link href="https://leverimmy.top/2023/10/10/IATLC-Chap7/"/>
     <id>https://leverimmy.top/2023/10/10/IATLC-Chap7/</id>
     <published>2023-10-10T05:38:23.000Z</published>
-    <updated>2023-10-15T02:05:29.755Z</updated>
+    <updated>2023-10-15T03:13:03.848Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;第七章 上下文无关语言的性质&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;上下文无关文法的范式
+&lt;ul&gt;
+&lt;li&gt;去除无用的符号&lt;/li&gt;
+&lt;li&gt;去除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 产生式&lt;/li&gt;
+&lt;li&gt;去除单位式&lt;/li&gt;
+&lt;li&gt;乔姆斯基范式（CNF）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;上下文无关语言的泵引理&lt;/li&gt;
+&lt;li&gt;上下文无关语言的封闭性
+&lt;ul&gt;
+&lt;li&gt;代入定理&lt;/li&gt;
+&lt;li&gt;与正则语言的交&lt;/li&gt;
+&lt;li&gt;逆同态&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;上下文无关语言的判定性质
+&lt;ul&gt;
+&lt;li&gt;CFG 和 PDA 之间相互转化的时间复杂度&lt;/li&gt;
+&lt;li&gt;CFG 变换到 CNF 的时间复杂度&lt;/li&gt;
+&lt;li&gt;测试 CFL 的空性&lt;/li&gt;
+&lt;li&gt;测试 CFL 的成员性：CYK 算法&lt;/li&gt;
+&lt;li&gt;不可判定的 CFL 问题&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     

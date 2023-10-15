@@ -19,16 +19,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质">
+    <meta name="description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质  上下文无关文法的范式  去除无用的符号 去除 \(\varepsilon\) 产生式 去除单位式 乔姆斯基范式（CNF）  上下文无关语言的泵引理 上下文无关语言的封闭性  代入定理 与正则语言的交 逆同态  上下文无关语言的判定性质  CFG 和 PDA 之间相互转化的时间复杂度 CFG 变换到 CN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】自动机理论、语言和计算导论 - 第七章">
 <meta property="og:url" content="https://leverimmy.top/2023/10/10/IATLC-Chap7/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质">
+<meta property="og:description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质  上下文无关文法的范式  去除无用的符号 去除 \(\varepsilon\) 产生式 去除单位式 乔姆斯基范式（CNF）  上下文无关语言的泵引理 上下文无关语言的封闭性  代入定理 与正则语言的交 逆同态  上下文无关语言的判定性质  CFG 和 PDA 之间相互转化的时间复杂度 CFG 变换到 CN">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png">
 <meta property="article:published_time" content="2023-10-10T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-15T02:05:29.755Z">
+<meta property="article:modified_time" content="2023-10-15T03:13:03.848Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">上下文无关文法的范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.1.</span> <span class="nav-text">去除无用的符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4-varepsilon-%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">去除 \(\varepsilon\) 产生式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%8D%95%E4%BD%8D%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">去除单位式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%94%E5%A7%86%E6%96%AF%E5%9F%BA%E8%8C%83%E5%BC%8Fcnf"><span class="nav-number">1.3.1.</span> <span class="nav-text">乔姆斯基范式（CNF）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B3%B5%E5%BC%95%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">上下文无关语言的泵引理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B5%E5%BC%95%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">泵引理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B0%81%E9%97%AD%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">上下文无关语言的封闭性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E5%AE%9A%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">代入定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%A4"><span class="nav-number">3.2.</span> <span class="nav-text">与正则语言的交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%90%8C%E6%80%81"><span class="nav-number">3.3.</span> <span class="nav-text">逆同态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%A4%E5%AE%9A%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">上下文无关语言的判定性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cfg-%E5%92%8C-pda-%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.1.</span> <span class="nav-text">CFG 和 PDA
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">上下文无关文法的范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.1.</span> <span class="nav-text">去除无用的符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4-varepsilon-%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">去除 \(\varepsilon\) 产生式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%8D%95%E4%BD%8D%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">去除单位式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%94%E5%A7%86%E6%96%AF%E5%9F%BA%E8%8C%83%E5%BC%8Fcnf"><span class="nav-number">1.4.</span> <span class="nav-text">乔姆斯基范式（CNF）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B3%B5%E5%BC%95%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">上下文无关语言的泵引理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B0%81%E9%97%AD%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">上下文无关语言的封闭性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E5%AE%9A%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">代入定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%A4"><span class="nav-number">3.2.</span> <span class="nav-text">与正则语言的交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%90%8C%E6%80%81"><span class="nav-number">3.3.</span> <span class="nav-text">逆同态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%A4%E5%AE%9A%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">上下文无关语言的判定性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cfg-%E5%92%8C-pda-%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.1.</span> <span class="nav-text">CFG 和 PDA
 之间相互转化的时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cfg-%E5%8F%98%E6%8D%A2%E5%88%B0-cnf-%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.2.</span> <span class="nav-text">CFG 变换到 CNF 的时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-cfl-%E7%9A%84%E7%A9%BA%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">测试 CFL 的空性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-cfl-%E7%9A%84%E6%88%90%E5%91%98%E6%80%A7cyk-%E7%AE%97%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">测试 CFL 的成员性：CYK 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E5%88%A4%E5%AE%9A%E7%9A%84-cfl-%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">不可判定的 CFL 问题</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
@@ -243,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-15 10:05:29" itemprop="dateModified" datetime="2023-10-15T10:05:29+08:00">2023-10-15</time>
+      <time title="修改时间：2023-10-15 11:13:03" itemprop="dateModified" datetime="2023-10-15T11:13:03+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,28 @@
         <p>本文主要包括以下内容：</p>
 <p><strong>第七章 上下文无关语言的性质</strong></p>
 <ul>
-<li></li>
+<li>上下文无关文法的范式
+<ul>
+<li>去除无用的符号</li>
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
+<li>去除单位式</li>
+<li>乔姆斯基范式（CNF）</li>
+</ul></li>
+<li>上下文无关语言的泵引理</li>
+<li>上下文无关语言的封闭性
+<ul>
+<li>代入定理</li>
+<li>与正则语言的交</li>
+<li>逆同态</li>
+</ul></li>
+<li>上下文无关语言的判定性质
+<ul>
+<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
+<li>CFG 变换到 CNF 的时间复杂度</li>
+<li>测试 CFL 的空性</li>
+<li>测试 CFL 的成员性：CYK 算法</li>
+<li>不可判定的 CFL 问题</li>
+</ul></li>
 </ul>
 <span id="more"></span>
 <h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
@@ -288,11 +309,31 @@ class="math inline">\(\varepsilon\)</span> 产生式</h3>
 class="math inline">\(2^n\)</span> 个分支。</p>
 <h3 id="去除单位式">去除单位式</h3>
 <p>定义单位对，每个单位对一步到底。</p>
-<h4 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h4>
+<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
 <p>过程，步骤 a) 步骤 b)</p>
 <p>等价性？</p>
 <h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
-<h3 id="泵引理">泵引理</h3>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
+<span class="math inline">\(L\)</span> 中的串 <span
+class="math inline">\(z\)</span> 的长度 <span
+class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
+class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
+uvwxy\)</span>，其中：</p>
+<ol type="1">
+<li><span class="math inline">\(\left|vwx\right| \le
+n\)</span>，也就是说，中间的部分不会很长；</li>
+<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
+<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
+class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
+<span class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
+class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
+class="math inline">\(L\)</span>。</li>
+</ol>
+<p><strong>证明</strong>：</p>
 <h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
 <h3 id="代入定理">代入定理</h3>
 <h3 id="与正则语言的交">与正则语言的交</h3>
@@ -300,8 +341,62 @@ class="math inline">\(2^n\)</span> 个分支。</p>
 <h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
 <h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
 之间相互转化的时间复杂度</h3>
-<p>从 CFG 到 PDA 的时间复杂度显然是线性的，因为我们只需要模拟栈</p>
+<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
+href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
+<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
+最多只会额外加入域产生式个数相等的 <span
+class="math inline">\(\delta\)</span> 转移，步骤 2
+最多只会额外加入与终结符个数相等的 <span
+class="math inline">\(\delta\)</span> 转移。</p>
+<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
+之间，相互转换的时间复杂度都是线性的。</p>
+<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
+class="math inline">\(n\)</span>。由于单次 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
+X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
+[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
+的产生式，最坏情况下这组产生式的个数为 <span
+class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
+<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
+class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
+<span class="math display">\[
+\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
+\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
+\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
+= \{(r_0, Y_1Y_2)\}\)</span>。</p>
+<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
+个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
+class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
+class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
 <h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
+<ul>
+<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度。</li>
+<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
+的时间复杂度。</li>
+<li>用产生式体中的变元来代替终结符需要 <span
+class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
+<span class="math inline">\(O(n)\)</span> 的文法。</li>
+<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
+的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度，并且额外增加长度为 <span
+class="math inline">\(O(n)\)</span> 的文法。</li>
+</ul>
+<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
+产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
+class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
+<span class="math inline">\(O(2^n)\)</span>
+的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
+<span class="math inline">\(O(n)\)</span>。但我们可以在
+<strong>把所有产生式的体打断为长度为 <span
+class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
+class="math inline">\(\varepsilon\)</span>
+产生式，因为这样每个产生式枚举的代价仅为 <span
+class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
+class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
+class="math inline">\(O(n)\)</span>。</p>
 <h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
 <p>对产生式的集合构造一个有向图，图中的每条边由
 <strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
