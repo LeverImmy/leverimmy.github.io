@@ -26,14 +26,16 @@
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
 <meta property="og:description" content="本文主要包括以下内容： 第七章 上下文无关语言的性质">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png">
 <meta property="article:published_time" content="2023-10-10T05:38:23.000Z">
-<meta property="article:modified_time" content="2023-10-10T08:21:13.226Z">
+<meta property="article:modified_time" content="2023-10-15T02:05:29.755Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="上下文无关文法">
 <meta property="article:tag" content="上下文无关语言">
 <meta property="article:tag" content="下推自动机">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png">
 
 
 <link rel="canonical" href="https://leverimmy.top/2023/10/10/IATLC-Chap7/">
@@ -130,7 +132,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -143,6 +145,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">上下文无关文法的范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.1.</span> <span class="nav-text">去除无用的符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4-varepsilon-%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">去除 \(\varepsilon\) 产生式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%8D%95%E4%BD%8D%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">去除单位式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%94%E5%A7%86%E6%96%AF%E5%9F%BA%E8%8C%83%E5%BC%8Fcnf"><span class="nav-number">1.3.1.</span> <span class="nav-text">乔姆斯基范式（CNF）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B3%B5%E5%BC%95%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">上下文无关语言的泵引理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B5%E5%BC%95%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">泵引理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B0%81%E9%97%AD%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">上下文无关语言的封闭性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%85%A5%E5%AE%9A%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">代入定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%A4"><span class="nav-number">3.2.</span> <span class="nav-text">与正则语言的交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%90%8C%E6%80%81"><span class="nav-number">3.3.</span> <span class="nav-text">逆同态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%A4%E5%AE%9A%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">上下文无关语言的判定性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cfg-%E5%92%8C-pda-%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.1.</span> <span class="nav-text">CFG 和 PDA
+之间相互转化的时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cfg-%E5%8F%98%E6%8D%A2%E5%88%B0-cnf-%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">4.2.</span> <span class="nav-text">CFG 变换到 CNF 的时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-cfl-%E7%9A%84%E7%A9%BA%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">测试 CFL 的空性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-cfl-%E7%9A%84%E6%88%90%E5%91%98%E6%80%A7cyk-%E7%AE%97%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">测试 CFL 的成员性：CYK 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E5%88%A4%E5%AE%9A%E7%9A%84-cfl-%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">不可判定的 CFL 问题</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,9 +235,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-10-10 13:38:23 / 修改时间：16:21:13" itemprop="dateCreated datePublished" datetime="2023-10-10T13:38:23+08:00">2023-10-10</time>
+      <time title="创建时间：2023-10-10 13:38:23" itemprop="dateCreated datePublished" datetime="2023-10-10T13:38:23+08:00">2023-10-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-15 10:05:29" itemprop="dateModified" datetime="2023-10-15T10:05:29+08:00">2023-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,6 +278,102 @@
 <li></li>
 </ul>
 <span id="more"></span>
+<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
+<h3 id="去除无用的符号">去除无用的符号</h3>
+<p>先去除不是产生的符号，再去除不可达的符号。顺序不能弄反。</p>
+<p>否则会保留一些不可达的子树。</p>
+<h3 id="去除-varepsilon-产生式">去除 <span
+class="math inline">\(\varepsilon\)</span> 产生式</h3>
+<p>先定义可空符号，再枚举这个符号是否为空，产生 <span
+class="math inline">\(2^n\)</span> 个分支。</p>
+<h3 id="去除单位式">去除单位式</h3>
+<p>定义单位对，每个单位对一步到底。</p>
+<h4 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h4>
+<p>过程，步骤 a) 步骤 b)</p>
+<p>等价性？</p>
+<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
+<h3 id="泵引理">泵引理</h3>
+<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
+<h3 id="代入定理">代入定理</h3>
+<h3 id="与正则语言的交">与正则语言的交</h3>
+<h3 id="逆同态">逆同态</h3>
+<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
+<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
+之间相互转化的时间复杂度</h3>
+<p>从 CFG 到 PDA 的时间复杂度显然是线性的，因为我们只需要模拟栈</p>
+<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
+<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
+<p>对产生式的集合构造一个有向图，图中的每条边由
+<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
+<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
+DFS：</p>
+<ul>
+<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
+<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
+</ul>
+<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
+DFS 的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
+是否为空。</p>
+<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
+<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
+alt="由 CYK 算法构造的表" />
+<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
+</figure>
+<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
+a_n\)</span> 中的位置，在图中假定 <span
+class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
+class="math inline">\(X_{ij}\)</span> 是满足 <span
+class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
+的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
+是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
+<span class="math inline">\(S\)</span> 是否能推导出 <span
+class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
+<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
+[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
+class="math inline">\(G\)</span> 的产生式中满足 <span
+class="math inline">\(A \to a_i\)</span> 的非终结符 <span
+class="math inline">\(A\)</span> 的集合。</p>
+<p><strong>归纳</strong>：假设想要计算出 <span
+class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
+class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
+class="math inline">\(X_{ii}\)</span> 位于第 <span
+class="math inline">\(1\)</span> 行。本质上 <span
+class="math inline">\(X_{ij}\)</span>
+所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
+class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
+<span class="math inline">\(j - i + 1\)</span>
+的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
+\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
+<span class="math inline">\(A \implies BC\)</span>，其中 <span
+class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{k}\)</span>，<span class="math inline">\(C
+\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
+class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
+class="math inline">\(k\)</span>，找到所有满足条件的 <span
+class="math inline">\(B\)</span> 和 <span
+class="math inline">\(C\)</span>，再检查这样的组合 <span
+class="math inline">\(BC\)</span> 是否能被 <span
+class="math inline">\(A\)</span> 产生。</p>
+<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
+class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
+<ol type="1">
+<li>某个给定的 CFG <span class="math inline">\(G\)</span>
+是歧义的吗？</li>
+<li>某个给定的 CFL <span class="math inline">\(L\)</span>
+是固有歧义的吗？</li>
+<li>两个 CFL 的交为空吗？</li>
+<li>两个 CFL 相同吗？</li>
+<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
+吗？其中 <span class="math inline">\(\Sigma\)</span>
+是该语言的字母表。</li>
+</ol>
 
     </div>
 
