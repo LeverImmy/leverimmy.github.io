@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-10-29T03:40:52.094Z</updated>
+  <updated>2023-10-15T04:11:52.000Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>【学习笔记】数据结构学习笔记</title>
-    <link href="https://leverimmy.top/2023/10/29/DSA/"/>
-    <id>https://leverimmy.top/2023/10/29/DSA/</id>
-    <published>2023-10-29T03:35:54.000Z</published>
-    <updated>2023-10-29T03:40:52.094Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;以一个 OIer 的视角看待《数据结构》这门课。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="数据结构" scheme="https://leverimmy.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈" scheme="https://leverimmy.top/tags/%E6%A0%88/"/>
-    
-    <category term="队列" scheme="https://leverimmy.top/tags/%E9%98%9F%E5%88%97/"/>
-    
-    <category term="链表" scheme="https://leverimmy.top/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-    <category term="二叉树" scheme="https://leverimmy.top/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
   
   <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
@@ -220,7 +193,7 @@
     <link href="https://leverimmy.top/2023/09/20/IATLC-Chap4/"/>
     <id>https://leverimmy.top/2023/09/20/IATLC-Chap4/</id>
     <published>2023-09-20T02:50:23.000Z</published>
-    <updated>2023-10-15T03:44:50.000Z</updated>
+    <updated>2023-11-14T06:42:58.548Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
