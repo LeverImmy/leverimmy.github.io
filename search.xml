@@ -2476,6 +2476,337 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
+    <url>/2023/10/10/IATLC-Chap7/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第七章 上下文无关语言的性质</strong></p>
+<ul>
+<li>上下文无关文法的范式
+<ul>
+<li>去除无用的符号</li>
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
+<li>去除单位式</li>
+<li>乔姆斯基范式（CNF）</li>
+</ul></li>
+<li>上下文无关语言的泵引理</li>
+<li>上下文无关语言的封闭性
+<ul>
+<li>代入定理</li>
+<li>与正则语言的交</li>
+<li>逆同态</li>
+</ul></li>
+<li>上下文无关语言的判定性质
+<ul>
+<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
+<li>CFG 变换到 CNF 的时间复杂度</li>
+<li>测试 CFL 的空性</li>
+<li>测试 CFL 的成员性：CYK 算法</li>
+<li>不可判定的 CFL 问题</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
+<h3 id="去除无用的符号">去除无用的符号</h3>
+<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
+<p>例：考虑文法 <span class="math display">\[
+\begin{aligned}
+S &amp;\to AB | a \\
+A &amp;\to b
+\end{aligned}
+\]</span> 正确的做法是先去除不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
+导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
+class="math inline">\(S \to a\)</span>。</p>
+<p>错误的做法会导致没有不可达的符号，仅去除了不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>。此时仍然有冗余的 <span class="math inline">\(A \to
+b\)</span>。</p>
+<h3 id="去除-varepsilon-产生式">去除 <span
+class="math inline">\(\varepsilon\)</span> 产生式</h3>
+<p>定义可空符号：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
+\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
+的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
+<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
+C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
+都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
+<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
+class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
+class="math inline">\(\varepsilon\)</span> 产生式。</p>
+<h3 id="去除单位式">去除单位式</h3>
+<p>我们需要找到所有满足如下条件的非终结符对 <span
+class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
+class="math inline">\(A
+\overset{*}{\implies}B\)</span>。注意，即使使用非单位产生式也可能有
+<span class="math inline">\(A \overset{*}{\implies} B\)</span>，例如
+<span class="math inline">\(A \to BC, B \to \varepsilon\)</span>。</p>
+<p>定义单位对：</p>
+<p><strong>基础</strong>：对于任何非终结符 <span
+class="math inline">\(A\)</span>，<span class="math inline">\((A,
+A)\)</span> 是单位对。</p>
+<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
+B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
+是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
+<span class="math inline">\((A, C)\)</span> 是单位对。</p>
+<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
+class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
+class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
+class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
+class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
+\implies B_n \implies \alpha\)</span>。</p>
+<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
+<p><strong>定义</strong>：任何非空且不含 <span
+class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
+<span class="math inline">\(G\)</span>，满足 <span
+class="math inline">\(G\)</span>
+中的所有产生式都属于一下两个简单的形式之一：</p>
+<ol type="1">
+<li><span class="math inline">\(A \to BC\)</span>，其中 <span
+class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
+<li><span class="math inline">\(A \to a\)</span>，其中 <span
+class="math inline">\(A\)</span> 是非终结符，<span
+class="math inline">\(a\)</span> 是终结符。</li>
+</ol>
+<p>更进一步，<span class="math inline">\(G\)</span>
+中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
+<p>构造 CNF 的步骤首先包括得到一个不含 <span
+class="math inline">\(\varepsilon\)</span> 的
+CFL。一个可靠的顺序是：</p>
+<ol type="1">
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
+<li>去除单位产生式；</li>
+<li>去除无用符号。</li>
+</ol>
+<p>在此之后，我们需要改造产生式：</p>
+<ol type="1">
+<li>重新安排产生式，使得体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
+class="math inline">\(A \to BC\)</span>）；</li>
+<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
+的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
+</ol>
+<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
+B_1bB_3\cdots
+B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
+<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
+B_k\)</span>，这样体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
+<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
+\cdots B_k\)</span> 改为 <span class="math display">\[
+\begin{aligned}
+A \to&amp; B_1C_1 \\
+C_1 \to&amp; B_2 C_2 \\
+C_2 \to&amp; B_3 C_3 \\
+&amp;\vdots \\
+C_{k-1} \to&amp; B_{k-1}B_k
+\end{aligned}
+\]</span></p>
+<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
+<span class="math inline">\(L\)</span> 中的串 <span
+class="math inline">\(z\)</span> 的长度 <span
+class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
+class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
+uvwxy\)</span>，其中：</p>
+<ol type="1">
+<li><span class="math inline">\(\left|vwx\right| \le
+n\)</span>，也就是说，中间的部分不会很长；</li>
+<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
+<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
+class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
+<span class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
+class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
+class="math inline">\(L\)</span>。</li>
+</ol>
+<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
+对应的 CNF <span
+class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
+class="math inline">\(G\)</span> 有 <span
+class="math inline">\(m\)</span> 个非终结符，取 <span
+class="math inline">\(n = 2^m\)</span>。假设 <span
+class="math inline">\(z \in L\)</span> 且长度至少为 <span
+class="math inline">\(n\)</span>。任何产物为 <span
+class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
+<span class="math inline">\(m + 1\)</span>
+的路径，因为如果某个语法分析树的最长路径长度仅为 <span
+class="math inline">\(m\)</span>，则它的产物最长只能为 <span
+class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
+n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
+的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
+1\)</span>。由于 <span class="math inline">\(k \ge
+m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
+1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
+A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
+class="math inline">\(m\)</span>
+种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
+class="math inline">\(A_i = A_j = A\)</span>，其中 <span
+class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
+<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
+class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
+<span class="math inline">\(A_i\)</span> 和 <span
+class="math inline">\(A_j\)</span>。</p>
+<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
+<span class="math inline">\(A_j\)</span>
+为根的这两棵子树相互替代，从而达到“泵”出 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 零次或多次的效果。</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
+alt="“泵”出 v 和 x，重复 0 次和 2 次" />
+<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
+次</figcaption>
+</figure>
+<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
+<p>CFL 在交运算（推论：补运算）下不封闭。但是 CFL 与一个 RE 的交仍然是
+CFL，与一个 RE 的补仍然是 CFL。</p>
+<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
+<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
+之间相互转化的时间复杂度</h3>
+<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
+href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
+<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
+最多只会额外加入域产生式个数相等的 <span
+class="math inline">\(\delta\)</span> 转移，步骤 2
+最多只会额外加入与终结符个数相等的 <span
+class="math inline">\(\delta\)</span> 转移。</p>
+<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
+之间，相互转换的时间复杂度都是线性的。</p>
+<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
+class="math inline">\(n\)</span>。由于单次 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
+X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
+[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
+的产生式，最坏情况下这组产生式的个数为 <span
+class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
+<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
+class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
+<span class="math display">\[
+\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
+\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
+\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
+= \{(r_0, Y_1Y_2)\}\)</span>。</p>
+<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
+个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
+class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
+class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
+<ul>
+<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度。</li>
+<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
+的时间复杂度。</li>
+<li>用产生式体中的变元来代替终结符需要 <span
+class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
+<span class="math inline">\(O(n)\)</span> 的文法。</li>
+<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
+的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度，并且额外增加长度为 <span
+class="math inline">\(O(n)\)</span> 的文法。</li>
+</ul>
+<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
+产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
+class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
+<span class="math inline">\(O(2^n)\)</span>
+的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
+<span class="math inline">\(O(n)\)</span>。但我们可以在
+<strong>把所有产生式的体打断为长度为 <span
+class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
+class="math inline">\(\varepsilon\)</span>
+产生式，因为这样每个产生式枚举的代价仅为 <span
+class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
+class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
+<p>对产生式的集合构造一个有向图，图中的每条边由
+<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
+<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
+DFS：</p>
+<ul>
+<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
+<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
+</ul>
+<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
+DFS 的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
+是否为空。</p>
+<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
+<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
+alt="由 CYK 算法构造的表" />
+<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
+</figure>
+<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
+a_n\)</span> 中的位置，在图中假定 <span
+class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
+class="math inline">\(X_{ij}\)</span> 是满足 <span
+class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
+的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
+是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
+<span class="math inline">\(S\)</span> 是否能推导出 <span
+class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
+<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
+[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
+class="math inline">\(G\)</span> 的产生式中满足 <span
+class="math inline">\(A \to a_i\)</span> 的非终结符 <span
+class="math inline">\(A\)</span> 的集合。</p>
+<p><strong>归纳</strong>：假设想要计算出 <span
+class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
+class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
+class="math inline">\(X_{ii}\)</span> 位于第 <span
+class="math inline">\(1\)</span> 行。本质上 <span
+class="math inline">\(X_{ij}\)</span>
+所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
+class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
+<span class="math inline">\(j - i + 1\)</span>
+的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
+\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
+<span class="math inline">\(A \implies BC\)</span>，其中 <span
+class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{k}\)</span>，<span class="math inline">\(C
+\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
+class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
+class="math inline">\(k\)</span>，找到所有满足条件的 <span
+class="math inline">\(B\)</span> 和 <span
+class="math inline">\(C\)</span>，再检查这样的组合 <span
+class="math inline">\(BC\)</span> 是否能被 <span
+class="math inline">\(A\)</span> 产生。</p>
+<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
+class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
+<ol type="1">
+<li>某个给定的 CFG <span class="math inline">\(G\)</span>
+是歧义的吗？</li>
+<li>某个给定的 CFL <span class="math inline">\(L\)</span>
+是固有歧义的吗？</li>
+<li>两个 CFL 的交为空吗？</li>
+<li>两个 CFL 相同吗？</li>
+<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
+吗？其中 <span class="math inline">\(\Sigma\)</span>
+是该语言的字母表。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -2960,337 +3291,6 @@ class="math inline">\(D\)</span> 接受。</p>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
         <tag>有穷自动机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
-    <url>/2023/10/10/IATLC-Chap7/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第七章 上下文无关语言的性质</strong></p>
-<ul>
-<li>上下文无关文法的范式
-<ul>
-<li>去除无用的符号</li>
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
-<li>去除单位式</li>
-<li>乔姆斯基范式（CNF）</li>
-</ul></li>
-<li>上下文无关语言的泵引理</li>
-<li>上下文无关语言的封闭性
-<ul>
-<li>代入定理</li>
-<li>与正则语言的交</li>
-<li>逆同态</li>
-</ul></li>
-<li>上下文无关语言的判定性质
-<ul>
-<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
-<li>CFG 变换到 CNF 的时间复杂度</li>
-<li>测试 CFL 的空性</li>
-<li>测试 CFL 的成员性：CYK 算法</li>
-<li>不可判定的 CFL 问题</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
-<h3 id="去除无用的符号">去除无用的符号</h3>
-<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
-<p>例：考虑文法 <span class="math display">\[
-\begin{aligned}
-S &amp;\to AB | a \\
-A &amp;\to b
-\end{aligned}
-\]</span> 正确的做法是先去除不产生的 <span
-class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
-\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
-导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
-class="math inline">\(S \to a\)</span>。</p>
-<p>错误的做法会导致没有不可达的符号，仅去除了不产生的 <span
-class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
-\to AB\)</span>。此时仍然有冗余的 <span class="math inline">\(A \to
-b\)</span>。</p>
-<h3 id="去除-varepsilon-产生式">去除 <span
-class="math inline">\(\varepsilon\)</span> 产生式</h3>
-<p>定义可空符号：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
-\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
-的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
-<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
-C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
-都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
-<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
-class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
-class="math inline">\(\varepsilon\)</span> 产生式。</p>
-<h3 id="去除单位式">去除单位式</h3>
-<p>我们需要找到所有满足如下条件的非终结符对 <span
-class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
-class="math inline">\(A
-\overset{*}{\implies}B\)</span>。注意，即使使用非单位产生式也可能有
-<span class="math inline">\(A \overset{*}{\implies} B\)</span>，例如
-<span class="math inline">\(A \to BC, B \to \varepsilon\)</span>。</p>
-<p>定义单位对：</p>
-<p><strong>基础</strong>：对于任何非终结符 <span
-class="math inline">\(A\)</span>，<span class="math inline">\((A,
-A)\)</span> 是单位对。</p>
-<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
-B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
-是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
-<span class="math inline">\((A, C)\)</span> 是单位对。</p>
-<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
-class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
-class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
-class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
-class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
-\implies B_n \implies \alpha\)</span>。</p>
-<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
-<p><strong>定义</strong>：任何非空且不含 <span
-class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
-<span class="math inline">\(G\)</span>，满足 <span
-class="math inline">\(G\)</span>
-中的所有产生式都属于一下两个简单的形式之一：</p>
-<ol type="1">
-<li><span class="math inline">\(A \to BC\)</span>，其中 <span
-class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
-<li><span class="math inline">\(A \to a\)</span>，其中 <span
-class="math inline">\(A\)</span> 是非终结符，<span
-class="math inline">\(a\)</span> 是终结符。</li>
-</ol>
-<p>更进一步，<span class="math inline">\(G\)</span>
-中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
-<p>构造 CNF 的步骤首先包括得到一个不含 <span
-class="math inline">\(\varepsilon\)</span> 的
-CFL。一个可靠的顺序是：</p>
-<ol type="1">
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
-<li>去除单位产生式；</li>
-<li>去除无用符号。</li>
-</ol>
-<p>在此之后，我们需要改造产生式：</p>
-<ol type="1">
-<li>重新安排产生式，使得体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
-class="math inline">\(A \to BC\)</span>）；</li>
-<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
-的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
-</ol>
-<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
-B_1bB_3\cdots
-B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
-<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
-B_k\)</span>，这样体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
-<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
-\cdots B_k\)</span> 改为 <span class="math display">\[
-\begin{aligned}
-A \to&amp; B_1C_1 \\
-C_1 \to&amp; B_2 C_2 \\
-C_2 \to&amp; B_3 C_3 \\
-&amp;\vdots \\
-C_{k-1} \to&amp; B_{k-1}B_k
-\end{aligned}
-\]</span></p>
-<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
-<span class="math inline">\(L\)</span> 中的串 <span
-class="math inline">\(z\)</span> 的长度 <span
-class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
-class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
-uvwxy\)</span>，其中：</p>
-<ol type="1">
-<li><span class="math inline">\(\left|vwx\right| \le
-n\)</span>，也就是说，中间的部分不会很长；</li>
-<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
-<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
-class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
-<span class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
-class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
-class="math inline">\(L\)</span>。</li>
-</ol>
-<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
-对应的 CNF <span
-class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
-class="math inline">\(G\)</span> 有 <span
-class="math inline">\(m\)</span> 个非终结符，取 <span
-class="math inline">\(n = 2^m\)</span>。假设 <span
-class="math inline">\(z \in L\)</span> 且长度至少为 <span
-class="math inline">\(n\)</span>。任何产物为 <span
-class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
-<span class="math inline">\(m + 1\)</span>
-的路径，因为如果某个语法分析树的最长路径长度仅为 <span
-class="math inline">\(m\)</span>，则它的产物最长只能为 <span
-class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
-n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
-的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
-1\)</span>。由于 <span class="math inline">\(k \ge
-m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
-1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
-A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
-class="math inline">\(m\)</span>
-种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
-class="math inline">\(A_i = A_j = A\)</span>，其中 <span
-class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
-<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
-class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
-<span class="math inline">\(A_i\)</span> 和 <span
-class="math inline">\(A_j\)</span>。</p>
-<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
-<span class="math inline">\(A_j\)</span>
-为根的这两棵子树相互替代，从而达到“泵”出 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 零次或多次的效果。</p>
-<figure>
-<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
-alt="“泵”出 v 和 x，重复 0 次和 2 次" />
-<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
-次</figcaption>
-</figure>
-<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
-<p>CFL 在交运算（推论：补运算）下不封闭。但是 CFL 与一个 RE 的交仍然是
-CFL，与一个 RE 的补仍然是 CFL。</p>
-<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
-<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
-之间相互转化的时间复杂度</h3>
-<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
-href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
-<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
-最多只会额外加入域产生式个数相等的 <span
-class="math inline">\(\delta\)</span> 转移，步骤 2
-最多只会额外加入与终结符个数相等的 <span
-class="math inline">\(\delta\)</span> 转移。</p>
-<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
-之间，相互转换的时间复杂度都是线性的。</p>
-<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
-class="math inline">\(n\)</span>。由于单次 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
-X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
-[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
-的产生式，最坏情况下这组产生式的个数为 <span
-class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
-<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
-class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
-<span class="math display">\[
-\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
-\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
-\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
-= \{(r_0, Y_1Y_2)\}\)</span>。</p>
-<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
-个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
-class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
-class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
-<ul>
-<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度。</li>
-<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
-的时间复杂度。</li>
-<li>用产生式体中的变元来代替终结符需要 <span
-class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
-<span class="math inline">\(O(n)\)</span> 的文法。</li>
-<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
-的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度，并且额外增加长度为 <span
-class="math inline">\(O(n)\)</span> 的文法。</li>
-</ul>
-<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
-产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
-class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
-<span class="math inline">\(O(2^n)\)</span>
-的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
-<span class="math inline">\(O(n)\)</span>。但我们可以在
-<strong>把所有产生式的体打断为长度为 <span
-class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
-class="math inline">\(\varepsilon\)</span>
-产生式，因为这样每个产生式枚举的代价仅为 <span
-class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
-class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
-class="math inline">\(O(n)\)</span>。</p>
-<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
-<p>对产生式的集合构造一个有向图，图中的每条边由
-<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
-<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
-DFS：</p>
-<ul>
-<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
-<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
-</ul>
-<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
-DFS 的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
-是否为空。</p>
-<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
-<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
-<figure>
-<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
-alt="由 CYK 算法构造的表" />
-<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
-</figure>
-<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
-a_n\)</span> 中的位置，在图中假定 <span
-class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
-class="math inline">\(X_{ij}\)</span> 是满足 <span
-class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
-的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
-是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
-<span class="math inline">\(S\)</span> 是否能推导出 <span
-class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
-<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
-[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
-class="math inline">\(G\)</span> 的产生式中满足 <span
-class="math inline">\(A \to a_i\)</span> 的非终结符 <span
-class="math inline">\(A\)</span> 的集合。</p>
-<p><strong>归纳</strong>：假设想要计算出 <span
-class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
-class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
-class="math inline">\(X_{ii}\)</span> 位于第 <span
-class="math inline">\(1\)</span> 行。本质上 <span
-class="math inline">\(X_{ij}\)</span>
-所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
-class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
-<span class="math inline">\(j - i + 1\)</span>
-的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
-\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
-<span class="math inline">\(A \implies BC\)</span>，其中 <span
-class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{k}\)</span>，<span class="math inline">\(C
-\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
-class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
-class="math inline">\(k\)</span>，找到所有满足条件的 <span
-class="math inline">\(B\)</span> 和 <span
-class="math inline">\(C\)</span>，再检查这样的组合 <span
-class="math inline">\(BC\)</span> 是否能被 <span
-class="math inline">\(A\)</span> 产生。</p>
-<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
-class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
-<ol type="1">
-<li>某个给定的 CFG <span class="math inline">\(G\)</span>
-是歧义的吗？</li>
-<li>某个给定的 CFL <span class="math inline">\(L\)</span>
-是固有歧义的吗？</li>
-<li>两个 CFL 的交为空吗？</li>
-<li>两个 CFL 相同吗？</li>
-<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
-吗？其中 <span class="math inline">\(\Sigma\)</span>
-是该语言的字母表。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -4607,14 +4607,13 @@ Y_1Y_2\cdots Y_k) = (r, \varepsilon)\)</span>。</p></li>
 <p>那么对 <strong>所有的</strong> 序列 <span class="math inline">\(r_1,
 r_2, \cdots, r_k\)</span>，<span class="math inline">\(G\)</span>
 都有产生式 <span class="math display">\[
-[q X r_k] \to a[q Y_1 r_1][r_1Y_2r_3]\cdots[r_{k-1}Y_kr_k]
-\]</span> 其中 <span class="math inline">\(r_k\)</span> 是 <span
-class="math inline">\(r\)</span>。</p>
-<p>这样的产生式有 <span class="math inline">\(n^k\)</span>
+[q X r_k] \to a[r Y_1 r_1][r_1Y_2r_3]\cdots[r_{k-1}Y_kr_k]
+\]</span> 这样的产生式有 <span class="math inline">\(n^k\)</span>
 个。它的意思是，在栈顶弹出 <span class="math inline">\(X\)</span> 并且从
 <span class="math inline">\(q\)</span> 转移到 <span
-class="math inline">\(r = r_k\)</span> 的一种方法是读入 <span
-class="math inline">\(a\)</span>，接着通过消耗某个输入从堆栈中弹出 <span
+class="math inline">\(r_k\)</span> 的一种方法是读入 <span
+class="math inline">\(a\)</span> 并把状态转移到 <span
+class="math inline">\(r\)</span>；接着通过消耗某个输入从堆栈中弹出 <span
 class="math inline">\(Y_1\)</span>，同时从状态 <span
 class="math inline">\(r\)</span> 转移到状态 <span
 class="math inline">\(r_1\)</span>；然后读入另一个输入来从堆栈中弹出
@@ -4705,6 +4704,154 @@ L\)</span>。而且 <span class="math inline">\(G\)</span>
         <tag>上下文无关文法</tag>
         <tag>上下文无关语言</tag>
         <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论 - 第十二章</title>
+    <url>/2023/07/26/CSAO-Chap12/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="可计算性">可计算性</h2>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h2 id="bare-bones-语言">Bare Bones 语言</h2>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h3 id="复制操作">复制操作</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h3 id="交换操作">交换操作</h3>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h3 id="分支结构">分支结构</h3>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h2 id="停机问题">停机问题</h2>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h2 id="rsa">RSA</h2>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h3 id="rsa-的正确性">RSA 的正确性</h3>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。 <span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+  \]</span></li>
+</ol>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+        <tag>计算理论</tag>
+        <tag>Bare Bones</tag>
+        <tag>RSA</tag>
       </tags>
   </entry>
   <entry>
@@ -4994,154 +5141,6 @@ class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
       </categories>
       <tags>
         <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <url>/2023/07/26/CSAO-Chap12/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="可计算性">可计算性</h2>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="bare-bones-语言">Bare Bones 语言</h2>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h3 id="复制操作">复制操作</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作">交换操作</h3>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构">分支结构</h3>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题">停机问题</h2>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h2 id="rsa">RSA</h2>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h3 id="rsa-的正确性">RSA 的正确性</h3>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。 <span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-  \]</span></li>
-</ol>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-        <tag>计算理论</tag>
-        <tag>Bare Bones</tag>
-        <tag>RSA</tag>
       </tags>
   </entry>
   <entry>
