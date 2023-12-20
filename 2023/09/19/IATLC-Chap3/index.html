@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文主要包括以下内容： 第三章 正则表达式与正则语言  正则表达式的运算符  并与连接 闭包  正则表达式的定义 自动机与正则表达式间的关系  由 DFA 构建正则表达式 消除状态法 由正则表达式构造 \(\varepsilon\) - NFA 消除 \(\varepsilon\) 转移时的注意事项  正则表达式代数定律">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T02:50:23.000Z">
-<meta property="article:modified_time" content="2023-10-15T03:44:50.000Z">
+<meta property="article:modified_time" content="2023-12-20T12:39:24.744Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="自动机理论、语言和计算导论">
 <meta property="article:tag" content="正则表达式">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">并与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-varepsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\varepsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-varepsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\varepsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">正则表达式的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">并与连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">自动机与正则表达式间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1-dfa-%E6%9E%84%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">由 DFA 构建正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E7%8A%B6%E6%80%81%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">消除状态法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0-varepsilon---nfa"><span class="nav-number">3.3.</span> <span class="nav-text">由正则表达式构造 \(\varepsilon\) - NFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4-varepsilon-%E8%BD%AC%E7%A7%BB%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">消除 \(\varepsilon\) 转移时的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%A3%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">正则表达式代数定律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">练习题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-15 11:44:50" itemprop="dateModified" datetime="2023-10-15T11:44:50+08:00">2023-10-15</time>
+      <time title="修改时间：2023-12-20 20:39:24" itemprop="dateModified" datetime="2023-12-20T20:39:24+08:00">2023-12-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -806,6 +806,18 @@ class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
 <p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
 <p><del>附赠一个可能会有用的公式</del> <span
 class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 求正则表达式 <span
+class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)
+= \{w|w\text{ 的开头字符和结尾字符相同}\}\)</span>。</p>
+<p><span
+class="math inline">\(0(0+1)^*0+1(0+1)^*1+0+1\)</span>。一定不要忘了
+<span class="math inline">\(|w|=1\)</span> 的两种情况。</p>
+<p><strong>习题 2</strong> 求正则表达式 <span
+class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)=
+\{w|w\text{ 的前 5 位至少包含 1 个 1} \land |w|\ge 1\}\)</span>。</p>
+<p>巧妙使用空串 <span class="math inline">\(\varepsilon\)</span>：<span
+class="math inline">\((0+1+\varepsilon)^41(0+1)^*\)</span>。</p>
 
     </div>
 
