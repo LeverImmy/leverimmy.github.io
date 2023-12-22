@@ -2476,6 +2476,337 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
+    <url>/2023/10/10/IATLC-Chap7/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第七章 上下文无关语言的性质</strong></p>
+<ul>
+<li>上下文无关文法的范式
+<ul>
+<li>去除无用的符号</li>
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
+<li>去除单位式</li>
+<li>乔姆斯基范式（CNF）</li>
+</ul></li>
+<li>上下文无关语言的泵引理</li>
+<li>上下文无关语言的封闭性
+<ul>
+<li>代入定理</li>
+<li>与正则语言的交</li>
+<li>逆同态</li>
+</ul></li>
+<li>上下文无关语言的判定性质
+<ul>
+<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
+<li>CFG 变换到 CNF 的时间复杂度</li>
+<li>测试 CFL 的空性</li>
+<li>测试 CFL 的成员性：CYK 算法</li>
+<li>不可判定的 CFL 问题</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
+<h3 id="去除无用的符号">去除无用的符号</h3>
+<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
+<p>例：考虑文法 <span class="math display">\[
+\begin{aligned}
+S &amp;\to AB | a \\
+A &amp;\to b
+\end{aligned}
+\]</span> 正确的做法是先去除不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
+导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
+class="math inline">\(S \to a\)</span>。</p>
+<p>错误的做法会导致没有不可达的符号，仅去除了不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>。此时仍然有冗余的 <span class="math inline">\(A \to
+b\)</span>。</p>
+<h3 id="去除-varepsilon-产生式">去除 <span
+class="math inline">\(\varepsilon\)</span> 产生式</h3>
+<p>定义可空符号：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
+\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
+的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
+<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
+C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
+都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
+<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
+class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
+class="math inline">\(\varepsilon\)</span> 产生式。</p>
+<h3 id="去除单位式">去除单位式</h3>
+<p>我们需要找到所有满足如下条件的非终结符对 <span
+class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
+class="math inline">\(A
+\overset{*}{\implies}B\)</span>。注意，即使使用非单位产生式也可能有
+<span class="math inline">\(A \overset{*}{\implies} B\)</span>，例如
+<span class="math inline">\(A \to BC, B \to \varepsilon\)</span>。</p>
+<p>定义单位对：</p>
+<p><strong>基础</strong>：对于任何非终结符 <span
+class="math inline">\(A\)</span>，<span class="math inline">\((A,
+A)\)</span> 是单位对。</p>
+<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
+B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
+是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
+<span class="math inline">\((A, C)\)</span> 是单位对。</p>
+<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
+class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
+class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
+class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
+class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
+\implies B_n \implies \alpha\)</span>。</p>
+<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
+<p><strong>定义</strong>：任何非空且不含 <span
+class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
+<span class="math inline">\(G\)</span>，满足 <span
+class="math inline">\(G\)</span>
+中的所有产生式都属于一下两个简单的形式之一：</p>
+<ol type="1">
+<li><span class="math inline">\(A \to BC\)</span>，其中 <span
+class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
+<li><span class="math inline">\(A \to a\)</span>，其中 <span
+class="math inline">\(A\)</span> 是非终结符，<span
+class="math inline">\(a\)</span> 是终结符。</li>
+</ol>
+<p>更进一步，<span class="math inline">\(G\)</span>
+中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
+<p>构造 CNF 的步骤首先包括得到一个不含 <span
+class="math inline">\(\varepsilon\)</span> 的
+CFL。一个可靠的顺序是：</p>
+<ol type="1">
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
+<li>去除单位产生式；</li>
+<li>去除无用符号。</li>
+</ol>
+<p>在此之后，我们需要改造产生式：</p>
+<ol type="1">
+<li>重新安排产生式，使得体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
+class="math inline">\(A \to BC\)</span>）；</li>
+<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
+的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
+</ol>
+<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
+B_1bB_3\cdots
+B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
+<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
+B_k\)</span>，这样体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
+<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
+\cdots B_k\)</span> 改为 <span class="math display">\[
+\begin{aligned}
+A \to&amp; B_1C_1 \\
+C_1 \to&amp; B_2 C_2 \\
+C_2 \to&amp; B_3 C_3 \\
+&amp;\vdots \\
+C_{k-1} \to&amp; B_{k-1}B_k
+\end{aligned}
+\]</span></p>
+<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
+<span class="math inline">\(L\)</span> 中的串 <span
+class="math inline">\(z\)</span> 的长度 <span
+class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
+class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
+uvwxy\)</span>，其中：</p>
+<ol type="1">
+<li><span class="math inline">\(\left|vwx\right| \le
+n\)</span>，也就是说，中间的部分不会很长；</li>
+<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
+<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
+class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
+<span class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
+class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
+class="math inline">\(L\)</span>。</li>
+</ol>
+<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
+对应的 CNF <span
+class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
+class="math inline">\(G\)</span> 有 <span
+class="math inline">\(m\)</span> 个非终结符，取 <span
+class="math inline">\(n = 2^m\)</span>。假设 <span
+class="math inline">\(z \in L\)</span> 且长度至少为 <span
+class="math inline">\(n\)</span>。任何产物为 <span
+class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
+<span class="math inline">\(m + 1\)</span>
+的路径，因为如果某个语法分析树的最长路径长度仅为 <span
+class="math inline">\(m\)</span>，则它的产物最长只能为 <span
+class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
+n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
+的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
+1\)</span>。由于 <span class="math inline">\(k \ge
+m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
+1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
+A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
+class="math inline">\(m\)</span>
+种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
+class="math inline">\(A_i = A_j = A\)</span>，其中 <span
+class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
+<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
+class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
+<span class="math inline">\(A_i\)</span> 和 <span
+class="math inline">\(A_j\)</span>。</p>
+<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
+<span class="math inline">\(A_j\)</span>
+为根的这两棵子树相互替代，从而达到“泵”出 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 零次或多次的效果。</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
+alt="“泵”出 v 和 x，重复 0 次和 2 次" />
+<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
+次</figcaption>
+</figure>
+<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
+<p>CFL 在交运算（推论：补运算）下不封闭。但是 CFL 与一个 RE 的交仍然是
+CFL，与一个 RE 的补仍然是 CFL。</p>
+<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
+<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
+之间相互转化的时间复杂度</h3>
+<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
+href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
+<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
+最多只会额外加入域产生式个数相等的 <span
+class="math inline">\(\delta\)</span> 转移，步骤 2
+最多只会额外加入与终结符个数相等的 <span
+class="math inline">\(\delta\)</span> 转移。</p>
+<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
+之间，相互转换的时间复杂度都是线性的。</p>
+<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
+class="math inline">\(n\)</span>。由于单次 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
+X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
+[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
+的产生式，最坏情况下这组产生式的个数为 <span
+class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
+<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
+class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
+<span class="math display">\[
+\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
+\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
+\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
+= \{(r_0, Y_1Y_2)\}\)</span>。</p>
+<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
+个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
+class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
+class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
+<ul>
+<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度。</li>
+<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
+的时间复杂度。</li>
+<li>用产生式体中的变元来代替终结符需要 <span
+class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
+<span class="math inline">\(O(n)\)</span> 的文法。</li>
+<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
+的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度，并且额外增加长度为 <span
+class="math inline">\(O(n)\)</span> 的文法。</li>
+</ul>
+<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
+产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
+class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
+<span class="math inline">\(O(2^n)\)</span>
+的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
+<span class="math inline">\(O(n)\)</span>。但我们可以在
+<strong>把所有产生式的体打断为长度为 <span
+class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
+class="math inline">\(\varepsilon\)</span>
+产生式，因为这样每个产生式枚举的代价仅为 <span
+class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
+class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
+<p>对产生式的集合构造一个有向图，图中的每条边由
+<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
+<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
+DFS：</p>
+<ul>
+<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
+<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
+</ul>
+<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
+DFS 的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
+是否为空。</p>
+<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
+<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
+alt="由 CYK 算法构造的表" />
+<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
+</figure>
+<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
+a_n\)</span> 中的位置，在图中假定 <span
+class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
+class="math inline">\(X_{ij}\)</span> 是满足 <span
+class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
+的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
+是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
+<span class="math inline">\(S\)</span> 是否能推导出 <span
+class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
+<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
+[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
+class="math inline">\(G\)</span> 的产生式中满足 <span
+class="math inline">\(A \to a_i\)</span> 的非终结符 <span
+class="math inline">\(A\)</span> 的集合。</p>
+<p><strong>归纳</strong>：假设想要计算出 <span
+class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
+class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
+class="math inline">\(X_{ii}\)</span> 位于第 <span
+class="math inline">\(1\)</span> 行。本质上 <span
+class="math inline">\(X_{ij}\)</span>
+所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
+class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
+<span class="math inline">\(j - i + 1\)</span>
+的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
+\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
+<span class="math inline">\(A \implies BC\)</span>，其中 <span
+class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{k}\)</span>，<span class="math inline">\(C
+\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
+class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
+class="math inline">\(k\)</span>，找到所有满足条件的 <span
+class="math inline">\(B\)</span> 和 <span
+class="math inline">\(C\)</span>，再检查这样的组合 <span
+class="math inline">\(BC\)</span> 是否能被 <span
+class="math inline">\(A\)</span> 产生。</p>
+<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
+class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
+<ol type="1">
+<li>某个给定的 CFG <span class="math inline">\(G\)</span>
+是歧义的吗？</li>
+<li>某个给定的 CFL <span class="math inline">\(L\)</span>
+是固有歧义的吗？</li>
+<li>两个 CFL 的交为空吗？</li>
+<li>两个 CFL 相同吗？</li>
+<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
+吗？其中 <span class="math inline">\(\Sigma\)</span>
+是该语言的字母表。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
     <url>/2023/09/17/IATLC-Chap1-2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -3555,222 +3886,6 @@ class="math inline">\((0+1+\varepsilon)^41(0+1)^*\)</span>。</p>
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
-    <url>/2023/09/20/IATLC-Chap4/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第四章 正则语言的性质</strong></p>
-<ul>
-<li>泵引理</li>
-<li>正则语言的封闭性
-<ul>
-<li>交运算的乘积构造法</li>
-<li>反转</li>
-<li>逆同态</li>
-</ul></li>
-<li>自动机的等价性和最小化
-<ul>
-<li>测试状态的等价性</li>
-<li>测试正则语言的等价性</li>
-<li>DFA 的最小化</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="泵引理">泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
-<span class="math inline">\(n\)</span> 满足：<span
-class="math inline">\(\forall w \in L\)</span> 满足 <span
-class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
-class="math inline">\(\exists x, y, z\)</span> 满足 <span
-class="math inline">\(w = xyz\)</span> 且：</p>
-<ol type="1">
-<li><span class="math inline">\(y \neq \varepsilon\)</span></li>
-<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
-<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
-L\)</span></li>
-</ol>
-<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
-是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
-class="math inline">\(L = L(A)\)</span>。设 <span
-class="math inline">\(A\)</span> 有 <span
-class="math inline">\(n\)</span> 个状态，考虑 <span
-class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
-class="math inline">\(a_i\)</span> 为输入符号。</p>
-<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
-a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
-<span class="math inline">\(A\)</span> 的初始状态。则 <span
-class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
-不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
-n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
-<p>所以可以画出如下的转移图：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($p_0$))
-A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
-B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
-B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
-<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
-class="math inline">\(y \neq \varepsilon\)</span>，由 <span
-class="math inline">\(j \le n\)</span> 得到 <span
-class="math inline">\(\left|xy\right| \le n\)</span>。<span
-class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
-class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
-<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
-<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
-<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
-class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
-F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
-\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
-L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
-<p><span class="math display">\[
-A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
-\]</span></p>
-<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
-class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
-a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
-接受 <span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
-是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
-w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
-均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
-class="math inline">\(L\cap M\)</span>。</p>
-<h3 id="逆同态">逆同态</h3>
-<p>定义 <span class="math inline">\(L\)</span> 对于 <span
-class="math inline">\(h\)</span> 的逆同态 <span
-class="math inline">\(h^{-1}\)</span> 如下：</p>
-<p><span class="math display">\[
-h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
-\]</span></p>
-<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
-L\)</span>，<strong>并不一定等于</strong> <span
-class="math inline">\(L\)</span>！</p>
-<hr />
-<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
-\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
-class="math inline">\(h^{-1}(L)\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
-<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
-有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
-F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
-<span class="math inline">\(h\)</span> 构造 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
-class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
-<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
-h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
-\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
-<span class="math inline">\(w\)</span> 当且仅当 <span
-class="math inline">\(A\)</span> 接受 <span
-class="math inline">\(h(w)\)</span>，故 <span
-class="math inline">\(B\)</span> 就是 <span
-class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
-<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
-class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
-class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
-class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
-<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
-<h3 id="测试状态的等价性">测试状态的等价性</h3>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
-w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
-w)\)</span> 是可接受的。</p>
-<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
-\hat\delta(q,
-w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
-<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
-<strong>可区分的</strong>，如果它们不是等价的。</p>
-<hr />
-<p>至此，我们可以构造
-<strong>填表算法</strong>，来测试状态的等价性：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
-<span class="math inline">\(q\)</span>
-一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
-q\)</span> 是可区分的。</p>
-<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
-满足 <span class="math inline">\(\exists a\)</span> 使得 <span
-class="math inline">\(r = \delta(p, a)\)</span> 与 <span
-class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
-<span class="math inline">\(w\)</span> 可以区分 <span
-class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>，那么 <span
-class="math inline">\(aw\)</span> 一定可以区分 <span
-class="math inline">\(p,
-q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
-<hr />
-<p>接下来，我们需要证明填表算法的正确性。</p>
-<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
-<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
-class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
-class="math inline">\(\exists w \in L\)</span>，满足 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span>
-本应可区分，但填表算法没有发现它们可区分。</p>
-<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
-是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
-<span class="math inline">\(\{p, q\}\)</span>。则 <span
-class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
-class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
-<p>注意到一个事实，<span class="math inline">\(w \neq
-\varepsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
-class="math inline">\(w = \varepsilon\)</span>
-的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
-class="math inline">\(r = \delta(p, a_1), s = \delta(q,
-a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
-a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
-class="math inline">\(s\)</span>。</p>
-<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
-class="math inline">\(w&#39;\)</span> 比 <span
-class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
-<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
-class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
-<span class="math inline">\(\{r, s\}\)</span>
-是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
-q\}\)</span> 也是可区分的，这也产生矛盾。</p>
-<p>所以填表算法是正确的。</p>
-<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
-<p>至此，我们已经能够测试同一个 DFA
-中的两个状态是否等价。对于两个正则语言 <span
-class="math inline">\(L\)</span> 和 <span
-class="math inline">\(M\)</span> 而言，构造 DFA <span
-class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
-L(A), M = L(B)\)</span>。</p>
-<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
-class="math inline">\(p_0\)</span>，<span
-class="math inline">\(B\)</span> 的初始状态为 <span
-class="math inline">\(q_0\)</span>。构造 DFA <span
-class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
-class="math inline">\(p_0\)</span> 和 <span
-class="math inline">\(q_0\)</span> 是否等价即可。</p>
-<h3 id="dfa-的最小化">DFA 的最小化</h3>
-<p>用以下流程可以最小化一个 DFA：</p>
-<ol type="1">
-<li>排除所有不能从初始状态到达的状态</li>
-<li>将所有等价的状态划分到同一个连通块</li>
-</ol>
-<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
-等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
-<pre><code class="highlight mermaid">graph LR
-A(($p$)) --&gt; |$1$| C(($r$))
-B(($q$)) --&gt; |$1$| C</code></pre>
-<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
-class="math inline">\(q\)</span> 都不会通过 <span
-class="math inline">\(1\)</span> 转移到 <span
-class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
-<pre><code class="highlight mermaid">graph LR
-A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第五章</title>
     <url>/2023/09/29/IATLC-Chap5/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -4432,7 +4547,8 @@ class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
 <p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
 Z_0, F)\)</span> 是一个 PDA，我们定义 <span
 class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
-N(P)$ 是 <span class="math display">\[
+<span class="math inline">\(N(P)\)</span> 是 <span
+class="math display">\[
 N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \varepsilon, \varepsilon)\}
 \]</span> 其中 <span class="math inline">\(q \in Q\)</span>
 为<strong>任意状态</strong>。</p>
@@ -4706,6 +4822,50 @@ L\)</span>。而且 <span class="math inline">\(G\)</span>
 中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
 中的最左推导，因为 <span class="math inline">\(\$\)</span>
 在串的最右侧，一定是最后一个被替换的变元。</p>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中任何前缀中 } a
+\text{ 的数量至少 } 2 \text{ 倍于 } b \text{ 的数量}\}\)</span>。</p>
+<p>在设计这道题的 PDA 的时候，一个重要的事情是，如果处理一个 <span
+class="math inline">\(b\)</span>，需要连续弹出两个 <span
+class="math inline">\(a\)</span>。我们可以引入辅助状态，加入 <span
+class="math inline">\(\varepsilon\)</span> 的转移边来连续弹出两次。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/22/exercise14611df897a671162.jpeg"
+alt="习题 1" />
+<figcaption aria-hidden="true">习题 1</figcaption>
+</figure>
+<p><strong>习题 2</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
+的数量不等于 } b \text{ 的数量}\}\)</span>。</p>
+<p>有的时候并不一定需要空栈接受，虽然空栈接受可能是更直观的“停止”的状态。因此，最后只要有剩余的
+<span class="math inline">\(X\)</span> 或 <span
+class="math inline">\(Y\)</span>
+作为栈顶符号，只需要弹出一个，即可转入终结状态（而非继续把栈中所有符号全部弹出，然后空栈接受）。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/22/exercise284b4b6bc4b733428.jpeg"
+alt="习题 2" />
+<figcaption aria-hidden="true">习题 2</figcaption>
+</figure>
+<p><strong>习题 3</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
+的数量是 } b \text{ 的 } 2 \text{ 倍}\}\)</span>。</p>
+<p>要么可以类似于习题 1 中的策略，引入一些辅助状态；而我选择添加栈中符号
+<span class="math inline">\(C\)</span> 表示“半个 <span
+class="math inline">\(B\)</span>”。转移表如下： <span
+class="math display">\[
+\begin{aligned}
+a,&amp; Z_0/AZ_0 &amp; b,&amp; Z_0/BZ_0 \\
+a,&amp; A/AA &amp; b,&amp; A/C \\
+a,&amp; B/C &amp; b,&amp; B/BB \\
+a,&amp; C/\varepsilon &amp; b,&amp; C/CB\\
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(b,C/CB\)</span> 是为了让“半个
+<span
+class="math inline">\(B\)</span>”一直处于栈顶，这样就避免了栈中同时出现两个“半个
+<span class="math inline">\(B\)</span>”的情况。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -4715,6 +4875,265 @@ L\)</span>。而且 <span class="math inline">\(G\)</span>
         <tag>上下文无关文法</tag>
         <tag>上下文无关语言</tag>
         <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
+    <url>/2023/09/20/IATLC-Chap4/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第四章 正则语言的性质</strong></p>
+<ul>
+<li>泵引理</li>
+<li>正则语言的封闭性
+<ul>
+<li>交运算的乘积构造法</li>
+<li>反转</li>
+<li>逆同态</li>
+</ul></li>
+<li>自动机的等价性和最小化
+<ul>
+<li>测试状态的等价性</li>
+<li>测试正则语言的等价性</li>
+<li>DFA 的最小化</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="泵引理">泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是正则语言，则存在与 <span class="math inline">\(L\)</span> 相关的正整数
+<span class="math inline">\(n\)</span> 满足：<span
+class="math inline">\(\forall w \in L\)</span> 满足 <span
+class="math inline">\(\left|w\right| \ge n\)</span>，均 <span
+class="math inline">\(\exists x, y, z\)</span> 满足 <span
+class="math inline">\(w = xyz\)</span> 且：</p>
+<ol type="1">
+<li><span class="math inline">\(y \neq \varepsilon\)</span></li>
+<li><span class="math inline">\(\left|xy\right| \le n\)</span></li>
+<li><span class="math inline">\(\forall k \ge 0, xy^kz \in
+L\)</span></li>
+</ol>
+<p><strong>证明</strong>：假设 <span class="math inline">\(L\)</span>
+是正则语言，则存在 DFA <span class="math inline">\(A\)</span> 使得 <span
+class="math inline">\(L = L(A)\)</span>。设 <span
+class="math inline">\(A\)</span> 有 <span
+class="math inline">\(n\)</span> 个状态，考虑 <span
+class="math inline">\(w = a_1a_2\cdots a_m(m \ge n)\)</span>，其中 <span
+class="math inline">\(a_i\)</span> 为输入符号。</p>
+<p>设 <span class="math inline">\(p_i = \hat\delta(q_0, a_1a_2\cdots
+a_i)\)</span>，定义 <span class="math inline">\(p_0 = q_0\)</span> 为
+<span class="math inline">\(A\)</span> 的初始状态。则 <span
+class="math inline">\(p_0, p_1, \cdots, p_n\)</span>
+不可能两两不同，因此存在 <span class="math inline">\(0 \le i &lt; j \le
+n\)</span> 使得 <span class="math inline">\(p_i = p_j\)</span>。</p>
+<p>所以可以画出如下的转移图：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($p_0$))
+A -.-&gt; |$x = a_1a_2\cdots a_i$| B(($p_i$))
+B -.-&gt; |&quot;$y = a_&#123;i+1&#125; \cdots a_j$&quot;| B
+B -.-&gt; |&quot;$z = a_&#123;j + 1&#125;\cdots a_m$&quot;| C(((&quot; &quot;)))</code></pre>
+<p>由 <span class="math inline">\(i &lt; j\)</span> 得 <span
+class="math inline">\(y \neq \varepsilon\)</span>，由 <span
+class="math inline">\(j \le n\)</span> 得到 <span
+class="math inline">\(\left|xy\right| \le n\)</span>。<span
+class="math inline">\(k \ge 0\)</span> 就是可以绕着 <span
+class="math inline">\(p_i\)</span> 得自环多走几圈。</p>
+<h2 id="正则语言的封闭性">正则语言的封闭性</h2>
+<h3 id="交运算的乘积构造法">交运算的乘积构造法</h3>
+<p>已知正则语言 <span class="math inline">\(L, M\)</span>，设 <span
+class="math inline">\(A_L = \{Q_L, \Sigma, \delta_L, q_L,
+F_L\}\)</span>，<span class="math inline">\(A_M = \{Q_M, \Sigma,
+\delta_M, q_M, F_M\}\)</span>，满足 <span class="math inline">\(L =
+L(A_L), M = L(A_M)\)</span>。构造他们的乘积（笛卡尔积）：</p>
+<p><span class="math display">\[
+A = (Q_L \times Q_M, \Sigma, \delta, q_L \times q_M, F_L \times F_M)
+\]</span></p>
+<p>其中 <span class="math inline">\(\delta\)</span> 满足 <span
+class="math inline">\(\delta((p, q), a) = (\delta_L(p, a), \delta_M(q,
+a))\)</span>，返回一个二元组。<span class="math inline">\(A\)</span>
+接受 <span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(\hat\delta((q_L, q_M), w)\)</span>
+是一对接受状态。这等价于 <span class="math inline">\(\hat\delta(q_L,
+w)\)</span> 和 <span class="math inline">\(\hat\delta(q_M, w)\)</span>
+均为接受状态。所以说 <span class="math inline">\(A\)</span> 只接受 <span
+class="math inline">\(L\cap M\)</span>。</p>
+<h3 id="逆同态">逆同态</h3>
+<p>定义 <span class="math inline">\(L\)</span> 对于 <span
+class="math inline">\(h\)</span> 的逆同态 <span
+class="math inline">\(h^{-1}\)</span> 如下：</p>
+<p><span class="math display">\[
+h^{-1}(L) = \{w \in \Sigma^* | h(w) \in L\}
+\]</span></p>
+<p>需要注意的是，<span class="math inline">\(h(h^{-1}(L)) \subset
+L\)</span>，<strong>并不一定等于</strong> <span
+class="math inline">\(L\)</span>！</p>
+<hr />
+<p><strong>定理</strong>：已知 <span class="math inline">\(h: \Sigma \to
+\Tau\)</span>，其中 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Tau\)</span> 上的正则语言，求证 <span
+class="math inline">\(h^{-1}(L)\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的正则语言。</p>
+<p><strong>证明</strong>：设 <span class="math inline">\(L\)</span>
+有一个 DFA <span class="math inline">\(A = (Q, \Tau, \delta, q_0,
+F)\)</span>，现在的目标是用 <span class="math inline">\(A\)</span> 和
+<span class="math inline">\(h\)</span> 构造 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA <span
+class="math inline">\(B = (Q, \Sigma, \gamma, q_0, F)\)</span>。</p>
+<p>定义 <span class="math inline">\(\gamma(q, a) = \hat\delta(q,
+h(a))\)</span>，然后扩展 <span class="math inline">\(\hat\gamma(q, w) =
+\hat(q, h(w))\)</span>。由于 <span class="math inline">\(B\)</span> 接受
+<span class="math inline">\(w\)</span> 当且仅当 <span
+class="math inline">\(A\)</span> 接受 <span
+class="math inline">\(h(w)\)</span>，故 <span
+class="math inline">\(B\)</span> 就是 <span
+class="math inline">\(h^{-1}(L)\)</span> 的 DFA。</p>
+<p>注意 <span class="math inline">\(\gamma(q, a)\)</span> 是 <span
+class="math inline">\(\hat\delta(q, h(a))\)</span> 而非 <span
+class="math inline">\(\delta(q, h(a))\)</span>，这是因为 <span
+class="math inline">\(h(a)\)</span> 有可能是一个串而非字符。</p>
+<h2 id="自动机的等价性和最小化">自动机的等价性和最小化</h2>
+<h3 id="测试状态的等价性">测试状态的等价性</h3>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>等价的</strong>，如果 <span class="math inline">\(\hat\delta(p,
+w)\)</span> 是可接受当且仅当 <span class="math inline">\(\hat\delta(q,
+w)\)</span> 是可接受的。</p>
+<p>注意到这个定义并不要求 <span class="math inline">\(\hat\delta(p, w) =
+\hat\delta(q,
+w)\)</span>，它仅仅要求二者要么同时都是可接受的，要么同时都是不可接受的。</p>
+<p>我们称 DFA 中的两个状态 <span class="math inline">\(p, q\)</span> 是
+<strong>可区分的</strong>，如果它们不是等价的。</p>
+<hr />
+<p>至此，我们可以构造
+<strong>填表算法</strong>，来测试状态的等价性：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(p\)</span> 和
+<span class="math inline">\(q\)</span>
+一个是可接受的，一个是不可接受的，那么 <span class="math inline">\(p,
+q\)</span> 是可区分的。</p>
+<p><strong>归纳</strong>：设 <span class="math inline">\(p, q\)</span>
+满足 <span class="math inline">\(\exists a\)</span> 使得 <span
+class="math inline">\(r = \delta(p, a)\)</span> 与 <span
+class="math inline">\(s = \delta(q, a)\)</span> 是已知可区分的。假设
+<span class="math inline">\(w\)</span> 可以区分 <span
+class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>，那么 <span
+class="math inline">\(aw\)</span> 一定可以区分 <span
+class="math inline">\(p,
+q\)</span>。按照归纳的步骤一步一步递推，则可得知所有状态两两间是否等价。</p>
+<hr />
+<p>接下来，我们需要证明填表算法的正确性。</p>
+<p><strong>定理</strong>：如果通过填表算法不能区分两个状态，则这两个状态等价。</p>
+<p><strong>证明</strong>：使用反证法证明。我们称状态对 <span
+class="math inline">\(\{p, q\}\)</span> 为 <em>坏对</em>，如果 <span
+class="math inline">\(\exists w \in L\)</span>，满足 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span>
+本应可区分，但填表算法没有发现它们可区分。</p>
+<p>设 <span class="math inline">\(w = a_1a_2\cdots a_n\)</span>
+是所有可以区分坏对（无论区分的是哪一对坏对）的串中最短的那一个，且它区分的是
+<span class="math inline">\(\{p, q\}\)</span>。则 <span
+class="math inline">\(\hat\delta(p, w)\)</span> 和 <span
+class="math inline">\(\hat\delta(q, w)\)</span> 必恰有一个可接受。</p>
+<p>注意到一个事实，<span class="math inline">\(w \neq
+\varepsilon\)</span>，这是因为填表算法的基础部分对应的就是 <span
+class="math inline">\(w = \varepsilon\)</span>
+的情况，可接受状态和不可接受的状态一定是可以区分的。接下来，考虑 <span
+class="math inline">\(r = \delta(p, a_1), s = \delta(q,
+a_1)\)</span>，则串 <span class="math inline">\(w&#39; = a_2a_3 \cdots
+a_n\)</span> 可区分 <span class="math inline">\(r\)</span> 和 <span
+class="math inline">\(s\)</span>。</p>
+<p>如果 <span class="math inline">\(\{r, s\}\)</span> 是坏对，则 <span
+class="math inline">\(w&#39;\)</span> 比 <span
+class="math inline">\(w\)</span> 更短且能区分坏对，则产生矛盾。如果
+<span class="math inline">\(\{r, s\}\)</span> 不是坏对，则 <span
+class="math inline">\(\{r, s\}\)</span> 一定是可区分的。此时算法已经发现
+<span class="math inline">\(\{r, s\}\)</span>
+是可区分的，那么一定会进行下去并计算出 <span class="math inline">\(\{p,
+q\}\)</span> 也是可区分的，这也产生矛盾。</p>
+<p>所以填表算法是正确的。</p>
+<h3 id="测试正则语言的等价性">测试正则语言的等价性</h3>
+<p>至此，我们已经能够测试同一个 DFA
+中的两个状态是否等价。对于两个正则语言 <span
+class="math inline">\(L\)</span> 和 <span
+class="math inline">\(M\)</span> 而言，构造 DFA <span
+class="math inline">\(A, B\)</span> 使得 <span class="math inline">\(L =
+L(A), M = L(B)\)</span>。</p>
+<p>设 <span class="math inline">\(A\)</span> 的初始状态为 <span
+class="math inline">\(p_0\)</span>，<span
+class="math inline">\(B\)</span> 的初始状态为 <span
+class="math inline">\(q_0\)</span>。构造 DFA <span
+class="math inline">\(A&#39; = A \cup B\)</span>，只需要判断 <span
+class="math inline">\(p_0\)</span> 和 <span
+class="math inline">\(q_0\)</span> 是否等价即可。</p>
+<h3 id="dfa-的最小化">DFA 的最小化</h3>
+<p>用以下流程可以最小化一个 DFA：</p>
+<ol type="1">
+<li>排除所有不能从初始状态到达的状态</li>
+<li>将所有等价的状态划分到同一个连通块</li>
+</ol>
+<p>需要注意一点的是，如果 <span class="math inline">\(p, q\)</span>
+等价，<span class="math inline">\(r, s\)</span> 等价，且</p>
+<pre><code class="highlight mermaid">graph LR
+A(($p$)) --&gt; |$1$| C(($r$))
+B(($q$)) --&gt; |$1$| C</code></pre>
+<p>即使此时无论是 <span class="math inline">\(p\)</span> 还是 <span
+class="math inline">\(q\)</span> 都不会通过 <span
+class="math inline">\(1\)</span> 转移到 <span
+class="math inline">\(s\)</span>，我们仍然需要用上述算法划分等价类：</p>
+<pre><code class="highlight mermaid">graph LR
+A((&quot;$\&#123;p, q\&#125;$&quot;)) --&gt; |$1$| B((&quot;$\&#123;r, s\&#125;$&quot;))</code></pre>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 语言 <span class="math inline">\(L\)</span>
+由所有满足如下条件的 <span class="math inline">\(0\)</span> 和 <span
+class="math inline">\(1\)</span> 组成的串构成：<span
+class="math inline">\(0\)</span> 的数量是 <span
+class="math inline">\(1\)</span> 的两倍。试用泵引理证明 <span
+class="math inline">\(L\)</span> 不是正则语言。</p>
+<p>考虑 <span class="math inline">\(w = xyz = 0^{2n}1^n\)</span>，则
+<span class="math inline">\(y\)</span> 全部由 <span
+class="math inline">\(0\)</span> 构成，则 <span class="math inline">\(xz
+\neq L\)</span>。这题的重点在于，虽然 <span
+class="math inline">\(0^{2n}1^n\)</span> 并非 <span
+class="math inline">\(L\)</span> 的全部，但只要找到一个反例即可。</p>
+<p><strong>习题 2</strong> 证明 <span class="math inline">\(L =
+\{0^{n^2} | n \in \mathbb{N}\}\)</span> 不是正则语言。</p>
+<p>考虑 <span class="math inline">\(w = xyz = 0^{n^2}\)</span>，则 <span
+class="math inline">\(1 \le |y| \le n\)</span>，构造 <span
+class="math inline">\(xy^2z\)</span>，它的长度 <span
+class="math inline">\(|xy^2z| \in [n^2 + 1, n^2 +
+n]\)</span>，但这个区域内不应有完全平方数。<span
+class="math inline">\(n^2\)</span> 后的第一个完全平方数为 <span
+class="math inline">\((n+1)^2 = n^2+2n+1 &gt; n^2+n\)</span>。</p>
+<p><strong>习题 3</strong> 证明 <span class="math inline">\(L = \{0^n |
+n \text{ 是质数}\}\)</span> 不是正则语言。</p>
+<p>考虑 <span class="math inline">\(w = xyz = 0^p\)</span>，其中 <span
+class="math inline">\(p \ge n + 2\)</span> 且为质数。不妨设 <span
+class="math inline">\(|y| = m \ge 1\)</span>。考虑 <span
+class="math inline">\(w&#39; = xy^{p-m}z\)</span>，则 <span
+class="math inline">\(|xy^{p-m}z| = (m+1)(p-m)\)</span>。而 <span
+class="math inline">\(m+1 \neq 1, p-m \ge n+2-m \ge 2\)</span>。因此
+<span class="math inline">\(|w&#39;|\)</span> 不为质数。</p>
+<p><strong>习题 4</strong> 证明 <span class="math inline">\(L =
+\{0^{2^n}|n \in \mathbb{N}\}\)</span> 不是正则语言。</p>
+<p>考虑 <span class="math inline">\(w = xyz = 0^{2^n}\)</span>。与习题 2
+的做法类似，我们可以得到 <span class="math inline">\(|y| \in [1,
+n]\)</span>。我们只需要证明 <span class="math inline">\(|xz| = 2^n -
+|y|\)</span> 一定不是 <span class="math inline">\(2\)</span>
+的幂即可。考虑 <span class="math inline">\(|xz|\)</span> 的取值范围
+<span class="math inline">\([2^n-n, 2^n-1]\)</span>，则限制 <span
+class="math inline">\(2^{n-1} &lt; 2^n-n\)</span> 即可，即 <span
+class="math inline">\(n \ge 3\)</span>。所以在泵引理中取 <span
+class="math inline">\(w = xyz = 0^{2^n}(n \ge 3)\)</span> 即可导出 <span
+class="math inline">\(xz \notin L\)</span>。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
@@ -4939,338 +5358,253 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
-    <url>/2023/10/10/IATLC-Chap7/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第七章 上下文无关语言的性质</strong></p>
-<ul>
-<li>上下文无关文法的范式
-<ul>
-<li>去除无用的符号</li>
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
-<li>去除单位式</li>
-<li>乔姆斯基范式（CNF）</li>
-</ul></li>
-<li>上下文无关语言的泵引理</li>
-<li>上下文无关语言的封闭性
-<ul>
-<li>代入定理</li>
-<li>与正则语言的交</li>
-<li>逆同态</li>
-</ul></li>
-<li>上下文无关语言的判定性质
-<ul>
-<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
-<li>CFG 变换到 CNF 的时间复杂度</li>
-<li>测试 CFL 的空性</li>
-<li>测试 CFL 的成员性：CYK 算法</li>
-<li>不可判定的 CFL 问题</li>
-</ul></li>
-</ul>
+    <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr />
+<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
+350 \mathrm{ min}\)</span> <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
 <span id="more"></span>
-<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
-<h3 id="去除无用的符号">去除无用的符号</h3>
-<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
-<p>例：考虑文法 <span class="math display">\[
+<h2 id="准备工作">准备工作</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
+alt="@全体成员" />
+<figcaption aria-hidden="true"><span class="citation"
+data-cites="全体成员">@全体成员</span></figcaption>
+</figure>
+<p><del>（后面两次@没有<span class="citation"
+data-cites="上">@上</span>）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<h2 id="物理">物理</h2>
+<p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
+alt="物理卷子T2" />
+<figcaption aria-hidden="true">物理卷子T2</figcaption>
+</figure>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
+alt="物理卷子T6" />
+<figcaption aria-hidden="true">物理卷子T6</figcaption>
+</figure>
+<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
+的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
+<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
+class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
+class="math inline">\(2G\)</span>。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 <span
+class="math inline">\(\dfrac{1}{3}\)</span>
+准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学">化学</h2>
+<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
+alt="化学卷子P1,P2" />
+<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
+</figure>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
+<span class="math inline">\(3\)</span> 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
+alt="笑谈化学卷子" />
+<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
+</figure>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭">吃午饭</h2>
+<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
+data-cites="数学">@数学</span></p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学">数学</h2>
+<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
+alt="细致入微" />
+<figcaption aria-hidden="true">细致入微</figcaption>
+</figure>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol type="1">
+<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
+<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
+是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
+class="math inline">\(4\)</span> 就可以知道 <span
+class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
+class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<blockquote>
+<ol start="6" type="1">
+<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
+<span class="math inline">\(xyz = 1\)</span>，证明： <span
+class="math display">\[
+\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \le 1
+\]</span></li>
+</ol>
+</blockquote>
+<p>注意到 <span class="math display">\[
+\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
+\]</span> 则 <span class="math display">\[
 \begin{aligned}
-S &amp;\to AB | a \\
-A &amp;\to b
-\end{aligned}
-\]</span> 正确的做法是先去除不产生的 <span
-class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
-\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
-导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
-class="math inline">\(S \to a\)</span>。</p>
-<p>错误的做法会导致没有不可达的符号，仅去除了不产生的 <span
-class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
-\to AB\)</span>。此时仍然有冗余的 <span class="math inline">\(A \to
-b\)</span>。</p>
-<h3 id="去除-varepsilon-产生式">去除 <span
-class="math inline">\(\varepsilon\)</span> 产生式</h3>
-<p>定义可空符号：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
-\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
-的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
-<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
-C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
-都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
-<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
-class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
-class="math inline">\(\varepsilon\)</span> 产生式。</p>
-<h3 id="去除单位式">去除单位式</h3>
-<p>我们需要找到所有满足如下条件的非终结符对 <span
-class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
-class="math inline">\(A
-\overset{*}{\implies}B\)</span>。注意，即使使用非单位产生式也可能有
-<span class="math inline">\(A \overset{*}{\implies} B\)</span>，例如
-<span class="math inline">\(A \to BC, B \to \varepsilon\)</span>。</p>
-<p>定义单位对：</p>
-<p><strong>基础</strong>：对于任何非终结符 <span
-class="math inline">\(A\)</span>，<span class="math inline">\((A,
-A)\)</span> 是单位对。</p>
-<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
-B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
-是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
-<span class="math inline">\((A, C)\)</span> 是单位对。</p>
-<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
-class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
-class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
-class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
-class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
-\implies B_n \implies \alpha\)</span>。</p>
-<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
-<p><strong>定义</strong>：任何非空且不含 <span
-class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
-<span class="math inline">\(G\)</span>，满足 <span
-class="math inline">\(G\)</span>
-中的所有产生式都属于一下两个简单的形式之一：</p>
-<ol type="1">
-<li><span class="math inline">\(A \to BC\)</span>，其中 <span
-class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
-<li><span class="math inline">\(A \to a\)</span>，其中 <span
-class="math inline">\(A\)</span> 是非终结符，<span
-class="math inline">\(a\)</span> 是终结符。</li>
-</ol>
-<p>更进一步，<span class="math inline">\(G\)</span>
-中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
-<p>构造 CNF 的步骤首先包括得到一个不含 <span
-class="math inline">\(\varepsilon\)</span> 的
-CFL。一个可靠的顺序是：</p>
-<ol type="1">
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
-<li>去除单位产生式；</li>
-<li>去除无用符号。</li>
-</ol>
-<p>在此之后，我们需要改造产生式：</p>
-<ol type="1">
-<li>重新安排产生式，使得体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
-class="math inline">\(A \to BC\)</span>）；</li>
-<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
-的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
-</ol>
-<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
-B_1bB_3\cdots
-B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
-<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
-B_k\)</span>，这样体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
-<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
-\cdots B_k\)</span> 改为 <span class="math display">\[
-\begin{aligned}
-A \to&amp; B_1C_1 \\
-C_1 \to&amp; B_2 C_2 \\
-C_2 \to&amp; B_3 C_3 \\
-&amp;\vdots \\
-C_{k-1} \to&amp; B_{k-1}B_k
+&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \\\\
+\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
+\dfrac{1}{z^2+zx+1} \\\\
+= &amp; 1
 \end{aligned}
 \]</span></p>
-<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
-<span class="math inline">\(L\)</span> 中的串 <span
-class="math inline">\(z\)</span> 的长度 <span
-class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
-class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
-uvwxy\)</span>，其中：</p>
-<ol type="1">
-<li><span class="math inline">\(\left|vwx\right| \le
-n\)</span>，也就是说，中间的部分不会很长；</li>
-<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
-<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
-class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
-<span class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
-class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
-class="math inline">\(L\)</span>。</li>
+<blockquote>
+<ol start="7" type="1">
+<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
+d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
+class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
+n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
+1\)</span>.</li>
 </ol>
-<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
-对应的 CNF <span
-class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
-class="math inline">\(G\)</span> 有 <span
-class="math inline">\(m\)</span> 个非终结符，取 <span
-class="math inline">\(n = 2^m\)</span>。假设 <span
-class="math inline">\(z \in L\)</span> 且长度至少为 <span
-class="math inline">\(n\)</span>。任何产物为 <span
-class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
-<span class="math inline">\(m + 1\)</span>
-的路径，因为如果某个语法分析树的最长路径长度仅为 <span
-class="math inline">\(m\)</span>，则它的产物最长只能为 <span
-class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
-n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
-的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
-1\)</span>。由于 <span class="math inline">\(k \ge
-m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
-1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
-A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
-class="math inline">\(m\)</span>
-种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
-class="math inline">\(A_i = A_j = A\)</span>，其中 <span
-class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
-<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
-class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
-<span class="math inline">\(A_i\)</span> 和 <span
-class="math inline">\(A_j\)</span>。</p>
-<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
-<span class="math inline">\(A_j\)</span>
-为根的这两棵子树相互替代，从而达到“泵”出 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 零次或多次的效果。</p>
+</blockquote>
+<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
+<span class="math inline">\(3 \nmid n\)</span>。因 <span
+class="math inline">\(m\)</span> 为完全平方数，则 <span
+class="math inline">\(\alpha\)</span> 必为偶数。</p>
+<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
+class="math inline">\(3\nmid n\)</span>，则 <span
+class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
+class="math inline">\(d_{\alpha} = 1\)</span>。</p>
+<hr />
+<p>当我不知道干啥的时候，我看到了这个</p>
 <figure>
-<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
-alt="“泵”出 v 和 x，重复 0 次和 2 次" />
-<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
-次</figcaption>
+<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
+alt="来了来了" />
+<figcaption aria-hidden="true">来了来了</figcaption>
 </figure>
-<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
-<p>CFL 在交运算（推论：补运算）下不封闭。但是 CFL 与一个 RE 的交仍然是
-CFL，与一个 RE 的补仍然是 CFL。</p>
-<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
-<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
-之间相互转化的时间复杂度</h3>
-<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
-href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
-<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
-最多只会额外加入域产生式个数相等的 <span
-class="math inline">\(\delta\)</span> 转移，步骤 2
-最多只会额外加入与终结符个数相等的 <span
-class="math inline">\(\delta\)</span> 转移。</p>
-<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
-之间，相互转换的时间复杂度都是线性的。</p>
-<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
-class="math inline">\(n\)</span>。由于单次 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
-X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
-[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
-的产生式，最坏情况下这组产生式的个数为 <span
-class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
-<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
-class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
-<span class="math display">\[
-\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
-\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
-\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
-= \{(r_0, Y_1Y_2)\}\)</span>。</p>
-<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
-个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
-class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
-class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
-<ul>
-<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度。</li>
-<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
-的时间复杂度。</li>
-<li>用产生式体中的变元来代替终结符需要 <span
-class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
-<span class="math inline">\(O(n)\)</span> 的文法。</li>
-<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
-的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度，并且额外增加长度为 <span
-class="math inline">\(O(n)\)</span> 的文法。</li>
-</ul>
-<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
-产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
-class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
-<span class="math inline">\(O(2^n)\)</span>
-的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
-<span class="math inline">\(O(n)\)</span>。但我们可以在
-<strong>把所有产生式的体打断为长度为 <span
-class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
-class="math inline">\(\varepsilon\)</span>
-产生式，因为这样每个产生式枚举的代价仅为 <span
-class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
-class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
-class="math inline">\(O(n)\)</span>。</p>
-<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
-<p>对产生式的集合构造一个有向图，图中的每条边由
-<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
-<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
-DFS：</p>
-<ul>
-<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
-<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
-</ul>
-<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
-DFS 的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
-是否为空。</p>
-<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
-<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
+<p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭">吃晚饭</h2>
+<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
 <figure>
-<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
-alt="由 CYK 算法构造的表" />
-<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
+alt="海底捞吃饭前" />
+<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
 </figure>
-<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
-a_n\)</span> 中的位置，在图中假定 <span
-class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
-class="math inline">\(X_{ij}\)</span> 是满足 <span
-class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
-的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
-是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
-<span class="math inline">\(S\)</span> 是否能推导出 <span
-class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
-<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
-[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
-class="math inline">\(G\)</span> 的产生式中满足 <span
-class="math inline">\(A \to a_i\)</span> 的非终结符 <span
-class="math inline">\(A\)</span> 的集合。</p>
-<p><strong>归纳</strong>：假设想要计算出 <span
-class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
-class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
-class="math inline">\(X_{ii}\)</span> 位于第 <span
-class="math inline">\(1\)</span> 行。本质上 <span
-class="math inline">\(X_{ij}\)</span>
-所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
-class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
-<span class="math inline">\(j - i + 1\)</span>
-的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
-\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
-<span class="math inline">\(A \implies BC\)</span>，其中 <span
-class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{k}\)</span>，<span class="math inline">\(C
-\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
-class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
-class="math inline">\(k\)</span>，找到所有满足条件的 <span
-class="math inline">\(B\)</span> 和 <span
-class="math inline">\(C\)</span>，再检查这样的组合 <span
-class="math inline">\(BC\)</span> 是否能被 <span
-class="math inline">\(A\)</span> 产生。</p>
-<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
-class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
-<ol type="1">
-<li>某个给定的 CFG <span class="math inline">\(G\)</span>
-是歧义的吗？</li>
-<li>某个给定的 CFL <span class="math inline">\(L\)</span>
-是固有歧义的吗？</li>
-<li>两个 CFL 的交为空吗？</li>
-<li>两个 CFL 相同吗？</li>
-<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
-吗？其中 <span class="math inline">\(\Sigma\)</span>
-是该语言的字母表。</li>
-</ol>
+<p>吃吃吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
+alt="杯盘狼藉" />
+<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+</figure>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
+alt="椰子" />
+<figcaption aria-hidden="true">椰子</figcaption>
+</figure>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结">总结</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
+alt="监考老师们的合照" />
+<figcaption aria-hidden="true">监考老师们的合照</figcaption>
+</figure>
+<p>嗝。</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>游记</category>
       </categories>
       <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022年回眸</title>
+    <title>【游记】2022 年回眸</title>
     <url>/2022/12/31/2022Lookback/</url>
     <content><![CDATA[<p>2022 年就这么过去了，</p>
 <p>我也从一个高三学生变成了一个大一新生了。</p>
@@ -5647,253 +5981,7 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr />
-<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
-350 \mathrm{ min}\)</span> <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
-<span id="more"></span>
-<h2 id="准备工作">准备工作</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
-alt="@全体成员" />
-<figcaption aria-hidden="true"><span class="citation"
-data-cites="全体成员">@全体成员</span></figcaption>
-</figure>
-<p><del>（后面两次@没有<span class="citation"
-data-cites="上">@上</span>）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<h2 id="物理">物理</h2>
-<p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
-alt="物理卷子T2" />
-<figcaption aria-hidden="true">物理卷子T2</figcaption>
-</figure>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
-alt="物理卷子T6" />
-<figcaption aria-hidden="true">物理卷子T6</figcaption>
-</figure>
-<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
-的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
-<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
-class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
-class="math inline">\(2G\)</span>。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 <span
-class="math inline">\(\dfrac{1}{3}\)</span>
-准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学">化学</h2>
-<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
-alt="化学卷子P1,P2" />
-<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
-</figure>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
-<span class="math inline">\(3\)</span> 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
-alt="笑谈化学卷子" />
-<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
-</figure>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭">吃午饭</h2>
-<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
-data-cites="数学">@数学</span></p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学">数学</h2>
-<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
-alt="细致入微" />
-<figcaption aria-hidden="true">细致入微</figcaption>
-</figure>
-<p>写了几道能力范围之内的题目。</p>
-<blockquote>
-<ol type="1">
-<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
-<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
-是一个完全平方数.</li>
-</ol>
-</blockquote>
-<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
-class="math inline">\(4\)</span> 就可以知道 <span
-class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
-class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
-<blockquote>
-<ol start="6" type="1">
-<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
-<span class="math inline">\(xyz = 1\)</span>，证明： <span
-class="math display">\[
-\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \le 1
-\]</span></li>
-</ol>
-</blockquote>
-<p>注意到 <span class="math display">\[
-\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
-\]</span> 则 <span class="math display">\[
-\begin{aligned}
-&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \\\\
-\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
-\dfrac{1}{z^2+zx+1} \\\\
-= &amp; 1
-\end{aligned}
-\]</span></p>
-<blockquote>
-<ol start="7" type="1">
-<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
-d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
-class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
-n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
-1\)</span>.</li>
-</ol>
-</blockquote>
-<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
-<span class="math inline">\(3 \nmid n\)</span>。因 <span
-class="math inline">\(m\)</span> 为完全平方数，则 <span
-class="math inline">\(\alpha\)</span> 必为偶数。</p>
-<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
-class="math inline">\(3\nmid n\)</span>，则 <span
-class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
-class="math inline">\(d_{\alpha} = 1\)</span>。</p>
-<hr />
-<p>当我不知道干啥的时候，我看到了这个</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
-alt="来了来了" />
-<figcaption aria-hidden="true">来了来了</figcaption>
-</figure>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
-<p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭">吃晚饭</h2>
-<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
-alt="海底捞吃饭前" />
-<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
-</figure>
-<p>吃吃吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
-alt="杯盘狼藉" />
-<figcaption aria-hidden="true">杯盘狼藉</figcaption>
-</figure>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
-alt="椰子" />
-<figcaption aria-hidden="true">椰子</figcaption>
-</figure>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结">总结</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
-alt="监考老师们的合照" />
-<figcaption aria-hidden="true">监考老师们的合照</figcaption>
-</figure>
-<p>嗝。</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2023暑假重庆璧山乡村振兴实践</title>
+    <title>【游记】2023 暑假重庆璧山乡村振兴实践</title>
     <url>/2023/07/01/2023Chongqing-SocialPractice/</url>
     <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
 <p>乡村振兴？这是什么？了解一下！</p>
@@ -6557,6 +6645,40 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
+    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
+    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
+    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
+<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
+<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
+<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
+<span id="more"></span>
+<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
+]]></content>
+      <categories>
+        <category>教材习题解答</category>
+      </categories>
+      <tags>
+        <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
     <url>/2023/09/10/2023Summer-Java/</url>
     <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
@@ -6856,40 +6978,6 @@ href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp
         <tag>Java</tag>
         <tag>Android</tag>
         <tag>程序设计训练</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-2/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-2-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <url>/2023/07/01/Tsinghua-Calculus-1/</url>
-    <content><![CDATA[<p>这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。</p>
-<p>本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。</p>
-<p>repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution</p>
-<p>pdf 版本: 点击下方的“阅读全文”按钮。</p>
-<span id="more"></span>
-<div class="pdf-container" data-target="https://leverimmy.top/pdf/calculus-1-solution.pdf" data-height="[500px]"></div>
-]]></content>
-      <categories>
-        <category>教材习题解答</category>
-      </categories>
-      <tags>
-        <tag>微积分</tag>
       </tags>
   </entry>
 </search>
