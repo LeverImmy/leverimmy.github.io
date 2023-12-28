@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2023-12-22T16:18:07.700Z</updated>
+  <updated>2023-12-28T01:45:19.727Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【游记】2023 年回眸</title>
+    <link href="https://leverimmy.top/2023/12/28/2023Lookback/"/>
+    <id>https://leverimmy.top/2023/12/28/2023Lookback/</id>
+    <published>2023-12-28T06:38:14.000Z</published>
+    <updated>2023-12-28T01:45:19.727Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2023 年就这么过去了，&lt;/p&gt;
+&lt;p&gt;我也从一个高三学生变成了一个大一新生了。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;一年发生了很多事情。现在，是时候回顾一下了？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="回眸" scheme="https://leverimmy.top/tags/%E5%9B%9E%E7%9C%B8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
     <link href="https://leverimmy.top/2023/10/10/IATLC-Chap7/"/>
     <id>https://leverimmy.top/2023/10/10/IATLC-Chap7/</id>
     <published>2023-10-10T05:38:23.000Z</published>
-    <updated>2023-12-22T16:18:07.700Z</updated>
+    <updated>2023-12-24T04:20:34.543Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
