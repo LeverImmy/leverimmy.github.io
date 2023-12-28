@@ -1,522 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
-    <url>/2023/09/17/IATLC-Chap1-2/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
-<ul>
-<li>字母表、串、语言和问题
-<ul>
-<li>字母表</li>
-<li>串</li>
-<li>语言</li>
-<li>问题</li>
-</ul></li>
-<li>有穷自动机的形式化定义
-<ul>
-<li>确定性有穷自动机（DFA）
-<ul>
-<li>DFA 的表示方法</li>
-<li>转移函数 <span class="math inline">\(\delta\)</span></li>
-<li>DFA 的语言</li>
-</ul></li>
-<li>非确定性有穷自动机（NFA）
-<ul>
-<li>NFA 的表示方法</li>
-<li>转移函数 <span class="math inline">\(\delta\)</span></li>
-<li>NFA 的语言</li>
-</ul></li>
-<li>DFA 和 NFA 的区别与联系
-<ul>
-<li>DFA 和 NFA 的等价性</li>
-<li>子集构造的最劣情形</li>
-</ul></li>
-</ul></li>
-<li><span class="math inline">\(\varepsilon\)</span> 转移
-<ul>
-<li><span class="math inline">\(\varepsilon\)</span> - NFA
-的形式化定义</li>
-<li><span class="math inline">\(\varepsilon\)</span> 闭包</li>
-<li>消除 <span class="math inline">\(\varepsilon\)</span> 转移</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="字母表串语言和问题">字母表、串、语言和问题</h2>
-<h3 id="字母表">字母表</h3>
-<p><strong>字母表</strong> 是符号的有穷非空集合，记为 <span
-class="math inline">\(\Sigma\)</span>。</p>
-<h3 id="串">串</h3>
-<p><strong>串（单词）</strong>
-是从某个字母表中选择的符号组成的有穷序列。</p>
-<ul>
-<li><p>串的长度</p>
-<p>选择出来的符号个数被称为串的长度。</p></li>
-<li><p>空串 <span class="math inline">\(\varepsilon\)</span></p>
-<p>它的长度为 <span
-class="math inline">\(0\)</span>，是可以从任何字母表中选择的串。<strong>但它不属于任何字母表</strong>。<span
-class="math inline">\(\varepsilon \not\in \Sigma\)</span>。</p></li>
-<li><p>字母表的幂</p>
-<p>如果 <span class="math inline">\(\Sigma\)</span> 是一个字母表，则
-<span class="math inline">\(\Sigma^k\)</span> 表示这个字母表长度为 <span
-class="math inline">\(k\)</span> 的所有串所组成的集合。</p></li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-  \Sigma^0 &amp;= \{\varepsilon\} \\
-  \Sigma^{+} &amp;= \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \\
-  \Sigma^{*} &amp;= \Sigma^{+} \cup \{\varepsilon\}
-\end{aligned}
-\]</span></p>
-<h3 id="语言">语言</h3>
-<p>设 <span class="math inline">\(\Sigma\)</span> 为一个字母表，<span
-class="math inline">\(L \subseteq \Sigma^{*}\)</span> 被称为 <span
-class="math inline">\(\Sigma\)</span> 上的 <strong>语言</strong>。</p>
-<ul>
-<li><p>空语言 <span class="math inline">\(\varnothing\)</span>
-与只包含空串的语言 <span
-class="math inline">\(\{\varepsilon\}\)</span></p>
-<p><span class="math inline">\(\varnothing\)</span> 和 <span
-class="math inline">\(\{\varepsilon\}\)</span>
-都是任意字母表上的语言，但 <span class="math inline">\(\varnothing \neq
-\{\varepsilon\}\)</span>，前者没有串，后者有一个串。</p></li>
-<li><p>若 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的语言，则 <span
-class="math inline">\(L\)</span> 是任何是 <span
-class="math inline">\(\Sigma\)</span> 的超集的字母表上的语言。</p></li>
-</ul>
-<h3 id="问题">问题</h3>
-<p>在自动机理论中，一个 <strong>问题</strong> 就是
-“判定一个给定的串是否属于某个具体语言” 这一行为。</p>
-<p>问题和语言是可以相互等价的。如果 <span
-class="math inline">\(\Sigma\)</span> 是字母表，<span
-class="math inline">\(L\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 上的语言，则问题 <span
-class="math inline">\(L\)</span> 就是“给定 <span
-class="math inline">\(\Sigma^{*}\)</span> 中的一个串 <span
-class="math inline">\(w\)</span>，判断 <span
-class="math inline">\(w\)</span> 是否属于 <span
-class="math inline">\(L\)</span>。这说明 <span
-class="math inline">\(L\)</span>
-是一个语言，也可以被看成是一个问题。</p>
-<h2 id="有穷自动机的形式化定义">有穷自动机的形式化定义</h2>
-<h3 id="确定性有穷自动机dfa">确定性有穷自动机（DFA）</h3>
-<p>通常使用一个五元组 <span class="math inline">\(A = (Q, \Sigma,
-\delta, q_0, F)\)</span> 来表示一个 DFA。其中 <span
-class="math inline">\(A\)</span> 是 DFA 的名称，<span
-class="math inline">\(Q\)</span> 是状态集合，<span
-class="math inline">\(\Sigma\)</span> 是输入符号，<span
-class="math inline">\(\delta\)</span> 是转移函数，<span
-class="math inline">\(q_0\)</span> 是初始状态，<span
-class="math inline">\(F\)</span> 是接受状态集合。</p>
-<h4 id="dfa-的表示方法">DFA 的表示方法</h4>
-<ul>
-<li><p>转移图</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0$| C(($q_2$))
-A --&gt; |$1$| A
-C --&gt; |$0$| C
-C --&gt; |$1$| B((($q_1$)))
-B --&gt; |$0, 1$| B</code></pre>
-<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 <span
-class="math inline">\(q_1\)</span>）。</p></li>
-<li><p>转移表</p>
-<p>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 <span
-class="math inline">\(\delta\)</span>。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;"><span
-class="math inline">\(0\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(\to
-q_0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_0\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span
-class="math inline">\(*q_1\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_2\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(q_1\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>初始状态用箭头标记，接受状态用星号标记。</p></li>
-</ul>
-<h4 id="转移函数-delta">转移函数 <span
-class="math inline">\(\delta\)</span></h4>
-<p>本质上就是转移图上的有向边，边权为字母表中的字符。</p>
-<ul>
-<li><p>扩展转移函数 <span class="math inline">\(\hat\delta\)</span></p>
-<p>感性地说，就是
-<strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
-<p>形式化的定义如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(\hat\delta(q, \varepsilon) =
-q\)</span>。</p>
-<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
-\delta(\hat\delta(q, x), a)\)</span>，其中 <span class="math inline">\(w
-= xa\)</span>。</p>
-</blockquote></li>
-</ul>
-<h4 id="dfa-的语言">DFA 的语言</h4>
-<p>定义 DFA <span class="math inline">\(A = (Q, \Sigma, \delta, q_0,
-F)\)</span> 的语言 <span class="math inline">\(L(A)\)</span> 如下：</p>
-<p><span class="math display">\[
-L(A) = \{w | \hat\delta(q_0, w) \in F\}
-\]</span></p>
-<p><span class="math inline">\(L(A)\)</span> 是 <span
-class="math inline">\(A\)</span> 的 <strong>所有可接受的串</strong>
-所组成的集合。如果对于某个 DFA <span class="math inline">\(A\)</span>
-来说 <span class="math inline">\(L\)</span> 是 <span
-class="math inline">\(L(A)\)</span>，则我们称 <span
-class="math inline">\(L\)</span> 是一个 <strong>正则语言</strong>。</p>
-<h3 id="非确定性有穷自动机nfa">非确定性有穷自动机（NFA）</h3>
-<p><del>NFA 就是多线程 DFA（确信）</del></p>
-<p>在读入每个串的时候，NFA
-可以向多个方向同时转移，最后只取可接受状态组成的状态集合。</p>
-<h4 id="nfa-的表示方法">NFA 的表示方法</h4>
-<p>转移表既可以表示 NFA 的转移函数，也可以用来规定 DFA
-的转移函数，区别在于，NFA 转移表中的
-<strong>每一项都是集合</strong>，即使是单元素集合；如果在某个状态上不存在向其他状态的转移时，应该填入
-<span class="math inline">\(\varnothing\)</span>。</p>
-<h4 id="转移函数-delta-1">转移函数 <span
-class="math inline">\(\delta\)</span></h4>
-<ul>
-<li><p>扩展转移函数 <span class="math inline">\(\hat\delta(q,
-w)\)</span></p>
-<p>形式化的表述如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(\hat\delta(q, \varepsilon) =
-\{q\}\)</span>。</p>
-<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
-\bigcup\limits_{p \in \hat\delta(q, x)}\delta(p, a)\)</span>，其中 <span
-class="math inline">\(w = xa\)</span>。</p>
-</blockquote></li>
-</ul>
-<h4 id="nfa-的语言">NFA 的语言</h4>
-<p>相应地，由于 NFA
-可以同时向多个方向转移，所以对于一个串来说，只要存在一个状态使得 NFA
-能接受该串，那么这个串就属于这个 NFA 对应的语言。</p>
-<p><span class="math display">\[
-L(A) = \{w | \hat\delta(q_0, w) \cap F \neq \varnothing\}
-\]</span></p>
-<h3 id="dfa-和-nfa-的区别与联系">DFA 和 NFA 的区别与联系</h3>
-<p>DFA 和 NFA 之间的唯一区别在于，<span
-class="math inline">\(\delta\)</span> 在 DFA 的情况下，返回的是
-<strong>单个状态</strong>；而在 NFA 的情况下，返回的是一个
-<strong>状态集合</strong>。</p>
-<h4 id="dfa-和-nfa-的等价性">DFA 和 NFA 的等价性</h4>
-<p>显然一个 DFA 可以转化成一个
-NFA，只需要把状态中的每个元素写成其对应的单元素集合即可。重点在于怎么通过一个
-NFA <span class="math inline">\(N = (Q_N, \Sigma, \delta_N, \{q_0\},
-F_N)\)</span> 开始，描述一个 DFA <span class="math inline">\(D = (Q_D,
-\Sigma, \delta_D, q_0, F_D)\)</span> 使得 <span
-class="math inline">\(L(N) = L(D)\)</span>。可以采用
-<strong>子集构造</strong> 的方式来解决此问题。</p>
-<ul>
-<li><span class="math inline">\(Q_D = P(Q_N)\)</span>，即 <span
-class="math inline">\(Q_D\)</span> 是 <span
-class="math inline">\(Q_N\)</span>
-的幂集合。但值得注意的一点是，虽然它们是“集合”，但它们是单个状态，而不是状态的集合。换句话说，构造出来的
-<span class="math inline">\(D\)</span> 中，每个状态本身都是集合。</li>
-<li><span class="math inline">\(F_D = \{S \subseteq Q_N | S \cap F_N
-\neq \varnothing\}\)</span>。也就是说，<span
-class="math inline">\(F_D\)</span> 是所有至少含有一个 <span
-class="math inline">\(N\)</span> 的接受状态的 <span
-class="math inline">\(N\)</span> 的状态集合的集合。</li>
-<li>对于每个集合 <span class="math inline">\(S \subseteq Q_N\)</span>
-以及 <span class="math inline">\(a \in
-\Sigma\)</span>，构造转移函数如下： <span class="math display">\[
-\delta_D(S, a) = \bigcup_{p \in S}\delta_N(p, a)
-\]</span> 也就是说，对于 <span class="math inline">\(S\)</span>
-中所有状态 <span class="math inline">\(p\)</span>，在 <span
-class="math inline">\(N\)</span> 中从 <span
-class="math inline">\(p\)</span> 上通过输入 <span
-class="math inline">\(a\)</span> 进入的状态，这些状态的并集，就是 <span
-class="math inline">\(\delta_D(S, a)\)</span>。</li>
-</ul>
-<p><strong>定理</strong>：如果 <span class="math inline">\(D = (Q_D,
-\Sigma, \delta_D, \{q_0\}, F_D)\)</span> 是用子集构造从 NFA <span
-class="math inline">\(N = (Q_N, \Sigma, \delta_N, q_0, F_N)\)</span>
-构造出来的 DFA，那么 <span class="math inline">\(L(D) =
-L(N)\)</span>。</p>
-<p><strong>证明</strong>：只需证明 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, w) = \hat\delta_N(q_0,
-w)\)</span>。</p>
-<p>基础：设 <span class="math inline">\(|w| = 0\)</span>，则 <span
-class="math inline">\(w = \varepsilon\)</span>，显然有 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, \varepsilon) =
-\hat\delta_N(q_0, \varepsilon)\)</span>。</p>
-<p>归纳：设 <span class="math inline">\(|w| = n + 1\)</span>，且命题对
-<span class="math inline">\(|v| = n\)</span> 的所有 <span
-class="math inline">\(v\)</span> 均成立。记 <span
-class="math inline">\(w = xa\)</span>，假设 <span
-class="math inline">\(\hat\delta_D(\{q_0\}, x) = \hat\delta_N(q_0, x) =
-\{p_1, p_2, \cdots, p_k\}\)</span>。</p>
-<p>由 NFA 的 <span class="math inline">\(\hat\delta\)</span>
-的定义的归纳部分说明 <span class="math inline">\(\hat\delta(q_0, w) =
-\cup_{i = 1}^k\delta_N(p_i, a)\)</span>。另一方面，子集构造说明 <span
-class="math inline">\(\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \cup_{i =
-1}^k\delta_N(p_i, a)\)</span>。因此</p>
-<p><span class="math display">\[
-\hat\delta_D(\{q_0\}, w) = \delta_D(\hat\delta_D(\{q_0\}, x), a) =
-\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \bigcup_{i = 1}^k\delta_N(p_i,
-a) = \hat\delta(q_0, w)
-\]</span></p>
-<p>所以对于某个串 <span class="math inline">\(w\)</span> 而言，它在
-<span class="math inline">\(D\)</span> 和 <span
-class="math inline">\(N\)</span> 中的可达性是相同的。</p>
-<p>因此 <span class="math inline">\(\hat\delta_D(\{q_0\}, w)q_{n - 1} =
-\hat\delta_N(q_0, w) \iff L(D) = L(N)\)</span>。命题得证。</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0, 1$| A
-A --&gt; |$0$| B(($q_1$))
-B --&gt; |$1$| C((($q_2$)))</code></pre>
-<p>这是一个接受所有以 <code>01</code> 结尾的 01 串的 NFA。它所对应的 DFA
-为</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A((&quot;$\&#123;q_0\&#125;$&quot;))
-A --&gt; |$1$| A
-A --&gt; |$0$| B((&quot;$\&#123;q_0, q_1\&#125;$&quot;))
-B --&gt; |$0$| B
-B --&gt; |$1$| C(((&quot;$\&#123;q_0, q_2\&#125;$&quot;)))
-C --&gt; |$0$| B
-C --&gt; |$1$| A</code></pre>
-<p>转移表如下：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;"><span
-class="math inline">\(0\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(\to
-\{q_0\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_0\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span
-class="math inline">\(\{q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span
-class="math inline">\(*\{q_2\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(*\{q_0,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_0\}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><span class="math inline">\(*\{q_1,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\{q_2\}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><span class="math inline">\(*\{q_0, q_1,
-q_2\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_1\}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\{q_0,
-q_2\}\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="子集构造的最劣情形">子集构造的最劣情形</h4>
-<p>考虑 <span class="math inline">\(L(N)\)</span> 是所有使得倒数第 <span
-class="math inline">\(n\)</span> 位是 <span
-class="math inline">\(1\)</span> 的 01 串集合。</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-style ... fill:none,stroke-width:0px
-
-Start --&gt; A(($q_0$))
-A --&gt; |$0, 1$| A
-A --&gt; |$1$| B(($q_1$))
-B --&gt; |$0, 1$| C(($q_2$))
-C --&gt; |$0, 1$| ...
-... --&gt; |$0, 1$| D((&quot;$q_&#123;n-1&#125;$&quot;))
-D --&gt; |$0, 1$| E((($q_n$)))</code></pre>
-<p>这个 NFA 没有少于 <span class="math inline">\(2^n\)</span>
-个状态的等价 DFA。这很好理解，因为你最少要存下来每个 01 串的最后 <span
-class="math inline">\(n - 1\)</span> 位，所以会导致 DFA
-的状态数指数型增长。</p>
-<h2 id="varepsilon-转移"><span
-class="math inline">\(\varepsilon\)</span> 转移</h2>
-<p><span class="math inline">\(\varepsilon\)</span>
-转移可以理解成边权为空串 <span
-class="math inline">\(\varepsilon\)</span> 的边。</p>
-<h3 id="varepsilon---nfa-的形式化定义"><span
-class="math inline">\(\varepsilon\)</span> - NFA 的形式化定义</h3>
-<p>只有转移函数 <span class="math inline">\(\delta\)</span> 与 NFA
-不同。在 <span class="math inline">\(\varepsilon\)</span> - NFA
-中，<span class="math inline">\(\delta\)</span> 的定义域被拓展为 <span
-class="math inline">\(Q \times \left(\Sigma \cup
-\{\varepsilon\}\right)\)</span>，它需要包含所有通过 <span
-class="math inline">\(\varepsilon\)</span> 边转移的信息。</p>
-<h3 id="varepsilon-闭包"><span
-class="math inline">\(\varepsilon\)</span> 闭包</h3>
-<p>这就有点类似于在有向图中缩点了。<span
-class="math inline">\(\varepsilon\)</span>
-闭包就是能被缩成一个点的块儿，消除 <span
-class="math inline">\(\varepsilon\)</span> 转移就是缩点的过程。</p>
-<p>递归地定义 <span class="math inline">\(q\)</span> 的 <span
-class="math inline">\(\varepsilon\)</span> 闭包如下：</p>
-<blockquote>
-<p>基础：<span class="math inline">\(q \in \text{ECLOSE}(q)\)</span></p>
-<p>归纳：若 <span class="math inline">\(p \in
-\text{ECLOSE}(q)\)</span>，且存在 <span class="math inline">\(p\)</span>
-到 <span class="math inline">\(r\)</span> 的 <span
-class="math inline">\(\varepsilon\)</span> 转移，则 <span
-class="math inline">\(r \in \text{ECLOSE}(q)\)</span>。</p>
-</blockquote>
-<ul>
-<li>扩展转移函数 <span class="math inline">\(\hat\delta(q, w)\)</span>
-形式化的定义如下： &gt; 基础：<span class="math inline">\(\hat\delta(q,
-\varepsilon) = \text{ECLOSE}(q)\)</span>。 &gt; &gt; 归纳：<span
-class="math inline">\(\hat\delta(q, w) = \bigcup\limits_{p \in
-\hat\delta(q, x)}\text{ECLOSE}(\delta(p, a))\)</span>，其中 <span
-class="math inline">\(w = xa\)</span>。</li>
-</ul>
-<p>用通俗的话说，通过 <span class="math inline">\(\varepsilon\)</span>
-的边将状态 <span class="math inline">\(q\)</span>
-和它周围的状态联系起来，它们本质上是“同一个状态”，“同一个状态”对应的就是
-<span class="math inline">\(\text{ECLOSE}(q)\)</span>。</p>
-<h3 id="消除-varepsilon-转移">消除 <span
-class="math inline">\(\varepsilon\)</span> 转移</h3>
-<p>给定一个 <span class="math inline">\(\varepsilon\)</span> - NFA <span
-class="math inline">\(E = (Q_E, \Sigma, \delta_E, q_0,
-F_E)\)</span>，求满足 <span class="math inline">\(L(E) = L(D)\)</span>
-的 DFA <span class="math inline">\(D = (Q_D, \Sigma, \delta_D, q_D,
-F_D)\)</span>。</p>
-<ul>
-<li><span class="math inline">\(Q_D = \{S \subseteq Q_E | S =
-\text{ECLOSE}(S)\}\)</span></li>
-<li><span class="math inline">\(q_D = \text{ECLOSE}(q_0)\)</span></li>
-<li><span class="math inline">\(F_D = \{S \subseteq Q_D | S \cap F_E
-\neq \varnothing\}\)</span></li>
-<li><span class="math inline">\(\delta_D\)</span> 满足 <span
-class="math display">\[
-\delta_D(S, a) = \bigcup_{p \in S}\text{ECLOSE}(\delta(p, a))
-\]</span></li>
-</ul>
-<p>对于 <span class="math inline">\(E\)</span> 和其对应的 <span
-class="math inline">\(D\)</span>，也有</p>
-<p><strong>定理</strong>：<span class="math inline">\(L\)</span> 被
-<span class="math inline">\(\varepsilon\)</span> - NFA <span
-class="math inline">\(E\)</span> 接受，当且仅当 <span
-class="math inline">\(L\)</span> 被 DFA <span
-class="math inline">\(D\)</span> 接受。</p>
-<p>定理的证明与 NFA 和 DFA 的等价性处的证明类似。</p>
-<h2 id="练习题">练习题</h2>
-<p><strong>习题 1</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/20/exercise11b1ec947067fc985.jpeg"
-alt="习题 1" />
-<figcaption aria-hidden="true">习题 1</figcaption>
-</figure>
-<p>注意，要按照 <span class="math inline">\(bac\)</span> 和 <span
-class="math inline">\(acb\)</span> 重叠部分的长度分成三类。</p>
-<p><strong>习题 2</strong> 给出接受下列在字母表 <span
-class="math inline">\(\{0, 1\}\)</span> 上的语言的 DFA：所有
-<em>倒过来</em> 解释成二进制整数时是 <span
-class="math inline">\(5\)</span> 的倍数的串的集合。例如 <span
-class="math inline">\(010011, 1001100\)</span> 和 <span
-class="math inline">\(0101\)</span>。</p>
-<p>先画出接受正方向串的 DFA <span
-class="math inline">\(D\)</span>。这是容易的，按照除以 <span
-class="math inline">\(5\)</span> 得到的余数分类设计 <span
-class="math inline">\(5\)</span> 个状态即可。接着，接受倒过来串的 DFA
-就是将 <span class="math inline">\(D\)</span> 中所有边全部反向得到的
-DFA。</p>
-<p><strong>习题 3</strong> 给出接受下列在字母表 <span
-class="math inline">\(\{0, 1\}\)</span> 上的语言的 DFA：所有倒数第 <span
-class="math inline">\(10\)</span> 个符号是 <span
-class="math inline">\(1\)</span> 的串的集合。</p>
-<p>设计 <span class="math inline">\(2^{10}\)</span>
-个状态，表示已输入的串除以 <span class="math inline">\(2^{10}\)</span>
-得到的余数，余数 $ $ 为接受状态。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>有穷自动机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
     <url>/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</url>
     <content><![CDATA[<p>这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。</p>
@@ -1470,934 +954,6 @@ class="math inline">\(\square\)</span>。</p></li>
       <tags>
         <tag>离散数学</tag>
         <tag>数理逻辑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
-    <url>/2023/10/10/IATLC-Chap7/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第七章 上下文无关语言的性质</strong></p>
-<ul>
-<li>上下文无关文法的范式
-<ul>
-<li>去除无用的符号</li>
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
-<li>去除单位式</li>
-<li>乔姆斯基范式（CNF）</li>
-</ul></li>
-<li>上下文无关语言的泵引理</li>
-<li>上下文无关语言的封闭性
-<ul>
-<li>代入定理</li>
-<li>与正则语言的交</li>
-<li>逆同态</li>
-</ul></li>
-<li>上下文无关语言的判定性质
-<ul>
-<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
-<li>CFG 变换到 CNF 的时间复杂度</li>
-<li>测试 CFL 的空性</li>
-<li>测试 CFL 的成员性：CYK 算法</li>
-<li>不可判定的 CFL 问题</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
-<h3 id="去除无用的符号">去除无用的符号</h3>
-<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
-<p>例：考虑文法 <span class="math display">\[
-\begin{aligned}
-S &amp;\to AB | a \\
-A &amp;\to b
-\end{aligned}
-\]</span> 正确的做法是先去除不产生的 <span
-class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
-\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
-导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
-class="math inline">\(S \to a\)</span>。</p>
-<p>错误的做法会导致在第一步检查时，没有不可达的符号；在第二步中仅去除了含有不产生的
-<span class="math inline">\(B\)</span> 的产生式 <span
-class="math inline">\(S \to AB\)</span>。此时仍然有冗余的 <span
-class="math inline">\(A \to b\)</span>。</p>
-<p>一个 CFG
-类似于一个由产生式构建而成的森林，“去除不产生的符号”等价于切断为非终结符的叶节点及其父节点、父节点及其祖父节点……之间的边，“去除不可达的符号”等价于仅保留以
-<span class="math inline">\(S\)</span> 为根的树。</p>
-<p>由于“去除不产生的符号”在切断边的过程中，会产生新的树，而这些树的根节点不一定为
-<span
-class="math inline">\(S\)</span>，所以需要先去除不产生的符号，再去除不可达的符号。</p>
-<h3 id="去除-varepsilon-产生式">去除 <span
-class="math inline">\(\varepsilon\)</span> 产生式</h3>
-<p>定义可空符号：</p>
-<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
-\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
-的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
-<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
-C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
-都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
-<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
-class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
-class="math inline">\(\varepsilon\)</span> 产生式。</p>
-<h3 id="去除单位式">去除单位式</h3>
-<p>我们需要找到所有满足如下条件的非终结符对 <span
-class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
-class="math inline">\(A
-\overset{*}{\implies}B\)</span>。注意，<strong>即使使用非单位产生式也可能有
-<span class="math inline">\(A \overset{*}{\implies}
-B\)</span></strong>，例如 <span class="math inline">\(A \to BC, B \to
-\varepsilon\)</span>。</p>
-<p>定义单位对：</p>
-<p><strong>基础</strong>：对于任何非终结符 <span
-class="math inline">\(A\)</span>，<span class="math inline">\((A,
-A)\)</span> 是单位对。</p>
-<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
-B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
-是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
-<span class="math inline">\((A, C)\)</span> 是单位对。</p>
-<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
-class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
-class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
-class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
-class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
-\implies B_n \implies \alpha\)</span>。</p>
-<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
-<p><strong>定义</strong>：任何非空且不含 <span
-class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
-<span class="math inline">\(G\)</span>，满足 <span
-class="math inline">\(G\)</span>
-中的所有产生式都属于一下两个简单的形式之一：</p>
-<ol type="1">
-<li><span class="math inline">\(A \to BC\)</span>，其中 <span
-class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
-<li><span class="math inline">\(A \to a\)</span>，其中 <span
-class="math inline">\(A\)</span> 是非终结符，<span
-class="math inline">\(a\)</span> 是终结符。</li>
-</ol>
-<p>更进一步，<span class="math inline">\(G\)</span>
-中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
-<p>构造 CNF 的步骤首先包括得到一个不含 <span
-class="math inline">\(\varepsilon\)</span> 的
-CFL。一个可靠的顺序是：</p>
-<ol type="1">
-<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
-<li>去除单位产生式；</li>
-<li>去除无用符号。</li>
-</ol>
-<p>在此之后，我们需要改造产生式：</p>
-<ol type="1">
-<li>重新安排产生式，使得体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
-class="math inline">\(A \to BC\)</span>）；</li>
-<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
-的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
-</ol>
-<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
-B_1bB_3\cdots
-B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
-<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
-B_k\)</span>，这样体的长度大于等于 <span
-class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
-<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
-\cdots B_k\)</span> 改为 <span class="math display">\[
-\begin{aligned}
-A \to&amp; B_1C_1 \\
-C_1 \to&amp; B_2 C_2 \\
-C_2 \to&amp; B_3 C_3 \\
-&amp;\vdots \\
-C_{k-1} \to&amp; B_{k-1}B_k
-\end{aligned}
-\]</span></p>
-<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
-是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
-<span class="math inline">\(L\)</span> 中的串 <span
-class="math inline">\(z\)</span> 的长度 <span
-class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
-class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
-uvwxy\)</span>，其中：</p>
-<ol type="1">
-<li><span class="math inline">\(\left|vwx\right| \le
-n\)</span>，也就是说，中间的部分不会很长；</li>
-<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
-<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
-class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
-<span class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
-class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
-class="math inline">\(L\)</span>。</li>
-</ol>
-<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
-对应的 CNF <span
-class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
-class="math inline">\(G\)</span> 有 <span
-class="math inline">\(m\)</span> 个非终结符，取 <span
-class="math inline">\(n = 2^m\)</span>。假设 <span
-class="math inline">\(z \in L\)</span> 且长度至少为 <span
-class="math inline">\(n\)</span>。任何产物为 <span
-class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
-<span class="math inline">\(m + 1\)</span>
-的路径，因为如果某个语法分析树的最长路径长度仅为 <span
-class="math inline">\(m\)</span>，则它的产物最长只能为 <span
-class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
-n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
-的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
-1\)</span>。由于 <span class="math inline">\(k \ge
-m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
-1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
-A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
-class="math inline">\(m\)</span>
-种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
-class="math inline">\(A_i = A_j = A\)</span>，其中 <span
-class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
-<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
-class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
-<span class="math inline">\(A_i\)</span> 和 <span
-class="math inline">\(A_j\)</span>。</p>
-<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
-<span class="math inline">\(A_j\)</span>
-为根的这两棵子树相互替代，从而达到“泵”出 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 零次或多次的效果。</p>
-<figure>
-<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
-alt="“泵”出 v 和 x，重复 0 次和 2 次" />
-<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
-次</figcaption>
-</figure>
-<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
-<p>CFL 在交运算（推论：补运算、差运算）下不封闭。</p>
-<p>比如 <span class="math inline">\(L_1 = \{0^m1^n2^n | n, m \in
-\mathbb{N}\}, L_2 = \{0^n1^n2^m | n, m \in \mathbb{N}\}\)</span>，则
-<span class="math inline">\(L_1 \cap L_2 = \{0^n1^n2^n | n \in
-\mathbb{N}\}\)</span>，但它不是 CFL。</p>
-<p>但是 CFL 与一个 RE 的交仍然是 CFL，与一个 RE 的补仍然是
-CFL。类似于两个 RE 的交，我们可以同步运行一个 PDA 和一个
-DFA，来产生能表示二者语言交集的 PDA。</p>
-<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
-<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
-之间相互转化的时间复杂度</h3>
-<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
-href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
-<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
-最多只会额外加入域产生式个数相等的 <span
-class="math inline">\(\delta\)</span> 转移，步骤 2
-最多只会额外加入与终结符个数相等的 <span
-class="math inline">\(\delta\)</span> 转移。</p>
-<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
-之间，相互转换的时间复杂度都是线性的。</p>
-<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
-class="math inline">\(n\)</span>。由于单次 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
-X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
-[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
-的产生式，最坏情况下这组产生式的个数为 <span
-class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
-<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
-class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
-class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
-<span class="math display">\[
-\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
-\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
-\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
-= \{(r_0, Y_1Y_2)\}\)</span>。</p>
-<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
-个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
-class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
-class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
-<ul>
-<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度。</li>
-<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
-的时间复杂度。</li>
-<li>用产生式体中的变元来代替终结符需要 <span
-class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
-<span class="math inline">\(O(n)\)</span> 的文法。</li>
-<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
-的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
-的时间复杂度，并且额外增加长度为 <span
-class="math inline">\(O(n)\)</span> 的文法。</li>
-</ul>
-<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
-产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
-class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
-<span class="math inline">\(O(2^n)\)</span>
-的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
-<span class="math inline">\(O(n)\)</span>。但我们可以在
-<strong>把所有产生式的体打断为长度为 <span
-class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
-class="math inline">\(\varepsilon\)</span>
-产生式，因为这样每个产生式枚举的代价仅为 <span
-class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
-class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
-class="math inline">\(O(n)\)</span>。</p>
-<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
-<p>对产生式的集合构造一个有向图，图中的每条边由
-<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
-<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
-DFS：</p>
-<ul>
-<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
-<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
-</ul>
-<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
-DFS 的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
-是否为空。</p>
-<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
-<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
-<figure>
-<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
-alt="由 CYK 算法构造的表" />
-<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
-</figure>
-<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
-a_n\)</span> 中的位置，在图中假定 <span
-class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
-class="math inline">\(X_{ij}\)</span> 是满足 <span
-class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
-的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
-是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
-<span class="math inline">\(S\)</span> 是否能推导出 <span
-class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
-<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
-[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
-class="math inline">\(G\)</span> 的产生式中满足 <span
-class="math inline">\(A \to a_i\)</span> 的非终结符 <span
-class="math inline">\(A\)</span> 的集合。</p>
-<p><strong>归纳</strong>：假设想要计算出 <span
-class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
-class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
-class="math inline">\(X_{ii}\)</span> 位于第 <span
-class="math inline">\(1\)</span> 行。本质上 <span
-class="math inline">\(X_{ij}\)</span>
-所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
-class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
-<span class="math inline">\(j - i + 1\)</span>
-的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
-\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
-<span class="math inline">\(A \implies BC\)</span>，其中 <span
-class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
-a_{k}\)</span>，<span class="math inline">\(C
-\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
-class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
-class="math inline">\(k\)</span>，找到所有满足条件的 <span
-class="math inline">\(B\)</span> 和 <span
-class="math inline">\(C\)</span>，再检查这样的组合 <span
-class="math inline">\(BC\)</span> 是否能被 <span
-class="math inline">\(A\)</span> 产生。</p>
-<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
-class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
-class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
-class="math inline">\(O(n^3)\)</span>。</p>
-<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
-<ol type="1">
-<li>某个给定的 CFG <span class="math inline">\(G\)</span>
-是歧义的吗？</li>
-<li>某个给定的 CFL <span class="math inline">\(L\)</span>
-是固有歧义的吗？</li>
-<li>两个 CFL 的交为空吗？</li>
-<li>两个 CFL 相同吗？</li>
-<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
-吗？其中 <span class="math inline">\(\Sigma\)</span>
-是该语言的字母表。</li>
-</ol>
-<h2 id="练习题">练习题</h2>
-<p><strong>习题 1</strong> 用 CFL
-泵引理来证明下面的语言都不是上下文无关的：<span
-class="math inline">\(\{ww^Rw | w \in \{0, 1\}^*\}\)</span>。</p>
-<p>考虑 <span class="math inline">\(z = uvwxy =
-0^n1^n1^n0^n0^n1^n\)</span>，则 <span class="math inline">\(vwx\)</span>
-不能完全含于某个 <span class="math inline">\(0^n\)</span> 或 <span
-class="math inline">\(1^n\)</span>
-里（否则找不到可以“对折”的两个“折痕”），因此肯定跨过一个分界线，为 <span
-class="math inline">\(0^n1^n\)</span> 或 <span
-class="math inline">\(1^n0^n\)</span>。不妨考虑前者，且为 <span
-class="math inline">\(z\)</span> 的开头，则 <span
-class="math inline">\(v\)</span> 和 <span
-class="math inline">\(x\)</span> 一定是“纯色”的 <span
-class="math inline">\(0^t\)</span> 和 <span
-class="math inline">\(1^r\)</span>，否则会导致有更多相间的 <span
-class="math inline">\(0101\cdots\)</span> 出现，不满足 <span
-class="math inline">\(ww^Rw\)</span> 的样式。考虑 <span
-class="math inline">\(uv^{k+1}wx^{k+1}y =
-0^{n+kt}1^{n+kr}1^n0^n0^n1^n\)</span> 不满足 <span
-class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
-    <url>/2023/09/19/IATLC-Chap3/</url>
-    <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第三章 正则表达式与正则语言</strong></p>
-<ul>
-<li>正则表达式的运算符
-<ul>
-<li>并与连接</li>
-<li>闭包</li>
-</ul></li>
-<li>正则表达式的定义</li>
-<li>自动机与正则表达式间的关系
-<ul>
-<li>由 DFA 构建正则表达式</li>
-<li>消除状态法</li>
-<li>由正则表达式构造 <span class="math inline">\(\varepsilon\)</span> -
-NFA</li>
-<li>消除 <span class="math inline">\(\varepsilon\)</span>
-转移时的注意事项</li>
-</ul></li>
-<li>正则表达式代数定律</li>
-</ul>
-<span id="more"></span>
-<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
-<h3 id="并与连接">并与连接</h3>
-<ul>
-<li>并 <span class="math display">\[
-L \cup M = \{w | w \in L \lor w \in M\}
-\]</span></li>
-<li>连接 <span class="math display">\[
-LM = \{w = uv | u \in L \land v \in M\}
-\]</span></li>
-</ul>
-<h3 id="闭包">闭包</h3>
-<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
-class="math inline">\(L^*\)</span>。形式化的定义是：</p>
-<p><span class="math display">\[
-L^* = \bigcup_{i \ge 0}L^i
-\]</span></p>
-<p>其中 <span class="math inline">\(L^0 = \{\varepsilon\}, L^1 =
-L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
-class="math inline">\(i\)</span> 个 <span
-class="math inline">\(L\)</span> 的连接。</p>
-<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
-class="math inline">\(L^*\)</span>
-通常是无穷的。<strong>仅有两个</strong>
-特殊的语言，它们的闭包是有限的。</p>
-<ul>
-<li><p><span class="math inline">\(\varnothing^*\)</span></p>
-<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
-class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
-class="math inline">\(\varnothing^0 = \{\varepsilon\}\)</span>。故 <span
-class="math inline">\(\varnothing^* =
-\{\varepsilon\}\)</span>。</p></li>
-<li><p><span class="math inline">\(\{\varepsilon\}^*\)</span></p>
-<p>注意到 <span class="math inline">\(\{\varepsilon\}\)</span>
-无论连接多少次都不会改变它是 <span
-class="math inline">\(\{\varepsilon\}\)</span> 的事实，所以 <span
-class="math inline">\(\{\varepsilon\}^* =
-\{\varepsilon\}\)</span>。</p></li>
-</ul>
-<h2 id="正则表达式的定义">正则表达式的定义</h2>
-<p>正则表达式仍然采用递归的定义方法：</p>
-<p><strong>基础</strong>：</p>
-<ol type="1">
-<li><span class="math inline">\(\varepsilon\)</span> 和 <span
-class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
-<span class="math inline">\(\{\varepsilon\}\)</span> 和 <span
-class="math inline">\(\varnothing\)</span>。也就是说，<span
-class="math inline">\(L(\varepsilon) = \{\varepsilon\}, L(\varnothing) =
-\varnothing\)</span>。</li>
-<li>若 <span class="math inline">\(a\)</span> 是任意
-<strong>符号</strong>，则 <span
-class="math inline">\(\textbf{a}\)</span>
-是正则表达式。这个表达式表示语言 <span
-class="math inline">\(\{a\}\)</span>。也就是说，<span
-class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
-</ol>
-<p><strong>归纳</strong>：</p>
-<ol type="1">
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的并。也就是说，<span
-class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 和 <span
-class="math inline">\(F\)</span> 都是正则表达式，则 <span
-class="math inline">\(EF\)</span> 是正则表达式，表示 <span
-class="math inline">\(L(E)\)</span> 和 <span
-class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
-class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
-class="math inline">\(E\)</span> 的闭包。也就是说，<span
-class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
-<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
-class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
-class="math inline">\(E\)</span> 相同的语言。也就是说 <span
-class="math inline">\((L(E)) = L(E)\)</span>。</li>
-</ol>
-<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
-<p>DFA、NFA、<span class="math inline">\(\varepsilon\)</span> - NFA
-和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
-<pre><code class="highlight mermaid">graph LR
-A(NFA) --&gt; |1| B(DFA)
-B --&gt; |2| C($\varepsilon$ - NFA)
-C --&gt; |3| B
-B --&gt; |4| D(RE)
-D --&gt; |5| C</code></pre>
-<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
-<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
-<p>我们想要解决的问题是：给定一个 DFA <span
-class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
-L(A)\)</span>，求一个正则表达式 <span
-class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
-L(R)\)</span>。</p>
-<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
-class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
-class="math inline">\(1\)</span> 为初始状态。设 <span
-class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
-class="math inline">\(w\)</span> 所组成的集合：<span
-class="math inline">\(w\)</span> 是 <span
-class="math inline">\(A\)</span> 中从状态 <span
-class="math inline">\(i\)</span> 到状态 <span
-class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
-<span class="math inline">\(k\)</span> 的
-<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
-和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
-class="math inline">\(k\)</span>。</p>
-<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
-class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
-class="math inline">\(j\)</span> 为一个接受状态。</p>
-<p>仍然考虑使用递归的思路来推导 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
-<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
-时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
-以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
-<ul>
-<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
-class="math inline">\(R_{ii}^{(0)} = \varepsilon + \textbf{a}_1 +
-\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
-class="math inline">\(i\)</span> 有自环 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
-class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
-\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
-到状态 <span class="math inline">\(j\)</span> 有 <span
-class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
-\textbf{a}_r\)</span> 的弧。</li>
-</ul>
-<p><strong>归纳</strong>：假设有 <span
-class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
-<ol type="1">
-<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
-这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
-R_{ij}^{(k-1)}\)</span>。</p></li>
-<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
-至少一次。 于是我们可以把整个路径分成几段：</p></li>
-</ol>
-<p><pre><code class="highlight mermaid">graph LR
-
-style ... fill:none,stroke-width:0px
-
-A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
-subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
-B((k)) --&gt; C((k))
-C((k)) --&gt; ...
-... --&gt; E((k))
-end
-E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
-<p>那么这种路径可以表示成正则表达式 <span
-class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。</p>
-<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
-1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
-1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
-class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
-<p>比如考虑下图表示的 DFA：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(($1$))
-A --&gt; |$1$| A
-A --&gt; |$0$| B((($2$)))
-B --&gt; |$0, 1$| B</code></pre>
-<p>由 <strong>基础</strong> 部分可得：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{1}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
-class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
-<p><span class="math display">\[
-R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{1} + (\varepsilon + \mathbf{1})(\varepsilon +
-\mathbf{1})^*(\varepsilon + \mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
-(\varepsilon + \mathbf{1})(\varepsilon +
-\mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ \varnothing(\varepsilon + \mathbf{1})^*(\varepsilon +
-\mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(0)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{0} + \mathbf{1} + \varnothing(\varepsilon +
-\mathbf{1})^*\mathbf{0}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{0} + \mathbf{1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>又有</p>
-<p><span class="math display">\[
-R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
-\]</span></p>
-<p>因此可以得到：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">表达式</th>
-<th style="text-align: center;">通过直接带入</th>
-<th style="text-align: center;">化简后的值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{11}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
-+ \mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{12}^{(1)}\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0} +
-\mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
-\mathbf{1})^*(\varepsilon + \mathbf{0} + \mathbf{1})\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(R_{21}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varnothing
-+ (\varepsilon + \mathbf{0} + \mathbf{1})(\varepsilon + \mathbf{0} +
-\mathbf{1})^*\varnothing\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(\varnothing\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(R_{22}^{(1)}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\varepsilon
-+ \mathbf{0} + \mathbf{1} + (\varepsilon + \mathbf{0} +
-\mathbf{1})(\varepsilon + \mathbf{0} + \mathbf{1})^*(\varepsilon +
-\mathbf{0} + \mathbf{1})\)</span></td>
-<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
-+ \mathbf{1})^*\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
-class="math inline">\(2\)</span>
-是唯一一个接收状态，则整体的正则表达式为 <span
-class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
-\mathbf{1})^*\)</span>。</p>
-<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
-<h3 id="消除状态法">消除状态法</h3>
-<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
-的方式来化简自动机。考虑下图中即将被消除的状态 <span
-class="math inline">\(s\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
-A --&gt; |$Q_1$| C(($s$))
-C --&gt; |$P_1$| B
-C --&gt; |$S$| C
-C --&gt; |$P_m$| E
-D --&gt; |$Q_k$| C
-D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
-<p>消除状态 <span class="math inline">\(s\)</span>
-时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
-相关的转移边。消除状态 <span class="math inline">\(s\)</span>
-后如下：</p>
-<pre><code class="highlight mermaid">graph LR
-
-A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
-A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
-D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
-D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
-<p>从有穷自动构造正则表达式的策略如下：</p>
-<ol type="1">
-<li><p>对于每个接受状态 <span
-class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
-class="math inline">\(q\)</span> 和初始状态 <span
-class="math inline">\(q_0\)</span>
-之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
-<li><p>如果 <span class="math inline">\(q \neq
-q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
-<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A((&quot; &quot;))
-A --&gt; |$R$| A
-A --&gt; |$S$| B(((&quot; &quot;)))
-B --&gt; |$T$| A
-B --&gt; |$U$| B</code></pre></p></li>
-<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
-<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start --&gt; A(((&quot; &quot;)))
-A --&gt; |$R$| A</code></pre></p></li>
-<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
-所得出的所有表达式之和（并）。</p></li>
-</ol>
-<h3 id="由正则表达式构造-varepsilon---nfa">由正则表达式构造 <span
-class="math inline">\(\varepsilon\)</span> - NFA</h3>
-<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
-class="math inline">\(\varepsilon\)</span> - NFA。</p>
-<p><strong>基础</strong>：先构造 <span
-class="math inline">\(\{\varepsilon\}, \varnothing, \mathbf{a}\)</span>
-对应的三个自动机：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\&#123;\varepsilon\&#125;$&quot;
-A --&gt; | $\varepsilon$ | B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $\varnothing$
-A
-B(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot;$\mathbf&#123;a&#125;$&quot;
-A --&gt; | $a$ | B(((&quot; &quot;)))
-end</code></pre>
-<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
-S, RS, R^*\)</span>：</p>
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\varepsilon$ | B((&quot; &quot;))
-A --&gt; | $\varepsilon$ | D((&quot; &quot;))
-
-subgraph $R$
-B -.- C((&quot; &quot;))
-end
-
-subgraph $S$
-D -.- E((&quot; &quot;))
-end
-
-C --&gt; | $\varepsilon$ | F(((&quot; &quot;)))
-E --&gt; | $\varepsilon$ | F</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph $R$
-A -.- B((&quot; &quot;))
-end
-
-B --&gt; | $\varepsilon$ | C((&quot; &quot;))
-
-subgraph $S$
-C -.- D(((&quot; &quot;)))
-end</code></pre>
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-A --&gt; | $\varepsilon$ | B((&quot; &quot;))
-
-subgraph $R$
-C --&gt; | $\varepsilon$ | B
-B -.- C((&quot; &quot;))
-end
-
-C --&gt; | $\varepsilon$ | D(((&quot; &quot;)))
-A --&gt; | $\varepsilon$ | D</code></pre>
-<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
-<span class="math inline">\(\varepsilon\)</span> - NFA。</p>
-<h3 id="消除-varepsilon-转移时的注意事项">消除 <span
-class="math inline">\(\varepsilon\)</span> 转移时的注意事项</h3>
-<p>在上述构造中，有些地方可以化简：</p>
-<ol type="1">
-<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
-<pre><code class="highlight mermaid">graph LR
-
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B(((&quot; &quot;)))
-A -.- | $S$ | B
-end</code></pre></li>
-<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
-<pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-A -.- | $R$ | B((&quot; &quot;))
-B -.- | $S$ | C(((&quot; &quot;)))
-end</code></pre></li>
-<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
-class="math inline">\(\varepsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke-width:0px
-
-Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
-
-subgraph &quot; &quot;
-B(((&quot; &quot;))) --&gt; | $\varepsilon$ | A
-A --&gt; | $\varepsilon$ | B
-A -.- | $R$ | B
-end</code></pre></li>
-</ol>
-<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
-<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
-class="math inline">\(R + S^*\)</span>）。</p>
-<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
-<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
-是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
-的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
-m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
-的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
-形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
-class="math inline">\(\forall w = w_1w_2\cdots w_k \in
-L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
-都属于任意的语言之一（如 <span
-class="math inline">\(L_{j_i}\)</span>），都有 <span
-class="math inline">\(w\)</span> 对应的正则表达式 <span
-class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
-<span class="math inline">\(L(C)\)</span>。</p>
-<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
-<p><del>附赠一个可能会有用的公式</del> <span
-class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
-<h2 id="练习题">练习题</h2>
-<p><strong>习题 1</strong> 求正则表达式 <span
-class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)
-= \{w|w\text{ 的开头字符和结尾字符相同}\}\)</span>。</p>
-<p><span
-class="math inline">\(0(0+1)^*0+1(0+1)^*1+0+1\)</span>。一定不要忘了
-<span class="math inline">\(|w|=1\)</span> 的两种情况。</p>
-<p><strong>习题 2</strong> 求正则表达式 <span
-class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)=
-\{w|w\text{ 的前 5 位至少包含 1 个 1} \land |w|\ge 1\}\)</span>。</p>
-<p>巧妙使用空串 <span class="math inline">\(\varepsilon\)</span>：<span
-class="math inline">\((0+1+\varepsilon)^41(0+1)^*\)</span>。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>自动机理论、语言和计算导论</tag>
-        <tag>正则表达式</tag>
-        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
@@ -3920,477 +2476,1082 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
-    <url>/2023/09/30/IATLC-Chap6/</url>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
+    <url>/2023/09/17/IATLC-Chap1-2/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
-<p><strong>第六章 下推自动机</strong></p>
+<p><strong>第一章 自动机：方法与体验 | 第二章 有穷自动机</strong></p>
 <ul>
-<li>下推自动机的定义
+<li>字母表、串、语言和问题
 <ul>
-<li>下推自动机的形式化定义</li>
-<li>下推自动机的瞬时描述</li>
-<li>输入串与栈底串的简化</li>
+<li>字母表</li>
+<li>串</li>
+<li>语言</li>
+<li>问题</li>
 </ul></li>
-<li>下推自动机的语言
+<li>有穷自动机的形式化定义
 <ul>
-<li>以终结状态方式接受</li>
-<li>以空栈方式接受</li>
-<li>两种接受方式的等价性</li>
+<li>确定性有穷自动机（DFA）
+<ul>
+<li>DFA 的表示方法</li>
+<li>转移函数 <span class="math inline">\(\delta\)</span></li>
+<li>DFA 的语言</li>
 </ul></li>
-<li>PDA 和 CFG 的等价性
+<li>非确定性有穷自动机（NFA）
 <ul>
-<li>由 CFG 得 PDA</li>
-<li>由 PDA 得 CFG</li>
+<li>NFA 的表示方法</li>
+<li>转移函数 <span class="math inline">\(\delta\)</span></li>
+<li>NFA 的语言</li>
 </ul></li>
-<li>确定性下推自动机（DPDA）
+<li>DFA 和 NFA 的区别与联系
 <ul>
-<li>正则语言与 DPDA</li>
-<li>上下文无关语言与 DPDA</li>
-<li>DPDA 与歧义文法</li>
+<li>DFA 和 NFA 的等价性</li>
+<li>子集构造的最劣情形</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(\varepsilon\)</span> 转移
+<ul>
+<li><span class="math inline">\(\varepsilon\)</span> - NFA
+的形式化定义</li>
+<li><span class="math inline">\(\varepsilon\)</span> 闭包</li>
+<li>消除 <span class="math inline">\(\varepsilon\)</span> 转移</li>
 </ul></li>
 </ul>
 <span id="more"></span>
-<h2 id="下推自动机的定义">下推自动机的定义</h2>
-<h3 id="下推自动机的形式化定义">下推自动机的形式化定义</h3>
-<p>一个下推自动机（PDA）由七个部分组成： <span class="math display">\[
-P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
+<h2 id="字母表串语言和问题">字母表、串、语言和问题</h2>
+<h3 id="字母表">字母表</h3>
+<p><strong>字母表</strong> 是符号的有穷非空集合，记为 <span
+class="math inline">\(\Sigma\)</span>。</p>
+<h3 id="串">串</h3>
+<p><strong>串（单词）</strong>
+是从某个字母表中选择的符号组成的有穷序列。</p>
+<ul>
+<li><p>串的长度</p>
+<p>选择出来的符号个数被称为串的长度。</p></li>
+<li><p>空串 <span class="math inline">\(\varepsilon\)</span></p>
+<p>它的长度为 <span
+class="math inline">\(0\)</span>，是可以从任何字母表中选择的串。<strong>但它不属于任何字母表</strong>。<span
+class="math inline">\(\varepsilon \not\in \Sigma\)</span>。</p></li>
+<li><p>字母表的幂</p>
+<p>如果 <span class="math inline">\(\Sigma\)</span> 是一个字母表，则
+<span class="math inline">\(\Sigma^k\)</span> 表示这个字母表长度为 <span
+class="math inline">\(k\)</span> 的所有串所组成的集合。</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+  \Sigma^0 &amp;= \{\varepsilon\} \\
+  \Sigma^{+} &amp;= \Sigma^1\cup\Sigma^2\cup\Sigma^3\cdots \\
+  \Sigma^{*} &amp;= \Sigma^{+} \cup \{\varepsilon\}
+\end{aligned}
 \]</span></p>
-<ol type="1">
-<li><p><span class="math inline">\(Q\)</span>：状态的有穷集合。</p></li>
-<li><p><span
-class="math inline">\(\Sigma\)</span>：输入符号的有穷集合。</p></li>
-<li><p><span
-class="math inline">\(\Gamma\)</span>：有限的堆栈字母表，该部分是能够被推入堆栈的符号的集合。</p></li>
-<li><p><span
-class="math inline">\(\delta\)</span>：转移函数，自变量为一个三元组
-<span class="math inline">\(\delta(q, a, X)\)</span>，其中</p>
+<h3 id="语言">语言</h3>
+<p>设 <span class="math inline">\(\Sigma\)</span> 为一个字母表，<span
+class="math inline">\(L \subseteq \Sigma^{*}\)</span> 被称为 <span
+class="math inline">\(\Sigma\)</span> 上的 <strong>语言</strong>。</p>
 <ul>
-<li><span class="math inline">\(q \in Q\)</span></li>
-<li><span class="math inline">\(a \in \Sigma\)</span> 或 <span
-class="math inline">\(a = \varepsilon\)</span></li>
-<li><span class="math inline">\(X \in \Gamma\)</span></li>
+<li><p>空语言 <span class="math inline">\(\varnothing\)</span>
+与只包含空串的语言 <span
+class="math inline">\(\{\varepsilon\}\)</span></p>
+<p><span class="math inline">\(\varnothing\)</span> 和 <span
+class="math inline">\(\{\varepsilon\}\)</span>
+都是任意字母表上的语言，但 <span class="math inline">\(\varnothing \neq
+\{\varepsilon\}\)</span>，前者没有串，后者有一个串。</p></li>
+<li><p>若 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的语言，则 <span
+class="math inline">\(L\)</span> 是任何是 <span
+class="math inline">\(\Sigma\)</span> 的超集的字母表上的语言。</p></li>
 </ul>
-<p><span class="math inline">\(\delta\)</span> 的输出是有序对 <span
-class="math inline">\((p, \gamma)\)</span> 的有穷集合，其中 <span
-class="math inline">\(p\)</span> 是新状态，<span
-class="math inline">\(\gamma\)</span> 是堆栈符号串，<span
-class="math inline">\(\gamma\)</span> 用来代替栈顶符号 <span
-class="math inline">\(X\)</span>。</p></li>
-<li><p><span class="math inline">\(q_0\)</span>：初始状态。</p></li>
-<li><p><span
-class="math inline">\(Z_0\)</span>：初始堆栈中的符号。</p></li>
-<li><p><span class="math inline">\(F\)</span>：接受状态的集合。</p></li>
-</ol>
-<p>PDA 相较于 DFA
-的区别是引入了一个栈用于存储数据，以及多了一个参数（栈顶元素）来控制转移方向。</p>
-<h3 id="下推自动机的瞬时描述">下推自动机的瞬时描述</h3>
-<p>使用 <span class="math inline">\((q, w, \gamma)\)</span> 三元组来表示
-PDA 的配置，其中 <span class="math inline">\(q\)</span> 是状态，<span
-class="math inline">\(w\)</span> 是剩余的输入串，<span
-class="math inline">\(\gamma\)</span>
-是堆栈的内容。这样的一个三元组被称为下推自动机的一个
-<strong>瞬时描述</strong>。</p>
-<p>我们定义 <span class="math inline">\(\vdash_P\)</span>（如果 <span
-class="math inline">\(P\)</span> 已知，那么简写为 <span
-class="math inline">\(\vdash\)</span>）为：假设 <span
-class="math inline">\((p, \alpha) \in \delta(q, a,
-X)\)</span>，那么对于所有 <span class="math inline">\(\Sigma^*\)</span>
-中的串 <span class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有： <span
-class="math display">\[
-(q, aw, X\beta) \vdash (p, w, \alpha\beta)
-\]</span> 这相当于处理了输入串 <span class="math inline">\(aw\)</span>
-中最前面的一个字符 <span class="math inline">\(a\)</span>，并且用 <span
-class="math inline">\(\alpha\)</span> 来替换栈顶的 <span
-class="math inline">\(X\)</span>，这导致了一次从状态 <span
-class="math inline">\(q\)</span> 到状态 <span
-class="math inline">\(p\)</span> 的转移。</p>
-<p>同样地，我们也使用符号 <span
-class="math inline">\(\vdash_P^*\)</span> 来表示 PDA
-的零步或多步转移。</p>
-<h3 id="输入串与栈底串的简化">输入串与栈底串的简化</h3>
-<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
-\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
-\beta)\)</span>，那么对于所有 <span
-class="math inline">\(\Sigma^*\)</span> 中的串 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有 <span class="math display">\[
-(q, xw, \alpha\gamma) \vdash_P^* (p, yw, \beta\gamma)
-\]</span> <strong>证明</strong>：由于 <span class="math inline">\((q, x,
-\alpha) \vdash_P^* (p, y, \beta)\)</span> 的过程中都没有使用与 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\gamma\)</span> 相关的转移，所以只需要对 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y, \beta)\)</span>
-进行转移步数上的归纳即可得证。</p>
-<p><strong>补充
-1</strong>：定理的逆定理关于栈的简化的那一部分不成立。原因很好理解，因为我们在转移的过程中<del>偷偷地</del>从
-<span class="math inline">\(\gamma\)</span>
-中弹出一些符号，再在之后的过程中压回去，效果仍然是 <span
-class="math inline">\(\gamma\)</span> 不变，但是转移的过程改变了。</p>
-<p><strong>补充
-2</strong>：定理的逆定理关于输入串的简化的那一部分成立。原因是输入串被消耗后没法重新添加回去。</p>
-<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
-\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
-class="math inline">\((q, xw, \alpha) \vdash_P^* (p, yw,
-\beta)\)</span>，那么对于所有 <span
-class="math inline">\(\Sigma^*\)</span> 中的串 <span
-class="math inline">\(w\)</span> 和 <span
-class="math inline">\(\Gamma^*\)</span> 中的串 <span
-class="math inline">\(\beta\)</span> 都有有 <span
-class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
-\beta)\)</span>。</p>
-<h2 id="下推自动机的语言">下推自动机的语言</h2>
-<h3 id="以终结状态方式接受">以终结状态方式接受</h3>
-<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
-Z_0, F)\)</span> 是一个 PDA，那么 <span class="math inline">\(P\)</span>
-<strong>以终结状态方式接受的语言</strong> <span
-class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
-\{w | (q_0, w, Z_0) \vdash_P^* (q, \varepsilon, \alpha)\}
-\]</span> 其中 <span class="math inline">\(q \in F\)</span>
-为某个接受状态，<span class="math inline">\(\alpha \in \Gamma^*\)</span>
-是任何堆栈符号串。</p>
-<p>也就是说，以 <span class="math inline">\(w\)</span>
-为等待输入的串从初始状态 <span class="math inline">\(q_0\)</span>
-出发，消耗完了 <span class="math inline">\(w\)</span>
-后进入了接受状态，<strong>无论此时堆栈中的状态如何</strong>。</p>
-<h3 id="以空栈方式接受">以空栈方式接受</h3>
-<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
-Z_0, F)\)</span> 是一个 PDA，我们定义 <span
-class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
-<span class="math inline">\(N(P)\)</span> 是 <span
-class="math display">\[
-N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \varepsilon, \varepsilon)\}
-\]</span> 其中 <span class="math inline">\(q \in Q\)</span>
-为<strong>任意状态</strong>。</p>
-<p>也就是说，<span class="math inline">\(N(P)\)</span> 中的元素 <span
-class="math inline">\(w\)</span> 能在被 <span
-class="math inline">\(P\)</span>
-消耗完的同时使堆栈为空。事实上，由于我们只关心堆栈是否为空而不关心接受状态，故我们可以去掉
-PDA <span class="math inline">\(P\)</span>
-的描述中的最后一个分量，而写成一个六元组 <span class="math inline">\((Q,
-\Sigma, \Gamma, \delta, q_0, Z_0)\)</span>。</p>
-<h3 id="两种接受方式的等价性">两种接受方式的等价性</h3>
-<h4 id="从空栈方式到终结状态方式">从空栈方式到终结状态方式</h4>
+<h3 id="问题">问题</h3>
+<p>在自动机理论中，一个 <strong>问题</strong> 就是
+“判定一个给定的串是否属于某个具体语言” 这一行为。</p>
+<p>问题和语言是可以相互等价的。如果 <span
+class="math inline">\(\Sigma\)</span> 是字母表，<span
+class="math inline">\(L\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 上的语言，则问题 <span
+class="math inline">\(L\)</span> 就是“给定 <span
+class="math inline">\(\Sigma^{*}\)</span> 中的一个串 <span
+class="math inline">\(w\)</span>，判断 <span
+class="math inline">\(w\)</span> 是否属于 <span
+class="math inline">\(L\)</span>。这说明 <span
+class="math inline">\(L\)</span>
+是一个语言，也可以被看成是一个问题。</p>
+<h2 id="有穷自动机的形式化定义">有穷自动机的形式化定义</h2>
+<h3 id="确定性有穷自动机dfa">确定性有穷自动机（DFA）</h3>
+<p>通常使用一个五元组 <span class="math inline">\(A = (Q, \Sigma,
+\delta, q_0, F)\)</span> 来表示一个 DFA。其中 <span
+class="math inline">\(A\)</span> 是 DFA 的名称，<span
+class="math inline">\(Q\)</span> 是状态集合，<span
+class="math inline">\(\Sigma\)</span> 是输入符号，<span
+class="math inline">\(\delta\)</span> 是转移函数，<span
+class="math inline">\(q_0\)</span> 是初始状态，<span
+class="math inline">\(F\)</span> 是接受状态集合。</p>
+<h4 id="dfa-的表示方法">DFA 的表示方法</h4>
+<ul>
+<li><p>转移图</p>
 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke:none
 
-Start --&gt; A(($p_0$))
-A --&gt; | $\varepsilon, X_0/Z_0X_0$ | B(($q_0$))
+style Start fill:none,stroke-width:0px
 
-subgraph $P_N$
-B -.- C((&quot; &quot;))
-B -.- D((&quot; &quot;))
-B -.- E((&quot; &quot;))
-end
-B --&gt; | $\varepsilon, X_0/\varepsilon$ | F((($p$)))
-C --&gt; | $\varepsilon, X_0/\varepsilon$ | F((($p$)))
-D --&gt; | $\varepsilon, X_0/\varepsilon$ | F
-E --&gt; | $\varepsilon, X_0/\varepsilon$ | F</code></pre>
-<p>构造初始状态 <span
-class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
-<span class="math inline">\(\Gamma\)</span> 的符号 <span
-class="math inline">\(X_0\)</span>。这样，在 <span
-class="math inline">\(P_F\)</span> 中不会弹出 <span
-class="math inline">\(X_0\)</span>；且如果栈顶为 <span
-class="math inline">\(X_0\)</span>，则说明此时 <span
-class="math inline">\(P_F\)</span> 的栈为空，因此 <span
-class="math inline">\(P_F\)</span> 接受该状态。在 <span
-class="math inline">\(P_N\)</span> 中，不仅包含所有 <span
-class="math inline">\(P_F\)</span> 中的转移，还要加上 <span
-class="math inline">\(Q\)</span> 中的任意状态 <span
-class="math inline">\(q\)</span>，对 <span
-class="math inline">\(P_F\)</span> 的唯一接受状态 <span
-class="math inline">\(p\)</span> 的 <span
-class="math inline">\(\varepsilon\)</span> 转移：这样当 <span
-class="math inline">\(P_F\)</span> 中堆栈为空时，<span
-class="math inline">\(P_N\)</span> 能经过这条 <span
-class="math inline">\(\varepsilon\)</span> 转移边，弹出栈顶的标记符号
-<span class="math inline">\(X_0\)</span>，使得<span
-class="math inline">\(P_N\)</span> 能接受该状态。</p>
-<p><span class="math inline">\(P_F\)</span> 保证了，在<span
-class="math inline">\(P_N\)</span> 中使栈为空的输入串 <span
-class="math inline">\(w\)</span>，才会使得栈顶为标记符号 <span
-class="math inline">\(X_0\)</span>，然后经过 <span
-class="math inline">\(\varepsilon\)</span> 转移将 <span
-class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
-class="math inline">\(p\)</span> 被 <span
-class="math inline">\(P_F\)</span> 接受；而无法使 <span
-class="math inline">\(P_N\)</span> 中栈为空的串 <span
-class="math inline">\(w\)</span>，一定无法使栈底的 <span
-class="math inline">\(X_0\)</span> 被暴露出来，从而也不会经过 <span
-class="math inline">\(\varepsilon\)</span> 转移将 <span
-class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
-class="math inline">\(p\)</span> 被 <span
-class="math inline">\(P_F\)</span> 接受。</p>
-<h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
+Start --&gt; A(($q_0$))
+A --&gt; |$0$| C(($q_2$))
+A --&gt; |$1$| A
+C --&gt; |$0$| C
+C --&gt; |$1$| B((($q_1$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>初始状态用 <code>Start</code> 指示，接受状态用双圆圈标记（例如 <span
+class="math inline">\(q_1\)</span>）。</p></li>
+<li><p>转移表</p>
+<p>我们也可以使用转移表来直观地表示一个 DFA，着重强调它的转移函数 <span
+class="math inline">\(\delta\)</span>。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\to
+q_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span
+class="math inline">\(*q_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>初始状态用箭头标记，接受状态用星号标记。</p></li>
+</ul>
+<h4 id="转移函数-delta">转移函数 <span
+class="math inline">\(\delta\)</span></h4>
+<p>本质上就是转移图上的有向边，边权为字母表中的字符。</p>
+<ul>
+<li><p>扩展转移函数 <span class="math inline">\(\hat\delta\)</span></p>
+<p>感性地说，就是
+<strong>让转移函数的自变量不再限于单个字符</strong>，而是可以给定一个串，它能在自动机上从给定状态开始，沿着转移图的边走，一直走到它最终对应的状态。</p>
+<p>形式化的定义如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(\hat\delta(q, \varepsilon) =
+q\)</span>。</p>
+<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
+\delta(\hat\delta(q, x), a)\)</span>，其中 <span class="math inline">\(w
+= xa\)</span>。</p>
+</blockquote></li>
+</ul>
+<h4 id="dfa-的语言">DFA 的语言</h4>
+<p>定义 DFA <span class="math inline">\(A = (Q, \Sigma, \delta, q_0,
+F)\)</span> 的语言 <span class="math inline">\(L(A)\)</span> 如下：</p>
+<p><span class="math display">\[
+L(A) = \{w | \hat\delta(q_0, w) \in F\}
+\]</span></p>
+<p><span class="math inline">\(L(A)\)</span> 是 <span
+class="math inline">\(A\)</span> 的 <strong>所有可接受的串</strong>
+所组成的集合。如果对于某个 DFA <span class="math inline">\(A\)</span>
+来说 <span class="math inline">\(L\)</span> 是 <span
+class="math inline">\(L(A)\)</span>，则我们称 <span
+class="math inline">\(L\)</span> 是一个 <strong>正则语言</strong>。</p>
+<h3 id="非确定性有穷自动机nfa">非确定性有穷自动机（NFA）</h3>
+<p><del>NFA 就是多线程 DFA（确信）</del></p>
+<p>在读入每个串的时候，NFA
+可以向多个方向同时转移，最后只取可接受状态组成的状态集合。</p>
+<h4 id="nfa-的表示方法">NFA 的表示方法</h4>
+<p>转移表既可以表示 NFA 的转移函数，也可以用来规定 DFA
+的转移函数，区别在于，NFA 转移表中的
+<strong>每一项都是集合</strong>，即使是单元素集合；如果在某个状态上不存在向其他状态的转移时，应该填入
+<span class="math inline">\(\varnothing\)</span>。</p>
+<h4 id="转移函数-delta-1">转移函数 <span
+class="math inline">\(\delta\)</span></h4>
+<ul>
+<li><p>扩展转移函数 <span class="math inline">\(\hat\delta(q,
+w)\)</span></p>
+<p>形式化的表述如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(\hat\delta(q, \varepsilon) =
+\{q\}\)</span>。</p>
+<p>归纳：<span class="math inline">\(\hat\delta(q, w) =
+\bigcup\limits_{p \in \hat\delta(q, x)}\delta(p, a)\)</span>，其中 <span
+class="math inline">\(w = xa\)</span>。</p>
+</blockquote></li>
+</ul>
+<h4 id="nfa-的语言">NFA 的语言</h4>
+<p>相应地，由于 NFA
+可以同时向多个方向转移，所以对于一个串来说，只要存在一个状态使得 NFA
+能接受该串，那么这个串就属于这个 NFA 对应的语言。</p>
+<p><span class="math display">\[
+L(A) = \{w | \hat\delta(q_0, w) \cap F \neq \varnothing\}
+\]</span></p>
+<h3 id="dfa-和-nfa-的区别与联系">DFA 和 NFA 的区别与联系</h3>
+<p>DFA 和 NFA 之间的唯一区别在于，<span
+class="math inline">\(\delta\)</span> 在 DFA 的情况下，返回的是
+<strong>单个状态</strong>；而在 NFA 的情况下，返回的是一个
+<strong>状态集合</strong>。</p>
+<h4 id="dfa-和-nfa-的等价性">DFA 和 NFA 的等价性</h4>
+<p>显然一个 DFA 可以转化成一个
+NFA，只需要把状态中的每个元素写成其对应的单元素集合即可。重点在于怎么通过一个
+NFA <span class="math inline">\(N = (Q_N, \Sigma, \delta_N, \{q_0\},
+F_N)\)</span> 开始，描述一个 DFA <span class="math inline">\(D = (Q_D,
+\Sigma, \delta_D, q_0, F_D)\)</span> 使得 <span
+class="math inline">\(L(N) = L(D)\)</span>。可以采用
+<strong>子集构造</strong> 的方式来解决此问题。</p>
+<ul>
+<li><span class="math inline">\(Q_D = P(Q_N)\)</span>，即 <span
+class="math inline">\(Q_D\)</span> 是 <span
+class="math inline">\(Q_N\)</span>
+的幂集合。但值得注意的一点是，虽然它们是“集合”，但它们是单个状态，而不是状态的集合。换句话说，构造出来的
+<span class="math inline">\(D\)</span> 中，每个状态本身都是集合。</li>
+<li><span class="math inline">\(F_D = \{S \subseteq Q_N | S \cap F_N
+\neq \varnothing\}\)</span>。也就是说，<span
+class="math inline">\(F_D\)</span> 是所有至少含有一个 <span
+class="math inline">\(N\)</span> 的接受状态的 <span
+class="math inline">\(N\)</span> 的状态集合的集合。</li>
+<li>对于每个集合 <span class="math inline">\(S \subseteq Q_N\)</span>
+以及 <span class="math inline">\(a \in
+\Sigma\)</span>，构造转移函数如下： <span class="math display">\[
+\delta_D(S, a) = \bigcup_{p \in S}\delta_N(p, a)
+\]</span> 也就是说，对于 <span class="math inline">\(S\)</span>
+中所有状态 <span class="math inline">\(p\)</span>，在 <span
+class="math inline">\(N\)</span> 中从 <span
+class="math inline">\(p\)</span> 上通过输入 <span
+class="math inline">\(a\)</span> 进入的状态，这些状态的并集，就是 <span
+class="math inline">\(\delta_D(S, a)\)</span>。</li>
+</ul>
+<p><strong>定理</strong>：如果 <span class="math inline">\(D = (Q_D,
+\Sigma, \delta_D, \{q_0\}, F_D)\)</span> 是用子集构造从 NFA <span
+class="math inline">\(N = (Q_N, \Sigma, \delta_N, q_0, F_N)\)</span>
+构造出来的 DFA，那么 <span class="math inline">\(L(D) =
+L(N)\)</span>。</p>
+<p><strong>证明</strong>：只需证明 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, w) = \hat\delta_N(q_0,
+w)\)</span>。</p>
+<p>基础：设 <span class="math inline">\(|w| = 0\)</span>，则 <span
+class="math inline">\(w = \varepsilon\)</span>，显然有 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, \varepsilon) =
+\hat\delta_N(q_0, \varepsilon)\)</span>。</p>
+<p>归纳：设 <span class="math inline">\(|w| = n + 1\)</span>，且命题对
+<span class="math inline">\(|v| = n\)</span> 的所有 <span
+class="math inline">\(v\)</span> 均成立。记 <span
+class="math inline">\(w = xa\)</span>，假设 <span
+class="math inline">\(\hat\delta_D(\{q_0\}, x) = \hat\delta_N(q_0, x) =
+\{p_1, p_2, \cdots, p_k\}\)</span>。</p>
+<p>由 NFA 的 <span class="math inline">\(\hat\delta\)</span>
+的定义的归纳部分说明 <span class="math inline">\(\hat\delta(q_0, w) =
+\cup_{i = 1}^k\delta_N(p_i, a)\)</span>。另一方面，子集构造说明 <span
+class="math inline">\(\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \cup_{i =
+1}^k\delta_N(p_i, a)\)</span>。因此</p>
+<p><span class="math display">\[
+\hat\delta_D(\{q_0\}, w) = \delta_D(\hat\delta_D(\{q_0\}, x), a) =
+\delta_D(\{p_1, p_2, \cdots, p_k\}, a) = \bigcup_{i = 1}^k\delta_N(p_i,
+a) = \hat\delta(q_0, w)
+\]</span></p>
+<p>所以对于某个串 <span class="math inline">\(w\)</span> 而言，它在
+<span class="math inline">\(D\)</span> 和 <span
+class="math inline">\(N\)</span> 中的可达性是相同的。</p>
+<p>因此 <span class="math inline">\(\hat\delta_D(\{q_0\}, w)q_{n - 1} =
+\hat\delta_N(q_0, w) \iff L(D) = L(N)\)</span>。命题得证。</p>
 <pre><code class="highlight mermaid">graph LR
-style Start fill:none,stroke:none
 
-Start --&gt; A(($p_0$))
-A --&gt; | $\varepsilon, X_0/Z_0X_0$ | B(($q_0$))
+style Start fill:none,stroke-width:0px
 
-subgraph $P_F$
-B -.- C(((&quot; &quot;)))
-B -.- D(((&quot; &quot;)))
-end
+Start --&gt; A(($q_0$))
+A --&gt; |$0, 1$| A
+A --&gt; |$0$| B(($q_1$))
+B --&gt; |$1$| C((($q_2$)))</code></pre>
+<p>这是一个接受所有以 <code>01</code> 结尾的 01 串的 NFA。它所对应的 DFA
+为</p>
+<pre><code class="highlight mermaid">graph LR
 
-C --&gt; | $\varepsilon, any/\varepsilon$ | E(($p$))
-D --&gt; | $\varepsilon, any/\varepsilon$ | E
-E --&gt; | $\varepsilon, any/\varepsilon$ | E</code></pre>
-<p>构造初始状态 <span
-class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
-<span class="math inline">\(\Gamma\)</span> 的符号 <span
-class="math inline">\(X_0\)</span>。这是为了防止在 <span
-class="math inline">\(P_F\)</span>
-中出现栈被清空但又不是接受状态的情况。在 <span
-class="math inline">\(P_F\)</span> 中，不仅包含所有 <span
-class="math inline">\(P_N\)</span> 中的转移，还要加上 <span
-class="math inline">\(P_F\)</span> 的所有接受状态 <span
-class="math inline">\(q\)</span>，对 <span
-class="math inline">\(p\)</span> 的 <span
-class="math inline">\(\varepsilon\)</span> 转移：这个 <span
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot;$\&#123;q_0\&#125;$&quot;))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((&quot;$\&#123;q_0, q_1\&#125;$&quot;))
+B --&gt; |$0$| B
+B --&gt; |$1$| C(((&quot;$\&#123;q_0, q_2\&#125;$&quot;)))
+C --&gt; |$0$| B
+C --&gt; |$1$| A</code></pre>
+<p>转移表如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\to
+\{q_0\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span
+class="math inline">\(\{q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span
+class="math inline">\(*\{q_2\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(*\{q_0,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(*\{q_1,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\{q_2\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(*\{q_0, q_1,
+q_2\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_1\}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\{q_0,
+q_2\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="子集构造的最劣情形">子集构造的最劣情形</h4>
+<p>考虑 <span class="math inline">\(L(N)\)</span> 是所有使得倒数第 <span
+class="math inline">\(n\)</span> 位是 <span
+class="math inline">\(1\)</span> 的 01 串集合。</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+style ... fill:none,stroke-width:0px
+
+Start --&gt; A(($q_0$))
+A --&gt; |$0, 1$| A
+A --&gt; |$1$| B(($q_1$))
+B --&gt; |$0, 1$| C(($q_2$))
+C --&gt; |$0, 1$| ...
+... --&gt; |$0, 1$| D((&quot;$q_&#123;n-1&#125;$&quot;))
+D --&gt; |$0, 1$| E((($q_n$)))</code></pre>
+<p>这个 NFA 没有少于 <span class="math inline">\(2^n\)</span>
+个状态的等价 DFA。这很好理解，因为你最少要存下来每个 01 串的最后 <span
+class="math inline">\(n - 1\)</span> 位，所以会导致 DFA
+的状态数指数型增长。</p>
+<h2 id="varepsilon-转移"><span
+class="math inline">\(\varepsilon\)</span> 转移</h2>
+<p><span class="math inline">\(\varepsilon\)</span>
+转移可以理解成边权为空串 <span
+class="math inline">\(\varepsilon\)</span> 的边。</p>
+<h3 id="varepsilon---nfa-的形式化定义"><span
+class="math inline">\(\varepsilon\)</span> - NFA 的形式化定义</h3>
+<p>只有转移函数 <span class="math inline">\(\delta\)</span> 与 NFA
+不同。在 <span class="math inline">\(\varepsilon\)</span> - NFA
+中，<span class="math inline">\(\delta\)</span> 的定义域被拓展为 <span
+class="math inline">\(Q \times \left(\Sigma \cup
+\{\varepsilon\}\right)\)</span>，它需要包含所有通过 <span
+class="math inline">\(\varepsilon\)</span> 边转移的信息。</p>
+<h3 id="varepsilon-闭包"><span
+class="math inline">\(\varepsilon\)</span> 闭包</h3>
+<p>这就有点类似于在有向图中缩点了。<span
 class="math inline">\(\varepsilon\)</span>
-转移清空栈上的所有东西，使得输入串能够以空栈方式被接受。</p>
-<p><span class="math inline">\(P_N\)</span> 保证了，能在 <span
-class="math inline">\(P_F\)</span> 中达到接受状态的串 <span
-class="math inline">\(w\)</span>，在达到接受状态后一定能将栈清空被空栈方式接受；而未达到接受状态的串，在转移过程中栈底一定有标记符号
-<span class="math inline">\(X_0\)</span>
-未被弹出，而不会被空栈方式接受。</p>
-<h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
-<h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
-<p>考虑这个 CFG 的最左推导。构造一个
-PDA，使得每一次推导的过程都是弹出栈顶上的非终结符（产生式的头），然后以产生式的体代替。此后，如果栈顶为终结符，则不断弹出直至暴露出第一个非终结符。继续上述过程直至栈被清空，以空栈方式接受。</p>
-<p>形式化地，设 <span class="math inline">\(G = (V, T, Q, S)\)</span>
-是一个 CFG，构造以空栈方式接受 <span class="math inline">\(L(G)\)</span>
-的 PDA <span class="math inline">\(P\)</span> 如下： <span
-class="math display">\[
-P = (\{q\}, T, V \cup T, \delta, q, S)
-\]</span> 其中转移函数 <span class="math inline">\(\delta\)</span>
-的定义是：</p>
-<ol type="1">
-<li><p>对于每一个非终结符 <span class="math inline">\(A\)</span>， <span
-class="math display">\[
-\delta(q, \varepsilon, A) = \{(q, \beta) | A \to \beta \text{ 是 } G
-\text{ 的一个产生式}\}
-\]</span>
-这对应着弹出栈顶的产生式的头并以产生式的体代替的过程。</p></li>
-<li><p>对于每一个终结符 <span class="math inline">\(a\)</span>， <span
-class="math display">\[
-\delta(q, a, a) = \{(q, \varepsilon)\}
-\]</span> 这对应着将栈顶的终结符不断弹出的过程。</p></li>
-</ol>
-<h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
-<figure>
-<img
-src="https://img.picgo.net/2023/10/11/Y-x-graph9050a03d07a8b78a.jpeg"
-alt="Y-x 图" />
-<figcaption aria-hidden="true">Y-x 图</figcaption>
-</figure>
-<p>如图所示，从堆栈中弹出一系列的符号 <span class="math inline">\(Y_1,
-Y_2, \cdots, Y_k\)</span>。当弹出 <span
-class="math inline">\(Y_1\)</span> 时读入了某个输入 <span
-class="math inline">\(x_1\)</span>。应该注意的是这里的“弹出”实际上是许多移动的
-<strong>净效应</strong>。例如，第一步移动也许会把 <span
-class="math inline">\(Y\)</span> 变为其他的符号 <span
-class="math inline">\(Z\)</span>，接下来的移动也许会用 <span
-class="math inline">\(UV\)</span> 来替换 <span
-class="math inline">\(Z\)</span>，后面的一些移动的效应是弹出了 <span
-class="math inline">\(U\)</span>，再后面的一些动作的效应是弹出了 <span
-class="math inline">\(V\)</span>。所有这些移动的净效应是把 <span
-class="math inline">\(Y\)</span>
-用空来替换，即把它弹出，而在这个过程中所消耗的输入就是 <span
-class="math inline">\(x_1\)</span>。这样的计算会不断继续下去，直到堆栈中的每一个符号都被去掉为止。</p>
-<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
-Z_0)\)</span> 是一个 PDA，构造 CFG <span class="math inline">\(G = (V,
-\Sigma, R, S)\)</span> 满足 <span class="math inline">\(L(G) =
-N(P)\)</span>。其中非终结符的集合 <span class="math inline">\(V\)</span>
-包含：</p>
-<ol type="1">
-<li><p>特殊的符号 <span class="math inline">\(S\)</span>
-表示初始符号。</p></li>
-<li><p>所有 <span class="math inline">\([pXq]\)</span> 形式的符号，其中
-<span class="math inline">\(p\)</span> 和 <span
-class="math inline">\(q\)</span> 是 <span
-class="math inline">\(Q\)</span> 中的状态，<span
-class="math inline">\(X\)</span> 是 <span
-class="math inline">\(\Gamma\)</span> 中的堆栈符号。</p></li>
-</ol>
-<p><span class="math inline">\(G\)</span> 的产生式的集合 <span
-class="math inline">\(R\)</span> 如下：</p>
+闭包就是能被缩成一个点的块儿，消除 <span
+class="math inline">\(\varepsilon\)</span> 转移就是缩点的过程。</p>
+<p>递归地定义 <span class="math inline">\(q\)</span> 的 <span
+class="math inline">\(\varepsilon\)</span> 闭包如下：</p>
+<blockquote>
+<p>基础：<span class="math inline">\(q \in \text{ECLOSE}(q)\)</span></p>
+<p>归纳：若 <span class="math inline">\(p \in
+\text{ECLOSE}(q)\)</span>，且存在 <span class="math inline">\(p\)</span>
+到 <span class="math inline">\(r\)</span> 的 <span
+class="math inline">\(\varepsilon\)</span> 转移，则 <span
+class="math inline">\(r \in \text{ECLOSE}(q)\)</span>。</p>
+</blockquote>
 <ul>
-<li><p>对于每个状态 <span class="math inline">\(p\)</span>，<span
-class="math inline">\(G\)</span> 都有产生式 <span
-class="math inline">\(S \to [q_0Z_0p]\)</span>。</p>
-<p>考虑 <span class="math inline">\(w = [q_0Z_0p]\)</span>
-的作用，它将栈底 <span class="math inline">\(Z_0\)</span>
-弹出，说明此时栈被清空，并且从状态 <span
-class="math inline">\(q_0\)</span> 转到状态 <span
-class="math inline">\(p\)</span>。因此，初始符号 <span
-class="math inline">\(S\)</span> 生成所有导致 <span
-class="math inline">\(P\)</span>
-在初始瞬时状态出发之后能进入空栈状态的串 <span
-class="math inline">\(w\)</span>。</p>
-<p>为什么对于 <span class="math inline">\(S\)</span> 来说，要考虑所有的
-<span class="math inline">\(p\)</span>？这是因为 PDA
-以空栈方式接受，可能到达任意状态，必须列举所有状态。</p></li>
-<li><p>令 <span class="math inline">\(\delta(q, a, X)\)</span>
-包含有序对 <span class="math inline">\((r_0, Y_1Y_2\cdots
-Y_k)\)</span>，其中：</p>
-<ol type="1">
-<li><p><span class="math inline">\(a\)</span> 是 <span
-class="math inline">\(\Sigma\)</span> 中的一个符号，或者 <span
-class="math inline">\(a = \varepsilon\)</span>。</p></li>
-<li><p><span class="math inline">\(k\)</span> 可以是任何数。包括 <span
-class="math inline">\(0\)</span>，此时 <span class="math inline">\((r_0,
-Y_1Y_2\cdots Y_k) = (r_0, \varepsilon)\)</span>。</p></li>
-</ol>
-<p>那么对 <strong>所有的</strong> 序列 <span class="math inline">\(r_1,
-r_2, \cdots, r_k\)</span>，<span class="math inline">\(G\)</span>
-都有产生式 <span class="math display">\[
-[q X r_k] \to a[r_0 Y_1 r_1][r_1Y_2r_3]\cdots[r_{k-1}Y_kr_k]
-\]</span> 这样的产生式有 <span class="math inline">\(n^k\)</span>
-个。它的意思是，在栈顶弹出 <span class="math inline">\(X\)</span> 并且从
-<span class="math inline">\(q\)</span> 转移到 <span
-class="math inline">\(r_k\)</span> 的一种方法是：读入 <span
-class="math inline">\(a\)</span> 并把状态转移到 <span
-class="math inline">\(r\)</span>；接着通过消耗某个输入从堆栈中弹出 <span
-class="math inline">\(Y_1\)</span>，同时从状态 <span
-class="math inline">\(r\)</span> 转移到状态 <span
-class="math inline">\(r_1\)</span>；然后读入另一个输入来从堆栈中弹出
-<span class="math inline">\(Y_2\)</span>，同时从状态 <span
-class="math inline">\(r_1\)</span> 转到状态 <span
-class="math inline">\(r_2\)</span>；依此类推。</p></li>
+<li>扩展转移函数 <span class="math inline">\(\hat\delta(q, w)\)</span>
+形式化的定义如下： &gt; 基础：<span class="math inline">\(\hat\delta(q,
+\varepsilon) = \text{ECLOSE}(q)\)</span>。 &gt; &gt; 归纳：<span
+class="math inline">\(\hat\delta(q, w) = \bigcup\limits_{p \in
+\hat\delta(q, x)}\text{ECLOSE}(\delta(p, a))\)</span>，其中 <span
+class="math inline">\(w = xa\)</span>。</li>
 </ul>
-<h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
-<figure>
-<img src="https://img.picgo.net/2023/10/11/models73ebb5a7a410ebe8.jpeg"
-alt="几类语言模型的计算能力对比" />
-<figcaption aria-hidden="true">几类语言模型的计算能力对比</figcaption>
-</figure>
-<h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
-<p><strong>定理</strong>：如果 <span class="math inline">\(L\)</span>
-是正则语言，则对于某个 DPDA <span class="math inline">\(P\)</span> 有
-<span class="math inline">\(L = L(P)\)</span>。</p>
-<p>这就是显然的，因为 DFA 是一个没有使用堆栈的
-DPDA。我们只需要额外设计一个初始状态来压入标记符号 <span
-class="math inline">\(X_0\)</span>，一个 <span
-class="math inline">\(\varepsilon\)</span> 转移来弹出 <span
-class="math inline">\(X_0\)</span> 并连接 DFA 的接受状态和 DPDA
-的接受状态即可。</p>
-<p>另外，语言 <span class="math inline">\(L\)</span> 是某个 DPDA <span
-class="math inline">\(P\)</span> 的 <span
-class="math inline">\(N(P)\)</span> 当且仅当 <span
-class="math inline">\(L\)</span> 有 <strong>前缀性质</strong> 且 <span
-class="math inline">\(L\)</span> 是某个 DPDA <span
-class="math inline">\(P&#39;\)</span> 的 <span
-class="math inline">\(L(P&#39;)\)</span>。前缀性质是指 <span
-class="math inline">\(L\)</span> 中不存在不相等的两个串 <span
-class="math inline">\(w_1, w_2\)</span> 使得 <span
-class="math inline">\(w_1\)</span> 是 <span
-class="math inline">\(w_2\)</span> 的前缀。</p>
-<h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
-<p><strong>定理</strong>：DPDA 以终结状态方式接受的语言
-<strong>真包含于</strong> CFL。</p>
-<p>例如 <span class="math inline">\(L_{wwr}\)</span>，DPDA
-为了判断是否回文，需要将串的对称部分的前半部分存放在栈里，然后对后半部分进行比较。<strong>比较完一个回文串后一定会使栈清空。</strong>
-所以，类似于 <span class="math inline">\(\{0^n10^n0^m10^m | n, m \in
-\mathbb{N}\}\)</span> 的串，读完第一个回文串 <span
-class="math inline">\(0^n10^n\)</span>
-后栈为空，接着读第二个回文串，读完第二个回文串后 DPDA 并不能确定 <span
-class="math inline">\(m\)</span> 是否等于 <span
-class="math inline">\(n\)</span>，因为关于第一个回文串的信息都已经被弹出了。</p>
-<h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
-<p><strong>定理 1</strong>：如果对于某个 DPDA <span
-class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
-N(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
-CFG。</p>
-<p>已经知道 PDA 可以生成一个
-CFG，接下来只需要证明该文法的最左推导是唯一的即可。这几乎是显然的，因为
-<span class="math inline">\(P\)</span> 是一个 <strong>确定型</strong>
-下推自动机，对某个可被接受的串 <span
-class="math inline">\(w\)</span>，<span class="math inline">\(w\)</span>
-在上面进行的移动序列是唯一的，所以对应的最左推导也都是唯一的。因此该 CFG
-是无歧义的。</p>
-<p><strong>定理 2</strong>：如果对于某个 DPDA <span
-class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
-L(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
-CFG。</p>
-<p>在 <span class="math inline">\(L\)</span>
-的串的末尾全部加上不在字母表中出现的符号（例如 <span
-class="math inline">\(\$\)</span>）作为终止符。令 <span
-class="math inline">\(L&#39; = L\$\)</span>，显然 <span
-class="math inline">\(L&#39;\)</span> 具有前缀性质，则存在一个 DPDA
-<span class="math inline">\(P&#39;\)</span>，使得 <span
-class="math inline">\(L&#39; = N(P&#39;)\)</span>。由定理 1 知存在一个
-CFG <span class="math inline">\(G\)</span>，使得 <span
-class="math inline">\(G\)</span> 能产生 <span
-class="math inline">\(N(P&#39;) = L&#39;\)</span>。</p>
-<p>接下来构造 CFG <span class="math inline">\(G\)</span> 使得 <span
-class="math inline">\(L(G) = L\)</span>。在 <span
-class="math inline">\(G&#39;\)</span> 中引入产生式 <span
-class="math inline">\(\$ \to \varepsilon\)</span> 成为 <span
-class="math inline">\(G\)</span>，则 <span
-class="math inline">\(L(G&#39;) = L&#39; \implies L(G) =
-L\)</span>。而且 <span class="math inline">\(G\)</span>
-中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
-中的最左推导，因为 <span class="math inline">\(\$\)</span>
-在串的最右侧，一定是最后一个被替换的变元。</p>
+<p>用通俗的话说，通过 <span class="math inline">\(\varepsilon\)</span>
+的边将状态 <span class="math inline">\(q\)</span>
+和它周围的状态联系起来，它们本质上是“同一个状态”，“同一个状态”对应的就是
+<span class="math inline">\(\text{ECLOSE}(q)\)</span>。</p>
+<h3 id="消除-varepsilon-转移">消除 <span
+class="math inline">\(\varepsilon\)</span> 转移</h3>
+<p>给定一个 <span class="math inline">\(\varepsilon\)</span> - NFA <span
+class="math inline">\(E = (Q_E, \Sigma, \delta_E, q_0,
+F_E)\)</span>，求满足 <span class="math inline">\(L(E) = L(D)\)</span>
+的 DFA <span class="math inline">\(D = (Q_D, \Sigma, \delta_D, q_D,
+F_D)\)</span>。</p>
+<ul>
+<li><span class="math inline">\(Q_D = \{S \subseteq Q_E | S =
+\text{ECLOSE}(S)\}\)</span></li>
+<li><span class="math inline">\(q_D = \text{ECLOSE}(q_0)\)</span></li>
+<li><span class="math inline">\(F_D = \{S \subseteq Q_D | S \cap F_E
+\neq \varnothing\}\)</span></li>
+<li><span class="math inline">\(\delta_D\)</span> 满足 <span
+class="math display">\[
+\delta_D(S, a) = \bigcup_{p \in S}\text{ECLOSE}(\delta(p, a))
+\]</span></li>
+</ul>
+<p>对于 <span class="math inline">\(E\)</span> 和其对应的 <span
+class="math inline">\(D\)</span>，也有</p>
+<p><strong>定理</strong>：<span class="math inline">\(L\)</span> 被
+<span class="math inline">\(\varepsilon\)</span> - NFA <span
+class="math inline">\(E\)</span> 接受，当且仅当 <span
+class="math inline">\(L\)</span> 被 DFA <span
+class="math inline">\(D\)</span> 接受。</p>
+<p>定理的证明与 NFA 和 DFA 的等价性处的证明类似。</p>
 <h2 id="练习题">练习题</h2>
-<p><strong>习题 1</strong> 构造接受下列语言的一个 PDA：<span
-class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中任何前缀中 } a
-\text{ 的数量至少 } 2 \text{ 倍于 } b \text{ 的数量}\}\)</span>。</p>
-<p>在设计这道题的 PDA 的时候，一个重要的事情是，如果处理一个 <span
-class="math inline">\(b\)</span>，需要连续弹出两个 <span
-class="math inline">\(a\)</span>。我们可以引入辅助状态，加入 <span
-class="math inline">\(\varepsilon\)</span> 的转移边来连续弹出两次。</p>
+<p><strong>习题 1</strong></p>
 <figure>
 <img
-src="https://img.picgo.net/2023/12/22/exercise14611df897a671162.jpeg"
+src="https://img.picgo.net/2023/12/20/exercise11b1ec947067fc985.jpeg"
 alt="习题 1" />
 <figcaption aria-hidden="true">习题 1</figcaption>
 </figure>
-<p><strong>习题 2</strong> 构造接受下列语言的一个 PDA：<span
-class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
-的数量不等于 } b \text{ 的数量}\}\)</span>。</p>
-<p>有的时候并不一定需要空栈接受，虽然空栈接受可能是更直观的“停止”的状态。因此，最后只要有剩余的
-<span class="math inline">\(X\)</span> 或 <span
-class="math inline">\(Y\)</span>
-作为栈顶符号，只需要弹出一个，即可转入终结状态（而非继续把栈中所有符号全部弹出，然后空栈接受）。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/22/exercise284b4b6bc4b733428.jpeg"
-alt="习题 2" />
-<figcaption aria-hidden="true">习题 2</figcaption>
-</figure>
-<p><strong>习题 3</strong> 构造接受下列语言的一个 PDA：<span
-class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
-的数量是 } b \text{ 的 } 2 \text{ 倍}\}\)</span>。</p>
-<p>要么可以类似于习题 1 中的策略，引入一些辅助状态；而我选择添加栈中符号
-<span class="math inline">\(C\)</span> 表示“半个 <span
-class="math inline">\(B\)</span>”。转移表如下： <span
-class="math display">\[
-\begin{aligned}
-a,&amp; Z_0/AZ_0 &amp; b,&amp; Z_0/BZ_0 \\
-a,&amp; A/AA &amp; b,&amp; A/C \\
-a,&amp; B/C &amp; b,&amp; B/BB \\
-a,&amp; C/\varepsilon &amp; b,&amp; C/CB\\
-\end{aligned}
-\]</span> 其中 <span class="math inline">\(b,C/CB\)</span> 是为了让“半个
-<span
-class="math inline">\(B\)</span>”一直处于栈顶，这样就避免了栈中同时出现两个“半个
-<span class="math inline">\(B\)</span>”的情况。</p>
+<p>注意，要按照 <span class="math inline">\(bac\)</span> 和 <span
+class="math inline">\(acb\)</span> 重叠部分的长度分成三类。</p>
+<p><strong>习题 2</strong> 给出接受下列在字母表 <span
+class="math inline">\(\{0, 1\}\)</span> 上的语言的 DFA：所有
+<em>倒过来</em> 解释成二进制整数时是 <span
+class="math inline">\(5\)</span> 的倍数的串的集合。例如 <span
+class="math inline">\(010011, 1001100\)</span> 和 <span
+class="math inline">\(0101\)</span>。</p>
+<p>先画出接受正方向串的 DFA <span
+class="math inline">\(D\)</span>。这是容易的，按照除以 <span
+class="math inline">\(5\)</span> 得到的余数分类设计 <span
+class="math inline">\(5\)</span> 个状态即可。接着，接受倒过来串的 DFA
+就是将 <span class="math inline">\(D\)</span> 中所有边全部反向得到的
+DFA。</p>
+<p><strong>习题 3</strong> 给出接受下列在字母表 <span
+class="math inline">\(\{0, 1\}\)</span> 上的语言的 DFA：所有倒数第 <span
+class="math inline">\(10\)</span> 个符号是 <span
+class="math inline">\(1\)</span> 的串的集合。</p>
+<p>设计 <span class="math inline">\(2^{10}\)</span>
+个状态，表示已输入的串除以 <span class="math inline">\(2^{10}\)</span>
+得到的余数，余数 $ $ 为接受状态。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>自动机理论、语言和计算导论</tag>
-        <tag>上下文无关文法</tag>
-        <tag>上下文无关语言</tag>
-        <tag>下推自动机</tag>
+        <tag>有穷自动机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第三章</title>
+    <url>/2023/09/19/IATLC-Chap3/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第三章 正则表达式与正则语言</strong></p>
+<ul>
+<li>正则表达式的运算符
+<ul>
+<li>并与连接</li>
+<li>闭包</li>
+</ul></li>
+<li>正则表达式的定义</li>
+<li>自动机与正则表达式间的关系
+<ul>
+<li>由 DFA 构建正则表达式</li>
+<li>消除状态法</li>
+<li>由正则表达式构造 <span class="math inline">\(\varepsilon\)</span> -
+NFA</li>
+<li>消除 <span class="math inline">\(\varepsilon\)</span>
+转移时的注意事项</li>
+</ul></li>
+<li>正则表达式代数定律</li>
+</ul>
+<span id="more"></span>
+<h2 id="正则表达式的运算符">正则表达式的运算符</h2>
+<h3 id="并与连接">并与连接</h3>
+<ul>
+<li>并 <span class="math display">\[
+L \cup M = \{w | w \in L \lor w \in M\}
+\]</span></li>
+<li>连接 <span class="math display">\[
+LM = \{w = uv | u \in L \land v \in M\}
+\]</span></li>
+</ul>
+<h3 id="闭包">闭包</h3>
+<p>语言 <span class="math inline">\(L\)</span> 的闭包记作 <span
+class="math inline">\(L^*\)</span>。形式化的定义是：</p>
+<p><span class="math display">\[
+L^* = \bigcup_{i \ge 0}L^i
+\]</span></p>
+<p>其中 <span class="math inline">\(L^0 = \{\varepsilon\}, L^1 =
+L\)</span>，<span class="math inline">\(L^i(i \ge 2)\)</span> 表示 <span
+class="math inline">\(i\)</span> 个 <span
+class="math inline">\(L\)</span> 的连接。</p>
+<p>对于绝大多数语言 <span class="math inline">\(L\)</span> 而言，<span
+class="math inline">\(L^*\)</span>
+通常是无穷的。<strong>仅有两个</strong>
+特殊的语言，它们的闭包是有限的。</p>
+<ul>
+<li><p><span class="math inline">\(\varnothing^*\)</span></p>
+<p>注意到对于 <span class="math inline">\(i \ge 1\)</span>，<span
+class="math inline">\(\varnothing^i\)</span> 是空集，而 <span
+class="math inline">\(\varnothing^0 = \{\varepsilon\}\)</span>。故 <span
+class="math inline">\(\varnothing^* =
+\{\varepsilon\}\)</span>。</p></li>
+<li><p><span class="math inline">\(\{\varepsilon\}^*\)</span></p>
+<p>注意到 <span class="math inline">\(\{\varepsilon\}\)</span>
+无论连接多少次都不会改变它是 <span
+class="math inline">\(\{\varepsilon\}\)</span> 的事实，所以 <span
+class="math inline">\(\{\varepsilon\}^* =
+\{\varepsilon\}\)</span>。</p></li>
+</ul>
+<h2 id="正则表达式的定义">正则表达式的定义</h2>
+<p>正则表达式仍然采用递归的定义方法：</p>
+<p><strong>基础</strong>：</p>
+<ol type="1">
+<li><span class="math inline">\(\varepsilon\)</span> 和 <span
+class="math inline">\(\varnothing\)</span> 是正则表达式，分别表示语言
+<span class="math inline">\(\{\varepsilon\}\)</span> 和 <span
+class="math inline">\(\varnothing\)</span>。也就是说，<span
+class="math inline">\(L(\varepsilon) = \{\varepsilon\}, L(\varnothing) =
+\varnothing\)</span>。</li>
+<li>若 <span class="math inline">\(a\)</span> 是任意
+<strong>符号</strong>，则 <span
+class="math inline">\(\textbf{a}\)</span>
+是正则表达式。这个表达式表示语言 <span
+class="math inline">\(\{a\}\)</span>。也就是说，<span
+class="math inline">\(L(\textbf{a}) = \{a\}\)</span>。</li>
+</ol>
+<p><strong>归纳</strong>：</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(E + F\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的并。也就是说，<span
+class="math inline">\(L(E + F) = L(E) \cup L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 和 <span
+class="math inline">\(F\)</span> 都是正则表达式，则 <span
+class="math inline">\(EF\)</span> 是正则表达式，表示 <span
+class="math inline">\(L(E)\)</span> 和 <span
+class="math inline">\(L(F)\)</span> 的连接。也就是说，<span
+class="math inline">\(L(EF) = L(E)L(F)\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\(E^*\)</span> 是正则表达式，表示 <span
+class="math inline">\(E\)</span> 的闭包。也就是说，<span
+class="math inline">\(L(E^*) = (L(E))^*\)</span>。</li>
+<li>如果 <span class="math inline">\(E\)</span> 是正则表达式，则 <span
+class="math inline">\((E)\)</span> 是正则表达式，表示和 <span
+class="math inline">\(E\)</span> 相同的语言。也就是说 <span
+class="math inline">\((L(E)) = L(E)\)</span>。</li>
+</ol>
+<h2 id="自动机与正则表达式间的关系">自动机与正则表达式间的关系</h2>
+<p>DFA、NFA、<span class="math inline">\(\varepsilon\)</span> - NFA
+和正则表达式之间是等价的，它们都能表示相同的正则语言。</p>
+<pre><code class="highlight mermaid">graph LR
+A(NFA) --&gt; |1| B(DFA)
+B --&gt; |2| C($\varepsilon$ - NFA)
+C --&gt; |3| B
+B --&gt; |4| D(RE)
+D --&gt; |5| C</code></pre>
+<p>其中 1、2、3 都已经被证明了。现在只需要证明 4 和 5。</p>
+<h3 id="由-dfa-构建正则表达式">由 DFA 构建正则表达式</h3>
+<p>我们想要解决的问题是：给定一个 DFA <span
+class="math inline">\(A\)</span>，记 <span class="math inline">\(L =
+L(A)\)</span>，求一个正则表达式 <span
+class="math inline">\(R\)</span>，使得 <span class="math inline">\(L =
+L(R)\)</span>。</p>
+<p>重新编号 <span class="math inline">\(A\)</span> 的状态为 <span
+class="math inline">\(\{1, 2, \cdots, n\}\)</span>，使得 <span
+class="math inline">\(1\)</span> 为初始状态。设 <span
+class="math inline">\(R_{ij}^{(k)}\)</span> 表示满足以下条件的串 <span
+class="math inline">\(w\)</span> 所组成的集合：<span
+class="math inline">\(w\)</span> 是 <span
+class="math inline">\(A\)</span> 中从状态 <span
+class="math inline">\(i\)</span> 到状态 <span
+class="math inline">\(j\)</span> 的路径的标记，而且这条路径没有编号大于
+<span class="math inline">\(k\)</span> 的
+<strong>中间顶点</strong>。因此 <span class="math inline">\(i\)</span>
+和 <span class="math inline">\(j\)</span> 没有必要不大于 <span
+class="math inline">\(k\)</span>。</p>
+<p>最终的 <span class="math inline">\(R\)</span>，是所有 <span
+class="math inline">\(R_{1j}^{(n)}\)</span> 的并，使得状态 <span
+class="math inline">\(j\)</span> 为一个接受状态。</p>
+<p>仍然考虑使用递归的思路来推导 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>。</p>
+<p><strong>基础</strong>：当 <span class="math inline">\(k = 0\)</span>
+时，这条路径中不能包含除了 <span class="math inline">\(i, j\)</span>
+以外的其他状态。也就是说，这条路径上最多只会包含两个状态。</p>
+<ul>
+<li>如果 <span class="math inline">\(i = j\)</span>，则 <span
+class="math inline">\(R_{ii}^{(0)} = \varepsilon + \textbf{a}_1 +
+\textbf{a}_2 + \cdots + \textbf{a}_r\)</span>，其中状态 <span
+class="math inline">\(i\)</span> 有自环 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+<li>如果 <span class="math inline">\(i \neq j\)</span>，则 <span
+class="math inline">\(R_{ij}^{(0)} = \textbf{a}_1 + \cdots +
+\textbf{a}_r\)</span>，其中状态 <span class="math inline">\(i\)</span>
+到状态 <span class="math inline">\(j\)</span> 有 <span
+class="math inline">\(\textbf{a}_1, \textbf{a}_2, \cdots,
+\textbf{a}_r\)</span> 的弧。</li>
+</ul>
+<p><strong>归纳</strong>：假设有 <span
+class="math inline">\(R_{ij}^{(k)}\)</span>，那么这条路径有两种情况：</p>
+<ol type="1">
+<li><p>这条路径根本不经过状态 <span class="math inline">\(k\)</span>。
+这种情况下 <span class="math inline">\(R_{ij}^{(k)} \gets
+R_{ij}^{(k-1)}\)</span>。</p></li>
+<li><p>这条路径经过状态 <span class="math inline">\(k\)</span>
+至少一次。 于是我们可以把整个路径分成几段：</p></li>
+</ol>
+<p><pre><code class="highlight mermaid">graph LR
+
+style ... fill:none,stroke-width:0px
+
+A((i)) --&gt; |&quot;属于 $R_&#123;ik&#125;^&#123;(k-1)&#125;$&quot;| B((k))
+subgraph &quot;属于 $R_&#123;kk&#125;^&#123;(k-1)&#125;$ 的零个或多个串&quot;
+B((k)) --&gt; C((k))
+C((k)) --&gt; ...
+... --&gt; E((k))
+end
+E((k)) --&gt;|&quot;属于 $R_&#123;kj&#125;^&#123;(k-1)&#125;$&quot;| F((j))</code></pre></p>
+<p>那么这种路径可以表示成正则表达式 <span
+class="math inline">\(R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。</p>
+<p>结合起来就有 <span class="math inline">\(R_{ij}^{(k)} = R_{ij}^{(k -
+1)} + R_{ik}^{(k - 1)}(R_{kk}^{(k - 1)})^*R_{kj}^{(k -
+1)}\)</span>。这是一个递推式，所以我们可以从基础已知递推到所有的 <span
+class="math inline">\(R_{1j}^{(n)}\)</span>。</p>
+<p>比如考虑下图表示的 DFA：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(($1$))
+A --&gt; |$1$| A
+A --&gt; |$0$| B((($2$)))
+B --&gt; |$0, 1$| B</code></pre>
+<p>由 <strong>基础</strong> 部分可得：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>然后通过 <strong>归纳</strong> 部分递推得出 <span
+class="math inline">\(R_{ij}^{(1)}\)</span>：</p>
+<p><span class="math display">\[
+R_{ij}^{(1)} = R_{ij}^{(0)} + R_{i1}^{(0)}(R_{11}^{(0)})^*R_{1j}^{(0)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{1} + (\varepsilon + \mathbf{1})(\varepsilon +
+\mathbf{1})^*(\varepsilon + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{0} +
+(\varepsilon + \mathbf{1})(\varepsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ \varnothing(\varepsilon + \mathbf{1})^*(\varepsilon +
+\mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(0)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1} + \varnothing(\varepsilon +
+\mathbf{1})^*\mathbf{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>又有</p>
+<p><span class="math display">\[
+R_{ij}^{(2)} = R_{ij}^{(1)} + R_{i2}^{(1)}(R_{22}^{(1)})^*R_{2j}^{(1)}
+\]</span></p>
+<p>因此可以得到：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">表达式</th>
+<th style="text-align: center;">通过直接带入</th>
+<th style="text-align: center;">化简后的值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{11}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathbf{1}^*
++ \mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{12}^{(1)}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0} +
+\mathbf{1}^*\mathbf{0}(\varepsilon + \mathbf{0} +
+\mathbf{1})^*(\varepsilon + \mathbf{0} + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(R_{21}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varnothing
++ (\varepsilon + \mathbf{0} + \mathbf{1})(\varepsilon + \mathbf{0} +
+\mathbf{1})^*\varnothing\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varnothing\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(R_{22}^{(1)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\varepsilon
++ \mathbf{0} + \mathbf{1} + (\varepsilon + \mathbf{0} +
+\mathbf{1})(\varepsilon + \mathbf{0} + \mathbf{1})^*(\varepsilon +
+\mathbf{0} + \mathbf{1})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\mathbf{0}
++ \mathbf{1})^*\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>在此例中，<span class="math inline">\(1\)</span> 是初始状态，<span
+class="math inline">\(2\)</span>
+是唯一一个接收状态，则整体的正则表达式为 <span
+class="math inline">\(R_{12}^{(2)} = \mathbf{1}^*\mathbf{0}(\mathbf{0} +
+\mathbf{1})^*\)</span>。</p>
+<p>它表示的是“至少含有一个 0 的 01 串”组成的集合。</p>
+<h3 id="消除状态法">消除状态法</h3>
+<p>上述方法的复杂度太高，我们可以使用 <strong>消除状态</strong>
+的方式来化简自动机。考虑下图中即将被消除的状态 <span
+class="math inline">\(s\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125;$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125;$&quot;| E
+A --&gt; |$Q_1$| C(($s$))
+C --&gt; |$P_1$| B
+C --&gt; |$S$| C
+C --&gt; |$P_m$| E
+D --&gt; |$Q_k$| C
+D --&gt; |&quot;$R_&#123;k1&#125;$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125;$&quot;| E(($p_m$))</code></pre>
+<p>消除状态 <span class="math inline">\(s\)</span>
+时需要清除掉所有与状态 <span class="math inline">\(s\)</span>
+相关的转移边。消除状态 <span class="math inline">\(s\)</span>
+后如下：</p>
+<pre><code class="highlight mermaid">graph LR
+
+A(($q_1$)) --&gt; |&quot;$R_&#123;11&#125; + Q_1S^*P_1$&quot;| B(($p_1$))
+A --&gt; |&quot;$R_&#123;1m&#125; + Q_1S^*P_m$&quot;| E
+D --&gt; |&quot;$R_&#123;k1&#125; + Q_kS^*P_1$&quot;| B
+D(($q_k$)) --&gt; |&quot;$R_&#123;km&#125; + Q_kS^*P_m$&quot;| E(($p_m$))</code></pre>
+<p>从有穷自动构造正则表达式的策略如下：</p>
+<ol type="1">
+<li><p>对于每个接受状态 <span
+class="math inline">\(q\)</span>，应用上面的消除过程，消除除了 <span
+class="math inline">\(q\)</span> 和初始状态 <span
+class="math inline">\(q_0\)</span>
+之外的所有其余状态，产生一个等价的自动机，转移边上带有正则表达式标记。</p></li>
+<li><p>如果 <span class="math inline">\(q \neq
+q_0\)</span>，则剩下一个两状态自动机。可以用多种方法来描述所接受的串的正则表达式。一种方式是
+<span class="math inline">\((R + SU^*T)^*SU^*\)</span>。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A((&quot; &quot;))
+A --&gt; |$R$| A
+A --&gt; |$S$| B(((&quot; &quot;)))
+B --&gt; |$T$| A
+B --&gt; |$U$| B</code></pre></p></li>
+<li><p>如果初始状态也是接受状态，则必须去掉除了初始状态意外的所有其余状态。这样做了之后，只剩下一个单状态自动机，表示所接受的串的正则表达式是
+<span class="math inline">\(R^*\)</span>。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start --&gt; A(((&quot; &quot;)))
+A --&gt; |$R$| A</code></pre></p></li>
+<li><p>所求的正则表达式是对每个接受状态进行步骤 2 和步骤 3
+所得出的所有表达式之和（并）。</p></li>
+</ol>
+<h3 id="由正则表达式构造-varepsilon---nfa">由正则表达式构造 <span
+class="math inline">\(\varepsilon\)</span> - NFA</h3>
+<p>构造出来的自动机都是 <strong>具有单个接受状态</strong> 的 <span
+class="math inline">\(\varepsilon\)</span> - NFA。</p>
+<p><strong>基础</strong>：先构造 <span
+class="math inline">\(\{\varepsilon\}, \varnothing, \mathbf{a}\)</span>
+对应的三个自动机：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\&#123;\varepsilon\&#125;$&quot;
+A --&gt; | $\varepsilon$ | B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $\varnothing$
+A
+B(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot;$\mathbf&#123;a&#125;$&quot;
+A --&gt; | $a$ | B(((&quot; &quot;)))
+end</code></pre>
+<p><strong>归纳</strong>：接着，我们构造 <span class="math inline">\(R +
+S, RS, R^*\)</span>：</p>
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\varepsilon$ | B((&quot; &quot;))
+A --&gt; | $\varepsilon$ | D((&quot; &quot;))
+
+subgraph $R$
+B -.- C((&quot; &quot;))
+end
+
+subgraph $S$
+D -.- E((&quot; &quot;))
+end
+
+C --&gt; | $\varepsilon$ | F(((&quot; &quot;)))
+E --&gt; | $\varepsilon$ | F</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph $R$
+A -.- B((&quot; &quot;))
+end
+
+B --&gt; | $\varepsilon$ | C((&quot; &quot;))
+
+subgraph $S$
+C -.- D(((&quot; &quot;)))
+end</code></pre>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+A --&gt; | $\varepsilon$ | B((&quot; &quot;))
+
+subgraph $R$
+C --&gt; | $\varepsilon$ | B
+B -.- C((&quot; &quot;))
+end
+
+C --&gt; | $\varepsilon$ | D(((&quot; &quot;)))
+A --&gt; | $\varepsilon$ | D</code></pre>
+<p>通过自动机结构上的归纳法，我们可以得到与正则表达式表示相同语言的
+<span class="math inline">\(\varepsilon\)</span> - NFA。</p>
+<h3 id="消除-varepsilon-转移时的注意事项">消除 <span
+class="math inline">\(\varepsilon\)</span> 转移时的注意事项</h3>
+<p>在上述构造中，有些地方可以化简：</p>
+<ol type="1">
+<li>对于并运算符，不是构造新的初始状态和接收状态，而是把两个初始状态合并成一个具备两个初始状态的所有转移的状态。同样，合并两个接受状态，让所有的转移相应的地进入合并状态。
+<pre><code class="highlight mermaid">graph LR
+
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B(((&quot; &quot;)))
+A -.- | $S$ | B
+end</code></pre></li>
+<li>对于连接运算符，把第一个自动机的接受状态与第二个自动机的初始状态合并。
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+A -.- | $R$ | B((&quot; &quot;))
+B -.- | $S$ | C(((&quot; &quot;)))
+end</code></pre></li>
+<li>对于闭包运算符，只是增加从接受状态到初始状态的以及反方向的 <span
+class="math inline">\(\varepsilon\)</span> 转移。 <pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke-width:0px
+
+Start((&quot; &quot;)) --&gt; A((&quot; &quot;))
+
+subgraph &quot; &quot;
+B(((&quot; &quot;))) --&gt; | $\varepsilon$ | A
+A --&gt; | $\varepsilon$ | B
+A -.- | $R$ | B
+end</code></pre></li>
+</ol>
+<p>每一个这种化简 <strong>本身</strong> 仍然产生正确的构造，但它们
+<strong>组合在一起</strong> 有时会产生错误的构造（例如 <span
+class="math inline">\(R + S^*\)</span>）。</p>
+<h2 id="正则表达式代数定律">正则表达式代数定律</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(E\)</span>
+是带变量 <span class="math inline">\(L_1, L_2, \cdots, L_m\)</span>
+的正则表达式。对于 <span class="math inline">\(i = 1, 2, \cdots,
+m\)</span>，通过把 <span class="math inline">\(L_i\)</span>
+的每次出现都换成符号 <span class="math inline">\(a_i\)</span>
+形成具体的正则表达式 <span class="math inline">\(C\)</span>。则 <span
+class="math inline">\(\forall w = w_1w_2\cdots w_k \in
+L(E)\)</span>，其中每个 <span class="math inline">\(w_i\)</span>
+都属于任意的语言之一（如 <span
+class="math inline">\(L_{j_i}\)</span>），都有 <span
+class="math inline">\(w\)</span> 对应的正则表达式 <span
+class="math inline">\(a_{j_1}a_{j_2}\cdots a_{j_k}\)</span> 属于语言
+<span class="math inline">\(L(C)\)</span>。</p>
+<p>这个定理揭示了语言和正则表达式的内蕴的等价性。</p>
+<p><del>附赠一个可能会有用的公式</del> <span
+class="math inline">\((R^*S^*)^* = (R + S)^*\)</span></p>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 求正则表达式 <span
+class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)
+= \{w|w\text{ 的开头字符和结尾字符相同}\}\)</span>。</p>
+<p><span
+class="math inline">\(0(0+1)^*0+1(0+1)^*1+0+1\)</span>。一定不要忘了
+<span class="math inline">\(|w|=1\)</span> 的两种情况。</p>
+<p><strong>习题 2</strong> 求正则表达式 <span
+class="math inline">\(E\)</span>，满足 <span class="math inline">\(L(E)=
+\{w|w\text{ 的前 5 位至少包含 1 个 1} \land |w|\ge 1\}\)</span>。</p>
+<p>巧妙使用空串 <span class="math inline">\(\varepsilon\)</span>：<span
+class="math inline">\((0+1+\varepsilon)^41(0+1)^*\)</span>。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>正则表达式</tag>
+        <tag>正则语言</tag>
       </tags>
   </entry>
   <entry>
@@ -4915,6 +4076,371 @@ class="math inline">\(\text{occur}(w, a) = \text{occur}(w, b) +
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第七章</title>
+    <url>/2023/10/10/IATLC-Chap7/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第七章 上下文无关语言的性质</strong></p>
+<ul>
+<li>上下文无关文法的范式
+<ul>
+<li>去除无用的符号</li>
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式</li>
+<li>去除单位式</li>
+<li>乔姆斯基范式（CNF）</li>
+</ul></li>
+<li>上下文无关语言的泵引理</li>
+<li>上下文无关语言的封闭性
+<ul>
+<li>代入定理</li>
+<li>与正则语言的交</li>
+<li>逆同态</li>
+</ul></li>
+<li>上下文无关语言的判定性质
+<ul>
+<li>CFG 和 PDA 之间相互转化的时间复杂度</li>
+<li>CFG 变换到 CNF 的时间复杂度</li>
+<li>测试 CFL 的空性</li>
+<li>测试 CFL 的成员性：CYK 算法</li>
+<li>不可判定的 CFL 问题</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="上下文无关文法的范式">上下文无关文法的范式</h2>
+<h3 id="去除无用的符号">去除无用的符号</h3>
+<p><strong>先去除不产生的符号，再去除不可达的符号。</strong>不能以相反的顺序执行这两个操作，否则会保留一些不可达的非终结符，即使它们是产生的。</p>
+<p>例：考虑文法 <span class="math display">\[
+\begin{aligned}
+S &amp;\to AB | a \\
+A &amp;\to b
+\end{aligned}
+\]</span> 正确的做法是先去除不产生的 <span
+class="math inline">\(B\)</span> 导致的 <span class="math inline">\(S
+\to AB\)</span>，再去除不可达的 <span class="math inline">\(A\)</span>
+导致的 <span class="math inline">\(A \to b\)</span>。这样只剩下了 <span
+class="math inline">\(S \to a\)</span>。</p>
+<p>错误的做法会导致在第一步检查时，没有不可达的符号；在第二步中仅去除了含有不产生的
+<span class="math inline">\(B\)</span> 的产生式 <span
+class="math inline">\(S \to AB\)</span>。此时仍然有冗余的 <span
+class="math inline">\(A \to b\)</span>。</p>
+<p>一个 CFG
+类似于一个由产生式构建而成的森林，“去除不产生的符号”等价于切断为非终结符的叶节点及其父节点、父节点及其祖父节点……之间的边，“去除不可达的符号”等价于仅保留以
+<span class="math inline">\(S\)</span> 为根的树。</p>
+<p>由于“去除不产生的符号”在切断边的过程中，会产生新的树，而这些树的根节点不一定为
+<span
+class="math inline">\(S\)</span>，所以需要先去除不产生的符号，再去除不可达的符号。</p>
+<h3 id="去除-varepsilon-产生式">去除 <span
+class="math inline">\(\varepsilon\)</span> 产生式</h3>
+<p>定义可空符号：</p>
+<p><strong>基础</strong>：如果 <span class="math inline">\(A \to
+\varepsilon\)</span> 是一个 <span class="math inline">\(G\)</span>
+的产生式，那么 <span class="math inline">\(A\)</span> 是可空的。</p>
+<p><strong>归纳</strong>：如果 <span class="math inline">\(B \to
+C_1C_2\cdots C_k\)</span> 每个 <span class="math inline">\(C_k\)</span>
+都是可空的，那么 <span class="math inline">\(B\)</span> 是可空的。</p>
+<p>对于每个产生式，枚举产生式的体中的可空符号是否为空，产生 <span
+class="math inline">\(2^n\)</span> 个分支，这样能够去除所有的 <span
+class="math inline">\(\varepsilon\)</span> 产生式。</p>
+<h3 id="去除单位式">去除单位式</h3>
+<p>我们需要找到所有满足如下条件的非终结符对 <span
+class="math inline">\((A, B)\)</span>：只用了一系列单位产生式使得 <span
+class="math inline">\(A
+\overset{*}{\implies}B\)</span>。注意，<strong>即使使用非单位产生式也可能有
+<span class="math inline">\(A \overset{*}{\implies}
+B\)</span></strong>，例如 <span class="math inline">\(A \to BC, B \to
+\varepsilon\)</span>。</p>
+<p>定义单位对：</p>
+<p><strong>基础</strong>：对于任何非终结符 <span
+class="math inline">\(A\)</span>，<span class="math inline">\((A,
+A)\)</span> 是单位对。</p>
+<p><strong>归纳</strong>：假设 <span class="math inline">\((A,
+B)\)</span> 是单位对，<span class="math inline">\(B \to C\)</span>
+是产生式，其中 <span class="math inline">\(C\)</span> 是非终结符，则
+<span class="math inline">\((A, C)\)</span> 是单位对。</p>
+<p>一旦我们确定了所有的这种对，就可以用一个直接从 <span
+class="math inline">\(A\)</span> 开始使用了非单位产生式 <span
+class="math inline">\(B_n \to \alpha\)</span> 的产生式 <span
+class="math inline">\(A \to \alpha\)</span> 来替换任何推导步骤序列 <span
+class="math inline">\(A \implies B_1 \implies B_2 \implies \cdots
+\implies B_n \implies \alpha\)</span>。</p>
+<h3 id="乔姆斯基范式cnf">乔姆斯基范式（CNF）</h3>
+<p><strong>定义</strong>：任何非空且不含 <span
+class="math inline">\(\varepsilon\)</span> 的 CFL 都有一种特殊形式的文法
+<span class="math inline">\(G\)</span>，满足 <span
+class="math inline">\(G\)</span>
+中的所有产生式都属于一下两个简单的形式之一：</p>
+<ol type="1">
+<li><span class="math inline">\(A \to BC\)</span>，其中 <span
+class="math inline">\(A, B, C\)</span> 都是非终结符；</li>
+<li><span class="math inline">\(A \to a\)</span>，其中 <span
+class="math inline">\(A\)</span> 是非终结符，<span
+class="math inline">\(a\)</span> 是终结符。</li>
+</ol>
+<p>更进一步，<span class="math inline">\(G\)</span>
+中没有无用符号。这样的文法称为乔姆斯基范式（CNF）。</p>
+<p>构造 CNF 的步骤首先包括得到一个不含 <span
+class="math inline">\(\varepsilon\)</span> 的
+CFL。一个可靠的顺序是：</p>
+<ol type="1">
+<li>去除 <span class="math inline">\(\varepsilon\)</span> 产生式；</li>
+<li>去除单位产生式；</li>
+<li>去除无用符号。</li>
+</ol>
+<p>在此之后，我们需要改造产生式：</p>
+<ol type="1">
+<li>重新安排产生式，使得体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元（即 <span
+class="math inline">\(A \to BC\)</span>）；</li>
+<li>把体的长度大于等于 <span class="math inline">\(3\)</span>
+的产生式打断为一组级联的产生式，其中每个产生式的体都只有两个变元。</li>
+</ol>
+<p>对于步骤 1，如果有一个产生式 <span class="math inline">\(A \to
+B_1bB_3\cdots
+B_k\)</span>，那么我们把其中的所有终结符拿出来构造一个非终结符产生它，即
+<span class="math inline">\(B_2 \to b, A \to B_1B_2B_3 \cdots
+B_k\)</span>，这样体的长度大于等于 <span
+class="math inline">\(2\)</span> 的产生式的体中只有变元。</p>
+<p>对于步骤 2，我们可以把 <span class="math inline">\(A \to B_1B_2B_3
+\cdots B_k\)</span> 改为 <span class="math display">\[
+\begin{aligned}
+A \to&amp; B_1C_1 \\
+C_1 \to&amp; B_2 C_2 \\
+C_2 \to&amp; B_3 C_3 \\
+&amp;\vdots \\
+C_{k-1} \to&amp; B_{k-1}B_k
+\end{aligned}
+\]</span></p>
+<h2 id="上下文无关语言的泵引理">上下文无关语言的泵引理</h2>
+<p><strong>定理</strong>：设 <span class="math inline">\(L\)</span>
+是一个 CFL，则存在常数 <span class="math inline">\(n\)</span> 满足：如果
+<span class="math inline">\(L\)</span> 中的串 <span
+class="math inline">\(z\)</span> 的长度 <span
+class="math inline">\(\left|z\right| \ge n\)</span>，则可以把 <span
+class="math inline">\(z\)</span> 写作 <span class="math inline">\(z =
+uvwxy\)</span>，其中：</p>
+<ol type="1">
+<li><span class="math inline">\(\left|vwx\right| \le
+n\)</span>，也就是说，中间的部分不会很长；</li>
+<li><span class="math inline">\(vx \neq \varepsilon\)</span>，因为 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 为被“泵”的部分，所以不能均为空串；</li>
+<li>对于所有的 <span class="math inline">\(i \ge 0\)</span>，<span
+class="math inline">\(uv^iwx^iy \in L\)</span>，也就是说，中间的两个串
+<span class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 可以被重复“泵”任意多次（包括 <span
+class="math inline">\(0\)</span> 次），所得的串仍然属于 <span
+class="math inline">\(L\)</span>。</li>
+</ol>
+<p><strong>证明</strong>：先找到 <span class="math inline">\(L\)</span>
+对应的 CNF <span
+class="math inline">\(G\)</span>，得到一个二叉的语法分析树。设 <span
+class="math inline">\(G\)</span> 有 <span
+class="math inline">\(m\)</span> 个非终结符，取 <span
+class="math inline">\(n = 2^m\)</span>。假设 <span
+class="math inline">\(z \in L\)</span> 且长度至少为 <span
+class="math inline">\(n\)</span>。任何产物为 <span
+class="math inline">\(z\)</span> 的语法分析树都至少有一条长度不少于
+<span class="math inline">\(m + 1\)</span>
+的路径，因为如果某个语法分析树的最长路径长度仅为 <span
+class="math inline">\(m\)</span>，则它的产物最长只能为 <span
+class="math inline">\(2^{m-1} = \dfrac{n}{2} &lt;
+n\)</span>。假设有一棵产物为 <span class="math inline">\(z\)</span>
+的语法分析树的最长路径长度为 <span class="math inline">\(k \ge m +
+1\)</span>。由于 <span class="math inline">\(k \ge
+m\)</span>，因此在该路径上至少出现了 <span class="math inline">\(m +
+1\)</span> 次非终结符 <span class="math inline">\(A_0, A_1, \cdots,
+A_k\)</span>。但由于 <span class="math inline">\(V\)</span> 中只有 <span
+class="math inline">\(m\)</span>
+种非终结符，所以肯定有两个是同一种非终结符。不妨设 <span
+class="math inline">\(A_i = A_j = A\)</span>，其中 <span
+class="math inline">\(k - m \le i &lt; j \le k\)</span>。注意，由于
+<span class="math inline">\(i \ge k -m\)</span>，所以这对 <span
+class="math inline">\(A_i, A_j\)</span> 是该路径上最靠近叶子的满足条件的
+<span class="math inline">\(A_i\)</span> 和 <span
+class="math inline">\(A_j\)</span>。</p>
+<p>于是，我们可以使分别以 <span class="math inline">\(A_i\)</span> 和
+<span class="math inline">\(A_j\)</span>
+为根的这两棵子树相互替代，从而达到“泵”出 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 零次或多次的效果。</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/pump80177706fd416192.png"
+alt="“泵”出 v 和 x，重复 0 次和 2 次" />
+<figcaption aria-hidden="true">“泵”出 v 和 x，重复 0 次和 2
+次</figcaption>
+</figure>
+<h2 id="上下文无关语言的封闭性">上下文无关语言的封闭性</h2>
+<p>CFL 在交运算（推论：补运算、差运算）下不封闭。</p>
+<p>比如 <span class="math inline">\(L_1 = \{0^m1^n2^n | n, m \in
+\mathbb{N}\}, L_2 = \{0^n1^n2^m | n, m \in \mathbb{N}\}\)</span>，则
+<span class="math inline">\(L_1 \cap L_2 = \{0^n1^n2^n | n \in
+\mathbb{N}\}\)</span>，但它不是 CFL。</p>
+<p>但是 CFL 与一个 RE 的交仍然是 CFL，与一个 RE 的补仍然是
+CFL。类似于两个 RE 的交，我们可以同步运行一个 PDA 和一个
+DFA，来产生能表示二者语言交集的 PDA。</p>
+<h2 id="上下文无关语言的判定性质">上下文无关语言的判定性质</h2>
+<h3 id="cfg-和-pda-之间相互转化的时间复杂度">CFG 和 PDA
+之间相互转化的时间复杂度</h3>
+<p>从 CFG 到 PDA 的时间复杂度是线性的。这是因为在 <a
+href="https://leverimmy.top/2023/09/30/IATLC-Chap6/#由-cfg-得-pda">构造
+<span class="math inline">\(\delta\)</span> 函数</a> 时，步骤 1
+最多只会额外加入域产生式个数相等的 <span
+class="math inline">\(\delta\)</span> 转移，步骤 2
+最多只会额外加入与终结符个数相等的 <span
+class="math inline">\(\delta\)</span> 转移。</p>
+<p>以终结状态方式接受的 PDA 和以空栈方式接受的 PDA
+之间，相互转换的时间复杂度都是线性的。</p>
+<p>比较复杂的是从 PDA 转化为 CFG 的时间复杂度，设 PDA 的状态个数为 <span
+class="math inline">\(n\)</span>。由于单次 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k) \in \delta(q, a,
+X)\)</span> 的转移规则会引出一组 <span class="math inline">\([qXr_k] \to
+[r_0Y_1r_1][r_1Y_2r_2]\cdots[r_{k-1}Y_kr_k]\)</span>
+的产生式，最坏情况下这组产生式的个数为 <span
+class="math inline">\(n^n\)</span>，所以需要考虑使用别的方法：将所有的转移拆成不多于两个堆栈符号的转移。引入新的状态
+<span class="math inline">\(p_2, p_3, \cdots, p_{k-1}\)</span>，用 <span
+class="math inline">\((p_{k-1}, Y_{k-1}Y_k)\)</span> 代替 <span
+class="math inline">\((r_0, Y_1Y_2\cdots Y_k)\)</span>，同时引入转移
+<span class="math display">\[
+\delta(p_{k-1}, \varepsilon, Y_{k-1}) = \{(p_{k-2}, Y_{k-2}Y_{k-1})\},
+\delta(p_{k-2}, \varepsilon, Y_{k-2}) = \{(p_{k-3}, Y_{k-3}Y_{k-2})\}
+\]</span> 直到 <span class="math inline">\(\delta(p_2, \varepsilon, Y_2)
+= \{(r_0, Y_1Y_2)\}\)</span>。</p>
+<p>我们只引入了 <span class="math inline">\(O(n)\)</span>
+个新状态，且由于新的转移规则中堆栈符号个数不多于 <span
+class="math inline">\(2\)</span>，所以产生的产生式的个数为 <span
+class="math inline">\(O(n^2)\)</span>。因此，总的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="cfg-变换到-cnf-的时间复杂度">CFG 变换到 CNF 的时间复杂度</h3>
+<ul>
+<li>去除所有的无用符号需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度。</li>
+<li>去除所有的单位产生式需要 <span class="math inline">\(O(n^2)\)</span>
+的时间复杂度。</li>
+<li>用产生式体中的变元来代替终结符需要 <span
+class="math inline">\(O(n)\)</span> 的时间复杂度，并且额外增加长度为
+<span class="math inline">\(O(n)\)</span> 的文法。</li>
+<li>把所有产生式的体打断为长度为 <span class="math inline">\(2\)</span>
+的体，构造级联的产生式，需要 <span class="math inline">\(O(n)\)</span>
+的时间复杂度，并且额外增加长度为 <span
+class="math inline">\(O(n)\)</span> 的文法。</li>
+</ul>
+<p>最后来考虑去除 <span class="math inline">\(\varepsilon\)</span>
+产生式所需的时间复杂度。如果我们直接对原 CFG 除去 <span
+class="math inline">\(\varepsilon\)</span> 产生式，那么时间复杂度是
+<span class="math inline">\(O(2^n)\)</span>
+的，因为我们需要枚举某一条产生式中每个非终结符是否为空，而产生式的体的最大长度为
+<span class="math inline">\(O(n)\)</span>。但我们可以在
+<strong>把所有产生式的体打断为长度为 <span
+class="math inline">\(2\)</span> 的体之后</strong> 去除 <span
+class="math inline">\(\varepsilon\)</span>
+产生式，因为这样每个产生式枚举的代价仅为 <span
+class="math inline">\(O(1)\)</span>，而总共的产生式的个数为 <span
+class="math inline">\(O(n)\)</span>，这使得该步骤时间复杂度变为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h3 id="测试-cfl-的空性">测试 CFL 的空性</h3>
+<p>对产生式的集合构造一个有向图，图中的每条边由
+<strong>产生式的头</strong> 指向 <strong>产生式的体</strong> 中的每个
+<strong>非终结符</strong> 和 <strong>终结符</strong>。对这个图进行
+DFS：</p>
+<ul>
+<li>如果一个非终结符的所有后继都为终结符，那么这个非终结符是产生的。</li>
+<li>如果一个非终结符的所有非终结符后继都是产生的，那么这个非终结符也是产生的。</li>
+</ul>
+<p>最后检查 <span class="math inline">\(S\)</span> 是否为产生的。这个
+DFS 的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，所以可以在线性时间内测试一个 CFL
+是否为空。</p>
+<h3 id="测试-cfl-的成员性cyk-算法">测试 CFL 的成员性：CYK 算法</h3>
+<p>在 CYK 算法中，构造一个三角形的表，如图所示：</p>
+<figure>
+<img src="https://img.picgo.net/2023/10/15/cyk3b361d265918fbd2.png"
+alt="由 CYK 算法构造的表" />
+<figcaption aria-hidden="true">由 CYK 算法构造的表</figcaption>
+</figure>
+<p>水平轴对应 <span class="math inline">\(w = a_1 a_2 \cdots
+a_n\)</span> 中的位置，在图中假定 <span
+class="math inline">\(\left|w\right| = 5\)</span>。表中的项 <span
+class="math inline">\(X_{ij}\)</span> 是满足 <span
+class="math inline">\(A \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{j}\)</span> 的变元 <span class="math inline">\(A\)</span>
+的集合。最后，我们只需要关心 <span class="math inline">\(S\)</span>
+是否属于集合 <span class="math inline">\(X_{1n}\)</span>，因为这等价于
+<span class="math inline">\(S\)</span> 是否能推导出 <span
+class="math inline">\(w = a_{1}\cdots a_{n}\)</span>。</p>
+<p><strong>基础</strong>：对于所有的 <span class="math inline">\(i \in
+[1, n]\)</span>，<span class="math inline">\(X_{ii}\)</span> 是 <span
+class="math inline">\(G\)</span> 的产生式中满足 <span
+class="math inline">\(A \to a_i\)</span> 的非终结符 <span
+class="math inline">\(A\)</span> 的集合。</p>
+<p><strong>归纳</strong>：假设想要计算出 <span
+class="math inline">\(X_{ij}\)</span>，<strong>它处于从下往上数第 <span
+class="math inline">\(j - i + 1\)</span> 行</strong>，这是因为 <span
+class="math inline">\(X_{ii}\)</span> 位于第 <span
+class="math inline">\(1\)</span> 行。本质上 <span
+class="math inline">\(X_{ij}\)</span>
+所位于的行数，就是它能推导出的串的长度。假设已知它下面所有行的 <span
+class="math inline">\(X_{i&#39;j&#39;}\)</span>，即已知所有长度小于
+<span class="math inline">\(j - i + 1\)</span>
+的串能由哪些非终结符推导而出。考虑 <span class="math inline">\(A
+\overset{*}{\implies}a_{i}a_{i+1}\cdots a_{j}\)</span>。它一定能被分为
+<span class="math inline">\(A \implies BC\)</span>，其中 <span
+class="math inline">\(B \overset{*}{\implies}a_{i}a_{i+1}\cdots
+a_{k}\)</span>，<span class="math inline">\(C
+\overset{*}{\implies}a_{k+1}a_{k+2}\cdots a_{j}\)</span>，且 <span
+class="math inline">\(i \le k &lt; j\)</span>。因此，我们可以枚举 <span
+class="math inline">\(k\)</span>，找到所有满足条件的 <span
+class="math inline">\(B\)</span> 和 <span
+class="math inline">\(C\)</span>，再检查这样的组合 <span
+class="math inline">\(BC\)</span> 是否能被 <span
+class="math inline">\(A\)</span> 产生。</p>
+<p>状态个数为 <span class="math inline">\(O(n^2)\)</span>，枚举 <span
+class="math inline">\(k\)</span> 进行状态转移的时间复杂度为 <span
+class="math inline">\(O(n)\)</span>，因此这个算法的时间复杂度为 <span
+class="math inline">\(O(n^3)\)</span>。</p>
+<h3 id="不可判定的-cfl-问题">不可判定的 CFL 问题</h3>
+<ol type="1">
+<li>某个给定的 CFG <span class="math inline">\(G\)</span>
+是歧义的吗？</li>
+<li>某个给定的 CFL <span class="math inline">\(L\)</span>
+是固有歧义的吗？</li>
+<li>两个 CFL 的交为空吗？</li>
+<li>两个 CFL 相同吗？</li>
+<li>某个给定的 CFL 等于 <span class="math inline">\(\Sigma^*\)</span>
+吗？其中 <span class="math inline">\(\Sigma\)</span>
+是该语言的字母表。</li>
+</ol>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 用 CFL
+泵引理来证明下面的语言都不是上下文无关的：<span
+class="math inline">\(\{ww^Rw | w \in \{0, 1\}^*\}\)</span>。</p>
+<p>考虑 <span class="math inline">\(z = uvwxy =
+0^n1^n1^n0^n0^n1^n\)</span>，则 <span class="math inline">\(vwx\)</span>
+不能完全含于某个 <span class="math inline">\(0^n\)</span> 或 <span
+class="math inline">\(1^n\)</span>
+里（否则找不到可以“对折”的两个“折痕”），因此肯定跨过一个分界线，为 <span
+class="math inline">\(0^n1^n\)</span> 或 <span
+class="math inline">\(1^n0^n\)</span>。不妨考虑前者，且为 <span
+class="math inline">\(z\)</span> 的开头，则 <span
+class="math inline">\(v\)</span> 和 <span
+class="math inline">\(x\)</span> 一定是“纯色”的 <span
+class="math inline">\(0^t\)</span> 和 <span
+class="math inline">\(1^r\)</span>，否则会导致有更多相间的 <span
+class="math inline">\(0101\cdots\)</span> 出现，不满足 <span
+class="math inline">\(ww^Rw\)</span> 的样式。考虑 <span
+class="math inline">\(uv^{k+1}wx^{k+1}y =
+0^{n+kt}1^{n+kr}1^n0^n0^n1^n\)</span> 不满足 <span
+class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论 - 第四章</title>
     <url>/2023/09/20/IATLC-Chap4/</url>
     <content><![CDATA[<p>本文主要包括以下内容：</p>
@@ -5244,6 +4770,480 @@ class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
       </categories>
       <tags>
         <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】自动机理论、语言和计算导论 - 第六章</title>
+    <url>/2023/09/30/IATLC-Chap6/</url>
+    <content><![CDATA[<p>本文主要包括以下内容：</p>
+<p><strong>第六章 下推自动机</strong></p>
+<ul>
+<li>下推自动机的定义
+<ul>
+<li>下推自动机的形式化定义</li>
+<li>下推自动机的瞬时描述</li>
+<li>输入串与栈底串的简化</li>
+</ul></li>
+<li>下推自动机的语言
+<ul>
+<li>以终结状态方式接受</li>
+<li>以空栈方式接受</li>
+<li>两种接受方式的等价性</li>
+</ul></li>
+<li>PDA 和 CFG 的等价性
+<ul>
+<li>由 CFG 得 PDA</li>
+<li>由 PDA 得 CFG</li>
+</ul></li>
+<li>确定性下推自动机（DPDA）
+<ul>
+<li>正则语言与 DPDA</li>
+<li>上下文无关语言与 DPDA</li>
+<li>DPDA 与歧义文法</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="下推自动机的定义">下推自动机的定义</h2>
+<h3 id="下推自动机的形式化定义">下推自动机的形式化定义</h3>
+<p>一个下推自动机（PDA）由七个部分组成： <span class="math display">\[
+P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)
+\]</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(Q\)</span>：状态的有穷集合。</p></li>
+<li><p><span
+class="math inline">\(\Sigma\)</span>：输入符号的有穷集合。</p></li>
+<li><p><span
+class="math inline">\(\Gamma\)</span>：有限的堆栈字母表，该部分是能够被推入堆栈的符号的集合。</p></li>
+<li><p><span
+class="math inline">\(\delta\)</span>：转移函数，自变量为一个三元组
+<span class="math inline">\(\delta(q, a, X)\)</span>，其中</p>
+<ul>
+<li><span class="math inline">\(q \in Q\)</span></li>
+<li><span class="math inline">\(a \in \Sigma\)</span> 或 <span
+class="math inline">\(a = \varepsilon\)</span></li>
+<li><span class="math inline">\(X \in \Gamma\)</span></li>
+</ul>
+<p><span class="math inline">\(\delta\)</span> 的输出是有序对 <span
+class="math inline">\((p, \gamma)\)</span> 的有穷集合，其中 <span
+class="math inline">\(p\)</span> 是新状态，<span
+class="math inline">\(\gamma\)</span> 是堆栈符号串，<span
+class="math inline">\(\gamma\)</span> 用来代替栈顶符号 <span
+class="math inline">\(X\)</span>。</p></li>
+<li><p><span class="math inline">\(q_0\)</span>：初始状态。</p></li>
+<li><p><span
+class="math inline">\(Z_0\)</span>：初始堆栈中的符号。</p></li>
+<li><p><span class="math inline">\(F\)</span>：接受状态的集合。</p></li>
+</ol>
+<p>PDA 相较于 DFA
+的区别是引入了一个栈用于存储数据，以及多了一个参数（栈顶元素）来控制转移方向。</p>
+<h3 id="下推自动机的瞬时描述">下推自动机的瞬时描述</h3>
+<p>使用 <span class="math inline">\((q, w, \gamma)\)</span> 三元组来表示
+PDA 的配置，其中 <span class="math inline">\(q\)</span> 是状态，<span
+class="math inline">\(w\)</span> 是剩余的输入串，<span
+class="math inline">\(\gamma\)</span>
+是堆栈的内容。这样的一个三元组被称为下推自动机的一个
+<strong>瞬时描述</strong>。</p>
+<p>我们定义 <span class="math inline">\(\vdash_P\)</span>（如果 <span
+class="math inline">\(P\)</span> 已知，那么简写为 <span
+class="math inline">\(\vdash\)</span>）为：假设 <span
+class="math inline">\((p, \alpha) \in \delta(q, a,
+X)\)</span>，那么对于所有 <span class="math inline">\(\Sigma^*\)</span>
+中的串 <span class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有： <span
+class="math display">\[
+(q, aw, X\beta) \vdash (p, w, \alpha\beta)
+\]</span> 这相当于处理了输入串 <span class="math inline">\(aw\)</span>
+中最前面的一个字符 <span class="math inline">\(a\)</span>，并且用 <span
+class="math inline">\(\alpha\)</span> 来替换栈顶的 <span
+class="math inline">\(X\)</span>，这导致了一次从状态 <span
+class="math inline">\(q\)</span> 到状态 <span
+class="math inline">\(p\)</span> 的转移。</p>
+<p>同样地，我们也使用符号 <span
+class="math inline">\(\vdash_P^*\)</span> 来表示 PDA
+的零步或多步转移。</p>
+<h3 id="输入串与栈底串的简化">输入串与栈底串的简化</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有 <span class="math display">\[
+(q, xw, \alpha\gamma) \vdash_P^* (p, yw, \beta\gamma)
+\]</span> <strong>证明</strong>：由于 <span class="math inline">\((q, x,
+\alpha) \vdash_P^* (p, y, \beta)\)</span> 的过程中都没有使用与 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\gamma\)</span> 相关的转移，所以只需要对 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y, \beta)\)</span>
+进行转移步数上的归纳即可得证。</p>
+<p><strong>补充
+1</strong>：定理的逆定理关于栈的简化的那一部分不成立。原因很好理解，因为我们在转移的过程中<del>偷偷地</del>从
+<span class="math inline">\(\gamma\)</span>
+中弹出一些符号，再在之后的过程中压回去，效果仍然是 <span
+class="math inline">\(\gamma\)</span> 不变，但是转移的过程改变了。</p>
+<p><strong>补充
+2</strong>：定理的逆定理关于输入串的简化的那一部分成立。原因是输入串被消耗后没法重新添加回去。</p>
+<p><strong>定理</strong>：如果 <span class="math inline">\(P = (Q,
+\Sigma, \Gamma, \delta, q_0, Z_0, F)\)</span> 是一个 PDA，并且 <span
+class="math inline">\((q, xw, \alpha) \vdash_P^* (p, yw,
+\beta)\)</span>，那么对于所有 <span
+class="math inline">\(\Sigma^*\)</span> 中的串 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(\Gamma^*\)</span> 中的串 <span
+class="math inline">\(\beta\)</span> 都有有 <span
+class="math inline">\((q, x, \alpha) \vdash_P^* (p, y,
+\beta)\)</span>。</p>
+<h2 id="下推自动机的语言">下推自动机的语言</h2>
+<h3 id="以终结状态方式接受">以终结状态方式接受</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，那么 <span class="math inline">\(P\)</span>
+<strong>以终结状态方式接受的语言</strong> <span
+class="math inline">\(L(P)\)</span> 是： <span class="math display">\[
+\{w | (q_0, w, Z_0) \vdash_P^* (q, \varepsilon, \alpha)\}
+\]</span> 其中 <span class="math inline">\(q \in F\)</span>
+为某个接受状态，<span class="math inline">\(\alpha \in \Gamma^*\)</span>
+是任何堆栈符号串。</p>
+<p>也就是说，以 <span class="math inline">\(w\)</span>
+为等待输入的串从初始状态 <span class="math inline">\(q_0\)</span>
+出发，消耗完了 <span class="math inline">\(w\)</span>
+后进入了接受状态，<strong>无论此时堆栈中的状态如何</strong>。</p>
+<h3 id="以空栈方式接受">以空栈方式接受</h3>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0, F)\)</span> 是一个 PDA，我们定义 <span
+class="math inline">\(P\)</span> <strong>以空栈方式接受的语言</strong>
+<span class="math inline">\(N(P)\)</span> 是 <span
+class="math display">\[
+N(P) = \{w | (q_0, w, Z_0) \vdash_P^* (q, \varepsilon, \varepsilon)\}
+\]</span> 其中 <span class="math inline">\(q \in Q\)</span>
+为<strong>任意状态</strong>。</p>
+<p>也就是说，<span class="math inline">\(N(P)\)</span> 中的元素 <span
+class="math inline">\(w\)</span> 能在被 <span
+class="math inline">\(P\)</span>
+消耗完的同时使堆栈为空。事实上，由于我们只关心堆栈是否为空而不关心接受状态，故我们可以去掉
+PDA <span class="math inline">\(P\)</span>
+的描述中的最后一个分量，而写成一个六元组 <span class="math inline">\((Q,
+\Sigma, \Gamma, \delta, q_0, Z_0)\)</span>。</p>
+<h3 id="两种接受方式的等价性">两种接受方式的等价性</h3>
+<h4 id="从空栈方式到终结状态方式">从空栈方式到终结状态方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\varepsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_N$
+B -.- C((&quot; &quot;))
+B -.- D((&quot; &quot;))
+B -.- E((&quot; &quot;))
+end
+B --&gt; | $\varepsilon, X_0/\varepsilon$ | F((($p$)))
+C --&gt; | $\varepsilon, X_0/\varepsilon$ | F((($p$)))
+D --&gt; | $\varepsilon, X_0/\varepsilon$ | F
+E --&gt; | $\varepsilon, X_0/\varepsilon$ | F</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。这样，在 <span
+class="math inline">\(P_F\)</span> 中不会弹出 <span
+class="math inline">\(X_0\)</span>；且如果栈顶为 <span
+class="math inline">\(X_0\)</span>，则说明此时 <span
+class="math inline">\(P_F\)</span> 的栈为空，因此 <span
+class="math inline">\(P_F\)</span> 接受该状态。在 <span
+class="math inline">\(P_N\)</span> 中，不仅包含所有 <span
+class="math inline">\(P_F\)</span> 中的转移，还要加上 <span
+class="math inline">\(Q\)</span> 中的任意状态 <span
+class="math inline">\(q\)</span>，对 <span
+class="math inline">\(P_F\)</span> 的唯一接受状态 <span
+class="math inline">\(p\)</span> 的 <span
+class="math inline">\(\varepsilon\)</span> 转移：这样当 <span
+class="math inline">\(P_F\)</span> 中堆栈为空时，<span
+class="math inline">\(P_N\)</span> 能经过这条 <span
+class="math inline">\(\varepsilon\)</span> 转移边，弹出栈顶的标记符号
+<span class="math inline">\(X_0\)</span>，使得<span
+class="math inline">\(P_N\)</span> 能接受该状态。</p>
+<p><span class="math inline">\(P_F\)</span> 保证了，在<span
+class="math inline">\(P_N\)</span> 中使栈为空的输入串 <span
+class="math inline">\(w\)</span>，才会使得栈顶为标记符号 <span
+class="math inline">\(X_0\)</span>，然后经过 <span
+class="math inline">\(\varepsilon\)</span> 转移将 <span
+class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
+class="math inline">\(p\)</span> 被 <span
+class="math inline">\(P_F\)</span> 接受；而无法使 <span
+class="math inline">\(P_N\)</span> 中栈为空的串 <span
+class="math inline">\(w\)</span>，一定无法使栈底的 <span
+class="math inline">\(X_0\)</span> 被暴露出来，从而也不会经过 <span
+class="math inline">\(\varepsilon\)</span> 转移将 <span
+class="math inline">\(X_0\)</span> 弹出，转移到接受状态 <span
+class="math inline">\(p\)</span> 被 <span
+class="math inline">\(P_F\)</span> 接受。</p>
+<h4 id="从终结状态方式到空栈方式">从终结状态方式到空栈方式</h4>
+<pre><code class="highlight mermaid">graph LR
+style Start fill:none,stroke:none
+
+Start --&gt; A(($p_0$))
+A --&gt; | $\varepsilon, X_0/Z_0X_0$ | B(($q_0$))
+
+subgraph $P_F$
+B -.- C(((&quot; &quot;)))
+B -.- D(((&quot; &quot;)))
+end
+
+C --&gt; | $\varepsilon, any/\varepsilon$ | E(($p$))
+D --&gt; | $\varepsilon, any/\varepsilon$ | E
+E --&gt; | $\varepsilon, any/\varepsilon$ | E</code></pre>
+<p>构造初始状态 <span
+class="math inline">\(p_0\)</span>，并且在堆栈中初始状态下压入不属于
+<span class="math inline">\(\Gamma\)</span> 的符号 <span
+class="math inline">\(X_0\)</span>。这是为了防止在 <span
+class="math inline">\(P_F\)</span>
+中出现栈被清空但又不是接受状态的情况。在 <span
+class="math inline">\(P_F\)</span> 中，不仅包含所有 <span
+class="math inline">\(P_N\)</span> 中的转移，还要加上 <span
+class="math inline">\(P_F\)</span> 的所有接受状态 <span
+class="math inline">\(q\)</span>，对 <span
+class="math inline">\(p\)</span> 的 <span
+class="math inline">\(\varepsilon\)</span> 转移：这个 <span
+class="math inline">\(\varepsilon\)</span>
+转移清空栈上的所有东西，使得输入串能够以空栈方式被接受。</p>
+<p><span class="math inline">\(P_N\)</span> 保证了，能在 <span
+class="math inline">\(P_F\)</span> 中达到接受状态的串 <span
+class="math inline">\(w\)</span>，在达到接受状态后一定能将栈清空被空栈方式接受；而未达到接受状态的串，在转移过程中栈底一定有标记符号
+<span class="math inline">\(X_0\)</span>
+未被弹出，而不会被空栈方式接受。</p>
+<h2 id="pda-和-cfg-的等价性">PDA 和 CFG 的等价性</h2>
+<h3 id="由-cfg-得-pda">由 CFG 得 PDA</h3>
+<p>考虑这个 CFG 的最左推导。构造一个
+PDA，使得每一次推导的过程都是弹出栈顶上的非终结符（产生式的头），然后以产生式的体代替。此后，如果栈顶为终结符，则不断弹出直至暴露出第一个非终结符。继续上述过程直至栈被清空，以空栈方式接受。</p>
+<p>形式化地，设 <span class="math inline">\(G = (V, T, Q, S)\)</span>
+是一个 CFG，构造以空栈方式接受 <span class="math inline">\(L(G)\)</span>
+的 PDA <span class="math inline">\(P\)</span> 如下： <span
+class="math display">\[
+P = (\{q\}, T, V \cup T, \delta, q, S)
+\]</span> 其中转移函数 <span class="math inline">\(\delta\)</span>
+的定义是：</p>
+<ol type="1">
+<li><p>对于每一个非终结符 <span class="math inline">\(A\)</span>， <span
+class="math display">\[
+\delta(q, \varepsilon, A) = \{(q, \beta) | A \to \beta \text{ 是 } G
+\text{ 的一个产生式}\}
+\]</span>
+这对应着弹出栈顶的产生式的头并以产生式的体代替的过程。</p></li>
+<li><p>对于每一个终结符 <span class="math inline">\(a\)</span>， <span
+class="math display">\[
+\delta(q, a, a) = \{(q, \varepsilon)\}
+\]</span> 这对应着将栈顶的终结符不断弹出的过程。</p></li>
+</ol>
+<h3 id="由-pda-得-cfg">由 PDA 得 CFG</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/10/11/Y-x-graph9050a03d07a8b78a.jpeg"
+alt="Y-x 图" />
+<figcaption aria-hidden="true">Y-x 图</figcaption>
+</figure>
+<p>如图所示，从堆栈中弹出一系列的符号 <span class="math inline">\(Y_1,
+Y_2, \cdots, Y_k\)</span>。当弹出 <span
+class="math inline">\(Y_1\)</span> 时读入了某个输入 <span
+class="math inline">\(x_1\)</span>。应该注意的是这里的“弹出”实际上是许多移动的
+<strong>净效应</strong>。例如，第一步移动也许会把 <span
+class="math inline">\(Y\)</span> 变为其他的符号 <span
+class="math inline">\(Z\)</span>，接下来的移动也许会用 <span
+class="math inline">\(UV\)</span> 来替换 <span
+class="math inline">\(Z\)</span>，后面的一些移动的效应是弹出了 <span
+class="math inline">\(U\)</span>，再后面的一些动作的效应是弹出了 <span
+class="math inline">\(V\)</span>。所有这些移动的净效应是把 <span
+class="math inline">\(Y\)</span>
+用空来替换，即把它弹出，而在这个过程中所消耗的输入就是 <span
+class="math inline">\(x_1\)</span>。这样的计算会不断继续下去，直到堆栈中的每一个符号都被去掉为止。</p>
+<p>设 <span class="math inline">\(P = (Q, \Sigma, \Gamma, \delta, q_0,
+Z_0)\)</span> 是一个 PDA，构造 CFG <span class="math inline">\(G = (V,
+\Sigma, R, S)\)</span> 满足 <span class="math inline">\(L(G) =
+N(P)\)</span>。其中非终结符的集合 <span class="math inline">\(V\)</span>
+包含：</p>
+<ol type="1">
+<li><p>特殊的符号 <span class="math inline">\(S\)</span>
+表示初始符号。</p></li>
+<li><p>所有 <span class="math inline">\([pXq]\)</span> 形式的符号，其中
+<span class="math inline">\(p\)</span> 和 <span
+class="math inline">\(q\)</span> 是 <span
+class="math inline">\(Q\)</span> 中的状态，<span
+class="math inline">\(X\)</span> 是 <span
+class="math inline">\(\Gamma\)</span> 中的堆栈符号。</p></li>
+</ol>
+<p><span class="math inline">\(G\)</span> 的产生式的集合 <span
+class="math inline">\(R\)</span> 如下：</p>
+<ul>
+<li><p>对于每个状态 <span class="math inline">\(p\)</span>，<span
+class="math inline">\(G\)</span> 都有产生式 <span
+class="math inline">\(S \to [q_0Z_0p]\)</span>。</p>
+<p>考虑 <span class="math inline">\(w = [q_0Z_0p]\)</span>
+的作用，它将栈底 <span class="math inline">\(Z_0\)</span>
+弹出，说明此时栈被清空，并且从状态 <span
+class="math inline">\(q_0\)</span> 转到状态 <span
+class="math inline">\(p\)</span>。因此，初始符号 <span
+class="math inline">\(S\)</span> 生成所有导致 <span
+class="math inline">\(P\)</span>
+在初始瞬时状态出发之后能进入空栈状态的串 <span
+class="math inline">\(w\)</span>。</p>
+<p>为什么对于 <span class="math inline">\(S\)</span> 来说，要考虑所有的
+<span class="math inline">\(p\)</span>？这是因为 PDA
+以空栈方式接受，可能到达任意状态，必须列举所有状态。</p></li>
+<li><p>令 <span class="math inline">\(\delta(q, a, X)\)</span>
+包含有序对 <span class="math inline">\((r_0, Y_1Y_2\cdots
+Y_k)\)</span>，其中：</p>
+<ol type="1">
+<li><p><span class="math inline">\(a\)</span> 是 <span
+class="math inline">\(\Sigma\)</span> 中的一个符号，或者 <span
+class="math inline">\(a = \varepsilon\)</span>。</p></li>
+<li><p><span class="math inline">\(k\)</span> 可以是任何数。包括 <span
+class="math inline">\(0\)</span>，此时 <span class="math inline">\((r_0,
+Y_1Y_2\cdots Y_k) = (r_0, \varepsilon)\)</span>。</p></li>
+</ol>
+<p>那么对 <strong>所有的</strong> 序列 <span class="math inline">\(r_1,
+r_2, \cdots, r_k\)</span>，<span class="math inline">\(G\)</span>
+都有产生式 <span class="math display">\[
+[q X r_k] \to a[r_0 Y_1 r_1][r_1Y_2r_3]\cdots[r_{k-1}Y_kr_k]
+\]</span> 这样的产生式有 <span class="math inline">\(n^k\)</span>
+个。它的意思是，在栈顶弹出 <span class="math inline">\(X\)</span> 并且从
+<span class="math inline">\(q\)</span> 转移到 <span
+class="math inline">\(r_k\)</span> 的一种方法是：读入 <span
+class="math inline">\(a\)</span> 并把状态转移到 <span
+class="math inline">\(r\)</span>；接着通过消耗某个输入从堆栈中弹出 <span
+class="math inline">\(Y_1\)</span>，同时从状态 <span
+class="math inline">\(r\)</span> 转移到状态 <span
+class="math inline">\(r_1\)</span>；然后读入另一个输入来从堆栈中弹出
+<span class="math inline">\(Y_2\)</span>，同时从状态 <span
+class="math inline">\(r_1\)</span> 转到状态 <span
+class="math inline">\(r_2\)</span>；依此类推。</p></li>
+</ul>
+<h2 id="确定性下推自动机dpda">确定性下推自动机（DPDA）</h2>
+<figure>
+<img src="https://img.picgo.net/2023/10/11/models73ebb5a7a410ebe8.jpeg"
+alt="几类语言模型的计算能力对比" />
+<figcaption aria-hidden="true">几类语言模型的计算能力对比</figcaption>
+</figure>
+<h3 id="正则语言与-dpda">正则语言与 DPDA</h3>
+<p><strong>定理</strong>：如果 <span class="math inline">\(L\)</span>
+是正则语言，则对于某个 DPDA <span class="math inline">\(P\)</span> 有
+<span class="math inline">\(L = L(P)\)</span>。</p>
+<p>这就是显然的，因为 DFA 是一个没有使用堆栈的
+DPDA。我们只需要额外设计一个初始状态来压入标记符号 <span
+class="math inline">\(X_0\)</span>，一个 <span
+class="math inline">\(\varepsilon\)</span> 转移来弹出 <span
+class="math inline">\(X_0\)</span> 并连接 DFA 的接受状态和 DPDA
+的接受状态即可。</p>
+<p>另外，语言 <span class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P\)</span> 的 <span
+class="math inline">\(N(P)\)</span> 当且仅当 <span
+class="math inline">\(L\)</span> 有 <strong>前缀性质</strong> 且 <span
+class="math inline">\(L\)</span> 是某个 DPDA <span
+class="math inline">\(P&#39;\)</span> 的 <span
+class="math inline">\(L(P&#39;)\)</span>。前缀性质是指 <span
+class="math inline">\(L\)</span> 中不存在不相等的两个串 <span
+class="math inline">\(w_1, w_2\)</span> 使得 <span
+class="math inline">\(w_1\)</span> 是 <span
+class="math inline">\(w_2\)</span> 的前缀。</p>
+<h3 id="上下文无关语言与-dpda">上下文无关语言与 DPDA</h3>
+<p><strong>定理</strong>：DPDA 以终结状态方式接受的语言
+<strong>真包含于</strong> CFL。</p>
+<p>例如 <span class="math inline">\(L_{wwr}\)</span>，DPDA
+为了判断是否回文，需要将串的对称部分的前半部分存放在栈里，然后对后半部分进行比较。<strong>比较完一个回文串后一定会使栈清空。</strong>
+所以，类似于 <span class="math inline">\(\{0^n10^n0^m10^m | n, m \in
+\mathbb{N}\}\)</span> 的串，读完第一个回文串 <span
+class="math inline">\(0^n10^n\)</span>
+后栈为空，接着读第二个回文串，读完第二个回文串后 DPDA 并不能确定 <span
+class="math inline">\(m\)</span> 是否等于 <span
+class="math inline">\(n\)</span>，因为关于第一个回文串的信息都已经被弹出了。</p>
+<h3 id="dpda-与歧义文法">DPDA 与歧义文法</h3>
+<p><strong>定理 1</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+N(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>已经知道 PDA 可以生成一个
+CFG，接下来只需要证明该文法的最左推导是唯一的即可。这几乎是显然的，因为
+<span class="math inline">\(P\)</span> 是一个 <strong>确定型</strong>
+下推自动机，对某个可被接受的串 <span
+class="math inline">\(w\)</span>，<span class="math inline">\(w\)</span>
+在上面进行的移动序列是唯一的，所以对应的最左推导也都是唯一的。因此该 CFG
+是无歧义的。</p>
+<p><strong>定理 2</strong>：如果对于某个 DPDA <span
+class="math inline">\(P\)</span> 有 <span class="math inline">\(L =
+L(P)\)</span>，则 <span class="math inline">\(L\)</span> 有无歧义的
+CFG。</p>
+<p>在 <span class="math inline">\(L\)</span>
+的串的末尾全部加上不在字母表中出现的符号（例如 <span
+class="math inline">\(\$\)</span>）作为终止符。令 <span
+class="math inline">\(L&#39; = L\$\)</span>，显然 <span
+class="math inline">\(L&#39;\)</span> 具有前缀性质，则存在一个 DPDA
+<span class="math inline">\(P&#39;\)</span>，使得 <span
+class="math inline">\(L&#39; = N(P&#39;)\)</span>。由定理 1 知存在一个
+CFG <span class="math inline">\(G\)</span>，使得 <span
+class="math inline">\(G\)</span> 能产生 <span
+class="math inline">\(N(P&#39;) = L&#39;\)</span>。</p>
+<p>接下来构造 CFG <span class="math inline">\(G\)</span> 使得 <span
+class="math inline">\(L(G) = L\)</span>。在 <span
+class="math inline">\(G&#39;\)</span> 中引入产生式 <span
+class="math inline">\(\$ \to \varepsilon\)</span> 成为 <span
+class="math inline">\(G\)</span>，则 <span
+class="math inline">\(L(G&#39;) = L&#39; \implies L(G) =
+L\)</span>。而且 <span class="math inline">\(G\)</span>
+中的最左推导恰好也是 <span class="math inline">\(G&#39;\)</span>
+中的最左推导，因为 <span class="math inline">\(\$\)</span>
+在串的最右侧，一定是最后一个被替换的变元。</p>
+<h2 id="练习题">练习题</h2>
+<p><strong>习题 1</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中任何前缀中 } a
+\text{ 的数量至少 } 2 \text{ 倍于 } b \text{ 的数量}\}\)</span>。</p>
+<p>在设计这道题的 PDA 的时候，一个重要的事情是，如果处理一个 <span
+class="math inline">\(b\)</span>，需要连续弹出两个 <span
+class="math inline">\(a\)</span>。我们可以引入辅助状态，加入 <span
+class="math inline">\(\varepsilon\)</span> 的转移边来连续弹出两次。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/22/exercise14611df897a671162.jpeg"
+alt="习题 1" />
+<figcaption aria-hidden="true">习题 1</figcaption>
+</figure>
+<p><strong>习题 2</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
+的数量不等于 } b \text{ 的数量}\}\)</span>。</p>
+<p>有的时候并不一定需要空栈接受，虽然空栈接受可能是更直观的“停止”的状态。因此，最后只要有剩余的
+<span class="math inline">\(X\)</span> 或 <span
+class="math inline">\(Y\)</span>
+作为栈顶符号，只需要弹出一个，即可转入终结状态（而非继续把栈中所有符号全部弹出，然后空栈接受）。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/22/exercise284b4b6bc4b733428.jpeg"
+alt="习题 2" />
+<figcaption aria-hidden="true">习题 2</figcaption>
+</figure>
+<p><strong>习题 3</strong> 构造接受下列语言的一个 PDA：<span
+class="math inline">\(L = \{w \in \{a, b\}^*| w \text{ 中 } a \text{
+的数量是 } b \text{ 的 } 2 \text{ 倍}\}\)</span>。</p>
+<p>要么可以类似于习题 1 中的策略，引入一些辅助状态；而我选择添加栈中符号
+<span class="math inline">\(C\)</span> 表示“半个 <span
+class="math inline">\(B\)</span>”。转移表如下： <span
+class="math display">\[
+\begin{aligned}
+a,&amp; Z_0/AZ_0 &amp; b,&amp; Z_0/BZ_0 \\
+a,&amp; A/AA &amp; b,&amp; A/C \\
+a,&amp; B/C &amp; b,&amp; B/BB \\
+a,&amp; C/\varepsilon &amp; b,&amp; C/CB\\
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(b,C/CB\)</span> 是为了让“半个
+<span
+class="math inline">\(B\)</span>”一直处于栈顶，这样就避免了栈中同时出现两个“半个
+<span class="math inline">\(B\)</span>”的情况。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>自动机理论、语言和计算导论</tag>
+        <tag>上下文无关文法</tag>
+        <tag>上下文无关语言</tag>
+        <tag>下推自动机</tag>
       </tags>
   </entry>
   <entry>
@@ -5772,6 +5772,297 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
+    <title>【游记】2023 年回眸</title>
+    <url>/2023/12/28/2023Lookback/</url>
+    <content><![CDATA[<p>2023
+年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
+<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
+<hr />
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<span id="more"></span>
+<h2 id="一月">一月</h2>
+<p>在家里卷。学了学 OOP。</p>
+<h2 id="二月">二月</h2>
+<p><strong>2023-02-08 和前女友分手了</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/emoji92225b84dc9dfde7.jpeg"
+alt="emoji" />
+<figcaption aria-hidden="true">emoji</figcaption>
+</figure>
+<p><strong>2023-02-23
+第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
+<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/class-yylc2bc29e816fe7cda.jpeg"
+alt="class-yyl" />
+<figcaption aria-hidden="true">class-yyl</figcaption>
+</figure>
+<p>可惜的是……他不再在清华教书了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/farewell-yyldde4cfaf75275a85.jpeg"
+alt="farewell-yyl" />
+<figcaption aria-hidden="true">farewell-yyl</figcaption>
+</figure>
+<h2 id="三月">三月</h2>
+<p><strong>2023-03-05 人生中第一次献血</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation11d04ab5827807448.jpeg"
+alt="blood-donation1" />
+<figcaption aria-hidden="true">blood-donation1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation23e966e8fce9f5e8b.jpeg"
+alt="blood-donation2" />
+<figcaption aria-hidden="true">blood-donation2</figcaption>
+</figure>
+<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
+<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/speech83f566ccbe99bdc7.png"
+alt="speech" />
+<figcaption aria-hidden="true">speech</figcaption>
+</figure>
+<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
+<p><strong>2023-03-26
+代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/pingpong247b3198d020b0cc.jpeg"
+alt="pingpong" />
+<figcaption aria-hidden="true">pingpong</figcaption>
+</figure>
+<h2 id="四月">四月</h2>
+<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/fool5e54ad495e3db30a.jpeg"
+alt="fool" />
+<figcaption aria-hidden="true">fool</figcaption>
+</figure>
+<p>我倒也想选这门课啊，甚至是 5 学分的课呢。</p>
+<p><strong>2023-04-13
+代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/shuttlecock87edf70961021e2a.jpeg"
+alt="shuttlecock" />
+<figcaption aria-hidden="true">shuttlecock</figcaption>
+</figure>
+<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/mahjongf0094aff62857af2.jpeg"
+alt="mahjong" />
+<figcaption aria-hidden="true">mahjong</figcaption>
+</figure>
+<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
+<p>这哪是</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-449ecac9a9eabce93.jpeg"
+alt="cet-4" />
+<figcaption aria-hidden="true">cet-4</figcaption>
+</figure>
+<p><strong>2023-04-25 写沟突然换老师？</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-1bea8b56a3faa5f5c.jpeg"
+alt="change-1" />
+<figcaption aria-hidden="true">change-1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-2d3df805277f2268e.jpeg"
+alt="change-2" />
+<figcaption aria-hidden="true">change-2</figcaption>
+</figure>
+<p><strong>2023-04-25 第一次参加的小清心的心理团体辅导结束</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/group77faffd6ec3524b5.png"
+alt="group" />
+<figcaption aria-hidden="true">group</figcaption>
+</figure>
+<h2 id="五月">五月</h2>
+<p><strong>2023-05-01 清华开放校园</strong></p>
+<p>各种游客络绎不绝。</p>
+<p><strong>2023-05-20 转专业成功</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/transfer2c7ea716cc14bc8c.jpeg"
+alt="transfer" />
+<figcaption aria-hidden="true">transfer</figcaption>
+</figure>
+<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
+<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
+嘛。</del></p>
+<h2 id="六月">六月</h2>
+<p><strong>2023-06-02 第一次参加学生节</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/festivalfdd3e155268193fb.jpeg"
+alt="festival" />
+<figcaption aria-hidden="true">festival</figcaption>
+</figure>
+<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-1648f5e9e37a167c6.jpeg"
+alt="cubal-1" />
+<figcaption aria-hidden="true">cubal-1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-2e813a96c67ff383b.jpeg"
+alt="cubal-2" />
+<figcaption aria-hidden="true">cubal-2</figcaption>
+</figure>
+<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
+<p><strong>2023-06-17 第一次考英语六级</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-63b293b930c8b51d1.jpeg"
+alt="cet-6" />
+<figcaption aria-hidden="true">cet-6</figcaption>
+</figure>
+<p><strong>2023-06-25 做招生志愿者</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/entrance-19d0105a6fe8abb63.jpeg"
+alt="entrance-1" />
+<figcaption aria-hidden="true">entrance-1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/entrance-2864a9a253599d01d.jpeg"
+alt="entrance-2" />
+<figcaption aria-hidden="true">entrance-2</figcaption>
+</figure>
+<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
+<p>这不傻逼吗。</p>
+<h2 id="七月">七月</h2>
+<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
+<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
+<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
+alt="Sedecordle" />
+<figcaption aria-hidden="true">Sedecordle</figcaption>
+</figure>
+<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
+<h2 id="八月">八月</h2>
+<p><strong>2023-08-17 收到了朋友送我的小礼物</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/presentbe279d91ecbb3b54.jpeg"
+alt="present" />
+<figcaption aria-hidden="true">present</figcaption>
+</figure>
+<h2 id="九月">九月</h2>
+<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
+<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/schoolmate7a11be6910be71b5.jpeg"
+alt="schoolmate" />
+<figcaption aria-hidden="true">schoolmate</figcaption>
+</figure>
+<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/english-corner0ee5f0d5d2b3741c.jpeg"
+alt="english-corner" />
+<figcaption aria-hidden="true">english-corner</figcaption>
+</figure>
+<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
+<blockquote>
+<p>既然今天准备 GAP 一天，那就得好好利用起来。 早上睡到了 10:30
+才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
+6 小时了。今天可算是让我好好补了回来。
+下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
+8 号，因为“那天上周五的课”。
+一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。
+晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。
+最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。
+我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？
+“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
+</blockquote>
+<h2 id="十月">十月</h2>
+<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
+<p><strong>2023-10-13 学会了手巾花</strong></p>
+<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/volunteerb51844dd76d97200.png"
+alt="volunteer" />
+<figcaption aria-hidden="true">volunteer</figcaption>
+</figure>
+<p><strong>2023-10-22
+参加了第十五届北京市体育大会毽球选拔赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/bj-shuttlecockdcd89b43708b474f.jpeg"
+alt="bj-shuttlecock" />
+<figcaption aria-hidden="true">bj-shuttlecock</figcaption>
+</figure>
+<p><strong>2023-10-27 李克强总理逝世</strong></p>
+<h2 id="十一月">十一月</h2>
+<p><strong>2023-11-23
+代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/shuttlecock-loop9d88c5efd679ddc4.jpeg"
+alt="shuttlecock-loop" />
+<figcaption aria-hidden="true">shuttlecock-loop</figcaption>
+</figure>
+<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
+<h2 id="十二月">十二月</h2>
+<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/snowman46eba5251875095b.jpeg"
+alt="snowman" />
+<figcaption aria-hidden="true">snowman</figcaption>
+</figure>
+<p>自己搞了个雪人。</p>
+<p><strong>2023-12-16
+参加第二次英语六级考试并被人挂在小红书上了</strong></p>
+<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
+<p>最好梗图：</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/emoji-19d945499c88aa2c1.jpeg"
+alt="emoji-1" />
+<figcaption aria-hidden="true">emoji-1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/emoji-2a046537180cf0dec.jpeg"
+alt="emoji-2" />
+<figcaption aria-hidden="true">emoji-2</figcaption>
+</figure>
+<h2 id="总结">总结</h2>
+<p>和前女友分手了。</p>
+<p>转专业成功了。</p>
+<p>开始融入新的集体。</p>
+<p>学一些自己喜欢的东西。</p>
+<p>和我喜欢的兄弟朋友们相处。</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
     <url>/2022/07/25/2022WFLS-Invigilate/</url>
     <content><![CDATA[<p>为什么叫划水记呢？</p>
@@ -6015,230 +6306,6 @@ alt="监考老师们的合照" />
         <tag>数学</tag>
         <tag>物理</tag>
         <tag>化学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2023 年回眸</title>
-    <url>/2023/12/28/2023Lookback/</url>
-    <content><![CDATA[<p>2023
-年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
-<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
-<hr />
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<span id="more"></span>
-<h2 id="一月">一月</h2>
-<p>在家里卷。学了学 OOP。</p>
-<h2 id="二月">二月</h2>
-<p><strong>2023-02-08 和前女友分手了</strong></p>
-<figure>
-<img src="" alt="emoji" />
-<figcaption aria-hidden="true">emoji</figcaption>
-</figure>
-<p><strong>2023-02-23
-第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
-<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉</p>
-<figure>
-<img src="" alt="class-yyl" />
-<figcaption aria-hidden="true">class-yyl</figcaption>
-</figure>
-<p>可惜的是……他不再在清华教书了。</p>
-<figure>
-<img src="" alt="farewell-yyl" />
-<figcaption aria-hidden="true">farewell-yyl</figcaption>
-</figure>
-<h2 id="三月">三月</h2>
-<p><strong>2023-03-05 人生中第一次献血</strong></p>
-<figure>
-<img src="" alt="blood-donation1" />
-<figcaption aria-hidden="true">blood-donation1</figcaption>
-</figure>
-<figure>
-<img src="" alt="blood-donation2" />
-<figcaption aria-hidden="true">blood-donation2</figcaption>
-</figure>
-<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
-<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
-<figure>
-<img src="" alt="speech" />
-<figcaption aria-hidden="true">speech</figcaption>
-</figure>
-<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
-<p><strong>2023-03-26
-代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
-<figure>
-<img src="" alt="pingpong" />
-<figcaption aria-hidden="true">pingpong</figcaption>
-</figure>
-<h2 id="四月">四月</h2>
-<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
-<figure>
-<img src="" alt="fool" />
-<figcaption aria-hidden="true">fool</figcaption>
-</figure>
-<p>我倒也想选这门课啊，甚至是 5 学分的课呢。</p>
-<p><strong>2023-04-13
-代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
-<figure>
-<img src="" alt="shuttlecock" />
-<figcaption aria-hidden="true">shuttlecock</figcaption>
-</figure>
-<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
-<figure>
-<img src="" alt="mahjong" />
-<figcaption aria-hidden="true">mahjong</figcaption>
-</figure>
-<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
-<p>这哪是</p>
-<figure>
-<img src="" alt="cet-4" />
-<figcaption aria-hidden="true">cet-4</figcaption>
-</figure>
-<p><strong>2023-04-25 写沟突然换老师？</strong></p>
-<figure>
-<img src="" alt="change-1" />
-<figcaption aria-hidden="true">change-1</figcaption>
-</figure>
-<figure>
-<img src="" alt="change-2" />
-<figcaption aria-hidden="true">change-2</figcaption>
-</figure>
-<h2 id="五月">五月</h2>
-<p><strong>2023-05-01 清华开放校园</strong></p>
-<p>各种游客络绎不绝。</p>
-<p><strong>2023-05-20 转专业成功</strong></p>
-<figure>
-<img src="" alt="transfer" />
-<figcaption aria-hidden="true">transfer</figcaption>
-</figure>
-<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
-<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
-嘛。</del></p>
-<h2 id="六月">六月</h2>
-<p><strong>2023-06-02 第一次参加学生节</strong></p>
-<figure>
-<img src="" alt="festival" />
-<figcaption aria-hidden="true">festival</figcaption>
-</figure>
-<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
-<figure>
-<img src="" alt="cubal-1" />
-<figcaption aria-hidden="true">cubal-1</figcaption>
-</figure>
-<figure>
-<img src="" alt="cubal-2" />
-<figcaption aria-hidden="true">cubal-2</figcaption>
-</figure>
-<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
-<p><strong>2023-06-17 第一次考英语六级</strong></p>
-<figure>
-<img src="" alt="cet-6" />
-<figcaption aria-hidden="true">cet-6</figcaption>
-</figure>
-<p><strong>2023-06-25 做招生志愿者</strong></p>
-<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
-<h2 id="七月">七月</h2>
-<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
-<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
-<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
-alt="Sedecordle" />
-<figcaption aria-hidden="true">Sedecordle</figcaption>
-</figure>
-<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
-<h2 id="八月">八月</h2>
-<p><strong>2023-08-17 收到了朋友送我的小礼物</strong></p>
-<figure>
-<img src="" alt="present" />
-<figcaption aria-hidden="true">present</figcaption>
-</figure>
-<h2 id="九月">九月</h2>
-<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
-<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
-<figure>
-<img src="" alt="schoolmate" />
-<figcaption aria-hidden="true">schoolmate</figcaption>
-</figure>
-<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
-<figure>
-<img src="" alt="english-corner" />
-<figcaption aria-hidden="true">english-corner</figcaption>
-</figure>
-<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
-<blockquote>
-<p>既然今天准备 GAP 一天，那就得好好利用起来。 早上睡到了 10:30
-才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
-6 小时了。今天可算是让我好好补了回来。
-下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
-8 号，因为“那天上周五的课”。
-一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。
-晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。
-最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。
-我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？
-“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
-</blockquote>
-<h2 id="十月">十月</h2>
-<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
-<p><strong>2023-10-13 学会了手巾花</strong></p>
-<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
-<figure>
-<img src="" alt="volunteer" />
-<figcaption aria-hidden="true">volunteer</figcaption>
-</figure>
-<p><strong>2023-10-22
-参加了第十五届北京市体育大会毽球选拔赛</strong></p>
-<figure>
-<img src="" alt="bj-shuttlecock" />
-<figcaption aria-hidden="true">bj-shuttlecock</figcaption>
-</figure>
-<p><strong>2023-10-27 李克强总理逝世</strong></p>
-<h2 id="十一月">十一月</h2>
-<p><strong>2023-11-23
-代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
-<figure>
-<img src="" alt="shuttlecock-loop" />
-<figcaption aria-hidden="true">shuttlecock-loop</figcaption>
-</figure>
-<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
-<h2 id="十二月">十二月</h2>
-<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
-<figure>
-<img src="" alt="snowman" />
-<figcaption aria-hidden="true">snowman</figcaption>
-</figure>
-<p>自己搞了个雪人。</p>
-<p><strong>2023-12-16
-参加第二次英语六级考试并被人挂在小红书上了</strong></p>
-<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
-<p>最好梗图：</p>
-<p><img src="" /></p>
-<p><img src="" /></p>
-<h2 id="总结">总结</h2>
-<p>和前女友分手了。</p>
-<p>转专业成功了。</p>
-<p>开始融入新的集体。</p>
-<p>学一些自己喜欢的东西。</p>
-<p>和我喜欢的兄弟朋友们相处。</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
       </tags>
   </entry>
   <entry>
