@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】深入理解计算机系统">
+<meta property="og:url" content="https://leverimmy.top/2024/01/05/CSAPP/index.html">
+<meta property="og:site_name" content="Clever_Jimmy 的博客">
+<meta property="og:description" content="清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-05T12:40:01.000Z">
+<meta property="article:modified_time" content="2024-01-05T14:57:38.313Z">
+<meta property="article:author" content="Clever_Jimmy">
+<meta property="article:tag" content="计算机系统">
+<meta property="article:tag" content="整数">
+<meta property="article:tag" content="浮点数">
+<meta property="article:tag" content="汇编语言">
+<meta property="article:tag" content="链接">
+<meta property="article:tag" content="虚拟内存">
+<meta property="article:tag" content="进程">
+<meta property="article:tag" content="异常控制流">
+<meta property="article:tag" content="线程">
+<meta property="article:tag" content="死锁">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leverimmy.top/2024/01/05/CSAPP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2024/01/05/CSAPP/","path":"2024/01/05/CSAPP/","title":"【学习笔记】深入理解计算机系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【学习笔记】深入理解计算机系统 | Clever_Jimmy 的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Clever_Jimmy 的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Clever_Jimmy 的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%87%E7%BC%96"><span class="nav-number">3.</span> <span class="nav-text">汇编</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">4.1.</span> <span class="nav-text">重定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D%E8%8A%82%E5%92%8C%E7%AC%A6%E5%8F%B7%E5%AE%9A%E4%B9%89"><span class="nav-number">4.1.1.</span> <span class="nav-text">重定位：节和符号定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D%E8%8A%82%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8"><span class="nav-number">4.1.2.</span> <span class="nav-text">重定位：节中的符号引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%BA%93%E4%B8%AD%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%AF%BB%E5%9D%80"><span class="nav-number">4.1.3.</span> <span class="nav-text">共享库中的全局变量寻址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E5%AD%98"><span class="nav-number">5.</span> <span class="nav-text">虚存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="nav-number">5.1.</span> <span class="nav-text">地址空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E6%98%AF%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E7%BC%93%E5%AD%98"><span class="nav-number">5.2.</span> <span class="nav-text">物理内存是虚拟内存的缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8"><span class="nav-number">5.3.</span> <span class="nav-text">页表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E5%91%BD%E4%B8%AD"><span class="nav-number">5.3.1.</span> <span class="nav-text">页命中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E7%BC%BA%E5%A4%B1"><span class="nav-number">5.3.2.</span> <span class="nav-text">页缺失</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7"><span class="nav-number">5.4.</span> <span class="nav-text">局部性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">5.5.</span> <span class="nav-text">虚拟内存：内存管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4"><span class="nav-number">5.6.</span> <span class="nav-text">虚拟内存：内存保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91"><span class="nav-number">5.7.</span> <span class="nav-text">地址翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0"><span class="nav-number">5.7.1.</span> <span class="nav-text">基本参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80va%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">5.7.2.</span> <span class="nav-text">虚拟地址（VA）的组成部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80pa%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">5.7.3.</span> <span class="nav-text">物理地址（PA）的组成部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B"><span class="nav-number">5.7.4.</span> <span class="nav-text">具体过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E8%A1%A8tlb"><span class="nav-number">5.7.5.</span> <span class="nav-text">快表（TLB）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.8.</span> <span class="nav-text">Linux 虚拟内存系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="nav-number">5.8.1.</span> <span class="nav-text">Linux 虚拟内存区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linux-%E7%BC%BA%E9%A1%B5%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">5.8.2.</span> <span class="nav-text">Linux 缺页异常处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84"><span class="nav-number">5.9.</span> <span class="nav-text">内存映射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%81%E6%9C%89%E5%86%99%E6%97%B6%E5%A4%8D%E5%88%B6"><span class="nav-number">5.9.1.</span> <span class="nav-text">私有写时复制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%9F%BA%E7%A1%80"><span class="nav-number">6.</span> <span class="nav-text">内存分配基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="nav-number">7.</span> <span class="nav-text">异常控制流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86"><span class="nav-number">8.</span> <span class="nav-text">信号处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E4%BF%A1%E5%8F%B7"><span class="nav-number">8.1.</span> <span class="nav-text">发送信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E6%94%B6%E4%BF%A1%E5%8F%B7"><span class="nav-number">8.2.</span> <span class="nav-text">接收信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E6%9C%AC%E5%9C%B0%E8%B7%B3%E8%BD%AC"><span class="nav-number">8.3.</span> <span class="nav-text">非本地跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io-%E5%A4%84%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">IO 处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%92%8C%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="nav-number">9.1.</span> <span class="nav-text">打开和关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%92%8C%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-number">9.2.</span> <span class="nav-text">读和写文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6"><span class="nav-number">9.3.</span> <span class="nav-text">共享文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#io-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">9.4.</span> <span class="nav-text">IO 重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86-io"><span class="nav-number">9.5.</span> <span class="nav-text">标准 I&#x2F;O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9-io-%E5%87%BD%E6%95%B0"><span class="nav-number">9.6.</span> <span class="nav-text">选择 I&#x2F;O 函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E5%9F%BA%E7%A1%80"><span class="nav-number">10.</span> <span class="nav-text">线程与线程同步基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B"><span class="nav-number">10.1.</span> <span class="nav-text">线程执行模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">10.2.</span> <span class="nav-text">相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="nav-number">10.2.1.</span> <span class="nav-text">创建线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B"><span class="nav-number">10.2.2.</span> <span class="nav-text">终止线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E5%B7%B2%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%B5%84%E6%BA%90"><span class="nav-number">10.2.3.</span> <span class="nav-text">回收已终止线程的资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F"><span class="nav-number">10.3.</span> <span class="nav-text">共享变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">10.3.1.</span> <span class="nav-text">线程内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86%E5%8F%98%E9%87%8F%E5%AE%9E%E4%BE%8B%E6%98%A0%E5%B0%84%E5%88%B0%E5%86%85%E5%AD%98"><span class="nav-number">10.3.2.</span> <span class="nav-text">将变量实例映射到内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5"><span class="nav-number">10.4.</span> <span class="nav-text">互斥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%B8%8E%E4%B8%8D%E5%AE%89%E5%85%A8%E5%8C%BA"><span class="nav-number">10.5.</span> <span class="nav-text">临界区与不安全区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E8%BD%A8%E8%BF%B9%E7%BA%BF%E4%B8%8E%E4%B8%8D%E5%AE%89%E5%85%A8%E8%BD%A8%E8%BF%B9%E7%BA%BF"><span class="nav-number">10.5.1.</span> <span class="nav-text">安全轨迹线与不安全轨迹线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">10.6.</span> <span class="nav-text">信号量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E6%9D%A5%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5"><span class="nav-number">10.6.1.</span> <span class="nav-text">使用信号量来实现互斥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">10.6.2.</span> <span class="nav-text">生产者-消费者问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%9E%E4%BA%89"><span class="nav-number">10.7.</span> <span class="nav-text">竞争</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">10.8.</span> <span class="nav-text">死锁</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Clever_Jimmy"
+      src="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+  <p class="site-author-name" itemprop="name">Clever_Jimmy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeverImmy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeverImmy" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xze22@mails.tsinghua.edu.cn" title="E-Mail → mailto:xze22@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2024/01/05/CSAPP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+      <meta itemprop="name" content="Clever_Jimmy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clever_Jimmy 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【学习笔记】深入理解计算机系统 | Clever_Jimmy 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【学习笔记】深入理解计算机系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-05 20:40:01 / 修改时间：22:57:38" itemprop="dateCreated datePublished" datetime="2024-01-05T20:40:01+08:00">2024-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。</p>
+<span id="more"></span>
+<h2 id="整数">整数</h2>
+<p>1 byte = 8 bits 字节是最小的可寻址的内存单位</p>
+<p>字长为 <span class="math inline">\(w\)</span>
+的机器，虚拟地址的范围为 <span class="math inline">\([0, 2^{w} -
+1]\)</span>。</p>
+<p>大多数 <span class="math inline">\(64\)</span> 位机器也可以运行 <span
+class="math inline">\(32\)</span> 位机器编译的程序，向后兼容。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240102203926850.png"
+alt="image-20240102203926850" />
+<figcaption aria-hidden="true">image-20240102203926850</figcaption>
+</figure>
+<p><span class="math inline">\(32\)</span> 位程序和 <span
+class="math inline">\(64\)</span>
+位程序的区别是该程序是如何编译的，而不是如何运行的。</p>
+<p><code>char</code> 并没有规定是有符号还是无符号。<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2054939/is-char-signed-or-unsigned-by-default">1</a>，<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15533115/why-dont-the-c-or-c-standards-explicitly-define-char-as-signed-or-unsigned">2</a></p>
+<p>小端法还是大端法。地址从低到高，是权重小的数在前（小端）还是权重大的在前</p>
+<p><code>sizeof(T)</code>
+返回字节数。如果是数组呢？在定义域内，返回数组的大小。否则，按照指针处理。</p>
+<p>逻辑右移与算术右移。</p>
+<p>Two's Complement 和 Ones' Complement 的来源。</p>
+<p>强制转换为无符号数，然后运算，再强制转化回去。比如
+<code>(-1 &lt; 0u) == false</code>，<code>int x = -1 + 1u;</code> 则
+<code>(x == 0) == true</code></p>
+<p>为什么 <code>INT_MIN</code> 被定义为 <code>(-INT_MAX - 1)</code>？<a
+target="_blank" rel="noopener" href="https://csapp.cs.cmu.edu/public/waside/waside-tmin.pdf">1</a>，<a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/jack47/archive/2013/01/06/tmin32-in-c.html">2</a>
+用一句话来解释 C 语言中 <span class="math inline">\(TMin_{32}\)</span>
+的古怪写法的原因：虽然 <span class="math inline">\(-2147483648\)</span>
+这个数值能够用 <code>int</code> 类型来表示，但在 C
+语言中却没法写出对应这个数值的 <code>int</code> 类型常量。</p>
+<p><code>short</code> 转为 <code>unsigned</code>
+的时候，<strong>先改变大小</strong>，<strong>再完成从有符号到无符号的转换</strong>。也就是说，<code>short x; (unsigned)x</code>
+等价于 <code>(unsigned)(int)x</code>，而不是
+<code>(unsigned)(unsigned short)x</code>。</p>
+<p>无符号加法溢出：<span class="math inline">\(s = x +
+y\)</span>，溢出则 <span class="math inline">\(s &lt; x\)</span>
+或等价地，<span class="math inline">\(s &lt; y\)</span>。</p>
+<p>有符号加法溢出：<span class="math inline">\(s = x +
+y\)</span>，溢出当且仅当：<span class="math inline">\(x, y &gt;
+0\)</span> 且 <span class="math inline">\(s \le 0\)</span>；或 <span
+class="math inline">\(x, y &lt; 0\)</span> 且 <span
+class="math inline">\(s \ge 0\)</span>。</p>
+<p>补码表示法里的加法逆元：<code>-x == (~x) + 1</code>。</p>
+<p>整数除法总是 <strong>舍入到 <span
+class="math inline">\(0\)</span></strong>。当 <span
+class="math inline">\(x &lt; 0\)</span> 时，需要用
+<code>(x + (1 &lt;&lt; k) - 1) &gt;&gt; k</code> 来计算 <span
+class="math inline">\(\left\lfloor\dfrac{x}{2^k}\right\rfloor\)</span>。</p>
+<h2 id="浮点数">浮点数</h2>
+<p>IEEE 754 表示浮点数：<span class="math inline">\(V = (-1)^s \times M
+\times 2^E\)</span>。存储：<code>s | exp | frac</code>。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">类型</th>
+<th style="text-align: left;">表示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">规格化的</td>
+<td
+style="text-align: left;"><code>s | 非全 0, 非全 1 | frac</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">非规格化的</td>
+<td style="text-align: left;"><code>s | 0000 0000 | frac</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">无穷大</td>
+<td style="text-align: left;"><code>s | 1111 1111 | 全 0</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">NaN</td>
+<td style="text-align: left;"><code>s | 1111 1111 | 非全 0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>规格化的：认为 <code>exp</code> 从 <code>0111...1111</code> 开始编码
+<span class="math inline">\(0\)</span>。<code>frac</code> 认为是
+<code>1.[frac]</code>。</li>
+<li>非规格化的：认为 <code>exp</code> 为 <span class="math inline">\(2 -
+2^{|E| - 1}\)</span>。<code>frac</code> 认为是
+<code>0.[frac]</code>。</li>
+</ul>
+<p>最小的非规格化数：<code>0 | 0000 | 001</code> 即 <span
+class="math inline">\(2^{2 - 2^{|E| - 1}} \cdot 2^{-|F|}\)</span></p>
+<p>最大的非规格化数：<code>0 | 0000 | 111</code> 即 <span
+class="math inline">\(2^{2 - 2^{|E|-1}} \cdot (1 -
+2^{-|F|})\)</span></p>
+<p>最小的规格化数：<code>0 | 0001 | 000</code> 即 <span
+class="math inline">\(2^{2 - 2^{|E|-1}}\)</span></p>
+<p>最大的规格化数：<code>0 | 1110 | 111</code> 即 <span
+class="math inline">\(2^{2^{|E| - 1} - 1}\cdot(2 -
+2^{-|F|})\)</span></p>
+<p>向偶数舍入：四舍六入五成双。</p>
+<p>浮点加法不具有结合性，但有单调性。<span class="math inline">\(x \neq
+NaN, a \ge b \implies a + x \ge b +x\)</span>。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">原始类型</th>
+<th style="text-align: center;">转化为</th>
+<th style="text-align: center;">溢出</th>
+<th style="text-align: center;">舍入</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">有可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">int/float</td>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">float/double</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">有可能</td>
+<td style="text-align: center;">向零舍入</td>
+</tr>
+</tbody>
+</table>
+<p>float/double 转为 int
+的时候，如果溢出，则没有规定的结果。一个典型的固定值是
+<code>INT_MIN</code>。</p>
+<h2 id="汇编">汇编</h2>
+<p><code>%rip</code>：PC，程序计数器，给出将要执行的
+<strong>下一条指令</strong> 在内存中的地址。</p>
+<p><code>nop</code> 对程序没有影响，只是为了使函数代码按照 16
+字节对齐。</p>
+<p>按照 <code>%rdi %rsi %rdx %rcx %r8 %r9</code>
+的顺序接收参数，剩下的全部放栈里。</p>
+<p>16 位数据类型称为“字（word）”，32 位数为“双字（double words）”，64
+位数为“四字（quad words）”。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240102230419133.png"
+alt="image-20240102230419133" />
+<figcaption aria-hidden="true">image-20240102230419133</figcaption>
+</figure>
+<p>注意，<code>int</code> 和 <code>double</code> 的汇编代码后缀都是
+<code>l</code>，但这不会有歧义，因为浮点数使用的是一组完全不同的指令和寄存器。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240102230619540.png"
+alt="image-20240102230619540" />
+<figcaption aria-hidden="true">image-20240102230619540</figcaption>
+</figure>
+<p>注意 caller 和 callee 寄存器。</p>
+<p>被调用者保存寄存器（callee-saved）：<code>%rbx</code>，<code>%rbp</code>，<code>%r12</code>~<code>%r15</code></p>
+<p>调用者保存寄存器（caller-saved）：所有其他的寄存器，除了
+<code>%rsp</code>。</p>
+<p>复制和生成 <strong>小于 8 字节</strong> 结果的指令：</p>
+<ul>
+<li>生成 1 字节和 2 字节的指令会
+<strong>保持剩下的字节不变</strong></li>
+<li>生成 4 字节的指令会 <strong>把高位 4 个字节置为 0</strong></li>
+</ul>
+<p>寻址模式：<code>Imm(rb, ri, s) == Mem[Imm + Reg[rb] + Reg[ri] * s]</code>，<code>s</code>
+只能取 1, 2, 4, 8。</p>
+<p><code>mov a b</code> 的意思是 move a to b。两个操作数
+<strong>不能都指向内存</strong>，所以要先将源内存中的值加载到寄存器，再复制到目标内存。寄存器大小必须和指令后缀（b,
+w, l, q）指定的大小匹配。<code>movl</code> 会把寄存器高位 4 字节设置为
+0。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240102231404053.png"
+alt="image-20240102231404053" />
+<figcaption aria-hidden="true">image-20240102231404053</figcaption>
+</figure>
+<p>压入栈是
+<code>subq $8, %rsp</code>。<strong>栈往低地址生长。</strong></p>
+<p><code>sub S, D</code> 是 <code>D &lt;- D - S</code>。</p>
+<p><code>leaq S, D</code> 是
+<code>D &lt;- &amp;S</code>。注意这个取地址符，这直接导致除了
+<code>leaq</code> 在算术运算中的潜力。 <strong><code>D</code>
+必须是一个寄存器。</strong></p>
+<p>移位操作
+<code>sal, shl, sar, shr</code>，格式：<code>sal k, D</code>。其中
+<code>k</code> 要么是个立即数，要么放在 <code>%cl</code> 里。移位量是由
+<code>%c1</code> 寄存器的低 <span class="math inline">\(m\)</span>
+位决定的，这里 <span
+class="math inline">\(2^m=w\)</span>。高位会被忽略。所以，例如当寄存器
+<code>%cl</code> 的十六进制值为 0xFF 时，指令 <code>salb</code> 会移
+<span class="math inline">\(7\)</span> 位，<code>salw</code> 会移 <span
+class="math inline">\(15\)</span> 位，<code>sall</code> 会移 <span
+class="math inline">\(31\)</span> 位，而 <code>salq</code> 会移 <span
+class="math inline">\(63\)</span> 位。</p>
+<p>128 位整数算术操作：</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240102233214116.png"
+alt="image-20240102233214116" />
+<figcaption aria-hidden="true">image-20240102233214116</figcaption>
+</figure>
+<p>目标寄存器的选择是固定的。注意这里固定使用 <code>%rdx</code> 和
+<code>%rax</code> 作为 128 位数的高 64 位和低 64 位。除法的时候商存在
+<code>%rax</code> 里，余数存在 <code>%rdx</code> 里。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240103185240275.png"
+alt="image-20240103185240275" />
+<figcaption aria-hidden="true">image-20240103185240275</figcaption>
+</figure>
+<p>注意 <code>cmp</code> 的操作数顺序。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240103185317565.png"
+alt="image-20240103185317565" />
+<figcaption aria-hidden="true">image-20240103185317565</figcaption>
+</figure>
+<p><code>set</code>
+的类型限制了操作数的类型，包括是有符号（<code>setg</code>
+等）还是无符号类型（<code>seta</code> 等），还是指针（只能进行
+<code>sete</code> 和 <code>setne</code>）。</p>
+<p>注意 <code>jmp %rax</code>、<code>jmp *%rax</code> 和
+<code>jmp *(%rax)</code> 的区别。</p>
+<p>当执行 PC
+相对寻址时，程序计数器的值是跳转指令后面的那条指令的地址，而不是跳转指令本身的地址。</p>
+<p>条件传送。不能用于错误条件（空指针访问）或副作用（修改全局变量）的情况。</p>
+<ul>
+<li><p>跳转到中间策略：执行一个无跳转跳到循环结尾处的测试。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	goto test;</span><br><span class="line">loop:</span><br><span class="line">	body-statement</span><br><span class="line">test:</span><br><span class="line">	t = test-expr;</span><br><span class="line">	if (t)</span><br><span class="line">		goto loop;</span><br></pre></td></tr></table></figure></li>
+<li><p>guarded-do 策略：首先用条件分支判断首次是否执行，把代码变为
+do-while。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">t = test-expr;</span><br><span class="line">if (!t)</span><br><span class="line">	goto done;</span><br><span class="line">loop:</span><br><span class="line">	body-statement</span><br><span class="line">	t = test-expr</span><br><span class="line">	if (t)</span><br><span class="line">		goto loop;</span><br><span class="line">done:</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>开关情况数量比较多（例如 4
+个以上），并且值的范围跨度比较小时，就会使用跳转表。</p>
+<p>注意，这里没有使用哈希，而是单纯地用数组第 i
+个来表示跳转到基址+i，所以要求范围跨度比较小。</p>
+<p>控制转移：从 P 转移到 Q，直接将 PC 设置为 Q
+的首地址。返回地址需要压入栈。</p>
+<p>多余 <span class="math inline">\(6\)</span>
+个的参数，从右往左压入栈。所有的数大小都向 <span
+class="math inline">\(8\)</span> 的倍数对齐。</p>
+<p>栈上的局部存储：</p>
+<ul>
+<li>寄存器不够放</li>
+<li>对一个局部变量使用了取地址符 <code>&amp;</code></li>
+<li>某些局部变量是数组或结构</li>
+</ul>
+<p>访问数组中元素的时候记得乘上类型大小。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> A[<span class="number">5</span>][<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> <span class="type">row3_t</span>[<span class="number">3</span>];</span><br><span class="line"><span class="type">row3_t</span> A[<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
+<p>对于 <code>T D[R][C];</code> 的数组而言，<code>D[i][j]</code>
+的内存地址为
+<code>&amp;D[i][j] = x_D + sizeof(T) * (C * i + j)</code>。列大小为
+<span class="math inline">\(C\)</span>，是偏移量。</p>
+<p>定长数组可以优化。边长数组也可以优化。本质上是识别出多维数组的元素的步长。</p>
+<p>用联合来获取位表示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">unsigned</span> <span class="type">long</span> <span class="title">double2bits</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="type">double</span> d;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">long</span> u;</span><br><span class="line">    &#125; temp;</span><br><span class="line">    temp.d = d;</span><br><span class="line">    <span class="keyword">return</span> temp.u;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数据对齐</strong>：</p>
+<p>任何 <span class="math inline">\(K\)</span>
+字节的基本对象的地址都必须是 <span class="math inline">\(K\)</span>
+的倍数。</p>
+<p>结构体的末尾会填充空格，使得结构体数组内的每个元素的每个字段都满足对齐要求。</p>
+<p>例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">S2</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果定义 <code>S2 d[4];</code> 那它的大小就不能为 <span
+class="math inline">\(9\)</span>。因为 <code>d[1].i</code>
+就不满足对齐要求。</p>
+<p>大多数函数的栈帧的边界都必须是 <span
+class="math inline">\(16\)</span> 字节的倍数。</p>
+<p>任何内存分配函数（<code>alloca</code>、<code>malloc</code>、<code>calloc</code>
+或 <code>realloc</code>）生成的块的起始地址都必须是 <span
+class="math inline">\(16\)</span> 的倍数。</p>
+<p>函数指针的值是该函数机器代码表示中第一条指令的地址。</p>
+<p>对抗缓冲区溢出攻击：</p>
+<ul>
+<li><p>栈随机化</p>
+<p>程序开始的时候先随机分配一段空间。</p></li>
+<li><p>栈破坏检测：金丝雀值。</p></li>
+<li><p>限制可执行代码区域</p></li>
+</ul>
+<h2 id="链接">链接</h2>
+<p>链接器的两个任务：符号解析，以及重定位。</p>
+<p>符号是指，函数名称，全局变量名称，或者是静态变量名称。</p>
+<p>重定位代码和数据的节，重新修改符号的引用，让它们指向应该指向的位置。</p>
+<p>链接器将块（有的包含程序代码，有的包含程序数据，其他则包含引导链接器和加载器的数据结构）连接起来，确定被连接块的运行时位置，并且修改代码和数据块中的各种位置。</p>
+<p>目标文件：</p>
+<ul>
+<li><p>可重定位目标文件（编译器和汇编器生成）</p>
+<ul>
+<li><p>（普通的）</p></li>
+<li><p>（特殊的）</p>
+<p>共享目标文件</p></li>
+</ul></li>
+<li><p>可执行目标文件（链接器生成）</p></li>
+</ul>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240103212638465.png"
+alt="image-20240103212638465" />
+<figcaption aria-hidden="true">image-20240103212638465</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">条目</th>
+<th style="text-align: left;">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">.text</td>
+<td style="text-align: left;">已编译程序的机器代码</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">.rodata</td>
+<td style="text-align: left;">只读数据，包括 <code>printf</code>
+里的格式串和开关语句的跳转表</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">.data</td>
+<td style="text-align: left;">已初始化的全局和静态 C 变量</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">.bss</td>
+<td style="text-align: left;">未初始化的全局和静态 C
+变量，以及所有被初始化为 <span class="math inline">\(0\)</span>
+的全局或静态变量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">.symtab</td>
+<td
+style="text-align: left;">定义和引用的函数和全局变量的信息，<strong>不包含局部变量</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">.rel.text</td>
+<td style="text-align: left;">.text
+中，当链接器把当前目标文件和其他文件组合时，要修改的位置。包含任何调用外部函数或者引用全局变量的指令；调用本地函数的指令则不需要修改。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">.rel.data</td>
+<td
+style="text-align: left;">被模块引用或定义的所有全局变量的重定位信息。任何已初始化的全局变量，如果它的初始值是一个全局变量地址或者外部定义函数的地址，都需要被修改。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">.debug</td>
+<td style="text-align: left;">程序里的局部变量和类型定义（需要 -Og
+生成）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号类型</th>
+<th style="text-align: center;">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">全局符号</td>
+<td style="text-align: center;">由模块 <span
+class="math inline">\(m\)</span> 定义并能被其他模块引用</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">外部符号</td>
+<td style="text-align: center;">由其他模块定义并被模块 <span
+class="math inline">\(m\)</span> 引用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">局部符号</td>
+<td style="text-align: center;">只被模块 <span
+class="math inline">\(m\)</span>
+定义和引用（例如静态函数、静态全局变量）</td>
+</tr>
+</tbody>
+</table>
+<p>任何带有 <code>static</code>
+属性声明的全局变量或者函数都是模块私有的。</p>
+<p>形参属于局部变量，链接器对局部变量一无所知。</p>
+<p><del>COMMON 里放未初始化的全局变量；.bss
+放未初始化的静态变量，以及初始化为 <span
+class="math inline">\(0\)</span>
+的全局或静态变量。其实就是强弱符号的区别。</del></p>
+<p>强符号：函数或已初始化的全局变量。</p>
+<p>弱符号：未初始化的全局变量。</p>
+<ol type="1">
+<li>不允许有多个同名强符号</li>
+<li>如果有一个强符号和多个弱符号同名，那么选择强符号</li>
+<li>如果有多个弱符号同名，那么从这些弱符号中任意选择一个</li>
+</ol>
+<p><strong>静态库文件</strong>：</p>
+<ol type="1">
+<li>将多个相关的重定位对象文件集成为一个单一的带索引的文件
+(称为归档文件，archive file)</li>
+<li>增强链接器的功能使之能够在归档文件中解析外部符号</li>
+<li>如果归档文件中的某个成员解析了外部符号，就将其链接入执行文件</li>
+</ol>
+<p>劣势：</p>
+<ol type="1">
+<li>执行文件中会重复包含有所需的库文件函数或者数据</li>
+<li>运行时内存中也会有重复部分</li>
+<li>库文件的细微变动需要所有相关执行文件进行重链接</li>
+</ol>
+<p>更好的：共享库文件，特殊类型的重定向对象文件，可以被装载入内存后进行动态链接；链接可以在装载时或者运行时完成
+。即 Windows 系统下的 DLL 文件。</p>
+<h3 id="重定位">重定位</h3>
+<h4 id="重定位节和符号定义">重定位：节和符号定义</h4>
+<p>合并所有的 .data
+节为一个节，等。这一步完成时，程序中的每条指令和全局变量都有唯一的运行时地址了。</p>
+<h4 id="重定位节中的符号引用">重定位：节中的符号引用</h4>
+<p>修改代码节和数据节中对每个符号的引用，使得它们指向正确的运行时地址。</p>
+<h4 id="共享库中的全局变量寻址">共享库中的全局变量寻址</h4>
+<p>代码段中的任意指令与数据段中的任意变量之间的“距离”在运行时是一个常量，与代码和数据加载的绝对内存位置无关。</p>
+<p>全局偏移量表（GOT）</p>
+<h2 id="虚存">虚存</h2>
+<p>在有限物理内存前提下设计出连续的、相互独立的虚拟内存。</p>
+<p>虚拟寻址：</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYMr3FOV3HHuwzJWc2%2F-MIYN1gk0oex3Z-7xTb5%2F09-02%20%E4%B8%80%E4%B8%AA%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80%E7%9A%84%E7%B3%BB%E7%BB%9F.png?alt=media&amp;token=7bc401fc-4b8a-4107-baed-cfff9f7bac42"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h3 id="地址空间">地址空间</h3>
+<p>虚拟地址空间：<span class="math inline">\([0, N - 1]\)</span>，其中
+<span class="math inline">\(N = 2^n\)</span>。</p>
+<p>物理地址空间：<span class="math inline">\([0, M - 1]\)</span>，其中
+<span class="math inline">\(M = 2^m\)</span>。对应于系统中物理内存的
+<span class="math inline">\(M\)</span> 个字节。</p>
+<h3 id="物理内存是虚拟内存的缓存">物理内存是虚拟内存的缓存</h3>
+<p>虚拟页：虚拟内存中大小固定的块。每个虚拟页的大小为 <span
+class="math inline">\(P = 2^p\)</span> 字节。</p>
+<p>物理页（页帧）：物理内存中大小固定的块。每个物理页的大小为 <span
+class="math inline">\(P = 2^p\)</span> 字节。</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYN88g0ZggqR-FZ1H0%2F-MIYNKeF4o2bxoB0a3ok%2F09-03%20%E4%B8%80%E4%B8%AAVM%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%BB%E5%AD%98%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E7%9A%84.png?alt=media&amp;token=603e1722-a784-4ccb-a7d0-b15415464b47"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">虚拟页面状态</th>
+<th style="text-align: center;">意思</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">未分配的</td>
+<td style="text-align: center;">VM
+系统还未分配（创建）的页，不占用任何空间</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">缓存的</td>
+<td style="text-align: center;">已缓存在物理内存中的已分配页</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">未缓存的</td>
+<td style="text-align: center;">未缓存在物理内存中的已分配页</td>
+</tr>
+</tbody>
+</table>
+<h3 id="页表">页表</h3>
+<p>将虚拟页映射到物理页的页表项数组。</p>
+<p>有效位：表示该虚拟页当前是否被缓存到在 DRAM 中。</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYN88g0ZggqR-FZ1H0%2F-MIYNXywdCmTKdv_JdK0%2F09-04%20%E9%A1%B5%E8%A1%A8.png?alt=media&amp;token=6b63482e-5ae9-4369-b3f7-5e97c1c4dcc1"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h4 id="页命中">页命中</h4>
+<h4 id="页缺失">页缺失</h4>
+<ul>
+<li><p>触发缺页异常</p></li>
+<li><p>页缺失处理程序选择要被替换的页面</p>
+<p>由操作系统（通过异常处理代码）将所需数据从硬盘读入内存。若被替换页面是写入过的，则内存页面写入外部存储。</p></li>
+<li><p>触发页缺失的指令重新执行，这次可以确保命中（page hit）</p></li>
+</ul>
+<h3 id="局部性">局部性</h3>
+<p>数据/指令的访问具有局部性</p>
+<p>在任何时刻，运行的程序都倾向于访问一组“活跃”的虚拟页，活跃页面的集合称为工作集</p>
+<p>具有较好的时间局部性的程序将具有较小的工作集</p>
+<h3 id="虚拟内存内存管理">虚拟内存：内存管理</h3>
+<p>操作系统为每个进程都提供了一个单独的页表。多个虚拟页面可以映射到同一个共享物理页面上。</p>
+<h3 id="虚拟内存内存保护">虚拟内存：内存保护</h3>
+<p>扩展页表项，增加使用权限位；违反许可条件则会触发
+SIGSEGV（段错误）</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYP3HdIQvRb4dEdrDG%2F-MIYPHWr6e5XYLi85WkY%2F09-10%20%E7%94%A8%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E6%9D%A5%E6%8F%90%E4%BE%9B%E9%A1%B5%E9%9D%A2%E7%BA%A7%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4.png?alt=media&amp;token=75eaf7b4-d821-42e0-945c-a21f18f73229"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h3 id="地址翻译">地址翻译</h3>
+<h4 id="基本参数">基本参数</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(N =
+2^n\)</span></td>
+<td style="text-align: center;">虚拟地址空间中的地址数量</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(M =
+2^m\)</span></td>
+<td style="text-align: center;">物理地址空间中的地址数量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(P =
+2^p\)</span></td>
+<td style="text-align: center;">页的大小（字节）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="虚拟地址va的组成部分">虚拟地址（VA）的组成部分</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">VPO（p 位）</td>
+<td style="text-align: center;">虚拟页面偏移量（字节）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">VPN（n-p 位）</td>
+<td style="text-align: center;">虚拟页号</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TLBI</td>
+<td style="text-align: center;">快表（TLB）索引</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">TLBT</td>
+<td style="text-align: center;">快表（TLB）标记</td>
+</tr>
+</tbody>
+</table>
+<h4 id="物理地址pa的组成部分">物理地址（PA）的组成部分</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">PPO（p 位）</td>
+<td style="text-align: center;">物理页面偏移量（字节）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PPN（m-p 位）</td>
+<td style="text-align: center;">物理页号</td>
+</tr>
+</tbody>
+</table>
+<h4 id="具体过程">具体过程</h4>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYPLpzE9Ks_UYOpt28%2F-MIYQgjBI9_qvCIM8oAW%2F09-12%20%E4%BD%BF%E7%94%A8%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91.png?alt=media&amp;token=d7031a9b-e28f-4a61-885e-48d7a04f6f8a"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>页命中：</p>
+<ul>
+<li><strong>第 1 步：</strong>处理器生成一个虚拟地址，并把它传送给
+MMU。</li>
+<li><strong>第 2 步：</strong>MMU 生成 PTE
+地址，并从高速缓存/主存请求得到它。</li>
+<li><strong>第 3 步：</strong>高速缓存/主存向 MMU 返回 PTE。</li>
+<li><strong>第 4 步：</strong>MMU
+构造物理地址，并把它传送给高速缓存/主存。</li>
+<li><strong>第 5
+步：</strong>高速缓存/主存返回所请求的数据字给处理器。</li>
+</ul>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYPLpzE9Ks_UYOpt28%2F-MIYR3rawYqAdHyw7EM6%2F09-13%20%E9%A1%B5%E9%9D%A2%E5%91%BD%E4%B8%AD%E5%92%8C%E7%BC%BA%E9%A1%B5%E7%9A%84%E6%93%8D%E4%BD%9C%E5%9B%BE.png?alt=media&amp;token=1aad8dec-3521-4388-87f0-8a7bc48b5600"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>页缺失：</p>
+<ul>
+<li><strong>第 1 步到第 3 步：</strong>和图 9-13a 中的第 1 步到第 3
+步相同。</li>
+<li><strong>第 4 步：</strong>PTE 中的有效位是零，所以 MMU
+触发了一次异常，传递 CPU
+中的控制到操作系统内核中的缺页异常处理程序。</li>
+<li><strong>第 5
+步：</strong>缺页处理程序确定出物理内存中的牺牲页，如果这个页面已经被修改了，则把它换出到磁盘。</li>
+<li><strong>第 6
+步：</strong>缺页处理程序页面调入新的页面，并更新内存中的 PTE。</li>
+<li><strong>第 7
+步：</strong>缺页处理程序返回到原来的进程，再次执行导致缺页的指令。CPU
+将引起缺页的虚拟地址重新发送给
+MMU。因为虚拟页面现在缓存在物理内存中，所以就会命中，在 MMU 执行了图
+9-13b 中的步骤之后，主存就会将所请求字返回给处理器。</li>
+</ul>
+<h4 id="快表tlb">快表（TLB）</h4>
+<p>快表项：</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYPLpzE9Ks_UYOpt28%2F-MIYRksO9K4bUGw-eMN4%2F09-15%20%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%94%A8%E4%BB%A5%E8%AE%BF%E9%97%AETLB%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.png?alt=media&amp;token=806ff687-79a9-47f0-949f-88a423a82aa5"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>快表命中：</p>
+<p>TLB 命中消除了⼀次内存访问</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYS43zB8XXLzT_XEe8%2F-MIYS7kg0k5_cXnng1cY%2F09-16%20TLB%E5%91%BD%E4%B8%AD%E5%92%8C%E4%B8%8D%E5%91%BD%E4%B8%AD%E7%9A%84%E6%93%8D%E4%BD%9C%E5%9B%BE.png?alt=media&amp;token=c6c04fa9-df23-4793-b5bf-9268d165fdee"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>快表缺失：</p>
+<p>当 TLB 不命中时，MMU 必须从 L1 缓存中取出相应的 PTE。新取出的 PTE
+存放在 TLB 中，可能会覆盖一个已经存在的条目。</p>
+<h3 id="linux-虚拟内存系统">Linux 虚拟内存系统</h3>
+<h4 id="linux-虚拟内存区域">Linux 虚拟内存区域</h4>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYVOlnLH4Fk1ErjsyX%2F-MIYX7G66yQxMogQ9LyP%2F09-26%20%E4%B8%80%E4%B8%AAlinux%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.png?alt=media&amp;token=ae3f2445-f963-4eaa-b4ba-6038539a67e0"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>内核为系统中的每个进程维护一个单独的任务结构（源代码中的
+task_struct）。</p>
+<p>task_struct
+里包含：PID、指向用户栈的指针、可执行目标文件的名字，以及程序计数器。</p>
+<p>mm_struct 述了虚拟内存的当前状态：pgd
+指向第一级页表（页全局目录）的基址，而 mmap 指向一个
+vm_area_structs（区域结构）的链表。</p>
+<p>每个 vm_area_structs 都描述了当前虚拟地址空间的一个区域。</p>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYXCLnKQ6f8Y605q-O%2F-MIYXNaTtkJTfH1JXL6A%2F09-27%20linux%E6%98%AF%E5%A6%82%E4%BD%95%E7%BB%84%E7%BB%87%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84.png?alt=media&amp;token=dfbf74d8-b756-406f-bb30-c2f5f85fe801"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<ul>
+<li>vm_start：指向这个区域的起始处。</li>
+<li>vm_end：指向这个区域的结束处。</li>
+<li>vm_prot：描述这个区域内包含的所有页的读写许可权限。</li>
+<li>vm_flags：描述这个区域内的页面是与其他进程共享的，还是这个进程私有的（还描述了其他一些信息）。</li>
+<li>vm_next：指向链表中下—区域结构。</li>
+</ul>
+<h4 id="linux-缺页异常处理">Linux 缺页异常处理</h4>
+<ol type="1">
+<li>虚拟地址 A 是合法的吗（是否存在）？</li>
+<li>试图进行的内存访问是否合法（有没有权限）？</li>
+<li>否则，这个访问是可以处理的缺页（只是没放缓存而已）。
+<ul>
+<li>选择一个牺牲页面，如果这个牺牲页面被修改过，那么就将它交换出去，换入新的页面并更新页表。</li>
+<li>然后 CPU 重新启动引起缺页的指令，此时不会再缺页了。</li>
+</ul></li>
+</ol>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYXCLnKQ6f8Y605q-O%2F-MIYXcW9ffVZKHEsohzk%2F09-28%20linux%E7%BC%BA%E9%A1%B5%E5%A4%84%E7%90%86.png?alt=media&amp;token=6fc05c04-f53a-4974-aa58-cc0e4ea4db16"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h3 id="内存映射">内存映射</h3>
+<p>通过关联硬盘上存储的各类对象来初始化虚存的各个区域。</p>
+<p>虚拟内存区域可以映射到：</p>
+<ul>
+<li><p>Linux 文件系统中的普通文件</p></li>
+<li><p>匿名文件</p>
+<p>由内核创建，全是 0。与进程虚存空间里的栈、堆*对应。</p>
+<p>*不确定</p></li>
+</ul>
+<p>建立映射关系并不一定分配空间。只是修改了元数据。</p>
+<p>共享对象的物理内存相同，但是两进程里对应的虚拟内存不一定相同。</p>
+<h4 id="私有写时复制">私有写时复制</h4>
+<figure>
+<img
+src="https://1087580735-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-MHt_spaxGgCbp2POnfq%2F-MIYXgV_34xHHD8v3VJ-%2F-MIYcQzbJ1WVOzu18dlQ%2F09-30%20%E4%B8%80%E4%B8%AA%E7%A7%81%E6%9C%89%E7%9A%84%E5%86%99%E6%97%B6%E5%A4%8D%E5%88%B6%E5%AF%B9%E8%B1%A1.png?alt=media&amp;token=aacf0b5f-f662-46a7-8253-852589ad89ba"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>直到进程修改私有区域内的某个页面时，才会在物理内存中创建这个页面的一个新副本，更新页表条目指向这个新的副本，然后恢复这个页面的可写权限。尽可能地延迟复制。</p>
+<h2 id="内存分配基础">内存分配基础</h2>
+<h2 id="异常控制流">异常控制流</h2>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240104142304716.png"
+alt="image-20240104142304716" />
+<figcaption aria-hidden="true">image-20240104142304716</figcaption>
+</figure>
+<p>陷阱：系统调用可以是故障，用户程序通过 <code>syscall</code>
+向内核请求服务。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>pid_t getpid(void);</code></td>
+<td>返回当前进程的 PID</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>pid_t getppid(void);</code></td>
+<td>返回父进程的 PID</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>void exit(int status);</code></td>
+<td>以 <code>status</code> 退出状态来终止进程</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>pid_t fork(void);</code></td>
+<td>子进程返回 <span
+class="math inline">\(0\)</span>，父进程返回子进程的 PID；如果出错，返回
+<span class="math inline">\(-1\)</span></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>pid_t waitpid(pid_t pid, int *statusp, int options);</code></td>
+<td>如果成功，返回子进程 PID；如果 WNOHANG，则为 <span
+class="math inline">\(0\)</span>；如果其他错误，则为 <span
+class="math inline">\(-1\)</span></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>pid_wait(int *status sp);</code></td>
+<td>等价于 <code>waitpid(-1, statusp, 0);</code></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>int execve(const char *filename, const char*argv[], const char *envp[])</code></td>
+<td>在 <strong>当前进程的上下文中</strong> 加载并运行一个新程序</td>
+</tr>
+</tbody>
+</table>
+<p><code>fork</code> 函数：</p>
+<ol type="1">
+<li>调用一次，返回两次。</li>
+<li>并发执行：不能确定执行顺序。</li>
+<li>相同但是独立的地址空间：相同的用户栈、相同的本地变量值、相同的堆、相同的全局变量值、相同的代码，但是是独立的。</li>
+<li>共享文件。</li>
+</ol>
+<p><code>waitpid</code> 函数：等待它的子进程终止或者停止。</p>
+<ol type="1">
+<li><p>pid：如果 pid &gt; 0，则等待集合就是单独的子进程，它的 PID 是
+pid；如果 pid = -1，则等待集合是由父进程的所有子进程组成的。</p></li>
+<li><p>options：</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240104145458896.png"
+alt="image-20240104145458896" />
+<figcaption aria-hidden="true">image-20240104145458896</figcaption>
+</figure></li>
+<li><p>statusp：检查已回收子进程的退出状态，假设 statusp =
+&amp;status。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240104145525312.png"
+alt="image-20240104145525312" />
+<figcaption aria-hidden="true">image-20240104145525312</figcaption>
+</figure></li>
+</ol>
+<p>如果没有子进程，则返回 <span class="math inline">\(-1\)</span> 并设置
+errno 为 ECHILD；如果 <code>waitpid</code> 函数被一个信号中断，则返回
+<span class="math inline">\(-1\)</span> 并设置 errno 为 EINTR。</p>
+<p><code>execve</code> 函数：</p>
+<ol type="1">
+<li>保持进程号（PID）、打开的文件描述符和信号上下文不变</li>
+<li>正常情况下 <strong>不返回</strong></li>
+</ol>
+<h2 id="信号处理">信号处理</h2>
+<p>待处理信号（pending
+signal）：在任何时刻，一种类型的信号至多只会有一个待处理信号。</p>
+<h3 id="发送信号">发送信号</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pid_t getpgrp(void);</code></td>
+<td>返回调用进程的进程组 ID</td>
+</tr>
+<tr class="even">
+<td><code>int setpgid(pid_t pid, pid_t pgid);</code></td>
+<td>改变 pid 的进程组；成功返回 0，失败返回 -1</td>
+</tr>
+<tr class="odd">
+<td><code>int kill(pid_t pid, int sig);</code></td>
+<td>发送信号给 pid 的进程；成功返回 0，失败返回 -1</td>
+</tr>
+<tr class="even">
+<td><code>unsigned int alarm(unsigned int secs);</code></td>
+<td>返回前一次闹钟剩余的秒数；如果以前没有设定过，则返回 0</td>
+</tr>
+</tbody>
+</table>
+<p><code>setpgid</code> 函数：</p>
+<p>如果 pid 为 0，则用当前进程作为 PID；如果 pgid 为 0，则用 pid
+指定的进程的进程组 ID 作为进程组 ID。</p>
+<p>一般而言，进程组 ID 通常取自作业中父进程中的一个。</p>
+<p>输入 Ctrl+C 会导致内核发送一个 SIGINT 信号到
+<strong>前台进程组的每个进程</strong>。</p>
+<p>输入 Ctrl+Z 会发送一个 SIGTSTP
+信号到前台进程组的每个进程。默认情况下，结果是停止（挂起）前台作业。</p>
+<p><code>alarm</code> 函数：</p>
+<p>内核在 <code>secs</code> 秒后发送一个 SIGALRM
+信号给调用这个函数的进程。如果 <code>secs</code> 是
+0，则啥事儿也不干。在任何情况下，<code>alarm</code>
+都会取消之前所有待处理的
+alarm，并且返回任何待处理的闹钟在被发送前还剩下的秒数。</p>
+<h3 id="接收信号">接收信号</h3>
+<p>内核将 <span class="math inline">\(p\)</span>
+从内核态切到用户态的时候，会检查 <span class="math inline">\(p\)</span>
+的未被阻塞的待处理信号的集合。从小到大，强制 <span
+class="math inline">\(p\)</span> 接收信号某一 <span
+class="math inline">\(k\)</span>。</p>
+<p>默认行为：</p>
+<ul>
+<li>进程终止</li>
+<li>进程终止并转储内存</li>
+<li>进程停止（挂起）直到被 SIGCONT 信号重启</li>
+<li>进程忽略该信号</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*<span class="type">sighandler_t</span>)</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">sighandler_t</span> <span class="title">signal</span><span class="params">(<span class="type">int</span> signum, <span class="type">sighandler_t</span> handler)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果 handler 是 SIG_IGN，那么忽略类型为 signum 的信号</li>
+<li>如果 handler 是 SIG_DFL，那么类型为 signum
+的信号行为恢复为默认行为</li>
+<li>否则，handler 就是用户定义的函数的地址，作为信号处理程序
+<ul>
+<li>调用信号处理程序被称为 <em>捕获信号</em></li>
+<li>执行信号处理程序被称为 <em>处理信号</em></li>
+</ul></li>
+</ul>
+<h3 id="非本地跳转">非本地跳转</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;setjump.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">setjmp</span><span class="params">(jmp_buf env)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sigsetjmp</span><span class="params">(sigjmp_buf env, <span class="type">int</span> savesigs)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>setjmp</code> 函数在 <code>env</code>
+缓冲区保存当前环境，以供后面的 <code>longjmp</code> 使用，并返回 0。</p>
+<p>调用一次，返回多次。</p>
+<p>调用环境包括程序计数器、栈指针和通用目的寄存器。</p>
+<p><strong><code>setjmp</code> 函数的返回值不能作为右值。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">longjmp</span><span class="params">(jmp_buf env, <span class="type">int</span> retval)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">siglongjmp</span><span class="params">(sigjmp_buf, <span class="type">int</span> retval)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>longjmp</code> 函数从 <code>env</code>
+缓冲区恢复调用函数，然后出发一个从最近一次初始化 <code>env</code> 的
+<code>setjmp</code> 调用的返回。然后 <code>setjmp</code>
+返回，并带有非零的返回值 <code>retval</code>。</p>
+<p>调用一次，从不返回。</p>
+<p>非本地跳转的一个重要应用就是允许从一个深层嵌套的函数调用中立即返回，通常是由检测到某个错误情况引起的。如果在一个深层嵌套的函数调用中发现了一个错误情况，我们可以使用非本地跳转
+<strong>直接返回</strong>
+到一个普通的本地化的错误处理程序，而不是费力地解开调用栈。</p>
+<p>由于在信号处理期间自动屏蔽了正在被处理的信号，而使用 setjmp/longjmp
+跳出信号处理程序时又不会自动将信号屏蔽码修改会原来的屏蔽码，从而引起该信号被永久屏蔽。</p>
+<p>可以使用 sigsetjmp/siglongjmp 来解决这一问题。sigsetjmp 在 savesigs
+非 <span class="math inline">\(0\)</span> 的时候会储存。</p>
+<h2 id="io-处理">IO 处理</h2>
+<ul>
+<li><p>普通文件</p>
+<ul>
+<li>文本文件：只含有 ASCII 或 Unicode 字符的文件</li>
+<li>二进制文件：其他文件</li>
+</ul>
+<p>对于内核而言，二者并没有区别。</p></li>
+<li><p>目录：包含一组 <em>链接</em>
+的文件，每个链接将一个文件名映射到一个文件。</p></li>
+<li><p>套接字</p></li>
+</ul>
+<h3 id="打开和关闭文件">打开和关闭文件</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 成功返回新文件描述符，出错返回 -1</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">open</span><span class="params">(<span class="type">char</span> *filename, <span class="type">int</span> flags, <span class="type">mode_t</span> mode)</span></span>;</span><br><span class="line"><span class="comment">// 成功返回 0，出错返回 -1</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">close</span><span class="params">(<span class="type">int</span> fd)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>open</code> 函数将 <code>filename</code> 转换为一个
+<em>文件描述符</em> （file descriptor），并且返回描述符数字。</p>
+<p>关闭一个已关闭的描述符会出错。</p>
+<table>
+<thead>
+<tr class="header">
+<th>flags 参数</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O_RDONLY</td>
+<td>只读</td>
+</tr>
+<tr class="even">
+<td>O_WRONLY</td>
+<td>只写</td>
+</tr>
+<tr class="odd">
+<td>O_RDWR</td>
+<td>可读可写</td>
+</tr>
+<tr class="even">
+<td>O_CREAT</td>
+<td>如果文件不存在，就创建一个空文件</td>
+</tr>
+<tr class="odd">
+<td>O_TRUNC</td>
+<td>如果文件已经存在，就截断它（重头开始写）</td>
+</tr>
+<tr class="even">
+<td>O_APPEND</td>
+<td>每次写操作前，设置文件位置到文件末尾（每次添加）</td>
+</tr>
+</tbody>
+</table>
+<p>mode 参数是设置访问权限用的。</p>
+<h3 id="读和写文件">读和写文件</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若成功，返回读的字节数；出错返回 -1</span></span><br><span class="line"><span class="function"><span class="type">ssize_t</span> <span class="title">read</span><span class="params">(<span class="type">int</span> fd, <span class="type">void</span> *buf, <span class="type">size_t</span> n)</span></span>;</span><br><span class="line"><span class="comment">// 若成功，返回写的字节数；出错返回 -1</span></span><br><span class="line"><span class="function"><span class="type">ssize_t</span> <span class="title">write</span><span class="params">(<span class="type">int</span> fd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> n)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(n\)</span> 是 <strong>最多</strong>
+读取/写入的字节数。<code>read</code> 返回 0 表示 EOF。</p>
+<p><code>ssize_t</code> 是有符号的 <code>size_t</code>，因为出错要返回
+-1。这也使 read/write 的返回值能够达到的返回缩小了一半。</p>
+<p>可能返回值小于 <span
+class="math inline">\(n\)</span>，此时返回值被称为 <em>不足值</em>：</p>
+<ul>
+<li><p>读时遇到 EOF</p></li>
+<li><p>从终端读文本行</p>
+<p>一次 read 将传送一个文本行，返回的不足值等于文本行的大小。</p></li>
+<li><p>读和写网络套接字</p></li>
+</ul>
+<h3 id="共享文件">共享文件</h3>
+<ul>
+<li><p>描述符表</p>
+<ul>
+<li><p>每个进程一张表</p></li>
+<li><p>特殊的 file descriptor</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">文件描述符(fd)</th>
+<th style="text-align: center;">默认打开</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">stdin</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">stdout</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">stderr</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><p>打开文件表</p>
+<ul>
+<li>由所有进程共享</li>
+<li>refcnt 存指向该文件的描述符的个数</li>
+</ul></li>
+<li><p>v-node 表</p>
+<ul>
+<li>由所有进程共享</li>
+<li><strong>多个描述符可以通过不同的文件表项来引用同一个文件</strong></li>
+</ul></li>
+</ul>
+<p><code>fork</code>
+函数对于共享文件的影响：复制一份一模一样的描述符表。打开文件表的 refcnt
++1。</p>
+<h3 id="io-重定向">IO 重定向</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">dup2</span><span class="params">(<span class="type">int</span> oldfd, <span class="type">int</span> newfd)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><strong>成功</strong>：dup
+函数返回当前系统可用的最小整数值。dup2函数返回第一个不小于 newfd
+的整数值。也就是分为两种情况：</p>
+<ul>
+<li>如果 newfd 已经打开，则先将其关闭，再复制文件描述符。</li>
+<li>如果 newfd 等于 oldfd，则 dup2 返回 newfd，而不关闭它。</li>
+</ul>
+<p><strong>失败</strong>：均返回 -1，并设置 errno。</p>
+<p>本质上是修改了描述符表中表项指向的打开文件表的位置。<code>dup2</code>
+以后，可能会导致某个文件被关闭，导致打开文件表和 v-node 表被删除。</p>
+<h3 id="标准-io">标准 I/O</h3>
+<p>标准 I/O 函数在实现过程中使用了缓存，在写入 <code>\n</code>
+时或者显式调用 <code>fflush()</code> 时讲缓存内容刷入到输出文件。</p>
+<h3 id="选择-io-函数">选择 I/O 函数</h3>
+<p>看 PPT。</p>
+<h2 id="线程与线程同步基础">线程与线程同步基础</h2>
+<p>线程是运行在一个单一进程上下文中的逻辑流，由内核进行调度。</p>
+<p>每个线程都有它自己的线程上下文（thread
+context），包括以个唯一的整数线程 ID（Thread
+ID，TID）、栈、栈指针、程序计数器、通用目的寄存器和条件码。所有的运行在一个进程里的线程共享该进程的整个虚拟地址空间。</p>
+<h3 id="线程执行模型">线程执行模型</h3>
+<p>线程之间是并列的关系，而不是像进程那样的父子关系。</p>
+<p>主线程和其他线程的区别仅在于它总是进程中第一个运行的线程。对等线程池概念的主要影响是，一个线程可以杀死它的任何对等线程，或者等待它的任意对等线程终止。另外，每个对等线程都能读写相同的共享数据。</p>
+<h3 id="相关函数">相关函数</h3>
+<h4 id="创建线程">创建线程</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">void</span> *(func)(<span class="type">void</span> *);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pthread_create</span><span class="params">(<span class="type">pthread_t</span> *tid, <span class="type">pthread_attr_t</span> *attr, func *f, <span class="type">void</span> *arg)</span></span>;</span><br><span class="line"><span class="function"><span class="type">pthread_t</span> <span class="title">pthread_self</span><span class="params">(<span class="type">void</span>)</span></span>; <span class="comment">// 获取自身的线程 ID</span></span><br></pre></td></tr></table></figure>
+<p>创建一个新的线程，带着一个输入变量
+arg，在新的线程上下文中运行线程例程 f。返回时：</p>
+<ul>
+<li>tid 包含新创建线程的 TID</li>
+<li>函数若成功执行，返回 <span
+class="math inline">\(0\)</span>；出错，返回非零。</li>
+</ul>
+<h4 id="终止线程">终止线程</h4>
+<p>当顶层的线程例程返回时，线程会 <em>隐式地</em> 终止。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="type">void</span> *thread_return)</span></span>; <span class="comment">// 从不返回</span></span><br></pre></td></tr></table></figure>
+<p>通过调用 <code>pthead_exit</code> 函数，线程会 <em>显式地</em>
+终止。如果主线程调用 <code>pthread_exit</code>
+函数，它会等待所有其他对等线程终止，然后再终止主线程和整个进程，返回值为
+<code>thread_return</code>。</p>
+<p>某个对等线程调用 Linux 的 <code>exit</code>
+函数，该函数终止进程以及所有与该进程相关的线程。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">pthread_cancel</span><span class="params">(<span class="type">pthread_t</span> tid)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>pthread_cancel</code>
+来终止某个线程。函数若成功执行，返回 <span
+class="math inline">\(0\)</span>；出错，返回非零。</p>
+<h4 id="回收已终止线程的资源">回收已终止线程的资源</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">pthread_join</span><span class="params">(<span class="type">pthread_t</span> tid, <span class="type">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>阻塞直至 tid 终止，thread_return
+里存的是终止的那个线程的返回值。函数若成功执行，返回 <span
+class="math inline">\(0\)</span>；出错，返回非零。</p>
+<h3 id="共享变量">共享变量</h3>
+<p>一个变量 x 被共享，当且仅当多个线程引用 x 的（至少）一个实例 。</p>
+<h4 id="线程内存模型">线程内存模型</h4>
+<ul>
+<li><p>独有的：线程号、栈、栈指针、PC、条件码，以及通用寄存器</p>
+<p>寄存器值是严格隔离和受到保护的；但不同线程的栈互相间
+<strong>不设防</strong>，也就是说，可以强行通过地址偏移来访问。</p></li>
+<li><p>共有的：代码、数据（内存）、堆、共享库、打开的文件，以及设置好的信号处理函数（handler）</p></li>
+</ul>
+<h4 id="将变量实例映射到内存">将变量实例映射到内存</h4>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 38%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">变量类型</th>
+<th style="text-align: center;">定义</th>
+<th style="text-align: center;">内存中的实例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">全局变量</td>
+<td style="text-align: center;">定义在所有函数外面</td>
+<td style="text-align: center;">虚拟内存包含全局变量的唯一实例</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">本地自动变量</td>
+<td style="text-align: center;">定义在函数内部，无 static 属性</td>
+<td
+style="text-align: center;">每个线程栈包含每个局部变量的一个实例</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">本地静态变量</td>
+<td style="text-align: center;">定义在函数内部，有 static 属性</td>
+<td style="text-align: center;">虚拟内存包含局部静态变量的唯一实例</td>
+</tr>
+</tbody>
+</table>
+<h3 id="互斥">互斥</h3>
+<h3 id="临界区与不安全区">临界区与不安全区</h3>
+<p>Head-(Load-Update-Store)-Tail</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240105193003378.png"
+alt="image-20240105193003378" />
+<figcaption aria-hidden="true">image-20240105193003378</figcaption>
+</figure>
+<p>每个线程的 L-U-S 段被称为
+<em>临界区</em>，两个线程临界区的“笛卡尔积”围城的区域称为
+<em>不安全区</em>。</p>
+<h4 id="安全轨迹线与不安全轨迹线">安全轨迹线与不安全轨迹线</h4>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240105193259784.png"
+alt="image-20240105193259784" />
+<figcaption aria-hidden="true">image-20240105193259784</figcaption>
+</figure>
+<p>需要保证两个线程对临界区的互斥访问。</p>
+<h3 id="信号量">信号量</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">P</span><span class="params">(T s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (s == <span class="number">0</span>)</span><br><span class="line">       	<span class="built_in">wait</span>();</span><br><span class="line">   	s--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">V</span><span class="params">(T s)</span> </span>&#123;</span><br><span class="line">    s++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>信号量不变性：当初始 <span class="math inline">\(s\)</span>
+非负时，之后的过程中 <span class="math inline">\(s \ge 0\)</span>
+恒成立。</p>
+<h4 id="使用信号量来实现互斥">使用信号量来实现互斥</h4>
+<p>二元信号量：0/1</p>
+<p>互斥锁（mutex）：P “锁定”互斥锁，V “释放”互斥锁。</p>
+<p>定义：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="type">long</span> cnt = <span class="number">0</span>; <span class="comment">/* Counter */</span></span><br><span class="line"><span class="type">sem_t</span> mutex; <span class="comment">/* 一个保护 Counter 的信号量 */</span></span><br></pre></td></tr></table></figure>
+<p>初始化：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Sem_init</span>(&amp;mutex, <span class="number">0</span>, <span class="number">1</span>); <span class="comment">/* mutex = 1 */</span></span><br></pre></td></tr></table></figure>
+<p>进行操作：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; niters; i++) &#123;</span><br><span class="line">    <span class="built_in">P</span>(&amp;mutex);</span><br><span class="line">    <span class="comment">// do something...</span></span><br><span class="line">    <span class="comment">// 将临界区域用 P 和 V 操作包围</span></span><br><span class="line">    <span class="built_in">V</span>(&amp;mutex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="生产者-消费者问题">生产者-消费者问题</h4>
+<p><span class="math inline">\(n\)</span>
+个槽的有限缓冲区，生产者线程反复生成新的项目，消费者线程不断地从缓冲区取出这些项目。</p>
+<ul>
+<li>如果缓冲区是满的，那么生产者必须等待直到有一个槽位变为可用；</li>
+<li>如果缓冲区是空的，那么消费者必须等待直到有一个项目变为可用。</li>
+</ul>
+<p>用一个循环队列作为缓冲区。不仅要有 slots，还要有
+items。<code>insert</code> 的时候要等 <code>slots</code>
+开锁；<code>remove</code> 的时候要等 <code>items</code> 开锁。</p>
+<h3 id="竞争">竞争</h3>
+<p>程序的正确性依赖于部分线程的执行顺序。</p>
+<p>解决办法：为每个 ID 分配独立的块。</p>
+<h3 id="死锁">死锁</h3>
+<p>一组线程被阻塞了，等待一个永远也不会为真的条件。</p>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240105202746286.png"
+alt="image-20240105202746286" />
+<figcaption aria-hidden="true">image-20240105202746286</figcaption>
+</figure>
+<p>死锁状态禁止向上或向右的拓展，这导致这个程序无法继续进行。</p>
+<p>解决办法：</p>
+<ul>
+<li>执行轨迹不要进入死锁区域</li>
+<li>不同进程以相同的顺序获得锁</li>
+<li>释放锁的顺序不重要</li>
+</ul>
+<figure>
+<img
+src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240105203118091.png"
+alt="image-20240105203118091" />
+<figcaption aria-hidden="true">image-20240105203118091</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Clever_Jimmy
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://leverimmy.top/2024/01/05/CSAPP/" title="【学习笔记】深入理解计算机系统">https://leverimmy.top/2024/01/05/CSAPP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" rel="tag"># 计算机系统</a>
+              <a href="/tags/%E6%95%B4%E6%95%B0/" rel="tag"># 整数</a>
+              <a href="/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/" rel="tag"># 浮点数</a>
+              <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag"># 汇编语言</a>
+              <a href="/tags/%E9%93%BE%E6%8E%A5/" rel="tag"># 链接</a>
+              <a href="/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" rel="tag"># 虚拟内存</a>
+              <a href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag"># 进程</a>
+              <a href="/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/" rel="tag"># 异常控制流</a>
+              <a href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag"># 线程</a>
+              <a href="/tags/%E6%AD%BB%E9%94%81/" rel="tag"># 死锁</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/28/2023Lookback/" rel="prev" title="【游记】2023 年回眸">
+                  <i class="fa fa-chevron-left"></i> 【游记】2023 年回眸
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clever_Jimmy</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js","integrity":"sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-01-03T04:55:01.663Z</updated>
+  <updated>2024-01-05T14:57:38.313Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】深入理解计算机系统</title>
+    <link href="https://leverimmy.top/2024/01/05/CSAPP/"/>
+    <id>https://leverimmy.top/2024/01/05/CSAPP/</id>
+    <published>2024-01-05T12:40:01.000Z</published>
+    <updated>2024-01-05T14:57:38.313Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机系统" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="整数" scheme="https://leverimmy.top/tags/%E6%95%B4%E6%95%B0/"/>
+    
+    <category term="浮点数" scheme="https://leverimmy.top/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/"/>
+    
+    <category term="汇编语言" scheme="https://leverimmy.top/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="链接" scheme="https://leverimmy.top/tags/%E9%93%BE%E6%8E%A5/"/>
+    
+    <category term="虚拟内存" scheme="https://leverimmy.top/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="进程" scheme="https://leverimmy.top/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+    <category term="异常控制流" scheme="https://leverimmy.top/tags/%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6%E6%B5%81/"/>
+    
+    <category term="线程" scheme="https://leverimmy.top/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="死锁" scheme="https://leverimmy.top/tags/%E6%AD%BB%E9%94%81/"/>
+    
+  </entry>
   
   <entry>
     <title>【游记】2023 年回眸</title>
@@ -617,13 +654,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
