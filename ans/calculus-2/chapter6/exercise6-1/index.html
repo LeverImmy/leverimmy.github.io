@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2569,6 +2574,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题6.1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2578,6 +2594,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2878,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,7 +2938,7 @@
   <h1>习题6.1</h1>
 
 <p>\subsection{习题6.1解答}</p>
-<p>\paragraph{第2题}</p>
+<h2 id="2">第 2 题</h2>
 <p>求下列函数项级数的收敛域, 并指出使级数绝对收敛、条件收敛的 <span class="arithmatex">\(x\)</span> 的范围.</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}ne^{-nx}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(\dfrac{\ln x}{3}\right)^n\)</span>;</p>
@@ -2836,11 +2949,11 @@
 <p>(1) 该级数每一项都为正数, 故绝对收敛域等于收敛域. 由于 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{ne^{-nx}} = e^{-x}\)</span>, 故当 <span class="arithmatex">\(x &lt; 0\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} &gt; 1\)</span>, <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n\)</span> 发散; 当 <span class="arithmatex">\(x &gt; 0\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} &lt; 1\)</span>, <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\)</span> 收敛. 又因为当 <span class="arithmatex">\(x = 0\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}n\)</span> 发散, 故该级数的绝对收敛域为 <span class="arithmatex">\((0, +\infty)\)</span>.</p>
 <p>(2) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(\dfrac{\ln x}{3}\right)^n = \dfrac{\ln x}{3 - \ln x}\lim\limits_{n \to \infty}\left(1 - \left(\dfrac{\ln x}{3}\right)^n\right)\)</span>. 因此当 <span class="arithmatex">\(\left|\dfrac{\ln x}{3}\right|&lt; 1\)</span>, 即 <span class="arithmatex">\(x \in (e^{-3}, e^3)\)</span> 时级数收敛. 当 <span class="arithmatex">\(x = e^{-3}\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}(-1)^n\)</span> 发散. 当 <span class="arithmatex">\(x = e^3\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}1\)</span> 发散. 故该级数的收敛域为 <span class="arithmatex">\((e^{-3}, e^3)\)</span>.</p>
 <p>再考虑绝对收敛域. 由于当 <span class="arithmatex">\(\left|\dfrac{\ln x}{3}\right|&lt; 1\)</span>, 即 <span class="arithmatex">\(x \in (e^{-3}, e^3)\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\left|\dfrac{\ln x}{3}\right|^n = 0\)</span>, 故该级数的绝对收敛域也为 <span class="arithmatex">\((e^{-3}, e^3)\)</span>.</p>
-<p>(3) 由于对任意 <span class="arithmatex">\(x \in \set{R}\)</span>, 都有 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} = \lim\limits_{n \to \infty}\dfrac{n + 1}{x}\)</span> 不存在, 因此收敛域为 <span class="arithmatex">\(\varnothing\)</span>.</p>
+<p>(3) 由于对任意 <span class="arithmatex">\(x \in \mathbb{R}\)</span>, 都有 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} = \lim\limits_{n \to \infty}\dfrac{n + 1}{x}\)</span> 不存在, 因此收敛域为 <span class="arithmatex">\(\varnothing\)</span>.</p>
 <p>(4) 该级数每一项都为正数, 故绝对收敛域等于收敛域. 由于 <span class="arithmatex">\(\lim\limits_{n \to \infty}\dfrac{u_{n + 1}}{u_n} = \lim\limits_{n \to \infty}\dfrac{x^{n + 1}\sin\frac{x}{2^{n + 1}}}{x^n\sin\frac{x}{2^n}} = \lim\limits_{n\to \infty}\dfrac{x}{2\cos\frac{x}{2^{n + 1}}} = \dfrac{x}{2}\)</span>, 因此当 <span class="arithmatex">\(x \in (-2, 2)\)</span> 时该级数收敛. 当 <span class="arithmatex">\(x = \pm2\)</span> 时, <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n = \lim\limits_{n \to \infty}x^n\cdot\dfrac{x}{2^n} = \lim\limits_{n \to \infty}\dfrac{(\pm 2)^{n + 1}}{2^n} \neq 0\)</span>, 此时该级数发散. 故该级数的绝对收敛域为 <span class="arithmatex">\((-2, 2)\)</span>.</p>
 <p>(5) 当 <span class="arithmatex">\(x \in (-1, 1)\)</span> 时, 由于 <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n = \lim\limits_{n \to \infty}\dfrac{1}{1 + x^n} = 1 \neq 0\)</span>, 故此时该级数发散. 当 <span class="arithmatex">\(x = -1\)</span> 时该级数不存在. 当 <span class="arithmatex">\(x = 1\)</span> 时, 该级数等于 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1}{2}\)</span> 发散.</p>
 <p>考虑 <span class="arithmatex">\(\dfrac{u_{n + 1}}{u_n} = \dfrac{1 + x^n}{1 + x^{n + 1}}\)</span>. 当 <span class="arithmatex">\(\left|x\right| &gt; 1\)</span> 时, <span class="arithmatex">\(\lim\limits_{n \to \infty}\left|\dfrac{u_{n + 1}}{u_n}\right| = \lim\limits_{n \to \infty}\left|\dfrac{1 + x^n}{1 + x^{n + 1}}\right| = \lim\limits_{n \to \infty}\left|\dfrac{\frac{1}{x^n} + 1}{\frac{1}{x^n} + x}\right| = \dfrac{1}{\left|x\right|} &lt; 1\)</span>, 该级数绝对收敛. 综上所述, 该级数在 <span class="arithmatex">\(\{x | \left|x\right| &gt; 1\}\)</span> 上收敛, 且绝对收敛.</p>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>下列函数项级数在收敛域上是否一致收敛?</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1 - \cos nx}{n^2}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}x^3e^{-nx^2}\)</span>;</p>
@@ -2853,11 +2966,11 @@
 \]</div>
 <p>而 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1}{\sqrt{2n^3}}\)</span> 收敛, 因此由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}x^3e^{-nx^2}\)</span> 在收敛域上一致收敛.</p>
 <p>(5) 由于 <span class="arithmatex">\(\left|\dfrac{\cos nx + \sin n^x}{n^{1.001}}\right| \le \dfrac{2}{n^{1.001}}\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{2}{n^{1.001}}\)</span> 收敛, 因此由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\cos nx + \sin n^x}{n^{1.001}}\)</span> 在收敛域上一致收敛.</p>
-<p>\paragraph{第4题}</p>
+<h2 id="4">第 4 题</h2>
 <p>考察级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x + 2^n}\)</span> 在 <span class="arithmatex">\([0, +\infty)\)</span> 上是否一致收敛?</p>
 <p>\paragraph{解}</p>
 <p>一致收敛. 记 <span class="arithmatex">\(u_n(x) = (-1)^n\)</span>. 由于 <span class="arithmatex">\(\left|\sum\limits_{k = 1}^{n}u_k(x)\right| \le 1\)</span> 部分和有界, 且 <span class="arithmatex">\(v_n(x) = \dfrac{1}{x + 2^n}\)</span> 对于任意的 <span class="arithmatex">\(x \in [0, +\infty)\)</span> 都单调且一致趋于 <span class="arithmatex">\(0\)</span>, 故由 Dirichlet 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x + 2^n} = \sum\limits_{n = 1}^{\infty}u_n(x)v_n(x)\)</span> 一致收敛.</p>
-<p>\paragraph{第5题}</p>
+<h2 id="5">第 5 题</h2>
 <p>证明级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x^2 + n}\)</span> 在 <span class="arithmatex">\(x \in (-\infty, +\infty)\)</span> 上一致收敛, 但不绝对收敛.</p>
 <p>\paragraph{证明}</p>
 <p>记 <span class="arithmatex">\(u_n(x) = (-1)^n\)</span>. 由于 <span class="arithmatex">\(\left|\sum\limits_{k = 1}^{n}u_k(x)\right| \le 1\)</span> 部分和有界, 且 <span class="arithmatex">\(v_n(x) = \dfrac{1}{x^2 + n}\)</span> 对于任意的 <span class="arithmatex">\(x \in (-\infty, +\infty)\)</span> 都单调且一致趋于 <span class="arithmatex">\(0\)</span>, 故由 Dirichlet 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x^2 + n} = \sum\limits_{n = 1}^{\infty}u_n(x)v_n(x)\)</span> 一致收敛.</p>
@@ -2908,7 +3021,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

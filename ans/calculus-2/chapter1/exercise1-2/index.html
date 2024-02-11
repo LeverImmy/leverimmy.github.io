@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#3" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1667,6 +1672,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题1.2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1676,6 +1692,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 7 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2878,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 7 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2824,8 +2937,7 @@
 
   <h1>习题1.2</h1>
 
-<p>\subsection{习题1.2解答}</p>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>已知 <span class="arithmatex">\(f\left(x + y, \frac{y}{x}\right) = x^2 - y^2\)</span>, 求 <span class="arithmatex">\(f(x, y)\)</span>.</p>
 <p>\paragraph{解}</p>
 <p>设 <span class="arithmatex">\(\begin{cases} m = x + y, \\ n = \frac{y}{x}, \end{cases}\)</span> 则 <span class="arithmatex">\(\begin{cases}x = \frac{m}{n + 1}, \\ y = \frac{nm}{n + 1}.\end{cases}\)</span> 因此 <span class="arithmatex">\(f(m, n) = x^2 - y^2 = \frac{m^2(1-n)}{1+n} \quad (n \neq -1)\)</span>. 而当 <span class="arithmatex">\(n = -1\)</span> 时显然有 <span class="arithmatex">\(f(m, n) = 0\)</span>. 故</p>
@@ -2835,7 +2947,7 @@ f(x, y) = \begin{cases}
     0, &amp;y = -1.
 \end{cases}
 \]</div>
-<p>\paragraph{第4题}</p>
+<h2 id="4">第 4 题</h2>
 <p>如果 <span class="arithmatex">\(n\)</span> 元函数 <span class="arithmatex">\(f(x_1, x_2, \cdots, x_n)\)</span> 对任意实数 <span class="arithmatex">\(t\)</span> 满足 <span class="arithmatex">\(f(tx_1, tx_2, \cdots, tx_n) = t^kf(x_1, x_2, \cdots, x_n)\)</span>, 则称 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(x_1, x_2, \cdots, x_n\)</span> 的 <span class="arithmatex">\(k\)</span> 次齐次式, 下列函数是否为齐次式? 若是, 求出次数 <span class="arithmatex">\(k\)</span>.</p>
 <p>(1) <span class="arithmatex">\(f(x, y, z) = \frac{x^3 + y^3 + z^3}{xyz}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(f(x, y, z) = \sqrt{x^3 + y^3 + z^3} + xyz\)</span>;</p>
@@ -2844,13 +2956,13 @@ f(x, y) = \begin{cases}
 <p>(1) <span class="arithmatex">\(f(tx, ty, yz) = \frac{(tx)^3 + (ty)^3 + (tz)^3}{(tx)(ty)(tz)} = \frac{x^3 + y^3 + z^3}{xyz} = t^0f(x, y, z)\)</span>. 因此 <span class="arithmatex">\(k = 0\)</span>.</p>
 <p>(2) <span class="arithmatex">\(f(tx, ty, tz) = \sqrt{(tx)^3 + (ty)^3 + (tz)^3} + (tx)(ty)(tz) = t^{\frac{3}{2}}\sqrt{x^3 + y^3 + z^3} + t^3xyz\)</span>. 因此不是齐次式.</p>
 <p>(3) <span class="arithmatex">\(f(tx_1, tx_2, \cdots, tx_n) = \sum_{i = 1}^n\sum_{j = 1}^na_{ij}(tx_i)(tx_j) = t^{2}\sum_{i = 1}^n\sum_{j = 1}^na_{ij}x_ix_j = t^{2}f(x_1, x_2, \cdots, x_n)\)</span>. 因此 <span class="arithmatex">\(k = 2n^2\)</span>.</p>
-<p>\paragraph{第6题}</p>
-<p><span class="arithmatex">\(\set{R}^2\)</span> 的子集 <span class="arithmatex">\(D\)</span> 到 <span class="arithmatex">\(\set{R}^2\)</span> 的映射 <span class="arithmatex">\(F:(x, y)\mapsto (u, v)\)</span> 为 <span class="arithmatex">\(\begin{cases}u = x^2 - y^2, \\ v = xy, \end{cases}\)</span> 其中定义域 <span class="arithmatex">\(D\)</span> 是由四条曲线 <span class="arithmatex">\(x^2 - y^2 = 1, x^2 - y^2 = 4, xy = 1, xy = 2\)</span> 围成的平面区域, 求 <span class="arithmatex">\(F\)</span> 的值域 <span class="arithmatex">\(F(D)\)</span>, 并问: 在 <span class="arithmatex">\(D\)</span> 内的直线 <span class="arithmatex">\(x = a\)</span> 映射为何曲线?</p>
+<h2 id="6">第 6 题</h2>
+<p><span class="arithmatex">\(\mathbb{R}^2\)</span> 的子集 <span class="arithmatex">\(D\)</span> 到 <span class="arithmatex">\(\mathbb{R}^2\)</span> 的映射 <span class="arithmatex">\(F:(x, y)\mapsto (u, v)\)</span> 为 <span class="arithmatex">\(\begin{cases}u = x^2 - y^2, \\ v = xy, \end{cases}\)</span> 其中定义域 <span class="arithmatex">\(D\)</span> 是由四条曲线 <span class="arithmatex">\(x^2 - y^2 = 1, x^2 - y^2 = 4, xy = 1, xy = 2\)</span> 围成的平面区域, 求 <span class="arithmatex">\(F\)</span> 的值域 <span class="arithmatex">\(F(D)\)</span>, 并问: 在 <span class="arithmatex">\(D\)</span> 内的直线 <span class="arithmatex">\(x = a\)</span> 映射为何曲线?</p>
 <p>\paragraph{解}</p>
 <p>由题知 <span class="arithmatex">\(F(D)\)</span> 中区域被夹在 <span class="arithmatex">\(x^2 - y^2 = 1\)</span> 和 <span class="arithmatex">\(x^2 - y^2 = 4\)</span> 之间, <span class="arithmatex">\(xy = 1\)</span> 和 <span class="arithmatex">\(xy = 2\)</span> 之间. 因此 <span class="arithmatex">\(F(D) = \{(u, v) | 1 \le u \le 4, 1 \le v \le 2\}\)</span>.</p>
 <p>因为当 <span class="arithmatex">\(x = a\)</span> 时 <span class="arithmatex">\(u = a^2 - y^2, v = ay\)</span>, 所以消去 <span class="arithmatex">\(y\)</span> 可得曲线 <span class="arithmatex">\(a^2u + v^2 = a^4 (1 \le u \le 4, 1 \le v \le 2)\)</span>.</p>
-<p>\paragraph{第7题}</p>
-<p><span class="arithmatex">\(\set{R}^2 \backslash \{(0, 0)\}\)</span> 到 <span class="arithmatex">\(\set{R}^2\)</span> 的映射 <span class="arithmatex">\(F:(x, y) \mapsto (u, v)\)</span> 为 <span class="arithmatex">\(\begin{cases}u = \frac{x}{x^2 + y^2}, \\ v = \frac{y}{x^2 + y^2}.\end{cases}\)</span></p>
+<h2 id="7">第 7 题</h2>
+<p><span class="arithmatex">\(\mathbb{R}^2 \backslash \{(0, 0)\}\)</span> 到 <span class="arithmatex">\(\mathbb{R}^2\)</span> 的映射 <span class="arithmatex">\(F:(x, y) \mapsto (u, v)\)</span> 为 <span class="arithmatex">\(\begin{cases}u = \frac{x}{x^2 + y^2}, \\ v = \frac{y}{x^2 + y^2}.\end{cases}\)</span></p>
 <p>问: (1) <span class="arithmatex">\(O-xy\)</span> 平面上的圆 <span class="arithmatex">\(x^2 + y^2 = R^2\)</span> 映射为 <span class="arithmatex">\(O-uv\)</span> 平面上的什么曲线?</p>
 <p>(2) <span class="arithmatex">\(O-xy\)</span> 平面上的线段 <span class="arithmatex">\(y = x(0 &lt; x \le 1)\)</span> 映射为 <span class="arithmatex">\(O-uv\)</span> 平面上的什么曲线?</p>
 <p>\paragraph{解}</p>
@@ -2902,7 +3014,7 @@ f(x, y) = \begin{cases}
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

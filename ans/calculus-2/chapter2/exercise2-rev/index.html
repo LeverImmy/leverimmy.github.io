@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1965,6 +1970,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第2章总复习题
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1974,6 +1990,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2869,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,8 +2920,8 @@
   <h1>第2章总复习题</h1>
 
 <p>\subsection{第2章总复习题解答}</p>
-<p>\paragraph{第1题}</p>
-<p>证明: <span class="arithmatex">\(f(x, y) = \sin (xy)\)</span> 在 <span class="arithmatex">\(\set{R}^2\)</span> 上不一致连续.</p>
+<h2 id="1">第 1 题</h2>
+<p>证明: <span class="arithmatex">\(f(x, y) = \sin (xy)\)</span> 在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 上不一致连续.</p>
 <p>\paragraph{证明}</p>
 <p>取点列 <span class="arithmatex">\(\{X_n\} = \left(\sqrt{n\pi}, \sqrt{n\pi}\right), \{Y_n\} = \left(\sqrt{n\pi + \dfrac{\pi}{2}}, \sqrt{n\pi + \dfrac{\pi}{2}}\right)\)</span>. 对于足够大的 <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(\forall \delta &gt; 0\)</span>, 都能有 <span class="arithmatex">\(\|X_n - Y_n\| = \sqrt{2}\left(\sqrt{n\pi + \dfrac{\pi}{2}} - \sqrt{n\pi}\right)&lt; \delta\)</span>, 但取 <span class="arithmatex">\(\epsilon_0 = 1\)</span>, 有</p>
 <div class="arithmatex">\[
@@ -2836,47 +2931,47 @@
         \ge \epsilon_0
     \end{aligned}
 \]</div>
-<p>因此 <span class="arithmatex">\(f(x, y) = \sin(xy)\)</span> 在 <span class="arithmatex">\(\set{R}^2\)</span> 上不一致连续.</p>
-<p>\paragraph{第4题}</p>
+<p>因此 <span class="arithmatex">\(f(x, y) = \sin(xy)\)</span> 在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 上不一致连续.</p>
+<h2 id="4">第 4 题</h2>
 <p>利用对参变量的微分, 求下列积分.</p>
-<p>(1) <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\D{x}\)</span>;</p>
-<p>(2) <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\D{x}\)</span>.</p>
+<p>(1) <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\text{d}{x}\)</span>;</p>
+<p>(2) <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\text{d}{x}\)</span>.</p>
 <p>\paragraph{解}</p>
-<p>(1) 不妨设 <span class="arithmatex">\(a, b &gt; 0\)</span>. 记 <span class="arithmatex">\(I(b) = \int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\D{x}\)</span> 为关于 <span class="arithmatex">\(b\)</span> 的函数, <span class="arithmatex">\(a\)</span> 为常数. 则</p>
+<p>(1) 不妨设 <span class="arithmatex">\(a, b &gt; 0\)</span>. 记 <span class="arithmatex">\(I(b) = \int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\text{d}{x}\)</span> 为关于 <span class="arithmatex">\(b\)</span> 的函数, <span class="arithmatex">\(a\)</span> 为常数. 则</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    I'(b) &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{2b\cos^2x}{a^2\sin^2 x + b^2\cos^2 x}\D{x} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{2b}{a^2\tan^2x + b^2}\D{x} \\
-    &amp; = \int_{0}^{+\infty}\dfrac{2b}{a^2u^2 + b^2}\D{\arctan u} \\
-    &amp; = \int_{0}^{+\infty}\dfrac{2b}{(a^2u^2 + b^2)(1 + u^2)}\D{u} \\
+    I'(b) &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{2b\cos^2x}{a^2\sin^2 x + b^2\cos^2 x}\text{d}{x} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{2b}{a^2\tan^2x + b^2}\text{d}{x} \\
+    &amp; = \int_{0}^{+\infty}\dfrac{2b}{a^2u^2 + b^2}\text{d}{\arctan u} \\
+    &amp; = \int_{0}^{+\infty}\dfrac{2b}{(a^2u^2 + b^2)(1 + u^2)}\text{d}{u} \\
     &amp; = 2b\cdot \dfrac{\arctan u - \dfrac{a}{b}\arctan\left(\dfrac{a}{b}u\right)}{b^2 - a^2} \bigg\vert_{u=0}^{u=+\infty} \\
     &amp; = \dfrac{\pi}{a + b}
 \end{aligned}
 \]</div>
-<p>因此 <span class="arithmatex">\(I(b) = \pi\ln(a + b) + C\)</span>, 其中 <span class="arithmatex">\(C\)</span> 为某一待定常数. 由于 <span class="arithmatex">\(I(a) = \dfrac{\pi}{2}\ln(a^2) = \pi\ln a\)</span>, 所以 <span class="arithmatex">\(C = \pi\ln a - \pi\ln(a + a) = -\pi\ln 2\)</span>. 故 <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\D{x} = I(b) = \pi\ln\left(\dfrac{a + b}{2}\right)\)</span>.</p>
-<p>(2) 设 <span class="arithmatex">\(I(a) = \int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\D{x}\)</span>. 则</p>
+<p>因此 <span class="arithmatex">\(I(b) = \pi\ln(a + b) + C\)</span>, 其中 <span class="arithmatex">\(C\)</span> 为某一待定常数. 由于 <span class="arithmatex">\(I(a) = \dfrac{\pi}{2}\ln(a^2) = \pi\ln a\)</span>, 所以 <span class="arithmatex">\(C = \pi\ln a - \pi\ln(a + a) = -\pi\ln 2\)</span>. 故 <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\ln(a^2\sin^2x + b^2\cos^2x)\text{d}{x} = I(b) = \pi\ln\left(\dfrac{a + b}{2}\right)\)</span>.</p>
+<p>(2) 设 <span class="arithmatex">\(I(a) = \int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\text{d}{x}\)</span>. 则</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    I'(a) &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{\tan x}{1 + (a\tan x)^2}\cdot\dfrac{1}{\tan x}\D{x} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{1}{1 + (a\tan x)^2}\D{x} \\
-    &amp; = \int_{0}^{+\infty}\dfrac{1}{1 + (ax)^2}\cdot\dfrac{1}{1 + x^2}\D{x} \\
-    &amp; = \dfrac{1}{1 - a^2}\int_{0}^{+\infty}\left[\dfrac{1}{1 + x^2}-\dfrac{a^2}{1 + (ax)^2}\right]\D{x} \\
+    I'(a) &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{\tan x}{1 + (a\tan x)^2}\cdot\dfrac{1}{\tan x}\text{d}{x} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\dfrac{1}{1 + (a\tan x)^2}\text{d}{x} \\
+    &amp; = \int_{0}^{+\infty}\dfrac{1}{1 + (ax)^2}\cdot\dfrac{1}{1 + x^2}\text{d}{x} \\
+    &amp; = \dfrac{1}{1 - a^2}\int_{0}^{+\infty}\left[\dfrac{1}{1 + x^2}-\dfrac{a^2}{1 + (ax)^2}\right]\text{d}{x} \\
     &amp; = \dfrac{1}{1 - a^2}(\arctan x - a\arctan (ax))\bigg\vert_{x=0}^{x=+\infty} \\
     &amp; = \dfrac{\pi}{2(a + 1)}
 \end{aligned}
 \]</div>
-<p>因此 <span class="arithmatex">\(I(a) = \dfrac{\pi}{2}\ln(a + 1) + C\)</span>. 由于 <span class="arithmatex">\(I(0) = 0\)</span>, 所以 <span class="arithmatex">\(C = 0\)</span>. 故 <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\D{x} = I(a) = \dfrac{\pi}{2}\ln(a + 1)\)</span>.</p>
-<p>\paragraph{第6题}</p>
+<p>因此 <span class="arithmatex">\(I(a) = \dfrac{\pi}{2}\ln(a + 1) + C\)</span>. 由于 <span class="arithmatex">\(I(0) = 0\)</span>, 所以 <span class="arithmatex">\(C = 0\)</span>. 故 <span class="arithmatex">\(\int_{0}^{\frac{\pi}{2}}\dfrac{\arctan(a\tan x)}{\tan x}\text{d}{x} = I(a) = \dfrac{\pi}{2}\ln(a + 1)\)</span>.</p>
+<h2 id="6">第 6 题</h2>
 <p>计算下列积分的值.</p>
-<p>(1) <span class="arithmatex">\(\int_{0}^{+\infty}\dfrac{\arctan xy}{x(1 + x^2)}\D{x}(y \ge 0)\)</span>;</p>
+<p>(1) <span class="arithmatex">\(\int_{0}^{+\infty}\dfrac{\arctan xy}{x(1 + x^2)}\text{d}{x}(y \ge 0)\)</span>;</p>
 <p>\paragraph{解}</p>
-<p>(1) 设 <span class="arithmatex">\(I(y) = \int_{0}^{+\infty}\dfrac{\arctan xy}{x(1 + x^2)}\D{x}\)</span>, 则</p>
+<p>(1) 设 <span class="arithmatex">\(I(y) = \int_{0}^{+\infty}\dfrac{\arctan xy}{x(1 + x^2)}\text{d}{x}\)</span>, 则</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    I'(y) &amp; = \int_{0}^{+\infty}\dfrac{\D}{\D{y}}\dfrac{\arctan xy}{x(1 + x^2)}\D{x} \\
-    &amp; = \int_{0}^{+\infty}\dfrac{1}{1 + x^2}\cdot\dfrac{x}{1 + (xy)^2}\D{x} \\
-    &amp; = \int_{0}^{+\infty}\dfrac{1}{(1 + x^2)(1 + x^2y^2)}\D{x} \\
-    &amp; = \dfrac{1}{1 - y^2}\int_{0}^{+\infty}\left(\dfrac{1}{1 + x^2}-\dfrac{y^2}{1 + x^2y^2}\right)\D{x} \\
+    I'(y) &amp; = \int_{0}^{+\infty}\dfrac{\D}{\text{d}{y}}\dfrac{\arctan xy}{x(1 + x^2)}\text{d}{x} \\
+    &amp; = \int_{0}^{+\infty}\dfrac{1}{1 + x^2}\cdot\dfrac{x}{1 + (xy)^2}\text{d}{x} \\
+    &amp; = \int_{0}^{+\infty}\dfrac{1}{(1 + x^2)(1 + x^2y^2)}\text{d}{x} \\
+    &amp; = \dfrac{1}{1 - y^2}\int_{0}^{+\infty}\left(\dfrac{1}{1 + x^2}-\dfrac{y^2}{1 + x^2y^2}\right)\text{d}{x} \\
     &amp; = \dfrac{1}{1 - y^2}\left(\arctan(x) - y\arctan (yx)\right)\bigg\vert_{x=0}^{x=+\infty} \\
     &amp; = \dfrac{\pi}{2(1 + y)}
 \end{aligned}
@@ -2928,7 +3023,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2590,6 +2595,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题6.2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2599,6 +2615,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2887,59 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 6 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,48 +2956,48 @@
   <h1>习题6.2</h1>
 
 <p>\subsection{习题6.2解答}</p>
-<p>\paragraph{第2题}</p>
-<p>设 <span class="arithmatex">\(S(x) = \sum\limits_{n = 1}^{\infty}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\)</span>, 计算 <span class="arithmatex">\(\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}S(x)\D{x}\)</span>.</p>
+<h2 id="2">第 2 题</h2>
+<p>设 <span class="arithmatex">\(S(x) = \sum\limits_{n = 1}^{\infty}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\)</span>, 计算 <span class="arithmatex">\(\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}S(x)\text{d}{x}\)</span>.</p>
 <p>\paragraph{解}</p>
 <p>记 <span class="arithmatex">\(u_n(x) = \dfrac{1}{2^n}, v_n(x) = \tan\dfrac{x}{2^n}, I = \left(\dfrac{\pi}{6}, \dfrac{\pi}{3}\right)\)</span>. 由于 <span class="arithmatex">\(v_n(x)\)</span> 对任意固定的 <span class="arithmatex">\(x\in I\)</span> 均单调递减, 且 <span class="arithmatex">\(\left|v_n(x)\right| \le \dfrac{\sqrt{3}}{3}\)</span> 在 <span class="arithmatex">\(I\)</span> 上一致有界, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(x)\)</span> 与 <span class="arithmatex">\(x\)</span> 无关, 在 <span class="arithmatex">\(I\)</span> 上一致收敛, 故由 Abel 判别法知 <span class="arithmatex">\(S(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上一致收敛. 故可以将积分与求和符号交换次序:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}S(x)\D{x} &amp; = \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\sum\limits_{n = 1}^{\infty}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\D{x} \\
-    &amp; = \sum\limits_{n = 1}^{\infty}\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\D{x} \\
+    \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}S(x)\text{d}{x} &amp; = \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\sum\limits_{n = 1}^{\infty}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\text{d}{x} \\
+    &amp; = \sum\limits_{n = 1}^{\infty}\int_{\frac{\pi}{6}}^{\frac{\pi}{3}}\dfrac{1}{2^n}\tan\dfrac{x}{2^n}\text{d}{x} \\
     &amp; = \sum\limits_{n = 1}^{\infty}\left(-\ln\cos\dfrac{x}{2^n}\right)\bigg\vert_{x=\frac{\pi}{6}}^{x=\frac{\pi}{3}} \\
     &amp; = \sum\limits_{n = 1}^{\infty}\ln\dfrac{\cos\frac{\pi}{3\cdot2^{n+1}}}{\cos\frac{\pi}{3\cdot2^n}} \\
     &amp; = \lim\limits_{n \to \infty}\ln\dfrac{\cos\frac{\pi}{3\cdot2^{n+1}}}{\cos\frac{\pi}{6}} \\
     &amp; = \ln 2 - \dfrac{\ln 3}{2}
 \end{aligned}
 \]</div>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>证明:</p>
 <div class="arithmatex">\[
-\int_{0}^{1}x^x\D{x} = 1 - \dfrac{1}{2^2} + \dfrac{1}{3^3} - \dfrac{1}{4^4} + \cdots + (-1)^n\dfrac{1}{(n + 1)^{n + 1}} + \cdots.
+\int_{0}^{1}x^x\text{d}{x} = 1 - \dfrac{1}{2^2} + \dfrac{1}{3^3} - \dfrac{1}{4^4} + \cdots + (-1)^n\dfrac{1}{(n + 1)^{n + 1}} + \cdots.
 \]</div>
 <p>\paragraph{证明}</p>
 <p>由于 <span class="arithmatex">\(x^x = e^{x\ln x} = 1 + (x\ln x) + \dfrac{1}{2}(x\ln x)^2 + \cdots = \sum\limits_{n = 0}^{\infty}\dfrac{(x \ln x)^n}{n!}\)</span>, 且 <span class="arithmatex">\(\left|x \ln x\right| \in (0, 1), \forall x \in (0, 1)\)</span>, 故 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}\dfrac{(x \ln x)^n}{n!} &lt; \sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\)</span>. 而 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\)</span> 收敛, 故由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}\dfrac{(x \ln x)^n}{n!}\)</span> 在 <span class="arithmatex">\((0, 1)\)</span> 上一致收敛. 因此可以交换积分与求和的次序:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \int_0^1x^x\D{x} &amp; = \int_{0}^{1}\sum\limits_{n = 0}^{\infty}\dfrac{(x \ln x)^n}{n!}\D{x} \\
-    &amp; = \sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{(x \ln x)^n}{n!}\D{x} \\
-    &amp; = \sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\int_{0}^{1}(x\ln x)^n\D{x} \\
-    &amp; = \sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\int_{0}^{1}\dfrac{\ln^n x}{n + 1}\D{(x^{n + 1})} \\
-    &amp; = \sum\limits_{n = 0}^{\infty}\left(\dfrac{x^{n + 1}\ln^n x}{n + 1}\bigg\vert_{0}^{1} - \int_{0}^{1}\dfrac{n x^n \ln^{n-1} x}{n + 1}\D{x}\right) \\
-    &amp; = -\sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{n x^n \ln^{n-1} x}{n + 1}\D{x} \\
-    &amp; = \sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{n(n-1) x^n \ln^{n-2} x}{(n + 1)^2}\D{x} \\
+    \int_0^1x^x\text{d}{x} &amp; = \int_{0}^{1}\sum\limits_{n = 0}^{\infty}\dfrac{(x \ln x)^n}{n!}\text{d}{x} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{(x \ln x)^n}{n!}\text{d}{x} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\int_{0}^{1}(x\ln x)^n\text{d}{x} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}\dfrac{1}{n!}\int_{0}^{1}\dfrac{\ln^n x}{n + 1}\text{d}{(x^{n + 1})} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}\left(\dfrac{x^{n + 1}\ln^n x}{n + 1}\bigg\vert_{0}^{1} - \int_{0}^{1}\dfrac{n x^n \ln^{n-1} x}{n + 1}\text{d}{x}\right) \\
+    &amp; = -\sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{n x^n \ln^{n-1} x}{n + 1}\text{d}{x} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}\int_{0}^{1}\dfrac{n(n-1) x^n \ln^{n-2} x}{(n + 1)^2}\text{d}{x} \\
     &amp; = \cdots \\
-    &amp; = \sum\limits_{n = 0}^{\infty}(-1)^{n}\int_{0}^{1}\dfrac{n! x^n}{(n + 1)^n}\D{x} \\
+    &amp; = \sum\limits_{n = 0}^{\infty}(-1)^{n}\int_{0}^{1}\dfrac{n! x^n}{(n + 1)^n}\text{d}{x} \\
     &amp; = \sum\limits_{n = 0}^{\infty}\dfrac{(-1)^n n!}{(n + 1)^{n + 1}} \\
     &amp; = 1 - \dfrac{1}{2^2} + \dfrac{1}{3^3} - \dfrac{1}{4^4} + \cdots + (-1)^n\dfrac{1}{(n + 1)^{n + 1}} + \cdots
 \end{aligned}
 \]</div>
 <p>命题得证.</p>
-<p>\paragraph{第4题}</p>
+<h2 id="4">第 4 题</h2>
 <p>证明: 函数 <span class="arithmatex">\(f(x) = \sum\limits_{n = 1}^{\infty}\dfrac{n}{x^n}\)</span> 是 <span class="arithmatex">\((1, +\infty)\)</span> 上的连续函数.</p>
 <p>\paragraph{证明}</p>
 <p>要证明函数 <span class="arithmatex">\(f(x) = \sum\limits_{n = 1}^{\infty}\dfrac{n}{x^n}\)</span> 是 <span class="arithmatex">\((1, +\infty)\)</span> 上的连续函数, 只需证 <span class="arithmatex">\(f(x)\)</span> 在任意 <span class="arithmatex">\(x = x_0 &gt; 1\)</span> 处连续即可. <span class="arithmatex">\(\forall x_0 &gt; 1\)</span>, 取 <span class="arithmatex">\(r \in (1, r_0)\)</span>, 则 <span class="arithmatex">\(f(x) = \sum\limits_{n = 1}^{\infty}\dfrac{n}{x^n} \le \sum\limits_{n = 1}^{\infty}\dfrac{n}{r^n}\)</span>, 而 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{n}{r^n}\)</span> 收敛. 故由 Weierstrass 判别法知级数在 <span class="arithmatex">\([r, +\infty)\)</span> 上一致收敛. 因此 <span class="arithmatex">\(f(x)\)</span> 在任意 <span class="arithmatex">\(x = x_0 &gt; 1\)</span> 处连续. 命题得证.</p>
-<p>\paragraph{第5题}</p>
+<h2 id="5">第 5 题</h2>
 <p>证明: 级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{x^2}{(1 + x^2)^n}\)</span> 对任意的 <span class="arithmatex">\(x\)</span> 绝对收敛, 但在 <span class="arithmatex">\((-\infty, +\infty)\)</span> 上非一致收敛.</p>
 <p>\paragraph{证明}</p>
 <p>由于 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{x^2}{(1 + x^2)^n} &lt; \sum\limits_{n = 1}^{\infty}\dfrac{1 + x^2}{(1 + x^2)^n} = \sum\limits_{n = 1}^{\infty}\dfrac{1}{(1 + x^2)^{n - 1}}\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1}{(1 + x^2)^{n - 1}}\)</span> 绝对收敛, 因此 级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{x^2}{(1 + x^2)^n}\)</span> 对任意的 <span class="arithmatex">\(x\)</span> 绝对收敛. 接下来考虑 <span class="arithmatex">\(\sum\limits_{k = n + 1}^{n + p}u_k(x)\)</span>.</p>
@@ -2887,7 +3018,7 @@
 \end{aligned}
 \]</div>
 <p>因此, 级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{x^2}{(1 + x^2)^n}\)</span> 在 <span class="arithmatex">\((-\infty, +\infty)\)</span> 上非一致收敛.</p>
-<p>\paragraph{第6题}</p>
+<h2 id="6">第 6 题</h2>
 <p>证明: 函数 <span class="arithmatex">\(f(x) = \sum\limits_{n = 1}^{\infty}ne^{-nx}\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 上连续, 进一步证明在 <span class="arithmatex">\((0, +\infty)\)</span> 上可微.</p>
 <p>\paragraph{证明}</p>
 <p>首先, <span class="arithmatex">\(u_n(x) = ne^{-nx}\)</span> 在 <span class="arithmatex">\(x \in (0, +\infty)\)</span> 上连续可导, <span class="arithmatex">\(u'_n(x) = -n^2e^{-nx}\)</span>. 其次, <span class="arithmatex">\(\forall \delta &gt; 0\)</span>, <span class="arithmatex">\(-\sum\limits_{n = 1}^{\infty}u'_n = \sum\limits_{n = 1}^{\infty}n^2e^{-nx} &lt; \sum\limits_{n = 1}^{\infty}n^2e^{-n\delta}\)</span>, 而 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}n^2e^{-n\delta}\)</span> 收敛. 所以由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n=1}^{\infty}u'_n(x)\)</span> 在 <span class="arithmatex">\((\delta, +\infty)\)</span> 上一致收敛. 由于 <span class="arithmatex">\(\delta\)</span> 可以任意小, 故 <span class="arithmatex">\(\sum\limits_{n=1}^{\infty}u'_n(x)\)</span> 在 <span class="arithmatex">\(x \in (0, +\infty)\)</span> 上一致收敛. 最后, <span class="arithmatex">\(\exists x = x_0 = 1\)</span> 时 <span class="arithmatex">\(f(1) = \sum\limits_{n = 1}^{\infty}\dfrac{n}{e^n}\)</span> 收敛. 因此, 函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 上连续, <span class="arithmatex">\(f(x) = \sum\limits_{n = 1}^{\infty}ne^{-nx}\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 上可微.</p>
@@ -2937,7 +3068,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

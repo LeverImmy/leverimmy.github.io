@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2116,6 +2121,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题3.5
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2125,6 +2141,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2878,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,7 +2938,7 @@
   <h1>习题3.5</h1>
 
 <p>\subsection{习题3.5解答}</p>
-<p>\paragraph{第1题}</p>
+<h2 id="1">第 1 题</h2>
 <p>求下列曲面的面积.</p>
 <p>(1) 柱面 <span class="arithmatex">\(x^2 + z^2 = a^2\)</span> 在柱面 <span class="arithmatex">\(x^2 + y^2 = a^2\)</span> 内的部分;</p>
 <p>(2) 锥面 <span class="arithmatex">\(z = \sqrt{x^2 + y^2}\)</span> 在柱面 <span class="arithmatex">\(z^2 = 2x\)</span> 内的部分;</p>
@@ -2834,47 +2947,47 @@
 <p>(1) 只考虑 <span class="arithmatex">\(z \ge 0\)</span> 部分的面积 <span class="arithmatex">\(S_1\)</span>. 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = -\dfrac{x}{\sqrt{a^2-x^2}}, \dfrac{\partial z}{\partial y} = 0\)</span>, 因此 <span class="arithmatex">\(\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2} = \sqrt{1 + \dfrac{x^2}{a^2-x^2}} = \dfrac{a}{\sqrt{a^2-x^2}}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    S_1 &amp; = \iint\limits_{x^2+y^2\le a^2}\dfrac{a}{\sqrt{a^2-x^2}}\D{x}\D{y} \\
-    &amp; = \int_{-a}^{a}\D{x}\int_{-\sqrt{a^2-x^2}}^{\sqrt{a^2-x^2}}\dfrac{a}{\sqrt{a^2-x^2}}\D{y} \\
-    &amp; = \int_{-a}^{a}2a\D{x} \\
+    S_1 &amp; = \iint\limits_{x^2+y^2\le a^2}\dfrac{a}{\sqrt{a^2-x^2}}\text{d}{x}\text{d}{y} \\
+    &amp; = \int_{-a}^{a}\text{d}{x}\int_{-\sqrt{a^2-x^2}}^{\sqrt{a^2-x^2}}\dfrac{a}{\sqrt{a^2-x^2}}\text{d}{y} \\
+    &amp; = \int_{-a}^{a}2a\text{d}{x} \\
     &amp; = 4a^2
 \end{aligned}
 \]</div>
 <p>由对称性知 <span class="arithmatex">\(S = 2S_1 = 8a^2\)</span>.</p>
 <p>(2) 在 <span class="arithmatex">\(xy\)</span> 面上的投影为 <span class="arithmatex">\(D_{xy} = \{(x, y) | x^2 + y^2 \le 2x\}\)</span>, 是一个以 <span class="arithmatex">\((1, 0)\)</span> 为圆心, <span class="arithmatex">\(1\)</span> 为半径的圆, 面积为 <span class="arithmatex">\(\pi\)</span>. 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = \dfrac{x}{\sqrt{x^2 + y^2}}, \dfrac{\partial z}{\partial y} = \dfrac{y}{\sqrt{x^2 + y^2}}\)</span>, 故 <span class="arithmatex">\(\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2} = \sqrt{2}\)</span>. 因此</p>
 <div class="arithmatex">\[
-S = \iint\limits_{D_{xy}}\sqrt{2}\D{x}\D{y} = \sqrt{2}\pi
+S = \iint\limits_{D_{xy}}\sqrt{2}\text{d}{x}\text{d}{y} = \sqrt{2}\pi
 \]</div>
 <p>(3) 两者的交线为 <span class="arithmatex">\(x^2 + y^2 = a(2a-\sqrt{x^2+y^2})\)</span>. 积分区域为 <span class="arithmatex">\(\{(x, y) | x^2+y^2 \le a(2a - \sqrt{x^2+y^2})\}\)</span>, 化简后即为 <span class="arithmatex">\(\{(x, y) | x^2 + y^2 \le a^2\}\)</span>. 先考虑 <span class="arithmatex">\(z = 2a - \sqrt{x^2 + y^2}\)</span> 带来的上表面面积 <span class="arithmatex">\(S_1\)</span>. 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = -\dfrac{x}{\sqrt{x^2 + y^2}}, \dfrac{\partial z}{\partial y} = -\dfrac{y}{\sqrt{x^2 + y^2}}\)</span>, 故 <span class="arithmatex">\(\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2} = \sqrt{2}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    S_1 &amp; = \iint\limits_{x^2+y^2\le a^2}\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\D{x}\D{y} \\
-    &amp; = \sqrt{2}\iint\limits_{x^2+y^2\le a^2}\D{x}\D{y} \\
+    S_1 &amp; = \iint\limits_{x^2+y^2\le a^2}\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\text{d}{x}\text{d}{y} \\
+    &amp; = \sqrt{2}\iint\limits_{x^2+y^2\le a^2}\text{d}{x}\text{d}{y} \\
     &amp; = \sqrt{2}\pi a^2
 \end{aligned}
 \]</div>
 <p>再考虑 <span class="arithmatex">\(x^2 + y^2 = az\)</span> 带来的下表面面积 <span class="arithmatex">\(S_2\)</span>. 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = \dfrac{2x}{a}, \dfrac{\partial z}{\partial y} = \dfrac{2y}{a}\)</span>, 故 <span class="arithmatex">\(\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2} = \sqrt{\dfrac{a^2 + 4(x^2 + y^2)}{a^2}}\)</span>. 极坐标变换后, 有</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    S_2 &amp; = \iint\limits_{x^2 + y^2 \le a^2}\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\D{x}\D{y} \\
-    &amp; = \int_{0}^{2\pi}\D{\theta}\int_{0}^{a}r\cdot\sqrt{1+\dfrac{4r^2}{a^2}}\D{r} \\
-    &amp; = \dfrac{2\pi}{a}\int_{0}^{a}r\sqrt{a^2 + 4r^2}\D{r} \\
-    &amp; = \dfrac{\pi}{4a}\int_{a^2}^{5a^2}\sqrt{u}\D{u} \\
+    S_2 &amp; = \iint\limits_{x^2 + y^2 \le a^2}\sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\text{d}{x}\text{d}{y} \\
+    &amp; = \int_{0}^{2\pi}\text{d}{\theta}\int_{0}^{a}r\cdot\sqrt{1+\dfrac{4r^2}{a^2}}\text{d}{r} \\
+    &amp; = \dfrac{2\pi}{a}\int_{0}^{a}r\sqrt{a^2 + 4r^2}\text{d}{r} \\
+    &amp; = \dfrac{\pi}{4a}\int_{a^2}^{5a^2}\sqrt{u}\text{d}{u} \\
     &amp; = \dfrac{\pi}{6}(5\sqrt{5} - 1)a^2
 \end{aligned}
 \]</div>
 <p>因此表面积为 <span class="arithmatex">\(S = S_1 + S_2 = \dfrac{\pi}{6}(6\sqrt{2} + 5\sqrt{5} - 1)a^2\)</span>.</p>
-<p>\paragraph{第2题}</p>
+<h2 id="2">第 2 题</h2>
 <p>求下列曲面所包围的均匀物体的质心.</p>
 <p>(1) <span class="arithmatex">\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1, x \ge 0, y \ge 0, z \ge 0\)</span>;</p>
 <p>\paragraph{解}</p>
 <p>(1) 积分区域为 <span class="arithmatex">\(\Omega = \{(x, y, z) | \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} \le 1, x \ge 0, y \ge 0, z \ge 0\}\)</span>. 做坐标变换 <span class="arithmatex">\(\begin{cases}x = ar\sin\varphi\cos\theta, \\ x = br\sin\varphi\sin\theta, \\ z = cr\cos\varphi, \end{cases}\)</span>, 则 <span class="arithmatex">\(\left|\dfrac{D(x, y, z)}{D(r, \varphi, \theta)}\right| = abcr^2\sin\varphi\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    M &amp; = \iiint\limits_{\Omega}\D{x}\D{y}\D{z} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\D{\varphi}\int_{0}^{1}\left|\dfrac{D(x, y, z)}{D(r, \varphi, \theta)}\right|\D{r} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\D{\varphi}\int_{0}^{1}abcr^2\sin\varphi\D{r} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\D{\varphi}\int_{0}^{1}abcr^2\D{r} \\
+    M &amp; = \iiint\limits_{\Omega}\text{d}{x}\text{d}{y}\text{d}{z} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\text{d}{\varphi}\int_{0}^{1}\left|\dfrac{D(x, y, z)}{D(r, \varphi, \theta)}\right|\text{d}{r} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\text{d}{\varphi}\int_{0}^{1}abcr^2\sin\varphi\text{d}{r} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\text{d}{\varphi}\int_{0}^{1}abcr^2\text{d}{r} \\
     &amp; = \dfrac{\pi}{2}\cdot 1\cdot \dfrac{1}{3}abc \\
     &amp; = \dfrac{\pi}{6}abc
 \end{aligned}
@@ -2882,51 +2995,51 @@ S = \iint\limits_{D_{xy}}\sqrt{2}\D{x}\D{y} = \sqrt{2}\pi
 <p>对 <span class="arithmatex">\(xy\)</span> 平面的静力矩为</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    M_{xy} &amp; = \iiint\limits_{\Omega}z\D{x}\D{y}\D{z} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\D{\varphi}\int_{0}^{1}\left|\dfrac{D(x, y, z)}{D(r, \varphi, \theta)}\right|cr\cos\varphi\D{r} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\D{\varphi}\int_{0}^{1}abc^2r^3\sin\varphi\cos\varphi\D{r} \\
-    &amp; = \int_{0}^{\frac{\pi}{2}}\D{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\D{\varphi}\int_{0}^{1}abc^2r^3\D{r} \\
+    M_{xy} &amp; = \iiint\limits_{\Omega}z\text{d}{x}\text{d}{y}\text{d}{z} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\text{d}{\varphi}\int_{0}^{1}\left|\dfrac{D(x, y, z)}{D(r, \varphi, \theta)}\right|cr\cos\varphi\text{d}{r} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\text{d}{\varphi}\int_{0}^{1}abc^2r^3\sin\varphi\cos\varphi\text{d}{r} \\
+    &amp; = \int_{0}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\text{d}{\varphi}\int_{0}^{1}abc^2r^3\text{d}{r} \\
     &amp; = \dfrac{\pi}{2}\cdot \dfrac{1}{2}\cdot \dfrac{1}{4}abc^2 \\
     &amp; = \dfrac{\pi}{16}abc^2
 \end{aligned}
 \]</div>
 <p>由对称性知 <span class="arithmatex">\(M_{yz} = \dfrac{\pi}{16}a^2bc, M_{xz} = \dfrac{\pi}{16}ab^2c\)</span>. 因此质心坐标为 <span class="arithmatex">\(\left(\dfrac{3a}{8}, \dfrac{3b}{8}, \dfrac{3c}{8}\right)\)</span>.</p>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>求解下列问题.</p>
 <p>(1) 物体在 <span class="arithmatex">\(P(x, y, z)\)</span> 的点密度为 <span class="arithmatex">\(\rho = \dfrac{1}{\sqrt{x^2+y^2+z^2}}, \Omega = \{(x, y, z) | 0 \le x, y, z \le 1\}\)</span>, 求物体的质心;</p>
 <p>\paragraph{解}</p>
 <p>(1) 总质量为</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    M &amp; = \iiint\limits_{\Omega}(x+y+z)\D{x}\D{y}\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1}\D{y}\int_{0}^{1}(x+y+z)\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1}(x+y+\dfrac{1}{2})\D{y} \\
-    &amp; = \int_{0}^{1}(x+1)\D{x} \\
+    M &amp; = \iiint\limits_{\Omega}(x+y+z)\text{d}{x}\text{d}{y}\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1}\text{d}{y}\int_{0}^{1}(x+y+z)\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1}(x+y+\dfrac{1}{2})\text{d}{y} \\
+    &amp; = \int_{0}^{1}(x+1)\text{d}{x} \\
     &amp; = \dfrac{3}{2}
 \end{aligned}
 \]</div>
 <p>对 <span class="arithmatex">\(xy\)</span> 平面的静力矩为</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    M_{xy} &amp; = \iiint\limits_{\Omega}z(x+y+z)\D{x}\D{y}\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1}\D{y}\int_{0}^{1}z(x+y+z)\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1}\left(\dfrac{1}{2}(x+y)+\dfrac{1}{3}\right)\D{y} \\
-    &amp; = \int_{0}^{1}\left(\dfrac{1}{2}x + \dfrac{7}{12}\right)\D{x} \\
+    M_{xy} &amp; = \iiint\limits_{\Omega}z(x+y+z)\text{d}{x}\text{d}{y}\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1}\text{d}{y}\int_{0}^{1}z(x+y+z)\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1}\left(\dfrac{1}{2}(x+y)+\dfrac{1}{3}\right)\text{d}{y} \\
+    &amp; = \int_{0}^{1}\left(\dfrac{1}{2}x + \dfrac{7}{12}\right)\text{d}{x} \\
     &amp; = \dfrac{5}{6}
 \end{aligned}
 \]</div>
 <p>因此 <span class="arithmatex">\(\bar{z} = \dfrac{M_{xy}}{M} = \dfrac{5}{9}\)</span>. 由对称性知 <span class="arithmatex">\(\bar{x} = \bar{y} = \bar{z} = \dfrac{5}{9}\)</span>. 因此质心坐标为 <span class="arithmatex">\(\left(\dfrac{5}{9}, \dfrac{5}{9}, \dfrac{5}{9}\right)\)</span>.</p>
-<p>\paragraph{第4题}</p>
+<h2 id="4">第 4 题</h2>
 <p>求下列曲面所包围的均匀物体关于 <span class="arithmatex">\(z\)</span> 轴的转动惯量.</p>
 <p>(1) <span class="arithmatex">\(z = x^2+y^2, x+y = \pm 1, x - y = \pm 1, z = 0\)</span>;</p>
 <p>\paragraph{解}</p>
 <p>(1) 设积分区域为 <span class="arithmatex">\(\Omega = \{(x, y, z) | z \le x^2 + y^2, x+y\le 1, x\ge 0, y \ge 0, z \ge 0\}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    J_z' &amp; = \iiint\limits_{\Omega}(x^2+y^2)\D{x}\D{y}\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1-x}\D{y}\int_{0}^{x^2+y^2}(x^2+y^2)\D{z} \\
-    &amp; = \int_{0}^{1}\D{x}\int_{0}^{1-x}(x^2+y^2)^2\D{y} \\
-    &amp; = \int_{0}^{1}\left(-\dfrac{28}{15}x^5+4x^4-4x^3+\dfrac{8}{3}x^2-x+\dfrac{1}{5}\right)\D{x} \\
+    J_z' &amp; = \iiint\limits_{\Omega}(x^2+y^2)\text{d}{x}\text{d}{y}\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1-x}\text{d}{y}\int_{0}^{x^2+y^2}(x^2+y^2)\text{d}{z} \\
+    &amp; = \int_{0}^{1}\text{d}{x}\int_{0}^{1-x}(x^2+y^2)^2\text{d}{y} \\
+    &amp; = \int_{0}^{1}\left(-\dfrac{28}{15}x^5+4x^4-4x^3+\dfrac{8}{3}x^2-x+\dfrac{1}{5}\right)\text{d}{x} \\
     &amp; = \dfrac{7}{90}
 \end{aligned}
 \]</div>
@@ -2977,7 +3090,7 @@ S = \iint\limits_{D_{xy}}\sqrt{2}\D{x}\D{y} = \sqrt{2}\pi
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

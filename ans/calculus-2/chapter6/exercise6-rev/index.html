@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#4" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2632,6 +2637,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第6章总复习题
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2641,6 +2657,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 8 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2860,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 8 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,25 +2902,25 @@
   <h1>第6章总复习题</h1>
 
 <p>\subsection{第6章总复习题解答}</p>
-<p>\paragraph{第4题}</p>
+<h2 id="4">第 4 题</h2>
 <p>设 <span class="arithmatex">\(u_n(x) (n = 1, 2, \cdots)\)</span> 是 <span class="arithmatex">\([a, b]\)</span> 上的连续函数, 若 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(a), \sum\limits_{n = 1}^{\infty}u_n(b)\)</span> 有一个发散, 证明: <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(x)\)</span> 在 <span class="arithmatex">\((a, b)\)</span> 上非一致收敛.</p>
 <p>\paragraph{证明}</p>
 <p>使用反证法. 假设 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(x)\)</span> 在 <span class="arithmatex">\((a, b)\)</span> 上一致收敛. 不妨设 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(a)\)</span> 发散. 由于 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(x)\)</span> 在 <span class="arithmatex">\((a, b)\)</span> 上一致收敛, 则</p>
 <div class="arithmatex">\[
-\forall \epsilon &gt; 0, \exists N(\epsilon) &gt; 0, \text{s.t.}\, \forall n &gt; N, p \in \set{N}^*, \left|\sum\limits_{k = n + 1}^{n + p}u_k(x)\right| &lt; \epsilon, \forall x \in (a, b).
+\forall \epsilon &gt; 0, \exists N(\epsilon) &gt; 0, \text{s.t.}\, \forall n &gt; N, p \in \mathbb{N}^*, \left|\sum\limits_{k = n + 1}^{n + p}u_k(x)\right| &lt; \epsilon, \forall x \in (a, b).
 \]</div>
 <p>由于 <span class="arithmatex">\(u_n(x) (n = 1, 2, \cdots)\)</span> 是 <span class="arithmatex">\([a, b]\)</span> 上的连续函数, 故不等式两端同时取极限 <span class="arithmatex">\(x \to a\)</span>, 得</p>
 <div class="arithmatex">\[
 \left|\sum\limits_{k = n + 1}^{n + p}u_k(a)\right| \le \epsilon
 \]</div>
 <p>这说明 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(a)\)</span> 收敛, 与题目矛盾, 因此假设不成立. 故 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n(x)\)</span> 在 <span class="arithmatex">\((a, b)\)</span> 上非一致收敛.</p>
-<p>\paragraph{第8题}</p>
+<h2 id="8">第 8 题</h2>
 <p>考查下列函数项级数在指定区间的一致收敛性.</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\ln\left(1 + \dfrac{x}{n\ln^2n}\right), x \in (0, +\infty)\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\ln\left(1 + \dfrac{x}{n\ln^2n}\right), x \in (-1, 1)\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{n^2}{\sqrt{n!}}(x^n + x^{-n}), \dfrac{1}{3} \le \left|x\right| \le 3\)</span>;</p>
 <p>\paragraph{解}</p>
-<p>(1) 假设 <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\ln\left(1 + \dfrac{x}{n\ln^2n}\right)\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 上一致收敛, 则其一般项一致趋于 <span class="arithmatex">\(0\)</span>. 但取 <span class="arithmatex">\(\epsilon = \ln 2\)</span>, <span class="arithmatex">\(\forall N \in \set{N}^*\)</span>, 取 <span class="arithmatex">\(n = N + 1, x = (N+1)\ln^2(N+1)\)</span>, 则</p>
+<p>(1) 假设 <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\ln\left(1 + \dfrac{x}{n\ln^2n}\right)\)</span> 在 <span class="arithmatex">\((0, +\infty)\)</span> 上一致收敛, 则其一般项一致趋于 <span class="arithmatex">\(0\)</span>. 但取 <span class="arithmatex">\(\epsilon = \ln 2\)</span>, <span class="arithmatex">\(\forall N \in \mathbb{N}^*\)</span>, 取 <span class="arithmatex">\(n = N + 1, x = (N+1)\ln^2(N+1)\)</span>, 则</p>
 <div class="arithmatex">\[
 \left|\ln\left(1 + \dfrac{x}{n\ln^2n}\right)\right| = \ln(1 + 1) = \ln2 = \epsilon.
 \]</div>
@@ -2900,7 +2977,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

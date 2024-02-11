@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2246,6 +2251,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题4.3
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2255,6 +2271,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 8 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2878,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 8 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,18 +2938,18 @@
   <h1>习题4.3</h1>
 
 <p>\subsection{习题4.3解答}</p>
-<p>\paragraph{第1题}</p>
+<h2 id="1">第 1 题</h2>
 <p>计算下列第一类曲面积分.</p>
-<p>(1) <span class="arithmatex">\(\iint\limits_{S}(x+y+z)\D{S}\)</span>, 其中 <span class="arithmatex">\(S\)</span> 是上半球面 <span class="arithmatex">\(x^2 + y^2 + z^2 = a^2(z \ge 0)\)</span>;</p>
-<p>(3) <span class="arithmatex">\(\iint\limits_{S}\dfrac{\D{S}}{(1 + x + y)^2}\)</span>, 其中 <span class="arithmatex">\(S\)</span> 是四面体 <span class="arithmatex">\(x + y + z \le 1, x \ge 0, y \ge 0, z \ge 0\)</span> 的边界面;</p>
+<p>(1) <span class="arithmatex">\(\iint\limits_{S}(x+y+z)\text{d}{S}\)</span>, 其中 <span class="arithmatex">\(S\)</span> 是上半球面 <span class="arithmatex">\(x^2 + y^2 + z^2 = a^2(z \ge 0)\)</span>;</p>
+<p>(3) <span class="arithmatex">\(\iint\limits_{S}\dfrac{\text{d}{S}}{(1 + x + y)^2}\)</span>, 其中 <span class="arithmatex">\(S\)</span> 是四面体 <span class="arithmatex">\(x + y + z \le 1, x \ge 0, y \ge 0, z \ge 0\)</span> 的边界面;</p>
 <p>\paragraph{解}</p>
-<p>(1) 做坐标变换 <span class="arithmatex">\(\begin{cases}x = a\sin\varphi\cos\theta, \\ y = a\sin\varphi\sin\theta, \\ z = a\cos\varphi\end{cases}\)</span>, 则积分区域变为 <span class="arithmatex">\(D = \{(a\sin\varphi\cos\theta, a\sin\varphi\sin\theta, a\cos\varphi) | 0 \le \varphi \le \dfrac{\pi}{2}, 0 \le \theta \le 2\pi\}\)</span>. <span class="arithmatex">\(\D{S} = a^2\sin\varphi\D{\varphi}\D{\theta}\)</span>. 由对称性知 <span class="arithmatex">\(\iint\limits_{S}(x+y)\D{S} = 0\)</span>. 因此</p>
+<p>(1) 做坐标变换 <span class="arithmatex">\(\begin{cases}x = a\sin\varphi\cos\theta, \\ y = a\sin\varphi\sin\theta, \\ z = a\cos\varphi\end{cases}\)</span>, 则积分区域变为 <span class="arithmatex">\(D = \{(a\sin\varphi\cos\theta, a\sin\varphi\sin\theta, a\cos\varphi) | 0 \le \varphi \le \dfrac{\pi}{2}, 0 \le \theta \le 2\pi\}\)</span>. <span class="arithmatex">\(\text{d}{S} = a^2\sin\varphi\text{d}{\varphi}\text{d}{\theta}\)</span>. 由对称性知 <span class="arithmatex">\(\iint\limits_{S}(x+y)\text{d}{S} = 0\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \iint\limits_{S}(x+y+z)\D{S} &amp; = \iint\limits_{S}z\D{S} \\
-    &amp; = \iint\limits_{S}a\cos\varphi\cdot a^2\sin\varphi\D{\varphi}\D{\theta} \\
-    &amp; = a^3\int_{0}^{2\pi}\D{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\D{\varphi} \\
-    &amp; = 2\pi a^3\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\D{\varphi} \\
+    \iint\limits_{S}(x+y+z)\text{d}{S} &amp; = \iint\limits_{S}z\text{d}{S} \\
+    &amp; = \iint\limits_{S}a\cos\varphi\cdot a^2\sin\varphi\text{d}{\varphi}\text{d}{\theta} \\
+    &amp; = a^3\int_{0}^{2\pi}\text{d}{\theta}\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\text{d}{\varphi} \\
+    &amp; = 2\pi a^3\int_{0}^{\frac{\pi}{2}}\sin\varphi\cos\varphi\text{d}{\varphi} \\
     &amp; = -\dfrac{\pi a^3}{2}\cos2\varphi \bigg\vert_{0}^{\frac{\pi}{2}} \\
     &amp; = \pi a^3
 \end{aligned}
@@ -2850,27 +2963,27 @@
     S_4 &amp; = \{(x, y, z) | x + y + z \le 1, x \ge 0, y \ge 0, z = 0\}.
 \end{aligned}
 \]</div>
-<p>对于 <span class="arithmatex">\(S_1\)</span>, 由于 <span class="arithmatex">\(x + y + z = 1\)</span>, 所以 <span class="arithmatex">\(\D{S} = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\D{x}\D{y} = \sqrt{3}\D{x}\D{y}\)</span>.</p>
+<p>对于 <span class="arithmatex">\(S_1\)</span>, 由于 <span class="arithmatex">\(x + y + z = 1\)</span>, 所以 <span class="arithmatex">\(\text{d}{S} = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\text{d}{x}\text{d}{y} = \sqrt{3}\text{d}{x}\text{d}{y}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \iint\limits_{S_1}\dfrac{\D{S}}{(1 + x + y)^2} &amp; = \iint\limits_{S_1}\dfrac{\sqrt{3}\D{x}\D{y}}{(1 + x + y)^2} \\
-    &amp; = \sqrt{3}\int_{0}^{1}\D{x}\int_{0}^{1 - x}\dfrac{\D{y}}{(1 + x + y)^2} \\
-    &amp; = \sqrt{3}\int_{0}^{1}\left(\dfrac{1}{1 + x} - \dfrac{1}{2}\right)\D{x} \\
+    \iint\limits_{S_1}\dfrac{\text{d}{S}}{(1 + x + y)^2} &amp; = \iint\limits_{S_1}\dfrac{\sqrt{3}\text{d}{x}\text{d}{y}}{(1 + x + y)^2} \\
+    &amp; = \sqrt{3}\int_{0}^{1}\text{d}{x}\int_{0}^{1 - x}\dfrac{\text{d}{y}}{(1 + x + y)^2} \\
+    &amp; = \sqrt{3}\int_{0}^{1}\left(\dfrac{1}{1 + x} - \dfrac{1}{2}\right)\text{d}{x} \\
     &amp; = \sqrt{3}\left(\ln(x + 1) - \dfrac{x}{2}\right)\bigg\vert_{0}^{1} \\
     &amp; = \sqrt{3}\left(\ln 2 - \dfrac{1}{2}\right)
 \end{aligned}
 \]</div>
-<p>同理 <span class="arithmatex">\(\iint\limits_{S_4}\dfrac{\D{S}}{(1 + x + y)^2} = \ln2 - \dfrac{1}{2}\)</span>, 再考虑 <span class="arithmatex">\(S_2\)</span>:</p>
+<p>同理 <span class="arithmatex">\(\iint\limits_{S_4}\dfrac{\text{d}{S}}{(1 + x + y)^2} = \ln2 - \dfrac{1}{2}\)</span>, 再考虑 <span class="arithmatex">\(S_2\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \iint\limits_{S_2}\dfrac{\D{S}}{(1 + x + y)^2} &amp; = \iint\limits_{S_2}\dfrac{\D{y}\D{z}}{(1 + y)^2} \\
-    &amp; = \int_{0}^{1}\D{y}\int_{0}^{1 - y}\dfrac{\D{z}}{(1 + y)^2} \\
-    &amp; = \int_{0}^{1}\dfrac{1 - x}{(1 + x)^2}\D{x} \\
+    \iint\limits_{S_2}\dfrac{\text{d}{S}}{(1 + x + y)^2} &amp; = \iint\limits_{S_2}\dfrac{\text{d}{y}\text{d}{z}}{(1 + y)^2} \\
+    &amp; = \int_{0}^{1}\text{d}{y}\int_{0}^{1 - y}\dfrac{\text{d}{z}}{(1 + y)^2} \\
+    &amp; = \int_{0}^{1}\dfrac{1 - x}{(1 + x)^2}\text{d}{x} \\
     &amp; = -\left(\ln(1 +x) + \dfrac{2}{1 + x}\right)\bigg\vert_{0}^{1} \\
     &amp; = 1 - \ln 2
 \end{aligned}
 \]</div>
-<p>同理 <span class="arithmatex">\(\iint\limits_{S_3}\dfrac{\D{S}}{(1 + x + y)^2} = 1 - \ln 2\)</span>. 因此总和为</p>
+<p>同理 <span class="arithmatex">\(\iint\limits_{S_3}\dfrac{\text{d}{S}}{(1 + x + y)^2} = 1 - \ln 2\)</span>. 因此总和为</p>
 <div class="arithmatex">\[
 \begin{aligned}
     S &amp; = S_1 + S_2 + S_3 + S_4 \\
@@ -2878,53 +2991,53 @@
     &amp; = \dfrac{3 - \sqrt{3}}{2} + (\sqrt{3} - 1)\ln 2
 \end{aligned}
 \]</div>
-<p>\paragraph{第2题}</p>
+<h2 id="2">第 2 题</h2>
 <p>计算圆柱面 <span class="arithmatex">\(x^2 + y^2 = ax\)</span> 被球面 <span class="arithmatex">\(x^2 + y^2 + z^2 = a^2\)</span> 所截部分的面积 <span class="arithmatex">\((a &gt; 0)\)</span>.</p>
 <p>\paragraph{解}</p>
-<p>进行坐标变换 <span class="arithmatex">\(\begin{cases}x = \dfrac{a}{2} + \dfrac{a}{2}\cos\theta, \\ y = \dfrac{a}{2}\sin\theta,\end{cases}\)</span> 则积分区域变为 <span class="arithmatex">\(L = \{(x, y) | x = \dfrac{a}{2} + \dfrac{a}{2}\cos\theta, y = \dfrac{a}{2}\sin\theta, 0 \le \theta \le 2\pi\}\)</span>. 同时 <span class="arithmatex">\(\D{l} = \dfrac{a}{2}\D{\theta},z^2 = a^2 - ax = \dfrac{a^2}{2}(1-\cos\theta)\)</span>. 不妨只考虑 <span class="arithmatex">\(z &gt; 0\)</span> 的部分.</p>
+<p>进行坐标变换 <span class="arithmatex">\(\begin{cases}x = \dfrac{a}{2} + \dfrac{a}{2}\cos\theta, \\ y = \dfrac{a}{2}\sin\theta,\end{cases}\)</span> 则积分区域变为 <span class="arithmatex">\(L = \{(x, y) | x = \dfrac{a}{2} + \dfrac{a}{2}\cos\theta, y = \dfrac{a}{2}\sin\theta, 0 \le \theta \le 2\pi\}\)</span>. 同时 <span class="arithmatex">\(\text{d}{l} = \dfrac{a}{2}\text{d}{\theta},z^2 = a^2 - ax = \dfrac{a^2}{2}(1-\cos\theta)\)</span>. 不妨只考虑 <span class="arithmatex">\(z &gt; 0\)</span> 的部分.</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \int_{L}z\D{l} &amp; = \int_{0}^{2\pi}\sqrt{\dfrac{a^2}{2}(1 - \cos\theta)}\cdot\dfrac{a}{2}\D{\theta} \\
-    &amp; = \dfrac{a^2}{2}\int_{0}^{2\pi}\sin\dfrac{\theta}{2}\D{\theta} \\
+    \int_{L}z\text{d}{l} &amp; = \int_{0}^{2\pi}\sqrt{\dfrac{a^2}{2}(1 - \cos\theta)}\cdot\dfrac{a}{2}\text{d}{\theta} \\
+    &amp; = \dfrac{a^2}{2}\int_{0}^{2\pi}\sin\dfrac{\theta}{2}\text{d}{\theta} \\
     &amp; = -a^2\cos\dfrac{\theta}{2}\bigg\vert_{0}^{2\pi} \\
     &amp; = 2a^2
 \end{aligned}
 \]</div>
 <p>由对称性, <span class="arithmatex">\(z &lt; 0\)</span> 的区域所截面积也为 <span class="arithmatex">\(2a^2\)</span>, 因此全面积为 <span class="arithmatex">\(4a^2\)</span>.</p>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>求抛物面 <span class="arithmatex">\(2z = x^2 + y^2\)</span> 在 <span class="arithmatex">\(z \in [0, 1]\)</span> 部分的质量, 其中质量面密度为 <span class="arithmatex">\(\sigma = z\)</span>.</p>
 <p>\paragraph{解}</p>
 <p>抛物面的面积元素为</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \D{S} &amp; = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\D{x}\D{y} \\
-    &amp; = \sqrt{1 + x^2 + y^2}\D{x}\D{y} \\
+    \text{d}{S} &amp; = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\text{d}{x}\text{d}{y} \\
+    &amp; = \sqrt{1 + x^2 + y^2}\text{d}{x}\text{d}{y} \\
 \end{aligned}
 \]</div>
 <p>进行坐标变换 <span class="arithmatex">\(\begin{cases}x = r\cos\theta, \\ y = r\sin\theta,\end{cases}\)</span> 则有</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \iint\limits_{0 \le x^2 + y^2 \le 2}\sigma\D{S} &amp; = \iint\limits_{0 \le x^2 + y^2 \le 2}\dfrac{x^2 + y^2}{2}\cdot\sqrt{1 + x^2 + y^2}\D{x}\D{y} \\
-    &amp; = \int_{0}^{\sqrt{2}}\D{r}\int_{0}^{2\pi}\dfrac{r^3}{2}\sqrt{1 + r^2}\D{r} \\
-    &amp; = \pi\int_{0}^{\sqrt{2}}r^3\sqrt{1 + r^2}\D{r} \\
-    &amp; = \dfrac{\pi}{2}\int_{0}^{2}u\sqrt{1 + u}\D{u} \\
+    \iint\limits_{0 \le x^2 + y^2 \le 2}\sigma\text{d}{S} &amp; = \iint\limits_{0 \le x^2 + y^2 \le 2}\dfrac{x^2 + y^2}{2}\cdot\sqrt{1 + x^2 + y^2}\text{d}{x}\text{d}{y} \\
+    &amp; = \int_{0}^{\sqrt{2}}\text{d}{r}\int_{0}^{2\pi}\dfrac{r^3}{2}\sqrt{1 + r^2}\text{d}{r} \\
+    &amp; = \pi\int_{0}^{\sqrt{2}}r^3\sqrt{1 + r^2}\text{d}{r} \\
+    &amp; = \dfrac{\pi}{2}\int_{0}^{2}u\sqrt{1 + u}\text{d}{u} \\
     &amp; = \dfrac{\pi}{15}(3u-2)(u+1)^{\frac{3}{2}}\bigg\vert_{0}^{2} \\
     &amp; = \dfrac{12\sqrt{3} + 2}{15}\pi
 \end{aligned}
 \]</div>
-<p>\paragraph{第8题}</p>
+<h2 id="8">第 8 题</h2>
 <p>求锥面 <span class="arithmatex">\(z = \sqrt{x^2 + y^2}\)</span> 在柱面 <span class="arithmatex">\(z^2 = 2x\)</span> 内的面积.</p>
 <p>\paragraph{解}</p>
 <p>锥面的面积元素为</p>
 <div class="arithmatex">\[
 \begin{aligned}
-    \D{S} &amp; = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\D{x}\D{y} \\
-    &amp; = \sqrt{2}\D{x}\D{y} \\
+    \text{d}{S} &amp; = \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}\text{d}{x}\text{d}{y} \\
+    &amp; = \sqrt{2}\text{d}{x}\text{d}{y} \\
 \end{aligned}
 \]</div>
 <p>锥面被柱面所截部分记作 <span class="arithmatex">\(S\)</span> (其面积也记为 <span class="arithmatex">\(S\)</span>), 它在 <span class="arithmatex">\(xy\)</span> 平面上的投影区域是圆域 <span class="arithmatex">\(D_{xy} = \{(x, y) | x^2 + y^2 \le 2x\}\)</span>, 所以</p>
 <div class="arithmatex">\[
-S = \iint\limits_{S}1\D{S} = \iint_{D_{xy}}\sqrt{2}\D{x}\D{y} = \sqrt{2}\pi
+S = \iint\limits_{S}1\text{d}{S} = \iint_{D_{xy}}\sqrt{2}\text{d}{x}\text{d}{y} = \sqrt{2}\pi
 \]</div>
 
 
@@ -2972,7 +3085,7 @@ S = \iint\limits_{S}1\D{S} = \iint_{D_{xy}}\sqrt{2}\D{x}\D{y} = \sqrt{2}\pi
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

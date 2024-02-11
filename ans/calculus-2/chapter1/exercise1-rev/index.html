@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#15" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1835,6 +1840,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第1章总复习题
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1844,6 +1860,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 15 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 17 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2860,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 15 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 17 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,15 +2902,15 @@
   <h1>第1章总复习题</h1>
 
 <p>\subsection{第1章总复习题解答}</p>
-<p>\paragraph{第15题}</p>
-<p>设 <span class="arithmatex">\(f(x, y)\)</span> 是可微函数, 且满足以下条件: <span class="arithmatex">\(\lim\limits_{x^2 + y^2 \to +\infty}\dfrac{f(x, y)}{\sqrt{x^2 + y^2}} = +\infty\)</span>, 试证明: 对于任意的 <span class="arithmatex">\(\vct{v} = (v_1, v_2)\)</span>, 都存在点 <span class="arithmatex">\((x_0, y_0)\)</span>, 使得 <span class="arithmatex">\(\nabla f(x_0, y_0) = \vct{v}\)</span>.</p>
+<h2 id="15">第 15 题</h2>
+<p>设 <span class="arithmatex">\(f(x, y)\)</span> 是可微函数, 且满足以下条件: <span class="arithmatex">\(\lim\limits_{x^2 + y^2 \to +\infty}\dfrac{f(x, y)}{\sqrt{x^2 + y^2}} = +\infty\)</span>, 试证明: 对于任意的 <span class="arithmatex">\(\mathbf{v} = (v_1, v_2)\)</span>, 都存在点 <span class="arithmatex">\((x_0, y_0)\)</span>, 使得 <span class="arithmatex">\(\nabla f(x_0, y_0) = \mathbf{v}\)</span>.</p>
 <p>\paragraph{证明}</p>
 <p>作辅助函数 <span class="arithmatex">\(g(x, y) = f(x, y) - v_1 x - v_2 y\)</span>, 则</p>
 <div class="arithmatex">\[
 \lim\limits_{x^2 + y^2 \to +\infty}\dfrac{g(x, y)}{\sqrt{x^2 + y^2}} = \lim\limits_{x^2 + y^2 \to +\infty}\dfrac{f(x, y)}{\sqrt{x^2 + y^2}} - \lim\limits_{x^2 + y^2 \to +\infty}\dfrac{v_1 x}{\sqrt{x^2 + y^2}} - \lim\limits_{x^2 + y^2 \to +\infty}\dfrac{v_2 y}{\sqrt{x^2 + y^2}} = +\infty
 \]</div>
-<p>考虑 <span class="arithmatex">\(g(x, y)\)</span> 在 <span class="arithmatex">\(\set{R}^2\)</span> 上的极小值点 <span class="arithmatex">\(P(x_0, y_0)\)</span>, 有 <span class="arithmatex">\(\nabla g(x_0, y_0) = \vct{0}\)</span>, 此即 <span class="arithmatex">\(\nabla f(x_0, y_0) = \vct{v}\)</span>.</p>
-<p>\paragraph{第17题}</p>
+<p>考虑 <span class="arithmatex">\(g(x, y)\)</span> 在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 上的极小值点 <span class="arithmatex">\(P(x_0, y_0)\)</span>, 有 <span class="arithmatex">\(\nabla g(x_0, y_0) = \mathbf{0}\)</span>, 此即 <span class="arithmatex">\(\nabla f(x_0, y_0) = \mathbf{v}\)</span>.</p>
+<h2 id="17">第 17 题</h2>
 <p>已知点 <span class="arithmatex">\(P(a, b)\)</span> 在曲线 <span class="arithmatex">\(f(x, y) = 0\)</span> 上, 点 <span class="arithmatex">\(Q(c, d)\)</span> 在曲线 <span class="arithmatex">\(g(x, y) = 0\)</span> 上, 其中 <span class="arithmatex">\(f, g\)</span> 可微, 证明: 若 <span class="arithmatex">\(|PQ|\)</span> 为两条曲线的距离, 则 <span class="arithmatex">\(\dfrac{a - c}{b - d} = \dfrac{f_1'(a, b)}{f_2'(a, b)} = \dfrac{g_1'(c, d)}{g_2'(c, d)}\)</span>. 利用此结论求椭圆 <span class="arithmatex">\(x^2 + 2xy + 5y^2 - 16y = 0\)</span> 与直线 <span class="arithmatex">\(x - y - 8 = 0\)</span> 的距离.</p>
 <p>\paragraph{解}</p>
 <p>由于 <span class="arithmatex">\(|PQ|\)</span> 为两条曲线间的距离, 故由题知 <span class="arithmatex">\(\vec{PQ} \parallel \nabla f(a, b) \parallel \nabla g(c, d)\)</span>. 此即</p>
@@ -2895,7 +2972,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

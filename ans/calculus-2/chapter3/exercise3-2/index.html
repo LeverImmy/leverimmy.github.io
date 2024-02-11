@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2053,6 +2058,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题3.2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2062,6 +2078,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2878,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 3 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 4 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 5 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,30 +2938,30 @@
   <h1>习题3.2</h1>
 
 <p>\subsection{习题3.2解答}</p>
-<p>\paragraph{第2题}</p>
-<p>证明: <span class="arithmatex">\(1.96&lt;\iint\limits_{\left|x\right| + \left|y\right| \le 10}\dfrac{\D{x}\D{y}}{100 + \cos^2 x + \cos^2 y}&lt;2\)</span>.</p>
+<h2 id="2">第 2 题</h2>
+<p>证明: <span class="arithmatex">\(1.96&lt;\iint\limits_{\left|x\right| + \left|y\right| \le 10}\dfrac{\text{d}{x}\text{d}{y}}{100 + \cos^2 x + \cos^2 y}&lt;2\)</span>.</p>
 <p>\paragraph{证明}</p>
 <p>由于 <span class="arithmatex">\(\cos^2 x + \cos^2 y \in [0, 2]\)</span>, 因此</p>
 <div class="arithmatex">\[
-1.96&lt;\dfrac{200}{102} &lt; \iint\limits_{\left|x\right| + \left|y\right| \le 10}\dfrac{\D{x}\D{y}}{100 + \cos^2 x + \cos^2 y}&lt;\dfrac{200}{100} = 2.
+1.96&lt;\dfrac{200}{102} &lt; \iint\limits_{\left|x\right| + \left|y\right| \le 10}\dfrac{\text{d}{x}\text{d}{y}}{100 + \cos^2 x + \cos^2 y}&lt;\dfrac{200}{100} = 2.
 \]</div>
-<p>\paragraph{第3题}</p>
+<h2 id="3">第 3 题</h2>
 <p>比较下列各组积分值的大小.</p>
-<p>(1) <span class="arithmatex">\(\iint\limits_{D}(x + y)^2\D{x}\D{y}\)</span> 与 <span class="arithmatex">\(\iint\limits_{D}(x + y)^3\D{x}\D{y}\)</span>, 其中 <span class="arithmatex">\(D = \{(x, y) | (x - 2)^2 + (y - 2)^2 \le 2\}\)</span>;</p>
-<p>(2) <span class="arithmatex">\(\iint\limits_{D}\ln(x + y)\D{x}\D{y}\)</span> 与 <span class="arithmatex">\(\iint\limits_{D}xy\D{x}\D{y}\)</span>, 其中 <span class="arithmatex">\(D\)</span> 由直线 <span class="arithmatex">\(x = 0, y = 0, x + y = \dfrac{1}{2}, x + y = 1\)</span> 围成.</p>
+<p>(1) <span class="arithmatex">\(\iint\limits_{D}(x + y)^2\text{d}{x}\text{d}{y}\)</span> 与 <span class="arithmatex">\(\iint\limits_{D}(x + y)^3\text{d}{x}\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(D = \{(x, y) | (x - 2)^2 + (y - 2)^2 \le 2\}\)</span>;</p>
+<p>(2) <span class="arithmatex">\(\iint\limits_{D}\ln(x + y)\text{d}{x}\text{d}{y}\)</span> 与 <span class="arithmatex">\(\iint\limits_{D}xy\text{d}{x}\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(D\)</span> 由直线 <span class="arithmatex">\(x = 0, y = 0, x + y = \dfrac{1}{2}, x + y = 1\)</span> 围成.</p>
 <p>\paragraph{解}</p>
-<p>(1) 由于在 <span class="arithmatex">\(D\)</span> 上有 <span class="arithmatex">\(x + y \ge 1\)</span>, 因此 <span class="arithmatex">\(\iint\limits_{D}(x + y)^2\D{x}\D{y} \le \iint\limits_{D}(x + y)^3\D{x}\D{y}\)</span>.</p>
-<p>(2) 由于在 <span class="arithmatex">\(D\)</span> 上有 <span class="arithmatex">\(xy \ge \ln(x + y)\)</span>, 因此 <span class="arithmatex">\(\iint\limits_{D}\ln(x + y)\D{x}\D{y} \le \iint\limits_{D}xy\D{x}\D{y}\)</span>.</p>
-<p>\paragraph{第4题}</p>
-<p>设 <span class="arithmatex">\(D \subset \set{R}^2\)</span> 为有界闭矩形, 非负函数 <span class="arithmatex">\(f(x, y) \in C(D)\)</span>, 证明: 若 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\D{x}\D{y} = 0\)</span>, 则 <span class="arithmatex">\(f(x, y) = 0, \forall (x, y) \in D\)</span>.</p>
+<p>(1) 由于在 <span class="arithmatex">\(D\)</span> 上有 <span class="arithmatex">\(x + y \ge 1\)</span>, 因此 <span class="arithmatex">\(\iint\limits_{D}(x + y)^2\text{d}{x}\text{d}{y} \le \iint\limits_{D}(x + y)^3\text{d}{x}\text{d}{y}\)</span>.</p>
+<p>(2) 由于在 <span class="arithmatex">\(D\)</span> 上有 <span class="arithmatex">\(xy \ge \ln(x + y)\)</span>, 因此 <span class="arithmatex">\(\iint\limits_{D}\ln(x + y)\text{d}{x}\text{d}{y} \le \iint\limits_{D}xy\text{d}{x}\text{d}{y}\)</span>.</p>
+<h2 id="4">第 4 题</h2>
+<p>设 <span class="arithmatex">\(D \subset \mathbb{R}^2\)</span> 为有界闭矩形, 非负函数 <span class="arithmatex">\(f(x, y) \in C(D)\)</span>, 证明: 若 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} = 0\)</span>, 则 <span class="arithmatex">\(f(x, y) = 0, \forall (x, y) \in D\)</span>.</p>
 <p>\paragraph{证明}</p>
-<p>反证法. 假设 <span class="arithmatex">\(\exists P_0(x_0, y_0)\)</span> 使得 <span class="arithmatex">\(f(x_0, y_0) \neq 0\)</span>, 则 <span class="arithmatex">\(\exists \delta &gt; 0\)</span>, 使得 <span class="arithmatex">\(\forall (x, y) \in B(P_0, \delta)\)</span>, 均有 <span class="arithmatex">\(f(x, y) &gt; 0\)</span>. 因此 <span class="arithmatex">\(\iint\limits_{B(P_0, \delta)\subset D}f(x, y)\D{x}\D{y} &gt; 0\)</span>. 而其他区域上 <span class="arithmatex">\(f(x, y)\)</span> 非负, 所以 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\D{x}\D{y} \ge \iint\limits_{B(P_0, \delta)\subset D}f(x, y)\D{x}\D{y} &gt; 0\)</span>. 与题目条件矛盾. 故 <span class="arithmatex">\(f(x, y) = 0, \forall (x, y) \in D\)</span>.</p>
-<p>\paragraph{第5题}</p>
-<p>函数 <span class="arithmatex">\(f(x, y)\)</span> 在 <span class="arithmatex">\((0, 0)\)</span> 的某个邻域内连续, 计算极限 <span class="arithmatex">\(\lim\limits_{r \to 0^{+}}\dfrac{1}{r^2}\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\D{x}\D{y}\)</span>.</p>
+<p>反证法. 假设 <span class="arithmatex">\(\exists P_0(x_0, y_0)\)</span> 使得 <span class="arithmatex">\(f(x_0, y_0) \neq 0\)</span>, 则 <span class="arithmatex">\(\exists \delta &gt; 0\)</span>, 使得 <span class="arithmatex">\(\forall (x, y) \in B(P_0, \delta)\)</span>, 均有 <span class="arithmatex">\(f(x, y) &gt; 0\)</span>. 因此 <span class="arithmatex">\(\iint\limits_{B(P_0, \delta)\subset D}f(x, y)\text{d}{x}\text{d}{y} &gt; 0\)</span>. 而其他区域上 <span class="arithmatex">\(f(x, y)\)</span> 非负, 所以 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} \ge \iint\limits_{B(P_0, \delta)\subset D}f(x, y)\text{d}{x}\text{d}{y} &gt; 0\)</span>. 与题目条件矛盾. 故 <span class="arithmatex">\(f(x, y) = 0, \forall (x, y) \in D\)</span>.</p>
+<h2 id="5">第 5 题</h2>
+<p>函数 <span class="arithmatex">\(f(x, y)\)</span> 在 <span class="arithmatex">\((0, 0)\)</span> 的某个邻域内连续, 计算极限 <span class="arithmatex">\(\lim\limits_{r \to 0^{+}}\dfrac{1}{r^2}\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\text{d}{x}\text{d}{y}\)</span>.</p>
 <p>\paragraph{证明}</p>
-<p>由于 <span class="arithmatex">\(f(x, y)\)</span> 在 <span class="arithmatex">\(O(0, 0)\)</span> 的某个邻域内连续, 不妨记为 <span class="arithmatex">\(B(O, \delta)\)</span>, 因此由多元函数的中值定理可得 <span class="arithmatex">\(\exists \xi, \eta \in (0, \min\{\delta, r\})\)</span> 使得 <span class="arithmatex">\(\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\D{x}\D{y} = f(\xi, \eta)\iint\limits_{x^2 + y^2 \le r^2}\D{x}\D{y} = \pi r^2 f(\xi, \eta)\)</span>. 故</p>
+<p>由于 <span class="arithmatex">\(f(x, y)\)</span> 在 <span class="arithmatex">\(O(0, 0)\)</span> 的某个邻域内连续, 不妨记为 <span class="arithmatex">\(B(O, \delta)\)</span>, 因此由多元函数的中值定理可得 <span class="arithmatex">\(\exists \xi, \eta \in (0, \min\{\delta, r\})\)</span> 使得 <span class="arithmatex">\(\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\text{d}{x}\text{d}{y} = f(\xi, \eta)\iint\limits_{x^2 + y^2 \le r^2}\text{d}{x}\text{d}{y} = \pi r^2 f(\xi, \eta)\)</span>. 故</p>
 <div class="arithmatex">\[
-\lim\limits_{r \to 0^{+}}\dfrac{1}{r^2}\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\D{x}\D{y} = \lim\limits_{r \to 0^{+}}\dfrac{f(\xi, \eta)}{r^2}\pi r^2 = \pi f(0, 0)
+\lim\limits_{r \to 0^{+}}\dfrac{1}{r^2}\iint\limits_{x^2 + y^2 \le r^2}f(x, y)\text{d}{x}\text{d}{y} = \lim\limits_{r \to 0^{+}}\dfrac{f(\xi, \eta)}{r^2}\pi r^2 = \pi f(0, 0)
 \]</div>
 
 
@@ -2896,7 +3009,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>

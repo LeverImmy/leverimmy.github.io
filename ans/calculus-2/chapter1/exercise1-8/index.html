@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1793,6 +1798,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    习题1.8
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1802,6 +1818,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2809,6 +2860,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 1 题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第 2 题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2825,7 +2902,7 @@
   <h1>习题1.8</h1>
 
 <p>\subsection{习题1.8解答}</p>
-<p>\paragraph{第1题}</p>
+<h2 id="1">第 1 题</h2>
 <p>分别写出下列函数在点 <span class="arithmatex">\(O\)</span> 处带有二阶 Peano 余项和 Lagrange 余项的 Taylor 公式.</p>
 <p>(1) <span class="arithmatex">\(z = \cos(x^2 + y^2)\)</span>;</p>
 <p>(2) <span class="arithmatex">\(z = e^{x^2 - y^2}\)</span>;</p>
@@ -2834,7 +2911,7 @@
 <p>(1) 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = -2x\sin(x^2 + y^2), \dfrac{\partial z}{\partial y} = -2y(x^2 + y^2)\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 z}{\partial x^2} = -4x^2\cos(x^2 + y^2) - 2\sin(x^2 + y^2), \dfrac{\partial^2 z}{\partial y^2} = -4y^2\cos(x^2 + y^2) - 2\sin(x^2 + y^2), \dfrac{\partial^2 z}{\partial x\partial y} = -4xy\cos(x^2 + y^2)\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + o(x^2 + y^2)\)</span>, 因此带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 - (x^2 + y^2)\sin(\theta^2(x^2 + y^2)) - 2\theta^2(x^2 + y^2)^2\cos(\theta^2(x^2 + y^2)), \theta \in (0, 1)\)</span>.</p>
 <p>(2) 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = 2xe^{x^2 - y^2}, \dfrac{\partial z}{\partial y} = -2ye^{x^2-y^2}\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 z}{\partial x^2} = (4x^2+2)e^{x^2-y^2}, \dfrac{\partial^2 z}{\partial y^2} = (4y^2-2)e^{x^2-y^2}, \dfrac{\partial^2 z}{\partial x\partial y} = -4xye^{x^2-y^2}\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + x^2 - y^2 + o(x^2 + y^2)\)</span>, 带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + (x^2-y^2)e^{\theta^2(x^2-y^2)}(1+2\theta^2(x^2-y^2)), \theta \in (0, 1)\)</span>.</p>
 <p>(3) 由于 <span class="arithmatex">\(\dfrac{\partial u}{\partial x} = \dfrac{\partial u}{\partial y} = \dfrac{\partial u}{\partial z} = \dfrac{1}{1 + x + y + z}\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 u}{\partial x^2} = \dfrac{\partial ^2u}{\partial x\partial y} = \dfrac{\partial^2 u}{\partial x\partial z} = \dfrac{\partial^2u}{\partial y^2} = \dfrac{\partial^2u}{\partial y\partial z} = \dfrac{\partial^2u}{\partial z^2} = -\dfrac{1}{(1 + x + y + z)^2}\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = x + y + z - \dfrac{1}{2}(x + y + z)^2 + o(x^2 + y^2 + z^2)\)</span>, 带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = x + y + z - \dfrac{1}{2(1 + \theta x + \theta y + \theta z)^2}(x + y + z)^2, \theta \in (0, 1)\)</span>.</p>
-<p>\paragraph{第2题}</p>
+<h2 id="2">第 2 题</h2>
 <p>写出下列函数在指定点处的 Taylor 公式</p>
 <p>(2) <span class="arithmatex">\(z = \dfrac{\cos x}{\cos y}\)</span> 在点 <span class="arithmatex">\((0, 0)\)</span> 处的二阶 Taylor 多项式;</p>
 <p>\paragraph{解}</p>
@@ -2885,7 +2962,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.instant", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
