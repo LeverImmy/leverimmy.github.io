@@ -3027,12 +3027,11 @@
 
   <h1>习题1.5</h1>
 
-<p>\subsection{习题1.5解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>求下列变换所确定的向量值函数 <span class="arithmatex">\(\begin{pmatrix}u \\ v\end{pmatrix} = \begin{pmatrix}f_1(x, y) \\ f_2(x, y)\end{pmatrix}\)</span> 的 Jacobi 矩阵 <span class="arithmatex">\(\dfrac{\partial(u, v)}{\partial(x, y)}\)</span>, 并指出在哪些区域 Jacobi 矩阵可逆.</p>
 <p>(1) <span class="arithmatex">\(\begin{cases}u = \sqrt{x^2 + y^2}, \\ v = \arctan\dfrac{y}{x};\end{cases}\)</span></p>
 <p>(3) <span class="arithmatex">\(\begin{cases}u = \dfrac{x}{x^2 + y^2}, \\ v = \dfrac{y}{x^2 + y^2};\end{cases}\)</span></p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1)</p>
 <div class="arithmatex">\[
 J=
@@ -3073,7 +3072,7 @@ J=
 <p>且 <span class="arithmatex">\(\det{J} \neq 0 \iff x^2 + y^2 \neq 0\)</span>, 故在 <span class="arithmatex">\(\mathbb{R}^2 \backslash \{(0, 0)\}\)</span> 处 Jacobi 矩阵可逆.</p>
 <h2 id="2">第 2 题</h2>
 <p>求变换 <span class="arithmatex">\(\begin{cases}x = r\sin\theta\cos\phi, \\ y = r\cos\theta\cos\phi, \\ z=r\sin\phi,\end{cases}r&gt;0, 0\le\theta \le 2\pi, 0 \le \phi \le pi\)</span> 确定的向量值函数  <span class="arithmatex">\(\begin{pmatrix}x \\ y \\ z\end{pmatrix} = \begin{pmatrix}f_1(r, \theta, \phi) \\ f_2(r, \theta, \phi) \\ f_3(r, \theta, \phi)\end{pmatrix}\)</span> 的 Jacobi 矩阵.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <div class="arithmatex">\[
 J = 
 \begin{pmatrix}
@@ -3093,7 +3092,7 @@ J =
 <p>(1) <span class="arithmatex">\(z = \arctan \dfrac{u}{v}, u = x^2 + y^2, v = xy\)</span>;</p>
 <p>(3) <span class="arithmatex">\(z = f(x^2 - y^2, e^{xy})\)</span>;</p>
 <p>(5) <span class="arithmatex">\(z = xy + \dfrac{y}{x}f(xy)\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = \dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial x} + \dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial x} = \dfrac{\dfrac{1}{v}}{1 + \left(\dfrac{u}{v}\right)^2}\cdot 2x + \dfrac{-\dfrac{u}{v^2}}{1 + \left(\dfrac{u}{v}\right)^2}\cdot y = \dfrac{y(x^2 - y^2)}{x^4 + 3x^2y^2 + y^4}\)</span>.</p>
 <p><span class="arithmatex">\(\dfrac{\partial z}{\partial y} = \dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial y} + \dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial y} = \dfrac{\dfrac{1}{v}}{1 + \left(\dfrac{u}{v}\right)^2}\cdot 2y + \dfrac{-\dfrac{u}{v^2}}{1 + \left(\dfrac{u}{v}\right)^2}\cdot x = \dfrac{x(y^2 - x^2)}{x^4 + 3x^2y^2 + y^4}\)</span>.</p>
 <p>(3) <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = \dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial x} + \dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial x} = f_1'(x^2 - y^2, e^{xy})\cdot 2x + f_2'(x^2 - y^2, e^{xy})\cdot ye^{xy} = 2xf_1' + ye^{xy}f_2'\)</span>.</p>
@@ -3102,7 +3101,7 @@ J =
 <p><span class="arithmatex">\(\dfrac{\partial z}{\partial y} = \dfrac{\partial z}{\partial u}\dfrac{\partial u}{\partial y} + \dfrac{\partial z}{\partial v}\dfrac{\partial v}{\partial y} = x + \dfrac{f(xy) + yxf'(xy)}{x} = x + yf'(xy) + \dfrac{f(xy)}{x}\)</span>.</p>
 <h2 id="4">第 4 题</h2>
 <p>已知函数 <span class="arithmatex">\(z = u\ln(u - v)\)</span>, 其中 <span class="arithmatex">\(u = e^{-x}, v = \ln x\)</span>, 求 <span class="arithmatex">\(\dfrac{\text{d}{z}}{\text{d}{x}}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <div class="arithmatex">\[
 \begin{aligned}
     \dfrac{\text{d}{z}}{\text{d}{x}} &amp; = \dfrac{\partial z}{\partial u}\dfrac{\text{d}{u}}{\text{d}{x}} + \dfrac{\partial z}{\partial v}\dfrac{\text{d}{v}}{\text{d}{x}} \\
@@ -3115,7 +3114,7 @@ J =
 <div class="arithmatex">\[
 \left(\dfrac{\partial u}{\partial r}\right)^2 + \left(\dfrac{1}{r}\dfrac{\partial u}{\partial \theta}\right)^2 = \left(\dfrac{\partial u}{\partial x}\right)^2 + \left(\dfrac{\partial u}{\partial y}\right)^2.
 \]</div>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由于 <span class="arithmatex">\(\dfrac{\partial u}{\partial r} = \dfrac{\partial u}{\partial x}\dfrac{\partial x}{\partial r} + \dfrac{\partial u}{\partial y}\dfrac{\partial y}{\partial r} = \cos\theta \dfrac{\partial u}{\partial x} + \sin\theta \dfrac{\partial u}{\partial y}, \dfrac{\partial u}{\partial \theta} = \dfrac{\partial u}{\partial x}\dfrac{\partial x}{\partial \theta} + \dfrac{\partial u}{\partial y}\dfrac{\partial y}{\partial \theta} = -r\sin\theta \dfrac{\partial u}{\partial \theta} + r\cos\theta \dfrac{\partial u}{\partial \theta}\)</span>, 所以代入得</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3126,7 +3125,7 @@ J =
 <p>命题得证.</p>
 <h2 id="6">第 6 题</h2>
 <p>设 <span class="arithmatex">\(f\)</span> 可微, <span class="arithmatex">\(u = xy + xf\left(\dfrac{y}{x}\right)\)</span>, 证明: <span class="arithmatex">\(x\dfrac{\partial u}{\partial x} + y\dfrac{\partial u}{\partial y} = u + xy\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由于 <span class="arithmatex">\(\dfrac{\partial u}{\partial x} = y + f\left(\dfrac{y}{x}\right) - \dfrac{y}{x}f'\left(\dfrac{y}{x}\right), \dfrac{\partial u}{\partial y} = x + f'\left(\dfrac{y}{x}\right)\)</span>, 所以代入得</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3138,7 +3137,7 @@ J =
 <p>命题得证.</p>
 <h2 id="7">第 7 题</h2>
 <p>设 <span class="arithmatex">\(f \in C^2(\mathbb{R}^2)\)</span> 满足 Laplace 方程 <span class="arithmatex">\(\dfrac{\partial ^2f}{\partial x^2} + \dfrac{\partial ^2f}{\partial y^2} = 0\)</span>, 证明: <span class="arithmatex">\(u(x, y) = f\left(\dfrac{x}{x^2 + y^2}, \dfrac{y}{x^2 + y^2}\right)\)</span> 也满足 Laplace 方程.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p><span class="arithmatex">\(\dfrac{\partial u}{\partial x} = u_1'\dfrac{y^2 - x^2}{(x^2 + y^2)^2} + u_2'\dfrac{-2xy}{(x^2 + y^2)^2}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3168,7 +3167,7 @@ J =
 <p>命题得证.</p>
 <h2 id="8">第 8 题</h2>
 <p>已知变换 <span class="arithmatex">\(\begin{cases} w=x+y+z, \\u=x, \\ v=x+y,\end{cases}\)</span> 化简方程 <span class="arithmatex">\(\dfrac{\partial ^2z}{\partial x^2} - 2\dfrac{\partial ^2z}{\partial x \partial y} + \dfrac{\partial ^2z}{\partial y^2} + \dfrac{\partial z}{\partial x} - \dfrac{\partial z}{\partial y} = 0\)</span>, 以 <span class="arithmatex">\(w\)</span> 为因变量, <span class="arithmatex">\(u, v\)</span> 为自变量.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>化简得 <span class="arithmatex">\(z = -x - y + w\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3189,7 +3188,7 @@ J =
 <h2 id="9">第 9 题</h2>
 <p>向量值函数 <span class="arithmatex">\(\mathbf{Y} = \mathbf{f}(\mathbf{U}), \mathbf{U} = \mathbf{g}(\mathbf{X})\)</span> 均可微, 求复合函数 <span class="arithmatex">\(\mathbf{Y} = \mathbf{f} \circ \mathbf{g}(\mathbf{X})\)</span> 的 Jacobi 矩阵和全微分.</p>
 <p>(1) <span class="arithmatex">\(\begin{cases} y_1 = u_1 + u_2 \\ y_2 = u_1u_2 \\ y_3 = \dfrac{u_2}{u_1},\end{cases}\begin{cases}u_1 = \dfrac{x}{x^2 + y^2}, \\ u_2 = \dfrac{y}{x^2 + y^2};\end{cases}\)</span></p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 因为</p>
 <div class="arithmatex">\[
 J_{\mathbf{g}} = \begin{pmatrix}\dfrac{\partial u_1}{\partial x} &amp; \dfrac{\partial u_1}{\partial y} \\ \dfrac{\partial u_2}{\partial x} &amp; \dfrac{\partial u_2}{\partial y}\end{pmatrix} = \begin{pmatrix}\dfrac{y^2 - x^2}{x^2 + y^2} &amp; \dfrac{-2xy}{x^2 + y^2} \\ \dfrac{-2xy}{x^2 + y^2} &amp; \dfrac{x^2 - y^2}{x^2 + y^2}\end{pmatrix},

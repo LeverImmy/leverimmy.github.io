@@ -2955,28 +2955,27 @@
 
   <h1>习题2.2</h1>
 
-<p>\subsection{习题2.2解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>求下列极限:</p>
 <p>(1) <span class="arithmatex">\(\lim\limits_{a \to 0}\int_{-1}^{1}\sqrt{x^2 + a^2}\text{d}{x}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\lim\limits_{a \to 0}\int_{0}^{3}x^2\cos ax \text{d}{x}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(\lim\limits_{a \to 0}\int_{-1}^{1}\sqrt{x^2 + a^2}\text{d}{x} = \int_{-1}^{1}\lim\limits_{a \to 0}\sqrt{x^2 + a^2}\text{d}{x} = \int_{-1}^{1}\left|x\right|\text{d}{x} = 1\)</span>.</p>
 <p>(2) <span class="arithmatex">\(\lim\limits_{a \to 0}\int_{0}^{3}x^2\cos ax \text{d}{x} = \int_{0}^{3}\lim\limits_{a \to 0}x^2\cos ax \text{d}{x} = \int_{0}^{3}x^2\text{d}{x} = \dfrac{1}{3}x^3\bigg\vert_0^3 = 9\)</span>.</p>
 <h2 id="2">第 2 题</h2>
 <p>求下列函数的导函数.</p>
 <p>(1) <span class="arithmatex">\(F(x) = \int_{x}^{x^2}e^{-xy^2}\text{d}{y}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(F(x) = \int_{0}^{t}\dfrac{\ln(1 + tx)}{x}\text{d}{x}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(F'(x) = \int_{x}^{x^2}-y^2e^{-xy^2}\text{d}{y} + e^{-x^5}\cdot 2x - e^{-x^3} = 2xe^{-x^5} - e^{-x^3} - \int_{x}^{x^2}y^2e^{-xy^2}\text{d}{y}\)</span>.</p>
 <p>(3) <span class="arithmatex">\(F'(t) = \int_{0}^t\dfrac{1}{1 + tx}\text{d}{x} + \dfrac{\ln (1 + t^2)}{t}\)</span>.</p>
 <h2 id="3">第 3 题</h2>
 <p>设 <span class="arithmatex">\(f(x)\)</span> 可微, 且 <span class="arithmatex">\(F(x) = \int_{0}^{x}(x + y)f(y)\text{d}{y}\)</span>, 求 <span class="arithmatex">\(F''(x)\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>由于 <span class="arithmatex">\(F'(x) = \int_{0}^xf(y)\text{d}{y} + 2xf(x)\)</span>, 所以 <span class="arithmatex">\(F''(x) = f(x) + 2f(x) + 2xf'(x) = 3f(x) + 2xf'(x)\)</span>.</p>
 <h2 id="4">第 4 题</h2>
 <p>证明: <span class="arithmatex">\(u(x, t) = \dfrac{1}{2}(\varphi(x + at) + \varphi(x - at)) + \dfrac{1}{2a}\int_{x - at}^{x + at}\psi(s)\text{d}{s}\)</span> 是弦振动方程 <span class="arithmatex">\(\dfrac{\partial^2u}{\partial t^2} = a^2 \dfrac{\partial^2u}{\partial x^2}\)</span> 的解, 其中 <span class="arithmatex">\(\varphi \in C^2, \psi \in C^1\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由题知</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -2995,7 +2994,7 @@
 <h2 id="5">第 5 题</h2>
 <p>计算下列积分.</p>
 <p>(1) <span class="arithmatex">\(\int_{0}^{1}\dfrac{\arctan x}{x}\dfrac{1}{\sqrt{1 - x^2}}\text{d}{x}\)</span> (提示: <span class="arithmatex">\(\dfrac{\arctan x}{x} = \int_{0}^{1}\dfrac{1}{1 + x^2y^2}\text{d}{y}\)</span>);</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <div class="arithmatex">\[
 \begin{aligned}
     \int_{0}^{1}\dfrac{\arctan x}{x}\dfrac{1}{\sqrt{1 - x^2}}\text{d}{x} &amp;= \int_{0}^{1}\int_{0}^1\dfrac{1}{1 + x^2y^2}\text{d}{y}\dfrac{1}{\sqrt{1 - x^2}}\text{d}{x} \\

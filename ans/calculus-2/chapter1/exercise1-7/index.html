@@ -2991,13 +2991,12 @@
 
   <h1>习题1.7</h1>
 
-<p>\subsection{习题1.7解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>求下列曲面在给定点的切平面方程和法线方程.</p>
 <p>(1) <span class="arithmatex">\(z = x^2 + y^2\)</span>, 点 <span class="arithmatex">\(P(1, 2, 5)\)</span>;</p>
 <p>(3) <span class="arithmatex">\((2a^2 - z^2)x^2 = a^2y^2\)</span>, 点 <span class="arithmatex">\(P(a, a, a)(a \neq 0)\)</span>;</p>
 <p>(5) <span class="arithmatex">\(\begin{cases}x = u\cos v, \\ y = u\sin v, \\ z = av,\end{cases}\)</span> 点 <span class="arithmatex">\((u, v) = (u_0, v_0)\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 因为 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = 2x, \dfrac{\partial z}{\partial y} = 2y\)</span>, 所以切平面的表达式为 <span class="arithmatex">\(z = z_0 + 2x_0(x - x_0) + 2y_0(y - y_0)\)</span>. 将 <span class="arithmatex">\(P(1, 2, 5)\)</span> 代入得 <span class="arithmatex">\(z = 2x + 4y - 5\)</span>. 法线的表达式为 <span class="arithmatex">\(\dfrac{x - 1}{2} = \dfrac{y - 2}{4} = \dfrac{z - 5}{-1}\)</span>.</p>
 <p>(3) 记 <span class="arithmatex">\(F(x, y, z) = (2a^2 - z^2)x^2 - a^2y^2\)</span>. 则 <span class="arithmatex">\(\dfrac{\partial F}{\partial x} = 2x(2a^2 - z^2), \dfrac{\partial F}{\partial y} = -2a^2y, \dfrac{\partial F}{\partial z} = -2x^2z\)</span>. 代入 <span class="arithmatex">\(P(a, a, a)\)</span> 得切平面表达式为 <span class="arithmatex">\(x - y - z + a = 0\)</span>, 法线表达式为 <span class="arithmatex">\(x - a = a - y = a - z\)</span>.</p>
 <p>(5)</p>
@@ -3032,23 +3031,23 @@
 <p>代入 <span class="arithmatex">\((u_0, v_0)\)</span> 可得切平面为 <span class="arithmatex">\(a\sin v_0(x - u_0\cos v_0) - a\cos v_0(y - u_0\sin v_0) + u_0(z - av_0) = 0\)</span>, 法线为 <span class="arithmatex">\(\dfrac{x - u_0\cos v_0}{a\sin v_0} = \dfrac{y - u_0\sin v_0}{-a\cos v_0} = \dfrac{z - av_0}{u_0}\)</span>.</p>
 <h2 id="2">第 2 题</h2>
 <p>在椭球面 <span class="arithmatex">\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1\)</span> 上求一点 <span class="arithmatex">\(P\)</span>, 使得过 <span class="arithmatex">\(P\)</span> 点的法线与坐标轴正方向成等角.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>记 <span class="arithmatex">\(F(x, y, z) = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} - 1\)</span>. 则 <span class="arithmatex">\(\dfrac{\partial F}{\partial x} = \dfrac{2x}{a^2}, \dfrac{\partial F}{\partial y} = \dfrac{2y}{b^2}, \dfrac{\partial F}{\partial z} = \dfrac{2z}{c^2}\)</span>. 因此在 <span class="arithmatex">\((x_0, y_0, z_0)\)</span> 处的法向量为 <span class="arithmatex">\(\left(\dfrac{2x_0}{a^2}, \dfrac{2y_0}{b^2}, \dfrac{2z_0}{c^2}\right)\)</span>. 由于与三个坐标轴的正方向成等角, 因此有 <span class="arithmatex">\(\dfrac{2x_0}{a^2} = \dfrac{2y_0}{b^2} = \dfrac{2z_0}{c^2}\)</span>. 结合 <span class="arithmatex">\(F(x_0, y_0, z_0) = 0\)</span> 解得满足条件的点 <span class="arithmatex">\(P\)</span> 有两个, <span class="arithmatex">\(P_1 = \left(\dfrac{a^2}{\sqrt{a^2 + b^2 + c^2}}, \dfrac{b^2}{\sqrt{a^2 + b^2 + c^2}}, \dfrac{c^2}{\sqrt{a^2 + b^2 + c^2}}\right), P_2 = \left(-\dfrac{a^2}{\sqrt{a^2 + b^2 + c^2}}, -\dfrac{b^2}{\sqrt{a^2 + b^2 + c^2}}, -\dfrac{c^2}{\sqrt{a^2 + b^2 + c^2}}\right)\)</span>.</p>
 <h2 id="3">第 3 题</h2>
 <p>求曲面 <span class="arithmatex">\(x^2 + 2y^2 + 3z^2 = 21\)</span> 上平行于 <span class="arithmatex">\(x + 4y + 6z = 0\)</span> 的切平面.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>设切点为 <span class="arithmatex">\(P(x_0, y_0, z_0)\)</span>. 记 <span class="arithmatex">\(F(x, y, z) = x^2 + 2y^2 + 3z^2 = 21\)</span>. 因为 <span class="arithmatex">\(\dfrac{\partial F}{\partial x} = 2x, \dfrac{\partial F}{\partial y} = 4y, \dfrac{\partial F}{\partial z} = 6z\)</span>, 所以切平面的法向量为 <span class="arithmatex">\((2x_0, 4y_0, 6z_0)\)</span>. 因为改平面平行于 <span class="arithmatex">\(x + 4y + 6z = 0\)</span>, 所以 <span class="arithmatex">\(\dfrac{2x_0}{1} = \dfrac{4y_0}{4} = \dfrac{6z_0}{6}\)</span>. 解得法平面为 <span class="arithmatex">\(x + 4y + 6z = 21\)</span> 或 <span class="arithmatex">\(x + 4y + 6z = -21\)</span>.</p>
 <h2 id="4">第 4 题</h2>
 <p>(1) 曲面 <span class="arithmatex">\(xyz = a^3\)</span> 上的任一点的切平面与坐标平面围成的四面体的体积为定值;</p>
 <p>(3) 曲面 <span class="arithmatex">\(z = x^2 + y^2\)</span> 与直线 <span class="arithmatex">\(l:\begin{cases}x + 2z = 1, \\ y + 2z = 2\end{cases}\)</span> 垂直的切平面;</p>
 <p>(5) 设 <span class="arithmatex">\(f\)</span> 可微, 曲面 <span class="arithmatex">\(z = yf\left(\dfrac{x}{y}\right)\)</span> 的所有切平面相交于一个定点.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>(1) 设 <span class="arithmatex">\(F(x, y, z) = xyz - a^3\)</span>. 则 <span class="arithmatex">\(\dfrac{\partial F}{\partial x} = yz, \dfrac{\partial F}{\partial y} = xz, \dfrac{\partial F}{\partial z} = xy\)</span>. 假设切点为 <span class="arithmatex">\((x_0, y_0, z_0)\)</span>, 则切平面的表达式为 <span class="arithmatex">\(y_0z_0(x - x_0) + x_0z_0(y - y_0) + x_0y_0(z - z_0) = 0\)</span> 与坐标轴交点分别为 <span class="arithmatex">\((x_0, 0, 0), (0, y_0, 0), (0, 0, z_0)\)</span>. 体积即为 <span class="arithmatex">\(\dfrac{1}{6}x_0y_0z_0 = \dfrac{1}{12}a^3\)</span> 为定值.</p>
 <p>(3) 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = 2x, \dfrac{\partial z}{\partial y} = 2y\)</span>, 所以设切点为 <span class="arithmatex">\((x_0, y_0, z_0)\)</span>, 则法向量为 <span class="arithmatex">\((2x_0, 2y_0, -1)\)</span>. 而该直线能被表示为 <span class="arithmatex">\(\dfrac{x - 1}{2} = \dfrac{y - 2}{2} = \dfrac{z}{-1}\)</span>, 因此有 <span class="arithmatex">\(2x_0 = 2y_0 = 2\)</span>. 解得切点为 <span class="arithmatex">\((1, 1, 2)\)</span>. 所以切平面为 <span class="arithmatex">\(2(x - 1) + 2(y - 1) - (z - 2) = 0\)</span>.</p>
 <p>(5) <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = yf'\left(\dfrac{x}{y}\right)\cdot \dfrac{1}{y} = f'\left(\dfrac{x}{y}\right), \dfrac{\partial z}{\partial y} = f\left(\dfrac{x}{y}\right) + y\cdot f'\left(\dfrac{x}{y}\right)\cdot\left(-\dfrac{x}{y^2}\right) = f\left(\dfrac{x}{y}\right) - \dfrac{xf'\left(\dfrac{x}{y}\right)}{y}\)</span>. 因此在 <span class="arithmatex">\((x_0, y_0)\)</span> 处的切平面的表达式为 <span class="arithmatex">\(f'\left(\dfrac{x_0}{y_0}\right)(x - x_0) + [f\left(\dfrac{x_0}{y_0}\right) - \dfrac{x_0f'\left(\dfrac{x_0}{y_0}\right)}{y_0}](y - y_0) + y_0f'\left(\dfrac{x_0}{y_0}\right) - z = 0\)</span>, 过定点 <span class="arithmatex">\((0, 0, 0)\)</span>.</p>
 <h2 id="5">第 5 题</h2>
 <p>求曲线 <span class="arithmatex">\(l:\begin{cases}x^2 + y^2 + z^2 = 6, \\ x + y + z = 0\end{cases}\)</span> 在点 <span class="arithmatex">\(P(1, -2, 1)\)</span> 处的切线方程与法平面方程.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>记 <span class="arithmatex">\(F(x, y, z) = x^2 + y^2 + z^2 - 6, G(x, y, z) = x + y + z\)</span>. 则 <span class="arithmatex">\(\dfrac{\partial F}{\partial x} = 2x, \dfrac{\partial F}{\partial y} = 2y, \dfrac{\partial F}{\partial z} = 2z\)</span>, <span class="arithmatex">\(\dfrac{\partial G}{\partial x} = \dfrac{\partial G}{\partial y} = \dfrac{\partial G}{\partial z} = 1\)</span>. 因此代入 <span class="arithmatex">\(P(1, -2, 1)\)</span>, 有切线方程满足</p>
 <div class="arithmatex">\[
 \begin{cases}
@@ -3059,11 +3058,11 @@
 <p>法平面的方程则为 <span class="arithmatex">\(-(x - 1) + (z - 1) = 0\)</span>, 即为 <span class="arithmatex">\(x - z = 0\)</span>.</p>
 <h2 id="6">第 6 题</h2>
 <p>证明: 螺旋线 <span class="arithmatex">\(\begin{cases}x = a\cos t, \\ y = a\sin t, \\ z = bt\end{cases}\)</span> 的切线与 <span class="arithmatex">\(z\)</span> 轴形成定角.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>设切点在 <span class="arithmatex">\(t = t_0\)</span> 处. 则切向量为 <span class="arithmatex">\(\mathbf{n} = (-a\sin t_0, a\cos t_0, b)\)</span>, 记沿着 <span class="arithmatex">\(z\)</span> 轴正方向的单位向量为 <span class="arithmatex">\(\mathbf{k} = (0, 0, 1)\)</span>. 该切线与 <span class="arithmatex">\(z\)</span> 轴正方向所夹角度 <span class="arithmatex">\(\theta\)</span> 满足 <span class="arithmatex">\(\cos\theta = \dfrac{\mathbf{n}\cdot \mathbf{k}}{\left|\mathbf{n}\right|} = \dfrac{b}{\sqrt{a^2 + b^2}}\)</span> 为定值.</p>
 <h2 id="7">第 7 题</h2>
 <p>已知函数 <span class="arithmatex">\(f\)</span> 可微, 若 <span class="arithmatex">\(T\)</span> 为曲面 <span class="arithmatex">\(S:f(x, y, z) = 0\)</span> 在点 <span class="arithmatex">\(P(x_0, y_0, z_0)\)</span> 处的切平面, <span class="arithmatex">\(l\)</span> 为 <span class="arithmatex">\(T\)</span> 上任意一条过 <span class="arithmatex">\(P\)</span> 的曲线, 求证: 在 <span class="arithmatex">\(S\)</span> 上存在一条曲线, 该曲线在 <span class="arithmatex">\(P\)</span> 处的切线恰好为 <span class="arithmatex">\(l\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>不妨设要求的曲线为 <span class="arithmatex">\(L\)</span>. 现在构造 <span class="arithmatex">\(L\)</span> 如下: 过 <span class="arithmatex">\(P(x_0, y_0, z_0)\)</span> 有法向量 <span class="arithmatex">\(\mathbf{n}\)</span>, 由于 <span class="arithmatex">\(\mathbf{n}\)</span> 和 <span class="arithmatex">\(l\)</span> 相互垂直, 因此张成了一个平面 <span class="arithmatex">\(Q\)</span>. 取 <span class="arithmatex">\(L\)</span> 为 <span class="arithmatex">\(Q\)</span> 和 <span class="arithmatex">\(S\)</span> 的交线, 则 <span class="arithmatex">\(L\)</span> 与平面 <span class="arithmatex">\(Q\)</span> 相切, 且它在 <span class="arithmatex">\(P\)</span> 处的切线恰好为 <span class="arithmatex">\(l\)</span>. 因此命题得证.</p>
 
 

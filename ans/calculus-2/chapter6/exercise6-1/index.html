@@ -2937,7 +2937,6 @@
 
   <h1>习题6.1</h1>
 
-<p>\subsection{习题6.1解答}</p>
 <h2 id="2">第 2 题</h2>
 <p>求下列函数项级数的收敛域, 并指出使级数绝对收敛、条件收敛的 <span class="arithmatex">\(x\)</span> 的范围.</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}ne^{-nx}\)</span>;</p>
@@ -2945,7 +2944,7 @@
 <p>(3) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(\dfrac{n + 1}{x}\right)^n\)</span>;</p>
 <p>(4) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}x^n\sin\dfrac{x}{2^n}\)</span>;</p>
 <p>(5) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty} \dfrac{1}{1 + x^n}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 该级数每一项都为正数, 故绝对收敛域等于收敛域. 由于 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{ne^{-nx}} = e^{-x}\)</span>, 故当 <span class="arithmatex">\(x &lt; 0\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} &gt; 1\)</span>, <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n\)</span> 发散; 当 <span class="arithmatex">\(x &gt; 0\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\sqrt[n]{u_n} &lt; 1\)</span>, <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\)</span> 收敛. 又因为当 <span class="arithmatex">\(x = 0\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}n\)</span> 发散, 故该级数的绝对收敛域为 <span class="arithmatex">\((0, +\infty)\)</span>.</p>
 <p>(2) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(\dfrac{\ln x}{3}\right)^n = \dfrac{\ln x}{3 - \ln x}\lim\limits_{n \to \infty}\left(1 - \left(\dfrac{\ln x}{3}\right)^n\right)\)</span>. 因此当 <span class="arithmatex">\(\left|\dfrac{\ln x}{3}\right|&lt; 1\)</span>, 即 <span class="arithmatex">\(x \in (e^{-3}, e^3)\)</span> 时级数收敛. 当 <span class="arithmatex">\(x = e^{-3}\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}(-1)^n\)</span> 发散. 当 <span class="arithmatex">\(x = e^3\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n = \sum\limits_{n = 1}^{\infty}1\)</span> 发散. 故该级数的收敛域为 <span class="arithmatex">\((e^{-3}, e^3)\)</span>.</p>
 <p>再考虑绝对收敛域. 由于当 <span class="arithmatex">\(\left|\dfrac{\ln x}{3}\right|&lt; 1\)</span>, 即 <span class="arithmatex">\(x \in (e^{-3}, e^3)\)</span> 时 <span class="arithmatex">\(\lim\limits_{n \to \infty}\left|\dfrac{\ln x}{3}\right|^n = 0\)</span>, 故该级数的绝对收敛域也为 <span class="arithmatex">\((e^{-3}, e^3)\)</span>.</p>
@@ -2958,7 +2957,7 @@
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1 - \cos nx}{n^2}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}x^3e^{-nx^2}\)</span>;</p>
 <p>(5) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\cos nx + \sin n^x}{n^{1.001}}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由于 <span class="arithmatex">\(\left|\dfrac{1 - \cos nx}{n^2}\right| \le \dfrac{2}{n^2}\)</span> 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{2}{n^2}\)</span> 收敛, 因此由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1 - \cos nx}{n^2}\)</span> 在收敛域上一致收敛.</p>
 <p>(3) 由于 <span class="arithmatex">\(e^{nx^2} \ge 1 + (nx^2) + \dfrac{1}{2}(nx^2)^2\)</span>, 故</p>
 <div class="arithmatex">\[
@@ -2968,11 +2967,11 @@
 <p>(5) 由于 <span class="arithmatex">\(\left|\dfrac{\cos nx + \sin n^x}{n^{1.001}}\right| \le \dfrac{2}{n^{1.001}}\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{2}{n^{1.001}}\)</span> 收敛, 因此由 Weierstrass 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\cos nx + \sin n^x}{n^{1.001}}\)</span> 在收敛域上一致收敛.</p>
 <h2 id="4">第 4 题</h2>
 <p>考察级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x + 2^n}\)</span> 在 <span class="arithmatex">\([0, +\infty)\)</span> 上是否一致收敛?</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>一致收敛. 记 <span class="arithmatex">\(u_n(x) = (-1)^n\)</span>. 由于 <span class="arithmatex">\(\left|\sum\limits_{k = 1}^{n}u_k(x)\right| \le 1\)</span> 部分和有界, 且 <span class="arithmatex">\(v_n(x) = \dfrac{1}{x + 2^n}\)</span> 对于任意的 <span class="arithmatex">\(x \in [0, +\infty)\)</span> 都单调且一致趋于 <span class="arithmatex">\(0\)</span>, 故由 Dirichlet 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x + 2^n} = \sum\limits_{n = 1}^{\infty}u_n(x)v_n(x)\)</span> 一致收敛.</p>
 <h2 id="5">第 5 题</h2>
 <p>证明级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x^2 + n}\)</span> 在 <span class="arithmatex">\(x \in (-\infty, +\infty)\)</span> 上一致收敛, 但不绝对收敛.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>记 <span class="arithmatex">\(u_n(x) = (-1)^n\)</span>. 由于 <span class="arithmatex">\(\left|\sum\limits_{k = 1}^{n}u_k(x)\right| \le 1\)</span> 部分和有界, 且 <span class="arithmatex">\(v_n(x) = \dfrac{1}{x^2 + n}\)</span> 对于任意的 <span class="arithmatex">\(x \in (-\infty, +\infty)\)</span> 都单调且一致趋于 <span class="arithmatex">\(0\)</span>, 故由 Dirichlet 判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{x^2 + n} = \sum\limits_{n = 1}^{\infty}u_n(x)v_n(x)\)</span> 一致收敛.</p>
 <p>当 <span class="arithmatex">\(x = 1\)</span> 时 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left|u_n\right| = \sum\limits_{n = 1}^{\infty}\dfrac{1}{1 + n}\)</span> 发散, 因此该级数不绝对收敛.</p>
 

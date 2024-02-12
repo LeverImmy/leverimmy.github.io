@@ -2901,20 +2901,19 @@
 
   <h1>习题1.8</h1>
 
-<p>\subsection{习题1.8解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>分别写出下列函数在点 <span class="arithmatex">\(O\)</span> 处带有二阶 Peano 余项和 Lagrange 余项的 Taylor 公式.</p>
 <p>(1) <span class="arithmatex">\(z = \cos(x^2 + y^2)\)</span>;</p>
 <p>(2) <span class="arithmatex">\(z = e^{x^2 - y^2}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(u = \ln(1 + x + y + z)\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = -2x\sin(x^2 + y^2), \dfrac{\partial z}{\partial y} = -2y(x^2 + y^2)\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 z}{\partial x^2} = -4x^2\cos(x^2 + y^2) - 2\sin(x^2 + y^2), \dfrac{\partial^2 z}{\partial y^2} = -4y^2\cos(x^2 + y^2) - 2\sin(x^2 + y^2), \dfrac{\partial^2 z}{\partial x\partial y} = -4xy\cos(x^2 + y^2)\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + o(x^2 + y^2)\)</span>, 因此带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 - (x^2 + y^2)\sin(\theta^2(x^2 + y^2)) - 2\theta^2(x^2 + y^2)^2\cos(\theta^2(x^2 + y^2)), \theta \in (0, 1)\)</span>.</p>
 <p>(2) 由于 <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = 2xe^{x^2 - y^2}, \dfrac{\partial z}{\partial y} = -2ye^{x^2-y^2}\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 z}{\partial x^2} = (4x^2+2)e^{x^2-y^2}, \dfrac{\partial^2 z}{\partial y^2} = (4y^2-2)e^{x^2-y^2}, \dfrac{\partial^2 z}{\partial x\partial y} = -4xye^{x^2-y^2}\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + x^2 - y^2 + o(x^2 + y^2)\)</span>, 带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = 1 + (x^2-y^2)e^{\theta^2(x^2-y^2)}(1+2\theta^2(x^2-y^2)), \theta \in (0, 1)\)</span>.</p>
 <p>(3) 由于 <span class="arithmatex">\(\dfrac{\partial u}{\partial x} = \dfrac{\partial u}{\partial y} = \dfrac{\partial u}{\partial z} = \dfrac{1}{1 + x + y + z}\)</span>, 所以 <span class="arithmatex">\(\dfrac{\partial^2 u}{\partial x^2} = \dfrac{\partial ^2u}{\partial x\partial y} = \dfrac{\partial^2 u}{\partial x\partial z} = \dfrac{\partial^2u}{\partial y^2} = \dfrac{\partial^2u}{\partial y\partial z} = \dfrac{\partial^2u}{\partial z^2} = -\dfrac{1}{(1 + x + y + z)^2}\)</span>. 因此带有二阶 Peano 余项的 Taylor 公式为 <span class="arithmatex">\(z = x + y + z - \dfrac{1}{2}(x + y + z)^2 + o(x^2 + y^2 + z^2)\)</span>, 带有二阶 Lagrange 余项的 Taylor 公式为 <span class="arithmatex">\(z = x + y + z - \dfrac{1}{2(1 + \theta x + \theta y + \theta z)^2}(x + y + z)^2, \theta \in (0, 1)\)</span>.</p>
 <h2 id="2">第 2 题</h2>
 <p>写出下列函数在指定点处的 Taylor 公式</p>
 <p>(2) <span class="arithmatex">\(z = \dfrac{\cos x}{\cos y}\)</span> 在点 <span class="arithmatex">\((0, 0)\)</span> 处的二阶 Taylor 多项式;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(2) <span class="arithmatex">\(\dfrac{\partial z}{\partial x} = -\dfrac{\sin x}{\cos y}, \dfrac{\partial z}{\partial y} = \dfrac{\cos x\sin y}{\cos^2y}\)</span>. 因此 <span class="arithmatex">\(\dfrac{\partial^2z}{\partial x^2} = -\dfrac{\cos x}{\cos y}, \dfrac{\partial^2z}{\partial x\partial y} = -\dfrac{\sin x\sin y}{\cos^2y}, \dfrac{\partial^2z}{\partial y^2} = \dfrac{(\sin^2 y + \cos y)\cos x}{\cos^3 y}\)</span>. 故 <span class="arithmatex">\(R_{2}(x, y) = \dfrac{1}{2}(\dfrac{\partial^2z}{\partial x^2}\bigg\vert_{(0, 0)}x^2 + 2\dfrac{\partial^2z}{\partial x\partial y}\bigg\vert_{(0, 0)}xy + \dfrac{\partial^2z}{\partial y^2}\bigg\vert_{(0, 0)}y^2) = -\dfrac{1}{2}x^2 + \dfrac{1}{2}y^2\)</span>. 因此在 <span class="arithmatex">\((0, 0)\)</span> 处的二阶 Taylor 多项式为 <span class="arithmatex">\(z = 1 - \dfrac{1}{2}x^2 + \dfrac{1}{2}y^2\)</span>.</p>
 
 

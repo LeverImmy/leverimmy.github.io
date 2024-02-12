@@ -2973,17 +2973,16 @@
 
   <h1>习题5.3</h1>
 
-<p>\subsection{习题5.3解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>举出相应的例子.</p>
 <p>(1) <span class="arithmatex">\(u_n &gt; 0, \lim\limits_{n \to \infty}u_n = 0\)</span>, 但 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^{n}u_n\)</span> 发散;</p>
 <p>(2) <span class="arithmatex">\(u_n &gt; 0\)</span>, <span class="arithmatex">\(\{u_n\}\)</span> 单调递减, 但 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^{n}u_n\)</span> 发散.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 构造 <span class="arithmatex">\(u_n = \begin{cases}\dfrac{2}{k}, &amp; n = 2k-1, \\ \dfrac{1}{k}, &amp; n = 2k,\end{cases}\)</span> 则 <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n = 0\)</span>. 但 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^{n}u_n = \sum\limits_{k = 1}^{\infty}\dfrac{1}{k}\)</span> 发散.</p>
 <p>(2) 构造 <span class="arithmatex">\(u_n = 1 + \dfrac{1}{n}\)</span>, 则 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^{n}u_n = \sum\limits_{n = 1}^{\infty}(-1)^n + \sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{n}\)</span>. 由于前者发散, 后者收敛, 故两者之和发散.</p>
 <h2 id="3">第 3 题</h2>
 <p>若级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}u_n\)</span> 收敛, 且 <span class="arithmatex">\(\lim\limits_{n \to \infty}\dfrac{u_n}{v_n} = 1\)</span>, 能否断定级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}v_n\)</span> 收敛?</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>不可以. 构造 <span class="arithmatex">\(u_n = \dfrac{(-1)^n}{\sqrt{n}}, v_n = \dfrac{(-1)^n}{\sqrt{n}} + \dfrac{1}{n}\)</span>, 则满足</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3003,7 +3002,7 @@
 <p>(11) <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\dfrac{(-1)^n}{\sqrt{n + (-1)^n}}\)</span>;</p>
 <p>(13) <span class="arithmatex">\(\dfrac{1}{\sqrt{2} - 1} + \dfrac{1}{\sqrt{2} + 1} + \dfrac{1}{\sqrt{3} - 1} + \dfrac{1}{\sqrt{3} + 1} + \cdots + \dfrac{1}{\sqrt{n} - 1} + \dfrac{1}{\sqrt{n} + 1} + \cdots\)</span>;</p>
 <p>(14) <span class="arithmatex">\(1 - \ln 2 + \dfrac{1}{2} - \dfrac{3}{2} + \dfrac{1}{n} - \ln\dfrac{n + 1}{n} + \cdots\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由于 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{(-1)^n}{\sqrt{n + 1}}\)</span> 为 Leibniz 级数, 故该级数收敛. 而</p>
 <div class="arithmatex">\[
 \sum\limits_{n = 1}^{\infty}\left|(-1)^{n}\dfrac{1}{\sqrt{n + 1}}\right| = \sum\limits_{n = 1}^{\infty}\dfrac{1}{\sqrt{n + 1}}
@@ -3066,16 +3065,16 @@
 <p>其中 <span class="arithmatex">\(\lim\limits_{n \to \infty}\epsilon_n = 0, \gamma = 0.577216\cdots\)</span>. 故原级数绝对收敛.</p>
 <h2 id="6">第 6 题</h2>
 <p>级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}a_n^2, \sum\limits_{n = 1}^{\infty}b_n^2\)</span> 收敛, 证明: <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(a_n + b_n)^2\)</span> 收敛, <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{a_n}{n}\)</span> 绝对收敛.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由于 <span class="arithmatex">\((a_n + b_n)^2 \le 2(a_n^2 + b_n^2)\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}2(a_n^2 + b_n^2)\)</span> 收敛, 故由比较判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(a_n + b_n)^2\)</span> 收敛.</p>
 <p>不妨设 <span class="arithmatex">\(a_n &gt; 0\)</span>. 由于 <span class="arithmatex">\(\dfrac{a_n}{n} \le a_n^2 + \dfrac{1}{4n^2}\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(a_n^2 + \dfrac{1}{4n^2}\right) = \sum\limits_{n = 1}^{\infty}a_n^2 + \sum\limits_{n = 1}^{\infty}\dfrac{1}{4n^2}\)</span> 收敛, 故由比较判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{a_n}{n}\)</span> 绝对收敛.</p>
 <h2 id="7">第 7 题</h2>
 <p>若级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}a_n, \sum\limits_{n = 1}^{\infty}b_n\)</span> 均收敛, 且 <span class="arithmatex">\(a_n \le c_n \le b_n\)</span>, 证明: <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}c_n\)</span> 收敛.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由于 <span class="arithmatex">\(0 \le c_n - a_n \le b_n - a_n\)</span>, 且 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(b_n - a_n)\)</span> 收敛, 故由比较判别法知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(c_n - a_n)\)</span> 收敛. 又因为 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}a_n\)</span> 收敛, 故 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}c_n\)</span> 收敛.</p>
 <h2 id="9">第 9 题</h2>
 <p>设正项数列 <span class="arithmatex">\(\{u_n\}\)</span> 单调减少, 且级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^nu_n\)</span> 发散, 证明: 级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\left(\dfrac{1}{1 + u_n}\right)^n\)</span> 收敛.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>由于正项数列 <span class="arithmatex">\(\{u_n\}\)</span> 单调减少, 故 <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n \ge 0\)</span>. 假设 <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n = 0\)</span>, 则级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(-1)^nu_n\)</span> 收敛, 矛盾. 故 <span class="arithmatex">\(\lim\limits_{n \to \infty}u_n &gt; 0\)</span>, 不妨设为 <span class="arithmatex">\(c\)</span>. 由于</p>
 <div class="arithmatex">\[
 \lim\limits_{n \to \infty}\sqrt[n]{\left(\dfrac{1}{1 + u_n}\right)^n} = \lim\limits_{n \to \infty}\dfrac{1}{1 + u_n} = \dfrac{1}{1 + c} &lt; 1

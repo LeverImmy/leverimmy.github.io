@@ -2955,13 +2955,12 @@
 
   <h1>习题4.5</h1>
 
-<p>\subsection{习题4.5解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>计算下列第二类曲面积分, 其中 <span class="arithmatex">\(S^{+}\)</span> 是球面 <span class="arithmatex">\(x^2 + y^2 + (z-R)^2 = R^2\)</span> 的外侧.</p>
 <p>(1) <span class="arithmatex">\(\oint\limits_{S^{+}} \text{d}{x}\wedge\text{d}{y}\)</span>; % 这里有问题, 应该是 \oiint</p>
 <p>(2) <span class="arithmatex">\(\oint\limits_{S^{+}} z\text{d}{x}\wedge\text{d}{y}\)</span>; % 这里有问题, 应该是 \oiint</p>
 <p>(3) <span class="arithmatex">\(\oint\limits_{S^{+}} z^2\text{d}{x} \wedge \text{d}{y}\)</span>. % 这里有问题, 应该是 \oiint</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由对称性知 <span class="arithmatex">\(\oint\limits_{S^{+}} \text{d}{x}\wedge\text{d}{y} = 0\)</span>. % 这里有问题, 应该是 \oiint</p>
 <p>(2) 记上半球面为 <span class="arithmatex">\(S_1^{+}\)</span>, 满足 <span class="arithmatex">\(z = R + \sqrt{R^2 - x^2 - y^2}\)</span>, <span class="arithmatex">\(\text{d}{x}\wedge\text{d}{y} = \text{d}{x}\text{d}{y}\)</span>, 下半球面为 <span class="arithmatex">\(S_2^{+}\)</span>, 满足 <span class="arithmatex">\(z = R - \sqrt{R^2 - x^2 - y^2}\)</span>, <span class="arithmatex">\(\text{d}{x} \wedge\text{d}{y} = -\text{d}{x}\text{d}{y}\)</span>. 则 <span class="arithmatex">\(D_{xy} = \{(x, y) | x^2 + y^2 \le R^2\}\)</span>. 换元 <span class="arithmatex">\(\begin{cases}x = r\cos\theta, \\ y = r\sin\theta\end{cases}\)</span>, 则 <span class="arithmatex">\(D_{r\theta} = \{(r, \theta) | 0 \le r \le R, 0 \le \theta \le 2\pi\}\)</span>. 因此</p>
 <div class="arithmatex">\[
@@ -2990,7 +2989,7 @@ I_2 = \int_{0}^{R}r\text{d}{r}\int_{0}^{2\pi}(-R + \sqrt{R^2 - r^2})\text{d}{\th
 <p>计算下列曲面积分.</p>
 <p>(1) <span class="arithmatex">\(\iint_{S^{+}}x\text{d}{y}\wedge\text{d}{z} + y\text{d}{z}\wedge\text{d}{x} + z\text{d}{x}\wedge\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(S^{+}\)</span> 为平面 <span class="arithmatex">\(x = 0, y = 0, z = 0, x = 1, y = 1, z = 1\)</span> 所围立方体表面的外侧;</p>
 <p>(2) <span class="arithmatex">\(\iint\limits_{S^{+}} x^2\text{d}{y} \wedge \text{d}{z} + y^2\text{d}{z}\wedge\text{d}{x}+z^2\text{d}{x}\wedge\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(S^{+}\)</span> 是柱面 <span class="arithmatex">\(x^2 + y^2 = 1\)</span> 被平面 <span class="arithmatex">\(z = 0, z = 3\)</span> 所截部分的外侧;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 设 <span class="arithmatex">\(S_1 = \{(x, y, z) | 0 \le x, y \le 1, z = 0\}\)</span>. 由对称性知 <span class="arithmatex">\(\iint_{S^{+}}x\text{d}{y}\wedge\text{d}{z} + y\text{d}{z}\wedge\text{d}{x} + z\text{d}{x}\wedge\text{d}{y} = 3\iint\limits_{S_1}\text{d}{x}\text{d}{y} = 3\)</span>.</p>
 <p>(2) 将 <span class="arithmatex">\(S^{+}\)</span> 分为三个部分: <span class="arithmatex">\(S_1^{+}\)</span> 上底面, <span class="arithmatex">\(S_2^{+}\)</span> 下底面, <span class="arithmatex">\(S_3^{+}\)</span> 侧面.</p>
 <div class="arithmatex">\[
@@ -3005,7 +3004,7 @@ I_2 = \int_{0}^{R}r\text{d}{r}\int_{0}^{2\pi}(-R + \sqrt{R^2 - r^2})\text{d}{\th
 <p>故 <span class="arithmatex">\(\iint\limits_{S^{+}} x^2\text{d}{y} \wedge \text{d}{z} + y^2\text{d}{z}\wedge\text{d}{x}+z^2\text{d}{x}\wedge\text{d}{y} = 9\pi\)</span>.</p>
 <h2 id="4">第 4 题</h2>
 <p>计算 <span class="arithmatex">\(\iint\limits_{S^{+}}\mathbf{A}\cdot\text{d}{\mathbf{S}}\)</span>, 其中 <span class="arithmatex">\(\mathbf{A} = \dfrac{x\mathbf{i} + y\mathbf{j} + z\mathbf{k}}{\sqrt{x^2 + y^2 + z^2}}\)</span>, <span class="arithmatex">\(S^{+}\)</span> 是上半球面 <span class="arithmatex">\(z = \sqrt{R^2 - x^2 - y^2}\)</span> 的下侧.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>做坐标变换 <span class="arithmatex">\(\begin{cases}x = R\sin\varphi\cos\theta, \\ y = R\sin\varphi\sin\theta, \\ z = R\cos\varphi, \end{cases}\)</span> 则 <span class="arithmatex">\(A = \dfrac{D(y, z)}{D(\varphi, \theta)} = R^2\sin^2\varphi\cos\theta\)</span>, <span class="arithmatex">\(B = \dfrac{D(z, x)}{D(\varphi, \theta)} = R^2\sin^2\varphi\sin\theta\)</span>, <span class="arithmatex">\(C = \dfrac{D(x, y)}{D(\varphi, \theta)} = R^2\sin\varphi\cos\varphi\)</span>. 积分区域为 <span class="arithmatex">\(D_{\varphi\theta} = \{(\varphi, \theta) | -\dfrac{\pi}{2} \le \varphi \le 0, 0 \le \theta \le 2\pi\}\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3017,7 +3016,7 @@ I_2 = \int_{0}^{R}r\text{d}{r}\int_{0}^{2\pi}(-R + \sqrt{R^2 - r^2})\text{d}{\th
 \]</div>
 <h2 id="5">第 5 题</h2>
 <p>求流速场 <span class="arithmatex">\(\mathbf{V} = xy\mathbf{i} + yz\mathbf{j} + zx\mathbf{k}\)</span> 由里往外穿过球面 <span class="arithmatex">\(x^2 + y^2 + z^2 = 1\)</span> 在第一象限部分的流量.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>做坐标变换 <span class="arithmatex">\(\begin{cases}x = \sin\varphi\cos\theta, \\ y = \sin\varphi\sin\theta, \\ z = \cos\varphi, \end{cases}\)</span> 则 <span class="arithmatex">\(A = \dfrac{D(y, z)}{D(\varphi, \theta)} = \sin^2\varphi\cos\theta\)</span>, <span class="arithmatex">\(B = \dfrac{D(z, x)}{D(\varphi, \theta)} = \sin^2\varphi\sin\theta\)</span>, <span class="arithmatex">\(C = \dfrac{D(x, y)}{D(\varphi, \theta)} = \sin\varphi\cos\varphi\)</span>. 积分区域为 <span class="arithmatex">\(D_{\varphi\theta} = \{(\varphi, \theta) | 0 \le \varphi \le \dfrac{\pi}{2}, 0 \le \theta \le \dfrac{\pi}{2}\}\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3034,7 +3033,7 @@ I_2 = \int_{0}^{R}r\text{d}{r}\int_{0}^{2\pi}(-R + \sqrt{R^2 - r^2})\text{d}{\th
 D_{uv} = \{(u, v) | 0 \le u \le 1, 0 \le v \le 2\pi\}
 \]</div>
 <p>的部分, 上侧为正.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p><span class="arithmatex">\(A = \dfrac{D(y, z)}{D(u, v)} = a\sin v\)</span>, <span class="arithmatex">\(B = \dfrac{D(z, x)}{D(u, v)} = -a\cos v\)</span>, <span class="arithmatex">\(C = \dfrac{D(x, y)}{D(u, v)} = u\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}

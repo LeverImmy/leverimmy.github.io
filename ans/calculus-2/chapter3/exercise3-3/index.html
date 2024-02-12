@@ -3171,13 +3171,12 @@
 
   <h1>习题3.3</h1>
 
-<p>\subsection{习题3.3解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>用二重积分的几何意义求下列二重积分的值.</p>
 <p>(1) <span class="arithmatex">\(\iint\limits_{D}\sqrt{R^2 - x^2 - y^2}\text{d}{x}\text{d}{y}, D = \{(x, y) | x^2 + y^2 \le R^2\}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\iint\limits_{D}\sqrt{x^2 + y^2}\text{d}{x}\text{d}{y}, D = \{(x, y) | x^2 + y^2 \le R^2\}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\iint\limits_{D}\text{d}{x}\text{d}{y}, D = \{(x, y) | \left|x\right| + \left|y\right| \le 1\}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 这个积分是半径为 <span class="arithmatex">\(R\)</span> 的上半球的体积, 因此 <span class="arithmatex">\(\iint\limits_{D}\sqrt{R^2 - x^2 - y^2}\text{d}{x}\text{d}{y} = \dfrac{2}{3}\pi R^3\)</span>.</p>
 <p>(2) 这个积分是底面半径为 <span class="arithmatex">\(R\)</span>, 高度为 <span class="arithmatex">\(R\)</span> 的圆锥的体积, 因此 <span class="arithmatex">\(\iint\limits_{D}\sqrt{x^2 + y^2}\text{d}{x}\text{d}{y} = \dfrac{2}{3}\pi R^3\)</span>.</p>
 <p>(3) 这个积分是一个对角线长度为 <span class="arithmatex">\(2\)</span> 的正方形的面积, 因此 <span class="arithmatex">\(\iint\limits_{D}\text{d}{x}\text{d}{y} = 2\)</span>.</p>
@@ -3186,7 +3185,7 @@
 <p>(1) <span class="arithmatex">\(\iint\limits_{I}\dfrac{x^2}{1 + y^2}\text{d}{x}\text{d}{y}, I = [0, 1]^2\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\iint\limits_{I}x\cos(xy)\text{d}{x}\text{d}{y}, I = \left[0, \dfrac{\pi}{2}\right] \times [0, 1]\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\iint\limits_{I}\sin(x + y)\text{d}{x}\text{d}{y}, I = [0, \pi]^2\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1)</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3217,7 +3216,7 @@
 \]</div>
 <h2 id="3">第 3 题</h2>
 <p>设函数 <span class="arithmatex">\(f(x, y)\)</span> 在 <span class="arithmatex">\(I = [a, b] \times [c, d]\)</span> 上有连续的二阶偏导数, 计算<span class="arithmatex">\(\iint\limits_{I}\dfrac{\partial ^2 f}{\partial x\partial y}\text{d}{x}\text{d}{y}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <div class="arithmatex">\[
 \begin{aligned}
     \iint\limits_{I}\dfrac{\partial ^2 f}{\partial x\partial y}\text{d}{x}\text{d}{y} &amp; = \int_{a}^{b}\text{d}{x}\int_{c}^{d}\dfrac{\partial ^2 f}{\partial x\partial y}\text{d}{y} \\
@@ -3232,7 +3231,7 @@
 <p>(1) <span class="arithmatex">\(D = \{(x, y) | x + y \le 1, y - x \le 1, y \ge 0\}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(D = \{(x, y) | y \ge x - 2, x \ge y^2\}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(D = \{(x, y) | \dfrac{2}{x} \le y \le 2x, 1 \le x \le 2\}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由题知 <span class="arithmatex">\(y-1\le x \le 1-y\)</span>, 因此 <span class="arithmatex">\(y \in [0, 1]\)</span>. 故 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} = \int_{0}^{1}\text{d}{y}\int_{y-1}^{1-y}f(x, y)\text{d}{x}\)</span>.</p>
 <p>(2) 由题知 <span class="arithmatex">\(y^2 \le x \le y + 2\)</span>, 因此 <span class="arithmatex">\(y \in [-1, 2]\)</span>. 故 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} = \int_{-1}^{2}\text{d}{y}\int_{y^2}^{y+2}f(x, y)\text{d}{x}\)</span>.</p>
 <p>(3) 按题目所给约束, 有 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} = \int_{1}^{2}\text{d}{x}\int_{\frac{2}{x}}^{2x}f(x, y)\text{d}{y}\)</span>.</p>
@@ -3241,7 +3240,7 @@
 <p>(1) <span class="arithmatex">\(\int_{-1}^{0}\text{d}{x}\int_{0}^{1 + x}f(x, y)\text{d}{y} + \int_{0}^{1}\text{d}{x}\int_{0}^{1 - x}f(x, y)\text{d}{y}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\int_{0}^{1}\text{d}{x}\int_{2\sqrt{1-x}}^{\sqrt{4-x^2}}f(x, y)\text{d}{y} + \int_{1}^{2}\text{d}{x}\int_{0}^{\sqrt{4-x^2}}f(x, y)\text{d}{y}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\int_{0}^{1}\text{d}{x}\int_{0}^{\sqrt{2x-x^2}}f(x, y)\text{d}{y} + \int_{1}^{2}\text{d}{x}\int_{0}^{2-x}f(x, y)\text{d}{y}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1)</p>
 <div class="arithmatex">\[\begin{figure}[!htbp]
     \centering
@@ -3336,7 +3335,7 @@
 <p>(5) <span class="arithmatex">\(\iint\limits_{D}(x^2 + y^2)\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D\)</span> 是以 <span class="arithmatex">\(y=x, y=x+1, y=1, y=4\)</span> 为边的平行四边形区域;</p>
 <p>(7) <span class="arithmatex">\(\iint\limits_{D}\cos(x+y)\text{d}{x}\text{d}{y}, D = \{(x, y) | 0 \le x, y \le \pi\}\)</span>;</p>
 <p>(9) <span class="arithmatex">\(\iint\limits_{D}y^2\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D\)</span> 由 <span class="arithmatex">\(\begin{cases}x=a(t-\sin t), \\ y = a(1-\cos t),\end{cases}0\le t \le 2\pi\)</span> 以及 <span class="arithmatex">\(x\)</span> 轴围成;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1)</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3394,11 +3393,11 @@
 <h2 id="8">第 8 题</h2>
 <p>利用第7题结论, 计算积分</p>
 <p><span class="arithmatex">\(\iint\limits_{D}x^2y^3\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(\iint\limits_{D}\sqrt{R^2-x^2}\sin y\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D = \{(x, y) | x^2+y^2\le R^2\}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>由于 <span class="arithmatex">\(D\)</span> 关于 <span class="arithmatex">\(x\)</span> 轴对称且关于 <span class="arithmatex">\(y\)</span> 轴对称, 且第一个被积函数关于 <span class="arithmatex">\(y\)</span> 为奇函数, 所以第一个积分式为 <span class="arithmatex">\(0\)</span>. 同理, 第二个被积函数关于 <span class="arithmatex">\(y\)</span> 也为奇函数, 所以第二个积分式也为 <span class="arithmatex">\(0\)</span>. 此即 <span class="arithmatex">\(\iint\limits_{D}x^2y^3\text{d}{x}\text{d}{y} = \iint\limits_{D}\sqrt{R^2-x^2}\sin y\text{d}{x}\text{d}{y} = 0\)</span>.</p>
 <h2 id="9">第 9 题</h2>
 <p>分别求出由平面 <span class="arithmatex">\(z=x-y,z=0\)</span> 与圆柱面 <span class="arithmatex">\(x^2+y^2=2x\)</span> 所围成的两个空间几何体的体积.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>记 <span class="arithmatex">\(D_1 = \{x^2+y^2\le 2x, y \ge x\}, D_2 = \{0 \le x \le 1, 0 \le y \le x\}, D_3 = \{x^2+y^2\le 2x, x\ge1\lor y \le 0\}\)</span>. 容易验证总积分区域 <span class="arithmatex">\(D = D_1 + D_2 + D_3\)</span>.</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3424,7 +3423,7 @@
 <p>因此 <span class="arithmatex">\(V_1 = \int\limits_{D_1}z\text{d}{x}\text{d}{y} = \int\limits_{D_1+D_2}z\text{d}{x}\text{d}{y} - \iint\limits_{D_2}z\text{d}{x}\text{d}{y} = \dfrac{5}{6} - \dfrac{\pi}{4}, V_2 = \int\limits_{D_2+D_3}z\text{d}{x}\text{d}{y} = \int\limits_{D_2}z\text{d}{x}\text{d}{y} + \iint\limits_{D_3}z\text{d}{x}\text{d}{y} = \dfrac{5}{6} + \dfrac{3\pi}{4}\)</span>.</p>
 <h2 id="10">第 10 题</h2>
 <p>求由旋转抛物面 <span class="arithmatex">\(z = x^2+y^2\)</span>, 柱面 <span class="arithmatex">\(y=x^2\)</span> 及平面 <span class="arithmatex">\(y=1,z=0\)</span> 围成的空间几何体的体积.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>体积为</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3437,7 +3436,7 @@
 <p>画出下列积分区域的图形, 并将二重积分 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y}\)</span> 化为极坐标下的累次积分.</p>
 <p>(1) <span class="arithmatex">\(D = \{(x, y) | x^2 + y^2 \le 1, x^2 + (y-1)^2 \le 1\}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(D = \{(x, y) | x^2 + (y-a)^2 \le a^2, (x - a)^2 + y^2 \le a^2\}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由图知 <span class="arithmatex">\(\iint\limits_{D}f(x, y)\text{d}{x}\text{d}{y} = \int_{0}^{\frac{\pi}{6}}\text{d}{\theta}\int_{0}^{2\sin\theta}f(r\cos\theta, r\sin\theta)r\text{d}{r} + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\text{d}{\theta}\int_{0}^{2}f(r\cos\theta, r\sin\theta)r\text{d}{r}\)</span>.</p>
 <div class="arithmatex">\[\begin{figure}[!htbp]
     \centering
@@ -3499,7 +3498,7 @@
 <p>(1) <span class="arithmatex">\(\iint\limits_{D}(x^2 + y^2)\text{d}{x}\text{d}{y}, D = \{(x, y) | 2x \le x^2 + y^2 \le 4x\}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\iint\limits_{D}(x+y)\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D\)</span> 是由 <span class="arithmatex">\(x^2+y^2=x+y\)</span> 围成的平面区域;</p>
 <p>(5) <span class="arithmatex">\(\iint\limits_{D}\arctan\dfrac{y}{x}\text{d}{x}\text{d}{y}, D = \{(x, y) | x^2 + y^2 \le 1, x \le 0, y \le 0\}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 代换 <span class="arithmatex">\(x = r\cos\theta, y = r\sin\theta\)</span>, 则区域变为 <span class="arithmatex">\(D_{r, \theta} = \{2\cos\theta \le r \le 4\cos\theta, \theta \in [0, \pi]\}\)</span>. 则</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3533,7 +3532,7 @@
 <p>求下列曲线所围图形的面积.</p>
 <p>(1) 双纽线 <span class="arithmatex">\((x^2 + y^2)^2 = 2a^2(x^2-y^2)\)</span> 与圆 <span class="arithmatex">\(x^2 + y^2 = a^2\)</span> 所围图形 (圆外部分) 的面积 <span class="arithmatex">\((a &gt; 0)\)</span>;</p>
 <p>(2) 心脏线 <span class="arithmatex">\(r = a(1 + \cos\theta)\)</span> 与圆 <span class="arithmatex">\(x^2 + y^2 = \sqrt{3}ay\)</span> 所围图形 (心脏线内部) 的面积 <span class="arithmatex">\((a &gt; 0)\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 考虑 <span class="arithmatex">\(D = \{a \le \rho \le a\sqrt{2\cos 2\theta}, -\dfrac{\pi}{6} \le \theta \le \dfrac{\pi}{6} \lor \dfrac{5\pi}{6} \le \theta \le \dfrac{7\pi}{6}\}\)</span>. 则面积</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3554,7 +3553,7 @@
 <p>通过恰当的变量代换, 计算下列二重积分.</p>
 <p>(1) <span class="arithmatex">\(\iint\limits_{D}x^2y^2\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D\)</span> 是由 <span class="arithmatex">\(xy = 2, xy = 4, y=x, y=3x\)</span> 在第一象限所围成的平面区域;</p>
 <p>(2) <span class="arithmatex">\(\iint\limits_{D}(x^2 + y^2)\text{d}{x}\text{d}{y}\)</span>, <span class="arithmatex">\(D\)</span> 是由 <span class="arithmatex">\(xy=1, xy=2, x^2-y^2=1, x^2-y^2=2\)</span> 所围成的平面区域;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 做坐标变换 <span class="arithmatex">\((u, v) = (xy, \dfrac{y}{x})\)</span>, 则 <span class="arithmatex">\(\dfrac{D(x, y)}{D(u, v)} = \dfrac{1}{4v}\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3576,14 +3575,14 @@
 <p>求下列图形围成区域的面积.</p>
 <p>(1) <span class="arithmatex">\((a_1x + b_1y + c_1)^2 + (a_2x + b_2y + c_2)^2 = 1\)</span>, 其中 <span class="arithmatex">\(a_1b_2 \neq a_2b_1\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\sqrt{x} + \sqrt{y} = \sqrt{a}\)</span> 与 <span class="arithmatex">\(x = 0, y = 0\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 做坐标变换 <span class="arithmatex">\((u, v) = (a_1x + b_1y + c_1, a_2x, b_2y, c_2)\)</span>, 则 <span class="arithmatex">\(\dfrac{D(x, y)}{D(u, v)} = \dfrac{1}{a_1b_2 - a_2b_1}\)</span>. 因此 <span class="arithmatex">\(S = \iint\limits_{u^2 + v^2 \le 1}\left|\dfrac{D(x, y)}{D(u, v)}\right|\text{d}{u}\text{d}{v} = \dfrac{\pi}{\left|a_1b_2 - a_2b_1\right|}\)</span>.</p>
 <p>(2) 做坐标变换 <span class="arithmatex">\((u, v) = (\sqrt{x}, \sqrt{y})\)</span>, 则 <span class="arithmatex">\(\dfrac{D(x, y)}{D(u, v)} = 4uv\)</span>. 因此 <span class="arithmatex">\(S = \iint\limits_{u+v\le \sqrt{a}, u,v\ge 0}\left|\dfrac{D(x, y)}{D(u, v)}\right|\text{d}{u}\text{d}{v} = \iint\limits_{u+v\le\sqrt{a}, u, v\ge 0}4uv\text{d}{u}\text{d}{v} = \dfrac{1}{6}a^2\)</span>.</p>
 <h2 id="16">第 16 题</h2>
 <p>设函数 <span class="arithmatex">\(f(t)\)</span> 连续, 证明:</p>
 <p>(1) <span class="arithmatex">\(\iint\limits_{\left|x\right| + \left|y\right| \le 1}f(x+y)\text{d}{x}\text{d}{y} = \int_{-1}^{1}f(t)\text{d}{t}\)</span>.</p>
 <p>(2) <span class="arithmatex">\(\iint\limits_{D}f(xy)\text{d}{x}\text{d}{y} = \ln 2\int_{1}^{2}f(t)\text{d}{t}\)</span>, <span class="arithmatex">\(D\)</span> 是由 <span class="arithmatex">\(xy = 1, xy = 2, y = x, y = 4x\)</span> 所围成的第一象限的区域.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>(1) 做坐标变换 <span class="arithmatex">\((u, v) = (x+y, x-y)\)</span>, 则 <span class="arithmatex">\(\dfrac{D(x, y)}{D(u, v)} = -\dfrac{1}{2}\)</span>. 因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3602,11 +3601,11 @@
 \]</div>
 <h2 id="17">第 17 题</h2>
 <p>设函数 <span class="arithmatex">\(f(t)\)</span> 连续, <span class="arithmatex">\(f(t) &gt; 0\)</span>, 求积分 <span class="arithmatex">\(\iint\limits_{x^2 + y^2 \le R^2}\dfrac{af(x) + bf(y)}{f(x) + f(y)}\text{d}{x}\text{d}{y}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>由对称性, 记 <span class="arithmatex">\(S = \iint\limits_{x^2 + y^2 \le R^2}\dfrac{f(x)}{f(x) + f(y)}\text{d}{x}\text{d}{y} = \iint\limits_{x^2 + y^2 \le R^2}\dfrac{f(y)}{f(x) + f(y)}\text{d}{x}\text{d}{y}\)</span>, 则 <span class="arithmatex">\(2S = \iint\limits_{x^2 + y^2 \le R^2}\dfrac{f(x) + f(y)}{f(x) + f(y)}\text{d}{x}\text{d}{y} = \pi R^2\)</span>. 故 <span class="arithmatex">\(S = \dfrac{1}{2}\pi R^2\)</span>. 因此 <span class="arithmatex">\(\iint\limits_{x^2 + y^2 \le R^2}\dfrac{af(x) + bf(y)}{f(x) + f(y)}\text{d}{x}\text{d}{y} = aS + bS = \dfrac{a+b}{2}\pi R^2\)</span>.</p>
 <h2 id="18">第 18 题</h2>
 <p>设函数 <span class="arithmatex">\(f(t, s)\)</span> 连续, 求 <span class="arithmatex">\(F(x) = \int_{0}^{x}\int_{t^2}^{x^2}f(t, s)\text{d}{s}\text{d}{t}\)</span> 的导函数.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>记 <span class="arithmatex">\(g(x, t) = \int_{t^2}^{x^2}f(t, s)\text{d}{s}\)</span>, 则 <span class="arithmatex">\(F(x) = \int_{0}^{x}g(x, t)\text{d}{t}\)</span>. </p>
 <div class="arithmatex">\[
 \begin{aligned}

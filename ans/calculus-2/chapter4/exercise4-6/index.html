@@ -3045,12 +3045,11 @@
 
   <h1>习题4.6</h1>
 
-<p>\subsection{习题4.6解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>利用 Green 公式计算下列曲线积分.</p>
 <p>(1) <span class="arithmatex">\(\oint_{L^{+}}(x+y)^2\text{d}{x} - (x^2 + y^2)\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(L^{+}\)</span> 是以 <span class="arithmatex">\((0, 0), (1, 0), (0, 1)\)</span> 为顶点的三角形的边界, 逆时针为正;</p>
 <p>(3) <span class="arithmatex">\(\oint_{L^{+}}(x^2+y)\text{d}{x} - (x-y^2)\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(L\)</span> 是椭圆 <span class="arithmatex">\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\)</span> 的正向边界;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(X = (x + y)^2, Y = -(x^2 + y^2)\)</span>, 因此由 Green 定理</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3070,7 +3069,7 @@
 <p>计算 <span class="arithmatex">\(\int_{L^{+}}\dfrac{(x+y)\text{d}{x} + (y-x)\text{d}{y}}{x^2 + y^2}\)</span>, 其中 <span class="arithmatex">\(L^{+}\)</span> 为</p>
 <p>(1) 区域 <span class="arithmatex">\(D = \{(x, y) | a^2 \le x^2 + y^2 \le b^2\}\)</span> 的正向边界 <span class="arithmatex">\((b &gt; a &gt; 0)\)</span>;</p>
 <p>(3) 正方形 <span class="arithmatex">\(D = \{(x, y) | \left|x\right| + \left|y\right| \le 1\}\)</span> 的逆时针方向;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(X = \dfrac{x + y}{x^2 + y^2}, Y = \dfrac{y - x}{x^2 + y^2}\)</span>, 因此 <span class="arithmatex">\(\dfrac{\partial Y}{\partial x} = \dfrac{x^2 - 2xy - y^2}{(x^2 + y^2)^2} = \dfrac{\partial X}{\partial y}\)</span>. 由 Green 定理知 <span class="arithmatex">\(\int_{L^{+}}\dfrac{(x+y)\text{d}{x} + (y-x)\text{d}{y}}{x^2 + y^2} = 0\)</span>.</p>
 <p>(3) 考虑 <span class="arithmatex">\(D^* = \{(x, y) | x = \epsilon\cos\theta, y = \epsilon\sin\theta, 0 \le \theta \le 2\pi\}\)</span>, 正方向为 <span class="arithmatex">\(\theta\)</span> 从 <span class="arithmatex">\(2\pi\)</span> 到 <span class="arithmatex">\(0\)</span>. 因此 <span class="arithmatex">\(\int_{\partial D\cup D^{*}}\dfrac{(x+y)\text{d}{x} + (y-x)\text{d}{y}}{x^2 + y^2} = 0\)</span>. 而</p>
 <div class="arithmatex">\[
@@ -3088,7 +3087,7 @@
 <p>计算下列曲线积分.</p>
 <p>(1) <span class="arithmatex">\(\int_{L^{+}}(1+xe^{2y})\text{d}{x} + (x^2e^{2y}-y^2)\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(L\)</span> 是从点 <span class="arithmatex">\((0, 0)\)</span> 经上半圆周 <span class="arithmatex">\((x - 2)^2 + y^2 = 4\)</span> 到点 <span class="arithmatex">\((4, 0)\)</span> 的弧段;</p>
 <p>(3) <span class="arithmatex">\(\int_{L^{+}}\left(\ln\dfrac{y}{x} - 1\right)\text{d}{x} + \dfrac{x}{y}\text{d}{y}\)</span>, 其中 <span class="arithmatex">\(L\)</span> 是从点 <span class="arithmatex">\((1, 1)\)</span> 出发到点 <span class="arithmatex">\((3, 3e)\)</span> 的任何一条不与坐标轴相交的简单曲线.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(X = 1 + xe^{2y}, Y = x^2e^{2y} - y^2\)</span>. 设 <span class="arithmatex">\(A(0, 0), B(4, 0)\)</span>, 正方向由 <span class="arithmatex">\(B\)</span> 到 <span class="arithmatex">\(A\)</span>. 则 <span class="arithmatex">\(AB\)</span> 和 <span class="arithmatex">\(L\)</span> 围成的图形 <span class="arithmatex">\(D\)</span> 满足: <span class="arithmatex">\(\iint\limits_{D}\left(\dfrac{\partial Y}{\partial x} - \dfrac{\partial X}{\partial y}\right)\text{d}{x}\text{d}{y} = \iint\limits_{D}(2xe^{2y} - 2xe^{2y})\text{d}{x}\text{d}{y} = 0\)</span>. 由于 <span class="arithmatex">\(\int_{BA}X\text{d}{x} = \int_{4}^{0}(1 + x)\text{d}{x} = -12\)</span>, 故由 Green 定理</p>
 <div class="arithmatex">\[
 \int_{L^{+}}(1+xe^{2y})\text{d}{x} + (x^2e^{2y}-y^2)\text{d}{y} = \iint\limits_{D}\left(\dfrac{\partial Y}{\partial x} - \dfrac{\partial X}{\partial y}\right)\text{d}{x}\text{d}{y} - \int_{BA}X\text{d}{x} = 12
@@ -3104,7 +3103,7 @@
 <h2 id="4">第 4 题</h2>
 <p>计算下列区域的面积.</p>
 <p>(1) 星形线 <span class="arithmatex">\(\begin{cases}x = a\cos^3t, \\ y = a\sin ^3t,\end{cases} 0 \le t \le 2\pi\)</span> 所围区域 <span class="arithmatex">\((a &gt; 0)\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <div class="arithmatex">\[
 \begin{aligned}
     S &amp; = 4\int_{L}y\text{d}{x} \\
@@ -3118,14 +3117,14 @@
 <p>已知 <span class="arithmatex">\(f(u)\)</span> 连续可微, <span class="arithmatex">\(L\)</span> 为任意一条分段光滑曲线, 证明:</p>
 <p>(1) <span class="arithmatex">\(\oint_{L^{+}}f(xy)(y\text{d}{x} + x\text{d}{y}) = 0\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\oint_{L^{+}}f(x^2 + y^2)(x\text{d}{x} + y\text{d}{y}) = 0\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>(1) <span class="arithmatex">\(X = yf(xy), Y = xf(xy)\)</span>, 因此 <span class="arithmatex">\(\dfrac{\partial Y}{\partial x} = f(xy) + xyf'(xy) = \dfrac{\partial X}{\partial y}\)</span>. 由定理 4.6.3 和定理 4.6.4 得 <span class="arithmatex">\(\oint_{L^{+}}f(xy)(y\text{d}{x} + x\text{d}{y}) = 0\)</span>.</p>
 <p>(2) <span class="arithmatex">\(X = xf(x^2 + y^2), Y = yf(x^2 + y^2)\)</span>, 因此 <span class="arithmatex">\(\dfrac{\partial Y}{\partial x} = 2xyf'(x^2 + y^2) = \dfrac{\partial X}{\partial y}\)</span>. 由定理 4.6.3 和定理 4.6.4 得 <span class="arithmatex">\(\oint_{L^{+}}f(x^2 + y^2)(x\text{d}{x} + y\text{d}{y}) = 0\)</span>.</p>
 <h2 id="6">第 6 题</h2>
 <p>设 <span class="arithmatex">\(D\)</span> 是平面区域, <span class="arithmatex">\(\partial D\)</span> 为逐段光滑曲线, <span class="arithmatex">\((\bar{x}, \bar{y})\)</span> 为 <span class="arithmatex">\(D\)</span> 的形心, <span class="arithmatex">\(\sigma(D)\)</span> 是 <span class="arithmatex">\(D\)</span> 的面积, 证明:</p>
 <p>(1) <span class="arithmatex">\(\oint_{\partial D}x^2\text{d}{y} = 2\sigma(D)\bar{x}\)</span>;</p>
 <p>(2) <span class="arithmatex">\(\oint_{\partial D}xy\text{d}{y} = \sigma(D)\bar{y}\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>(1) 由 Green 定理 <span class="arithmatex">\(\oint_{\partial D}x^2\text{d}{y} = \iint\limits_{D}2x\text{d}{x}\text{d}{y}\)</span>. 由定义 <span class="arithmatex">\(\bar{x} = \dfrac{\iint\limits_{D}x\text{d}{x}\text{d}{y}}{\iint\limits_{D}\text{d}{x}\text{d}{y}} = \dfrac{\iint\limits_{D}x\text{d}{x}\text{d}{y}}{\sigma(S)}\)</span>. 因此 <span class="arithmatex">\(\oint_{\partial D}x^2\text{d}{y} = 2\sigma(D)\bar{x}\)</span>.</p>
 <p>(2) 由 Green 定理 <span class="arithmatex">\(\oint_{\partial D}xy\text{d}{y} = \iint\limits_{D}y\text{d}{x}\text{d}{y}\)</span>. 由定义 <span class="arithmatex">\(\bar{y} = \dfrac{\iint\limits_{D}y\text{d}{x}\text{d}{y}}{\iint\limits_{D}\text{d}{x}\text{d}{y}} = \dfrac{\iint\limits_{D}y\text{d}{x}\text{d}{y}}{\sigma(S)}\)</span>. 因此 <span class="arithmatex">\(\oint_{\partial D}xy\text{d}{y} = \sigma(D)\bar{y}\)</span>.</p>
 <h2 id="8">第 8 题</h2>
@@ -3134,7 +3133,7 @@
 <p>(2) <span class="arithmatex">\(\oint_{\partial D}v\dfrac{\partial u}{\partial \mathbf{n}}\text{d}{l} = \iint\limits_{D}v\Delta u\text{d}{x}\text{d}{y} + \iint\limits_{D}\nabla u\cdot \nabla v\text{d}{x}\text{d}{y}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\oint_{\partial D}\begin{vmatrix}\dfrac{\partial u}{\partial \mathbf{n}} &amp; \dfrac{\partial v}{\partial \mathbf{n}} \\ u &amp; v\end{vmatrix}\text{d}{l} = \iint\limits_{D}\begin{vmatrix}\Delta u &amp; \Delta v \\ u &amp; v\end{vmatrix}\text{d}{x}\text{d}{y}\)</span>.</p>
 <p>其中 <span class="arithmatex">\(\Delta = \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2}, \nabla = \dfrac{\partial}{\partial x}\mathbf{i} + \dfrac{\partial}{\partial y}\mathbf{j}\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p><span class="arithmatex">\(\text{d}{\mathbf{l}} = (\text{d}{x}, \text{d}{y}), \mathbf{n} = \left(\dfrac{\text{d}{y}}{\left|\text{d}{\mathbf{l}}\right|}, -\dfrac{\text{d}{x}}{\left|\text{d}{\mathbf{l}}\right|}\right)\)</span>.</p>
 <p>(1) 由 Green 定理,</p>
 <div class="arithmatex">\[
@@ -3163,7 +3162,7 @@
 \]</div>
 <h2 id="9">第 9 题</h2>
 <p>设 <span class="arithmatex">\(L\)</span> 为逐段光滑曲线, <span class="arithmatex">\(\mathbf{n}\)</span> 为 <span class="arithmatex">\(L\)</span> 所围区域的单位外法向, <span class="arithmatex">\(\left&lt;\mathbf{n}, \mathbf{i}\right&gt;, \left&lt;\mathbf{n}, \mathbf{j}\right&gt;\)</span> 分别表示 <span class="arithmatex">\(\mathbf{n}\)</span> 与 <span class="arithmatex">\(x\)</span> 轴、<span class="arithmatex">\(y\)</span> 轴正向的夹角, 计算: <span class="arithmatex">\(\oint_{L}(x\cos\left&lt;\mathbf{n}, \mathbf{i}\right&gt; + y\cos\left&lt;\mathbf{n}, \mathbf{j}\right&gt;)\text{d}{l}\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>设 <span class="arithmatex">\(L\)</span> 所围区域为 <span class="arithmatex">\(D\)</span>, 面积为 <span class="arithmatex">\(S\)</span>. <span class="arithmatex">\(\text{d}{\mathbf{l}} = (\text{d}{x}, \text{d}{y})\)</span>, 则 <span class="arithmatex">\(\mathbf{n} = \left(\dfrac{\text{d}{y}}{\text{d}{l}}, -\dfrac{\text{d}{x}}{\text{d}{l}}\right)\)</span>. 由 Green 定理,</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3178,7 +3177,7 @@
 <p>(2) <span class="arithmatex">\(e^{y}\text{d}{x} + (xe^{y}-2y)\text{d}{y} = 0\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\dfrac{x\text{d}{x} + y\text{d}{y}}{\sqrt{x^2 + y^2}} = \dfrac{y\text{d}{x} - x\text{d}{y}}{x^2}\)</span>;</p>
 <p>(4) <span class="arithmatex">\(\left(\cos x + \dfrac{1}{y}\right)\text{d}{x} + \left(\dfrac{1}{y} - \dfrac{x}{y^2}\right)\text{d}{y} = 0\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 原方程可化为 <span class="arithmatex">\(\text{d}{\left(\dfrac{1}{3}x^3 - xy - \dfrac{1}{2}y + \dfrac{1}{4}\sin2y\right)} = 0\)</span>, 因此解为 <span class="arithmatex">\(\dfrac{1}{3}x^3 - xy - \dfrac{1}{2}y + \dfrac{1}{4}\sin2y = C\)</span>.</p>
 <p>(2) 原方程可化为 <span class="arithmatex">\(\text{d}{(xe^y - y^2)} = 0\)</span>, 因此解为 <span class="arithmatex">\(xe^y - y^2 = C\)</span>.</p>
 <p>(3) 原方程可化为 <span class="arithmatex">\(\text{d}{\sqrt{x^2 + y^2}} = -\text{d}{\left(\dfrac{y}{x}\right)}\)</span>, 因此解为 <span class="arithmatex">\(\sqrt{x^2 + y^2} + \dfrac{y}{x} = C\)</span>.</p>
@@ -3188,7 +3187,7 @@
 <p>(1) <span class="arithmatex">\((y\cos x - x\sin x)\text{d}{x} + (y\sin x + x\cos x)\text{d}{y} = 0\)</span>;</p>
 <p>(3) <span class="arithmatex">\((3x^2 + y)\text{d}{x} + (2x^2y - x)\text{d}{y} = 0\)</span>;</p>
 <p>(5) <span class="arithmatex">\((x^2 - \sin^2 y)\text{d}{x} + x\sin 2y\text{d}{y} = 0\)</span>.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 有积分因子 <span class="arithmatex">\(e^{y}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{(e^{y}(y\sin x + x\cos x - \sin x))} = 0\)</span>. 因此解为 <span class="arithmatex">\(e^{y}(y\sin x + x\cos x - \sin x) = C\)</span>.</p>
 <p>(3) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x^2}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{\left(3x - \dfrac{y}{x} + y^2\right)} = 0\)</span>. 同时, <span class="arithmatex">\(x = 0\)</span> 也是原方程的解. 因此解为 <span class="arithmatex">\(3x^3 - xy + x^2y^2 = Cx^2\)</span>.</p>
 <p>(5) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x^2}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{\left(x + \dfrac{\sin^2y}{x}\right)} = 0\)</span>. 同时, <span class="arithmatex">\(x = 0\)</span> 也是原方程的解. 因此解为 <span class="arithmatex">\(x^3 + x^2\sin^2y = Cx^2\)</span>.</p>

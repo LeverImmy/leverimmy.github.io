@@ -2973,7 +2973,6 @@
 
   <h1>习题6.3</h1>
 
-<p>\subsection{习题6.3解答}</p>
 <h2 id="1">第 1 题</h2>
 <p>求下列幂级数的收敛半径与收敛域.</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{x^n}{n^n}\)</span>;</p>
@@ -2981,7 +2980,7 @@
 <p>(5) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\ln n}{n}x^n\)</span>;</p>
 <p>(7) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{1}{n^p}(x - 1)^n(p&gt;0)\)</span>;</p>
 <p>(9) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}2^n(x+a)^{2n}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由于 <span class="arithmatex">\(q = \lim\limits_{n \to \infty}\sqrt[n]{\dfrac{1}{n^n}} = \lim\limits_{n \to \infty} \dfrac{1}{n} = 0\)</span>, 故 <span class="arithmatex">\(R = \dfrac{1}{q} = +\infty\)</span>. 收敛域为 <span class="arithmatex">\(\mathbb{R}\)</span>.</p>
 <p>(3) 由于 <span class="arithmatex">\(q = \lim\limits_{n \to \infty}\dfrac{u_{n + 1}}{u_n} = \lim\limits_{n \to \infty}\dfrac{x^3(2n - 1)}{2(2n + 1)} = \dfrac{x^3}{2}\)</span>, 当 <span class="arithmatex">\(x \in (-\sqrt[3]{2}, \sqrt[3]{2})\)</span> 时级数收敛. 故 <span class="arithmatex">\(R = \sqrt[3]{2}\)</span>. 当 <span class="arithmatex">\(x = -\sqrt[3]{2}\)</span> 时为 Leibniz 级数, 收敛; 当 <span class="arithmatex">\(x = \sqrt[3]{2}\)</span> 时可化为 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\sqrt[3]{2}}{2n - 1}\)</span>, 发散. 故收敛域为 <span class="arithmatex">\([-\sqrt[3]{2}, \sqrt[3]{2})\)</span>.</p>
 <p>(5) 由于 <span class="arithmatex">\(q = \lim\limits_{n \to \infty}\dfrac{u_{n + 1}}{u_n} = \lim\limits_{n \to \infty}\dfrac{n\ln(n+1)}{(n+1)\ln n} = 1\)</span>, 故 <span class="arithmatex">\(R = \dfrac{1}{q} = 1\)</span>. 当 <span class="arithmatex">\(x = -1\)</span> 时为 Leibniz 级数, 收敛; 当 <span class="arithmatex">\(x = 1\)</span> 时可化为 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{\ln n}{n} \ge -1 + \sum\limits_{n = 1}^{\infty}\dfrac{1}{n}\)</span>, 发散. 故收敛域为 <span class="arithmatex">\([-1, 1)\)</span>.</p>
@@ -2993,7 +2992,7 @@
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 2}^{\infty}\dfrac{x^n}{n(n-1)}\)</span>;</p>
 <p>(3) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}(2n+1)x^{2n+1}\)</span>;</p>
 <p>(5) <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}\dfrac{n(n+1)}{2}x^{n-1}\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由于 <span class="arithmatex">\(q = \lim\limits_{n \to \infty}\sqrt[n]{\dfrac{1}{n(n - 1)}} = 1\)</span>, 故 <span class="arithmatex">\(R = \dfrac{1}{q} = 1\)</span>. 当 <span class="arithmatex">\(x = \pm1\)</span> 时级数均收敛, 故收敛域为 <span class="arithmatex">\([-1, 1]\)</span>. 设和函数为 <span class="arithmatex">\(S(x)\)</span>, 则当 <span class="arithmatex">\(x \neq 1\)</span> 时 <span class="arithmatex">\(S''(x) = \sum\limits_{n = 0}^{\infty}x^n = \dfrac{1}{1 - x}\)</span>. 积分可得 <span class="arithmatex">\(S(x) = x + (1 - x)\ln(1 - x)\)</span>. 当 <span class="arithmatex">\(x = 1\)</span> 时 <span class="arithmatex">\(S(x) = 1\)</span>. 因此</p>
 <div class="arithmatex">\[
 S(x) = \begin{cases}
@@ -3027,7 +3026,7 @@ S(x) = \begin{cases}
 <p>(7) <span class="arithmatex">\(\dfrac{1}{x - 1}, x_0 = -1\)</span>;</p>
 <p>(9) <span class="arithmatex">\(\dfrac{x}{(x - 1)(x + 3)}, x_0 = 0\)</span>;</p>
 <p>(11) <span class="arithmatex">\(\ln(x + \sqrt{x^2 + 1}), x_0 = 0\)</span>;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) <span class="arithmatex">\(f(x) = \cos x, f^{(n)}(x) = \cos\left(x + \dfrac{n\pi}{2}\right)\)</span>. 因此</p>
 <div class="arithmatex">\[
 f(x) = \sum\limits_{n = 0}^{\infty}\dfrac{\cos\left(\frac{\pi}{4} + \frac{n\pi}{2}\right)}{n!}\left(x - \dfrac{\pi}{4}\right)^n
@@ -3070,7 +3069,7 @@ f(x) = \sum\limits_{n = 0}^{\infty}\left(\dfrac{1}{2} - \dfrac{1}{2\cdot3^n}\rig
 <p>将下列函数在 <span class="arithmatex">\(x_0 = 0\)</span> 点展到指定的项.</p>
 <p>(1) <span class="arithmatex">\(e^{\sin x}\)</span>, 展到 <span class="arithmatex">\(x^3\)</span> 项;</p>
 <p>(3) <span class="arithmatex">\(\cos^3 x\)</span>, 展到 <span class="arithmatex">\(x^4\)</span> 项;</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>(1) 由 <span class="arithmatex">\(e^x = 1 + x + \dfrac{1}{2}x^2 + \dfrac{1}{6}x^3 + o(x^3)\)</span> 以及 <span class="arithmatex">\(\sin x = x - \dfrac{1}{6}x^3 + o(x^3)\)</span> 得</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3090,13 +3089,13 @@ f(x) = \sum\limits_{n = 0}^{\infty}\left(\dfrac{1}{2} - \dfrac{1}{2\cdot3^n}\rig
 \]</div>
 <h2 id="7">第 7 题</h2>
 <p>幂级数 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}a_nx^n\)</span> 在 <span class="arithmatex">\(x = 3\)</span> 处条件收敛, 求 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}na_n(x - 1)^{n + 1}\)</span> 的收敛区间.</p>
-<p>\paragraph{解}</p>
+<p><strong>解</strong></p>
 <p>由题知 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}a_nx^n\)</span> 的收敛半径为 <span class="arithmatex">\(R_1 = 3\)</span>. 因此 <span class="arithmatex">\(q_1 = \varlimsup\limits_{n \to \infty}\sqrt[n]{a_n} = \dfrac{1}{R} = \dfrac{1}{3}\)</span>. 所以 <span class="arithmatex">\(q_2 = \varlimsup\limits_{n \to \infty}\sqrt[n]{na_n} = \dfrac{1}{3}\)</span>. 故 <span class="arithmatex">\(\sum\limits_{n = 1}^{\infty}na_n(x - 1)^{n + 1}\)</span> 的收敛半径 <span class="arithmatex">\(R_2 = \dfrac{1}{q_2} = 3\)</span>, 即收敛区间为 <span class="arithmatex">\((-2, 4)\)</span>.</p>
 <h2 id="9">第 9 题</h2>
 <p>幂级数 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}a_nx^n\)</span> 与 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}b_nx^n\)</span> 的收敛半径分别为 <span class="arithmatex">\(R_1, R_2\)</span>, 证明:</p>
 <p>(1) <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}(a_n+b_n)x^n\)</span> 的收敛半径 <span class="arithmatex">\(R \ge \min\{R_1, R_2\}\)</span>.</p>
 <p>(2) <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}a_nb_nx^n\)</span> 的收敛半径 <span class="arithmatex">\(R \ge R_1 R_2\)</span>.</p>
-<p>\paragraph{证明}</p>
+<p><strong>证明</strong></p>
 <p>(1) 由题知 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}a_nx^n\)</span> 与 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}b_nx^n\)</span> 在 <span class="arithmatex">\(\left|x\right|\le \min\{R_1, R_2\}\)</span> 时同时收敛. 因此, 当 <span class="arithmatex">\(\left|x\right|\le \min\{R_1, R_2\}\)</span> 时一定有 <span class="arithmatex">\(\sum\limits_{n = 0}^{\infty}(a_n+b_n)x^n\)</span> 收敛. 故其收敛半径 <span class="arithmatex">\(R \ge \min\{R_1, R_2\}\)</span>.</p>
 <p>(2) 由题知 <span class="arithmatex">\(q_1 = \varlimsup\limits_{n \to \infty}\sqrt[n]{\left|a_n\right|}, q_2 = \varlimsup\limits_{n \to \infty}\sqrt[n]{\left|b_n\right|}, q = \varlimsup\limits_{n \to \infty}\sqrt[n]{\left|a_nb_n\right|}\)</span>. 而 <span class="arithmatex">\(\varlimsup\limits_{n \to \infty}\sqrt[n]{\left|a_nb_n\right|} \le \varlimsup\limits_{n \to \infty}\sqrt[n]{\left|a_n\right|}\cdot\varlimsup\limits_{n \to \infty}\sqrt[n]{\left|b_n\right|}\)</span>. 故 <span class="arithmatex">\(q \le q_1q_2\)</span>. 由于 <span class="arithmatex">\(q_1 = \dfrac{1}{R_1}, q_2 = \dfrac{1}{R_2}, q = \dfrac{1}{R}\)</span>, 所以 <span class="arithmatex">\(R \ge R_1R_2\)</span>.</p>
 
