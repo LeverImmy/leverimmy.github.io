@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-01-30T02:09:40.758Z</updated>
+  <updated>2024-02-26T13:02:19.340Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】数字逻辑与数字集成电路</title>
+    <link href="https://leverimmy.top/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/"/>
+    <id>https://leverimmy.top/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/</id>
+    <published>2024-02-26T12:14:22.000Z</published>
+    <updated>2024-02-26T13:02:19.340Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是《数字逻辑与数字集成电路（第2版）》的学习笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="数电" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%94%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>【随笔】听说集齐三个专业的校园卡就能召唤神龙</title>
@@ -49,10 +68,10 @@ alt=&quot;三张校园卡&quot; /&gt;
     <link href="https://leverimmy.top/2024/01/05/CSAPP/"/>
     <id>https://leverimmy.top/2024/01/05/CSAPP/</id>
     <published>2024-01-05T12:40:01.000Z</published>
-    <updated>2024-01-09T13:39:17.481Z</updated>
+    <updated>2024-02-26T13:23:47.929Z</updated>
     
     
-    <summary type="html">&lt;p&gt;清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;这是清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。&lt;/p&gt;</summary>
     
     
     
@@ -150,30 +169,9 @@ alt=&quot;三张校园卡&quot; /&gt;
     
     <category term="上下文无关文法" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/"/>
     
-    <category term="上下文无关语言" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="下推自动机" scheme="https://leverimmy.top/tags/%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
     
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】数理逻辑与集合论 - 第九至十二章</title>
-    <link href="https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/"/>
-    <id>https://leverimmy.top/2023/10/02/Shuliluoji-Yu-Jihelun-Chap9-12/</id>
-    <published>2023-10-02T03:34:22.000Z</published>
-    <updated>2023-12-12T05:51:55.480Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是《数理逻辑与集合论（第2版）》第九至十二章的学习笔记，主要内容为集合论。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="离散数学" scheme="https://leverimmy.top/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
+    <category term="上下文无关语言" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -182,7 +180,7 @@ alt=&quot;三张校园卡&quot; /&gt;
     <link href="https://leverimmy.top/2023/09/30/IATLC-Chap6/"/>
     <id>https://leverimmy.top/2023/09/30/IATLC-Chap6/</id>
     <published>2023-09-30T05:38:23.000Z</published>
-    <updated>2023-12-22T03:33:31.597Z</updated>
+    <updated>2024-02-26T13:17:30.964Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
@@ -222,9 +220,9 @@ alt=&quot;三张校园卡&quot; /&gt;
     
     <category term="上下文无关文法" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/"/>
     
-    <category term="上下文无关语言" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80/"/>
-    
     <category term="下推自动机" scheme="https://leverimmy.top/tags/%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+    <category term="上下文无关语言" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -360,51 +358,14 @@ NFA&lt;/li&gt;
   </entry>
   
   <entry>
-    <title>【学习笔记】自动机理论、语言和计算导论 - 第一章和第二章</title>
-    <link href="https://leverimmy.top/2023/09/17/IATLC-Chap1-2/"/>
-    <id>https://leverimmy.top/2023/09/17/IATLC-Chap1-2/</id>
+    <title>【学习笔记】自动机理论、语言和计算导论</title>
+    <link href="https://leverimmy.top/2023/09/17/IATLC/"/>
+    <id>https://leverimmy.top/2023/09/17/IATLC/</id>
     <published>2023-09-17T06:49:56.000Z</published>
-    <updated>2023-12-20T14:27:33.991Z</updated>
+    <updated>2024-02-26T13:28:42.493Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第一章 自动机：方法与体验 | 第二章 有穷自动机&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;字母表、串、语言和问题
-&lt;ul&gt;
-&lt;li&gt;字母表&lt;/li&gt;
-&lt;li&gt;串&lt;/li&gt;
-&lt;li&gt;语言&lt;/li&gt;
-&lt;li&gt;问题&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;有穷自动机的形式化定义
-&lt;ul&gt;
-&lt;li&gt;确定性有穷自动机（DFA）
-&lt;ul&gt;
-&lt;li&gt;DFA 的表示方法&lt;/li&gt;
-&lt;li&gt;转移函数 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;delta&#92;)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;DFA 的语言&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;非确定性有穷自动机（NFA）
-&lt;ul&gt;
-&lt;li&gt;NFA 的表示方法&lt;/li&gt;
-&lt;li&gt;转移函数 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;delta&#92;)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;NFA 的语言&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;DFA 和 NFA 的区别与联系
-&lt;ul&gt;
-&lt;li&gt;DFA 和 NFA 的等价性&lt;/li&gt;
-&lt;li&gt;子集构造的最劣情形&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 转移
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; - NFA
-的形式化定义&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 闭包&lt;/li&gt;
-&lt;li&gt;消除 &lt;span class=&quot;math inline&quot;&gt;&#92;(&#92;varepsilon&#92;)&lt;/span&gt; 转移&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <summary type="html">&lt;p&gt;这是《自动机理论、语言和计算导论》的学习笔记。&lt;/p&gt;</summary>
     
     
     
@@ -414,6 +375,12 @@ NFA&lt;/li&gt;
     <category term="自动机理论、语言和计算导论" scheme="https://leverimmy.top/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%90%86%E8%AE%BA%E3%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/"/>
     
     <category term="有穷自动机" scheme="https://leverimmy.top/tags/%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+    <category term="正则表达式" scheme="https://leverimmy.top/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    <category term="上下文无关文法" scheme="https://leverimmy.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/"/>
+    
+    <category term="下推自动机" scheme="https://leverimmy.top/tags/%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
     
   </entry>
   
@@ -474,14 +441,14 @@ href=&quot;https://github.com/LeverImmy/News-App/&quot;&gt;LeverImmy/News-App&lt
   </entry>
   
   <entry>
-    <title>【学习笔记】数理逻辑与集合论 - 第一至五章</title>
-    <link href="https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/"/>
-    <id>https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/</id>
+    <title>【学习笔记】数理逻辑与集合论</title>
+    <link href="https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun/"/>
+    <id>https://leverimmy.top/2023/09/02/Shuliluoji-Yu-Jihelun/</id>
     <published>2023-09-02T02:14:22.000Z</published>
-    <updated>2023-10-18T02:39:02.000Z</updated>
+    <updated>2024-02-26T13:23:32.315Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是《数理逻辑与集合论（第2版）》第一至五章的学习笔记，主要内容为数理逻辑。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;这是《数理逻辑与集合论（第2版）》的学习笔记。&lt;/p&gt;</summary>
     
     
     
@@ -492,17 +459,29 @@ href=&quot;https://github.com/LeverImmy/News-App/&quot;&gt;LeverImmy/News-App&lt
     
     <category term="数理逻辑" scheme="https://leverimmy.top/tags/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"/>
     
+    <category term="集合论" scheme="https://leverimmy.top/tags/%E9%9B%86%E5%90%88%E8%AE%BA/"/>
+    
   </entry>
   
   <entry>
-    <title>【学习笔记】计算机科学概论 - 第十二章</title>
-    <link href="https://leverimmy.top/2023/07/26/CSAO-Chap12/"/>
-    <id>https://leverimmy.top/2023/07/26/CSAO-Chap12/</id>
-    <published>2023-07-26T03:44:25.000Z</published>
-    <updated>2023-09-21T09:12:30.000Z</updated>
+    <title>【学习笔记】计算机科学概论 - 第一章和第十二章</title>
+    <link href="https://leverimmy.top/2023/07/20/CSAO-Chap1-12/"/>
+    <id>https://leverimmy.top/2023/07/20/CSAO-Chap1-12/</id>
+    <published>2023-07-20T11:39:27.000Z</published>
+    <updated>2024-02-26T13:24:26.971Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一章 数据存储&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;逻辑门&lt;/li&gt;
+&lt;li&gt;C 中的字符常量&lt;/li&gt;
+&lt;li&gt;二进制中的补码与余码
+&lt;ul&gt;
+&lt;li&gt;补码记数法&lt;/li&gt;
+&lt;li&gt;余码记数法&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;第十二章 计算理论&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;可计算性&lt;/li&gt;
@@ -523,93 +502,14 @@ href=&quot;https://github.com/LeverImmy/News-App/&quot;&gt;LeverImmy/News-App&lt
     
     <category term="计算机科学概论" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA/"/>
     
-    <category term="计算理论" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/"/>
-    
-    <category term="Bare Bones" scheme="https://leverimmy.top/tags/Bare-Bones/"/>
-    
-    <category term="RSA" scheme="https://leverimmy.top/tags/RSA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】计算机科学概论 - 第一章</title>
-    <link href="https://leverimmy.top/2023/07/20/CSAO-Chap1/"/>
-    <id>https://leverimmy.top/2023/07/20/CSAO-Chap1/</id>
-    <published>2023-07-20T11:39:27.000Z</published>
-    <updated>2023-09-30T05:40:28.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本文主要包括以下内容：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第一章 数据存储&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;逻辑门&lt;/li&gt;
-&lt;li&gt;C 中的字符常量&lt;/li&gt;
-&lt;li&gt;二进制中的补码与余码
-&lt;ul&gt;
-&lt;li&gt;补码记数法&lt;/li&gt;
-&lt;li&gt;余码记数法&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机科学概论" scheme="https://leverimmy.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【答案】《高等微积分教程(下)》教材习题解答</title>
-    <link href="https://leverimmy.top/2023/07/01/Tsinghua-Calculus-2/"/>
-    <id>https://leverimmy.top/2023/07/01/Tsinghua-Calculus-2/</id>
-    <published>2023-07-01T14:53:46.000Z</published>
-    <updated>2023-09-21T08:11:04.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这里是清华大学微积分A(2)所用教材《高等微积分教程(下)》的（民间）教材习题解答。&lt;/p&gt;
-&lt;p&gt;本质上这就是我大一下学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
-&lt;p&gt;repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-2-solution&lt;/p&gt;
-&lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教材习题解答" scheme="https://leverimmy.top/categories/%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
-    
-    
-    <category term="微积分" scheme="https://leverimmy.top/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【答案】《高等微积分教程(上)》教材习题解答</title>
-    <link href="https://leverimmy.top/2023/07/01/Tsinghua-Calculus-1/"/>
-    <id>https://leverimmy.top/2023/07/01/Tsinghua-Calculus-1/</id>
-    <published>2023-07-01T13:53:46.000Z</published>
-    <updated>2023-10-15T03:44:48.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这里是清华大学微积分A(1)所用教材《高等微积分教程(上)》的（民间）教材习题解答。&lt;/p&gt;
-&lt;p&gt;本质上这就是我大一上学期做的作业，所以说正确性其实不太能保障。&lt;/p&gt;
-&lt;p&gt;repo 地址: https://git.tsinghua.edu.cn/xze22/calculus-1-solution&lt;/p&gt;
-&lt;p&gt;pdf 版本: 点击下方的“阅读全文”按钮。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教材习题解答" scheme="https://leverimmy.top/categories/%E6%95%99%E6%9D%90%E4%B9%A0%E9%A2%98%E8%A7%A3%E7%AD%94/"/>
-    
-    
-    <category term="微积分" scheme="https://leverimmy.top/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
   </entry>
   
   <entry>
     <title>【游记】2023 暑假重庆璧山乡村振兴实践</title>
-    <link href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/"/>
-    <id>https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/</id>
+    <link href="https://leverimmy.top/2023/07/01/2023Chongqing-Social-Practice/"/>
+    <id>https://leverimmy.top/2023/07/01/2023Chongqing-Social-Practice/</id>
     <published>2023-07-01T13:41:16.000Z</published>
-    <updated>2023-12-28T02:57:15.345Z</updated>
+    <updated>2024-02-26T13:14:34.260Z</updated>
     
     
     <summary type="html">&lt;p&gt;暑期实践？这是什么？参加一个！&lt;/p&gt;

@@ -19,31 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 Bare Bones 语言  复制操作 交换操作 分支结构  停机问题 RSA">
+    <meta name="description" content="这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容： 第一章 数据存储  逻辑门 C 中的字符常量 二进制中的补码与余码  补码记数法 余码记数法   第十二章 计算理论  可计算性 Bare Bones 语言  复制操作 交换操作 分支结构  停机问题 RSA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】计算机科学概论 - 第十二章">
-<meta property="og:url" content="https://leverimmy.top/2023/07/26/CSAO-Chap12/index.html">
+<meta property="og:title" content="【学习笔记】计算机科学概论 - 第一章和第十二章">
+<meta property="og:url" content="https://leverimmy.top/2023/07/20/CSAO-Chap1-12/index.html">
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
-<meta property="og:description" content="本文主要包括以下内容： 第十二章 计算理论  可计算性 Bare Bones 语言  复制操作 交换操作 分支结构  停机问题 RSA">
+<meta property="og:description" content="这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容： 第一章 数据存储  逻辑门 C 中的字符常量 二进制中的补码与余码  补码记数法 余码记数法   第十二章 计算理论  可计算性 Bare Bones 语言  复制操作 交换操作 分支结构  停机问题 RSA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-26T03:44:25.000Z">
-<meta property="article:modified_time" content="2023-09-21T09:12:30.000Z">
+<meta property="article:published_time" content="2023-07-20T11:39:27.000Z">
+<meta property="article:modified_time" content="2024-02-26T13:24:26.971Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="计算机科学概论">
-<meta property="article:tag" content="计算理论">
-<meta property="article:tag" content="Bare Bones">
-<meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://leverimmy.top/2023/07/26/CSAO-Chap12/">
+<link rel="canonical" href="https://leverimmy.top/2023/07/20/CSAO-Chap1-12/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2023/07/26/CSAO-Chap12/","path":"2023/07/26/CSAO-Chap12/","title":"【学习笔记】计算机科学概论 - 第十二章"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2023/07/20/CSAO-Chap1-12/","path":"2023/07/20/CSAO-Chap1-12/","title":"【学习笔记】计算机科学概论 - 第一章和第十二章"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【学习笔记】计算机科学概论 - 第十二章 | Clever_Jimmy 的博客</title>
+<title>【学习笔记】计算机科学概论 - 第一章和第十二章 | Clever_Jimmy 的博客</title>
   
 
 
@@ -143,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">可计算性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bare-bones-%E8%AF%AD%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">Bare Bones 语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">复制操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">交换操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.</span> <span class="nav-text">分支结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9C%E6%9C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">停机问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsa"><span class="nav-number">4.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rsa-%E5%AF%86%E9%92%A5%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E5%88%86%E5%8F%91"><span class="nav-number">4.1.</span> <span class="nav-text">RSA 密钥的生成与分发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsa-%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86"><span class="nav-number">4.2.</span> <span class="nav-text">RSA 的加密与解密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsa-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">RSA 的正确性</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="nav-number">1.</span> <span class="nav-text">第一章 数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8"><span class="nav-number">1.1.</span> <span class="nav-text">逻辑门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E5%B8%B8%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">C 中的字符常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD%E7%9A%84%E8%A1%A5%E7%A0%81%E4%B8%8E%E4%BD%99%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">二进制中的补码与余码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E8%AE%B0%E6%95%B0%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">补码记数法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E7%A0%81%E8%AE%B0%E6%95%B0%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">余码记数法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">第十二章 计算理论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">可计算性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bare-bones-%E8%AF%AD%E8%A8%80"><span class="nav-number">2.2.</span> <span class="nav-text">Bare Bones 语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.1.</span> <span class="nav-text">复制操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.2.</span> <span class="nav-text">交换操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.3.</span> <span class="nav-text">分支结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%9C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">停机问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsa"><span class="nav-number">2.4.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rsa-%E5%AF%86%E9%92%A5%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E5%88%86%E5%8F%91"><span class="nav-number">2.4.1.</span> <span class="nav-text">RSA 密钥的生成与分发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rsa-%E7%9A%84%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86"><span class="nav-number">2.4.2.</span> <span class="nav-text">RSA 的加密与解密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rsa-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7"><span class="nav-number">2.4.3.</span> <span class="nav-text">RSA 的正确性</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,18 +155,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -207,7 +204,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2023/07/26/CSAO-Chap12/">
+    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2023/07/20/CSAO-Chap1-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
@@ -220,12 +217,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【学习笔记】计算机科学概论 - 第十二章 | Clever_Jimmy 的博客">
+      <meta itemprop="name" content="【学习笔记】计算机科学概论 - 第一章和第十二章 | Clever_Jimmy 的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【学习笔记】计算机科学概论 - 第十二章
+          【学习笔记】计算机科学概论 - 第一章和第十二章
         </h1>
 
         <div class="post-meta-container">
@@ -236,14 +233,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-07-26 11:44:25" itemprop="dateCreated datePublished" datetime="2023-07-26T11:44:25+08:00">2023-07-26</time>
+      <time title="创建时间：2023-07-20 19:39:27" itemprop="dateCreated datePublished" datetime="2023-07-20T19:39:27+08:00">2023-07-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-21 17:12:30" itemprop="dateModified" datetime="2023-09-21T17:12:30+08:00">2023-09-21</time>
+      <time title="修改时间：2024-02-26 21:24:26" itemprop="dateModified" datetime="2024-02-26T21:24:26+08:00">2024-02-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,7 +269,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本文主要包括以下内容：</p>
+        <p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
 <p><strong>第十二章 计算理论</strong></p>
 <ul>
 <li>可计算性</li>
@@ -286,12 +293,64 @@
 <li>RSA</li>
 </ul>
 <span id="more"></span>
-<h2 id="可计算性">可计算性</h2>
+<h2 id="第一章-数据存储">第一章 数据存储</h2>
+<h3 id="逻辑门">逻辑门</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h3 id="c-中的字符常量">C 中的字符常量</h3>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
+<h4 id="补码记数法">补码记数法</h4>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h4 id="余码记数法">余码记数法</h4>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
+<h3 id="可计算性">可计算性</h3>
 <p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
 <strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
 <strong>不可计算的</strong>。</p>
 <p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h2 id="bare-bones-语言">Bare Bones 语言</h2>
+<h3 id="bare-bones-语言">Bare Bones 语言</h3>
 <p>一个通用程序设计语言。</p>
 <ul>
 <li><p>一种基本数据类型。</p>
@@ -310,19 +369,19 @@
 </blockquote>
 <p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
 语言实现。</p>
-<h3 id="复制操作">复制操作</h3>
+<h4 id="复制操作">复制操作</h4>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
 <p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
 的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h3 id="交换操作">交换操作</h3>
+<h4 id="交换操作">交换操作</h4>
 <p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h3 id="分支结构">分支结构</h3>
+<h4 id="分支结构">分支结构</h4>
 <p>我们现在想实现类似</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
 <p>的结构。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
 <p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h2 id="停机问题">停机问题</h2>
+<h3 id="停机问题">停机问题</h3>
 <p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
 Bare Bones 程序是 <strong>自终止的</strong>。</p>
 <p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
@@ -350,10 +409,10 @@ Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
 <code>A</code>，使得它能判断一段 Bare Bones
 程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
 <code>B</code>。因此停机问题不可解。</p>
-<h2 id="rsa">RSA</h2>
+<h3 id="rsa">RSA</h3>
 <p>RSA
 是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h3 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h3>
+<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
 <blockquote>
 <p><span class="math inline">\(\lambda(n)\)</span> 为 <a
 target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
@@ -376,7 +435,7 @@ class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
 </ol>
 <p><span class="math inline">\(n, e\)</span> 作为公钥，<span
 class="math inline">\(d\)</span> 作为密钥。</p>
-<h3 id="rsa-的加密与解密">RSA 的加密与解密</h3>
+<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
 <p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
 取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
 的长度小于 <span class="math inline">\(n\)</span>。</p>
@@ -386,7 +445,7 @@ n\)</span></p></li>
 <li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
 \pmod n\)</span></p></li>
 </ul>
-<h3 id="rsa-的正确性">RSA 的正确性</h3>
+<h4 id="rsa-的正确性">RSA 的正确性</h4>
 <p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
 {pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
 \equiv m^{de} \pmod p\)</span> 即可，对 <span
@@ -400,11 +459,12 @@ h(p - 1) = k(q - 1)\)</span>。</p>
 class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
 <li>若 <span class="math inline">\(m \not\equiv 0 \pmod
 p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。 <span class="math display">\[
+\pmod p\)</span>。</li>
+</ol>
+<p><span class="math display">\[
   m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
 \cdot 1^{h} \equiv m \pmod p
-  \]</span></li>
-</ol>
+\]</span></p>
 <p>因此命题得证。</p>
 
     </div>
@@ -423,7 +483,7 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://leverimmy.top/2023/07/26/CSAO-Chap12/" title="【学习笔记】计算机科学概论 - 第十二章">https://leverimmy.top/2023/07/26/CSAO-Chap12/</a>
+      <a href="https://leverimmy.top/2023/07/20/CSAO-Chap1-12/" title="【学习笔记】计算机科学概论 - 第一章和第十二章">https://leverimmy.top/2023/07/20/CSAO-Chap1-12/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
@@ -433,22 +493,19 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
 
           <div class="post-tags">
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%A6%82%E8%AE%BA/" rel="tag"># 计算机科学概论</a>
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" rel="tag"># 计算理论</a>
-              <a href="/tags/Bare-Bones/" rel="tag"># Bare Bones</a>
-              <a href="/tags/RSA/" rel="tag"># RSA</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/07/20/CSAO-Chap1/" rel="prev" title="【学习笔记】计算机科学概论 - 第一章">
-                  <i class="fa fa-chevron-left"></i> 【学习笔记】计算机科学概论 - 第一章
+                <a href="/2023/07/01/2023Chongqing-Social-Practice/" rel="prev" title="【游记】2023 暑假重庆璧山乡村振兴实践">
+                  <i class="fa fa-chevron-left"></i> 【游记】2023 暑假重庆璧山乡村振兴实践
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/09/02/Shuliluoji-Yu-Jihelun-Chap1-5/" rel="next" title="【学习笔记】数理逻辑与集合论 - 第一至五章">
-                  【学习笔记】数理逻辑与集合论 - 第一至五章 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/09/02/Shuliluoji-Yu-Jihelun/" rel="next" title="【学习笔记】数理逻辑与集合论">
+                  【学习笔记】数理逻辑与集合论 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
