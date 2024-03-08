@@ -26,11 +26,13 @@
 <meta property="og:site_name" content="Clever_Jimmy 的博客">
 <meta property="og:description" content="这是《数字逻辑与数字集成电路（第2版）》的学习笔记。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.picgo.net/2024/03/08/2-any02a0a8b7d82997f6.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-03-08T08:55:47.291Z">
+<meta property="article:modified_time" content="2024-03-08T12:41:46.035Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.picgo.net/2024/03/08/2-any02a0a8b7d82997f6.jpeg">
 
 
 <link rel="canonical" href="https://leverimmy.top/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/">
@@ -141,7 +143,8 @@
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-1-%E7%AB%A0-%E6%95%B0%E5%88%B6%E5%92%8C%E7%BC%96%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">第 1 章 数制和编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">十进制数的二进制编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81bcd-%E7%A0%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">8421 码（BCD 码）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">5421 码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81-1"><span class="nav-number">1.1.3.</span> <span class="nav-text">2421 码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E4%B8%89%E7%A0%81"><span class="nav-number">1.1.4.</span> <span class="nav-text">余三码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">格雷码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%BC%E9%9B%B7%E7%A0%81-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">格雷码 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E6%A0%BC%E9%9B%B7%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">典型格雷码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%A0%BC%E9%9B%B7%E7%A0%81"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改格雷码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ascii-%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">ASCII 码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-2-%E7%AB%A0-%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E5%8F%8A%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">2.</span> <span class="nav-text">第 2 章
-逻辑代数及逻辑函数的化简</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">逻辑代数的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%BC%94%E8%A7%84%E5%88%99%E5%92%8C%E5%AF%B9%E5%81%B6%E8%A7%84%E5%88%99"><span class="nav-number">2.1.2.</span> <span class="nav-text">反演规则和对偶规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E5%8A%A0%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.3.</span> <span class="nav-text">附加公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.</span> <span class="nav-text">逻辑函数的化简</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">公式法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#karnaugh-%E5%9B%BE%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">Karnaugh 图法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quine-mccluskey-%E5%8C%96%E7%AE%80%E6%B3%95"><span class="nav-number">2.2.3.</span> <span class="nav-text">Quine-McCluskey 化简法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%BE%93%E5%87%BA%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E8%A1%A8%E6%A0%BC%E6%B3%95%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.4.</span> <span class="nav-text">多输出逻辑函数的表格法化简</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%9A%84%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.5.</span> <span class="nav-text">包含任意项的逻辑函数的化简</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%98%E6%8D%A2%E5%8F%8A%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.6.</span> <span class="nav-text">不同形式逻辑函数的变换及化简</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-3-%E7%AB%A0-%E9%9B%86%E6%88%90%E9%97%A8%E7%94%B5%E8%B7%AF%E4%B8%8E%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 集成门电路与触发器</span></a></li></ol></div>
+逻辑代数及逻辑函数的化简</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BB%A3%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">逻辑代数的基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%BC%94%E8%A7%84%E5%88%99%E5%92%8C%E5%AF%B9%E5%81%B6%E8%A7%84%E5%88%99"><span class="nav-number">2.1.2.</span> <span class="nav-text">反演规则和对偶规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E5%8A%A0%E5%85%AC%E5%BC%8F"><span class="nav-number">2.1.3.</span> <span class="nav-text">附加公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.</span> <span class="nav-text">逻辑函数的化简</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">公式法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#karnaugh-%E5%9B%BE%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">Karnaugh 图法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quine-mccluskey-%E5%8C%96%E7%AE%80%E6%B3%95"><span class="nav-number">2.2.3.</span> <span class="nav-text">Quine-McCluskey 化简法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%BE%93%E5%87%BA%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84-quine-mccluskey-%E5%8C%96%E7%AE%80%E6%B3%95"><span class="nav-number">2.2.4.</span> <span class="nav-text">多输出逻辑函数的
+Quine-McCluskey 化简法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%9A%84%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.5.</span> <span class="nav-text">包含任意项的逻辑函数的化简</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%98%E6%8D%A2%E5%8F%8A%E5%8C%96%E7%AE%80"><span class="nav-number">2.2.6.</span> <span class="nav-text">不同形式逻辑函数的变换及化简</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-3-%E7%AB%A0-%E9%9B%86%E6%88%90%E9%97%A8%E7%94%B5%E8%B7%AF%E4%B8%8E%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">第 3 章 集成门电路与触发器</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -241,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-08 16:55:47" itemprop="dateModified" datetime="2024-03-08T16:55:47+08:00">2024-03-08</time>
+      <time title="修改时间：2024-03-08 20:41:46" itemprop="dateModified" datetime="2024-03-08T20:41:46+08:00">2024-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,7 +301,7 @@ distance 为 <span
 class="math inline">\(1\)</span>）。使用它可以减少代码变换中电路瞬间产生的错误，可靠性较好。</p>
 <figure>
 <img
-src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240304105030084.png"
+src="https://img.picgo.net/2024/03/08/1-gray-code840c4a784d6cef9c.png"
 alt="十进制数的 4 种格雷码表" />
 <figcaption aria-hidden="true">十进制数的 4 种格雷码表</figcaption>
 </figure>
@@ -317,7 +320,7 @@ class="math inline">\((0011)_2\)</span>​。</p>
 <h3 id="ascii-码">ASCII 码</h3>
 <figure>
 <img
-src="C:\Users\50650\AppData\Roaming\Typora\typora-user-images\image-20240304105850138.png"
+src="https://img.picgo.net/2024/03/08/1-ascii-code8f157ad715e57c9d.png"
 alt="美国信息交换代码 ASCII CODE" />
 <figcaption aria-hidden="true">美国信息交换代码 ASCII CODE</figcaption>
 </figure>
@@ -337,8 +340,8 @@ alt="美国信息交换代码 ASCII CODE" />
 AB + \overline{A}C + BC = AB + \overline{A}C \\
 (A+B)(\overline{A}+C)(B+C) = (A+B)(\overline{A}+C)
 \end{cases}
-\]</span> 与的吸收律是 <span class="math inline">\(B = \text{T}\)</span>
-的特例： <span class="math display">\[
+\]</span> 与运算的吸收律是 <span class="math inline">\(B =
+\text{T}\)</span> 的特例： <span class="math display">\[
 \text{(absorption)}\; A + \overline{A}C = A + C
 \]</span></p>
 <h4 id="反演规则和对偶规则">反演规则和对偶规则</h4>
@@ -352,8 +355,7 @@ class="math inline">\(F\)</span></p>
 class="math inline">\(1\)</span>，<span class="math inline">\(1\)</span>
 替换为 <span class="math inline">\(0\)</span></li>
 </ul>
-<p>之后得到的结果。</p>
-<p>反演规则可以帮助我们方便地求出一个函数的反函数。</p>
+<p>之后得到的结果。反演规则可以帮助我们方便地求出一个函数的反函数。</p>
 <p><strong>对偶规则</strong>是指对偶式 <span
 class="math inline">\(F&#39;\)</span> 是 <span
 class="math inline">\(F\)</span></p>
@@ -363,10 +365,9 @@ class="math inline">\(F\)</span></p>
 class="math inline">\(1\)</span>，<span class="math inline">\(1\)</span>
 替换为 <span class="math inline">\(0\)</span>​</li>
 </ul>
-<p>之后得到的结果。</p>
-<p>关于对偶规则有一个显然的结论：如果 <span class="math inline">\(F =
-G\)</span>，则 <span class="math inline">\(F&#39; =
-G&#39;\)</span>。</p>
+<p>之后得到的结果。关于对偶规则有一个显然的结论：如果 <span
+class="math inline">\(F = G\)</span>，则 <span
+class="math inline">\(F&#39; = G&#39;\)</span>。</p>
 <h4 id="附加公式">附加公式</h4>
 <p><strong>附加公式</strong>本质上是一种通过枚举函数 <span
 class="math inline">\(f\)</span> 中的某一变量 <span
@@ -420,7 +421,9 @@ A\overline{C}) \\
 \gets{\overline{B}}\)</span> 的一个代入即可。</p>
 <h4 id="karnaugh-图法">Karnaugh 图法</h4>
 <figure>
-<img src="" alt="Karnaugh 图" />
+<img
+src="https://img.picgo.net/2024/03/08/2-karnaugh-18f7ba5a5a8e8f79b.jpeg"
+alt="Karnaugh 图" />
 <figcaption aria-hidden="true">Karnaugh 图</figcaption>
 </figure>
 <p><strong>Karnaugh 图的构造</strong>：二至五变量的表格横纵坐标分别为
@@ -452,11 +455,14 @@ class="math inline">\(n+1\)</span> 维块。Karnaugh 图化简的目的在于</p
 <li>五变量卡诺图注意“相重”，即左右对称。</li>
 </ul>
 <figure>
-<img src="" alt="五变量 Karnaugh 图的化简" />
+<img
+src="https://img.picgo.net/2024/03/08/2-karnaugh-285392fed8a4999cb.jpeg"
+alt="五变量 Karnaugh 图的化简" />
 <figcaption aria-hidden="true">五变量 Karnaugh 图的化简</figcaption>
 </figure>
-<p>上述例子中重点之一在于利用“相重”写出 <span
-class="math inline">\(ABE\)</span> 这一项。</p>
+<p>似乎题干有误，最后一项应为 <span
+class="math inline">\(A\overline{B}CD\overline{E}\)</span>。上述例子中重点之一在于利用“相重”写出
+<span class="math inline">\(ABE\)</span> 这一项。</p>
 <h4 id="quine-mccluskey-化简法">Quine-McCluskey 化简法</h4>
 <p><del>这玩意儿是真复杂，要是手算真不如 Karnaugh 图。</del></p>
 <p>Quine-McCluskey 化简法遵循两个步骤：</p>
@@ -464,8 +470,106 @@ class="math inline">\(ABE\)</span> 这一项。</p>
 <li>求出全部的质蕴含项；</li>
 <li>从质蕴含项中选出必要质蕴涵项。</li>
 </ol>
-<h4 id="多输出逻辑函数的表格法化简">多输出逻辑函数的表格法化简</h4>
+<p><strong>求出全部的质蕴含项</strong>：</p>
+<ul>
+<li><p>对于函数内出现过的最小项按照二进制数取值中 <span
+class="math inline">\(1\)</span>​
+的个数由少至多分组，每组内最小项按照从小到大排列。</p></li>
+<li><p>相邻组看是否能合并，例如：</p>
+<ul>
+<li><span class="math inline">\(0001\)</span> 和 <span
+class="math inline">\(0011\)</span> 合并为 <span
+class="math inline">\(00-1\)</span>；</li>
+<li><span class="math inline">\(00-1\)</span> 和 <span
+class="math inline">\(10-1\)</span> 合并为 <span
+class="math inline">\(-0-1\)</span>​。</li>
+</ul>
+<p>如果能合并，就在两原项后打 <span
+class="math inline">\(\checkmark\)</span>。</p></li>
+<li><p>直到无法合并为止。此时没有 <span
+class="math inline">\(\checkmark\)</span> 的项即为质蕴含项，记为 <span
+class="math inline">\(P_1, P_2, \cdots\)</span>​。</p></li>
+</ul>
+<p>考虑求 <span class="math inline">\(F = f(A, B, C, D) = \sum m^4(0, 4,
+6, 8, 10, 11, 13, 14, 15)\)</span> 的全部质蕴含项过程如下：</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/08/2-prime-implicants-1013965303e7ccccb.jpeg"
+alt="求全部质蕴含项" />
+<figcaption aria-hidden="true">求全部质蕴含项</figcaption>
+</figure>
+<p><strong>选出必要质蕴含项</strong>：</p>
+<ul>
+<li>对于两<strong>行</strong>来说，如果 <span
+class="math inline">\(a\)</span> 行是 <span
+class="math inline">\(b\)</span> 行的<strong>子集</strong>，那么将 <span
+class="math inline">\(a\)</span> 行删去；</li>
+<li>对于两<strong>列</strong>来说，如果 <span
+class="math inline">\(a\)</span> 行是 <span
+class="math inline">\(b\)</span> 行的<strong>超集</strong>，那么将 <span
+class="math inline">\(a\)</span>​ 行删去。</li>
+</ul>
+<p>最终剩下的质蕴含项即为必要质蕴涵项。值得注意的是，行、列消去中先进行哪个消去并不影响简化结果。</p>
+<p>仍使用上例，过程如下：</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/08/2-prime-implicants-2fa49df4d4df455be.jpeg"
+alt="选出必要质蕴含项" />
+<figcaption aria-hidden="true">选出必要质蕴含项</figcaption>
+</figure>
+<p>最终必要质蕴含项为 <span class="math inline">\(P_1, P_2, P_3, P_4,
+P_5\)</span>。化简后的答案为 <span class="math display">\[
+F = P_1 + P_2 + P_3 + P_4 + P_5 = \overline{A}\;\overline{B}CD +
+\overline{B}\;\overline{C}\;\overline{D} + BC\overline{D} +
+A\overline{C} + AB.
+\]</span></p>
+<h4 id="多输出逻辑函数的-quine-mccluskey-化简法">多输出逻辑函数的
+Quine-McCluskey 化简法</h4>
+<p>尽管每个函数不是最简，但是只要找到函数的公共“与”项，就能达到最佳的总体效果。</p>
+<p><strong>求出各个函数的公共质蕴含项</strong>：</p>
+<p>在表上分别写 <span class="math inline">\(F_1, F_2, \cdots\)</span>
+列，用 <span class="math inline">\(\triangle\)</span>
+来表示某个最小项属于哪些函数。假设包含 <span
+class="math inline">\(m_i\)</span> 的函数集合为 <span
+class="math inline">\(\mathscr{F}\)</span>，包含 <span
+class="math inline">\(m_j\)</span> 的函数集合为 <span
+class="math inline">\(\mathscr{G}\)</span>，则 <span
+class="math inline">\(m_i\)</span> 和 <span
+class="math inline">\(m_j\)</span> 可以合并，当且仅当 <span
+class="math inline">\(m_i\)</span> 和 <span
+class="math inline">\(m_j\)</span> 相邻，且 <span
+class="math inline">\(\mathscr{F} \cap \mathscr{G} \neq
+\varnothing\)</span>​。</p>
+<p>只有当 <span class="math inline">\(\mathscr{F} \subset
+\mathscr{G}\)</span> 的时候，才能在 <span
+class="math inline">\(\mathscr{F}\)</span> 的后面打 <span
+class="math inline">\(\checkmark\)</span>。</p>
+<p><strong>选出必要质蕴含项</strong>：</p>
+<p>区别在于，列消去只能在在 <span class="math inline">\(F_1, F_2,
+\cdots\)</span>
+每组内使用，而不能跨组使用。行消去和之前的做法相同。最终得到必要质蕴含项表。</p>
+<p><strong>确定每个函数的必要质蕴含项</strong>：</p>
+<p>属于多个函数的必要质蕴涵项中只有部分与单一函数有关，所以还需要进一步计算，从中选出每个函数的必要质蕴涵项。对于函数
+<span class="math inline">\(F_i\)</span>​ 而言，把必要质蕴涵表中与 <span
+class="math inline">\(F_i\)</span>
+相关的项单独列出来并进行消去，最终得到 <span
+class="math inline">\(F_i\)</span> 的必要质蕴涵项。</p>
 <h4 id="包含任意项的逻辑函数的化简">包含任意项的逻辑函数的化简</h4>
+<p><strong>使用 Karnaugh 图</strong>：将任意项的小方块中填入 <span
+class="math inline">\(\varnothing\)</span>，它可以等于 <span
+class="math inline">\(1\)</span> 也可以等于 <span
+class="math inline">\(0\)</span>，以最方便的为准（但是一旦确定了之后就必须固定下来）。比如此例中的任意项
+<span class="math inline">\(12\)</span>，它作为 <span
+class="math inline">\(0\)</span> 来考虑；而任意项 <span
+class="math inline">\(3,9,15\)</span> 均作为 <span
+class="math inline">\(1\)</span> 来考虑。</p>
+<figure>
+<img src="https://img.picgo.net/2024/03/08/2-any02a0a8b7d82997f6.jpeg"
+alt="包含任意项的逻辑函数化简" />
+<figcaption aria-hidden="true">包含任意项的逻辑函数化简</figcaption>
+</figure>
+<p><strong>使用 Quine-McCluskey
+化简法</strong>：将任意项当做最小项之一参与相邻项的合并，但在最后的结果中并不把任意项当做质蕴含项列出，也不参与必要质蕴涵项的筛选。</p>
 <h4 id="不同形式逻辑函数的变换及化简">不同形式逻辑函数的变换及化简</h4>
 <p><strong>“与或”变为“与非-与非”</strong>：两次求反。例如 <span
 class="math inline">\(F = AB+AC+AD\)</span>， <span
