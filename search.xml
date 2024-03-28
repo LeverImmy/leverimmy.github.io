@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】Introduction to Theoretical Computer Science</title>
-    <url>/2024/03/01/ITCS/</url>
-    <content><![CDATA[<p>这是 <em><a href="https://introtcs.org/">Introduction to Theoretical
-Computer Science</a></em> 的学习笔记。</p>
-<span id="more"></span>
-<h2 id="section"></h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>理论计算机科学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数字逻辑与数字集成电路</title>
     <url>/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/</url>
     <content><![CDATA[<p>这是《数字逻辑与数字集成电路（第2版）》的学习笔记。</p>
@@ -301,7 +286,7 @@ class="math inline">\(F_i\)</span>
 class="math inline">\(F_i\)</span> 的必要质蕴涵项。</p>
 <h4 id="包含任意项的逻辑函数的化简">包含任意项的逻辑函数的化简</h4>
 <p><strong>使用 Karnaugh 图</strong>：将任意项的小方块中填入 <span
-class="math inline">\(\varnothing\)</span>，它可以等于 <span
+class="math inline">\(\phi\)</span>，它可以等于 <span
 class="math inline">\(1\)</span> 也可以等于 <span
 class="math inline">\(0\)</span>，以最方便的为准（但是一旦确定了之后就必须固定下来）。比如此例中的任意项
 <span class="math inline">\(12\)</span>，它作为 <span
@@ -489,7 +474,7 @@ class="math inline">\(L\)</span></td>
 \overline{AB}\)</span>，但在负逻辑下表示或非门 <span
 class="math inline">\(F = \overline{A+B}\)</span>。</p>
 <h4 id="典型的-ttl-门电路">典型的 TTL 门电路</h4>
-<p>学不会。</p>
+<p><del>学不会</del></p>
 <h4 id="ttl-与非门电路的外部特性与级联">TTL
 与非门电路的外部特性与级联</h4>
 <p><strong>技术参数</strong>：</p>
@@ -775,6 +760,290 @@ class="math inline">\(I_{IZ}\)</span></li>
 </ul>
 <h2 id="第-4-章-组合逻辑电路">第 4 章 组合逻辑电路</h2>
 <h3 id="译码器">译码器</h3>
+<h4 id="功能分类">功能分类</h4>
+<ul>
+<li><p>变量译码器：用来表示变量状态的全部组合</p>
+<p><span class="math inline">\(N\)</span> 位输入，<span
+class="math inline">\(2^N\)</span> 位输出。常见的集成化译码器有
+2-4、3-8、4-16 译码器等。</p></li>
+<li><p>码制译码器：如 8421 码变换为循环码</p></li>
+<li><p>显示译码器：控制数码管显示</p></li>
+</ul>
+<h4 id="变量译码器">2-4 变量译码器</h4>
+<p><strong>变量译码器的原理</strong></p>
+<p>假设 <span class="math inline">\(A, B\)</span> 是变量输入端，其中
+<span class="math inline">\(A\)</span> 为地位，<span
+class="math inline">\(B\)</span> 为高位；<span class="math inline">\(Y_0
+\sim Y_3\)</span> 为译码器的输出。则可以写出表达式： <span
+class="math display">\[
+Y_0 = \overline{\overline{A}\;\overline{B}}, Y_1 =
+\overline{A\;\overline{B}}, Y_2 = \overline{\overline{A}\;B}, Y_3 =
+\overline{AB}.
+\]</span> 输出端有 <span class="math inline">\(Y_i = 0, Y_j = 1(j \neq
+i)\)</span>，当且仅当输入端有 <span class="math inline">\((BA)_2 =
+i\)</span>​。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-overloadf43203f46d17db5b.jpeg"
+alt="输入的负载过多" />
+<figcaption aria-hidden="true">输入的负载过多</figcaption>
+</figure>
+<p>为了减轻前一级电路驱动 <span class="math inline">\(A, B\)</span>
+端的负担，设置了 <span class="math inline">\(A, B\)</span>
+输入缓冲反相门，以形成译码器所需要的 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(\overline{A}\)</span>、<span
+class="math inline">\(B\)</span> 和 <span
+class="math inline">\(\overline{B}\)</span>​ 的互补输入。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-buffer90c4ccca010465a8.jpeg"
+alt="添加输入缓冲部分" />
+<figcaption aria-hidden="true">添加输入缓冲部分</figcaption>
+</figure>
+<p><strong>使能端</strong></p>
+<p>可以添加一个“使能”端 <span
+class="math inline">\(\overline{E}\)</span> 作为控制端，当 <span
+class="math inline">\(\overline{E} = 1\)</span> 时，译码器的四个输出均为
+<span class="math inline">\(1\)</span>，译码器的工作被禁止；只有当 <span
+class="math inline">\(\overline{E} = 0\)</span>
+的时候，译码器才处于正常的工作状态。</p>
+<blockquote>
+<p><strong>注意</strong>：与 <span
+class="math inline">\(\overline{G}\)</span> 类似，这里的 <span
+class="math inline">\(\overline{E}\)</span>
+是一个记号，是一个整体，而不是 <span class="math inline">\(E\)</span>​
+的补。</p>
+</blockquote>
+<figure>
+<img src="https://img.picgo.net/2024/03/28/4-2-4-Eb615a345ddfed079.jpeg"
+alt="有使能端的 2-4 译码器" />
+<figcaption aria-hidden="true">有使能端的 2-4 译码器</figcaption>
+</figure>
+<ul>
+<li><p>用于多片扩展</p>
+<ul>
+<li><p>搭建 3-8 译码器需要 <span class="math inline">\(2\)</span>​ 片 2-4
+译码器</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-2-4-3-859064124c2274d5c.jpeg"
+alt="用两片带使能端的 2-4 译码器组成 3-8 译码器" />
+<figcaption aria-hidden="true">用两片带使能端的 2-4 译码器组成 3-8
+译码器</figcaption>
+</figure></li>
+<li><p>搭建 4-16 译码器需要 <span class="math inline">\(5\)</span>​ 片
+2-4 译码器</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-2-4-4-1644bc666a1990c851.jpeg"
+alt="用五片带使能端的 2-4 译码器组成 4-16 译码器" />
+<figcaption aria-hidden="true">用五片带使能端的 2-4 译码器组成 4-16
+译码器</figcaption>
+</figure>
+<p>其中有一片的使能端 <span class="math inline">\(\overline{E}\)</span>
+作为 4-16 译码器的使能端。</p></li>
+<li><p>如何搭建 32-2^{32} 译码器？</p>
+<p><del>问得好，我也不会</del></p></li>
+</ul></li>
+<li><p>用作选通：解决门电路的传输延迟造成的竞争、冒险问题</p>
+<p><del>没太理解</del></p></li>
+<li><p>用作数据分配器</p>
+<p><span class="math inline">\(\overline{E}\)</span>
+的值，其实决定了输出中的那一位到底是 <span
+class="math inline">\(0\)</span> 还是 <span
+class="math inline">\(1\)</span>。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-demultiplexer6ad31530bf0ab837.jpeg"
+alt="译码器用作数据分配器" />
+<figcaption aria-hidden="true">译码器用作数据分配器</figcaption>
+</figure></li>
+</ul>
+<h4 id="变量译码器-1">3-8 变量译码器</h4>
+<figure>
+<img src="https://img.picgo.net/2024/03/28/4-3-8d0a524c32b9a87d2.jpeg"
+alt="无使能端的 3-8 译码器" />
+<figcaption aria-hidden="true">无使能端的 3-8 译码器</figcaption>
+</figure>
+<ul>
+<li><p>用无使能端的 3-8 译码器扩展成 4-16 译码器</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-3-8-4-164dad71e165078c00.jpeg"
+alt="用无使能端的 3-8 译码器扩展成 4-16 译码器" />
+<figcaption aria-hidden="true">用无使能端的 3-8 译码器扩展成 4-16
+译码器</figcaption>
+</figure></li>
+<li><p>具有多个使能端的 3-8 译码器扩展成 4-16 译码器</p>
+<p>多使能端 <span class="math inline">\(E_1, \overline{E}_{2A},
+\overline{E}_{2B}\)</span>：</p>
+<ul>
+<li>当 <span class="math inline">\(E_1 = 1\)</span> 且 <span
+class="math inline">\(\overline{E}_{2A} = \overline{E}_{2B} = 0\)</span>
+时，译码器处于工作状态</li>
+<li>当 <span class="math inline">\(E_1 = 0\)</span> 或 <span
+class="math inline">\(\overline{E}_{2A} = 1\)</span> 或 <span
+class="math inline">\(\overline{E}_{2B} = 1\)</span>
+时，译码器处于禁止状态</li>
+</ul>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-3-8-4-16-Ecadbe5d680e1a5d2.jpeg"
+alt="具有多个使能端的 3-8 译码器扩展成 4-16 译码器" />
+<figcaption aria-hidden="true">具有多个使能端的 3-8 译码器扩展成 4-16
+译码器</figcaption>
+</figure></li>
+</ul>
+<h4 id="变量译码器-2">4-16 变量译码器</h4>
+<p>多使能端 <span class="math inline">\(\overline{E}_1,
+\overline{E}_2\)</span>：</p>
+<ul>
+<li>当 <span class="math inline">\(\overline{E}_1 = \overline{E}_2 =
+0\)</span> 时，译码器处于工作状态</li>
+<li>当 <span class="math inline">\(\overline{E}_1 = 1\)</span> 或 <span
+class="math inline">\(\overline{E}_2 = 1\)</span>
+时，译码器处于禁止状态</li>
+</ul>
+<figure>
+<img src="https://img.picgo.net/2024/03/28/4-4-16-E882071fa711ac29a.png"
+alt="具有多个使能端的 4-16 译码器" />
+<figcaption aria-hidden="true">具有多个使能端的 4-16 译码器</figcaption>
+</figure>
+<p><strong>存在的问题</strong>：</p>
+<ul>
+<li><p>缓冲门的负载较大：</p>
+<p>第一级缓冲门（反变量）负载 <span class="math inline">\(9\)</span>
+个负载，第二级缓冲门（原变量）负载 <span
+class="math inline">\(8\)</span> 个负载</p></li>
+<li><p>使能端与门的负载有 <span class="math inline">\(16\)</span>​
+个，必须在制造芯片时增大驱动能力</p></li>
+</ul>
+<blockquote>
+<p>当译码器的输入变量数 <span class="math inline">\(N\)</span>
+增大时，用单级译码器不能实现。</p>
+<ul>
+<li><p>译码部分与非门的输入端数会增多</p>
+<p>每个与非门的输入端数均为 <span class="math inline">\(N+1\)</span>
+个（包含使能端）</p></li>
+<li><p>二级缓冲的每个输出负载加重</p>
+<p>负载：第一级为 <span
+class="math inline">\(2^{N-1}+1\)</span>，第二级为 <span
+class="math inline">\(2^{N-1}\)</span>，使能端为 <span
+class="math inline">\(2^{N}\)</span>。例如，当 <span
+class="math inline">\(N = 11\)</span>
+时，这么多负载，这是不可实现的。</p></li>
+</ul>
+<p>采用多级译码技术可以减少负载：用在大容量存储器片内的译码结构。</p>
+</blockquote>
+<h4 id="多级译码">多级译码</h4>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-multilevel-19bf52241853191ae.jpeg"
+alt="多级译码-1" />
+<figcaption aria-hidden="true">多级译码-1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-multilevel-24e8d1cd6b9636b13.jpeg"
+alt="多级译码-2" />
+<figcaption aria-hidden="true">多级译码-2</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-multilevel-38f2125a8e8c4e534.jpeg"
+alt="多级译码-3" />
+<figcaption aria-hidden="true">多级译码-3</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-multilevel-450bfbc6af4116564.jpeg"
+alt="多级译码-4" />
+<figcaption aria-hidden="true">多级译码-4</figcaption>
+</figure>
+<h4 id="码制译码器">码制译码器</h4>
+<p>码制译码器是一种将一种编码变换为另外一种编码的逻辑电路。</p>
+<p><strong>不完全译码的 BCD 译码器</strong></p>
+<p>当输入 <span class="math inline">\(ABCD\)</span> 出现 <span
+class="math inline">\(0101 \sim
+1111\)</span>（左为最低位）时，译码器输出 <span
+class="math inline">\(Y_0 \sim Y_9\)</span>​ 均为任意值。</p>
+<p>画包含任意项的 Karnaugh 图可以得到： <span class="math display">\[
+\begin{align*}
+Y_0 &amp; =
+\overline{\overline{A}\;\overline{B}\;\overline{C}\;\overline{D}}, \\
+Y_1 &amp; = \overline{A\;\overline{B}\;\overline{C}\;\overline{D}}, \\
+Y_2 &amp; = \overline{\overline{A}\;B\;\overline{C}}, \\
+Y_3 &amp; = \overline{A\;B\;\overline{C}}, \\
+Y_4 &amp; = \overline{\overline{A}\;\overline{B}\;C}, \\
+Y_5 &amp; = \overline{A\;\overline{B}\;C}, \\
+Y_6 &amp; = \overline{\overline{A}\;B\;C}, \\
+Y_7 &amp; = \overline{A\;B\;C}, \\
+Y_8 &amp; = \overline{\overline{A}\;\overline{D}}, \\
+Y_9 &amp; = \overline{A\;D}.
+\end{align*}
+\]</span> <img
+src="https://img.picgo.net/2024/03/28/4-incomplete-BCD0f0c58f637bd8ceb.jpeg"
+alt="不完全译码的 BCD 译码器" /></p>
+<p><strong>完全译码的 BCD 译码器</strong></p>
+<p>当输入 <span class="math inline">\(ABCD\)</span> 出现 <span
+class="math inline">\(0101 \sim 1111\)</span> 时，译码器输出 <span
+class="math inline">\(Y_0 \sim Y_9\)</span> 均为 <span
+class="math inline">\(1\)</span>​。</p>
+<p>画 Karnaugh 图可以得到： <span class="math display">\[
+\begin{align*}
+Y_0 &amp; =
+\overline{\overline{A}\;\overline{B}\;\overline{C}\;\overline{D}}, \\
+Y_1 &amp; = \overline{A\;\overline{B}\;\overline{C}\;\overline{D}}, \\
+Y_2 &amp; = \overline{\overline{A}\;B\;\overline{C}\;\overline{D}}, \\
+Y_3 &amp; = \overline{A\;B\;\overline{C}\;\overline{D}}, \\
+Y_4 &amp; = \overline{\overline{A}\;\overline{B}\;C\;\overline{D}}, \\
+Y_5 &amp; = \overline{A\;\overline{B}\;C\;\overline{D}}, \\
+Y_6 &amp; = \overline{\overline{A}\;B\;C\;\overline{D}}, \\
+Y_7 &amp; = \overline{A\;B\;C\;\overline{D}}, \\
+Y_8 &amp; = \overline{\overline{A}\;\overline{B}\;\overline{C}\;D}, \\
+Y_9 &amp; = \overline{A\;\overline{B}\;\overline{C}\;D}.
+\end{align*}
+\]</span> <img
+src="https://img.picgo.net/2024/03/28/4-complete-BCD3684c144a660328d.jpeg"
+alt="完全译码的 BCD 译码器" /></p>
+<h4 id="显示译码器">显示译码器</h4>
+<p><strong>七段数码管</strong></p>
+<p>一个七段数码管有 <span class="math inline">\(7\)</span> 个控制端输入
+<span class="math inline">\(a\sim g\)</span>，分别对应与数码管的 <span
+class="math inline">\(7\)</span> 段。有些数码管是 <span
+class="math inline">\(8\)</span>
+个输入，在右下方有一个小数点。七段数码管分为两类：</p>
+<ul>
+<li>共阳极显示：低电平（<span
+class="math inline">\(0\)</span>）亮，高电平（<span
+class="math inline">\(1\)</span>）灭</li>
+<li>共阴极显示：高电平亮，低电平灭</li>
+</ul>
+<p>教材中采用的是共阳极显示数码管。</p>
+<p><strong>显示译码器</strong></p>
+<p>显示译码器本质上是一个 BCD
+码到一个特殊的七进制数码管编码的码制译码器。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/28/4-display3c9975996085d549.jpeg"
+alt="显示译码器" />
+<figcaption aria-hidden="true">显示译码器</figcaption>
+</figure>
+<p>各个变量的逻辑表达式： <span class="math display">\[
+\begin{align*}
+a &amp; = BD + \overline{A}C +
+A\overline{B}\;\overline{C}\;\overline{D}, \\
+b &amp; = BD + A \overline{B}C, \\
+c &amp; = \overline{A}B\overline{C} + CD, \\
+d &amp; = A \overline{B}\;\overline{C} + \overline{A}\;\overline{B}C +
+ABC, \\
+e &amp; = A + \overline{B}C, \\
+f &amp; = A\overline{C}\;\overline{D} + AB + B\overline{C}, \\
+g &amp; = \overline{B}\;\overline{C}\;\overline{D} + ABC.
+\end{align*}
+\]</span> LT、RBI、BI/BRO
+是显示译码器控制功能的输入，主要用于对数码管进行测试。</p>
 <h3 id="数据选择器">数据选择器</h3>
 ]]></content>
       <categories>
@@ -782,6 +1051,21 @@ class="math inline">\(I_{IZ}\)</span></li>
       </categories>
       <tags>
         <tag>数字逻辑电路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】Introduction to Theoretical Computer Science</title>
+    <url>/2024/03/01/ITCS/</url>
+    <content><![CDATA[<p>这是 <em><a href="https://introtcs.org/">Introduction to Theoretical
+Computer Science</a></em> 的学习笔记。</p>
+<span id="more"></span>
+<h2 id="section"></h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>理论计算机科学</tag>
       </tags>
   </entry>
   <entry>
@@ -4926,6 +5210,214 @@ alt="12-45 一个无死锁程序的进度图" />
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】计算机科学概论</title>
+    <url>/2023/07/20/CSAO/</url>
+    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="第一章-数据存储">第一章 数据存储</h2>
+<h3 id="逻辑门">逻辑门</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h3 id="c-中的字符常量">C 中的字符常量</h3>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
+<h4 id="补码记数法">补码记数法</h4>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h4 id="余码记数法">余码记数法</h4>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
+<h3 id="可计算性">可计算性</h3>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h3 id="bare-bones-语言">Bare Bones 语言</h3>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h4 id="复制操作">复制操作</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h4 id="交换操作">交换操作</h4>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h4 id="分支结构">分支结构</h4>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h3 id="停机问题">停机问题</h3>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h3 id="rsa">RSA</h3>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h4 id="rsa-的正确性">RSA 的正确性</h4>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。</li>
+</ol>
+<p><span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+\]</span></p>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论</title>
     <url>/2023/09/17/IATLC/</url>
     <content><![CDATA[<p>这是《自动机理论、语言和计算导论》的学习笔记。</p>
@@ -7416,214 +7908,6 @@ class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p
         <tag>正则表达式</tag>
         <tag>上下文无关文法</tag>
         <tag>下推自动机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】计算机科学概论</title>
-    <url>/2023/07/20/CSAO/</url>
-    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="第一章-数据存储">第一章 数据存储</h2>
-<h3 id="逻辑门">逻辑门</h3>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h3 id="c-中的字符常量">C 中的字符常量</h3>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
-<h4 id="补码记数法">补码记数法</h4>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h4 id="余码记数法">余码记数法</h4>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
-<h3 id="可计算性">可计算性</h3>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h3 id="bare-bones-语言">Bare Bones 语言</h3>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h4 id="复制操作">复制操作</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h4 id="交换操作">交换操作</h4>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h4 id="分支结构">分支结构</h4>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h3 id="停机问题">停机问题</h3>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h3 id="rsa">RSA</h3>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h4 id="rsa-的正确性">RSA 的正确性</h4>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。</li>
-</ol>
-<p><span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-\]</span></p>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
       </tags>
   </entry>
   <entry>
