@@ -1182,7 +1182,657 @@ alt="用 8 选 1 数据选择器实现 4 变量函数" />
 变量函数</figcaption>
 </figure>
 </blockquote>
-<h2 id="第-5-章-同步时序电路">第 5 章 同步时序电路</h2>
+<h3 id="编码器">编码器</h3>
+<p><strong>功能</strong>：将译码器反过来，对应输入的每一个状态，输出一个编码。</p>
+<p><strong>常用编码器</strong>：</p>
+<ul>
+<li>4-2 编码，将输入的 4 个状态，编成 2 位二进制数码</li>
+<li>8-3 编码，将输入的 8 个状态，编成 3 位二进制数码</li>
+<li>BCD 编码（8421 码），将 10 个输入编成 BCD 码</li>
+</ul>
+<h4 id="编码器-1">4-2 编码器</h4>
+<p><strong>功能表</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(I_0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(I_1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(I_2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(I_3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(A_0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(A_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>输出的逻辑表达式： <span class="math display">\[
+\begin{align*}
+A_0 &amp; = I_0\;\overline{I_1}\;I_2I_3 + I_0I_1I_2\;\overline{I_3} =
+\overline{\overline{I_0}\;I_1I_2I_3 + I_0I_1\;\overline{I_2}\;I_3}, \\
+A_1 &amp; = I_0I_1\;\overline{I_2}\;I_3 + I_0I_1I_2\;\overline{I_3} =
+\overline{\overline{I_0}\;I_1I_2I_3 + I_0\;\overline{I_1}\;I_2I_3}.
+\end{align*}
+\]</span> <img
+src="https://img.picgo.net/2024/04/07/4-4-2-encoder6834d3a69f2b7ad2.jpeg"
+alt="4-2 编码器" /></p>
+<h4 id="码编码器">8421 码编码器</h4>
+<p><strong>功能表</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(X_9\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_8\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_7\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_6\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_5\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_4\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(X_0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(Y_3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(Y_2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(Y_1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(Y_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>输出的逻辑表达式： <span class="math display">\[
+\begin{align*}
+Y_0 &amp; = X_1 + X_3 + X_5 + X_7 + X_9, \\
+Y_1 &amp; = X_2 + X_3 + X_6 + X_7, \\
+Y_2 &amp; = X_4 + X_5 + X_6 + X_7, \\
+Y_3 &amp; = X_8 + X_9.
+\end{align*}
+\]</span> <img
+src="https://img.picgo.net/2024/04/07/4-8421-encoderb4ea07984360f462.jpeg"
+alt="8421 码编码器" /></p>
+<h4 id="优先编码器">8-3 优先编码器</h4>
+<blockquote>
+<p>上述编码器有什么问题？</p>
+<p>以 4-2 编码器为例，当 <span class="math inline">\(I_0 = I_1 =
+0\)</span> 时，仍能得到 <span class="math inline">\(A_0 = A_1 =
+1\)</span>。</p>
+<p>产生问题的原因是：2-4
+译码器的输出并没有包含所有四输入的可能组合。只有<strong>互斥</strong>输入时，才能使用这种编码器。在任意时刻所有输入线中最多只允许有一个为
+<span class="math inline">\(0\)</span>（4-2 编码器）或 <span
+class="math inline">\(1\)</span>（8421
+码编码器），否则编码器会发生混乱。</p>
+<p>解决办法：使用优先编码器。</p>
+</blockquote>
+<p><strong>优先编码器</strong>：当两条或两条以上的线为 <span
+class="math inline">\(0\)</span>​
+时，<strong>优先按照输入编号大的编码</strong>，称为优先编码器。</p>
+<p><strong>8-3 优先编码器</strong>：</p>
+<ul>
+<li><strong>输出为反码</strong>，即用 <span
+class="math inline">\(000\)</span> 来表示 <span
+class="math inline">\(7\)</span>，用 <span
+class="math inline">\(111\)</span> 来表示 <span
+class="math inline">\(0\)</span>。</li>
+<li>输出使能端 <span
+class="math inline">\(E_o\)</span>：只有当输入数据（<span
+class="math inline">\(0 \sim 7\)</span>）中出现 <span
+class="math inline">\(0\)</span> 时，才为 <span
+class="math inline">\(1\)</span>；其余情况为 <span
+class="math inline">\(0\)</span>。</li>
+<li>输出的编码是否有效 <span class="math inline">\(G_s\)</span>：当
+<span class="math inline">\(G_s = 0\)</span> 时，表示当前编码有效；当
+<span class="math inline">\(G_s = 1\)</span> 时，表示当前编码无效。</li>
+<li>输入使能端 <span class="math inline">\(\overline{E}_i\)</span>：当
+<span class="math inline">\(\overline{E}_i = 0\)</span>
+时，允许电路编码；当 <span class="math inline">\(\overline{E}_i =
+1\)</span> 时，禁止电路编码（输出全 <span
+class="math inline">\(1\)</span>，包括 <span
+class="math inline">\(E_o\)</span> 和 <span
+class="math inline">\(G_s\)</span>）。</li>
+</ul>
+<p>输出的逻辑表达式： <span class="math display">\[
+\begin{align*}
+A_0 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
+\overline{\overline{E}_i} \cdot 6 \cdot\overline{5} +
+\overline{\overline{E}_i} \cdot 6 \cdot 4 \cdot \overline{3} +
+\overline{\overline{E}_i} \cdot 6 \cdot 4 \cdot 2 \cdot \overline{1}},
+\\
+A_1 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
+\overline{\overline{E}_i} \cdot \overline{6} + \overline{\overline{E}_i}
+\cdot 5 \cdot 4 \cdot \overline{3} + \overline{\overline{E}_i} \cdot 5
+\cdot 4 \cdot \overline{2}}, \\
+A_2 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
+\overline{\overline{E}_i} \cdot \overline{6} + \overline{\overline{E}_i}
+\cdot \overline{5} + \overline{\overline{E}_i} \cdot \overline{4}}, \\
+E_o &amp; = \overline{\overline{\overline{E}_i} \cdot 7 \cdot 6\cdot 5
+\cdot 4 \cdot 3 \cdot 2 \cdot 1 \cdot 0}, \\
+G_s &amp; = \overline{\overline{\overline{E}_i}\cdot E_o}.
+\end{align*}
+\]</span> <strong>将 8-3 优先编码器扩展成 16-4 优先编码器</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-8-3-16-4d64527c07a3bffc6.jpeg"
+alt="8-3 优先编码器扩展成 16-4 优先编码器" />
+<figcaption aria-hidden="true">8-3 优先编码器扩展成 16-4
+优先编码器</figcaption>
+</figure>
+<p>为什么把高位片和低位片的 <span class="math inline">\(A_i\)</span>
+与起来作为最终输出呢？因为</p>
+<ul>
+<li>当高位片无 <span class="math inline">\(0\)</span>​ 的时候，高位片有
+<span class="math inline">\(A_0 =A_1 = A_2= A_3 =
+1\)</span>，输出取决于低位片的 <span class="math inline">\(A_0 \sim
+A_3\)</span>。</li>
+<li>当高位片有 <span class="math inline">\(0\)</span> 的时候，高位片有
+<span class="math inline">\(E_o = 1\)</span>，将高位片的 <span
+class="math inline">\(E_o\)</span> 作为低位片的 <span
+class="math inline">\(\overline{E}_i\)</span>
+以<strong>禁止低位片</strong>，输出取决于高位片的 <span
+class="math inline">\(A_0 \sim A_3\)</span>。</li>
+</ul>
+<p><strong>优先编码器的应用</strong>：</p>
+<ul>
+<li>设备按照优先等级编码，用于中断响应</li>
+<li>键盘输入的读取</li>
+</ul>
+<h3 id="数据比较器">数据比较器</h3>
+<p>数据比较器是数字系统中能够完成<strong>数据比较功能</strong>的部件。</p>
+<h4 id="比较条件">比较条件</h4>
+<p>假设给定两数码 <span class="math inline">\(A, B \in \{0,
+1\}\)</span>，则</p>
+<ul>
+<li><span class="math inline">\(A &lt; B\)</span> 的条件：<span
+class="math inline">\(A = 0, B = 1\)</span>，即 <span
+class="math inline">\(\overline{A}\;B = 1\)</span>，等价地，<span
+class="math inline">\(W = B\;\overline{AB} = 1\)</span>。</li>
+<li><span class="math inline">\(A = B\)</span> 的条件：<span
+class="math inline">\(A \oplus B = 0\)</span>，等价地，<span
+class="math inline">\(Y = \overline{A\;\overline{AB} + B\;\overline{AB}}
+= 1\)</span>。</li>
+<li><span class="math inline">\(A &gt; B\)</span> 的条件：<span
+class="math inline">\(A = 1, B = 0\)</span>，即 <span
+class="math inline">\(A\;\overline{B} = 1\)</span>，等价地，<span
+class="math inline">\(Z = A\;\overline{AB} = 1\)</span>​。</li>
+</ul>
+<p>逻辑图如下：</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-comparede165c242b2b9f1f.jpeg"
+alt="比较条件的逻辑图" />
+<figcaption aria-hidden="true">比较条件的逻辑图</figcaption>
+</figure>
+<p>按照从高到低每位决定大小，则可以写出 4 位比较器的输出表达式： <span
+class="math display">\[
+\begin{align*}
+[A &lt; B] &amp; = \overline{Z_3 + Y_3Z_2 + Y_3Y_2Z_1 + Y_3Y_2Y_1Z_0 +
+Y_3Y_2Y_1Y_0}, \\
+[A = B] &amp; = Y_3Y_2Y_1Y_0, \\
+[A &gt; B] &amp; = \overline{W_3 + Y_3W_2 + Y_3Y_2W_1 + Y_3Y_2Y_1W_0 +
+Y_3Y_2Y_1Y_0}.
+\end{align*}
+\]</span></p>
+<p>根据输出表达式画出 4 位比较器的原理图如下：</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-4-comparec13566005f1b00cd.jpeg"
+alt="4 位并行比较器原理图" />
+<figcaption aria-hidden="true">4 位并行比较器原理图</figcaption>
+</figure>
+<h4 id="分段比较">分段比较</h4>
+<p>分段比较是多片比较器构成更长位数的方法。比较器不仅输出比较结果，还要能接受其它片输出的结果。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-4-compare-8-compare0f068da153e20d5e.jpeg"
+alt="用两片 4 位数字比较器构成一个 8 位的数字比较器" />
+<figcaption aria-hidden="true">用两片 4 位数字比较器构成一个 8
+位的数字比较器</figcaption>
+</figure>
+<h3 id="奇偶校验器">奇偶校验器</h3>
+<p>奇偶校验器通过检测数据中包含奇数个 <span
+class="math inline">\(1\)</span> 还是偶数个 <span
+class="math inline">\(1\)</span>​，来检查数据传输后和数码记录中是否有错误的一种电路。但是它只能发现“一位错”，而且不能纠错。要想产生更强的检错和纠错能力，需要增加校验位数。</p>
+<h4 id="异或电路">异或电路</h4>
+<ul>
+<li>异或电路能“成对地”消去 <span
+class="math inline">\(1\)</span>，因此可用来检测两位数码的奇偶性质。</li>
+<li>异或电路塔状连接能对多位数据进行奇偶检测。</li>
+</ul>
+<h4
+id="用异或非门作基本检测元件的奇偶检测电路">用“异或非”门作基本检测元件的奇偶检测电路</h4>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-9-digit-even-odd9163788f39d1f611.png"
+alt="9 位奇偶检测电路之一" />
+<figcaption aria-hidden="true">9 位奇偶检测电路之一</figcaption>
+</figure>
+<ul>
+<li>采用“异或非”门而不是“异或”门，是为了简化线路和提高速度。</li>
+<li>输入端 <span class="math inline">\(I_0 \sim I_9\)</span>
+均设置了<strong>隔离反相门</strong>，但这一措施不会影响奇偶校验的本质，因为
+<span class="math inline">\(i\oplus j \equiv \overline{i}\oplus
+\overline{j}\)</span>。</li>
+<li>该电路的缺点是<strong>传输延迟较长</strong>，输入信号需要经过 4
+级“异或非”门、1 级反相门和 1 级“或非”门才能达到 <span
+class="math inline">\(0\)</span> 输出。</li>
+</ul>
+<h4 id="奇偶检测电路的应用和扩展">奇偶检测电路的应用和扩展</h4>
+<figure>
+<img
+src="https://img.picgo.net/2024/04/07/4-2-9-digit-8-digit-even-odd1fadd736e1486718.jpeg"
+alt="奇偶检测系统" />
+<figcaption aria-hidden="true">奇偶检测系统</figcaption>
+</figure>
+<p>左片的 <span class="math inline">\(I_{81}\)</span>
+被称为“奇偶码”，假设奇偶码被设为 <span class="math inline">\(I_{81} =
+1\)</span>：</p>
+<ul>
+<li>左片的输出为奇偶检测码 <span
+class="math inline">\(O_1\)</span>，与输入数据 <span
+class="math inline">\(I_{01}\sim I_{71}\)</span> 的异或和 <span
+class="math inline">\(I_1 = \oplus_{i = 0}^{i=7}I_{i1}\)</span>
+相反。</li>
+<li><span class="math inline">\(O_1\)</span> 作为右片的 <span
+class="math inline">\(I_{82}\)</span> 作为输入，则右片的输出 <span
+class="math inline">\(O_2 = O_1 \oplus I_2 = O_1
+\oplus(\oplus_{i=0}^{i=7}I_{i2}) =
+\overline{\oplus_{i=0}^{i=7}(I_{i1}\oplus I_{i2})}\)</span>。</li>
+<li>若 <span class="math inline">\(O_2 = 1\)</span>，则输出正确；若
+<span class="math inline">\(O_2 = 0\)</span>，则输出错误。</li>
+</ul>
+<h2 id="第-7-章-可编程逻辑电路">第 7 章 可编程逻辑电路</h2>
+<h3 id="只读存储器rom">只读存储器（ROM）</h3>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -2867,6 +3517,214 @@ alt="12-45 一个无死锁程序的进度图" />
         <tag>异常控制流</tag>
         <tag>线程</tag>
         <tag>死锁</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论</title>
+    <url>/2023/07/20/CSAO/</url>
+    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="第一章-数据存储">第一章 数据存储</h2>
+<h3 id="逻辑门">逻辑门</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h3 id="c-中的字符常量">C 中的字符常量</h3>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
+<h4 id="补码记数法">补码记数法</h4>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h4 id="余码记数法">余码记数法</h4>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
+<h3 id="可计算性">可计算性</h3>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h3 id="bare-bones-语言">Bare Bones 语言</h3>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h4 id="复制操作">复制操作</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h4 id="交换操作">交换操作</h4>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h4 id="分支结构">分支结构</h4>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h3 id="停机问题">停机问题</h3>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h3 id="rsa">RSA</h3>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h4 id="rsa-的正确性">RSA 的正确性</h4>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。</li>
+</ol>
+<p><span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+\]</span></p>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
       </tags>
   </entry>
   <entry>
@@ -5579,6 +6437,383 @@ alt="监考老师们的合照" />
       </tags>
   </entry>
   <entry>
+    <title>【游记】2022 年回眸</title>
+    <url>/2022/12/31/2022Lookback/</url>
+    <content><![CDATA[<p>2022 年就这么过去了，</p>
+<p>我也从一个高三学生变成了一个大一新生了。</p>
+<hr />
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png"
+alt="换微信头像啦！" />
+<figcaption aria-hidden="true">换微信头像啦！</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="一月至五月">一月至五月</h2>
+<p><strong>2022-02-05 自己的 18 岁生日</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg"
+alt="蛋糕" />
+<figcaption aria-hidden="true">蛋糕</figcaption>
+</figure>
+<p><strong>各种调考</strong></p>
+<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
+<h2 id="六月">六月</h2>
+<p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
+<p>数学卷子好难。</p>
+<p><strong>2022-06-16 回初中看老师</strong></p>
+<p>感觉外初变新了，装修得非常漂亮。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg"
+alt="一行人" />
+<figcaption aria-hidden="true">一行人</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg"
+alt="内景" />
+<figcaption aria-hidden="true">内景</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg"
+alt="外景" />
+<figcaption aria-hidden="true">外景</figcaption>
+</figure>
+<p><strong>2022-06-25 高考出分</strong></p>
+<p>超常发挥吧。</p>
+<h2 id="七月">七月</h2>
+<p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
+<p>感谢 Q 宝的邀请</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg"
+alt="大汉" />
+<figcaption aria-hidden="true">大汉</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg"
+alt="小火车" />
+<figcaption aria-hidden="true">小火车</figcaption>
+</figure>
+<p><strong>2022-07-25 收到录取通知书</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg"
+alt="二校门" />
+<figcaption aria-hidden="true">二校门</figcaption>
+</figure>
+<h2 id="八月">八月</h2>
+<p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
+<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
+<p><strong>2022-08-19 开始军训</strong></p>
+<p><strong>2022-08-24 第一次定向越野</strong></p>
+<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg"
+alt="map" />
+<figcaption aria-hidden="true">map</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg"
+alt="成绩！" />
+<figcaption aria-hidden="true">成绩！</figcaption>
+</figure>
+<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg"
+alt="奇怪的出入校审批" />
+<figcaption aria-hidden="true">奇怪的出入校审批</figcaption>
+</figure>
+<p><strong>2022-08-28 参加 20km 拉练</strong></p>
+<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg"
+alt="丑陋的背包" />
+<figcaption aria-hidden="true">丑陋的背包</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg"
+alt="夜景" />
+<figcaption aria-hidden="true">夜景</figcaption>
+</figure>
+<h2 id="九月">九月</h2>
+<p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg"
+alt="可惜的是缺了 Jett 和罗总" />
+<figcaption aria-hidden="true">可惜的是缺了 Jett 和罗总</figcaption>
+</figure>
+<p><strong>2022-09-17 参加篮球运动周</strong></p>
+<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2。</del></p>
+<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至
+bilibili 观看</a></p>
+<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg"
+alt="文学长在进行操作" />
+<figcaption aria-hidden="true">文学长在进行操作</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg"
+alt="在享受" />
+<figcaption aria-hidden="true">在享受</figcaption>
+</figure>
+<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
+<p>问题就在于，背完了没太大用。</p>
+<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
+<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
+<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg"
+alt="GRE" />
+<figcaption aria-hidden="true">GRE</figcaption>
+</figure>
+<h2 id="十月">十月</h2>
+<p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
+<p>十分震撼。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg"
+alt="仪仗队在出旗" />
+<figcaption aria-hidden="true">仪仗队在出旗</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg"
+alt="国旗" />
+<figcaption aria-hidden="true">国旗</figcaption>
+</figure>
+<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg"
+alt="5人合影（我拍的）" />
+<figcaption aria-hidden="true">5人合影（我拍的）</figcaption>
+</figure>
+<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
+<p><del>什么叫物美价廉啊（战术后仰</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg"
+alt="《差距》" />
+<figcaption aria-hidden="true">《差距》</figcaption>
+</figure>
+<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
+<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
+<p><a
+href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至
+bilibili 观看</a></p>
+<p><strong>2022-10-03 参观工字厅</strong></p>
+<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg"
+alt="外部" />
+<figcaption aria-hidden="true">外部</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg"
+alt="内部1" />
+<figcaption aria-hidden="true">内部1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg"
+alt="内部2" />
+<figcaption aria-hidden="true">内部2</figcaption>
+</figure>
+<p><del>值得一提的是，偶遇了<a
+href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
+<p><strong>2022-10-06 成功脱单</strong></p>
+<p>感谢我能遇见你。</p>
+<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
+<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg"
+alt="外部" />
+<figcaption aria-hidden="true">外部</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg"
+alt="国旗飘扬" />
+<figcaption aria-hidden="true">国旗飘扬</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg"
+alt="武汉战疫" />
+<figcaption aria-hidden="true">武汉战疫</figcaption>
+</figure>
+<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
+<p>勇夺全校并列第七！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg"
+alt="选手照片" />
+<figcaption aria-hidden="true">选手照片</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg"
+alt="并列第7！" />
+<figcaption aria-hidden="true">并列第7！</figcaption>
+</figure>
+<p>比我初一时候的成绩提高了大概 40 个（确信</p>
+<h2 id="十一月">十一月</h2>
+<p><strong>2022-11-01 写了一首诗</strong></p>
+<blockquote>
+<p>To Autumn</p>
+<hr />
+<p>Golden leaves of autumn</p>
+<p>danced and drifted to the ground.</p>
+<p>They dotted the picturesque view of mother nature,</p>
+<p>when the color of gold conquered the world.</p>
+<p>Leaves are leaving,</p>
+<p>but I'm not.</p>
+<hr />
+<p>My hand holds yours,</p>
+<p>your hand fits mine.</p>
+<p>By chance,</p>
+<p>my eyes meet thine.</p>
+</blockquote>
+<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
+<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
+<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep
+My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
+<blockquote>
+<p>Blossom and I -</p>
+<p>Her oath, and mine -</p>
+<p>Will surely come again.</p>
+</blockquote>
+<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
+<p>能代表系里参加马杯，属实是我的荣幸。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg"
+alt="在排队参赛" />
+<figcaption aria-hidden="true">在排队参赛</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg"
+alt="横幅" />
+<figcaption aria-hidden="true">横幅</figcaption>
+</figure>
+<p>还不错，甲组全校第四！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg"
+alt="第四！" />
+<figcaption aria-hidden="true">第四！</figcaption>
+</figure>
+<p><strong>2022-11-27
+完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
+<p>学到许多。</p>
+<p><span class="math inline">\(\LaTeX\)</span> 熟练度增加了！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg"
+alt="算法课报告" />
+<figcaption aria-hidden="true">算法课报告</figcaption>
+</figure>
+<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
+<p>我们班的篮球队最后 3
+秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
+<p><del>当然，我超常发挥也可能是因为女朋友来看比赛了。</del>
+当然，我超常发挥也可能是因为前女友来看比赛了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg"
+alt="最后的罚篮" />
+<figcaption aria-hidden="true">最后的罚篮</figcaption>
+</figure>
+<p><strong>2022-11-28 第一次封寝</strong></p>
+<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
+<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg"
+alt="自习位置" />
+<figcaption aria-hidden="true">自习位置</figcaption>
+</figure>
+<h2 id="十二月">十二月</h2>
+<p><strong>2022-12-03 第一次参加志愿服务</strong></p>
+<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg"
+alt="空空旷旷" />
+<figcaption aria-hidden="true">空空旷旷</figcaption>
+</figure>
+<p><del>和女朋友一起参加志愿服务！</del> 和前女友一起参加志愿服务。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg"
+alt="合照！你能找到我吗？" />
+<figcaption aria-hidden="true">合照！你能找到我吗？</figcaption>
+</figure>
+<p>送完第二波大巴之后，天刚刚亮。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg"
+alt="送完大巴之后，天也亮了" />
+<figcaption aria-hidden="true">送完大巴之后，天也亮了</figcaption>
+</figure>
+<p><strong>2022-12-08 返乡</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg"
+alt="在寝室清东西" />
+<figcaption aria-hidden="true">在寝室清东西</figcaption>
+</figure>
+<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg"
+alt="返乡大巴" />
+<figcaption aria-hidden="true">返乡大巴</figcaption>
+</figure>
+<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
+<p><del>实名diss听涛园的热干面不咋地</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg"
+alt="热！干！面！" />
+<figcaption aria-hidden="true">热！干！面！</figcaption>
+</figure>
+<p><strong>2022-12-16 感染新冠病毒</strong></p>
+<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
+<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
+<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg"
+alt="蒸橙子" />
+<figcaption aria-hidden="true">蒸橙子</figcaption>
+</figure>
+<p><strong>2022-12-20 复习期末</strong></p>
+<p>线代好难。</p>
+<p>微积分好难。</p>
+<p>基物好难。</p>
+<p>我想睡觉。</p>
+<h2 id="总结">总结</h2>
+<p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
+<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
+<p>新的一年里继续努力吧！</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论</title>
     <url>/2023/09/17/IATLC/</url>
     <content><![CDATA[<p>这是《自动机理论、语言和计算导论》的学习笔记。</p>
@@ -8072,591 +9307,6 @@ class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论</title>
-    <url>/2023/07/20/CSAO/</url>
-    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="第一章-数据存储">第一章 数据存储</h2>
-<h3 id="逻辑门">逻辑门</h3>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h3 id="c-中的字符常量">C 中的字符常量</h3>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
-<h4 id="补码记数法">补码记数法</h4>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h4 id="余码记数法">余码记数法</h4>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
-<h3 id="可计算性">可计算性</h3>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h3 id="bare-bones-语言">Bare Bones 语言</h3>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h4 id="复制操作">复制操作</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h4 id="交换操作">交换操作</h4>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h4 id="分支结构">分支结构</h4>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h3 id="停机问题">停机问题</h3>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h3 id="rsa">RSA</h3>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h4 id="rsa-的正确性">RSA 的正确性</h4>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。</li>
-</ol>
-<p><span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-\]</span></p>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2022 年回眸</title>
-    <url>/2022/12/31/2022Lookback/</url>
-    <content><![CDATA[<p>2022 年就这么过去了，</p>
-<p>我也从一个高三学生变成了一个大一新生了。</p>
-<hr />
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png"
-alt="换微信头像啦！" />
-<figcaption aria-hidden="true">换微信头像啦！</figcaption>
-</figure>
-<span id="more"></span>
-<h2 id="一月至五月">一月至五月</h2>
-<p><strong>2022-02-05 自己的 18 岁生日</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg"
-alt="蛋糕" />
-<figcaption aria-hidden="true">蛋糕</figcaption>
-</figure>
-<p><strong>各种调考</strong></p>
-<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
-<h2 id="六月">六月</h2>
-<p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
-<p>数学卷子好难。</p>
-<p><strong>2022-06-16 回初中看老师</strong></p>
-<p>感觉外初变新了，装修得非常漂亮。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg"
-alt="一行人" />
-<figcaption aria-hidden="true">一行人</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg"
-alt="内景" />
-<figcaption aria-hidden="true">内景</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg"
-alt="外景" />
-<figcaption aria-hidden="true">外景</figcaption>
-</figure>
-<p><strong>2022-06-25 高考出分</strong></p>
-<p>超常发挥吧。</p>
-<h2 id="七月">七月</h2>
-<p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
-<p>感谢 Q 宝的邀请</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg"
-alt="大汉" />
-<figcaption aria-hidden="true">大汉</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg"
-alt="小火车" />
-<figcaption aria-hidden="true">小火车</figcaption>
-</figure>
-<p><strong>2022-07-25 收到录取通知书</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg"
-alt="二校门" />
-<figcaption aria-hidden="true">二校门</figcaption>
-</figure>
-<h2 id="八月">八月</h2>
-<p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
-<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
-<p><strong>2022-08-19 开始军训</strong></p>
-<p><strong>2022-08-24 第一次定向越野</strong></p>
-<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg"
-alt="map" />
-<figcaption aria-hidden="true">map</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg"
-alt="成绩！" />
-<figcaption aria-hidden="true">成绩！</figcaption>
-</figure>
-<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg"
-alt="奇怪的出入校审批" />
-<figcaption aria-hidden="true">奇怪的出入校审批</figcaption>
-</figure>
-<p><strong>2022-08-28 参加 20km 拉练</strong></p>
-<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg"
-alt="丑陋的背包" />
-<figcaption aria-hidden="true">丑陋的背包</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg"
-alt="夜景" />
-<figcaption aria-hidden="true">夜景</figcaption>
-</figure>
-<h2 id="九月">九月</h2>
-<p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg"
-alt="可惜的是缺了 Jett 和罗总" />
-<figcaption aria-hidden="true">可惜的是缺了 Jett 和罗总</figcaption>
-</figure>
-<p><strong>2022-09-17 参加篮球运动周</strong></p>
-<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2。</del></p>
-<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至
-bilibili 观看</a></p>
-<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg"
-alt="文学长在进行操作" />
-<figcaption aria-hidden="true">文学长在进行操作</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg"
-alt="在享受" />
-<figcaption aria-hidden="true">在享受</figcaption>
-</figure>
-<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
-<p>问题就在于，背完了没太大用。</p>
-<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
-<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
-<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg"
-alt="GRE" />
-<figcaption aria-hidden="true">GRE</figcaption>
-</figure>
-<h2 id="十月">十月</h2>
-<p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
-<p>十分震撼。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg"
-alt="仪仗队在出旗" />
-<figcaption aria-hidden="true">仪仗队在出旗</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg"
-alt="国旗" />
-<figcaption aria-hidden="true">国旗</figcaption>
-</figure>
-<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg"
-alt="5人合影（我拍的）" />
-<figcaption aria-hidden="true">5人合影（我拍的）</figcaption>
-</figure>
-<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
-<p><del>什么叫物美价廉啊（战术后仰</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg"
-alt="《差距》" />
-<figcaption aria-hidden="true">《差距》</figcaption>
-</figure>
-<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
-<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
-<p><a
-href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至
-bilibili 观看</a></p>
-<p><strong>2022-10-03 参观工字厅</strong></p>
-<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg"
-alt="外部" />
-<figcaption aria-hidden="true">外部</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg"
-alt="内部1" />
-<figcaption aria-hidden="true">内部1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg"
-alt="内部2" />
-<figcaption aria-hidden="true">内部2</figcaption>
-</figure>
-<p><del>值得一提的是，偶遇了<a
-href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
-<p><strong>2022-10-06 成功脱单</strong></p>
-<p>感谢我能遇见你。</p>
-<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
-<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg"
-alt="外部" />
-<figcaption aria-hidden="true">外部</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg"
-alt="国旗飘扬" />
-<figcaption aria-hidden="true">国旗飘扬</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg"
-alt="武汉战疫" />
-<figcaption aria-hidden="true">武汉战疫</figcaption>
-</figure>
-<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
-<p>勇夺全校并列第七！</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg"
-alt="选手照片" />
-<figcaption aria-hidden="true">选手照片</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg"
-alt="并列第7！" />
-<figcaption aria-hidden="true">并列第7！</figcaption>
-</figure>
-<p>比我初一时候的成绩提高了大概 40 个（确信</p>
-<h2 id="十一月">十一月</h2>
-<p><strong>2022-11-01 写了一首诗</strong></p>
-<blockquote>
-<p>To Autumn</p>
-<hr />
-<p>Golden leaves of autumn</p>
-<p>danced and drifted to the ground.</p>
-<p>They dotted the picturesque view of mother nature,</p>
-<p>when the color of gold conquered the world.</p>
-<p>Leaves are leaving,</p>
-<p>but I'm not.</p>
-<hr />
-<p>My hand holds yours,</p>
-<p>your hand fits mine.</p>
-<p>By chance,</p>
-<p>my eyes meet thine.</p>
-</blockquote>
-<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
-<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
-<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep
-My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
-<blockquote>
-<p>Blossom and I -</p>
-<p>Her oath, and mine -</p>
-<p>Will surely come again.</p>
-</blockquote>
-<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
-<p>能代表系里参加马杯，属实是我的荣幸。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg"
-alt="在排队参赛" />
-<figcaption aria-hidden="true">在排队参赛</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg"
-alt="横幅" />
-<figcaption aria-hidden="true">横幅</figcaption>
-</figure>
-<p>还不错，甲组全校第四！</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg"
-alt="第四！" />
-<figcaption aria-hidden="true">第四！</figcaption>
-</figure>
-<p><strong>2022-11-27
-完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
-<p>学到许多。</p>
-<p><span class="math inline">\(\LaTeX\)</span> 熟练度增加了！</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg"
-alt="算法课报告" />
-<figcaption aria-hidden="true">算法课报告</figcaption>
-</figure>
-<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
-<p>我们班的篮球队最后 3
-秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
-<p><del>当然，我超常发挥也可能是因为女朋友来看比赛了。</del>
-当然，我超常发挥也可能是因为前女友来看比赛了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg"
-alt="最后的罚篮" />
-<figcaption aria-hidden="true">最后的罚篮</figcaption>
-</figure>
-<p><strong>2022-11-28 第一次封寝</strong></p>
-<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
-<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg"
-alt="自习位置" />
-<figcaption aria-hidden="true">自习位置</figcaption>
-</figure>
-<h2 id="十二月">十二月</h2>
-<p><strong>2022-12-03 第一次参加志愿服务</strong></p>
-<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg"
-alt="空空旷旷" />
-<figcaption aria-hidden="true">空空旷旷</figcaption>
-</figure>
-<p><del>和女朋友一起参加志愿服务！</del> 和前女友一起参加志愿服务。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg"
-alt="合照！你能找到我吗？" />
-<figcaption aria-hidden="true">合照！你能找到我吗？</figcaption>
-</figure>
-<p>送完第二波大巴之后，天刚刚亮。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg"
-alt="送完大巴之后，天也亮了" />
-<figcaption aria-hidden="true">送完大巴之后，天也亮了</figcaption>
-</figure>
-<p><strong>2022-12-08 返乡</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg"
-alt="在寝室清东西" />
-<figcaption aria-hidden="true">在寝室清东西</figcaption>
-</figure>
-<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg"
-alt="返乡大巴" />
-<figcaption aria-hidden="true">返乡大巴</figcaption>
-</figure>
-<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
-<p><del>实名diss听涛园的热干面不咋地</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg"
-alt="热！干！面！" />
-<figcaption aria-hidden="true">热！干！面！</figcaption>
-</figure>
-<p><strong>2022-12-16 感染新冠病毒</strong></p>
-<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
-<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
-<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg"
-alt="蒸橙子" />
-<figcaption aria-hidden="true">蒸橙子</figcaption>
-</figure>
-<p><strong>2022-12-20 复习期末</strong></p>
-<p>线代好难。</p>
-<p>微积分好难。</p>
-<p>基物好难。</p>
-<p>我想睡觉。</p>
-<h2 id="总结">总结</h2>
-<p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
-<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
-<p>新的一年里继续努力吧！</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2023 年回眸</title>
     <url>/2023/12/28/2023Lookback/</url>
     <content><![CDATA[<p>2023
@@ -9647,6 +10297,308 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
+    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
+    <url>/2023/09/10/2023Summer-Java/</url>
+    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
+夏）。</p>
+<p><a
+href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
+下载地址</a></p>
+<p>GitHub repo 在 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
+<p><strong>目录</strong></p>
+<ul>
+<li>News App(头条大师)
+<ul>
+<li>作业描述</li>
+<li>代码结构</li>
+<li>具体实现
+<ul>
+<li>新闻详情获取</li>
+<li>新闻列表上拉刷新下划加载</li>
+<li>图片展示和视频播放</li>
+<li>修改列表分类时的抖动特效</li>
+<li>新闻查找</li>
+<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
+<li>对手机“返回键”行为的处理</li>
+</ul></li>
+<li>遇到的问题及其解决方法
+<ul>
+<li>JDK 安装包重复导入的问题</li>
+<li>如何通过报错信息查找 bug</li>
+<li>查找新闻时的时间范围设置</li>
+<li>视频播放问题</li>
+<li>repo 回滚</li>
+</ul></li>
+<li>总结和心得</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<h2 id="作业描述">作业描述</h2>
+<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
+app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
+让大家随时随地掏出手机即可看天下事，手机新闻 app
+不再是一个简简单单的新闻获取工具，许多 app
+已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
+<a href="https://www.toutiao.com/">今日头条</a>、<a
+href="http://www.ttkbao.com/">天天快报</a> 等。</p>
+<p>现在让我们也来尝试一下做一个新闻
+app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
+<a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
+进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
+Java 和 Android 开发知识实现一个新闻客户端即可。</p>
+<h2 id="代码结构">代码结构</h2>
+<p>代码结构如下图所示。</p>
+<pre><code class="highlight mermaid">flowchart LR
+    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
+    A --&gt; C(service)
+    A --&gt; D(ui)
+    A --&gt; E[MainActivity.java]
+    A --&gt; F[MyApplication.java]
+
+    B --&gt; G[Category.java]
+    B --&gt; H[News.java]
+    B --&gt; I[Page.java]
+    B --&gt; J[User.java]
+
+    C --&gt; K[DBManager.java]
+    C --&gt; L[FetchFromAPIManager.java]
+    C --&gt; M[MySQLiteOpenHelper.java]
+    C --&gt; N[NewsManager.java]
+    C --&gt; O[PictureLoader.java]
+    C --&gt; P[TaskRunner.java]
+    C --&gt; Q[Utils.java]
+
+    D --&gt; R[EndlessRecyclerViewScrollListener.java]
+    D --&gt; S[NewsDetailFragment.java]
+    D --&gt; T[NewsListAdapter.java]
+    D --&gt; U[NewsListFragment.java]
+    D --&gt; V[RecordListFragment.java]
+    D --&gt; W[SearchFragment.java]
+    D --&gt; X[SearchListFragment.java]
+    D --&gt; Y[SelectPaddleAdapter.java]
+    D --&gt; Z[SelectPaddleFragment.java]
+    D --&gt; AA[TabListFragment.java]
+    D --&gt; AB[UserPageFragment.java]
+    D --&gt; AC[VideoFragment.java]</code></pre>
+<ul>
+<li><code>data</code>
+<ul>
+<li><code>Category.java</code>
+是一个枚举类，包含可被搜索的八个分类。</li>
+<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
+<code>title</code>，<code>content</code> 等属性。</li>
+<li><code>Page.java</code>
+是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
+<li><code>User.java</code>
+是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
+</ul></li>
+<li><code>service</code>
+<ul>
+<li><code>DBManager.java</code> 用于数据库管理。</li>
+<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
+<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
+<li><code>NewsManager.java</code>
+用于新闻相关处理，包含已浏览新闻列表的读写。</li>
+<li><code>PictureLoader.java</code> 用于展示图片。</li>
+<li><code>TaskRunner.java</code> 用于管理进程。</li>
+<li><code>Utils.java</code>
+是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
+</ul></li>
+<li><code>ui</code>
+<ul>
+<li><code>EndlessRecyclerViewScrollListener.java</code>
+是展示新闻列表所需要的 Listener。</li>
+<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
+Fragment。</li>
+<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
+Adapter。</li>
+<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
+Fragment。</li>
+<li><code>RecordListFragment.java</code>
+是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
+<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
+<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
+Fragment。</li>
+<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
+Adapter。</li>
+<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
+Fragment。</li>
+<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
+Fragment。</li>
+<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
+<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
+</ul></li>
+<li><code>MainActivity.java</code></li>
+<li><code>MyApplication.java</code></li>
+</ul>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="新闻详情获取">新闻详情获取</h3>
+<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
+<code>JSONObject</code>
+等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
+格式的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于我在 <code>data/News.java</code> 这个类中重载了由
+<code>JSONObject</code> 构造 <code>News</code>
+的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
+项构造每条新闻：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
+<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
+中，通过重载 <code>onScrolled()</code>
+方法，来实现下划加载更多新闻的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过在 <code>ui/NewsListFragment.java</code> 和
+<code>ui/SearchListFragment.java</code> 中对
+<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
+Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
+方法从而达到新闻列表刷新的效果。</p>
+<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
+<p>图片展示使用的是 Glide 和 ImageView。在
+<code>service/PictureLoader.java</code>
+中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
+<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
+<code>onCreateView()</code> 重载如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
+<p>我在 <code>res/anim/shake_animation.xml</code>
+中设置了每个分类的抖动特效：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但若直接设置，会导致每个分类抖动的行为
+<strong>一模一样</strong>。所以我在
+<code>ui/SelectPaddleAdapter.java</code>
+中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
+<strong>随机抖动</strong> 的效果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
+<h3 id="新闻查找">新闻查找</h3>
+<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
+<p>其次，我设置了 <strong>可复选的</strong>
+分类选择框。在查询时，多个分类用
+<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
+<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
+DatePicker 组件来接受查询的时间范围。</p>
+<p>接收到了这些查询的信息之后，利用
+<code>service/FetchFromAPIManager.java</code> 中的
+<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
+<h3
+id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
+<p>具体的新闻详情使用 SQLite
+数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
+<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
+<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
+Map，<code>service/NewsManager.java</code>
+中展示了这一过程。而通过一个新闻的
+<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
+来找到对应它新闻详情。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
+<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
+Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
+<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
+<code>onBackButtonClicked()</code>
+函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
+<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
+<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
+2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
+<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
+<code>firstTime</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
+的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
+<code>super.onBackPressed()</code> 方法即可。</p>
+<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
+<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
+<p>由于新版本的 JDK 移除了
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
+Android
+库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
+<p>经过查找相关资料，我通过 <a
+href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
+- 大数据知识库</a> 和 <a
+href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
+get a Duplicate Class error when running my Android project -
+StackOverflow</a> 两个网站检索到了解决方案。</p>
+<p>在 <code>app/build.gradle.kts</code>
+中添加以下代码即可解决此问题。</p>
+<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
+<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
+<code>Log.d(FILE_NAME, MSG);</code>
+的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
+是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
+是个性化的调试信息，一般为某个数据，或者是“Button
+Clicked”这样的信息。</p>
+<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
+<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
+href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
+插件，但我希望能够 <strong>使起始时间的 DatePicker
+能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
+<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
+DatePicker 上的日期改变时，就检查开始时间的 DatePicker
+上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
+DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
+的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
+DatePicker
+的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="视频播放问题">视频播放问题</h3>
+<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
+我查询到了该视频的地址为
+<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
+<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
+<blockquote>
+<p>默认情况下，Android 9（API 级别
+28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
+这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
+<strong>与非加密的服务器通信或调试时</strong>。</p>
+</blockquote>
+<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
+传输，所以需要将 <code>res/xml/network_security_config.xml</code>
+中的代码更改为：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3
+id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
+<p>最初我遇到了一个
+bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
+<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
+<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="repo-回滚">repo 回滚</h3>
+<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
+Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
+bug，并且我逐步排查 Logcat 也毫无头绪。</p>
+<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
+的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
+的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
+listener 没有得到 notify 导致的。</p>
+<h2 id="总结和心得">总结和心得</h2>
+<p>在整个开发过程中，我遇到了 <a
+href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
+Java 的熟练程度，并且初步认识到了 Android
+应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
+的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
+<p>感谢清华大学计算机系 <a
+href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
+老师的指导，助教们在微信群中的答疑，以及 <a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
+提供的 <a
+href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
+]]></content>
+      <categories>
+        <category>课程报告</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Android</tag>
+        <tag>程序设计训练</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【随笔】听说集齐三个专业的校园卡就能召唤神龙</title>
     <url>/2024/01/29/Major-Transfer/</url>
     <content><![CDATA[<p>从转专业公示名单到现在已经有九个月了。</p>
@@ -9967,308 +10919,6 @@ top，转入计算机系后摇身一变位于年级
       <tags>
         <tag>生活</tag>
         <tag>转专业</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
-    <url>/2023/09/10/2023Summer-Java/</url>
-    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
-夏）。</p>
-<p><a
-href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
-下载地址</a></p>
-<p>GitHub repo 在 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
-<p><strong>目录</strong></p>
-<ul>
-<li>News App(头条大师)
-<ul>
-<li>作业描述</li>
-<li>代码结构</li>
-<li>具体实现
-<ul>
-<li>新闻详情获取</li>
-<li>新闻列表上拉刷新下划加载</li>
-<li>图片展示和视频播放</li>
-<li>修改列表分类时的抖动特效</li>
-<li>新闻查找</li>
-<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
-<li>对手机“返回键”行为的处理</li>
-</ul></li>
-<li>遇到的问题及其解决方法
-<ul>
-<li>JDK 安装包重复导入的问题</li>
-<li>如何通过报错信息查找 bug</li>
-<li>查找新闻时的时间范围设置</li>
-<li>视频播放问题</li>
-<li>repo 回滚</li>
-</ul></li>
-<li>总结和心得</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="作业描述">作业描述</h2>
-<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
-app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
-让大家随时随地掏出手机即可看天下事，手机新闻 app
-不再是一个简简单单的新闻获取工具，许多 app
-已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
-<a href="https://www.toutiao.com/">今日头条</a>、<a
-href="http://www.ttkbao.com/">天天快报</a> 等。</p>
-<p>现在让我们也来尝试一下做一个新闻
-app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
-<a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
-进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
-Java 和 Android 开发知识实现一个新闻客户端即可。</p>
-<h2 id="代码结构">代码结构</h2>
-<p>代码结构如下图所示。</p>
-<pre><code class="highlight mermaid">flowchart LR
-    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
-    A --&gt; C(service)
-    A --&gt; D(ui)
-    A --&gt; E[MainActivity.java]
-    A --&gt; F[MyApplication.java]
-
-    B --&gt; G[Category.java]
-    B --&gt; H[News.java]
-    B --&gt; I[Page.java]
-    B --&gt; J[User.java]
-
-    C --&gt; K[DBManager.java]
-    C --&gt; L[FetchFromAPIManager.java]
-    C --&gt; M[MySQLiteOpenHelper.java]
-    C --&gt; N[NewsManager.java]
-    C --&gt; O[PictureLoader.java]
-    C --&gt; P[TaskRunner.java]
-    C --&gt; Q[Utils.java]
-
-    D --&gt; R[EndlessRecyclerViewScrollListener.java]
-    D --&gt; S[NewsDetailFragment.java]
-    D --&gt; T[NewsListAdapter.java]
-    D --&gt; U[NewsListFragment.java]
-    D --&gt; V[RecordListFragment.java]
-    D --&gt; W[SearchFragment.java]
-    D --&gt; X[SearchListFragment.java]
-    D --&gt; Y[SelectPaddleAdapter.java]
-    D --&gt; Z[SelectPaddleFragment.java]
-    D --&gt; AA[TabListFragment.java]
-    D --&gt; AB[UserPageFragment.java]
-    D --&gt; AC[VideoFragment.java]</code></pre>
-<ul>
-<li><code>data</code>
-<ul>
-<li><code>Category.java</code>
-是一个枚举类，包含可被搜索的八个分类。</li>
-<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
-<code>title</code>，<code>content</code> 等属性。</li>
-<li><code>Page.java</code>
-是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
-<li><code>User.java</code>
-是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
-</ul></li>
-<li><code>service</code>
-<ul>
-<li><code>DBManager.java</code> 用于数据库管理。</li>
-<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
-<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
-<li><code>NewsManager.java</code>
-用于新闻相关处理，包含已浏览新闻列表的读写。</li>
-<li><code>PictureLoader.java</code> 用于展示图片。</li>
-<li><code>TaskRunner.java</code> 用于管理进程。</li>
-<li><code>Utils.java</code>
-是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
-</ul></li>
-<li><code>ui</code>
-<ul>
-<li><code>EndlessRecyclerViewScrollListener.java</code>
-是展示新闻列表所需要的 Listener。</li>
-<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
-Fragment。</li>
-<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
-Adapter。</li>
-<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
-Fragment。</li>
-<li><code>RecordListFragment.java</code>
-是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
-<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
-<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
-Fragment。</li>
-<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
-Adapter。</li>
-<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
-Fragment。</li>
-<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
-Fragment。</li>
-<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
-<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
-</ul></li>
-<li><code>MainActivity.java</code></li>
-<li><code>MyApplication.java</code></li>
-</ul>
-<h2 id="具体实现">具体实现</h2>
-<h3 id="新闻详情获取">新闻详情获取</h3>
-<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
-<code>JSONObject</code>
-等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
-格式的数据。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于我在 <code>data/News.java</code> 这个类中重载了由
-<code>JSONObject</code> 构造 <code>News</code>
-的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
-项构造每条新闻：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
-<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
-中，通过重载 <code>onScrolled()</code>
-方法，来实现下划加载更多新闻的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过在 <code>ui/NewsListFragment.java</code> 和
-<code>ui/SearchListFragment.java</code> 中对
-<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
-Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
-方法从而达到新闻列表刷新的效果。</p>
-<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
-<p>图片展示使用的是 Glide 和 ImageView。在
-<code>service/PictureLoader.java</code>
-中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
-<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
-<code>onCreateView()</code> 重载如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
-<p>我在 <code>res/anim/shake_animation.xml</code>
-中设置了每个分类的抖动特效：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但若直接设置，会导致每个分类抖动的行为
-<strong>一模一样</strong>。所以我在
-<code>ui/SelectPaddleAdapter.java</code>
-中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
-<strong>随机抖动</strong> 的效果：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
-<h3 id="新闻查找">新闻查找</h3>
-<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
-<p>其次，我设置了 <strong>可复选的</strong>
-分类选择框。在查询时，多个分类用
-<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
-<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
-DatePicker 组件来接受查询的时间范围。</p>
-<p>接收到了这些查询的信息之后，利用
-<code>service/FetchFromAPIManager.java</code> 中的
-<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
-<h3
-id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
-<p>具体的新闻详情使用 SQLite
-数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
-<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
-<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
-Map，<code>service/NewsManager.java</code>
-中展示了这一过程。而通过一个新闻的
-<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
-来找到对应它新闻详情。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
-<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
-Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
-<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
-<code>onBackButtonClicked()</code>
-函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
-<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
-<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
-2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
-<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
-<code>firstTime</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
-的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
-<code>super.onBackPressed()</code> 方法即可。</p>
-<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
-<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
-<p>由于新版本的 JDK 移除了
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
-Android
-库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
-<p>经过查找相关资料，我通过 <a
-href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
-- 大数据知识库</a> 和 <a
-href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
-get a Duplicate Class error when running my Android project -
-StackOverflow</a> 两个网站检索到了解决方案。</p>
-<p>在 <code>app/build.gradle.kts</code>
-中添加以下代码即可解决此问题。</p>
-<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
-<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
-<code>Log.d(FILE_NAME, MSG);</code>
-的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
-是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
-是个性化的调试信息，一般为某个数据，或者是“Button
-Clicked”这样的信息。</p>
-<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
-<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
-href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
-插件，但我希望能够 <strong>使起始时间的 DatePicker
-能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
-<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
-DatePicker 上的日期改变时，就检查开始时间的 DatePicker
-上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
-DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
-的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
-DatePicker
-的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="视频播放问题">视频播放问题</h3>
-<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
-我查询到了该视频的地址为
-<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
-<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
-<blockquote>
-<p>默认情况下，Android 9（API 级别
-28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
-这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
-<strong>与非加密的服务器通信或调试时</strong>。</p>
-</blockquote>
-<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
-传输，所以需要将 <code>res/xml/network_security_config.xml</code>
-中的代码更改为：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3
-id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
-<p>最初我遇到了一个
-bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
-<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
-<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="repo-回滚">repo 回滚</h3>
-<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
-Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
-bug，并且我逐步排查 Logcat 也毫无头绪。</p>
-<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
-的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
-的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
-listener 没有得到 notify 导致的。</p>
-<h2 id="总结和心得">总结和心得</h2>
-<p>在整个开发过程中，我遇到了 <a
-href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
-Java 的熟练程度，并且初步认识到了 Android
-应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
-的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
-<p>感谢清华大学计算机系 <a
-href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
-老师的指导，助教们在微信群中的答疑，以及 <a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
-提供的 <a
-href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
-]]></content>
-      <categories>
-        <category>课程报告</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Android</tag>
-        <tag>程序设计训练</tag>
       </tags>
   </entry>
 </search>
