@@ -27,7 +27,7 @@
 <meta property="og:description" content="这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-20T07:10:11.000Z">
-<meta property="article:modified_time" content="2024-04-21T13:33:07.361Z">
+<meta property="article:modified_time" content="2024-04-21T16:26:11.438Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="软件工程">
 <meta name="twitter:card" content="summary">
@@ -140,7 +140,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-%E5%88%9D%E6%8E%A2"><span class="nav-number">1.1.</span> <span class="nav-text">Typescript 初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next.js-%E8%B7%AF%E7%94%B1"><span class="nav-number">1.2.</span> <span class="nav-text">Next.js 路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于文件系统的路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#userouter-hook"><span class="nav-number">1.2.2.</span> <span class="nav-text">useRouter Hook</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AF%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="nav-number">1.3.</span> <span class="nav-text">副作用与网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#useeffect-hook"><span class="nav-number">1.3.1.</span> <span class="nav-text">useEffect Hook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">异步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">Git 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mainmaster-head"><span class="nav-number">2.1.2.</span> <span class="nav-text">main(master), HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit-merge"><span class="nav-number">2.1.3.</span> <span class="nav-text">commit, merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push-pull-fetch"><span class="nav-number">2.1.4.</span> <span class="nav-text">push, pull, fetch</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B8%AD%E7%9A%84%E9%89%B4%E6%9D%83%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">前后端交互中的鉴权问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jwt-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.1.</span> <span class="nav-text">JWT 的结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91"><span class="nav-number">3.</span> <span class="nav-text">敏捷开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E7%9A%84%E5%8E%9F%E5%88%99%E4%B8%8E%E7%89%B9%E7%82%B9"><span class="nav-number">3.2.</span> <span class="nav-text">敏捷开发的原则与特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E5%8E%9F%E5%88%99"><span class="nav-number">3.2.1.</span> <span class="nav-text">12 条原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">3.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B"><span class="nav-number">3.3.</span> <span class="nav-text">敏捷开发中的用户故事</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E8%A1%A8%E8%BE%BE%E5%8D%A1%E7%89%87"><span class="nav-number">3.3.1.</span> <span class="nav-text">用户故事表达：卡片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#invest-%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.2.</span> <span class="nav-text">INVEST 原则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84-scheduling"><span class="nav-number">3.4.</span> <span class="nav-text">敏捷开发中的 Scheduling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A6%82%E5%BF%B5%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="nav-number">3.5.</span> <span class="nav-text">开发工具与敏捷开发概念的对应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">软件测试方法分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF%E7%8E%87%E6%81%92%E5%AE%9A%E5%AE%9A%E5%BE%8B%E4%B8%8E%E8%A7%84%E6%A8%A1%E4%BB%A3%E4%BB%B7%E5%B9%B3%E6%96%B9%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.</span> <span class="nav-text">软件测试中的错误率恒定定律与规模代价平方定律</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%8E%87%E6%81%92%E5%AE%9A%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">错误率恒定定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E6%A8%A1%E4%BB%A3%E4%BB%B7%E5%B9%B3%E6%96%B9%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">规模代价平方定律</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E5%BE%AA%E7%8E%AF"><span class="nav-number">4.3.</span> <span class="nav-text">测试驱动开发循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%8E%9F%E5%88%99first-%E5%8E%9F%E5%88%99"><span class="nav-number">4.4.</span> <span class="nav-text">软件测试的原则（FIRST 原则）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E6%B5%8B%E8%AF%95"><span class="nav-number">4.5.</span> <span class="nav-text">控制流测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E8%A6%86%E7%9B%96c_1"><span class="nav-number">4.5.1.</span> <span class="nav-text">判定覆盖（\(C_1\)）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E8%A6%86%E7%9B%96c_0"><span class="nav-number">4.5.2.</span> <span class="nav-text">语句覆盖（\(C_0\)）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E4%BB%B7%E7%B1%BB%E6%B5%8B%E8%AF%95"><span class="nav-number">4.6.</span> <span class="nav-text">等价类测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E4%B8%8E%E9%87%8D%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">代码风格与重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9D%83%E8%A1%A1%E5%8F%96%E8%88%8D"><span class="nav-number">5.1.</span> <span class="nav-text">防御式编程的权衡取舍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8Fpresentation"><span class="nav-number">5.2.</span> <span class="nav-text">代码格式（Presentation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E8%A6%81%E6%B1%82%E4%B8%8E%E5%A5%BD%E5%A4%84"><span class="nav-number">5.3.</span> <span class="nav-text">命名规范（要求与好处）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%96%87%E6%A1%A3%E4%BB%A3%E7%A0%81%E8%A6%81%E6%B1%82%E4%B8%8E%E5%A5%BD%E5%A4%84"><span class="nav-number">5.4.</span> <span class="nav-text">自文档代码（要求与好处）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83%E8%A6%81%E6%B1%82%E4%B8%8E%E5%A5%BD%E5%A4%84"><span class="nav-number">5.5.</span> <span class="nav-text">注释规范（要求与好处）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B0%94%E5%91%B3%E5%8C%85%E6%8B%AC%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">5.6.</span> <span class="nav-text">代码气味（包括圈复杂度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">5.7.</span> <span class="nav-text">代码重构的定义</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-%E5%88%9D%E6%8E%A2"><span class="nav-number">1.1.</span> <span class="nav-text">Typescript 初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next.js-%E8%B7%AF%E7%94%B1"><span class="nav-number">1.2.</span> <span class="nav-text">Next.js 路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于文件系统的路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#userouter-hook"><span class="nav-number">1.2.2.</span> <span class="nav-text">useRouter Hook</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AF%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="nav-number">1.3.</span> <span class="nav-text">副作用与网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#useeffect-hook"><span class="nav-number">1.3.1.</span> <span class="nav-text">useEffect Hook</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">异步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">Git 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mainmaster-head"><span class="nav-number">2.1.2.</span> <span class="nav-text">main(master), HEAD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit-merge"><span class="nav-number">2.1.3.</span> <span class="nav-text">commit, merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push-pull-fetch"><span class="nav-number">2.1.4.</span> <span class="nav-text">push, pull, fetch</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E4%B8%AD%E7%9A%84%E9%89%B4%E6%9D%83%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">前后端交互中的鉴权问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jwt-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.1.</span> <span class="nav-text">JWT 的结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91"><span class="nav-number">3.</span> <span class="nav-text">敏捷开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E7%9A%84%E5%8E%9F%E5%88%99%E4%B8%8E%E7%89%B9%E7%82%B9"><span class="nav-number">3.2.</span> <span class="nav-text">敏捷开发的原则与特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E5%8E%9F%E5%88%99"><span class="nav-number">3.2.1.</span> <span class="nav-text">12 条原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">3.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B"><span class="nav-number">3.3.</span> <span class="nav-text">敏捷开发中的用户故事</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%E8%A1%A8%E8%BE%BE%E5%8D%A1%E7%89%87"><span class="nav-number">3.3.1.</span> <span class="nav-text">用户故事表达：卡片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#invest-%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.2.</span> <span class="nav-text">INVEST 原则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84-scheduling"><span class="nav-number">3.4.</span> <span class="nav-text">敏捷开发中的 Scheduling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%A6%82%E5%BF%B5%E7%9A%84%E5%AF%B9%E5%BA%94"><span class="nav-number">3.5.</span> <span class="nav-text">开发工具与敏捷开发概念的对应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">软件测试方法分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF%E7%8E%87%E6%81%92%E5%AE%9A%E5%AE%9A%E5%BE%8B%E4%B8%8E%E8%A7%84%E6%A8%A1%E4%BB%A3%E4%BB%B7%E5%B9%B3%E6%96%B9%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.</span> <span class="nav-text">软件测试中的错误率恒定定律与规模代价平方定律</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%8E%87%E6%81%92%E5%AE%9A%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">错误率恒定定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E6%A8%A1%E4%BB%A3%E4%BB%B7%E5%B9%B3%E6%96%B9%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">规模代价平方定律</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91test-driven-development%E5%BE%AA%E7%8E%AF"><span class="nav-number">4.3.</span> <span class="nav-text">测试驱动开发（Test
+Driven Development）循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%8E%9F%E5%88%99first-%E5%8E%9F%E5%88%99"><span class="nav-number">4.4.</span> <span class="nav-text">软件测试的原则（FIRST 原则）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E6%B5%8B%E8%AF%95"><span class="nav-number">4.5.</span> <span class="nav-text">控制流测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E8%A6%86%E7%9B%96c_1"><span class="nav-number">4.5.1.</span> <span class="nav-text">判定覆盖（\(C_1\)）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E8%A6%86%E7%9B%96c_0"><span class="nav-number">4.5.2.</span> <span class="nav-text">语句覆盖（\(C_0\)）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E4%BB%B7%E7%B1%BB%E6%B5%8B%E8%AF%95"><span class="nav-number">4.6.</span> <span class="nav-text">等价类测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E6%B5%8B%E8%AF%95%E5%92%8C%E5%BC%BA%E6%B5%8B%E8%AF%95"><span class="nav-number">4.6.1.</span> <span class="nav-text">弱测试和强测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E4%B8%8E%E9%87%8D%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">代码风格与重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E5%BE%A1%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E6%9D%83%E8%A1%A1%E5%8F%96%E8%88%8D"><span class="nav-number">5.1.</span> <span class="nav-text">防御式编程的权衡取舍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text">代码格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#the-big-deal"><span class="nav-number">5.2.1.</span> <span class="nav-text">The Big Deal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#good-presentation"><span class="nav-number">5.2.2.</span> <span class="nav-text">Good Presentation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">5.3.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%81%E6%B1%82"><span class="nav-number">5.3.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%BD%E5%A4%84"><span class="nav-number">5.3.2.</span> <span class="nav-text">好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%96%87%E6%A1%A3%E4%BB%A3%E7%A0%81"><span class="nav-number">5.4.</span> <span class="nav-text">自文档代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%81%E6%B1%82-1"><span class="nav-number">5.4.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%BD%E5%A4%84-1"><span class="nav-number">5.4.2.</span> <span class="nav-text">好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83"><span class="nav-number">5.5.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A6%81%E6%B1%82-2"><span class="nav-number">5.5.1.</span> <span class="nav-text">要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%BD%E5%A4%84-2"><span class="nav-number">5.5.2.</span> <span class="nav-text">好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B0%94%E5%91%B3"><span class="nav-number">5.6.</span> <span class="nav-text">代码气味</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#abc-complexity"><span class="nav-number">5.6.1.</span> <span class="nav-text">ABC Complexity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">5.6.2.</span> <span class="nav-text">圈复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">5.7.</span> <span class="nav-text">代码重构的定义</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -240,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-21 21:33:07" itemprop="dateModified" datetime="2024-04-21T21:33:07+08:00">2024-04-21</time>
+      <time title="修改时间：2024-04-22 00:26:11" itemprop="dateModified" datetime="2024-04-22T00:26:11+08:00">2024-04-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -614,7 +615,27 @@ class="math inline">\(10^2 = 100\)</span> 小时。</p>
 class="math inline">\(50\)</span> 个 bug：<span class="math inline">\(50
 \times 100 = 5000\)</span> 小时。</p>
 </blockquote>
-<h3 id="测试驱动开发循环">测试驱动开发循环</h3>
+<h3 id="测试驱动开发test-driven-development循环">测试驱动开发（Test
+Driven Development）循环</h3>
+<pre><code class="highlight mermaid">graph LR
+A(&quot;1. Write Test&quot;) --&gt; B(&quot;2. Test Fails&quot;)
+B --&gt; C(&quot;3. Write Code&quot;)
+C --&gt; D(&quot;4. Test passes&quot;)
+D --&gt; E(&quot;5. Refactor&quot;)
+E --&gt; A</code></pre>
+<ul>
+<li>Each new feature begins with writing a test.</li>
+<li>You are not allowed to write any production code unless it is to
+make a failing unit test pass.</li>
+<li>You are not allowed to write any more of a unit test than is
+sufficient to fail; and compilation failures are failures.</li>
+<li>You are not allowed to write any more production code than is
+sufficient to pass the one failing unit test.</li>
+</ul>
+<p>TDD uses same skills &amp; techniques as conventional debugging—but
+more productive.</p>
+<p>Writing tests before code takes more time up-front, but often less
+time overall.</p>
 <h3 id="软件测试的原则first-原则">软件测试的原则（FIRST 原则）</h3>
 <ul>
 <li>Fast: Run (subset of) tests quickly (since you'll be running them
@@ -640,14 +661,240 @@ class="math inline">\(C_0\)</span>）</h4>
 <p>所有语句都要覆盖到。</p>
 <p>在控制流图中，即为每个点都被遍历到。</p>
 <h3 id="等价类测试">等价类测试</h3>
+<p>把不可穷举的数据，变成可穷举的类。</p>
+<ul>
+<li>等价类是本质互斥的</li>
+<li>等价类中的数据遵循“类似的行为”</li>
+<li>测试数据由等价类派生而成</li>
+</ul>
+<h4 id="弱测试和强测试">弱测试和强测试</h4>
+<ul>
+<li>弱测试
+<ul>
+<li>每行都覆盖到，每列都覆盖到</li>
+</ul></li>
+<li>强测试
+<ul>
+<li>每行且每列都覆盖到</li>
+</ul></li>
+<li>General Testing
+<ul>
+<li>只有 valid 的测试点被覆盖到</li>
+</ul></li>
+<li>Robust Testing
+<ul>
+<li>无论 valid 还是 invalid 的测试点都要被覆盖到</li>
+</ul></li>
+</ul>
 <h2 id="代码风格与重构">代码风格与重构</h2>
 <h3 id="防御式编程的权衡取舍">防御式编程的权衡取舍</h3>
-<h3 id="代码格式presentation">代码格式（Presentation）</h3>
-<h3 id="命名规范要求与好处">命名规范（要求与好处）</h3>
-<h3 id="自文档代码要求与好处">自文档代码（要求与好处）</h3>
-<h3 id="注释规范要求与好处">注释规范（要求与好处）</h3>
-<h3 id="代码气味包括圈复杂度">代码气味（包括圈复杂度）</h3>
+<p>Assume nothing. Unwritten assumptions continually cause faults,
+particularly as code grows.</p>
+<ul>
+<li>Encourage programmers to include as many checks as possible
+<ul>
+<li>Check the values of all data from external sources</li>
+<li>Check the values of all input parameters</li>
+<li>Decide how to handle bad inputs</li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AGAINST</th>
+<th>FOR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>影响代码运行性能（速度）</td>
+<td>节省了很多调试的时间</td>
+</tr>
+<tr class="even">
+<td>有些防御式编程需要额外的工作</td>
+<td>速度慢但可靠的代码，比速度快但<strong>有时出错</strong>的代码更有意义</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码格式">代码格式</h3>
+<p>代码是写给编译器、我们自己、<strong>其他人</strong>看的。</p>
+<p>Good code does not require a lot of thinking to understand. If the
+code logic is not clear at the first glance, the code is probably not
+good enough.</p>
+<h4 id="the-big-deal">The Big Deal</h4>
+<ul>
+<li>Presentation makes a real impact on the quality of code.</li>
+<li>Programmers read meaning into code based on its layout.
+<ul>
+<li>Good presentation: Illuminate and support your code’s structure,
+helping reader understand what’s going on.</li>
+<li>Bad presentation: Confuse, mislead, and hide the code's intent.</li>
+</ul></li>
+<li>Bad formatting not only makes code harder to follow; it may actually
+hide bugs from you.</li>
+</ul>
+<h4 id="good-presentation">Good Presentation</h4>
+<ul>
+<li>Consistent
+<ul>
+<li>Keep the style consistent across the project.</li>
+</ul></li>
+<li>Conventional
+<ul>
+<li>To adopt one of the major styles currently in use in the industry
+rather than invent your own rules.</li>
+</ul></li>
+<li>Concise
+<ul>
+<li>Easy to follow and pick up.</li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Good Programmers</th>
+<th>Bad Programmers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Know how code layout impacts readability and strive for the clearest
+code possible</td>
+<td>Have no consistent personal coding style</td>
+</tr>
+<tr class="even">
+<td>Will adopt a house style even if it contradicts their personal
+preference</td>
+<td>Trample over others' code in their own style</td>
+</tr>
+</tbody>
+</table>
+<h3 id="命名规范">命名规范</h3>
+<h4 id="要求">要求</h4>
+<p>Accurate and easy-to-understand</p>
+<p><strong>命名的作用</strong>：</p>
+<ul>
+<li>Identity</li>
+<li>Behavior
+<ul>
+<li>Roles, relationships, and interactions</li>
+</ul></li>
+<li>Recognition
+<ul>
+<li>Elevate something from ethereal concept to well-defined reality</li>
+</ul></li>
+</ul>
+<p><strong>如何命名</strong>：</p>
+<ul>
+<li>Descriptive</li>
+<li>Technically correct</li>
+<li>Idiomatic</li>
+<li>Appropriate</li>
+</ul>
+<p><strong>禁止</strong>：</p>
+<ul>
+<li>Cryptic</li>
+<li>Verbose</li>
+<li>Inaccurate or misleading</li>
+<li>Ambiguous or vague</li>
+</ul>
+<h4 id="好处">好处</h4>
+<p>People naturally read the meaning out of something based on its
+name.</p>
+<p>From the viewpoint of the use, hiding all the internal
+implementation.</p>
+<h3 id="自文档代码">自文档代码</h3>
+<h4 id="要求-1">要求</h4>
+<ul>
+<li>Write simple code with good presentation
+<ul>
+<li>Avoid too many nested statements</li>
+<li>Be wary of optimizing code so that it's no longer a clear expression
+of a basic algorithm.
+<ul>
+<li>Never optimize code unless you've proved that it is a bottleneck to
+acceptable program function.</li>
+</ul></li>
+</ul></li>
+<li>Decompose into atomic functions</li>
+<li>Group related information</li>
+<li>Emphasize important code</li>
+<li>Choose meaningful names</li>
+<li>Choose descriptive types</li>
+<li>Name constants
+<ul>
+<li>Avoid magic numbers.</li>
+</ul></li>
+</ul>
+<h4 id="好处-1">好处</h4>
+<p>The only document that describes your code completely and correctly
+is the code itself.</p>
+<p>Even the smallest, most beautiful functions will need later
+maintenance.</p>
+<h3 id="注释规范">注释规范</h3>
+<h4 id="要求-2">要求</h4>
+<p>We need to focus on comment quality, not quantity, so more important
+than the amount of comments we write are the contents of those
+comments.</p>
+<ul>
+<li>Explain 'why', not 'how'</li>
+<li>Don't describe the code</li>
+<li>Don't replace the code</li>
+<li>Keep it useful
+<ul>
+<li>Document the unexpected</li>
+<li>Tell the truth</li>
+<li>Are worthwhile</li>
+<li>Are clear</li>
+</ul></li>
+</ul>
+<h4 id="好处-2">好处</h4>
+<p>Describe the intent of the code.</p>
+<p>Summarize the whole block of code.</p>
+<h3 id="代码气味">代码气味</h3>
+<ul>
+<li>Continuous inspection</li>
+<li>Health
+<ul>
+<li>Duplicated code</li>
+<li>Coding standards</li>
+<li>Code complexity</li>
+<li>Comments</li>
+<li>Bugs</li>
+<li>Security vulnerabilities</li>
+</ul></li>
+</ul>
+<h4 id="abc-complexity">ABC Complexity</h4>
+<p>Assignments, Branches, Conditions. <span class="math display">\[
+\sqrt{A^2 + B^2 + C^2} \le 20 \quad(\text{per method})
+\]</span></p>
+<h4 id="圈复杂度">圈复杂度</h4>
+<p>Edge, Vertex, Decision, Region <span class="math display">\[
+\text{Cycle Complexity} = |E| - |V| + 2 = |D| + 1 = |R|
+\]</span></p>
 <h3 id="代码重构的定义">代码重构的定义</h3>
+<p>A software transformation that</p>
+<ul>
+<li>Preserves the external software behavior</li>
+<li>Improves the internal software structure</li>
+</ul>
+<p>Refactoring is a disciplined technique for restructuring an existing
+body of code, altering its internal structure without changing its
+external behavior.</p>
+<ul>
+<li>To enhance some non-functional quality – simplicity, flexibility,
+understandability, performance</li>
+<li>Its heart is a series of small behavior-preserving transformations.
+The system is kept fully working after each refactoring</li>
+</ul>
 
     </div>
 
