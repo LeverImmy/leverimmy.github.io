@@ -27,7 +27,7 @@
 <meta property="og:description" content="这是 Quantum Computation and Quantum Information 的学习笔记。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-12T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-05-12T02:23:04.355Z">
+<meta property="article:modified_time" content="2024-05-12T03:26:22.991Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="理论计算机科学">
 <meta property="article:tag" content="量子计算">
@@ -142,7 +142,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nomenclature-and-notation"><span class="nav-number">1.</span> <span class="nav-text">Nomenclature and notation</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nomenclature-and-notation"><span class="nav-number">1.</span> <span class="nav-text">Nomenclature and notation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linear-algebra-and-quantum-mechanics"><span class="nav-number">1.1.</span> <span class="nav-text">Linear Algebra and quantum
+mechanics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#positive-positive-definite-and-support"><span class="nav-number">1.1.1.</span> <span class="nav-text">Positive, positive
+definite, and support</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#the-letter-h"><span class="nav-number">1.1.2.</span> <span class="nav-text">The Letter H</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#information-theory-and-probability"><span class="nav-number">1.2.</span> <span class="nav-text">Information theory and
+probability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relative-entropy"><span class="nav-number">1.2.1.</span> <span class="nav-text">Relative Entropy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frequently-used-quantum-gates-and-circuit-symbols"><span class="nav-number">1.3.</span> <span class="nav-text">Frequently
+used quantum gates and circuit symbols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fundamental-concepts"><span class="nav-number">2.</span> <span class="nav-text">Fundamental concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#introduction-and-overview"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction and overview</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-12 10:23:04" itemprop="dateModified" datetime="2024-05-12T10:23:04+08:00">2024-05-12</time>
+      <time title="修改时间：2024-05-12 11:26:22" itemprop="dateModified" datetime="2024-05-12T11:26:22+08:00">2024-05-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,6 +271,43 @@
 的学习笔记。</p>
 <span id="more"></span>
 <h2 id="nomenclature-and-notation">Nomenclature and notation</h2>
+<h3 id="linear-algebra-and-quantum-mechanics">Linear Algebra and quantum
+mechanics</h3>
+<h4 id="positive-positive-definite-and-support">Positive, positive
+definite, and support</h4>
+<p>An operator <span class="math inline">\(A\)</span> is
+<em>positive</em> if <span class="math inline">\(\braket{\psi |A| \psi}
+\ge 0\)</span> holds for all <span
+class="math inline">\(\ket{\psi}\)</span>.</p>
+<p>An operator <span class="math inline">\(A\)</span> is <em>positive
+definite</em> if <span class="math inline">\(\braket{\psi |A| \psi} &gt;
+0\)</span> holds for all <span
+class="math inline">\(\ket{\psi}\)</span>.</p>
+<p>The <em>support</em> of an operator is defined to be the vector space
+orthogonal to its kernel.</p>
+<h4 id="the-letter-h">The Letter H</h4>
+<p><span class="math inline">\(H\)</span> is for <em>Hadamard Gate</em>,
+which has the matrix representation <span class="math display">\[
+H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
+-1\end{bmatrix}.
+\]</span> Or, it could be the <em>Hamiltonian</em> for a quantum
+system.</p>
+<h3 id="information-theory-and-probability">Information theory and
+probability</h3>
+<h4 id="relative-entropy">Relative Entropy</h4>
+<p>The <em>relative entropy</em> of a positive operator <span
+class="math inline">\(A\)</span> <strong>relative to </strong> another
+positive operator B is defined as <span class="math display">\[
+S(A \parallel B) = \text{tr}(A \log A) - \text{tr}(B \log B).
+\]</span> Note that the order of the operators matters. <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> need to be positive because of the
+<span class="math inline">\(\log\)</span> function.</p>
+<h3 id="frequently-used-quantum-gates-and-circuit-symbols">Frequently
+used quantum gates and circuit symbols</h3>
+<p>TBA</p>
+<h2 id="fundamental-concepts">Fundamental concepts</h2>
+<h3 id="introduction-and-overview">Introduction and overview</h3>
 
     </div>
 
