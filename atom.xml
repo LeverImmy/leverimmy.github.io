@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Clever_Jimmy 的博客</title>
+  <title>Clever_Jimmy&#39;s Blog</title>
   
   
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-04-29T16:59:16.573Z</updated>
+  <updated>2024-05-12T02:23:04.355Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】Quantum Computation and Quantum Information</title>
+    <link href="https://leverimmy.top/2024/05/12/QCQI/"/>
+    <id>https://leverimmy.top/2024/05/12/QCQI/</id>
+    <published>2024-05-12T12:14:22.000Z</published>
+    <updated>2024-05-12T02:23:04.355Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是 &lt;em&gt;Quantum Computation and Quantum Information&lt;/em&gt;
+的学习笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="理论计算机科学" scheme="https://leverimmy.top/tags/%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+    <category term="量子计算" scheme="https://leverimmy.top/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年</title>
@@ -62,7 +84,7 @@
     <link href="https://leverimmy.top/2024/04/20/SE/"/>
     <id>https://leverimmy.top/2024/04/20/SE/</id>
     <published>2024-04-20T07:10:11.000Z</published>
-    <updated>2024-04-25T11:43:48.520Z</updated>
+    <updated>2024-05-12T02:33:27.229Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。&lt;/p&gt;</summary>
