@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】Introduction to Theoretical Computer Science</title>
-    <url>/2024/03/01/ITCS/</url>
-    <content><![CDATA[<p>这是 <em><a href="https://introtcs.org/">Introduction to Theoretical
-Computer Science</a></em> 的学习笔记。</p>
-<span id="more"></span>
-<h2 id="section"></h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>理论计算机科学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】Haskell 从入门到入土</title>
     <url>/2024/05/20/Introduction-to-Haskell/</url>
     <content><![CDATA[<p>Haskell 从入门到入土。</p>
@@ -11294,6 +11279,252 @@ p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
       </tags>
   </entry>
   <entry>
+    <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr />
+<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
+350 \mathrm{ min}\)</span> <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+<span id="more"></span>
+<h2 id="准备工作">准备工作</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
+alt="@全体成员" />
+<figcaption aria-hidden="true"><span class="citation"
+data-cites="全体成员">@全体成员</span></figcaption>
+</figure>
+<p><del>（后面两次@没有<span class="citation"
+data-cites="上">@上</span>）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<h2 id="物理">物理</h2>
+<p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
+alt="物理卷子T2" />
+<figcaption aria-hidden="true">物理卷子T2</figcaption>
+</figure>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
+alt="物理卷子T6" />
+<figcaption aria-hidden="true">物理卷子T6</figcaption>
+</figure>
+<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
+的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
+<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
+class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
+class="math inline">\(2G\)</span>。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 <span
+class="math inline">\(\dfrac{1}{3}\)</span>
+准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学">化学</h2>
+<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
+alt="化学卷子P1,P2" />
+<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
+</figure>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
+<span class="math inline">\(3\)</span> 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
+alt="笑谈化学卷子" />
+<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
+</figure>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭">吃午饭</h2>
+<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
+data-cites="数学">@数学</span></p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学">数学</h2>
+<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
+alt="细致入微" />
+<figcaption aria-hidden="true">细致入微</figcaption>
+</figure>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol type="1">
+<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
+<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
+是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
+class="math inline">\(4\)</span> 就可以知道 <span
+class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
+class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<blockquote>
+<ol start="6" type="1">
+<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
+<span class="math inline">\(xyz = 1\)</span>，证明： <span
+class="math display">\[
+\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \le 1
+\]</span></li>
+</ol>
+</blockquote>
+<p>注意到 <span class="math display">\[
+\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
+\]</span> 则 <span class="math display">\[
+\begin{aligned}
+&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \\\\
+\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
+\dfrac{1}{z^2+zx+1} \\\\
+= &amp; 1
+\end{aligned}
+\]</span></p>
+<blockquote>
+<ol start="7" type="1">
+<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
+d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
+class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
+n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
+1\)</span>.</li>
+</ol>
+</blockquote>
+<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
+<span class="math inline">\(3 \nmid n\)</span>。因 <span
+class="math inline">\(m\)</span> 为完全平方数，则 <span
+class="math inline">\(\alpha\)</span> 必为偶数。</p>
+<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
+class="math inline">\(3\nmid n\)</span>，则 <span
+class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
+class="math inline">\(d_{\alpha} = 1\)</span>。</p>
+<hr />
+<p>当我不知道干啥的时候，我看到了这个</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
+alt="来了来了" />
+<figcaption aria-hidden="true">来了来了</figcaption>
+</figure>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
+<p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭">吃晚饭</h2>
+<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
+alt="海底捞吃饭前" />
+<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
+</figure>
+<p>吃吃吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
+alt="杯盘狼藉" />
+<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+</figure>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
+alt="椰子" />
+<figcaption aria-hidden="true">椰子</figcaption>
+</figure>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结">总结</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
+alt="监考老师们的合照" />
+<figcaption aria-hidden="true">监考老师们的合照</figcaption>
+</figure>
+<p>嗝。</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】软件工程</title>
     <url>/2024/04/20/SE/</url>
     <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。</p>
@@ -11940,6 +12171,332 @@ The system is kept fully working after each refactoring</li>
       </tags>
   </entry>
   <entry>
+    <title>【游记】2023 年回眸</title>
+    <url>/2023/12/28/2023Lookback/</url>
+    <content><![CDATA[<p>2023
+年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
+<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
+<hr />
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<span id="more"></span>
+<h2 id="一月">一月</h2>
+<p>在家里卷。学了学 OOP。</p>
+<h2 id="二月">二月</h2>
+<p><strong>2023-02-23
+第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
+<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉！</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/class-yylc2bc29e816fe7cda.jpeg"
+alt="非常好！" />
+<figcaption aria-hidden="true">非常好！</figcaption>
+</figure>
+<p>可惜的是……他不再在清华教书了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/farewell-yyldde4cfaf75275a85.jpeg"
+alt="可惜" />
+<figcaption aria-hidden="true">可惜</figcaption>
+</figure>
+<h2 id="三月">三月</h2>
+<p><strong>2023-03-05 人生中第一次献血</strong></p>
+<p>抽血的过程还真挺疼的，但医务人员一直在跟我聊天分散我注意力。</p>
+<p><del>体验十分良好</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation11d04ab5827807448.jpeg"
+alt="合照" />
+<figcaption aria-hidden="true">合照</figcaption>
+</figure>
+<p>吐槽一下你清各种吉祥物的名字。“布拉”是 blood
+的谐音，但怎么越看越觉得离谱。<del>就像生命科学学院的吉祥物“莱福” 是
+life 的谐音一样，化工系的微信公众号“卡安” 是 chemical engineering
+不知道哪几个音节拼起来的一样。</del></p>
+<p>就很怪。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation23e966e8fce9f5e8b.jpeg"
+alt="第一次被缠这么多绷带" />
+<figcaption aria-hidden="true">第一次被缠这么多绷带</figcaption>
+</figure>
+<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
+<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/speech83f566ccbe99bdc7.png"
+alt="帅照（确信）" />
+<figcaption aria-hidden="true">帅照（确信）</figcaption>
+</figure>
+<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
+<p><strong>2023-03-26
+代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/pingpong247b3198d020b0cc.jpeg"
+alt="乒乓球马杯" />
+<figcaption aria-hidden="true">乒乓球马杯</figcaption>
+</figure>
+<p>可惜小组赛没出线。</p>
+<h2 id="四月">四月</h2>
+<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/fool5e54ad495e3db30a.jpeg"
+alt="睡大觉。" />
+<figcaption aria-hidden="true">睡大觉。</figcaption>
+</figure>
+<p>我倒也想选这门课啊，甚至 5 学分呢。</p>
+<p><strong>2023-04-13
+代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/shuttlecock87edf70961021e2a.jpeg"
+alt="我们可是甲组季军呢" />
+<figcaption aria-hidden="true">我们可是甲组季军呢</figcaption>
+</figure>
+<p><del>非常好毽球，爱来自工物。</del></p>
+<p>最后拿到了甲组季军。现在回想起来，致理和电子都那么强，真不知道当时是怎么赢的（</p>
+<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/mahjongf0094aff62857af2.jpeg"
+alt="国士无双！" />
+<figcaption aria-hidden="true">国士无双！</figcaption>
+</figure>
+<p>逆天极了。我四暗刻一向听，对家国士无双听绝张白板。还得是 sjx
+啊，高手胡绝张。</p>
+<p>ctl 也是倒霉，摸到了绝张白板，放了炮。</p>
+<p><del>线下友人局离役满最近的一次</del></p>
+<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
+<p>咱就是说，给武汉外国语学校丢脸了。才 610 多一点。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-449ecac9a9eabce93.jpeg"
+alt="CET-4" />
+<figcaption aria-hidden="true">CET-4</figcaption>
+</figure>
+<p><strong>2023-04-25 写沟突然换老师？</strong></p>
+<p>太逆天了。上了八周的写沟，老师突然不见了。<del>最后推测难道是去出高考卷子了？还有人说被挖去北大了。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-1bea8b56a3faa5f5c.jpeg"
+alt="逆天" />
+<figcaption aria-hidden="true">逆天</figcaption>
+</figure>
+<p>然后还让我们电子签名。好正式。搞得我好怕。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-2d3df805277f2268e.jpeg"
+alt="哈人" />
+<figcaption aria-hidden="true">哈人</figcaption>
+</figure>
+<p><strong>2023-04-25 第一次参加的小清心的心理团体辅导结束</strong></p>
+<p>主题是亲密关系。</p>
+<p>分手让我痛苦了很久，所以我就开始尝试寻求帮助，最后在清华小清心公众号上找到了这个团体辅导。</p>
+<p>参加心理团体真的很有用，既让我了解到了知识，也使我收获了友谊。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/group77faffd6ec3524b5.png"
+alt="合照！" />
+<figcaption aria-hidden="true">合照！</figcaption>
+</figure>
+<h2 id="五月">五月</h2>
+<p><strong>2023-05-01 清华开放校园</strong></p>
+<p>各种游客络绎不绝，奇葩也很多。林子大了什么鸟都有。</p>
+<p><strong>2023-05-20 转专业成功</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/transfer2c7ea716cc14bc8c.jpeg"
+alt="三卡" />
+<figcaption aria-hidden="true">三卡</figcaption>
+</figure>
+<p><del>成为第一个一年内获得三种校园卡的人。</del></p>
+<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
+<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
+嘛。</del></p>
+<h2 id="六月">六月</h2>
+<p><strong>2023-06-02 第一次参加学生节</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/festivalfdd3e155268193fb.jpeg"
+alt="好好好" />
+<figcaption aria-hidden="true">好好好</figcaption>
+</figure>
+<p>二胡的音色完美阐释了《风居住的街道》中内蕴的悲伤。</p>
+<p>美极了！</p>
+<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
+<p>很喜欢一句话：一二三四，清华第一；五六七八，北大回家（确信</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-1648f5e9e37a167c6.jpeg"
+alt="展示军火（确信）" />
+<figcaption aria-hidden="true">展示军火（确信）</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-2e813a96c67ff383b.jpeg"
+alt="比分" />
+<figcaption aria-hidden="true">比分</figcaption>
+</figure>
+<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
+<p>什么时候成立远方书院（合并计算机系、软件学院、交叉信息研究院、自动化系）</p>
+<p><del>“远方”出自“莘莘学子来远方”，意指这个书院的学子全部都会润，有专门提供出国留学相关指导的活动。</del></p>
+<p><strong>2023-06-17 第一次考英语六级</strong></p>
+<p>六级翻译真恶心死我了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-63b293b930c8b51d1.jpeg"
+alt="CET-6" />
+<figcaption aria-hidden="true">CET-6</figcaption>
+</figure>
+<p><strong>2023-06-25 做招生志愿者</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/entrance-19d0105a6fe8abb63.jpeg"
+alt="赢" />
+<figcaption aria-hidden="true">赢</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/entrance-2864a9a253599d01d.jpeg"
+alt="又赢" />
+<figcaption aria-hidden="true">又赢</figcaption>
+</figure>
+<p><del>成功说服状元报清华，赢！</del></p>
+<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
+<p>实现绩点自由了。学不懂一点物理，基物毁我人生。</p>
+<h2 id="七月">七月</h2>
+<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
+<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
+<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
+alt="Sedecordle" />
+<figcaption aria-hidden="true">Sedecordle</figcaption>
+</figure>
+<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
+<h2 id="八月">八月</h2>
+<p><strong>2023-08-17 收到了小礼物</strong></p>
+<p>可爱吧！</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/presentbe279d91ecbb3b54.jpeg"
+alt="熊！" />
+<figcaption aria-hidden="true">熊！</figcaption>
+</figure>
+<h2 id="九月">九月</h2>
+<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
+<p>GitHub repo: <a
+href="https://github.com/LeverImmy/NewsApp">LeverImmy/NewsApp</a></p>
+<p>博客: <a
+href="https://leverimmy.top/2023/09/10/2023Summer-Java/">【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java)
+大作业报告（2023 夏）</a></p>
+<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
+<p>武外人，无外人！</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/schoolmate7a11be6910be71b5.jpeg"
+alt="合照" />
+<figcaption aria-hidden="true">合照</figcaption>
+</figure>
+<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/english-corner0ee5f0d5d2b3741c.jpeg"
+alt="英语角" />
+<figcaption aria-hidden="true">英语角</figcaption>
+</figure>
+<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
+<blockquote>
+<p>既然今天准备 GAP 一天，那就得好好利用起来。</p>
+<p>早上睡到了 10:30
+才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
+6 小时了。今天可算是让我好好补了回来。</p>
+<p>下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
+8 号，因为“那天上周五的课”。</p>
+<p>一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。</p>
+<p>晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。</p>
+<p>最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。</p>
+<p>我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？</p>
+<p>“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
+</blockquote>
+<h2 id="十月">十月</h2>
+<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
+<p><strong>2023-10-13 学会了手巾花</strong></p>
+<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/volunteerb51844dd76d97200.png"
+alt="终于加入校答疑坊了！" />
+<figcaption aria-hidden="true">终于加入校答疑坊了！</figcaption>
+</figure>
+<p><strong>2023-10-22
+参加了第十五届北京市体育大会毽球选拔赛</strong></p>
+<p>14 支队伍，分为 A B C D 四个组，每组前两名出线。我们在 C
+组，只有三支队伍，其中有一支弃权，没来参赛。</p>
+<p>小组内打那个没弃权的队伍，没赢；出线（晋级八强）后的淘汰赛，也没赢。</p>
+<p>结果是一局没赢的我们最后并列第五。</p>
+<p><del>不知道这是什么运气。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/bj-shuttlecockdcd89b43708b474f.jpeg"
+alt="野少有事儿先走了，缺他的合影" />
+<figcaption aria-hidden="true">野少有事儿先走了，缺他的合影</figcaption>
+</figure>
+<p><strong>2023-10-27 李克强总理逝世</strong></p>
+<p>愿逝者安息。</p>
+<h2 id="十一月">十一月</h2>
+<p><strong>2023-11-23
+代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/shuttlecock-loop9d88c5efd679ddc4.jpeg"
+alt="转系后的第一次" />
+<figcaption aria-hidden="true">转系后的第一次</figcaption>
+</figure>
+<p>三人围踢 3 分钟，甲组第二。菜就多练！明年继续挑战。</p>
+<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
+<h2 id="十二月">十二月</h2>
+<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/snowman46eba5251875095b.jpeg"
+alt="你就说帅不帅吧" />
+<figcaption aria-hidden="true">你就说帅不帅吧</figcaption>
+</figure>
+<p>自己搞了个雪人。</p>
+<p><strong>2023-12-16
+参加第二次英语六级考试并被人挂在小红书上了</strong></p>
+<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
+<p>最佳梗图：</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/emoji-19d945499c88aa2c1.jpeg"
+alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/emoji-2a046537180cf0dec.jpeg"
+alt="2" />
+<figcaption aria-hidden="true">2</figcaption>
+</figure>
+<h2 id="总结">总结</h2>
+<p>转专业成功了。</p>
+<p>遇见了志同道合的知心朋友。</p>
+<p>感觉自己融入了新的集体。</p>
+<p>也不知道新的一年，又会是怎样的情况呢？</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【游记】2022 年回眸</title>
     <url>/2022/12/31/2022Lookback/</url>
     <content><![CDATA[<p>2022 年就这么过去了，</p>
@@ -12317,575 +12874,357 @@ alt="蒸橙子" />
       </tags>
   </entry>
   <entry>
-    <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr />
-<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
-350 \mathrm{ min}\)</span> <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+    <title>【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年</title>
+    <url>/2024/04/30/From-Taizihu-to-Wansongyuan/</url>
+    <content><![CDATA[<p>武汉外国语学校是在周恩来、陈毅等老一代国家领导人亲切关怀下，于 1964
+创建的全国首批七所外国语学校之一。作为一名从外小、外初到外高，在武汉外国语学校中度过了十二个春秋的学生，我深受外校的滋养：外校不仅含辛茹苦地哺育了我，还启迪了我的思想，塑造了我的性格。今年，这所名校终于迎来了它的
+60
+周年校庆。在这个值得纪念的校庆之际，我写下这篇文章，献给我深爱的母校。</p>
 <span id="more"></span>
-<h2 id="准备工作">准备工作</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
-alt="@全体成员" />
-<figcaption aria-hidden="true"><span class="citation"
-data-cites="全体成员">@全体成员</span></figcaption>
-</figure>
-<p><del>（后面两次@没有<span class="citation"
-data-cites="上">@上</span>）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<h2 id="物理">物理</h2>
-<p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
-alt="物理卷子T2" />
-<figcaption aria-hidden="true">物理卷子T2</figcaption>
-</figure>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
-alt="物理卷子T6" />
-<figcaption aria-hidden="true">物理卷子T6</figcaption>
-</figure>
-<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
-的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
-<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
-class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
-class="math inline">\(2G\)</span>。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 <span
-class="math inline">\(\dfrac{1}{3}\)</span>
-准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学">化学</h2>
-<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
-alt="化学卷子P1,P2" />
-<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
-</figure>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
-<span class="math inline">\(3\)</span> 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
-alt="笑谈化学卷子" />
-<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
-</figure>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭">吃午饭</h2>
-<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
-data-cites="数学">@数学</span></p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学">数学</h2>
-<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
-alt="细致入微" />
-<figcaption aria-hidden="true">细致入微</figcaption>
-</figure>
-<p>写了几道能力范围之内的题目。</p>
+<h2 id="一">一</h2>
 <blockquote>
-<ol type="1">
-<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
-<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
-是一个完全平方数.</li>
-</ol>
+<p>“太子湖畔，清风鸣蝉”</p>
 </blockquote>
-<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
-class="math inline">\(4\)</span> 就可以知道 <span
-class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
-class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<p>在小学部的学习生活给予了我广阔的国际视野。</p>
+<p>记得在那纯真的小学时光里，每年的“圣诞国际日”是我们最期待的活动。那一天，校园仿佛成为了世界的缩影，变成了一个五彩斑斓的世界地图；每个班级都代表着不同的国家，展示着各自的特色美食和文化。我们这些小小探险家，手持着收集印章的小本子，兴奋地在不同的国度间穿梭，体验着一场无需护照的环球旅行。</p>
+<p>我记得有一次我们班级被分配到了“印度”这一国家。在活动开始前，我们充满热情地搜集关于印度的资料，学习它的历史、文化和风俗。当天，我们的教室被装饰成了印度风格；女生身着莎丽，成为了印度文化的使者。最令人兴奋的是，我们还特别请来了一位擅长制作印度飞饼的厨师。他现场展示了制作飞饼的技艺，那旋转飞扬的面团，那在空中翻腾的飞饼，让我们目不转睛。当香喷喷的飞饼出锅时，我们都忍不住上前品尝，那酥脆可口的美味让我们回味无穷。</p>
+<p>虽然那个特别的日子已经成为了过去，但它在我心中留下的印记却是永恒的。“圣诞国际日”不仅让我对世界各地的风土人情有了初步的认识，更让我懂得了尊重和欣赏每一种文化的价值。在那段美好的时光里，我的视野被无限地拓展，我的知识面也在潜移默化中变得更加宽广。外小给了我一个探索世界的起点，让我在未来的日子里，总是怀揣着对未知的好奇和对世界的热爱。</p>
+<h2 id="二">二</h2>
 <blockquote>
-<ol start="6" type="1">
-<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
-<span class="math inline">\(xyz = 1\)</span>，证明： <span
-class="math display">\[
-\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \le 1
-\]</span></li>
-</ol>
+<p>“巍巍龟蛇哺育着世纪的学子，滚滚长江回荡着母亲的叮咛。”</p>
 </blockquote>
-<p>注意到 <span class="math display">\[
-\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
-\]</span> 则 <span class="math display">\[
-\begin{aligned}
-&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \\\\
-\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
-\dfrac{1}{z^2+zx+1} \\\\
-= &amp; 1
-\end{aligned}
-\]</span></p>
+<p>在初中部的学习生活为我提供了众多展示自己的机会。</p>
+<p>记得每次英语课上的 Duty
+Show，那是我们最期待的五分钟。在每节英语课的最初的 5
+分钟，都会有一位同学针对某个主题发表自己的看法，或是分享自己的兴趣和生活见闻。这个常规的语言训练项目锻炼了我们的语言表达能力和组织能力，每当轮到我上台，我总是积极展示自己，锻炼自己的英语口语能力，享受展示自我的过程。</p>
+<p>为了进一步提高我们对英语 Duty Show
+的兴趣和制作能力，初二英语年级组的老师们精心安排了一场 Duty Show
+大赛。我记得我和季瑞灼同学一起，以“Is Admiring Someone
+OK?”为主题，通过类似脱口秀的形式，展示了我们对“早恋”这一话题的看法。我们的脱口秀赢得了全场的掌声，最终获得了全场最高票，赢得了“最佳风采奖”。这次比赛不仅让我们的校园生活更加生动有趣，还提供了展示自我、锻炼能力的机会，我们无论是语言表达能力、公众演讲能力还是自信心，都得到了提高。</p>
+<p>除了 Duty Show 大赛，我在外初时还经历了英语卡拉 OK
+大赛、课本剧大赛、英语配音大赛等活动。感谢外初给予我的这些宝贵机会，它们让我在英语学习的道路上更加自信，也为我未来的发展奠定了坚实的基础。</p>
+<h2 id="三">三</h2>
 <blockquote>
-<ol start="7" type="1">
-<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
-d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
-class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
-n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
-1\)</span>.</li>
-</ol>
+<p>“从这里走向世界和未来。”</p>
 </blockquote>
-<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
-<span class="math inline">\(3 \nmid n\)</span>。因 <span
-class="math inline">\(m\)</span> 为完全平方数，则 <span
-class="math inline">\(\alpha\)</span> 必为偶数。</p>
-<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
-class="math inline">\(3\nmid n\)</span>，则 <span
-class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
-class="math inline">\(d_{\alpha} = 1\)</span>。</p>
-<hr />
-<p>当我不知道干啥的时候，我看到了这个</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
-alt="来了来了" />
-<figcaption aria-hidden="true">来了来了</figcaption>
-</figure>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
-<p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭">吃晚饭</h2>
-<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
-alt="海底捞吃饭前" />
-<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
-</figure>
-<p>吃吃吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
-alt="杯盘狼藉" />
-<figcaption aria-hidden="true">杯盘狼藉</figcaption>
-</figure>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
-alt="椰子" />
-<figcaption aria-hidden="true">椰子</figcaption>
-</figure>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结">总结</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
-alt="监考老师们的合照" />
-<figcaption aria-hidden="true">监考老师们的合照</figcaption>
-</figure>
-<p>嗝。</p>
+<p>在高中部的学习生活提高了我的综合素质和学习能力。</p>
+<p>外高拥有着一流的师资力量和先进的教育资源。老师们不仅专业知识深厚，教学经验丰富，也注重培养学生的创新思维和批判性思考能力。除此之外，老师们的教学方法也极具特色。以我的班主任梅军老师为例，他曾在高一时就提出一个挑战：如果在任何一次大考中，班上所有人都能准确完成游标卡尺读数题目，他就请全班同学吃大餐。这个看似简单的目标，却是对我们细致入微、严谨治学的最好考验。遗憾的是，直到高考，我们班始终未能实现这一目标。虽然我们高中三年一次也没有完美过，但是高考结束后的
+6 月 10 日，拍完毕业照之后，他邀请全班 30
+名同学在天街享用了一顿烤肉自助餐，以此作为对我们高中三年努力的认可和奖励。</p>
+<p>这一道“小小的难题”，让我们明白了细节决定成败的道理。梅老师通过这个简单的例子，教会了我们对待学习要一丝不苟，对待生活要乐观向上。在他的影响下，我学会了如何面对挑战，如何在困难中坚持，如何在失败中汲取教训。</p>
+<h2 id="四">四</h2>
+<p>十二载春秋，转瞬即逝，在武汉外国语学校中度过的日子，甚至超越了我生命旅程的一半。太子湖畔的一花一木，万松园里的一草一树，都成为我记忆中不可或缺的部分；作为一个住读生，它们陪伴我的时光，甚至超过了我与父母共度的岁月。这些岁月里，我在武汉外国语学校这片沃土上播种梦想，收获知识，塑造自我，我做的每一件事都凝聚着学校的滋养和教诲。</p>
+<p>我仍然忘不了外小教学楼的一至五号门，不能记错它们各有各的开放时间；也忘不了每天下午“阳光空间”的课外锻炼时间，同学们在操场上奔跑跳跃的模样；我仍然忘不了外初悠长的上课铃和下课铃，也忘不了每周被“独立作业”所“折磨”的日子。记忆中最令我难忘的，是曾经位于外高操场上的秋千，还有和朋友们在操场上散步谈心的时光。</p>
+<p>愿武汉外国语学校在未来的岁月里继续她的辉煌，不断推动教育事业的发展，为国家培养出更多、更优秀的国际化人才；希望“爱国，好学，自强，图新”的校训激励一代又一代学子，为祖国的繁荣昌盛贡献力量。衷心祝贺我的母校——武汉外国语学校建校
+60 周年校庆快乐！</p>
 ]]></content>
       <categories>
-        <category>游记</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>生活</tag>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
       </tags>
   </entry>
   <entry>
-    <title>【游记】2023 年回眸</title>
-    <url>/2023/12/28/2023Lookback/</url>
-    <content><![CDATA[<p>2023
-年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
-<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
-<hr />
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
+    <url>/2023/09/10/2023Summer-Java/</url>
+    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
+夏）。</p>
+<p><a
+href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
+下载地址</a></p>
+<p>GitHub repo 在 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
+<p><strong>目录</strong></p>
+<ul>
+<li>News App(头条大师)
+<ul>
+<li>作业描述</li>
+<li>代码结构</li>
+<li>具体实现
+<ul>
+<li>新闻详情获取</li>
+<li>新闻列表上拉刷新下划加载</li>
+<li>图片展示和视频播放</li>
+<li>修改列表分类时的抖动特效</li>
+<li>新闻查找</li>
+<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
+<li>对手机“返回键”行为的处理</li>
+</ul></li>
+<li>遇到的问题及其解决方法
+<ul>
+<li>JDK 安装包重复导入的问题</li>
+<li>如何通过报错信息查找 bug</li>
+<li>查找新闻时的时间范围设置</li>
+<li>视频播放问题</li>
+<li>repo 回滚</li>
+</ul></li>
+<li>总结和心得</li>
+</ul></li>
+</ul>
 <span id="more"></span>
-<h2 id="一月">一月</h2>
-<p>在家里卷。学了学 OOP。</p>
-<h2 id="二月">二月</h2>
-<p><strong>2023-02-23
-第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
-<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉！</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/class-yylc2bc29e816fe7cda.jpeg"
-alt="非常好！" />
-<figcaption aria-hidden="true">非常好！</figcaption>
-</figure>
-<p>可惜的是……他不再在清华教书了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/farewell-yyldde4cfaf75275a85.jpeg"
-alt="可惜" />
-<figcaption aria-hidden="true">可惜</figcaption>
-</figure>
-<h2 id="三月">三月</h2>
-<p><strong>2023-03-05 人生中第一次献血</strong></p>
-<p>抽血的过程还真挺疼的，但医务人员一直在跟我聊天分散我注意力。</p>
-<p><del>体验十分良好</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/blood-donation11d04ab5827807448.jpeg"
-alt="合照" />
-<figcaption aria-hidden="true">合照</figcaption>
-</figure>
-<p>吐槽一下你清各种吉祥物的名字。“布拉”是 blood
-的谐音，但怎么越看越觉得离谱。<del>就像生命科学学院的吉祥物“莱福” 是
-life 的谐音一样，化工系的微信公众号“卡安” 是 chemical engineering
-不知道哪几个音节拼起来的一样。</del></p>
-<p>就很怪。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/blood-donation23e966e8fce9f5e8b.jpeg"
-alt="第一次被缠这么多绷带" />
-<figcaption aria-hidden="true">第一次被缠这么多绷带</figcaption>
-</figure>
-<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
-<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/speech83f566ccbe99bdc7.png"
-alt="帅照（确信）" />
-<figcaption aria-hidden="true">帅照（确信）</figcaption>
-</figure>
-<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
-<p><strong>2023-03-26
-代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/pingpong247b3198d020b0cc.jpeg"
-alt="乒乓球马杯" />
-<figcaption aria-hidden="true">乒乓球马杯</figcaption>
-</figure>
-<p>可惜小组赛没出线。</p>
-<h2 id="四月">四月</h2>
-<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/fool5e54ad495e3db30a.jpeg"
-alt="睡大觉。" />
-<figcaption aria-hidden="true">睡大觉。</figcaption>
-</figure>
-<p>我倒也想选这门课啊，甚至 5 学分呢。</p>
-<p><strong>2023-04-13
-代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/shuttlecock87edf70961021e2a.jpeg"
-alt="我们可是甲组季军呢" />
-<figcaption aria-hidden="true">我们可是甲组季军呢</figcaption>
-</figure>
-<p><del>非常好毽球，爱来自工物。</del></p>
-<p>最后拿到了甲组季军。现在回想起来，致理和电子都那么强，真不知道当时是怎么赢的（</p>
-<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/mahjongf0094aff62857af2.jpeg"
-alt="国士无双！" />
-<figcaption aria-hidden="true">国士无双！</figcaption>
-</figure>
-<p>逆天极了。我四暗刻一向听，对家国士无双听绝张白板。还得是 sjx
-啊，高手胡绝张。</p>
-<p>ctl 也是倒霉，摸到了绝张白板，放了炮。</p>
-<p><del>线下友人局离役满最近的一次</del></p>
-<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
-<p>咱就是说，给武汉外国语学校丢脸了。才 610 多一点。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cet-449ecac9a9eabce93.jpeg"
-alt="CET-4" />
-<figcaption aria-hidden="true">CET-4</figcaption>
-</figure>
-<p><strong>2023-04-25 写沟突然换老师？</strong></p>
-<p>太逆天了。上了八周的写沟，老师突然不见了。<del>最后推测难道是去出高考卷子了？还有人说被挖去北大了。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/change-1bea8b56a3faa5f5c.jpeg"
-alt="逆天" />
-<figcaption aria-hidden="true">逆天</figcaption>
-</figure>
-<p>然后还让我们电子签名。好正式。搞得我好怕。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/change-2d3df805277f2268e.jpeg"
-alt="哈人" />
-<figcaption aria-hidden="true">哈人</figcaption>
-</figure>
-<p><strong>2023-04-25 第一次参加的小清心的心理团体辅导结束</strong></p>
-<p>主题是亲密关系。</p>
-<p>分手让我痛苦了很久，所以我就开始尝试寻求帮助，最后在清华小清心公众号上找到了这个团体辅导。</p>
-<p>参加心理团体真的很有用，既让我了解到了知识，也使我收获了友谊。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/group77faffd6ec3524b5.png"
-alt="合照！" />
-<figcaption aria-hidden="true">合照！</figcaption>
-</figure>
-<h2 id="五月">五月</h2>
-<p><strong>2023-05-01 清华开放校园</strong></p>
-<p>各种游客络绎不绝，奇葩也很多。林子大了什么鸟都有。</p>
-<p><strong>2023-05-20 转专业成功</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/transfer2c7ea716cc14bc8c.jpeg"
-alt="三卡" />
-<figcaption aria-hidden="true">三卡</figcaption>
-</figure>
-<p><del>成为第一个一年内获得三种校园卡的人。</del></p>
-<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
-<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
-嘛。</del></p>
-<h2 id="六月">六月</h2>
-<p><strong>2023-06-02 第一次参加学生节</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/festivalfdd3e155268193fb.jpeg"
-alt="好好好" />
-<figcaption aria-hidden="true">好好好</figcaption>
-</figure>
-<p>二胡的音色完美阐释了《风居住的街道》中内蕴的悲伤。</p>
-<p>美极了！</p>
-<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
-<p>很喜欢一句话：一二三四，清华第一；五六七八，北大回家（确信</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cubal-1648f5e9e37a167c6.jpeg"
-alt="展示军火（确信）" />
-<figcaption aria-hidden="true">展示军火（确信）</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cubal-2e813a96c67ff383b.jpeg"
-alt="比分" />
-<figcaption aria-hidden="true">比分</figcaption>
-</figure>
-<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
-<p>什么时候成立远方书院（合并计算机系、软件学院、交叉信息研究院、自动化系）</p>
-<p><del>“远方”出自“莘莘学子来远方”，意指这个书院的学子全部都会润，有专门提供出国留学相关指导的活动。</del></p>
-<p><strong>2023-06-17 第一次考英语六级</strong></p>
-<p>六级翻译真恶心死我了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cet-63b293b930c8b51d1.jpeg"
-alt="CET-6" />
-<figcaption aria-hidden="true">CET-6</figcaption>
-</figure>
-<p><strong>2023-06-25 做招生志愿者</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/entrance-19d0105a6fe8abb63.jpeg"
-alt="赢" />
-<figcaption aria-hidden="true">赢</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/entrance-2864a9a253599d01d.jpeg"
-alt="又赢" />
-<figcaption aria-hidden="true">又赢</figcaption>
-</figure>
-<p><del>成功说服状元报清华，赢！</del></p>
-<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
-<p>实现绩点自由了。学不懂一点物理，基物毁我人生。</p>
-<h2 id="七月">七月</h2>
-<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
-<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
-<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
-alt="Sedecordle" />
-<figcaption aria-hidden="true">Sedecordle</figcaption>
-</figure>
-<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
-<h2 id="八月">八月</h2>
-<p><strong>2023-08-17 收到了小礼物</strong></p>
-<p>可爱吧！</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/presentbe279d91ecbb3b54.jpeg"
-alt="熊！" />
-<figcaption aria-hidden="true">熊！</figcaption>
-</figure>
-<h2 id="九月">九月</h2>
-<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
-<p>GitHub repo: <a
-href="https://github.com/LeverImmy/NewsApp">LeverImmy/NewsApp</a></p>
-<p>博客: <a
-href="https://leverimmy.top/2023/09/10/2023Summer-Java/">【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java)
-大作业报告（2023 夏）</a></p>
-<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
-<p>武外人，无外人！</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/schoolmate7a11be6910be71b5.jpeg"
-alt="合照" />
-<figcaption aria-hidden="true">合照</figcaption>
-</figure>
-<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/english-corner0ee5f0d5d2b3741c.jpeg"
-alt="英语角" />
-<figcaption aria-hidden="true">英语角</figcaption>
-</figure>
-<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
+<h2 id="作业描述">作业描述</h2>
+<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
+app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
+让大家随时随地掏出手机即可看天下事，手机新闻 app
+不再是一个简简单单的新闻获取工具，许多 app
+已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
+<a href="https://www.toutiao.com/">今日头条</a>、<a
+href="http://www.ttkbao.com/">天天快报</a> 等。</p>
+<p>现在让我们也来尝试一下做一个新闻
+app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
+<a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
+进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
+Java 和 Android 开发知识实现一个新闻客户端即可。</p>
+<h2 id="代码结构">代码结构</h2>
+<p>代码结构如下图所示。</p>
+<pre><code class="highlight mermaid">flowchart LR
+    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
+    A --&gt; C(service)
+    A --&gt; D(ui)
+    A --&gt; E[MainActivity.java]
+    A --&gt; F[MyApplication.java]
+
+    B --&gt; G[Category.java]
+    B --&gt; H[News.java]
+    B --&gt; I[Page.java]
+    B --&gt; J[User.java]
+
+    C --&gt; K[DBManager.java]
+    C --&gt; L[FetchFromAPIManager.java]
+    C --&gt; M[MySQLiteOpenHelper.java]
+    C --&gt; N[NewsManager.java]
+    C --&gt; O[PictureLoader.java]
+    C --&gt; P[TaskRunner.java]
+    C --&gt; Q[Utils.java]
+
+    D --&gt; R[EndlessRecyclerViewScrollListener.java]
+    D --&gt; S[NewsDetailFragment.java]
+    D --&gt; T[NewsListAdapter.java]
+    D --&gt; U[NewsListFragment.java]
+    D --&gt; V[RecordListFragment.java]
+    D --&gt; W[SearchFragment.java]
+    D --&gt; X[SearchListFragment.java]
+    D --&gt; Y[SelectPaddleAdapter.java]
+    D --&gt; Z[SelectPaddleFragment.java]
+    D --&gt; AA[TabListFragment.java]
+    D --&gt; AB[UserPageFragment.java]
+    D --&gt; AC[VideoFragment.java]</code></pre>
+<ul>
+<li><code>data</code>
+<ul>
+<li><code>Category.java</code>
+是一个枚举类，包含可被搜索的八个分类。</li>
+<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
+<code>title</code>，<code>content</code> 等属性。</li>
+<li><code>Page.java</code>
+是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
+<li><code>User.java</code>
+是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
+</ul></li>
+<li><code>service</code>
+<ul>
+<li><code>DBManager.java</code> 用于数据库管理。</li>
+<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
+<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
+<li><code>NewsManager.java</code>
+用于新闻相关处理，包含已浏览新闻列表的读写。</li>
+<li><code>PictureLoader.java</code> 用于展示图片。</li>
+<li><code>TaskRunner.java</code> 用于管理进程。</li>
+<li><code>Utils.java</code>
+是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
+</ul></li>
+<li><code>ui</code>
+<ul>
+<li><code>EndlessRecyclerViewScrollListener.java</code>
+是展示新闻列表所需要的 Listener。</li>
+<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
+Fragment。</li>
+<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
+Adapter。</li>
+<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
+Fragment。</li>
+<li><code>RecordListFragment.java</code>
+是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
+<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
+<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
+Fragment。</li>
+<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
+Adapter。</li>
+<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
+Fragment。</li>
+<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
+Fragment。</li>
+<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
+<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
+</ul></li>
+<li><code>MainActivity.java</code></li>
+<li><code>MyApplication.java</code></li>
+</ul>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="新闻详情获取">新闻详情获取</h3>
+<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
+<code>JSONObject</code>
+等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
+格式的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于我在 <code>data/News.java</code> 这个类中重载了由
+<code>JSONObject</code> 构造 <code>News</code>
+的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
+项构造每条新闻：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
+<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
+中，通过重载 <code>onScrolled()</code>
+方法，来实现下划加载更多新闻的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过在 <code>ui/NewsListFragment.java</code> 和
+<code>ui/SearchListFragment.java</code> 中对
+<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
+Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
+方法从而达到新闻列表刷新的效果。</p>
+<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
+<p>图片展示使用的是 Glide 和 ImageView。在
+<code>service/PictureLoader.java</code>
+中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
+<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
+<code>onCreateView()</code> 重载如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
+<p>我在 <code>res/anim/shake_animation.xml</code>
+中设置了每个分类的抖动特效：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但若直接设置，会导致每个分类抖动的行为
+<strong>一模一样</strong>。所以我在
+<code>ui/SelectPaddleAdapter.java</code>
+中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
+<strong>随机抖动</strong> 的效果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
+<h3 id="新闻查找">新闻查找</h3>
+<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
+<p>其次，我设置了 <strong>可复选的</strong>
+分类选择框。在查询时，多个分类用
+<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
+<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
+DatePicker 组件来接受查询的时间范围。</p>
+<p>接收到了这些查询的信息之后，利用
+<code>service/FetchFromAPIManager.java</code> 中的
+<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
+<h3
+id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
+<p>具体的新闻详情使用 SQLite
+数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
+<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
+<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
+Map，<code>service/NewsManager.java</code>
+中展示了这一过程。而通过一个新闻的
+<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
+来找到对应它新闻详情。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
+<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
+Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
+<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
+<code>onBackButtonClicked()</code>
+函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
+<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
+<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
+2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
+<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
+<code>firstTime</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
+的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
+<code>super.onBackPressed()</code> 方法即可。</p>
+<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
+<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
+<p>由于新版本的 JDK 移除了
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
+Android
+库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
+<p>经过查找相关资料，我通过 <a
+href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
+- 大数据知识库</a> 和 <a
+href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
+get a Duplicate Class error when running my Android project -
+StackOverflow</a> 两个网站检索到了解决方案。</p>
+<p>在 <code>app/build.gradle.kts</code>
+中添加以下代码即可解决此问题。</p>
+<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
+<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
+<code>Log.d(FILE_NAME, MSG);</code>
+的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
+是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
+是个性化的调试信息，一般为某个数据，或者是“Button
+Clicked”这样的信息。</p>
+<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
+<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
+href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
+插件，但我希望能够 <strong>使起始时间的 DatePicker
+能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
+<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
+DatePicker 上的日期改变时，就检查开始时间的 DatePicker
+上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
+DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
+的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
+DatePicker
+的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="视频播放问题">视频播放问题</h3>
+<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
+我查询到了该视频的地址为
+<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
+<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
 <blockquote>
-<p>既然今天准备 GAP 一天，那就得好好利用起来。</p>
-<p>早上睡到了 10:30
-才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
-6 小时了。今天可算是让我好好补了回来。</p>
-<p>下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
-8 号，因为“那天上周五的课”。</p>
-<p>一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。</p>
-<p>晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。</p>
-<p>最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。</p>
-<p>我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？</p>
-<p>“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
+<p>默认情况下，Android 9（API 级别
+28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
+这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
+<strong>与非加密的服务器通信或调试时</strong>。</p>
 </blockquote>
-<h2 id="十月">十月</h2>
-<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
-<p><strong>2023-10-13 学会了手巾花</strong></p>
-<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/volunteerb51844dd76d97200.png"
-alt="终于加入校答疑坊了！" />
-<figcaption aria-hidden="true">终于加入校答疑坊了！</figcaption>
-</figure>
-<p><strong>2023-10-22
-参加了第十五届北京市体育大会毽球选拔赛</strong></p>
-<p>14 支队伍，分为 A B C D 四个组，每组前两名出线。我们在 C
-组，只有三支队伍，其中有一支弃权，没来参赛。</p>
-<p>小组内打那个没弃权的队伍，没赢；出线（晋级八强）后的淘汰赛，也没赢。</p>
-<p>结果是一局没赢的我们最后并列第五。</p>
-<p><del>不知道这是什么运气。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/bj-shuttlecockdcd89b43708b474f.jpeg"
-alt="野少有事儿先走了，缺他的合影" />
-<figcaption aria-hidden="true">野少有事儿先走了，缺他的合影</figcaption>
-</figure>
-<p><strong>2023-10-27 李克强总理逝世</strong></p>
-<p>愿逝者安息。</p>
-<h2 id="十一月">十一月</h2>
-<p><strong>2023-11-23
-代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/shuttlecock-loop9d88c5efd679ddc4.jpeg"
-alt="转系后的第一次" />
-<figcaption aria-hidden="true">转系后的第一次</figcaption>
-</figure>
-<p>三人围踢 3 分钟，甲组第二。菜就多练！明年继续挑战。</p>
-<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
-<h2 id="十二月">十二月</h2>
-<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/snowman46eba5251875095b.jpeg"
-alt="你就说帅不帅吧" />
-<figcaption aria-hidden="true">你就说帅不帅吧</figcaption>
-</figure>
-<p>自己搞了个雪人。</p>
-<p><strong>2023-12-16
-参加第二次英语六级考试并被人挂在小红书上了</strong></p>
-<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
-<p>最佳梗图：</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/emoji-19d945499c88aa2c1.jpeg"
-alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/emoji-2a046537180cf0dec.jpeg"
-alt="2" />
-<figcaption aria-hidden="true">2</figcaption>
-</figure>
-<h2 id="总结">总结</h2>
-<p>转专业成功了。</p>
-<p>遇见了志同道合的知心朋友。</p>
-<p>感觉自己融入了新的集体。</p>
-<p>也不知道新的一年，又会是怎样的情况呢？</p>
+<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
+传输，所以需要将 <code>res/xml/network_security_config.xml</code>
+中的代码更改为：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3
+id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
+<p>最初我遇到了一个
+bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
+<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
+<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="repo-回滚">repo 回滚</h3>
+<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
+Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
+bug，并且我逐步排查 Logcat 也毫无头绪。</p>
+<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
+的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
+的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
+listener 没有得到 notify 导致的。</p>
+<h2 id="总结和心得">总结和心得</h2>
+<p>在整个开发过程中，我遇到了 <a
+href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
+Java 的熟练程度，并且初步认识到了 Android
+应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
+的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
+<p>感谢清华大学计算机系 <a
+href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
+老师的指导，助教们在微信群中的答疑，以及 <a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
+提供的 <a
+href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
 ]]></content>
       <categories>
-        <category>游记</category>
+        <category>课程报告</category>
       </categories>
       <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
+        <tag>Java</tag>
+        <tag>Android</tag>
+        <tag>程序设计训练</tag>
       </tags>
   </entry>
   <entry>
@@ -13550,394 +13889,6 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
         <tag>璧山</tag>
         <tag>乡村振兴</tag>
         <tag>暑期实践</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
-    <url>/2023/09/10/2023Summer-Java/</url>
-    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
-夏）。</p>
-<p><a
-href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
-下载地址</a></p>
-<p>GitHub repo 在 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
-<p><strong>目录</strong></p>
-<ul>
-<li>News App(头条大师)
-<ul>
-<li>作业描述</li>
-<li>代码结构</li>
-<li>具体实现
-<ul>
-<li>新闻详情获取</li>
-<li>新闻列表上拉刷新下划加载</li>
-<li>图片展示和视频播放</li>
-<li>修改列表分类时的抖动特效</li>
-<li>新闻查找</li>
-<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
-<li>对手机“返回键”行为的处理</li>
-</ul></li>
-<li>遇到的问题及其解决方法
-<ul>
-<li>JDK 安装包重复导入的问题</li>
-<li>如何通过报错信息查找 bug</li>
-<li>查找新闻时的时间范围设置</li>
-<li>视频播放问题</li>
-<li>repo 回滚</li>
-</ul></li>
-<li>总结和心得</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="作业描述">作业描述</h2>
-<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
-app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
-让大家随时随地掏出手机即可看天下事，手机新闻 app
-不再是一个简简单单的新闻获取工具，许多 app
-已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
-<a href="https://www.toutiao.com/">今日头条</a>、<a
-href="http://www.ttkbao.com/">天天快报</a> 等。</p>
-<p>现在让我们也来尝试一下做一个新闻
-app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
-<a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
-进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
-Java 和 Android 开发知识实现一个新闻客户端即可。</p>
-<h2 id="代码结构">代码结构</h2>
-<p>代码结构如下图所示。</p>
-<pre><code class="highlight mermaid">flowchart LR
-    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
-    A --&gt; C(service)
-    A --&gt; D(ui)
-    A --&gt; E[MainActivity.java]
-    A --&gt; F[MyApplication.java]
-
-    B --&gt; G[Category.java]
-    B --&gt; H[News.java]
-    B --&gt; I[Page.java]
-    B --&gt; J[User.java]
-
-    C --&gt; K[DBManager.java]
-    C --&gt; L[FetchFromAPIManager.java]
-    C --&gt; M[MySQLiteOpenHelper.java]
-    C --&gt; N[NewsManager.java]
-    C --&gt; O[PictureLoader.java]
-    C --&gt; P[TaskRunner.java]
-    C --&gt; Q[Utils.java]
-
-    D --&gt; R[EndlessRecyclerViewScrollListener.java]
-    D --&gt; S[NewsDetailFragment.java]
-    D --&gt; T[NewsListAdapter.java]
-    D --&gt; U[NewsListFragment.java]
-    D --&gt; V[RecordListFragment.java]
-    D --&gt; W[SearchFragment.java]
-    D --&gt; X[SearchListFragment.java]
-    D --&gt; Y[SelectPaddleAdapter.java]
-    D --&gt; Z[SelectPaddleFragment.java]
-    D --&gt; AA[TabListFragment.java]
-    D --&gt; AB[UserPageFragment.java]
-    D --&gt; AC[VideoFragment.java]</code></pre>
-<ul>
-<li><code>data</code>
-<ul>
-<li><code>Category.java</code>
-是一个枚举类，包含可被搜索的八个分类。</li>
-<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
-<code>title</code>，<code>content</code> 等属性。</li>
-<li><code>Page.java</code>
-是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
-<li><code>User.java</code>
-是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
-</ul></li>
-<li><code>service</code>
-<ul>
-<li><code>DBManager.java</code> 用于数据库管理。</li>
-<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
-<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
-<li><code>NewsManager.java</code>
-用于新闻相关处理，包含已浏览新闻列表的读写。</li>
-<li><code>PictureLoader.java</code> 用于展示图片。</li>
-<li><code>TaskRunner.java</code> 用于管理进程。</li>
-<li><code>Utils.java</code>
-是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
-</ul></li>
-<li><code>ui</code>
-<ul>
-<li><code>EndlessRecyclerViewScrollListener.java</code>
-是展示新闻列表所需要的 Listener。</li>
-<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
-Fragment。</li>
-<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
-Adapter。</li>
-<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
-Fragment。</li>
-<li><code>RecordListFragment.java</code>
-是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
-<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
-<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
-Fragment。</li>
-<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
-Adapter。</li>
-<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
-Fragment。</li>
-<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
-Fragment。</li>
-<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
-<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
-</ul></li>
-<li><code>MainActivity.java</code></li>
-<li><code>MyApplication.java</code></li>
-</ul>
-<h2 id="具体实现">具体实现</h2>
-<h3 id="新闻详情获取">新闻详情获取</h3>
-<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
-<code>JSONObject</code>
-等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
-格式的数据。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于我在 <code>data/News.java</code> 这个类中重载了由
-<code>JSONObject</code> 构造 <code>News</code>
-的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
-项构造每条新闻：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
-<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
-中，通过重载 <code>onScrolled()</code>
-方法，来实现下划加载更多新闻的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过在 <code>ui/NewsListFragment.java</code> 和
-<code>ui/SearchListFragment.java</code> 中对
-<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
-Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
-方法从而达到新闻列表刷新的效果。</p>
-<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
-<p>图片展示使用的是 Glide 和 ImageView。在
-<code>service/PictureLoader.java</code>
-中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
-<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
-<code>onCreateView()</code> 重载如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
-<p>我在 <code>res/anim/shake_animation.xml</code>
-中设置了每个分类的抖动特效：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但若直接设置，会导致每个分类抖动的行为
-<strong>一模一样</strong>。所以我在
-<code>ui/SelectPaddleAdapter.java</code>
-中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
-<strong>随机抖动</strong> 的效果：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
-<h3 id="新闻查找">新闻查找</h3>
-<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
-<p>其次，我设置了 <strong>可复选的</strong>
-分类选择框。在查询时，多个分类用
-<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
-<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
-DatePicker 组件来接受查询的时间范围。</p>
-<p>接收到了这些查询的信息之后，利用
-<code>service/FetchFromAPIManager.java</code> 中的
-<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
-<h3
-id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
-<p>具体的新闻详情使用 SQLite
-数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
-<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
-<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
-Map，<code>service/NewsManager.java</code>
-中展示了这一过程。而通过一个新闻的
-<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
-来找到对应它新闻详情。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
-<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
-Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
-<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
-<code>onBackButtonClicked()</code>
-函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
-<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
-<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
-2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
-<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
-<code>firstTime</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
-的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
-<code>super.onBackPressed()</code> 方法即可。</p>
-<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
-<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
-<p>由于新版本的 JDK 移除了
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
-Android
-库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
-<p>经过查找相关资料，我通过 <a
-href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
-- 大数据知识库</a> 和 <a
-href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
-get a Duplicate Class error when running my Android project -
-StackOverflow</a> 两个网站检索到了解决方案。</p>
-<p>在 <code>app/build.gradle.kts</code>
-中添加以下代码即可解决此问题。</p>
-<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
-<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
-<code>Log.d(FILE_NAME, MSG);</code>
-的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
-是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
-是个性化的调试信息，一般为某个数据，或者是“Button
-Clicked”这样的信息。</p>
-<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
-<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
-href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
-插件，但我希望能够 <strong>使起始时间的 DatePicker
-能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
-<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
-DatePicker 上的日期改变时，就检查开始时间的 DatePicker
-上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
-DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
-的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
-DatePicker
-的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="视频播放问题">视频播放问题</h3>
-<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
-我查询到了该视频的地址为
-<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
-<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
-<blockquote>
-<p>默认情况下，Android 9（API 级别
-28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
-这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
-<strong>与非加密的服务器通信或调试时</strong>。</p>
-</blockquote>
-<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
-传输，所以需要将 <code>res/xml/network_security_config.xml</code>
-中的代码更改为：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3
-id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
-<p>最初我遇到了一个
-bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
-<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
-<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="repo-回滚">repo 回滚</h3>
-<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
-Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
-bug，并且我逐步排查 Logcat 也毫无头绪。</p>
-<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
-的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
-的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
-listener 没有得到 notify 导致的。</p>
-<h2 id="总结和心得">总结和心得</h2>
-<p>在整个开发过程中，我遇到了 <a
-href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
-Java 的熟练程度，并且初步认识到了 Android
-应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
-的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
-<p>感谢清华大学计算机系 <a
-href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
-老师的指导，助教们在微信群中的答疑，以及 <a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
-提供的 <a
-href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
-]]></content>
-      <categories>
-        <category>课程报告</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Android</tag>
-        <tag>程序设计训练</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【随笔】2024 年随笔</title>
-    <url>/2024/04/20/2024Journal/</url>
-    <content><![CDATA[<p>都是些碎碎念而已。</p>
-<span id="more"></span>
-<h2 id="section">2024-04-20</h2>
-<p>今天复习了一早上 <a
-href="http://itcs.finite-dimensional.space/">TCS</a> 和一下午的<a
-href="https://leverimmy.top/2024/04/20/SE/">软工</a>，为了两门期中考试，绞尽脑汁往脑子里塞进更多的内容。脑子在不停地转呀转呀转，一直在尝试理解讲义上的内容；但效率有多高却又是另一回事了。“Oracle”“relativization”“NP-hard”；“user
-story”“sprint”“issue board”.
-这些名词在我脑子里围着圈圈跳着舞，也不知道它们为什么如此开心。</p>
-<p>瘫在北馆的椅子上，看着 TCS
-讲义上的各种构造和证明，我感受到了时间的流逝：人真的会一天一天地老去。曾经的我还自诩聪明，从
-Clever_Jimmy
-这个我常用的昵称中就可看出（虽然这是我小学时一个培优班英语老师取的）；但现在随便一个证明理解起来都觉得费劲。突然有种感觉，好像自己的最聪明的几年被荒废了。但我有时还是很不甘心：虽然理论计算机科学是属于“聪明人”的领域，但我等凡人想窥见一隅总还是可以的吧？</p>
-<p>再谈到自己最近的状态。每天浑浑噩噩，我有种找不着北的感觉。毽球队训练我也没参加了，软工的代码任务我也开始变得拖沓了，甚至有些课的作业都是赶
-DDL
-完成的。好消息是，我有三门前八周的课程结课了，后八周能轻松很多；况且有一个五一假期，希望我能重拾自己节奏吧。</p>
-<p>还有未来发展。我已经大二下了，似乎对我的未来开始有了一种初步的、模糊的感觉。在我的梦想中，我想做理论方面的研究，例如算法复杂性理论；但现实是残酷的，我本身资质就很平庸，做理论很难不延毕。同时，做理论似乎未来的出路只能是在高校找教职。另一方面，我希望能做人机交互相关研究，这样能够进入与产业融合，拥有一定的应用前景。除此之外，我还想过本科毕业就业，因为我很喜欢写代码，即使我有代码洁癖，也有一点点完美主义，但在闲暇时光我也一直希望为开源社区做贡献；可是，相较于我认识的一些学长，我认为我没有能力和资格去当一个不平庸的开发者。</p>
-<p>我仍然无所适从。我到底想要过一个怎样的人生？保研还是工作？读博还是读硕？这些选择会对我的人生造成多大的影响呢？不知道，感觉我的人生仍不是定数。</p>
-<p>随手写下两句，</p>
-<blockquote>
-<p>The skies are dark and the world collides,</p>
-<p>Yet, there's nowhere for me to hide.</p>
-</blockquote>
-<h2 id="section-1">2024-04-21</h2>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年</title>
-    <url>/2024/04/30/From-Taizihu-to-Wansongyuan/</url>
-    <content><![CDATA[<p>武汉外国语学校是在周恩来、陈毅等老一代国家领导人亲切关怀下，于 1964
-创建的全国首批七所外国语学校之一。作为一名从外小、外初到外高，在武汉外国语学校中度过了十二个春秋的学生，我深受外校的滋养：外校不仅含辛茹苦地哺育了我，还启迪了我的思想，塑造了我的性格。今年，这所名校终于迎来了它的
-60
-周年校庆。在这个值得纪念的校庆之际，我写下这篇文章，献给我深爱的母校。</p>
-<span id="more"></span>
-<h2 id="一">一</h2>
-<blockquote>
-<p>“太子湖畔，清风鸣蝉”</p>
-</blockquote>
-<p>在小学部的学习生活给予了我广阔的国际视野。</p>
-<p>记得在那纯真的小学时光里，每年的“圣诞国际日”是我们最期待的活动。那一天，校园仿佛成为了世界的缩影，变成了一个五彩斑斓的世界地图；每个班级都代表着不同的国家，展示着各自的特色美食和文化。我们这些小小探险家，手持着收集印章的小本子，兴奋地在不同的国度间穿梭，体验着一场无需护照的环球旅行。</p>
-<p>我记得有一次我们班级被分配到了“印度”这一国家。在活动开始前，我们充满热情地搜集关于印度的资料，学习它的历史、文化和风俗。当天，我们的教室被装饰成了印度风格；女生身着莎丽，成为了印度文化的使者。最令人兴奋的是，我们还特别请来了一位擅长制作印度飞饼的厨师。他现场展示了制作飞饼的技艺，那旋转飞扬的面团，那在空中翻腾的飞饼，让我们目不转睛。当香喷喷的飞饼出锅时，我们都忍不住上前品尝，那酥脆可口的美味让我们回味无穷。</p>
-<p>虽然那个特别的日子已经成为了过去，但它在我心中留下的印记却是永恒的。“圣诞国际日”不仅让我对世界各地的风土人情有了初步的认识，更让我懂得了尊重和欣赏每一种文化的价值。在那段美好的时光里，我的视野被无限地拓展，我的知识面也在潜移默化中变得更加宽广。外小给了我一个探索世界的起点，让我在未来的日子里，总是怀揣着对未知的好奇和对世界的热爱。</p>
-<h2 id="二">二</h2>
-<blockquote>
-<p>“巍巍龟蛇哺育着世纪的学子，滚滚长江回荡着母亲的叮咛。”</p>
-</blockquote>
-<p>在初中部的学习生活为我提供了众多展示自己的机会。</p>
-<p>记得每次英语课上的 Duty
-Show，那是我们最期待的五分钟。在每节英语课的最初的 5
-分钟，都会有一位同学针对某个主题发表自己的看法，或是分享自己的兴趣和生活见闻。这个常规的语言训练项目锻炼了我们的语言表达能力和组织能力，每当轮到我上台，我总是积极展示自己，锻炼自己的英语口语能力，享受展示自我的过程。</p>
-<p>为了进一步提高我们对英语 Duty Show
-的兴趣和制作能力，初二英语年级组的老师们精心安排了一场 Duty Show
-大赛。我记得我和季瑞灼同学一起，以“Is Admiring Someone
-OK?”为主题，通过类似脱口秀的形式，展示了我们对“早恋”这一话题的看法。我们的脱口秀赢得了全场的掌声，最终获得了全场最高票，赢得了“最佳风采奖”。这次比赛不仅让我们的校园生活更加生动有趣，还提供了展示自我、锻炼能力的机会，我们无论是语言表达能力、公众演讲能力还是自信心，都得到了提高。</p>
-<p>除了 Duty Show 大赛，我在外初时还经历了英语卡拉 OK
-大赛、课本剧大赛、英语配音大赛等活动。感谢外初给予我的这些宝贵机会，它们让我在英语学习的道路上更加自信，也为我未来的发展奠定了坚实的基础。</p>
-<h2 id="三">三</h2>
-<blockquote>
-<p>“从这里走向世界和未来。”</p>
-</blockquote>
-<p>在高中部的学习生活提高了我的综合素质和学习能力。</p>
-<p>外高拥有着一流的师资力量和先进的教育资源。老师们不仅专业知识深厚，教学经验丰富，也注重培养学生的创新思维和批判性思考能力。除此之外，老师们的教学方法也极具特色。以我的班主任梅军老师为例，他曾在高一时就提出一个挑战：如果在任何一次大考中，班上所有人都能准确完成游标卡尺读数题目，他就请全班同学吃大餐。这个看似简单的目标，却是对我们细致入微、严谨治学的最好考验。遗憾的是，直到高考，我们班始终未能实现这一目标。虽然我们高中三年一次也没有完美过，但是高考结束后的
-6 月 10 日，拍完毕业照之后，他邀请全班 30
-名同学在天街享用了一顿烤肉自助餐，以此作为对我们高中三年努力的认可和奖励。</p>
-<p>这一道“小小的难题”，让我们明白了细节决定成败的道理。梅老师通过这个简单的例子，教会了我们对待学习要一丝不苟，对待生活要乐观向上。在他的影响下，我学会了如何面对挑战，如何在困难中坚持，如何在失败中汲取教训。</p>
-<h2 id="四">四</h2>
-<p>十二载春秋，转瞬即逝，在武汉外国语学校中度过的日子，甚至超越了我生命旅程的一半。太子湖畔的一花一木，万松园里的一草一树，都成为我记忆中不可或缺的部分；作为一个住读生，它们陪伴我的时光，甚至超过了我与父母共度的岁月。这些岁月里，我在武汉外国语学校这片沃土上播种梦想，收获知识，塑造自我，我做的每一件事都凝聚着学校的滋养和教诲。</p>
-<p>我仍然忘不了外小教学楼的一至五号门，不能记错它们各有各的开放时间；也忘不了每天下午“阳光空间”的课外锻炼时间，同学们在操场上奔跑跳跃的模样；我仍然忘不了外初悠长的上课铃和下课铃，也忘不了每周被“独立作业”所“折磨”的日子。记忆中最令我难忘的，是曾经位于外高操场上的秋千，还有和朋友们在操场上散步谈心的时光。</p>
-<p>愿武汉外国语学校在未来的岁月里继续她的辉煌，不断推动教育事业的发展，为国家培养出更多、更优秀的国际化人才；希望“爱国，好学，自强，图新”的校训激励一代又一代学子，为祖国的繁荣昌盛贡献力量。衷心祝贺我的母校——武汉外国语学校建校
-60 周年校庆快乐！</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>

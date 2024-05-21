@@ -82,25 +82,6 @@
   </entry>
   
   <entry>
-    <title>【随笔】2024 年随笔</title>
-    <link href="https://leverimmy.top/2024/04/20/2024Journal/"/>
-    <id>https://leverimmy.top/2024/04/20/2024Journal/</id>
-    <published>2024-04-20T15:06:40.000Z</published>
-    <updated>2024-04-21T03:18:59.416Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;都是些碎碎念而已。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://leverimmy.top/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【学习笔记】软件工程</title>
     <link href="https://leverimmy.top/2024/04/20/SE/"/>
     <id>https://leverimmy.top/2024/04/20/SE/</id>
@@ -116,26 +97,6 @@
     
     
     <category term="软件工程" scheme="https://leverimmy.top/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】Introduction to Theoretical Computer Science</title>
-    <link href="https://leverimmy.top/2024/03/01/ITCS/"/>
-    <id>https://leverimmy.top/2024/03/01/ITCS/</id>
-    <published>2024-03-01T12:14:22.000Z</published>
-    <updated>2024-03-01T12:02:12.931Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是 &lt;em&gt;&lt;a href=&quot;https://introtcs.org/&quot;&gt;Introduction to Theoretical
-Computer Science&lt;/a&gt;&lt;/em&gt; 的学习笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="理论计算机科学" scheme="https://leverimmy.top/tags/%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
     
   </entry>
   
@@ -473,13 +434,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
