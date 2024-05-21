@@ -119,11 +119,32 @@ Computer Science&lt;/a&gt;&lt;/em&gt; 的学习笔记。&lt;/p&gt;</summary>
   </entry>
   
   <entry>
+    <title>【学习笔记】Haskell 从入门到入土</title>
+    <link href="https://leverimmy.top/2024/02/26/Introduction-to-Haskell/"/>
+    <id>https://leverimmy.top/2024/02/26/Introduction-to-Haskell/</id>
+    <published>2024-02-26T12:14:22.000Z</published>
+    <updated>2024-05-20T15:52:50.163Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Haskell 从入门到入土。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Haskell" scheme="https://leverimmy.top/tags/Haskell/"/>
+    
+    <category term="Lambda 演算" scheme="https://leverimmy.top/tags/Lambda-%E6%BC%94%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【学习笔记】数字逻辑与数字集成电路</title>
     <link href="https://leverimmy.top/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/"/>
     <id>https://leverimmy.top/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/</id>
     <published>2024-02-26T12:14:22.000Z</published>
-    <updated>2024-05-18T16:19:12.265Z</updated>
+    <updated>2024-05-21T03:26:11.732Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是《数字逻辑与数字集成电路（第2版）》的学习笔记。&lt;/p&gt;</summary>
@@ -452,13 +473,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
