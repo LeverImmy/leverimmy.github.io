@@ -3193,12 +3193,16 @@
 <p>(4) 原方程可化为 <span class="arithmatex">\(\text{d}{\left(\sin x + \dfrac{x}{y} + \ln y\right)} = 0\)</span>, 因此解为 <span class="arithmatex">\(\sin x + \dfrac{x}{y} + \ln y = C\)</span>.</p>
 <h2 id="11">第 11 题</h2>
 <p>解下列方程.</p>
-<p>(1) <span class="arithmatex">\((y\cos x - x\sin x)\text{d}{x} + (y\sin x + x\cos x)\text{d}{y} = 0\)</span>;</p>
+<p>(1) <span class="arithmatex">\((y\cos x - x\sin x)\text{d}{x} + (y\sin x + x\cos x)\text{d}{y} = 0\)</span>​;</p>
+<p>(2) <span class="arithmatex">\((x + y)\text{d}x + (y - x)\text{d}y = 0\)</span>;</p>
 <p>(3) <span class="arithmatex">\((3x^2 + y)\text{d}{x} + (2x^2y - x)\text{d}{y} = 0\)</span>;</p>
+<p>(4) <span class="arithmatex">\((x + y)(\text{d}x - \text{d}y) = \text{d}x + \text{d}y\)</span>;</p>
 <p>(5) <span class="arithmatex">\((x^2 - \sin^2 y)\text{d}{x} + x\sin 2y\text{d}{y} = 0\)</span>.</p>
 <p><strong>解</strong></p>
 <p>(1) 有积分因子 <span class="arithmatex">\(e^{y}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{(e^{y}(y\sin x + x\cos x - \sin x))} = 0\)</span>. 因此解为 <span class="arithmatex">\(e^{y}(y\sin x + x\cos x - \sin x) = C\)</span>.</p>
-<p>(3) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x^2}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{\left(3x - \dfrac{y}{x} + y^2\right)} = 0\)</span>. 同时, <span class="arithmatex">\(x = 0\)</span> 也是原方程的解. 因此解为 <span class="arithmatex">\(3x^3 - xy + x^2y^2 = Cx^2\)</span>.</p>
+<p>(2) 由题知 <span class="arithmatex">\(\dfrac{\text{d}y}{\text{d}x} = \dfrac{1 + \frac{y}{x}}{1 - \frac{y}{x}}\)</span>. 令 <span class="arithmatex">\(u = \dfrac{y}{x}\)</span>, 即 <span class="arithmatex">\(y = ux\)</span>, 则 <span class="arithmatex">\(\dfrac{\text{d}y}{\text{d}x} = u + x\dfrac{\text{d}u}{\text{d}x}\)</span>. 方程可改写为 <span class="arithmatex">\(u + x\dfrac{\text{d}u}{\text{d}x} = \dfrac{1 + u}{1 - u}\)</span>. 分离变量得 <span class="arithmatex">\(\dfrac{u + 1}{u^2 + 1}\text{d}u = -\dfrac{1}{x}\text{d}x\)</span>. 拆为 <span class="arithmatex">\(\dfrac{u}{u^2 + 1}\text{d}u + \dfrac{1}{u^2 + 1}\text{d}u = -\dfrac{1}{x}\text{d}x\)</span>, 则积分可得 <span class="arithmatex">\(\dfrac{1}{2}\ln(u^2 + 1) + \arctan u = -\ln|x| + C\)</span>. 将 <span class="arithmatex">\(u = \dfrac{y}{x}\)</span> 代入可得解为 <span class="arithmatex">\(\dfrac{1}{2}\ln(x^2 + y^2) + \arctan \dfrac{y}{x} = C\)</span>.</p>
+<p>(3) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x^2}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{\left(3x - \dfrac{y}{x} + y^2\right)} = 0\)</span>. 同时, <span class="arithmatex">\(x = 0\)</span> 也是原方程的解. 因此解为 <span class="arithmatex">\(3x^3 - xy + x^2y^2 = Cx^2\)</span>​.</p>
+<p>(4) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x + y}\)</span>. 原方程可化简为 <span class="arithmatex">\(\text{d}(x - y) = \text{d}\ln(x +y)\)</span>. 因此解为 <span class="arithmatex">\(x - y = \ln(x + y) + C\)</span>.</p>
 <p>(5) 有积分因子 <span class="arithmatex">\(\dfrac{1}{x^2}\)</span>. 原方程可化为 <span class="arithmatex">\(\text{d}{\left(x + \dfrac{\sin^2y}{x}\right)} = 0\)</span>. 同时, <span class="arithmatex">\(x = 0\)</span> 也是原方程的解. 因此解为 <span class="arithmatex">\(x^3 + x^2\sin^2y = Cx^2\)</span>.</p>
 
 

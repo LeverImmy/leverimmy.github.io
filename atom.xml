@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-05-12T03:26:22.991Z</updated>
+  <updated>2024-05-21T03:35:55.217Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】Haskell 从入门到入土</title>
+    <link href="https://leverimmy.top/2024/05/20/Introduction-to-Haskell/"/>
+    <id>https://leverimmy.top/2024/05/20/Introduction-to-Haskell/</id>
+    <published>2024-05-20T12:14:22.000Z</published>
+    <updated>2024-05-21T03:35:55.217Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Haskell 从入门到入土。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Haskell" scheme="https://leverimmy.top/tags/Haskell/"/>
+    
+    <category term="Lambda 演算" scheme="https://leverimmy.top/tags/Lambda-%E6%BC%94%E7%AE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】Quantum Computation and Quantum Information</title>
@@ -115,27 +136,6 @@ Computer Science&lt;/a&gt;&lt;/em&gt; 的学习笔记。&lt;/p&gt;</summary>
     
     
     <category term="理论计算机科学" scheme="https://leverimmy.top/tags/%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】Haskell 从入门到入土</title>
-    <link href="https://leverimmy.top/2024/02/26/Introduction-to-Haskell/"/>
-    <id>https://leverimmy.top/2024/02/26/Introduction-to-Haskell/</id>
-    <published>2024-02-26T12:14:22.000Z</published>
-    <updated>2024-05-20T15:52:50.163Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Haskell 从入门到入土。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Haskell" scheme="https://leverimmy.top/tags/Haskell/"/>
-    
-    <category term="Lambda 演算" scheme="https://leverimmy.top/tags/Lambda-%E6%BC%94%E7%AE%97/"/>
     
   </entry>
   
@@ -473,13 +473,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
-    
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
