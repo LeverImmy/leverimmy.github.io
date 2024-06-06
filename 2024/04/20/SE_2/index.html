@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】软件工程 2">
+<meta property="og:url" content="https://leverimmy.top/2024/04/20/SE_2/index.html">
+<meta property="og:site_name" content="Clever_Jimmy&#39;s Blog">
+<meta property="og:description" content="这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-20T07:10:11.000Z">
+<meta property="article:modified_time" content="2024-06-06T16:17:08.942Z">
+<meta property="article:author" content="Clever_Jimmy">
+<meta property="article:tag" content="软件工程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leverimmy.top/2024/04/20/SE_2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leverimmy.top/2024/04/20/SE_2/","path":"2024/04/20/SE_2/","title":"【学习笔记】软件工程 2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【学习笔记】软件工程 2 | Clever_Jimmy's Blog</title>
+  
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,500,700&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Clever_Jimmy's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Clever_Jimmy's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-教材答案"><a href="/ans/" rel="section"><i class="fa fa-square-root-alt fa-fw"></i>教材答案</a></li><li class="menu-item menu-item-玩"><a href="/play/" rel="section"><i class="fa fa-puzzle-piece fa-fw"></i>玩</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">软件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%BC%94%E5%8C%96%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">大型网站架构的演化发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">架构演化的价值观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%AF%AF%E5%8C%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">架构设计误区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%B9%E5%96%84"><span class="nav-number">1.1.3.</span> <span class="nav-text">并发处理能力的改善</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据库读写分离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">流媒体应用架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cdn"><span class="nav-number">1.2.1.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dash"><span class="nav-number">1.2.2.</span> <span class="nav-text">DASH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-server-%E5%92%8C-p2p-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">Client-Server 和 P2P 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.1.</span> <span class="nav-text">两种架构的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.2.</span> <span class="nav-text">两种架构的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BA%94%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">软件设计的五个原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%BD%E5%A4%84"><span class="nav-number">1.4.2.</span> <span class="nav-text">好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-number">1.5.</span> <span class="nav-text">高可用的两个关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="nav-number">1.5.1.</span> <span class="nav-text">可用性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E9%94%99%E6%80%A7"><span class="nav-number">1.5.2.</span> <span class="nav-text">容错性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84"><span class="nav-number">1.6.</span> <span class="nav-text">网站的高性能架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD"><span class="nav-number">1.6.1.</span> <span class="nav-text">对比不同视角下的网站性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.2.</span> <span class="nav-text">高性能缓存架构的三个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%AE%97%E6%B3%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">负载均衡技术及算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5%E7%89%B9%E7%82%B9"><span class="nav-number">1.7.1.</span> <span class="nav-text">微服务架构的概念、特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%8D%95%E4%BD%93monolith%E5%BA%94%E7%94%A8%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BA%94%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E7%BD%B2"><span class="nav-number">1.7.2.</span> <span class="nav-text">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">软件需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">软件需求的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E7%9A%84%E8%8E%B7%E5%8F%96%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">用户需求的获取过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B3%E9%81%93%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">泳道图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E6%A0%91%E7%BB%98%E5%88%B6"><span class="nav-number">2.4.</span> <span class="nav-text">判定树绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E7%9A%84%E8%AF%86%E5%88%AB%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">2.5.</span> <span class="nav-text">用例的识别和分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.6.</span> <span class="nav-text">顺序图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%89%AF%E5%A5%BD%E7%9A%84%E9%9C%80%E6%B1%82well-formed-requirement%E7%9A%84%E4%B8%89%E4%B8%AA%E8%A6%81%E6%B1%82"><span class="nav-number">2.7.</span> <span class="nav-text">定义良好的需求（Well-Formed
+Requirement）的三个要求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E6%94%B9%E5%86%99"><span class="nav-number">2.7.2.</span> <span class="nav-text">需求改写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E7%BC%BA%E9%99%B7%E7%9A%84%E4%BB%A3%E4%BB%B7%E6%88%B4%E7%BB%B4%E6%96%AF%E5%81%87%E8%AE%BEdavis-hypotheses"><span class="nav-number">2.8.</span> <span class="nav-text">需求缺陷的代价：戴维斯假设（Davis&#39;
+Hypotheses）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E7%BB%B4"><span class="nav-number">3.</span> <span class="nav-text">软件运维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E7%BB%B4%E5%9C%A8%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%BC%80%E9%94%80%E5%8D%A0%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">软件运维在软件系统生命周期的开销占比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sre-%E7%9A%84%E4%BF%A1%E6%9D%A1tenets-of-sre"><span class="nav-number">3.2.</span> <span class="nav-text">SRE 的信条（Tenets of SRE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%A5%E6%8A%B1%E9%A3%8E%E9%99%A9%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.</span> <span class="nav-text">拥抱风险原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E6%80%A7reliability"><span class="nav-number">3.3.1.</span> <span class="nav-text">可靠性（Reliability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtbf-%E5%92%8C-mttr-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">3.3.2.</span> <span class="nav-text">MTBF 和 MTTR 的计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7time-based-availability"><span class="nav-number">3.3.3.</span> <span class="nav-text">基于时间的可用性（Time-Based
+Availability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E8%AE%A1%E5%8F%AF%E7%94%A8%E6%80%A7aggregate-availability"><span class="nav-number">3.3.4.</span> <span class="nav-text">合计可用性（Aggregate
+Availability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E9%A2%84%E7%AE%97"><span class="nav-number">3.3.5.</span> <span class="nav-text">错误预算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F%E7%9B%AE%E6%A0%87service-level-objectives"><span class="nav-number">3.4.</span> <span class="nav-text">服务质量目标（Service
+Level Objectives）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.4.1.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E6%8C%87%E6%A0%87"><span class="nav-number">3.4.2.</span> <span class="nav-text">实践中的指标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%90%E4%BA%8Btoil"><span class="nav-number">3.5.</span> <span class="nav-text">琐事（Toil）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="nav-number">3.5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E6%B6%88%E9%99%A4%E7%90%90%E4%BA%8Beliminating-toil%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9B%AE%E6%A0%87"><span class="nav-number">3.5.2.</span> <span class="nav-text">尽量消除琐事（Eliminating
+Toil）的相关目标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.</span> <span class="nav-text">分布式系统的监控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%91%E7%9B%92%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.1.</span> <span class="nav-text">黑盒监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BD%E7%9B%92%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.2.</span> <span class="nav-text">白盒监控</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%80%A5%E8%AD%A6%E6%8A%A5%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%93%B2%E5%AD%A6fundamental-philosophy-on-pages"><span class="nav-number">3.7.</span> <span class="nav-text">紧急警报的基本哲学（Fundamental
+Philosophy on Pages）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-call-%E8%BD%AE%E5%80%BC%E5%8E%9F%E5%88%99being-on-call"><span class="nav-number">3.8.</span> <span class="nav-text">On-call 轮值原则（Being
+On-Call）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-3"><span class="nav-number">3.8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">3.8.2.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E7%9A%84%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E6%89%8B%E6%AE%B5effective-troubleshooting"><span class="nav-number">3.9.</span> <span class="nav-text">有效的故障排查手段（Effective
+Troubleshooting）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%87%E8%AF%B4%E6%BC%94%E7%BB%8E%E6%B3%95"><span class="nav-number">3.9.1.</span> <span class="nav-text">假说演绎法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">3.9.2.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">3.9.3.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.9.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%80%A5%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94emergency-response"><span class="nav-number">3.10.</span> <span class="nav-text">紧急事件响应（Emergency
+Response）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.10.1.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.10.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Clever_Jimmy"
+      src="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+  <p class="site-author-name" itemprop="name">Clever_Jimmy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeverImmy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeverImmy" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xze22@mails.tsinghua.edu.cn" title="E-Mail → mailto:xze22@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leverimmy.top/2024/04/20/SE_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.picgo.net/2023/07/27/avatar2b2cde04a2f690ac.png">
+      <meta itemprop="name" content="Clever_Jimmy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Clever_Jimmy's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【学习笔记】软件工程 2 | Clever_Jimmy's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【学习笔记】软件工程 2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-07 00:17:08" itemprop="dateModified" datetime="2024-06-07T00:17:08+08:00">2024-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。</p>
+<span id="more"></span>
+<h2 id="软件架构">软件架构</h2>
+<h3 id="大型网站架构的演化发展历程">大型网站架构的演化发展历程</h3>
+<h4 id="架构演化的价值观">架构演化的价值观</h4>
+<h4 id="架构设计误区">架构设计误区</h4>
+<h4 id="并发处理能力的改善">并发处理能力的改善</h4>
+<h4 id="数据库读写分离">数据库读写分离</h4>
+<h3 id="流媒体应用架构">流媒体应用架构</h3>
+<h4 id="cdn">CDN</h4>
+<h4 id="dash">DASH</h4>
+<h3 id="client-server-和-p2p-架构">Client-Server 和 P2P 架构</h3>
+<h4 id="两种架构的概念">两种架构的概念</h4>
+<h4 id="两种架构的区别">两种架构的区别</h4>
+<h3 id="软件设计的五个原则">软件设计的五个原则</h3>
+<h4 id="概念">概念</h4>
+<h4 id="好处">好处</h4>
+<h3 id="高可用的两个关键概念">高可用的两个关键概念</h3>
+<h4 id="可用性">可用性</h4>
+<h4 id="容错性">容错性</h4>
+<h3 id="网站的高性能架构">网站的高性能架构</h3>
+<h4 id="对比不同视角下的网站性能">对比不同视角下的网站性能</h4>
+<h4 id="高性能缓存架构的三个问题">高性能缓存架构的三个问题</h4>
+<h4 id="负载均衡技术及算法">负载均衡技术及算法</h4>
+<h3 id="微服务架构">微服务架构</h3>
+<h4 id="微服务架构的概念特点">微服务架构的概念、特点</h4>
+<h4
+id="对比单体monolith应用和微服务应用的区别数据库部署">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</h4>
+<h2 id="软件需求">软件需求</h2>
+<h3 id="软件需求的概念">软件需求的概念</h3>
+<p>需求是对应当执行的任务的规范说明，描述系统的行为特性或属性，是一种对系统开发进程的约束。</p>
+<p>开发软件系统的前提是要明确用户的期望和要求，即软件需求。</p>
+<h3 id="用户需求的获取过程">用户需求的获取过程</h3>
+<h3 id="泳道图绘制">泳道图绘制</h3>
+<h3 id="判定树绘制">判定树绘制</h3>
+<h3 id="用例的识别和分析">用例的识别和分析</h3>
+<h3 id="顺序图绘制">顺序图绘制</h3>
+<h3
+id="定义良好的需求well-formed-requirement的三个要求">定义良好的需求（Well-Formed
+Requirement）的三个要求</h3>
+<h4 id="概念-1">概念</h4>
+<h4 id="需求改写">需求改写</h4>
+<h3
+id="需求缺陷的代价戴维斯假设davis-hypotheses">需求缺陷的代价：戴维斯假设（Davis'
+Hypotheses）</h3>
+<h2 id="软件运维">软件运维</h2>
+<h3
+id="软件运维在软件系统生命周期的开销占比">软件运维在软件系统生命周期的开销占比</h3>
+<p>软件系统的生命周期中，使用阶段所占的时间比设计和实现阶段要长得多。软件系统总成本的
+<span class="math inline">\(40\%\sim 90\%\)</span>
+都发生在系统投入使用之后。</p>
+<h3 id="sre-的信条tenets-of-sre">SRE 的信条（Tenets of SRE）</h3>
+<p>Site Reliability Engineer（SRE）teams are capability of doing Ops
+Automation, with the goal of “making the service run and repair
+itself”.</p>
+<p>通过合理分配资源，SRE
+团队可以同时提高系统可靠性和团队效率。这种模式可以使得团队增长呈亚线性趋势。</p>
+<ul>
+<li><p>保证持续对工程的关注</p></li>
+<li><p>在不违反服务 SLO 的情况下，追求最大变更速度</p></li>
+<li><p>监控的紧急程度：警报（Alerts）（立即行动）&gt;工单（Tickets）（行动）&gt;日志（FYI）</p></li>
+<li><p>应急响应：</p>
+<ul>
+<li>可靠性取决于平均无故障时间（MTTF）和平均修复时间（MTTR）</li>
+<li>人工参与会增加响应延迟，尽可能实现自动化</li>
+<li>制定值班“手册”（可将 MTTR 提高 <span
+class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
+</ul></li>
+<li><p>变更管理：</p>
+<ul>
+<li><span class="math inline">\(70\%\)</span>
+的中断是由于对生产系统的变更引起的</li>
+<li>减少人工参与：
+<ul>
+<li>实施渐进式发布</li>
+<li>快速准确地检测问题</li>
+<li>在出现问题时安全地回滚变更</li>
+</ul></li>
+</ul></li>
+<li><p>需求预测和容量规划：</p>
+<ul>
+<li>确保有足够的容量和冗余，以满足未来预期需求并达到所需的可用性</li>
+<li>三个必要步骤：
+<ol type="1">
+<li>准确的有机需求预测，覆盖获取容量所需的提前期</li>
+<li>准确地将非有机需求纳入需求预测</li>
+<li>定期进行系统负载测试，以关联原始容量（服务器、磁盘等）和服务容量</li>
+</ol></li>
+</ul></li>
+<li><p>供给（Provisioning）：</p>
+<ul>
+<li>结合变更管理和容量规划</li>
+</ul></li>
+<li><p>效率和性能：</p>
+<ul>
+<li>有效利用资源可以节省大量成本</li>
+<li>应密切监控并维护性能（响应速度）</li>
+</ul></li>
+</ul>
+<h3 id="拥抱风险原则">拥抱风险原则</h3>
+<h4 id="可靠性reliability">可靠性（Reliability）</h4>
+<p>用户无法区分 high reliability 和 extreme reliability。</p>
+<ul>
+<li>需要平衡“有不可用的风险”与“快速迭代”、“高效服务”</li>
+<li>用”管理风险（managing risk）“原则来管理服务的可靠性
+<ul>
+<li>降低系统出错的风险</li>
+<li>用于保证”可靠性“的成本，会随着目标可靠性的增加而非线性上升（所以，控制
+<span class="math inline">\(99.99\%\)</span> 即可，不需要更高）
+<ul>
+<li>多余的机器运行、计算成本</li>
+<li>机会成本（本来用这些资源可以去做 feature 的）</li>
+</ul></li>
+</ul></li>
+<li>低可靠性会带来用户的不满意、不信任、资金、公司信誉等问题</li>
+</ul>
+<h4 id="mtbf-和-mttr-的计算">MTBF 和 MTTR 的计算</h4>
+<p>MTBF 是 mean time between failures，MTTR 是 mean time to
+repair，也就是说， <span class="math display">\[
+\begin{align*}
+\text{MTBF} &amp; = \frac{\text{uptime}}{\# \text{ of failures}}, \\
+\text{MTBF} &amp; = \frac{\text{downtime}}{\# \text{ of failures}}.
+\end{align*}
+\]</span></p>
+<h4
+id="基于时间的可用性time-based-availability">基于时间的可用性（Time-Based
+Availability）</h4>
+<p><span class="math display">\[
+\text{TBA} = \frac{\text{uptime}}{\text{uptime} + \text{downtime}}.
+\]</span></p>
+<p>或者等价地，<span class="math inline">\(\text{TBA} =
+\text{MTBF}/(\text{MTBF} + \text{MTTR})\)</span>。</p>
+<h4 id="合计可用性aggregate-availability">合计可用性（Aggregate
+Availability）</h4>
+<p><span class="math display">\[
+\text{AA} = \frac{\text{successful requests}}{\text{total requests}}.
+\]</span></p>
+<h4 id="错误预算">错误预算</h4>
+<p>即容许错误次数，可以通过 SLO 来计算（总请求次数乘以 SLO
+规定的比例）。好处在于可以决定发布版本的频率。</p>
+<h3 id="服务质量目标service-level-objectives">服务质量目标（Service
+Level Objectives）</h3>
+<h4 id="相关术语">相关术语</h4>
+<ul>
+<li>服务水平指标（Service Level
+Indicator，SLI）：定量指标，用来测量某个方面的服务水平
+<ul>
+<li>例如：请求延迟、错误率、系统吞吐量、可用性</li>
+<li>通常会在一个时间窗口内聚合计算，如速率、平均值或百分位数</li>
+</ul></li>
+<li>服务水平目标（Service Level Objective，SLO）：针对某个 SLI
+设定的目标值或值范围，应该是优先工作的主要驱动因素。
+<ul>
+<li>例如：每个请求的平均延迟应该小于 <span
+class="math inline">\(100\;\mathrm{ms}\)</span></li>
+</ul></li>
+<li>服务水平协议（Service Level
+Agreements，SLA）：与用户的明确或隐含的合同，包括达成 SLO 或未达成 SLO
+的后果。</li>
+</ul>
+<h4 id="实践中的指标">实践中的指标</h4>
+<p><strong>哪些指标？</strong></p>
+<ul>
+<li>面向用户的服务系统（例如前端）：可用性（availability），延迟（latency），吞吐量（throughput）。</li>
+<li>存储系统：延迟、可用性、持久性（durability）。</li>
+<li>大数据系统：吞吐量、端到端延迟（end-to-end latency）。</li>
+</ul>
+<p><strong>如何收集？</strong></p>
+<ul>
+<li>服务端：Prometheus/Zabbix/Borgmon 系统、周期性日志分析</li>
+<li>客户端：客户端检测工具</li>
+</ul>
+<h3 id="琐事toil">琐事（Toil）</h3>
+<h4 id="概念-2">概念</h4>
+<p>与运营生产服务相关的工作，它往往是手动的（manual）、重复性的（repetitive）、可自动化的（automatable）、战术性的（tactical），没有持久价值（devoid
+of enduring value），随着服务的增长而呈线性增长。</p>
+<h4
+id="尽量消除琐事eliminating-toil的相关目标">尽量消除琐事（Eliminating
+Toil）的相关目标</h4>
+<p>将每个 SRE 消耗在琐事上的时间控制在 <span
+class="math inline">\(50\%\)</span> 以下。至少 <span
+class="math inline">\(50\%\)</span>
+的时间应该花在要么减少未来琐事，要么增加服务 feature 的项目上。</p>
+<p><strong>SRE 的典型活动类别</strong></p>
+<ul>
+<li>软件工程：编写或修改代码，包括任何相关的设计和文档工作。</li>
+<li>系统工程：配置生产系统，修改配置等。</li>
+<li>琐事：直接与运行服务相关的重复性、手动等工作。</li>
+<li>日常工作：不直接与运行服务相关的行政工作。</li>
+</ul>
+<h3 id="分布式系统的监控">分布式系统的监控</h3>
+<h4 id="黑盒监控">黑盒监控</h4>
+<p>症状导向，代表实际出现的而非预测的问题，表示"系统现在无法正常工作"。是在测试中外部可见的一些异常行为。</p>
+<p><strong>四大黄金监控信号</strong></p>
+<ol type="1">
+<li>延迟（Latency）：服务请求的响应时间。</li>
+<li>流量（Traffic）：系统承受的请求量，用一个高层系统特定指标来衡量。</li>
+<li>错误（Errors）：失败请求的比率。</li>
+<li>饱和度（Saturation）：系统使用率，关注最受限的资源。
+<ul>
+<li>可以通过监控 <span class="math inline">\(1\)</span> 分钟内的 <span
+class="math inline">\(99\%\)</span> 响应时间来快速检测饱和度。</li>
+</ul></li>
+</ol>
+<h4 id="白盒监控">白盒监控</h4>
+<p>依赖于对系统内部的检查。可以检测即将到来的问题、被重试掩盖的故障等。</p>
+<p>是一些内部指标，例如 logs：JVM logs，HTTP logs 等。</p>
+<h3
+id="紧急警报的基本哲学fundamental-philosophy-on-pages">紧急警报的基本哲学（Fundamental
+Philosophy on Pages）</h3>
+<ul>
+<li>每当被 pager
+唤醒时，我都应该以强烈的紧迫感做出反应。但一天之内只能有几次这种紧迫感，否则会疲惫不堪。</li>
+<li>每次被 pager 唤醒都应该是可采取行动的（actionable）。</li>
+<li>每次页面响应都应该需要人类智能（human
+intelligence）。如果一个页面只需要机器人式的响应，它就不应该触发
+pager。</li>
+<li>Pages 应该关注一个全新的问题或以前未见过的事件。</li>
+<li>应该找出问题的根源并消除它；如果无法解决根本问题，那么这种警报响应就应该被完全自动化。</li>
+</ul>
+<h3 id="on-call-轮值原则being-on-call">On-call 轮值原则（Being
+On-Call）</h3>
+<h4 id="概念-3">概念</h4>
+<p>轮值工程师需要在工作时间和<strong>非工作时间</strong>都保持联系。</p>
+<p><strong>例子</strong></p>
+<ul>
+<li>接到 pager
+通知后，轮值工程师需要立即进行问题诊断和解决，可能需要与其他团队成员协作，并根据需要进行升级。</li>
+<li>目标 <span class="math inline">\(99.99\%\)</span> 可用性 <span
+class="math inline">\(\to\)</span> 每季度错误预算 <span
+class="math inline">\(13\;\mathrm{min}\)</span> 分钟 <span
+class="math inline">\(\to\)</span> <span
+class="math inline">\(5\;\mathrm{min}\)</span> 内启动操作</li>
+<li>对于不紧急的事件，给予 <span
+class="math inline">\(30\;\mathrm{min}\)</span> 响应时间</li>
+<li>非页面事件在工作时间内以较低优先级处理</li>
+</ul>
+<h4 id="作用">作用</h4>
+<p>保持服务的可靠性和可用性。</p>
+<h3
+id="有效的故障排查手段effective-troubleshooting">有效的故障排查手段（Effective
+Troubleshooting）</h3>
+<h4 id="假说演绎法">假说演绎法</h4>
+<pre><code class="highlight mermaid">graph TD
+A(Problem Report) --&gt; B[Triage]
+
+B --&gt; C[Examine]
+C --&gt; D[Diagnose]
+D --&gt; E[Test/Treat]
+E --&gt; C
+E -.-&gt;|Consider re-triaging if situation changes| B
+
+E --&gt; F(Cure)</code></pre>
+<h4 id="常见错误">常见错误</h4>
+<ul>
+<li>关注不相关的症状，或误解系统指标的含义</li>
+<li>误解如何改变系统、输入或环境来安全有效地验证假设</li>
+<li>提出非常不太可能的错误理论，或者死死抓住过去问题的原因，认为既然发生过一次就一定又发生了</li>
+<li>在多种可能解释中优先选择较简单的解释（奥卡姆剃刀原则）</li>
+<li>追踪虚假相关性，这可能只是巧合或由共同因素引起的相关性</li>
+<li><strong>相关性并不等同于因果关系</strong></li>
+</ul>
+<h4 id="过程">过程</h4>
+<ul>
+<li>Problem
+Report：有效的问题报告应包括预期行为、实际行为，以及尽可能重现问题的步骤。可以记录调查和修复活动的日志，方便未来参考。</li>
+<li>Triage：评估问题的严重程度，首要任务是止血：尽可能让系统在当前环境下运行得更好。</li>
+<li>Examine：检查系统中的每个组件，查看所有监控指标，例如各种 log。</li>
+<li>Diagnose：关注组件之间的连接关系，或者数据流，来判断每个组件是否正常工作。
+<ul>
+<li>从系统的一端开始，逐步向另一端检查每个组件。</li>
+<li>找出
+What（出现问题的功能在做什么）Why（为什么会有这样的表现）Where（数据资源从哪里获得的，被存放到了哪里）</li>
+<li>检查“最后改动了什么”。</li>
+</ul></li>
+</ul>
+<h4 id="总结">总结</h4>
+<p><strong>构建可观察性</strong></p>
+<ul>
+<li>从根本上为每个组件都建立白盒指标和结构化日志</li>
+<li>记录工作流程和变更情况</li>
+<li>设计组件之间有良好理解和可观察的接口</li>
+<li>确保系统内部信息以一致的方式可用，以加快问题诊断和恢复速度</li>
+</ul>
+<p><strong>采取系统的故障排查方法</strong></p>
+<ul>
+<li>不要依赖运气或经验，而是采用系统的方法</li>
+<li>这可以帮助缩短服务恢复时间，提升用户体验</li>
+</ul>
+<h3 id="紧急事件响应emergency-response">紧急事件响应（Emergency
+Response）</h3>
+<h4 id="类型">类型</h4>
+<ul>
+<li>Test (Controlled failures)-induced emergency<br />
+</li>
+<li>Change-induced emergency</li>
+<li>Process-induced emergency</li>
+</ul>
+<h4 id="注意事项">注意事项</h4>
+<p><strong>所有问题都有解决方案</strong></p>
+<ul>
+<li>时间和经验都证明，系统不仅会出现故障，而且会以前所未有的方式出现故障</li>
+<li>多与团队成员合作，寻求帮助，采取各种必要措施，但要尽快行动</li>
+<li>在应急情况得到缓解后，一定要腾出时间进行清理、撰写事故报告,</li>
+</ul>
+<p><strong>从过去中吸取教训，不要重复犯错</strong></p>
+<ul>
+<li>记录历史中断事件，记录预防策略和方法</li>
+<li>提出大胆的“如果”假设性问题</li>
+<li>鼓励主动进行测试</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Clever_Jimmy
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://leverimmy.top/2024/04/20/SE_2/" title="【学习笔记】软件工程 2">https://leverimmy.top/2024/04/20/SE_2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/20/SE/" rel="prev" title="【学习笔记】软件工程">
+                  <i class="fa fa-chevron-left"></i> 【学习笔记】软件工程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/30/From-Taizihu-to-Wansongyuan/" rel="next" title="【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年">
+                  【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Clever_Jimmy</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.3.0/mermaid.min.js","integrity":"sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
