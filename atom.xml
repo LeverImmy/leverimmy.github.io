@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-05-21T03:35:55.217Z</updated>
+  <updated>2024-06-07T15:17:21.491Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【学习笔记】软件工程(2)</title>
+    <link href="https://leverimmy.top/2024/06/07/SE_2/"/>
+    <id>https://leverimmy.top/2024/06/07/SE_2/</id>
+    <published>2024-06-07T03:10:11.000Z</published>
+    <updated>2024-06-07T15:17:21.491Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="软件工程" scheme="https://leverimmy.top/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】Haskell 从入门到入土</title>
@@ -82,30 +101,11 @@
   </entry>
   
   <entry>
-    <title>【学习笔记】软件工程 2</title>
-    <link href="https://leverimmy.top/2024/04/20/SE_2/"/>
-    <id>https://leverimmy.top/2024/04/20/SE_2/</id>
+    <title>【学习笔记】软件工程(1)</title>
+    <link href="https://leverimmy.top/2024/04/20/SE_1/"/>
+    <id>https://leverimmy.top/2024/04/20/SE_1/</id>
     <published>2024-04-20T07:10:11.000Z</published>
-    <updated>2024-06-07T14:35:27.153Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="软件工程" scheme="https://leverimmy.top/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】软件工程</title>
-    <link href="https://leverimmy.top/2024/04/20/SE/"/>
-    <id>https://leverimmy.top/2024/04/20/SE/</id>
-    <published>2024-04-20T07:10:11.000Z</published>
-    <updated>2024-06-05T15:04:03.723Z</updated>
+    <updated>2024-06-07T15:17:36.512Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。&lt;/p&gt;</summary>
