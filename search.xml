@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【学习笔记】Haskell 从入门到入土</title>
-    <url>/2024/05/20/Introduction-to-Haskell/</url>
-    <content><![CDATA[<p>Haskell 从入门到入土。</p>
-<span id="more"></span>
-<h2 id="lambda-演算">Lambda 演算</h2>
-<h2 id="基础">基础</h2>
-<h3 id="变量类型与运算">变量类型与运算</h3>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Haskell</tag>
-        <tag>Lambda 演算</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】Quantum Computation and Quantum Information</title>
     <url>/2024/05/12/QCQI/</url>
     <content><![CDATA[<p>这是 <em>Quantum Computation and Quantum Information</em>
@@ -68,6 +51,23 @@ used quantum gates and circuit symbols</h3>
       <tags>
         <tag>理论计算机科学</tag>
         <tag>量子计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】Haskell 从入门到入土</title>
+    <url>/2024/05/20/Introduction-to-Haskell/</url>
+    <content><![CDATA[<p>Haskell 从入门到入土。</p>
+<span id="more"></span>
+<h2 id="lambda-演算">Lambda 演算</h2>
+<h2 id="基础">基础</h2>
+<h3 id="变量类型与运算">变量类型与运算</h3>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Haskell</tag>
+        <tag>Lambda 演算</tag>
       </tags>
   </entry>
   <entry>
@@ -6900,6 +6900,214 @@ class="math inline">\(k\)</span>，使 <span class="math display">\[
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】计算机科学概论</title>
+    <url>/2023/07/20/CSAO/</url>
+    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="第一章-数据存储">第一章 数据存储</h2>
+<h3 id="逻辑门">逻辑门</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h3 id="c-中的字符常量">C 中的字符常量</h3>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
+<h4 id="补码记数法">补码记数法</h4>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h4 id="余码记数法">余码记数法</h4>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
+<h3 id="可计算性">可计算性</h3>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h3 id="bare-bones-语言">Bare Bones 语言</h3>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h4 id="复制操作">复制操作</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h4 id="交换操作">交换操作</h4>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h4 id="分支结构">分支结构</h4>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h3 id="停机问题">停机问题</h3>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h3 id="rsa">RSA</h3>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h4 id="rsa-的正确性">RSA 的正确性</h4>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。</li>
+</ol>
+<p><span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+\]</span></p>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】深入理解计算机系统</title>
     <url>/2024/01/05/CSAPP/</url>
     <content><![CDATA[<p>这是清华大学计算机系秋季课程《计算机系统概论》期末考试复习笔记，教材为《深入理解计算机系统（原书第3版）》。</p>
@@ -8578,211 +8786,615 @@ alt="12-45 一个无死锁程序的进度图" />
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论</title>
-    <url>/2023/07/20/CSAO/</url>
-    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
+    <title>【学习笔记】软件工程 2</title>
+    <url>/2024/04/20/SE_2/</url>
+    <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。</p>
 <span id="more"></span>
-<h2 id="第一章-数据存储">第一章 数据存储</h2>
-<h3 id="逻辑门">逻辑门</h3>
+<h2 id="软件架构">软件架构</h2>
+<h3 id="大型网站架构的演化发展历程">大型网站架构的演化发展历程</h3>
+<pre><code class="highlight mermaid">graph TD
+
+A(初始阶段) --&gt; B(应用服务和数据服务分离)
+B --&gt; C(使用缓存改善网站性能)
+C --&gt; D(使用应用服务器集群改善网站的并发处理能力)
+D --&gt; E(数据库读写分离)
+E --&gt; F(使用反向代理和 CDN 加速网站响应)
+F --&gt; G(使用分布式文件系统和分布式数据库系统)
+G --&gt; H(使用 NoSQL 和搜索引擎)
+H --&gt; I(业务拆分)
+I --&gt; J(分布式服务)</code></pre>
+<h4 id="架构演化的价值观">架构演化的价值观</h4>
+<ul>
+<li>大型网站架构技术的核心价值是随网站所需灵活应对</li>
+<li>驱动大型网站技术发展的主要力量是网站的业务发展</li>
+</ul>
+<h4 id="架构设计误区">架构设计误区</h4>
+<ul>
+<li>一味追随大公司的解决方案</li>
+<li>为了技术而技术</li>
+<li>企图用技术解决所有的问题</li>
+</ul>
+<h4 id="并发处理能力的改善">并发处理能力的改善</h4>
+<ul>
+<li>通过负载均衡调度服务器，可将来自用户浏览器的访问请求分发到应用服务器集群中的任何一台服务器上，服务器的负载压⼒不再成为整个⽹站的瓶颈。</li>
+<li>部分数据库读操作（缓存访问不命中、缓存过期）和全部的写操作需要访问数据库。当负载压⼒过⾼时，数据库成为瓶颈。</li>
+</ul>
+<h4 id="数据库读写分离">数据库读写分离</h4>
+<ul>
+<li>应用服务器在写数据的时候，访问主数据库，主数据库通过主从复制机制将数据更新同步到从数据库。</li>
+<li>应用服务器在读数据的时候，直接通过从数据库获得数据。</li>
+</ul>
+<h3 id="流媒体应用架构">流媒体应用架构</h3>
+<h4 id="cdn">CDN</h4>
+<h4 id="dash">DASH</h4>
+<h3 id="client-server-和-p2p-架构">Client-Server 和 P2P 架构</h3>
+<h4 id="两种架构的概念">两种架构的概念</h4>
+<h4 id="两种架构的区别">两种架构的区别</h4>
+<h3 id="软件设计的五个原则">软件设计的五个原则</h3>
+<h4 id="kiss-keep-it-simple-and-stupid">KISS = Keep It Simple and
+Stupid</h4>
+<h4 id="modularity">Modularity</h4>
+<p><strong>概念</strong></p>
+<p>Dividing complex system into simpler components. 强内聚，松耦合。</p>
+<p><strong>好处</strong></p>
+<ul>
+<li>开发更容易进行规划</li>
+<li>可以定义和交付软件增量</li>
+<li>更容易适应变更</li>
+<li>测试和调试可以更有效地进行</li>
+<li>长期维护可以在没有严重副作用的情况下进行</li>
+</ul>
+<h4 id="separation-of-concerns">Separation of Concerns</h4>
+<h4 id="design-for-change">Design for CHANGE</h4>
+<h4 id="design-for-reuse">Design for REUSE</h4>
+<h3 id="高可用的两个关键概念">高可用的两个关键概念</h3>
+<h4 id="可用性">可用性</h4>
+<p>可用性指的是系统掩藏或修复故障的能力，使得在指定时间间隔内累计服务中断时间不超过要求的值。</p>
+<h4 id="容错性">容错性</h4>
+<p>容错性是指即使硬件/软件/网络可靠性较低，分布式系统也能保持可用性。容错性无需用户或系统管理员参与，可以通过以下两种方式实现：</p>
+<ul>
+<li>Recovery (e.g., relying on equivalent services)</li>
+<li>Replication of components</li>
+</ul>
+<h3 id="网站的高性能架构">网站的高性能架构</h3>
+<h4 id="对比不同视角下的网站性能">对比不同视角下的网站性能</h4>
+<p><strong>用户视角</strong></p>
+<p>用户在浏览器上直观感受到的网站响应速度。</p>
+<ul>
+<li>用户计算机和网站服务器通信的时间</li>
+<li>网站服务器处理的时间</li>
+<li>用户计算机浏览器构造请求解析响应数据的时间</li>
+</ul>
+<p><strong>开发人员视角</strong></p>
+<p>应用程序本身及其相关子程序的性能。</p>
+<ul>
+<li>响应延迟</li>
+<li>系统吞吐量</li>
+<li>并发处理能力</li>
+<li>系统稳定性</li>
+</ul>
+<p><strong>维护人员视角</strong></p>
+<p>基础设施性能和资源利用率。</p>
+<ul>
+<li>网络运行商的带宽能力</li>
+<li>服务器硬件的配置</li>
+<li>数据中心网络架构</li>
+<li>服务器和网络带宽的资源利用率</li>
+</ul>
+<h4 id="高性能缓存架构的三个问题">高性能缓存架构的三个问题</h4>
+<p><strong>缓存穿透</strong></p>
+<p>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，如发起为
+ID 为 <span class="math inline">\(-1\)</span> 的数据或 ID
+特别大而不存在的数据。这时的用户很可能是攻击者，攻击会导致数据库压力过大。</p>
+<p>解决方案：</p>
+<ul>
+<li>接扣层增加校验，如用户鉴权校验，ID 做基础校验，ID <span
+class="math inline">\(\le 0\)</span> 的直接拦截；</li>
+<li>从缓存取不到的数据，在数据库中也没有取到，这时也可以将 key-value
+对写为 key-null，缓存有效时间可以设置短点，如 <span
+class="math inline">\(30\)</span>
+秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个
+ID 暴力攻击。</li>
+</ul>
+<p><strong>缓存雪崩</strong></p>
+<p>当缓存失效（过期）后引起系统性能急剧下降的情况。当缓存过期被清除后，业务系统需要重新生成缓存，因此需要再次访问存储系统，再次进行运算，这个处理步骤耗时几十毫秒甚至上百毫秒。而对于一个高并发的业务系统来说，几百毫秒内可能会接到几百上千个请求。由于旧的缓存已经被清除，新的缓存还未生成，并且处理这些请求的线程都不知道另外有一个线程正在生成缓存，因此所有的请求都会去重新生成缓存，都会去访问存储系统，从而对存储系统造成巨大的性能压力。这些压力又会拖慢整个系统，严重的会造成数据库宕机，从而形成一系列连锁反应，造成整个系统崩溃。</p>
+<p>解决方案：</p>
+<ul>
+<li>缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生。</li>
+<li>如果缓存数据库是分布式部署，将热点数据均匀分布在不同的缓存数据库中。</li>
+<li>设置热点数据永远不过期。</li>
+</ul>
+<p><strong>缓存热点</strong></p>
+<p>虽然缓存系统本身的性能比较高，但对于一些特别热点的数据，如果大部分甚至所有的业务请求都命中同一份缓存数据，则这份数据所在的缓存服务器的压力也很大。例如，某明星微博发布“我们”来宣告恋爱了，短时间内上千万的用户都会来围观。</p>
+<p>解决方案：</p>
+<ul>
+<li>复制多份缓存副本，将请求分散到多个缓存服务器上，减轻缓存热点导致的单台缓存服务器压力。以微博为例，对于粉丝数超过
+<span class="math inline">\(100\)</span> 万的明星，每条微博都可以生成
+<span class="math inline">\(100\)</span>
+份缓存，缓存的数据是一样的，通过在缓存的 key
+里面加上编号进行区分，每次读缓存时都随机读取其中某份缓存。</li>
+<li>缓存副本设计有一个细节需要注意，就是不同的缓存副本不要设置统一的过期时间，否则就会出现所有缓存副本同时生成同时失效的情况，从而引发缓存雪崩效应。正确的做法是设定一个过期时间范围，不同的缓存副本的过期时间是指定范围内的随机值。</li>
+</ul>
+<h4 id="负载均衡技术及算法">负载均衡技术及算法</h4>
+<p>在网站高并发访问的场景下，使用负载均衡技术为一个应用构建一个由多台服务器组成的服务器集群，将并发访问请求分发到多台服务器上处理，避免单一服务器因负载压力过大而响应缓慢，使用户请求具有更好的响应延迟特性。</p>
+<ul>
+<li>DNS 负载均衡</li>
+<li>硬件负载均衡</li>
+<li>软件负载均衡</li>
+</ul>
+<p><strong>算法</strong></p>
+<ul>
+<li>轮询
+<ul>
+<li>服务器不宕机、服务器与负载均衡器不断连</li>
+</ul></li>
+<li>加权轮询
+<ul>
+<li>服务器性能有差异</li>
+</ul></li>
+<li>负载最低优先
+<ul>
+<li>连接数、请求数、CPU 负载、I/O 负载</li>
+<li>需要采样</li>
+</ul></li>
+<li>性能最优优先
+<ul>
+<li>处理速度</li>
+<li>需要采样</li>
+</ul></li>
+<li>Hash
+<ul>
+<li>源地址</li>
+<li>ID</li>
+</ul></li>
+</ul>
+<p><strong>Web 前端性能优化</strong></p>
+<ul>
+<li>浏览器访问优化
+<ul>
+<li>减少 HTTP 请求</li>
+<li>使用浏览器缓存</li>
+<li>启用压缩</li>
+<li>CSS 放在页面最上面，JavaScript 放在页面最下面</li>
+<li>减少 Cookie 传输</li>
+</ul></li>
+<li>CDN 加速
+<ul>
+<li>内容分发网络，将数据缓存在离用户最近的地方，使用户以最快速度获取数据，即所谓网络访问第一跳</li>
+</ul></li>
+<li>反向代理
+<ul>
+<li>传统代理服务器位于浏览器一侧；反向代理位于网站机房一侧，代理网站 Web
+服务器接收 HTTP 请求</li>
+</ul></li>
+</ul>
+<p><strong>应用服务器性能优化</strong></p>
+<ul>
+<li>异步操作
+<ul>
+<li>使用消息队列将调用异步
+<ul>
+<li>不使用消息队列，用户的请求数据直接写入数据库，在高并发的情况下，会对数据库造成巨大的压力，响应延迟加剧。</li>
+<li>使用消息队列后，用户请求的数据发送给消息队列后立即返回，再由消息队列的消费者进程从消息队列中获取数据，异步写入数据库。</li>
+</ul></li>
+<li>消息队列有很好的削峰作用
+<ul>
+<li>通过异步处理，将短时间高并发产生的事务消息存储在消息队列中，从而削平高峰期的并发事务。</li>
+<li>在电子商务网站促销活动中，合理使用消息队列，可有效抵御促销活动刚开始大量涌入的订单对系统造成的冲击。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="微服务架构">微服务架构</h3>
+<h4 id="微服务架构的概念特点">微服务架构的概念、特点</h4>
+<p><strong>概念</strong></p>
+<p>微服务架构是一种将单个应用程序开发为一套小型服务的方法，每个服务都在自己的进程中运行，并通过轻量级机制（通常是
+HTTP 资源 API）进行通信。</p>
+<p>这些服务是围绕业务功能构建的，可以通过完全自动化的部署机制独立部署。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>在已发布的接口中将服务作为构建块（组件）使用</li>
+<li>围绕业务功能来组织</li>
+<li>开发团队完全负责生产环境中的软件</li>
+<li>智能端点和简单管道（Smart endpoints and dumb pipes）</li>
+<li>语言的去中心化控制（Decentralized control of languages）
+<ul>
+<li>例如，去中心化的数据库</li>
+</ul></li>
+</ul>
+<h4
+id="对比单体monolith应用和微服务应用的区别数据库部署">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</h4>
 <figure>
 <img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
+src="https://img.picgo.net/2024/06/07/monolith-microservices-database-deployment1dc2050f3490eaa1.jpeg"
+alt="单体和微服务应用在数据库部署上的区别" />
+<figcaption
+aria-hidden="true">单体和微服务应用在数据库部署上的区别</figcaption>
 </figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h3 id="c-中的字符常量">C 中的字符常量</h3>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
-<h4 id="补码记数法">补码记数法</h4>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h4 id="余码记数法">余码记数法</h4>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
-<h3 id="可计算性">可计算性</h3>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h3 id="bare-bones-语言">Bare Bones 语言</h3>
-<p>一个通用程序设计语言。</p>
+<h2 id="软件需求">软件需求</h2>
+<h3 id="软件需求的概念">软件需求的概念</h3>
+<p>需求是对应当执行的任务的规范说明，描述系统的行为特性或属性，是一种对系统开发进程的约束。</p>
+<p>开发软件系统的前提是要明确用户的期望和要求，即软件需求。</p>
+<p>刻画软件边界，有所为有所不为：能做什么，不能做什么，哪些是力所能及的合理的期望，哪些是力所不及、而我们需要据理力拒的。然后把那些合理的期望描述清楚。</p>
+<h4 id="需求工程的特点">需求工程的特点</h4>
 <ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+<li>知识密集型工作，需要交叉多学科的知识</li>
+<li>多方共同参与</li>
+<li>需求获取的多种形式和源头</li>
+<li>持续迭代和逐步推进</li>
 </ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h4 id="复制操作">复制操作</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h4 id="交换操作">交换操作</h4>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h4 id="分支结构">分支结构</h4>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h3 id="停机问题">停机问题</h3>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<h3 id="用户需求的获取过程">用户需求的获取过程</h3>
+<pre><code class="highlight mermaid">graph LR
+A(识别用户类别) --&gt; B(确定干系人代表)
+B --&gt; C(确定决策者)
+C --&gt; D(需求达成共识)</code></pre>
 <ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+<li>确定干系人代表：干系人是指积极参与项目的某个人、群体或组织，可能会受项目过程和结果的影响或影响项目的过程和结果。</li>
+<li>确定决策者：在软件项目中，需要在关键路径上做决定，或是解决一些冲突，接受（或拒绝）某个需求变更或者批准一组即将发布的需求。决策人或决策小组对决定工作方向、保证项目进度具有重要作用。</li>
+<li>需求达成共识：对需求或其中某部分达成一致是客户-开发关系的核心。
+<ul>
+<li>客户确认：需求描述了他们的需要</li>
+<li>开发人员确认：理解需求并且可以实现</li>
+<li>测试人员确认：需求是可验证的</li>
+<li>管理层确认：需求满足业务目标</li>
+</ul></li>
 </ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h3 id="rsa">RSA</h3>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
+<h3 id="泳道图绘制">泳道图绘制</h3>
+<p>每类用户在一个泳道上。纵向描述的是业务过程。
+横向表示他们之间的交互，纵向表示顺序。 泳道图与实现无关。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/06/07/swim-lane-diagram321900678935a83f.jpeg"
+alt="泳道图" />
+<figcaption aria-hidden="true">泳道图</figcaption>
+</figure>
+<h3 id="判定树绘制">判定树绘制</h3>
+<figure>
+<img
+src="https://img.picgo.net/2024/06/07/judgement-treecb968e54bab16456.jpeg"
+alt="判定树" />
+<figcaption aria-hidden="true">判定树</figcaption>
+</figure>
+<h3 id="用例的识别和分析">用例的识别和分析</h3>
+<h4 id="识别">识别</h4>
 <ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+<li>确定角色，分析角色和系统交互活动</li>
+<li>分析业务过程，将场景概括为用例</li>
+<li>识别系统外部事件，并关联到角色和用例</li>
 </ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
+<figure>
+<img src="https://img.picgo.net/2024/06/07/use-case9d5f93e2476d5f36.png"
+alt="识别用例" />
+<figcaption aria-hidden="true">识别用例</figcaption>
+</figure>
+<h4 id="分析">分析</h4>
+<p><strong>问题</strong></p>
 <ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
+<li>用例用户看不懂用例</li>
+<li>用例过于复杂：应分解较长的流程</li>
+<li>用例内含设计</li>
+<li>用例内含数据定义：根据输入/输出关系区分功能，但用例说明中不应含有数据定义。</li>
+<li>用例过多</li>
 </ul>
-<h4 id="rsa-的正确性">RSA 的正确性</h4>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
+<p><strong>条件</strong></p>
+<ul>
+<li>触发条件：事件，引发相关用例的执行</li>
+<li>前置条件：系统开始执行用例之前必须满足的先决条件</li>
+<li>后置条件：用例执行成功后系统的状态</li>
+</ul>
+<h3 id="顺序图绘制">顺序图绘制</h3>
+<p>主谓宾需要分清楚，把所有的主语和谓语全部拿出来作为每一列的名称，列与列之间用箭头来表示
+<span class="math inline">\(A \overset{\text{verb}}\to B\)</span>，<span
+class="math inline">\(A\)</span> 对 <span
+class="math inline">\(B\)</span> 进行了 <span
+class="math inline">\(\text{verb}\)</span>。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/06/07/sequence-diagramcf7ccc0e69092d1a.jpeg"
+alt="顺序图" />
+<figcaption aria-hidden="true">顺序图</figcaption>
+</figure>
+<h3
+id="定义良好的需求well-formed-requirement的三个要求">定义良好的需求（Well-Formed
+Requirement）的三个要求</h3>
+<h4 id="概念">概念</h4>
+<ul>
+<li>可验证（Verifiable）：可以被验证。</li>
+<li>必要（Necessary）：指系统必须满足或拥有的条件，以解决利益相关方的问题或实现他们的目标。</li>
+<li>可量化（Quantifiable）：通过可测量的条件和有约束条件来限定和限制某个特性或属性。</li>
+</ul>
+<h4 id="需求改写">需求改写</h4>
+<blockquote>
+<p>When signal x is received [Condition], the system [Subject] shall set
+[Action] the signal x received bit [Object] within [Constraints] 2
+seconds [Value].</p>
+</blockquote>
+<blockquote>
+<p>At sea state 1 [Condition], the Radar system [Subject] shall detect
+[Action] targets [Object] at ranges out to [Constraints] 100 nautical
+miles [Value].</p>
+</blockquote>
+<blockquote>
+<p>The Invoice system [Subject] shall display [Action] pending customer
+[Constraints] invoices [Object] in ascending order [Value] in which
+invoices are to be paid [Constraints].</p>
+</blockquote>
+<h3
+id="需求缺陷的代价戴维斯假设davis-hypotheses">需求缺陷的代价：戴维斯假设（Davis'
+Hypotheses）</h3>
+<p>The later in the life-cycle that a fault will be discovered, the more
+expensive it will be to fix it.</p>
+<h2 id="软件运维">软件运维</h2>
+<h3
+id="软件运维在软件系统生命周期的开销占比">软件运维在软件系统生命周期的开销占比</h3>
+<p>软件系统的生命周期中，使用阶段所占的时间比设计和实现阶段要长得多。软件系统总成本的
+<span class="math inline">\(40\%\sim 90\%\)</span>
+都发生在系统投入使用之后。</p>
+<h3 id="sre-的信条tenets-of-sre">SRE 的信条（Tenets of SRE）</h3>
+<p>Site Reliability Engineer（SRE）teams are capability of doing Ops
+Automation, with the goal of “making the service run and repair
+itself”.</p>
+<p>通过合理分配资源，SRE
+团队可以同时提高系统可靠性和团队效率。这种模式可以使得团队增长呈亚线性趋势。</p>
+<ul>
+<li>保证持续对工程的关注</li>
+<li>在不违反服务 SLO 的情况下，追求最大变更速度</li>
+<li>监控的紧急程度：警报（Alerts）（立即行动）&gt;工单（Tickets）（行动）&gt;日志（FYI）</li>
+<li>应急响应：
+<ul>
+<li>可靠性取决于平均无故障时间（MTTF）和平均修复时间（MTTR）</li>
+<li>人工参与会增加响应延迟，尽可能实现自动化</li>
+<li>制定值班“手册”（可将 MTTR 提高 <span
+class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
+</ul></li>
+<li>变更管理：
+<ul>
+<li><span class="math inline">\(70\%\)</span>
+的中断是由于对生产系统的变更引起的</li>
+<li>减少人工参与：
+<ul>
+<li>实施渐进式发布</li>
+<li>快速准确地检测问题</li>
+<li>在出现问题时安全地回滚变更</li>
+</ul></li>
+</ul></li>
+<li>需求预测和容量规划：
+<ul>
+<li>确保有足够的容量和冗余，以满足未来预期需求并达到所需的可用性</li>
+<li>三个必要步骤：
 <ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。</li>
-</ol>
-<p><span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
+<li>准确的有机需求预测，覆盖获取容量所需的提前期</li>
+<li>准确地将非有机需求纳入需求预测</li>
+<li>定期进行系统负载测试，以关联原始容量（服务器、磁盘等）和服务容量</li>
+</ol></li>
+</ul></li>
+<li>供给（Provisioning）：
+<ul>
+<li>结合变更管理和容量规划</li>
+</ul></li>
+<li>效率和性能：
+<ul>
+<li>有效利用资源可以节省大量成本</li>
+<li>应密切监控并维护性能（响应速度）</li>
+</ul></li>
+</ul>
+<h3 id="拥抱风险原则">拥抱风险原则</h3>
+<h4 id="可靠性reliability">可靠性（Reliability）</h4>
+<p>用户无法区分 high reliability 和 extreme reliability。</p>
+<ul>
+<li>需要平衡“有不可用的风险”与“快速迭代”、“高效服务”</li>
+<li>用”管理风险（managing risk）“原则来管理服务的可靠性
+<ul>
+<li>降低系统出错的风险</li>
+<li>用于保证”可靠性“的成本，会随着目标可靠性的增加而非线性上升（所以，控制
+<span class="math inline">\(99.99\%\)</span> 即可，不需要更高）
+<ul>
+<li>多余的机器运行、计算成本</li>
+<li>机会成本（本来用这些资源可以去做 feature 的）</li>
+</ul></li>
+</ul></li>
+<li>低可靠性会带来用户的不满意、不信任、资金、公司信誉等问题</li>
+</ul>
+<h4 id="mtbf-和-mttr-的计算">MTBF 和 MTTR 的计算</h4>
+<p>MTBF 是 mean time between failures，MTTR 是 mean time to
+repair，也就是说， <span class="math display">\[
+\begin{align*}
+\text{MTBF} &amp; = \frac{\text{uptime}}{\# \text{ of failures}}, \\
+\text{MTBF} &amp; = \frac{\text{downtime}}{\# \text{ of failures}}.
+\end{align*}
 \]</span></p>
-<p>因此命题得证。</p>
+<h4
+id="基于时间的可用性time-based-availability">基于时间的可用性（Time-Based
+Availability）</h4>
+<p><span class="math display">\[
+\text{TBA} = \frac{\text{uptime}}{\text{uptime} + \text{downtime}}.
+\]</span></p>
+<p>或者等价地，<span class="math inline">\(\text{TBA} =
+\text{MTBF}/(\text{MTBF} + \text{MTTR})\)</span>。</p>
+<h4 id="合计可用性aggregate-availability">合计可用性（Aggregate
+Availability）</h4>
+<p><span class="math display">\[
+\text{AA} = \frac{\text{successful requests}}{\text{total requests}}.
+\]</span></p>
+<h4 id="错误预算">错误预算</h4>
+<p>即容许错误次数，可以通过 SLO 来计算（总请求次数乘以 SLO
+规定的比例）。好处在于可以决定发布版本的频率。</p>
+<h3 id="服务质量目标service-level-objectives">服务质量目标（Service
+Level Objectives）</h3>
+<h4 id="相关术语">相关术语</h4>
+<ul>
+<li>服务水平指标（Service Level
+Indicator，SLI）：定量指标，用来测量某个方面的服务水平
+<ul>
+<li>例如：请求延迟、错误率、系统吞吐量、可用性</li>
+<li>通常会在一个时间窗口内聚合计算，如速率、平均值或百分位数</li>
+</ul></li>
+<li>服务水平目标（Service Level Objective，SLO）：针对某个 SLI
+设定的目标值或值范围，应该是优先工作的主要驱动因素。
+<ul>
+<li>例如：每个请求的平均延迟应该小于 <span
+class="math inline">\(100\;\mathrm{ms}\)</span></li>
+</ul></li>
+<li>服务水平协议（Service Level
+Agreements，SLA）：与用户的明确或隐含的合同，包括达成 SLO 或未达成 SLO
+的后果。</li>
+</ul>
+<h4 id="实践中的指标">实践中的指标</h4>
+<p><strong>哪些指标？</strong></p>
+<ul>
+<li>面向用户的服务系统（例如前端）：可用性（availability），延迟（latency），吞吐量（throughput）。</li>
+<li>存储系统：延迟、可用性、持久性（durability）。</li>
+<li>大数据系统：吞吐量、端到端延迟（end-to-end latency）。</li>
+</ul>
+<p><strong>如何收集？</strong></p>
+<ul>
+<li>服务端：Prometheus/Zabbix/Borgmon 系统、周期性日志分析</li>
+<li>客户端：客户端检测工具</li>
+</ul>
+<h3 id="琐事toil">琐事（Toil）</h3>
+<h4 id="概念-1">概念</h4>
+<p>与运营生产服务相关的工作，它往往是手动的（manual）、重复性的（repetitive）、可自动化的（automatable）、战术性的（tactical），没有持久价值（devoid
+of enduring value），随着服务的增长而呈线性增长。</p>
+<h4
+id="尽量消除琐事eliminating-toil的相关目标">尽量消除琐事（Eliminating
+Toil）的相关目标</h4>
+<p>将每个 SRE 消耗在琐事上的时间控制在 <span
+class="math inline">\(50\%\)</span> 以下。至少 <span
+class="math inline">\(50\%\)</span>
+的时间应该花在要么减少未来琐事，要么增加服务 feature 的项目上。</p>
+<p><strong>SRE 的典型活动类别</strong></p>
+<ul>
+<li>软件工程：编写或修改代码，包括任何相关的设计和文档工作。</li>
+<li>系统工程：配置生产系统，修改配置等。</li>
+<li>琐事：直接与运行服务相关的重复性、手动等工作。</li>
+<li>日常工作：不直接与运行服务相关的行政工作。</li>
+</ul>
+<h3 id="分布式系统的监控">分布式系统的监控</h3>
+<h4 id="黑盒监控">黑盒监控</h4>
+<p>症状导向，代表实际出现的而非预测的问题，表示"系统现在无法正常工作"。是在测试中外部可见的一些异常行为。</p>
+<p><strong>四大黄金监控信号</strong></p>
+<ol type="1">
+<li>延迟（Latency）：服务请求的响应时间。</li>
+<li>流量（Traffic）：系统承受的请求量，用一个高层系统特定指标来衡量。</li>
+<li>错误（Errors）：失败请求的比率。</li>
+<li>饱和度（Saturation）：系统使用率，关注最受限的资源。
+<ul>
+<li>例如：通过监控 <span class="math inline">\(1\)</span> 分钟内的 <span
+class="math inline">\(99\%\)</span> 响应时间来快速检测饱和度。</li>
+</ul></li>
+</ol>
+<h4 id="白盒监控">白盒监控</h4>
+<p>依赖于对系统内部的检查。可以检测即将到来的问题、被重试掩盖的故障等。</p>
+<p>是一些内部指标，例如 logs：JVM logs，HTTP logs 等。</p>
+<h3
+id="紧急警报的基本哲学fundamental-philosophy-on-pages">紧急警报的基本哲学（Fundamental
+Philosophy on Pages）</h3>
+<ul>
+<li>每当被 pager
+唤醒时，我都应该以强烈的紧迫感做出反应。但一天之内只能有几次这种紧迫感，否则会疲惫不堪。</li>
+<li>每次被 pager 唤醒都应该是可采取行动的（actionable）。</li>
+<li>每次页面响应都应该需要人类智能（human
+intelligence）。如果一个页面只需要机器人式的响应，它就不应该触发
+pager。</li>
+<li>Pages 应该关注一个全新的问题或以前未见过的事件。</li>
+<li>应该找出问题的根源并消除它；如果无法解决根本问题，那么这种警报响应就应该被完全自动化。</li>
+</ul>
+<h3 id="on-call-轮值原则being-on-call">On-call 轮值原则（Being
+On-Call）</h3>
+<h4 id="概念-2">概念</h4>
+<p>轮值工程师需要在工作时间和<strong>非工作时间</strong>都保持联系。</p>
+<p><strong>例子</strong></p>
+<ul>
+<li>接到 pager
+通知后，轮值工程师需要立即进行问题诊断和解决，可能需要与其他团队成员协作，并根据需要进行升级。</li>
+<li>目标 <span class="math inline">\(99.99\%\)</span> 可用性 <span
+class="math inline">\(\to\)</span> 每季度错误预算 <span
+class="math inline">\(13\;\mathrm{min}\)</span> 分钟 <span
+class="math inline">\(\to\)</span> <span
+class="math inline">\(5\;\mathrm{min}\)</span> 内启动操作</li>
+<li>对于不紧急的事件，给予 <span
+class="math inline">\(30\;\mathrm{min}\)</span> 响应时间</li>
+<li>非页面事件在工作时间内以较低优先级处理</li>
+</ul>
+<h4 id="作用">作用</h4>
+<p>保持服务的可靠性和可用性。</p>
+<h3
+id="有效的故障排查手段effective-troubleshooting">有效的故障排查手段（Effective
+Troubleshooting）</h3>
+<h4 id="假说演绎法">假说演绎法</h4>
+<pre><code class="highlight mermaid">graph TD
+A(Problem Report) --&gt; B[Triage]
+
+B --&gt; C[Examine]
+C --&gt; D[Diagnose]
+D --&gt; E[Test/Treat]
+E --&gt; C
+E -.-&gt;|Consider re-triaging if situation changes| B
+
+E --&gt; F(Cure)</code></pre>
+<h4 id="常见错误">常见错误</h4>
+<ul>
+<li>关注不相关的症状，或误解系统指标的含义</li>
+<li>误解如何改变系统、输入或环境来安全有效地验证假设</li>
+<li>提出非常不太可能的错误理论，或者死死抓住过去问题的原因，认为既然发生过一次就一定又发生了</li>
+<li>在多种可能解释中优先选择较简单的解释（奥卡姆剃刀原则）</li>
+<li>追踪虚假相关性，这可能只是巧合或由共同因素引起的相关性</li>
+<li><strong>相关性并不等同于因果关系</strong></li>
+</ul>
+<h4 id="过程">过程</h4>
+<ul>
+<li>Problem
+Report：有效的问题报告应包括预期行为、实际行为，以及尽可能重现问题的步骤。可以记录调查和修复活动的日志，方便未来参考。</li>
+<li>Triage：评估问题的严重程度，首要任务是止血：尽可能让系统在当前环境下运行得更好。</li>
+<li>Examine：检查系统中的每个组件，查看所有监控指标，例如各种 log。</li>
+<li>Diagnose：关注组件之间的连接关系，或者数据流，来判断每个组件是否正常工作。
+<ul>
+<li>从系统的一端开始，逐步向另一端检查每个组件。</li>
+<li>找出
+What（出现问题的功能在做什么）Why（为什么会有这样的表现）Where（数据资源从哪里获得的，被存放到了哪里）</li>
+<li>检查“最后改动了什么”。</li>
+</ul></li>
+</ul>
+<h4 id="总结">总结</h4>
+<p><strong>构建可观察性</strong></p>
+<ul>
+<li>从根本上为每个组件都建立白盒指标和结构化日志</li>
+<li>记录工作流程和变更情况</li>
+<li>设计组件之间有良好理解和可观察的接口</li>
+<li>确保系统内部信息以一致的方式可用，以加快问题诊断和恢复速度</li>
+</ul>
+<p><strong>采取系统的故障排查方法</strong></p>
+<ul>
+<li>不要依赖运气或经验，而是采用系统的方法</li>
+<li>这可以帮助缩短服务恢复时间，提升用户体验</li>
+</ul>
+<h3 id="紧急事件响应emergency-response">紧急事件响应（Emergency
+Response）</h3>
+<h4 id="类型">类型</h4>
+<ul>
+<li>Test (Controlled failures)-induced emergency<br />
+</li>
+<li>Change-induced emergency</li>
+<li>Process-induced emergency</li>
+</ul>
+<h4 id="注意事项">注意事项</h4>
+<p><strong>所有问题都有解决方案</strong></p>
+<ul>
+<li>时间和经验都证明，系统不仅会出现故障，而且会以前所未有的方式出现故障</li>
+<li>多与团队成员合作，寻求帮助，采取各种必要措施，但要尽快行动</li>
+<li>在应急情况得到缓解后，一定要腾出时间进行清理、撰写事故报告</li>
+</ul>
+<p><strong>从过去中吸取教训，不要重复犯错</strong></p>
+<ul>
+<li>记录历史中断事件，记录预防策略和方法</li>
+<li>提出大胆的“如果”假设性问题</li>
+<li>鼓励主动进行测试</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>计算机科学概论</tag>
+        <tag>软件工程</tag>
       </tags>
   </entry>
   <entry>
@@ -11279,452 +11891,6 @@ class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】软件工程 2</title>
-    <url>/2024/04/20/SE_2/</url>
-    <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期末考试复习笔记。</p>
-<span id="more"></span>
-<h2 id="软件架构">软件架构</h2>
-<h3 id="大型网站架构的演化发展历程">大型网站架构的演化发展历程</h3>
-<pre><code class="highlight mermaid">graph TD
-
-A(初始阶段) --&gt; B(应用服务和数据服务分离)
-B --&gt; C(使用缓存改善网站性能)
-C --&gt; D(使用应用服务器集群改善网站的并发处理能力)
-D --&gt; E(数据库读写分离)
-E --&gt; F(使用反向代理和 CDN 加速网站响应)
-F --&gt; G(使用分布式文件系统和分布式数据库系统)
-G --&gt; H(使用 NoSQL 和搜索引擎)
-H --&gt; I(业务拆分)
-I --&gt; J(分布式服务)</code></pre>
-<h4 id="架构演化的价值观">架构演化的价值观</h4>
-<ul>
-<li>大型网站架构技术的核心价值是随网站所需灵活应对</li>
-<li>驱动大型网站技术发展的主要力量是网站的业务发展</li>
-</ul>
-<h4 id="架构设计误区">架构设计误区</h4>
-<ul>
-<li>一味追随大公司的解决方案</li>
-<li>为了技术而技术</li>
-<li>企图用技术解决所有的问题</li>
-</ul>
-<h4 id="并发处理能力的改善">并发处理能力的改善</h4>
-<ul>
-<li>通过负载均衡调度服务器，可将来自用户浏览器的访问请求分发到应用服务器集群中的任何⼀台服务器上，服务器的负载压⼒不再成为整个⽹站的瓶颈。</li>
-<li>部分数据库读操作（缓存访问不命中、缓存过期）和全部的写操作需要访问数据库。当负载压⼒过⾼时，数据库成为瓶颈。</li>
-</ul>
-<h4 id="数据库读写分离">数据库读写分离</h4>
-<ul>
-<li>应用服务器在写数据的时候，访问主数据库，主数据库通过主从复制机制将数据更新同步到从数据库。</li>
-<li>应用服务器在读数据的时候，直接通过从数据库获得数据。</li>
-</ul>
-<h3 id="流媒体应用架构">流媒体应用架构</h3>
-<h4 id="cdn">CDN</h4>
-<h4 id="dash">DASH</h4>
-<h3 id="client-server-和-p2p-架构">Client-Server 和 P2P 架构</h3>
-<h4 id="两种架构的概念">两种架构的概念</h4>
-<h4 id="两种架构的区别">两种架构的区别</h4>
-<h3 id="软件设计的五个原则">软件设计的五个原则</h3>
-<h4 id="概念">概念</h4>
-<h4 id="好处">好处</h4>
-<h3 id="高可用的两个关键概念">高可用的两个关键概念</h3>
-<h4 id="可用性">可用性</h4>
-<h4 id="容错性">容错性</h4>
-<h3 id="网站的高性能架构">网站的高性能架构</h3>
-<h4 id="对比不同视角下的网站性能">对比不同视角下的网站性能</h4>
-<h4 id="高性能缓存架构的三个问题">高性能缓存架构的三个问题</h4>
-<h4 id="负载均衡技术及算法">负载均衡技术及算法</h4>
-<h3 id="微服务架构">微服务架构</h3>
-<h4 id="微服务架构的概念特点">微服务架构的概念、特点</h4>
-<h4
-id="对比单体monolith应用和微服务应用的区别数据库部署">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</h4>
-<h2 id="软件需求">软件需求</h2>
-<h3 id="软件需求的概念">软件需求的概念</h3>
-<p>需求是对应当执行的任务的规范说明，描述系统的行为特性或属性，是一种对系统开发进程的约束。</p>
-<p>开发软件系统的前提是要明确用户的期望和要求，即软件需求。</p>
-<p>刻画软件边界，有所为有所不为：能做什么，不能做什么，哪些是力所能及的合理的期望，哪些是力所不及、而我们需要据理力拒的。然后把那些合理的期望描述清楚。</p>
-<h4 id="需求工程的特点">需求工程的特点</h4>
-<ul>
-<li>知识密集型工作，需要交叉多学科的知识</li>
-<li>多方共同参与</li>
-<li>需求获取的多种形式和源头</li>
-<li>持续迭代和逐步推进</li>
-</ul>
-<h3 id="用户需求的获取过程">用户需求的获取过程</h3>
-<pre><code class="highlight mermaid">graph LR
-A(识别用户类别) --&gt; B(确定干系人代表)
-B --&gt; C(确定决策者)
-C --&gt; D(需求达成共识)</code></pre>
-<ul>
-<li>确定干系人代表：干系人是指积极参与项目的某个人、群体或组织，可能会受项目过程和结果的影响或影响项目的过程和结果。</li>
-<li>确定决策者：在软件项目中，需要在关键路径上做决定，或是解决一些冲突，接受（或拒绝）某个需求变更或者批准一组即将发布的需求。决策人或决策小组对决定工作方向、保证项目进度具有重要作用。</li>
-<li>需求达成共识：对需求或其中某部分达成一致是客户-开发关系的核心。
-<ul>
-<li>客户确认：需求描述了他们的需要</li>
-<li>开发人员确认：理解需求并且可以实现</li>
-<li>测试人员确认：需求是可验证的</li>
-<li>管理层确认：需求满足业务目标</li>
-</ul></li>
-</ul>
-<h3 id="泳道图绘制">泳道图绘制</h3>
-<p>每类用户在一个泳道上。纵向描述的是业务过程。
-横向表示他们之间的交互，纵向表示顺序。 泳道图与实现无关。</p>
-<figure>
-<img
-src="https://img.picgo.net/2024/06/07/swim-lane-diagram321900678935a83f.jpeg"
-alt="泳道图" />
-<figcaption aria-hidden="true">泳道图</figcaption>
-</figure>
-<h3 id="判定树绘制">判定树绘制</h3>
-<figure>
-<img
-src="https://img.picgo.net/2024/06/07/judgement-treecb968e54bab16456.jpeg"
-alt="判定树" />
-<figcaption aria-hidden="true">判定树</figcaption>
-</figure>
-<h3 id="用例的识别和分析">用例的识别和分析</h3>
-<h4 id="识别">识别</h4>
-<ol type="1">
-<li>确定角色，分析角色和系统交互活动</li>
-<li>分析业务过程，将场景概括为用例</li>
-<li>识别系统外部事件，并关联到角色和用例</li>
-</ol>
-<figure>
-<img src="https://img.picgo.net/2024/06/07/use-case9d5f93e2476d5f36.png"
-alt="识别用例" />
-<figcaption aria-hidden="true">识别用例</figcaption>
-</figure>
-<h4 id="分析">分析</h4>
-<p><strong>问题</strong></p>
-<ul>
-<li>用例用户看不懂用例</li>
-<li>用例过于复杂：应分解较长的流程</li>
-<li>用例内含设计</li>
-<li>用例内含数据定义：根据输入/输出关系区分功能，但用例说明中不应含有数据定义。</li>
-<li>用例过多</li>
-</ul>
-<p><strong>条件</strong></p>
-<ul>
-<li>触发条件：事件，引发相关用例的执行</li>
-<li>前置条件：系统开始执行用例之前必须满足的先决条件</li>
-<li>后置条件：用例执行成功后系统的状态</li>
-</ul>
-<h3 id="顺序图绘制">顺序图绘制</h3>
-<p>主谓宾需要分清楚，把所有的主语和谓语全部拿出来作为每一列的名称，列与列之间用箭头来表示
-<span class="math inline">\(A \overset{\text{verb}}\to B\)</span>，<span
-class="math inline">\(A\)</span> 对 <span
-class="math inline">\(B\)</span> 进行了 <span
-class="math inline">\(\text{verb}\)</span>。</p>
-<figure>
-<img
-src="https://img.picgo.net/2024/06/07/sequence-diagramcf7ccc0e69092d1a.jpeg"
-alt="顺序图" />
-<figcaption aria-hidden="true">顺序图</figcaption>
-</figure>
-<h3
-id="定义良好的需求well-formed-requirement的三个要求">定义良好的需求（Well-Formed
-Requirement）的三个要求</h3>
-<h4 id="概念-1">概念</h4>
-<ul>
-<li>可验证（Verifiable）：可以被验证。</li>
-<li>必要（Necessary）：指系统必须满足或拥有的条件，以解决利益相关方的问题或实现他们的目标。</li>
-<li>可量化（Quantifiable）：通过可测量的条件和有约束条件来限定和限制某个特性或属性。</li>
-</ul>
-<h4 id="需求改写">需求改写</h4>
-<blockquote>
-<p>When signal x is received [Condition], the system [Subject] shall set
-[Action] the signal x received bit [Object] within [Constraints] 2
-seconds [Value].</p>
-</blockquote>
-<blockquote>
-<p>At sea state 1 [Condition], the Radar system [Subject] shall detect
-[Action] targets [Object] at ranges out to [Constraints] 100 nautical
-miles [Value].</p>
-</blockquote>
-<blockquote>
-<p>The Invoice system [Subject] shall display [Action] pending customer
-[Constraints] invoices [Object] in ascending order [Value] in which
-invoices are to be paid [Constraints].</p>
-</blockquote>
-<h3
-id="需求缺陷的代价戴维斯假设davis-hypotheses">需求缺陷的代价：戴维斯假设（Davis'
-Hypotheses）</h3>
-<p>The later in the life-cycle that a fault will be discovered, the more
-expensive it will be to fix it.</p>
-<h2 id="软件运维">软件运维</h2>
-<h3
-id="软件运维在软件系统生命周期的开销占比">软件运维在软件系统生命周期的开销占比</h3>
-<p>软件系统的生命周期中，使用阶段所占的时间比设计和实现阶段要长得多。软件系统总成本的
-<span class="math inline">\(40\%\sim 90\%\)</span>
-都发生在系统投入使用之后。</p>
-<h3 id="sre-的信条tenets-of-sre">SRE 的信条（Tenets of SRE）</h3>
-<p>Site Reliability Engineer（SRE）teams are capability of doing Ops
-Automation, with the goal of “making the service run and repair
-itself”.</p>
-<p>通过合理分配资源，SRE
-团队可以同时提高系统可靠性和团队效率。这种模式可以使得团队增长呈亚线性趋势。</p>
-<ul>
-<li><p>保证持续对工程的关注</p></li>
-<li><p>在不违反服务 SLO 的情况下，追求最大变更速度</p></li>
-<li><p>监控的紧急程度：警报（Alerts）（立即行动）&gt;工单（Tickets）（行动）&gt;日志（FYI）</p></li>
-<li><p>应急响应：</p>
-<ul>
-<li>可靠性取决于平均无故障时间（MTTF）和平均修复时间（MTTR）</li>
-<li>人工参与会增加响应延迟，尽可能实现自动化</li>
-<li>制定值班“手册”（可将 MTTR 提高 <span
-class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
-</ul></li>
-<li><p>变更管理：</p>
-<ul>
-<li><span class="math inline">\(70\%\)</span>
-的中断是由于对生产系统的变更引起的</li>
-<li>减少人工参与：
-<ul>
-<li>实施渐进式发布</li>
-<li>快速准确地检测问题</li>
-<li>在出现问题时安全地回滚变更</li>
-</ul></li>
-</ul></li>
-<li><p>需求预测和容量规划：</p>
-<ul>
-<li>确保有足够的容量和冗余，以满足未来预期需求并达到所需的可用性</li>
-<li>三个必要步骤：
-<ol type="1">
-<li>准确的有机需求预测，覆盖获取容量所需的提前期</li>
-<li>准确地将非有机需求纳入需求预测</li>
-<li>定期进行系统负载测试，以关联原始容量（服务器、磁盘等）和服务容量</li>
-</ol></li>
-</ul></li>
-<li><p>供给（Provisioning）：</p>
-<ul>
-<li>结合变更管理和容量规划</li>
-</ul></li>
-<li><p>效率和性能：</p>
-<ul>
-<li>有效利用资源可以节省大量成本</li>
-<li>应密切监控并维护性能（响应速度）</li>
-</ul></li>
-</ul>
-<h3 id="拥抱风险原则">拥抱风险原则</h3>
-<h4 id="可靠性reliability">可靠性（Reliability）</h4>
-<p>用户无法区分 high reliability 和 extreme reliability。</p>
-<ul>
-<li>需要平衡“有不可用的风险”与“快速迭代”、“高效服务”</li>
-<li>用”管理风险（managing risk）“原则来管理服务的可靠性
-<ul>
-<li>降低系统出错的风险</li>
-<li>用于保证”可靠性“的成本，会随着目标可靠性的增加而非线性上升（所以，控制
-<span class="math inline">\(99.99\%\)</span> 即可，不需要更高）
-<ul>
-<li>多余的机器运行、计算成本</li>
-<li>机会成本（本来用这些资源可以去做 feature 的）</li>
-</ul></li>
-</ul></li>
-<li>低可靠性会带来用户的不满意、不信任、资金、公司信誉等问题</li>
-</ul>
-<h4 id="mtbf-和-mttr-的计算">MTBF 和 MTTR 的计算</h4>
-<p>MTBF 是 mean time between failures，MTTR 是 mean time to
-repair，也就是说， <span class="math display">\[
-\begin{align*}
-\text{MTBF} &amp; = \frac{\text{uptime}}{\# \text{ of failures}}, \\
-\text{MTBF} &amp; = \frac{\text{downtime}}{\# \text{ of failures}}.
-\end{align*}
-\]</span></p>
-<h4
-id="基于时间的可用性time-based-availability">基于时间的可用性（Time-Based
-Availability）</h4>
-<p><span class="math display">\[
-\text{TBA} = \frac{\text{uptime}}{\text{uptime} + \text{downtime}}.
-\]</span></p>
-<p>或者等价地，<span class="math inline">\(\text{TBA} =
-\text{MTBF}/(\text{MTBF} + \text{MTTR})\)</span>。</p>
-<h4 id="合计可用性aggregate-availability">合计可用性（Aggregate
-Availability）</h4>
-<p><span class="math display">\[
-\text{AA} = \frac{\text{successful requests}}{\text{total requests}}.
-\]</span></p>
-<h4 id="错误预算">错误预算</h4>
-<p>即容许错误次数，可以通过 SLO 来计算（总请求次数乘以 SLO
-规定的比例）。好处在于可以决定发布版本的频率。</p>
-<h3 id="服务质量目标service-level-objectives">服务质量目标（Service
-Level Objectives）</h3>
-<h4 id="相关术语">相关术语</h4>
-<ul>
-<li>服务水平指标（Service Level
-Indicator，SLI）：定量指标，用来测量某个方面的服务水平
-<ul>
-<li>例如：请求延迟、错误率、系统吞吐量、可用性</li>
-<li>通常会在一个时间窗口内聚合计算，如速率、平均值或百分位数</li>
-</ul></li>
-<li>服务水平目标（Service Level Objective，SLO）：针对某个 SLI
-设定的目标值或值范围，应该是优先工作的主要驱动因素。
-<ul>
-<li>例如：每个请求的平均延迟应该小于 <span
-class="math inline">\(100\;\mathrm{ms}\)</span></li>
-</ul></li>
-<li>服务水平协议（Service Level
-Agreements，SLA）：与用户的明确或隐含的合同，包括达成 SLO 或未达成 SLO
-的后果。</li>
-</ul>
-<h4 id="实践中的指标">实践中的指标</h4>
-<p><strong>哪些指标？</strong></p>
-<ul>
-<li>面向用户的服务系统（例如前端）：可用性（availability），延迟（latency），吞吐量（throughput）。</li>
-<li>存储系统：延迟、可用性、持久性（durability）。</li>
-<li>大数据系统：吞吐量、端到端延迟（end-to-end latency）。</li>
-</ul>
-<p><strong>如何收集？</strong></p>
-<ul>
-<li>服务端：Prometheus/Zabbix/Borgmon 系统、周期性日志分析</li>
-<li>客户端：客户端检测工具</li>
-</ul>
-<h3 id="琐事toil">琐事（Toil）</h3>
-<h4 id="概念-2">概念</h4>
-<p>与运营生产服务相关的工作，它往往是手动的（manual）、重复性的（repetitive）、可自动化的（automatable）、战术性的（tactical），没有持久价值（devoid
-of enduring value），随着服务的增长而呈线性增长。</p>
-<h4
-id="尽量消除琐事eliminating-toil的相关目标">尽量消除琐事（Eliminating
-Toil）的相关目标</h4>
-<p>将每个 SRE 消耗在琐事上的时间控制在 <span
-class="math inline">\(50\%\)</span> 以下。至少 <span
-class="math inline">\(50\%\)</span>
-的时间应该花在要么减少未来琐事，要么增加服务 feature 的项目上。</p>
-<p><strong>SRE 的典型活动类别</strong></p>
-<ul>
-<li>软件工程：编写或修改代码，包括任何相关的设计和文档工作。</li>
-<li>系统工程：配置生产系统，修改配置等。</li>
-<li>琐事：直接与运行服务相关的重复性、手动等工作。</li>
-<li>日常工作：不直接与运行服务相关的行政工作。</li>
-</ul>
-<h3 id="分布式系统的监控">分布式系统的监控</h3>
-<h4 id="黑盒监控">黑盒监控</h4>
-<p>症状导向，代表实际出现的而非预测的问题，表示"系统现在无法正常工作"。是在测试中外部可见的一些异常行为。</p>
-<p><strong>四大黄金监控信号</strong></p>
-<ol type="1">
-<li>延迟（Latency）：服务请求的响应时间。</li>
-<li>流量（Traffic）：系统承受的请求量，用一个高层系统特定指标来衡量。</li>
-<li>错误（Errors）：失败请求的比率。</li>
-<li>饱和度（Saturation）：系统使用率，关注最受限的资源。
-<ul>
-<li>可以通过监控 <span class="math inline">\(1\)</span> 分钟内的 <span
-class="math inline">\(99\%\)</span> 响应时间来快速检测饱和度。</li>
-</ul></li>
-</ol>
-<h4 id="白盒监控">白盒监控</h4>
-<p>依赖于对系统内部的检查。可以检测即将到来的问题、被重试掩盖的故障等。</p>
-<p>是一些内部指标，例如 logs：JVM logs，HTTP logs 等。</p>
-<h3
-id="紧急警报的基本哲学fundamental-philosophy-on-pages">紧急警报的基本哲学（Fundamental
-Philosophy on Pages）</h3>
-<ul>
-<li>每当被 pager
-唤醒时，我都应该以强烈的紧迫感做出反应。但一天之内只能有几次这种紧迫感，否则会疲惫不堪。</li>
-<li>每次被 pager 唤醒都应该是可采取行动的（actionable）。</li>
-<li>每次页面响应都应该需要人类智能（human
-intelligence）。如果一个页面只需要机器人式的响应，它就不应该触发
-pager。</li>
-<li>Pages 应该关注一个全新的问题或以前未见过的事件。</li>
-<li>应该找出问题的根源并消除它；如果无法解决根本问题，那么这种警报响应就应该被完全自动化。</li>
-</ul>
-<h3 id="on-call-轮值原则being-on-call">On-call 轮值原则（Being
-On-Call）</h3>
-<h4 id="概念-3">概念</h4>
-<p>轮值工程师需要在工作时间和<strong>非工作时间</strong>都保持联系。</p>
-<p><strong>例子</strong></p>
-<ul>
-<li>接到 pager
-通知后，轮值工程师需要立即进行问题诊断和解决，可能需要与其他团队成员协作，并根据需要进行升级。</li>
-<li>目标 <span class="math inline">\(99.99\%\)</span> 可用性 <span
-class="math inline">\(\to\)</span> 每季度错误预算 <span
-class="math inline">\(13\;\mathrm{min}\)</span> 分钟 <span
-class="math inline">\(\to\)</span> <span
-class="math inline">\(5\;\mathrm{min}\)</span> 内启动操作</li>
-<li>对于不紧急的事件，给予 <span
-class="math inline">\(30\;\mathrm{min}\)</span> 响应时间</li>
-<li>非页面事件在工作时间内以较低优先级处理</li>
-</ul>
-<h4 id="作用">作用</h4>
-<p>保持服务的可靠性和可用性。</p>
-<h3
-id="有效的故障排查手段effective-troubleshooting">有效的故障排查手段（Effective
-Troubleshooting）</h3>
-<h4 id="假说演绎法">假说演绎法</h4>
-<pre><code class="highlight mermaid">graph TD
-A(Problem Report) --&gt; B[Triage]
-
-B --&gt; C[Examine]
-C --&gt; D[Diagnose]
-D --&gt; E[Test/Treat]
-E --&gt; C
-E -.-&gt;|Consider re-triaging if situation changes| B
-
-E --&gt; F(Cure)</code></pre>
-<h4 id="常见错误">常见错误</h4>
-<ul>
-<li>关注不相关的症状，或误解系统指标的含义</li>
-<li>误解如何改变系统、输入或环境来安全有效地验证假设</li>
-<li>提出非常不太可能的错误理论，或者死死抓住过去问题的原因，认为既然发生过一次就一定又发生了</li>
-<li>在多种可能解释中优先选择较简单的解释（奥卡姆剃刀原则）</li>
-<li>追踪虚假相关性，这可能只是巧合或由共同因素引起的相关性</li>
-<li><strong>相关性并不等同于因果关系</strong></li>
-</ul>
-<h4 id="过程">过程</h4>
-<ul>
-<li>Problem
-Report：有效的问题报告应包括预期行为、实际行为，以及尽可能重现问题的步骤。可以记录调查和修复活动的日志，方便未来参考。</li>
-<li>Triage：评估问题的严重程度，首要任务是止血：尽可能让系统在当前环境下运行得更好。</li>
-<li>Examine：检查系统中的每个组件，查看所有监控指标，例如各种 log。</li>
-<li>Diagnose：关注组件之间的连接关系，或者数据流，来判断每个组件是否正常工作。
-<ul>
-<li>从系统的一端开始，逐步向另一端检查每个组件。</li>
-<li>找出
-What（出现问题的功能在做什么）Why（为什么会有这样的表现）Where（数据资源从哪里获得的，被存放到了哪里）</li>
-<li>检查“最后改动了什么”。</li>
-</ul></li>
-</ul>
-<h4 id="总结">总结</h4>
-<p><strong>构建可观察性</strong></p>
-<ul>
-<li>从根本上为每个组件都建立白盒指标和结构化日志</li>
-<li>记录工作流程和变更情况</li>
-<li>设计组件之间有良好理解和可观察的接口</li>
-<li>确保系统内部信息以一致的方式可用，以加快问题诊断和恢复速度</li>
-</ul>
-<p><strong>采取系统的故障排查方法</strong></p>
-<ul>
-<li>不要依赖运气或经验，而是采用系统的方法</li>
-<li>这可以帮助缩短服务恢复时间，提升用户体验</li>
-</ul>
-<h3 id="紧急事件响应emergency-response">紧急事件响应（Emergency
-Response）</h3>
-<h4 id="类型">类型</h4>
-<ul>
-<li>Test (Controlled failures)-induced emergency<br />
-</li>
-<li>Change-induced emergency</li>
-<li>Process-induced emergency</li>
-</ul>
-<h4 id="注意事项">注意事项</h4>
-<p><strong>所有问题都有解决方案</strong></p>
-<ul>
-<li>时间和经验都证明，系统不仅会出现故障，而且会以前所未有的方式出现故障</li>
-<li>多与团队成员合作，寻求帮助，采取各种必要措施，但要尽快行动</li>
-<li>在应急情况得到缓解后，一定要腾出时间进行清理、撰写事故报告,</li>
-</ul>
-<p><strong>从过去中吸取教训，不要重复犯错</strong></p>
-<ul>
-<li>记录历史中断事件，记录预防策略和方法</li>
-<li>提出大胆的“如果”假设性问题</li>
-<li>鼓励主动进行测试</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】软件工程</title>
     <url>/2024/04/20/SE/</url>
     <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。</p>
@@ -13320,308 +13486,6 @@ alt="2" />
       </tags>
   </entry>
   <entry>
-    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
-    <url>/2023/09/10/2023Summer-Java/</url>
-    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
-夏）。</p>
-<p><a
-href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
-下载地址</a></p>
-<p>GitHub repo 在 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
-<p><strong>目录</strong></p>
-<ul>
-<li>News App(头条大师)
-<ul>
-<li>作业描述</li>
-<li>代码结构</li>
-<li>具体实现
-<ul>
-<li>新闻详情获取</li>
-<li>新闻列表上拉刷新下划加载</li>
-<li>图片展示和视频播放</li>
-<li>修改列表分类时的抖动特效</li>
-<li>新闻查找</li>
-<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
-<li>对手机“返回键”行为的处理</li>
-</ul></li>
-<li>遇到的问题及其解决方法
-<ul>
-<li>JDK 安装包重复导入的问题</li>
-<li>如何通过报错信息查找 bug</li>
-<li>查找新闻时的时间范围设置</li>
-<li>视频播放问题</li>
-<li>repo 回滚</li>
-</ul></li>
-<li>总结和心得</li>
-</ul></li>
-</ul>
-<span id="more"></span>
-<h2 id="作业描述">作业描述</h2>
-<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
-app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
-让大家随时随地掏出手机即可看天下事，手机新闻 app
-不再是一个简简单单的新闻获取工具，许多 app
-已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
-<a href="https://www.toutiao.com/">今日头条</a>、<a
-href="http://www.ttkbao.com/">天天快报</a> 等。</p>
-<p>现在让我们也来尝试一下做一个新闻
-app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
-<a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
-进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
-Java 和 Android 开发知识实现一个新闻客户端即可。</p>
-<h2 id="代码结构">代码结构</h2>
-<p>代码结构如下图所示。</p>
-<pre><code class="highlight mermaid">flowchart LR
-    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
-    A --&gt; C(service)
-    A --&gt; D(ui)
-    A --&gt; E[MainActivity.java]
-    A --&gt; F[MyApplication.java]
-
-    B --&gt; G[Category.java]
-    B --&gt; H[News.java]
-    B --&gt; I[Page.java]
-    B --&gt; J[User.java]
-
-    C --&gt; K[DBManager.java]
-    C --&gt; L[FetchFromAPIManager.java]
-    C --&gt; M[MySQLiteOpenHelper.java]
-    C --&gt; N[NewsManager.java]
-    C --&gt; O[PictureLoader.java]
-    C --&gt; P[TaskRunner.java]
-    C --&gt; Q[Utils.java]
-
-    D --&gt; R[EndlessRecyclerViewScrollListener.java]
-    D --&gt; S[NewsDetailFragment.java]
-    D --&gt; T[NewsListAdapter.java]
-    D --&gt; U[NewsListFragment.java]
-    D --&gt; V[RecordListFragment.java]
-    D --&gt; W[SearchFragment.java]
-    D --&gt; X[SearchListFragment.java]
-    D --&gt; Y[SelectPaddleAdapter.java]
-    D --&gt; Z[SelectPaddleFragment.java]
-    D --&gt; AA[TabListFragment.java]
-    D --&gt; AB[UserPageFragment.java]
-    D --&gt; AC[VideoFragment.java]</code></pre>
-<ul>
-<li><code>data</code>
-<ul>
-<li><code>Category.java</code>
-是一个枚举类，包含可被搜索的八个分类。</li>
-<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
-<code>title</code>，<code>content</code> 等属性。</li>
-<li><code>Page.java</code>
-是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
-<li><code>User.java</code>
-是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
-</ul></li>
-<li><code>service</code>
-<ul>
-<li><code>DBManager.java</code> 用于数据库管理。</li>
-<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
-<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
-<li><code>NewsManager.java</code>
-用于新闻相关处理，包含已浏览新闻列表的读写。</li>
-<li><code>PictureLoader.java</code> 用于展示图片。</li>
-<li><code>TaskRunner.java</code> 用于管理进程。</li>
-<li><code>Utils.java</code>
-是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
-</ul></li>
-<li><code>ui</code>
-<ul>
-<li><code>EndlessRecyclerViewScrollListener.java</code>
-是展示新闻列表所需要的 Listener。</li>
-<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
-Fragment。</li>
-<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
-Adapter。</li>
-<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
-Fragment。</li>
-<li><code>RecordListFragment.java</code>
-是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
-<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
-<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
-Fragment。</li>
-<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
-Adapter。</li>
-<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
-Fragment。</li>
-<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
-Fragment。</li>
-<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
-<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
-</ul></li>
-<li><code>MainActivity.java</code></li>
-<li><code>MyApplication.java</code></li>
-</ul>
-<h2 id="具体实现">具体实现</h2>
-<h3 id="新闻详情获取">新闻详情获取</h3>
-<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
-<code>JSONObject</code>
-等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
-格式的数据。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于我在 <code>data/News.java</code> 这个类中重载了由
-<code>JSONObject</code> 构造 <code>News</code>
-的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
-项构造每条新闻：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
-<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
-中，通过重载 <code>onScrolled()</code>
-方法，来实现下划加载更多新闻的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过在 <code>ui/NewsListFragment.java</code> 和
-<code>ui/SearchListFragment.java</code> 中对
-<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
-Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
-方法从而达到新闻列表刷新的效果。</p>
-<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
-<p>图片展示使用的是 Glide 和 ImageView。在
-<code>service/PictureLoader.java</code>
-中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
-<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
-<code>onCreateView()</code> 重载如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
-<p>我在 <code>res/anim/shake_animation.xml</code>
-中设置了每个分类的抖动特效：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但若直接设置，会导致每个分类抖动的行为
-<strong>一模一样</strong>。所以我在
-<code>ui/SelectPaddleAdapter.java</code>
-中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
-<strong>随机抖动</strong> 的效果：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
-<h3 id="新闻查找">新闻查找</h3>
-<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
-<p>其次，我设置了 <strong>可复选的</strong>
-分类选择框。在查询时，多个分类用
-<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
-<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
-DatePicker 组件来接受查询的时间范围。</p>
-<p>接收到了这些查询的信息之后，利用
-<code>service/FetchFromAPIManager.java</code> 中的
-<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
-<h3
-id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
-<p>具体的新闻详情使用 SQLite
-数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
-<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
-<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
-Map，<code>service/NewsManager.java</code>
-中展示了这一过程。而通过一个新闻的
-<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
-来找到对应它新闻详情。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
-<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
-Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
-<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
-<code>onBackButtonClicked()</code>
-函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
-<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
-<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
-2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
-<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
-<code>firstTime</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
-的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
-<code>super.onBackPressed()</code> 方法即可。</p>
-<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
-<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
-<p>由于新版本的 JDK 移除了
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
-<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
-Android
-库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
-<p>经过查找相关资料，我通过 <a
-href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
-- 大数据知识库</a> 和 <a
-href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
-get a Duplicate Class error when running my Android project -
-StackOverflow</a> 两个网站检索到了解决方案。</p>
-<p>在 <code>app/build.gradle.kts</code>
-中添加以下代码即可解决此问题。</p>
-<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
-<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
-<code>Log.d(FILE_NAME, MSG);</code>
-的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
-是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
-是个性化的调试信息，一般为某个数据，或者是“Button
-Clicked”这样的信息。</p>
-<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
-<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
-href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
-插件，但我希望能够 <strong>使起始时间的 DatePicker
-能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
-<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
-DatePicker 上的日期改变时，就检查开始时间的 DatePicker
-上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
-DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
-的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
-DatePicker
-的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="视频播放问题">视频播放问题</h3>
-<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
-我查询到了该视频的地址为
-<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
-<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
-<blockquote>
-<p>默认情况下，Android 9（API 级别
-28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
-这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
-<strong>与非加密的服务器通信或调试时</strong>。</p>
-</blockquote>
-<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
-传输，所以需要将 <code>res/xml/network_security_config.xml</code>
-中的代码更改为：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3
-id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
-<p>最初我遇到了一个
-bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
-<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
-<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="repo-回滚">repo 回滚</h3>
-<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
-href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
-Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
-bug，并且我逐步排查 Logcat 也毫无头绪。</p>
-<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
-的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
-的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
-listener 没有得到 notify 导致的。</p>
-<h2 id="总结和心得">总结和心得</h2>
-<p>在整个开发过程中，我遇到了 <a
-href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
-Java 的熟练程度，并且初步认识到了 Android
-应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
-的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
-<p>感谢清华大学计算机系 <a
-href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
-老师的指导，助教们在微信群中的答疑，以及 <a
-href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
-提供的 <a
-href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
-]]></content>
-      <categories>
-        <category>课程报告</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Android</tag>
-        <tag>程序设计训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【游记】2023 暑假重庆璧山乡村振兴实践</title>
     <url>/2023/07/01/2023Chongqing-Social-Practice/</url>
     <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
@@ -14286,55 +14150,305 @@ href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
       </tags>
   </entry>
   <entry>
-    <title>【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年</title>
-    <url>/2024/04/30/From-Taizihu-to-Wansongyuan/</url>
-    <content><![CDATA[<p>武汉外国语学校是在周恩来、陈毅等老一代国家领导人亲切关怀下，于 1964
-创建的全国首批七所外国语学校之一。作为一名从外小、外初到外高，在武汉外国语学校中度过了十二个春秋的学生，我深受外校的滋养：外校不仅含辛茹苦地哺育了我，还启迪了我的思想，塑造了我的性格。今年，这所名校终于迎来了它的
-60
-周年校庆。在这个值得纪念的校庆之际，我写下这篇文章，献给我深爱的母校。</p>
+    <title>【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023 夏）</title>
+    <url>/2023/09/10/2023Summer-Java/</url>
+    <content><![CDATA[<p>清华大学计算机系暑期课程《程序设计训练》(Java) 大作业报告（2023
+夏）。</p>
+<p><a
+href="https://cloud.tsinghua.edu.cn/d/4757cf947e964d1797e4/files/?p=%2FNewsApp.apk">NewsApp(头条大师)
+下载地址</a></p>
+<p>GitHub repo 在 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a></p>
+<p><strong>目录</strong></p>
+<ul>
+<li>News App(头条大师)
+<ul>
+<li>作业描述</li>
+<li>代码结构</li>
+<li>具体实现
+<ul>
+<li>新闻详情获取</li>
+<li>新闻列表上拉刷新下划加载</li>
+<li>图片展示和视频播放</li>
+<li>修改列表分类时的抖动特效</li>
+<li>新闻查找</li>
+<li>浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序</li>
+<li>对手机“返回键”行为的处理</li>
+</ul></li>
+<li>遇到的问题及其解决方法
+<ul>
+<li>JDK 安装包重复导入的问题</li>
+<li>如何通过报错信息查找 bug</li>
+<li>查找新闻时的时间范围设置</li>
+<li>视频播放问题</li>
+<li>repo 回滚</li>
+</ul></li>
+<li>总结和心得</li>
+</ul></li>
+</ul>
 <span id="more"></span>
-<h2 id="一">一</h2>
+<h2 id="作业描述">作业描述</h2>
+<p>互联网科技的发展让新闻的传播从报纸、广播、电视等方式发展到了网页以及最近几年兴起的手机
+app 客户端，人们获取新闻的方式变得异常容易。手机上的新闻 app
+让大家随时随地掏出手机即可看天下事，手机新闻 app
+不再是一个简简单单的新闻获取工具，许多 app
+已经利用数据挖掘构建出了新闻推荐引擎，为用户提供个性化、更有价值的新闻，例如
+<a href="https://www.toutiao.com/">今日头条</a>、<a
+href="http://www.ttkbao.com/">天天快报</a> 等。</p>
+<p>现在让我们也来尝试一下做一个新闻
+app！本次大作业的任务就是实现一款浏览新闻的工具类软件。其中，抓取新闻由
+<a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程实验室</a>
+进行，并提供了访问新闻的接口，同学们根据网络接口文档和作业要求利用课上所学的
+Java 和 Android 开发知识实现一个新闻客户端即可。</p>
+<h2 id="代码结构">代码结构</h2>
+<p>代码结构如下图所示。</p>
+<pre><code class="highlight mermaid">flowchart LR
+    A&#123;&#123;News App&#125;&#125; --&gt; B(data)
+    A --&gt; C(service)
+    A --&gt; D(ui)
+    A --&gt; E[MainActivity.java]
+    A --&gt; F[MyApplication.java]
+
+    B --&gt; G[Category.java]
+    B --&gt; H[News.java]
+    B --&gt; I[Page.java]
+    B --&gt; J[User.java]
+
+    C --&gt; K[DBManager.java]
+    C --&gt; L[FetchFromAPIManager.java]
+    C --&gt; M[MySQLiteOpenHelper.java]
+    C --&gt; N[NewsManager.java]
+    C --&gt; O[PictureLoader.java]
+    C --&gt; P[TaskRunner.java]
+    C --&gt; Q[Utils.java]
+
+    D --&gt; R[EndlessRecyclerViewScrollListener.java]
+    D --&gt; S[NewsDetailFragment.java]
+    D --&gt; T[NewsListAdapter.java]
+    D --&gt; U[NewsListFragment.java]
+    D --&gt; V[RecordListFragment.java]
+    D --&gt; W[SearchFragment.java]
+    D --&gt; X[SearchListFragment.java]
+    D --&gt; Y[SelectPaddleAdapter.java]
+    D --&gt; Z[SelectPaddleFragment.java]
+    D --&gt; AA[TabListFragment.java]
+    D --&gt; AB[UserPageFragment.java]
+    D --&gt; AC[VideoFragment.java]</code></pre>
+<ul>
+<li><code>data</code>
+<ul>
+<li><code>Category.java</code>
+是一个枚举类，包含可被搜索的八个分类。</li>
+<li><code>News.java</code> 是一个类，用于描述一篇新闻，包含
+<code>title</code>，<code>content</code> 等属性。</li>
+<li><code>Page.java</code>
+是一个枚举类，包含当前页面可能处于的状态（如“新闻详情界面”“新闻列表界面”“搜索界面”等）。</li>
+<li><code>User.java</code>
+是一个类，用于描述用户个性化信息（如选择的分类）的读写。</li>
+</ul></li>
+<li><code>service</code>
+<ul>
+<li><code>DBManager.java</code> 用于数据库管理。</li>
+<li><code>FetchFromAPIManager.java</code> 用于新闻详情获取。</li>
+<li><code>MySQLiteOpenHelper.java</code> 用于数据库管理。</li>
+<li><code>NewsManager.java</code>
+用于新闻相关处理，包含已浏览新闻列表的读写。</li>
+<li><code>PictureLoader.java</code> 用于展示图片。</li>
+<li><code>TaskRunner.java</code> 用于管理进程。</li>
+<li><code>Utils.java</code>
+是一个类，包含了很多辅助的函数，如将一个枚举数组转化为字符串等。</li>
+</ul></li>
+<li><code>ui</code>
+<ul>
+<li><code>EndlessRecyclerViewScrollListener.java</code>
+是展示新闻列表所需要的 Listener。</li>
+<li><code>NewsDetailFragment.java</code> 是展示新闻详情的
+Fragment。</li>
+<li><code>NewsListAdapter.java</code> 是辅助展示新闻列表的
+Adapter。</li>
+<li><code>NewsListFragment.java</code> 是展示推荐界面新闻列表的
+Fragment。</li>
+<li><code>RecordListFragment.java</code>
+是展示浏览记录、收藏夹新闻列表的 Fragment。</li>
+<li><code>SearchFragment.java</code> 是搜索界面的 Fragment。</li>
+<li><code>SearchListFragment.java</code> 是展示搜索结果新闻列表的
+Fragment。</li>
+<li><code>SelectPaddleAdapter.java</code> 是辅助修改分类界面的
+Adapter。</li>
+<li><code>SelectPaddleFragment.java</code> 是修改分类界面的
+Fragment。</li>
+<li><code>TabListFragment.java</code> 是推荐界面上方分类栏的
+Fragment。</li>
+<li><code>UserPageFragment.java</code> 是用户主页的 Fragment。</li>
+<li><code>VideoFragment.java</code> 是播放视频的 Fragment。</li>
+</ul></li>
+<li><code>MainActivity.java</code></li>
+<li><code>MyApplication.java</code></li>
+</ul>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="新闻详情获取">新闻详情获取</h3>
+<p>新闻详情获取部分我使用了 <code>URLConnection</code> 和
+<code>JSONObject</code>
+等库，这样能方便地向学校提供的接口发送请求，以及获取返回的 JSON
+格式的数据。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> JSONObject <span class="title function_">getUrlResponse</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(url).openConnection();</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(connection.getInputStream()));</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(builder.toString());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException | JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于我在 <code>data/News.java</code> 这个类中重载了由
+<code>JSONObject</code> 构造 <code>News</code>
+的构造函数，所以可以在之后的过程中，直接由获取到的 JSONObject 中的 data
+项构造每条新闻：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">JSONArray</span> <span class="variable">data</span> <span class="operator">=</span> getUrlResponse(url).getJSONArray(<span class="string">&quot;data&quot;</span>); <span class="comment">// 获取 data 项</span></span><br><span class="line">    List&lt;News&gt; newsFeed = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; data.length(); i++) &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> data.getJSONObject(i);</span><br><span class="line">        newsFeed.add(<span class="keyword">new</span> <span class="title class_">News</span>(jsonObject)); <span class="comment">// 通过构造函数直接构造新闻</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newsFeed;</span><br><span class="line">&#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="新闻列表上拉刷新下划加载">新闻列表上拉刷新下划加载</h3>
+<p>在 <code>ui/EndlessRecyclerViewScrollListener.java</code>
+中，通过重载 <code>onScrolled()</code>
+方法，来实现下划加载更多新闻的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onScrolled</span><span class="params">(RecyclerView view, <span class="type">int</span> dx, <span class="type">int</span> dy)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">lastVisibleItemPosition</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">totalItemCount</span> <span class="operator">=</span> mLayoutManager.getItemCount();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> StaggeredGridLayoutManager) &#123;</span><br><span class="line">        <span class="type">int</span>[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">        lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mLayoutManager <span class="keyword">instanceof</span> LinearLayoutManager) &#123;</span><br><span class="line">        lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalItemCount &lt; previousTotalItemCount) &#123;</span><br><span class="line">        <span class="built_in">this</span>.currentPage = <span class="built_in">this</span>.startingPageIndex;</span><br><span class="line">        <span class="built_in">this</span>.previousTotalItemCount = totalItemCount;</span><br><span class="line">        <span class="keyword">if</span> (totalItemCount == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.loading = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (loading &amp;&amp; (totalItemCount &gt; previousTotalItemCount)) &#123;</span><br><span class="line">        loading = <span class="literal">false</span>;</span><br><span class="line">        previousTotalItemCount = totalItemCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!loading &amp;&amp; (lastVisibleItemPosition + visibleThreshold) &gt; totalItemCount) &#123;</span><br><span class="line">        currentPage++;</span><br><span class="line">        onLoadMore.onLoadMore(currentPage, totalItemCount, view);</span><br><span class="line">        loading = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过在 <code>ui/NewsListFragment.java</code> 和
+<code>ui/SearchListFragment.java</code> 中对
+<code>SwipeRefreshLayout</code> 和 <code>RecyclerView</code> 设置
+Listener，程序就能在合适的情况下调用 <code>reloadNews()</code>
+方法从而达到新闻列表刷新的效果。</p>
+<h3 id="图片展示和视频播放">图片展示和视频播放</h3>
+<p>图片展示使用的是 Glide 和 ImageView。在
+<code>service/PictureLoader.java</code>
+中，设置了随机占位图片，来解决图片还未加载出来时的图片显示问题。</p>
+<p>视频播放使用的是 VideoView。<code>ui/VideoFragment.java</code> 中的
+<code>onCreateView()</code> 重载如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> View <span class="title function_">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span><br><span class="line"><span class="params">                            Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> inflater.inflate(R.layout.fragment_video, container, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">VideoView</span> <span class="variable">videoView</span> <span class="operator">=</span> view.findViewById(R.id.videoView);</span><br><span class="line">        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(videoWebPath);</span><br><span class="line"></span><br><span class="line">        videoView.setVideoURI(uri);</span><br><span class="line">        videoView.setMediaController(<span class="keyword">new</span> <span class="title class_">MediaController</span>(getContext()));</span><br><span class="line">        videoView.requestFocus();</span><br><span class="line">        videoView.setOnCompletionListener(mp -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        videoView.setOnErrorListener((mp, what, extra) -&gt; <span class="literal">false</span>);</span><br><span class="line">        videoView.start();</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;isPlaying: &quot;</span> + videoView.isPlaying());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;VideoFragment&quot;</span>, <span class="string">&quot;failed&quot;</span> );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改列表分类时的抖动特效">修改列表分类时的抖动特效</h3>
+<p>我在 <code>res/anim/shake_animation.xml</code>
+中设置了每个分类的抖动特效：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:interpolator</span>=<span class="string">&quot;@android:anim/cycle_interpolator&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rotate</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromDegrees</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:toDegrees</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotX</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:pivotY</span>=<span class="string">&quot;50%&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatCount</span>=<span class="string">&quot;infinite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:repeatMode</span>=<span class="string">&quot;reverse&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但若直接设置，会导致每个分类抖动的行为
+<strong>一模一样</strong>。所以我在
+<code>ui/SelectPaddleAdapter.java</code>
+中设置了动画的持续时间为随机，这样就能够控制抖动的频率各不相同，实现
+<strong>随机抖动</strong> 的效果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">Animation</span> <span class="variable">shakeAnimation</span> <span class="operator">=</span> AnimationUtils.loadAnimation(mContext, R.anim.shake_animation);</span><br><span class="line">shakeAnimation.setDuration(random.nextInt(<span class="number">200</span>) + <span class="number">300</span>); <span class="comment">// 设置随机的持续时间</span></span><br><span class="line">view.setAnimation(shakeAnimation);</span><br></pre></td></tr></table></figure>
+<h3 id="新闻查找">新闻查找</h3>
+<p>首先，我设置了一个 SearchView 文本输入框，来接受关键词查询。</p>
+<p>其次，我设置了 <strong>可复选的</strong>
+分类选择框。在查询时，多个分类用
+<code>,</code>（半角逗号）隔开，可以同时查询“并”操作后的结果。</p>
+<p>同时，我设置了比传统的 TextEdit <strong>更加用户友好</strong> 的
+DatePicker 组件来接受查询的时间范围。</p>
+<p>接收到了这些查询的信息之后，利用
+<code>service/FetchFromAPIManager.java</code> 中的
+<code>handleSearch()</code> 方法来获取新闻列表及详情。</p>
+<h3
+id="浏览记录以及收藏夹的本地存储以及新闻列表的展示顺序">浏览记录以及收藏夹的本地存储，以及新闻列表的展示顺序</h3>
+<p>具体的新闻详情使用 SQLite
+数据库进行存储，<code>service/DBManager.java</code> 展示了这一过程。</p>
+<p>程序使用 SharedPreference 来本地存储一个从新闻列表的
+<code>newsID</code> 到最近一次访问/收藏它们的时间戳的
+Map，<code>service/NewsManager.java</code>
+中展示了这一过程。而通过一个新闻的
+<code>newsID</code>，就可以在数据库中读取的数据中通过另一个 Map
+来找到对应它新闻详情。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, News&gt; news = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到新闻的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; historyNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Long&gt; favoriteNews = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 从 newsID 到时间戳的 Map</span></span><br></pre></td></tr></table></figure>
+<p>应用实现了按照最后一次访问时间降序来排列浏览记录，按照最后一次收藏时间来排列收藏夹。在展示这两个列表的时候，就按照这两个
+Map 的 key 升序添加到列表中（那么就是降序从上到下展示的）即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;News&gt; <span class="title function_">getRecords</span><span class="params">(<span class="type">boolean</span> mode)</span> &#123; <span class="comment">// 0 for history, 1 for favorite</span></span><br><span class="line"></span><br><span class="line">    Log.d(<span class="string">&quot;NewsManager&quot;</span>, <span class="string">&quot;Trying to get news records.&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Long&gt; operand = mode ? favoriteNews : historyNews;</span><br><span class="line">    List&lt;Map.Entry&lt;String, Long&gt;&gt; entryList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(operand.entrySet());</span><br><span class="line">    entryList.sort(Comparator.comparingLong(Map.Entry::getValue));</span><br><span class="line"></span><br><span class="line">    List&lt;News&gt; response = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Long&gt; entry : entryList) &#123;</span><br><span class="line">        response.add(getNews(entry.getKey()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对手机返回键行为的处理">对手机“返回键”行为的处理</h3>
+<p>在 <code>app/MainAcitivity.java</code> 中，我重载了
+<code>onBackButtonClicked()</code>
+函数，用于处理在各个页面中按下“返回键”这一行为的处理方法。它的前提是，我使用
+<code>MyApplication.page</code> 维护了当前页面是哪个页面。</p>
+<p>对于推荐页面、搜索页面、用户页面，<strong>按下“返回键”会提示“再按一次返回键退出”</strong>，它能通过检查在此情况下
+2 秒内连续两次按下返回键之间的时间间隔来判断是否应该退出程序。在
+<code>app/MainActivity.java</code> 中维护了第一次按下“返回键”的时间戳
+<code>firstTime</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">secondTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">if</span> (secondTime - firstTime &gt;= <span class="number">2000</span>) &#123;</span><br><span class="line">    Toast.makeText(MainActivity.<span class="built_in">this</span>, <span class="string">&quot;再按一次返回键退出&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    firstTime = secondTime;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    finish();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于其他页面，只需要正确维护 <code>MyApplication.page</code>
+的值（比如，当前页是浏览记录新闻列表页面，那么就应该改为用户主页；当前页是收藏夹中的新闻详情，那么就应该改为收藏夹新闻列表页面），并且执行
+<code>super.onBackPressed()</code> 方法即可。</p>
+<h2 id="遇到的问题及其解决方法">遇到的问题及其解决方法</h2>
+<h3 id="jdk-安装包重复导入的问题">JDK 安装包重复导入的问题</h3>
+<p>由于新版本的 JDK 移除了
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0</code> 和
+<code>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0</code>，但老版本的
+Android
+库仍在使用它们，所以在导入时会产生重复导入同一个安装包的问题。</p>
+<p>经过查找相关资料，我通过 <a
+href="https://www.saoniuhuo.com/question/detail-2652728.html">运行Android项目时出现重复类错误
+- 大数据知识库</a> 和 <a
+href="https://stackoverflow.com/questions/76191980/i-get-a-duplicate-class-error-when-running-my-android-project">I
+get a Duplicate Class error when running my Android project -
+StackOverflow</a> 两个网站检索到了解决方案。</p>
+<p>在 <code>app/build.gradle.kts</code>
+中添加以下代码即可解决此问题。</p>
+<figure class="highlight kts"><table><tr><td class="code"><pre><span class="line">constraints &#123;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk7 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    implementation(<span class="string">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0&quot;</span>) &#123;</span><br><span class="line">        because(<span class="string">&quot;kotlin-stdlib-jdk8 is now a part of kotlin-stdlib&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何通过报错信息查找-bug">如何通过报错信息查找 bug</h3>
+<p>查找 bug 以及调试的过程是非常复杂的。我最后使用
+<code>Log.d(FILE_NAME, MSG);</code>
+的方式在必要的步骤前进行日志的记录。其中 <code>FILE_NAME</code>
+是当前文件名，这样我能知道日志信息的来源；<code>MSG</code>
+是个性化的调试信息，一般为某个数据，或者是“Button
+Clicked”这样的信息。</p>
+<h3 id="查找新闻时的时间范围设置">查找新闻时的时间范围设置</h3>
+<p>我在为用户提供设置查找记录时间范围的功能时，使用了 <a
+href="https://developer.android.com/reference/android/widget/DatePicker">DatePicker</a>
+插件，但我希望能够 <strong>使起始时间的 DatePicker
+能够选择的范围不晚于结束时间的 DatePicker 显示的范围</strong>。</p>
+<p>最后的解决办法是，在结束时间的 DatePicker 上加一个 Listener，每当该
+DatePicker 上的日期改变时，就检查开始时间的 DatePicker
+上的时间是否不晚于结束时间的 DatePicker 上日期。如果晚于，则将开始时间的
+DatePicker 的日期调整为结束时间。同时，每当结束时间的 DatePicker
+的日期改变时，就将开始时间的 DatePicker 的最大选择日期改为结束时间的
+DatePicker
+的日期。这样设置，可以让搜索界面设置时间的功能对用户更加友好。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">endDatePicker.init(endDatePicker.getYear(), endDatePicker.getMonth(), endDatePicker.getDayOfMonth(), (view12, year, monthOfYear, dayOfMonth) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar1</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar1.set(startDatePicker.getYear(), startDatePicker.getMonth(), startDatePicker.getDayOfMonth());</span><br><span class="line"></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">calendar2</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    calendar2.set(year, monthOfYear, dayOfMonth);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果起始时间的 DatePicker 晚于结束时间的 DatePicker</span></span><br><span class="line">    <span class="keyword">if</span> (calendar1.compareTo(calendar2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        calendar1 = calendar2;</span><br><span class="line">    &#125;</span><br><span class="line">    startDatePicker.setMaxDate(calendar2.getTimeInMillis());</span><br><span class="line">    startDatePicker.updateDate(calendar1.get(Calendar.YEAR), calendar1.get(Calendar.MONTH), calendar1.get(Calendar.DAY_OF_MONTH));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="视频播放问题">视频播放问题</h3>
+<p>在完善视频播放功能时，我发现视频无法播放。通过 Logcat
+我查询到了该视频的地址为
+<code>http://flv3.people.com.cn/dev1/mvideo/vodfiles/2021/09/07/2eb63e58f8c0b6cee1c2c1dde92940ef_c.mp4</code>。这说明，获取视频地址的过程没有问题；问题出在
+<strong>播放视频</strong> 的过程中。经过我查阅相关资料：</p>
 <blockquote>
-<p>“太子湖畔，清风鸣蝉”</p>
+<p>默认情况下，Android 9（API 级别
+28）及更高版本不允许应用程序发送或接收不加密的网络流量（即明文流量）。
+这是为了提高应用程序的安全性和数据保护，然而，某些情况下可能需要允许明文流量，例如
+<strong>与非加密的服务器通信或调试时</strong>。</p>
 </blockquote>
-<p>在小学部的学习生活给予了我广阔的国际视野。</p>
-<p>记得在那纯真的小学时光里，每年的“圣诞国际日”是我们最期待的活动。那一天，校园仿佛成为了世界的缩影，变成了一个五彩斑斓的世界地图；每个班级都代表着不同的国家，展示着各自的特色美食和文化。我们这些小小探险家，手持着收集印章的小本子，兴奋地在不同的国度间穿梭，体验着一场无需护照的环球旅行。</p>
-<p>我记得有一次我们班级被分配到了“印度”这一国家。在活动开始前，我们充满热情地搜集关于印度的资料，学习它的历史、文化和风俗。当天，我们的教室被装饰成了印度风格；女生身着莎丽，成为了印度文化的使者。最令人兴奋的是，我们还特别请来了一位擅长制作印度飞饼的厨师。他现场展示了制作飞饼的技艺，那旋转飞扬的面团，那在空中翻腾的飞饼，让我们目不转睛。当香喷喷的飞饼出锅时，我们都忍不住上前品尝，那酥脆可口的美味让我们回味无穷。</p>
-<p>虽然那个特别的日子已经成为了过去，但它在我心中留下的印记却是永恒的。“圣诞国际日”不仅让我对世界各地的风土人情有了初步的认识，更让我懂得了尊重和欣赏每一种文化的价值。在那段美好的时光里，我的视野被无限地拓展，我的知识面也在潜移默化中变得更加宽广。外小给了我一个探索世界的起点，让我在未来的日子里，总是怀揣着对未知的好奇和对世界的热爱。</p>
-<h2 id="二">二</h2>
-<blockquote>
-<p>“巍巍龟蛇哺育着世纪的学子，滚滚长江回荡着母亲的叮咛。”</p>
-</blockquote>
-<p>在初中部的学习生活为我提供了众多展示自己的机会。</p>
-<p>记得每次英语课上的 Duty
-Show，那是我们最期待的五分钟。在每节英语课的最初的 5
-分钟，都会有一位同学针对某个主题发表自己的看法，或是分享自己的兴趣和生活见闻。这个常规的语言训练项目锻炼了我们的语言表达能力和组织能力，每当轮到我上台，我总是积极展示自己，锻炼自己的英语口语能力，享受展示自我的过程。</p>
-<p>为了进一步提高我们对英语 Duty Show
-的兴趣和制作能力，初二英语年级组的老师们精心安排了一场 Duty Show
-大赛。我记得我和季瑞灼同学一起，以“Is Admiring Someone
-OK?”为主题，通过类似脱口秀的形式，展示了我们对“早恋”这一话题的看法。我们的脱口秀赢得了全场的掌声，最终获得了全场最高票，赢得了“最佳风采奖”。这次比赛不仅让我们的校园生活更加生动有趣，还提供了展示自我、锻炼能力的机会，我们无论是语言表达能力、公众演讲能力还是自信心，都得到了提高。</p>
-<p>除了 Duty Show 大赛，我在外初时还经历了英语卡拉 OK
-大赛、课本剧大赛、英语配音大赛等活动。感谢外初给予我的这些宝贵机会，它们让我在英语学习的道路上更加自信，也为我未来的发展奠定了坚实的基础。</p>
-<h2 id="三">三</h2>
-<blockquote>
-<p>“从这里走向世界和未来。”</p>
-</blockquote>
-<p>在高中部的学习生活提高了我的综合素质和学习能力。</p>
-<p>外高拥有着一流的师资力量和先进的教育资源。老师们不仅专业知识深厚，教学经验丰富，也注重培养学生的创新思维和批判性思考能力。除此之外，老师们的教学方法也极具特色。以我的班主任梅军老师为例，他曾在高一时就提出一个挑战：如果在任何一次大考中，班上所有人都能准确完成游标卡尺读数题目，他就请全班同学吃大餐。这个看似简单的目标，却是对我们细致入微、严谨治学的最好考验。遗憾的是，直到高考，我们班始终未能实现这一目标。虽然我们高中三年一次也没有完美过，但是高考结束后的
-6 月 10 日，拍完毕业照之后，他邀请全班 30
-名同学在天街享用了一顿烤肉自助餐，以此作为对我们高中三年努力的认可和奖励。</p>
-<p>这一道“小小的难题”，让我们明白了细节决定成败的道理。梅老师通过这个简单的例子，教会了我们对待学习要一丝不苟，对待生活要乐观向上。在他的影响下，我学会了如何面对挑战，如何在困难中坚持，如何在失败中汲取教训。</p>
-<h2 id="四">四</h2>
-<p>十二载春秋，转瞬即逝，在武汉外国语学校中度过的日子，甚至超越了我生命旅程的一半。太子湖畔的一花一木，万松园里的一草一树，都成为我记忆中不可或缺的部分；作为一个住读生，它们陪伴我的时光，甚至超过了我与父母共度的岁月。这些岁月里，我在武汉外国语学校这片沃土上播种梦想，收获知识，塑造自我，我做的每一件事都凝聚着学校的滋养和教诲。</p>
-<p>我仍然忘不了外小教学楼的一至五号门，不能记错它们各有各的开放时间；也忘不了每天下午“阳光空间”的课外锻炼时间，同学们在操场上奔跑跳跃的模样；我仍然忘不了外初悠长的上课铃和下课铃，也忘不了每周被“独立作业”所“折磨”的日子。记忆中最令我难忘的，是曾经位于外高操场上的秋千，还有和朋友们在操场上散步谈心的时光。</p>
-<p>愿武汉外国语学校在未来的岁月里继续她的辉煌，不断推动教育事业的发展，为国家培养出更多、更优秀的国际化人才；希望“爱国，好学，自强，图新”的校训激励一代又一代学子，为祖国的繁荣昌盛贡献力量。衷心祝贺我的母校——武汉外国语学校建校
-60 周年校庆快乐！</p>
+<p>由于该视频以 <code>HTTP</code> 而非 <code>HTTPS</code>
+传输，所以需要将 <code>res/xml/network_security_config.xml</code>
+中的代码更改为：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">network-security-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">base-config</span> <span class="attr">cleartextTrafficPermitted</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network-security-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3
+id="应用切换到后台时当前界面及数据如何保留">应用切换到后台时当前界面及数据如何保留</h3>
+<p>最初我遇到了一个
+bug：如果当前处于新闻详情页面，在应用切换到后台后，再切换到前台，会导致页面展示分类选项栏。最后，我重载了
+<code>ui/NewsDetailFragment.java</code> 中的 <code>onStop()</code> 和
+<code>onResume()</code> 方法来控制分类选项栏的显示和隐藏。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onStop();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onStop&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.VISIBLE);</span><br><span class="line">    <span class="keyword">if</span> (MyApplication.page == Page.NEWS)</span><br><span class="line">        MyApplication.getTopFragmentContainer().setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">super</span>.onResume();</span><br><span class="line">    Log.d(<span class="string">&quot;NewsDetailFragment&quot;</span>, <span class="string">&quot;onResume&quot;</span>);</span><br><span class="line">    MyApplication.getBottomNavigationView().setVisibility(View.GONE);</span><br><span class="line">    MyApplication.getTopFragmentContainer().setVisibility(View.GONE);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="repo-回滚">repo 回滚</h3>
+<p>整个开发过程中，我将代码托管在了 GitHub 上 <a
+href="https://github.com/LeverImmy/News-App/">LeverImmy/News-App</a>，并使用
+Git 作为版本控制工具。临近开发结束时，我的程序出现了闪退的
+bug，并且我逐步排查 Logcat 也毫无头绪。</p>
+<p>虽然当时我没有找到解决办法，但幸亏我每次 commit
+的信息都写得比较清楚，我最终选择 <strong>直接回滚到一个没有出现这个 bug
+的版本</strong>，然后重新对比代码进行复查。最后我发现这是由于线程进度不同使得一个
+listener 没有得到 notify 导致的。</p>
+<h2 id="总结和心得">总结和心得</h2>
+<p>在整个开发过程中，我遇到了 <a
+href="#遇到的问题及其解决方法">许多困难</a>，但能够一步一步地在网络上查找资料并且最终摸索出解决办法的经历，是十分有教育意义的。通过这次大作业，我增加了对
+Java 的熟练程度，并且初步认识到了 Android
+应用开发的过程。在找身边的同学、朋友试用我的 App 并且反馈 bug
+的过程中，我体会到了测试的重要性<del>以及调试代码的艰辛</del>。</p>
+<p>感谢清华大学计算机系 <a
+href="http://keg.cs.tsinghua.edu.cn/persons/xubin/">许斌</a>
+老师的指导，助教们在微信群中的答疑，以及 <a
+href="https://keg.cs.tsinghua.edu.cn/">清华大学计算机系知识工程研究室</a>
+提供的 <a
+href="https://api2.newsminer.net/svc/news/queryNewsList?size=&amp;startDate=&amp;endDate=&amp;words=&amp;categories=&amp;page=">新闻搜索接口</a>。</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>课程报告</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>Java</tag>
+        <tag>Android</tag>
+        <tag>程序设计训练</tag>
       </tags>
   </entry>
   <entry>
@@ -14658,6 +14772,58 @@ top，转入计算机系后摇身一变位于年级
       <tags>
         <tag>生活</tag>
         <tag>转专业</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【随笔】从太子湖到万松园——纪念武汉外国语学校建立 60 周年</title>
+    <url>/2024/04/30/From-Taizihu-to-Wansongyuan/</url>
+    <content><![CDATA[<p>武汉外国语学校是在周恩来、陈毅等老一代国家领导人亲切关怀下，于 1964
+创建的全国首批七所外国语学校之一。作为一名从外小、外初到外高，在武汉外国语学校中度过了十二个春秋的学生，我深受外校的滋养：外校不仅含辛茹苦地哺育了我，还启迪了我的思想，塑造了我的性格。今年，这所名校终于迎来了它的
+60
+周年校庆。在这个值得纪念的校庆之际，我写下这篇文章，献给我深爱的母校。</p>
+<span id="more"></span>
+<h2 id="一">一</h2>
+<blockquote>
+<p>“太子湖畔，清风鸣蝉”</p>
+</blockquote>
+<p>在小学部的学习生活给予了我广阔的国际视野。</p>
+<p>记得在那纯真的小学时光里，每年的“圣诞国际日”是我们最期待的活动。那一天，校园仿佛成为了世界的缩影，变成了一个五彩斑斓的世界地图；每个班级都代表着不同的国家，展示着各自的特色美食和文化。我们这些小小探险家，手持着收集印章的小本子，兴奋地在不同的国度间穿梭，体验着一场无需护照的环球旅行。</p>
+<p>我记得有一次我们班级被分配到了“印度”这一国家。在活动开始前，我们充满热情地搜集关于印度的资料，学习它的历史、文化和风俗。当天，我们的教室被装饰成了印度风格；女生身着莎丽，成为了印度文化的使者。最令人兴奋的是，我们还特别请来了一位擅长制作印度飞饼的厨师。他现场展示了制作飞饼的技艺，那旋转飞扬的面团，那在空中翻腾的飞饼，让我们目不转睛。当香喷喷的飞饼出锅时，我们都忍不住上前品尝，那酥脆可口的美味让我们回味无穷。</p>
+<p>虽然那个特别的日子已经成为了过去，但它在我心中留下的印记却是永恒的。“圣诞国际日”不仅让我对世界各地的风土人情有了初步的认识，更让我懂得了尊重和欣赏每一种文化的价值。在那段美好的时光里，我的视野被无限地拓展，我的知识面也在潜移默化中变得更加宽广。外小给了我一个探索世界的起点，让我在未来的日子里，总是怀揣着对未知的好奇和对世界的热爱。</p>
+<h2 id="二">二</h2>
+<blockquote>
+<p>“巍巍龟蛇哺育着世纪的学子，滚滚长江回荡着母亲的叮咛。”</p>
+</blockquote>
+<p>在初中部的学习生活为我提供了众多展示自己的机会。</p>
+<p>记得每次英语课上的 Duty
+Show，那是我们最期待的五分钟。在每节英语课的最初的 5
+分钟，都会有一位同学针对某个主题发表自己的看法，或是分享自己的兴趣和生活见闻。这个常规的语言训练项目锻炼了我们的语言表达能力和组织能力，每当轮到我上台，我总是积极展示自己，锻炼自己的英语口语能力，享受展示自我的过程。</p>
+<p>为了进一步提高我们对英语 Duty Show
+的兴趣和制作能力，初二英语年级组的老师们精心安排了一场 Duty Show
+大赛。我记得我和季瑞灼同学一起，以“Is Admiring Someone
+OK?”为主题，通过类似脱口秀的形式，展示了我们对“早恋”这一话题的看法。我们的脱口秀赢得了全场的掌声，最终获得了全场最高票，赢得了“最佳风采奖”。这次比赛不仅让我们的校园生活更加生动有趣，还提供了展示自我、锻炼能力的机会，我们无论是语言表达能力、公众演讲能力还是自信心，都得到了提高。</p>
+<p>除了 Duty Show 大赛，我在外初时还经历了英语卡拉 OK
+大赛、课本剧大赛、英语配音大赛等活动。感谢外初给予我的这些宝贵机会，它们让我在英语学习的道路上更加自信，也为我未来的发展奠定了坚实的基础。</p>
+<h2 id="三">三</h2>
+<blockquote>
+<p>“从这里走向世界和未来。”</p>
+</blockquote>
+<p>在高中部的学习生活提高了我的综合素质和学习能力。</p>
+<p>外高拥有着一流的师资力量和先进的教育资源。老师们不仅专业知识深厚，教学经验丰富，也注重培养学生的创新思维和批判性思考能力。除此之外，老师们的教学方法也极具特色。以我的班主任梅军老师为例，他曾在高一时就提出一个挑战：如果在任何一次大考中，班上所有人都能准确完成游标卡尺读数题目，他就请全班同学吃大餐。这个看似简单的目标，却是对我们细致入微、严谨治学的最好考验。遗憾的是，直到高考，我们班始终未能实现这一目标。虽然我们高中三年一次也没有完美过，但是高考结束后的
+6 月 10 日，拍完毕业照之后，他邀请全班 30
+名同学在天街享用了一顿烤肉自助餐，以此作为对我们高中三年努力的认可和奖励。</p>
+<p>这一道“小小的难题”，让我们明白了细节决定成败的道理。梅老师通过这个简单的例子，教会了我们对待学习要一丝不苟，对待生活要乐观向上。在他的影响下，我学会了如何面对挑战，如何在困难中坚持，如何在失败中汲取教训。</p>
+<h2 id="四">四</h2>
+<p>十二载春秋，转瞬即逝，在武汉外国语学校中度过的日子，甚至超越了我生命旅程的一半。太子湖畔的一花一木，万松园里的一草一树，都成为我记忆中不可或缺的部分；作为一个住读生，它们陪伴我的时光，甚至超过了我与父母共度的岁月。这些岁月里，我在武汉外国语学校这片沃土上播种梦想，收获知识，塑造自我，我做的每一件事都凝聚着学校的滋养和教诲。</p>
+<p>我仍然忘不了外小教学楼的一至五号门，不能记错它们各有各的开放时间；也忘不了每天下午“阳光空间”的课外锻炼时间，同学们在操场上奔跑跳跃的模样；我仍然忘不了外初悠长的上课铃和下课铃，也忘不了每周被“独立作业”所“折磨”的日子。记忆中最令我难忘的，是曾经位于外高操场上的秋千，还有和朋友们在操场上散步谈心的时光。</p>
+<p>愿武汉外国语学校在未来的岁月里继续她的辉煌，不断推动教育事业的发展，为国家培养出更多、更优秀的国际化人才；希望“爱国，好学，自强，图新”的校训激励一代又一代学子，为祖国的繁荣昌盛贡献力量。衷心祝贺我的母校——武汉外国语学校建校
+60 周年校庆快乐！</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
 </search>

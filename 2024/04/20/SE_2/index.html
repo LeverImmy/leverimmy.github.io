@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.picgo.net/2024/06/07/use-case9d5f93e2476d5f36.png">
 <meta property="article:published_time" content="2024-04-20T07:10:11.000Z">
-<meta property="article:modified_time" content="2024-06-07T12:50:31.303Z">
+<meta property="article:modified_time" content="2024-06-07T13:59:20.133Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="软件工程">
 <meta name="twitter:card" content="summary">
@@ -143,15 +143,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">软件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%BC%94%E5%8C%96%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">大型网站架构的演化发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">架构演化的价值观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%AF%AF%E5%8C%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">架构设计误区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%B9%E5%96%84"><span class="nav-number">1.1.3.</span> <span class="nav-text">并发处理能力的改善</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据库读写分离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">流媒体应用架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cdn"><span class="nav-number">1.2.1.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dash"><span class="nav-number">1.2.2.</span> <span class="nav-text">DASH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-server-%E5%92%8C-p2p-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">Client-Server 和 P2P 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.1.</span> <span class="nav-text">两种架构的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.2.</span> <span class="nav-text">两种架构的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BA%94%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">软件设计的五个原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%BD%E5%A4%84"><span class="nav-number">1.4.2.</span> <span class="nav-text">好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-number">1.5.</span> <span class="nav-text">高可用的两个关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="nav-number">1.5.1.</span> <span class="nav-text">可用性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E9%94%99%E6%80%A7"><span class="nav-number">1.5.2.</span> <span class="nav-text">容错性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84"><span class="nav-number">1.6.</span> <span class="nav-text">网站的高性能架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD"><span class="nav-number">1.6.1.</span> <span class="nav-text">对比不同视角下的网站性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.2.</span> <span class="nav-text">高性能缓存架构的三个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%AE%97%E6%B3%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">负载均衡技术及算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5%E7%89%B9%E7%82%B9"><span class="nav-number">1.7.1.</span> <span class="nav-text">微服务架构的概念、特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%8D%95%E4%BD%93monolith%E5%BA%94%E7%94%A8%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BA%94%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E7%BD%B2"><span class="nav-number">1.7.2.</span> <span class="nav-text">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">软件需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">软件需求的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">需求工程的特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E7%9A%84%E8%8E%B7%E5%8F%96%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">用户需求的获取过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B3%E9%81%93%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">泳道图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E6%A0%91%E7%BB%98%E5%88%B6"><span class="nav-number">2.4.</span> <span class="nav-text">判定树绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E7%9A%84%E8%AF%86%E5%88%AB%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">2.5.</span> <span class="nav-text">用例的识别和分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%86%E5%88%AB"><span class="nav-number">2.5.1.</span> <span class="nav-text">识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.5.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.6.</span> <span class="nav-text">顺序图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%89%AF%E5%A5%BD%E7%9A%84%E9%9C%80%E6%B1%82well-formed-requirement%E7%9A%84%E4%B8%89%E4%B8%AA%E8%A6%81%E6%B1%82"><span class="nav-number">2.7.</span> <span class="nav-text">定义良好的需求（Well-Formed
-Requirement）的三个要求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E6%94%B9%E5%86%99"><span class="nav-number">2.7.2.</span> <span class="nav-text">需求改写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E7%BC%BA%E9%99%B7%E7%9A%84%E4%BB%A3%E4%BB%B7%E6%88%B4%E7%BB%B4%E6%96%AF%E5%81%87%E8%AE%BEdavis-hypotheses"><span class="nav-number">2.8.</span> <span class="nav-text">需求缺陷的代价：戴维斯假设（Davis&#39;
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">软件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%BC%94%E5%8C%96%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">大型网站架构的演化发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E6%BC%94%E5%8C%96%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">架构演化的价值观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%AF%AF%E5%8C%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">架构设计误区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B%E7%9A%84%E6%94%B9%E5%96%84"><span class="nav-number">1.1.3.</span> <span class="nav-text">并发处理能力的改善</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">1.1.4.</span> <span class="nav-text">数据库读写分离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">流媒体应用架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cdn"><span class="nav-number">1.2.1.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dash"><span class="nav-number">1.2.2.</span> <span class="nav-text">DASH</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-server-%E5%92%8C-p2p-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">Client-Server 和 P2P 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.1.</span> <span class="nav-text">两种架构的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.2.</span> <span class="nav-text">两种架构的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BA%94%E4%B8%AA%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">软件设计的五个原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kiss-keep-it-simple-and-stupid"><span class="nav-number">1.4.1.</span> <span class="nav-text">KISS &#x3D; Keep It Simple and
+Stupid</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#modularity"><span class="nav-number">1.4.2.</span> <span class="nav-text">Modularity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#separation-of-concerns"><span class="nav-number">1.4.3.</span> <span class="nav-text">Separation of Concerns</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#design-for-change"><span class="nav-number">1.4.4.</span> <span class="nav-text">Design for CHANGE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#design-for-reuse"><span class="nav-number">1.4.5.</span> <span class="nav-text">Design for REUSE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-number">1.5.</span> <span class="nav-text">高可用的两个关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="nav-number">1.5.1.</span> <span class="nav-text">可用性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E9%94%99%E6%80%A7"><span class="nav-number">1.5.2.</span> <span class="nav-text">容错性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84"><span class="nav-number">1.6.</span> <span class="nav-text">网站的高性能架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD"><span class="nav-number">1.6.1.</span> <span class="nav-text">对比不同视角下的网站性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.2.</span> <span class="nav-text">高性能缓存架构的三个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%AE%97%E6%B3%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">负载均衡技术及算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5%E7%89%B9%E7%82%B9"><span class="nav-number">1.7.1.</span> <span class="nav-text">微服务架构的概念、特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%8D%95%E4%BD%93monolith%E5%BA%94%E7%94%A8%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BA%94%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E7%BD%B2"><span class="nav-number">1.7.2.</span> <span class="nav-text">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">软件需求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">软件需求的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">需求工程的特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E7%9A%84%E8%8E%B7%E5%8F%96%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">用户需求的获取过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B3%E9%81%93%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">泳道图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E5%AE%9A%E6%A0%91%E7%BB%98%E5%88%B6"><span class="nav-number">2.4.</span> <span class="nav-text">判定树绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E7%9A%84%E8%AF%86%E5%88%AB%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">2.5.</span> <span class="nav-text">用例的识别和分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%86%E5%88%AB"><span class="nav-number">2.5.1.</span> <span class="nav-text">识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.5.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%BB%98%E5%88%B6"><span class="nav-number">2.6.</span> <span class="nav-text">顺序图绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%89%AF%E5%A5%BD%E7%9A%84%E9%9C%80%E6%B1%82well-formed-requirement%E7%9A%84%E4%B8%89%E4%B8%AA%E8%A6%81%E6%B1%82"><span class="nav-number">2.7.</span> <span class="nav-text">定义良好的需求（Well-Formed
+Requirement）的三个要求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">2.7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E6%94%B9%E5%86%99"><span class="nav-number">2.7.2.</span> <span class="nav-text">需求改写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E7%BC%BA%E9%99%B7%E7%9A%84%E4%BB%A3%E4%BB%B7%E6%88%B4%E7%BB%B4%E6%96%AF%E5%81%87%E8%AE%BEdavis-hypotheses"><span class="nav-number">2.8.</span> <span class="nav-text">需求缺陷的代价：戴维斯假设（Davis&#39;
 Hypotheses）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E7%BB%B4"><span class="nav-number">3.</span> <span class="nav-text">软件运维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%BF%90%E7%BB%B4%E5%9C%A8%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E5%BC%80%E9%94%80%E5%8D%A0%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">软件运维在软件系统生命周期的开销占比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sre-%E7%9A%84%E4%BF%A1%E6%9D%A1tenets-of-sre"><span class="nav-number">3.2.</span> <span class="nav-text">SRE 的信条（Tenets of SRE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%A5%E6%8A%B1%E9%A3%8E%E9%99%A9%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.</span> <span class="nav-text">拥抱风险原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E6%80%A7reliability"><span class="nav-number">3.3.1.</span> <span class="nav-text">可靠性（Reliability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mtbf-%E5%92%8C-mttr-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">3.3.2.</span> <span class="nav-text">MTBF 和 MTTR 的计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7time-based-availability"><span class="nav-number">3.3.3.</span> <span class="nav-text">基于时间的可用性（Time-Based
 Availability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E8%AE%A1%E5%8F%AF%E7%94%A8%E6%80%A7aggregate-availability"><span class="nav-number">3.3.4.</span> <span class="nav-text">合计可用性（Aggregate
 Availability）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E9%A2%84%E7%AE%97"><span class="nav-number">3.3.5.</span> <span class="nav-text">错误预算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F%E7%9B%AE%E6%A0%87service-level-objectives"><span class="nav-number">3.4.</span> <span class="nav-text">服务质量目标（Service
-Level Objectives）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.4.1.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E6%8C%87%E6%A0%87"><span class="nav-number">3.4.2.</span> <span class="nav-text">实践中的指标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%90%E4%BA%8Btoil"><span class="nav-number">3.5.</span> <span class="nav-text">琐事（Toil）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="nav-number">3.5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E6%B6%88%E9%99%A4%E7%90%90%E4%BA%8Beliminating-toil%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9B%AE%E6%A0%87"><span class="nav-number">3.5.2.</span> <span class="nav-text">尽量消除琐事（Eliminating
+Level Objectives）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.4.1.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E6%8C%87%E6%A0%87"><span class="nav-number">3.4.2.</span> <span class="nav-text">实践中的指标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%90%E4%BA%8Btoil"><span class="nav-number">3.5.</span> <span class="nav-text">琐事（Toil）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">3.5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BD%E9%87%8F%E6%B6%88%E9%99%A4%E7%90%90%E4%BA%8Beliminating-toil%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9B%AE%E6%A0%87"><span class="nav-number">3.5.2.</span> <span class="nav-text">尽量消除琐事（Eliminating
 Toil）的相关目标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.</span> <span class="nav-text">分布式系统的监控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%91%E7%9B%92%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.1.</span> <span class="nav-text">黑盒监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BD%E7%9B%92%E7%9B%91%E6%8E%A7"><span class="nav-number">3.6.2.</span> <span class="nav-text">白盒监控</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%80%A5%E8%AD%A6%E6%8A%A5%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%93%B2%E5%AD%A6fundamental-philosophy-on-pages"><span class="nav-number">3.7.</span> <span class="nav-text">紧急警报的基本哲学（Fundamental
 Philosophy on Pages）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-call-%E8%BD%AE%E5%80%BC%E5%8E%9F%E5%88%99being-on-call"><span class="nav-number">3.8.</span> <span class="nav-text">On-call 轮值原则（Being
-On-Call）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-3"><span class="nav-number">3.8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">3.8.2.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E7%9A%84%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E6%89%8B%E6%AE%B5effective-troubleshooting"><span class="nav-number">3.9.</span> <span class="nav-text">有效的故障排查手段（Effective
+On-Call）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="nav-number">3.8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">3.8.2.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E7%9A%84%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E6%89%8B%E6%AE%B5effective-troubleshooting"><span class="nav-number">3.9.</span> <span class="nav-text">有效的故障排查手段（Effective
 Troubleshooting）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%87%E8%AF%B4%E6%BC%94%E7%BB%8E%E6%B3%95"><span class="nav-number">3.9.1.</span> <span class="nav-text">假说演绎法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">3.9.2.</span> <span class="nav-text">常见错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">3.9.3.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.9.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A7%E6%80%A5%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94emergency-response"><span class="nav-number">3.10.</span> <span class="nav-text">紧急事件响应（Emergency
 Response）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.10.1.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.10.2.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></div>
         </div>
@@ -245,7 +246,7 @@ Response）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-07 20:50:31" itemprop="dateModified" datetime="2024-06-07T20:50:31+08:00">2024-06-07</time>
+      <time title="修改时间：2024-06-07 21:59:20" itemprop="dateModified" datetime="2024-06-07T21:59:20+08:00">2024-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,7 +303,7 @@ I --&gt; J(分布式服务)</code></pre>
 </ul>
 <h4 id="并发处理能力的改善">并发处理能力的改善</h4>
 <ul>
-<li>通过负载均衡调度服务器，可将来自用户浏览器的访问请求分发到应用服务器集群中的任何⼀台服务器上，服务器的负载压⼒不再成为整个⽹站的瓶颈。</li>
+<li>通过负载均衡调度服务器，可将来自用户浏览器的访问请求分发到应用服务器集群中的任何一台服务器上，服务器的负载压⼒不再成为整个⽹站的瓶颈。</li>
 <li>部分数据库读操作（缓存访问不命中、缓存过期）和全部的写操作需要访问数据库。当负载压⼒过⾼时，数据库成为瓶颈。</li>
 </ul>
 <h4 id="数据库读写分离">数据库读写分离</h4>
@@ -317,19 +318,185 @@ I --&gt; J(分布式服务)</code></pre>
 <h4 id="两种架构的概念">两种架构的概念</h4>
 <h4 id="两种架构的区别">两种架构的区别</h4>
 <h3 id="软件设计的五个原则">软件设计的五个原则</h3>
-<h4 id="概念">概念</h4>
-<h4 id="好处">好处</h4>
+<h4 id="kiss-keep-it-simple-and-stupid">KISS = Keep It Simple and
+Stupid</h4>
+<h4 id="modularity">Modularity</h4>
+<p><strong>概念</strong></p>
+<p>Dividing complex system into simpler components. 强内聚，松耦合。</p>
+<p><strong>好处</strong></p>
+<ul>
+<li>开发更容易进行规划</li>
+<li>可以定义和交付软件增量</li>
+<li>更容易适应变更</li>
+<li>测试和调试可以更有效地进行</li>
+<li>长期维护可以在没有严重副作用的情况下进行</li>
+</ul>
+<h4 id="separation-of-concerns">Separation of Concerns</h4>
+<h4 id="design-for-change">Design for CHANGE</h4>
+<h4 id="design-for-reuse">Design for REUSE</h4>
 <h3 id="高可用的两个关键概念">高可用的两个关键概念</h3>
 <h4 id="可用性">可用性</h4>
+<p>可用性指的是系统掩藏或修复故障的能力，使得在指定时间间隔内累计服务中断时间不超过要求的值。</p>
 <h4 id="容错性">容错性</h4>
+<p>容错性是指即使硬件/软件/网络可靠性较低，分布式系统也能保持可用性。容错性无需用户或系统管理员参与，可以通过以下两种方式实现：</p>
+<ul>
+<li>Recovery (e.g., relying on equivalent services)</li>
+<li>Replication of components</li>
+</ul>
 <h3 id="网站的高性能架构">网站的高性能架构</h3>
 <h4 id="对比不同视角下的网站性能">对比不同视角下的网站性能</h4>
+<p><strong>用户视角</strong></p>
+<p>用户在浏览器上直观感受到的网站响应速度。</p>
+<ul>
+<li>用户计算机和网站服务器通信的时间</li>
+<li>网站服务器处理的时间</li>
+<li>用户计算机浏览器构造请求解析响应数据的时间</li>
+</ul>
+<p><strong>开发人员视角</strong></p>
+<p>应用程序本身及其相关子程序的性能。</p>
+<ul>
+<li>响应延迟</li>
+<li>系统吞吐量</li>
+<li>并发处理能力</li>
+<li>系统稳定性</li>
+</ul>
+<p><strong>维护人员视角</strong></p>
+<p>基础设施性能和资源利用率。</p>
+<ul>
+<li>网络运行商的带宽能力</li>
+<li>服务器硬件的配置</li>
+<li>数据中心网络架构</li>
+<li>服务器和网络带宽的资源利用率</li>
+</ul>
 <h4 id="高性能缓存架构的三个问题">高性能缓存架构的三个问题</h4>
+<p><strong>缓存穿透</strong></p>
+<p>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，如发起为
+ID 为 <span class="math inline">\(-1\)</span> 的数据或 ID
+特别大而不存在的数据。这时的用户很可能是攻击者，攻击会导致数据库压力过大。</p>
+<p>解决方案：</p>
+<ul>
+<li>接扣层增加校验，如用户鉴权校验，ID 做基础校验，ID <span
+class="math inline">\(\le 0\)</span> 的直接拦截；</li>
+<li>从缓存取不到的数据，在数据库中也没有取到，这时也可以将 key-value
+对写为 key-null，缓存有效时间可以设置短点，如 <span
+class="math inline">\(30\)</span>
+秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个
+ID 暴力攻击。</li>
+</ul>
+<p><strong>缓存雪崩</strong></p>
+<p>当缓存失效（过期）后引起系统性能急剧下降的情况。当缓存过期被清除后，业务系统需要重新生成缓存，因此需要再次访问存储系统，再次进行运算，这个处理步骤耗时几十毫秒甚至上百毫秒。而对于一个高并发的业务系统来说，几百毫秒内可能会接到几百上千个请求。由于旧的缓存已经被清除，新的缓存还未生成，并且处理这些请求的线程都不知道另外有一个线程正在生成缓存，因此所有的请求都会去重新生成缓存，都会去访问存储系统，从而对存储系统造成巨大的性能压力。这些压力又会拖慢整个系统，严重的会造成数据库宕机，从而形成一系列连锁反应，造成整个系统崩溃。</p>
+<p>解决方案：</p>
+<ul>
+<li>缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生。</li>
+<li>如果缓存数据库是分布式部署，将热点数据均匀分布在不同的缓存数据库中。</li>
+<li>设置热点数据永远不过期。</li>
+</ul>
+<p><strong>缓存热点</strong></p>
+<p>虽然缓存系统本身的性能比较高，但对于一些特别热点的数据，如果大部分甚至所有的业务请求都命中同一份缓存数据，则这份数据所在的缓存服务器的压力也很大。例如，某明星微博发布“我们”来宣告恋爱了，短时间内上千万的用户都会来围观。</p>
+<p>解决方案：</p>
+<ul>
+<li>复制多份缓存副本，将请求分散到多个缓存服务器上，减轻缓存热点导致的单台缓存服务器压力。以微博为例，对于粉丝数超过
+<span class="math inline">\(100\)</span> 万的明星，每条微博都可以生成
+<span class="math inline">\(100\)</span>
+份缓存，缓存的数据是一样的，通过在缓存的 key
+里面加上编号进行区分，每次读缓存时都随机读取其中某份缓存。</li>
+<li>缓存副本设计有一个细节需要注意，就是不同的缓存副本不要设置统一的过期时间，否则就会出现所有缓存副本同时生成同时失效的情况，从而引发缓存雪崩效应。正确的做法是设定一个过期时间范围，不同的缓存副本的过期时间是指定范围内的随机值。</li>
+</ul>
 <h4 id="负载均衡技术及算法">负载均衡技术及算法</h4>
+<p>在网站高并发访问的场景下，使用负载均衡技术为一个应用构建一个由多台服务器组成的服务器集群，将并发访问请求分发到多台服务器上处理，避免单一服务器因负载压力过大而响应缓慢，使用户请求具有更好的响应延迟特性。</p>
+<ul>
+<li>DNS 负载均衡</li>
+<li>硬件负载均衡</li>
+<li>软件负载均衡</li>
+</ul>
+<p><strong>算法</strong></p>
+<ul>
+<li>轮询
+<ul>
+<li>服务器不宕机、服务器与负载均衡器不断连</li>
+</ul></li>
+<li>加权轮询
+<ul>
+<li>服务器性能有差异</li>
+</ul></li>
+<li>负载最低优先
+<ul>
+<li>连接数、请求数、CPU 负载、I/O 负载</li>
+<li>需要采样</li>
+</ul></li>
+<li>性能最优优先
+<ul>
+<li>处理速度</li>
+<li>需要采样</li>
+</ul></li>
+<li>Hash
+<ul>
+<li>源地址</li>
+<li>ID</li>
+</ul></li>
+</ul>
+<p><strong>Web 前端性能优化</strong></p>
+<ul>
+<li>浏览器访问优化
+<ul>
+<li>减少 HTTP 请求</li>
+<li>使用浏览器缓存</li>
+<li>启用压缩</li>
+<li>CSS 放在页面最上面，JavaScript 放在页面最下面</li>
+<li>减少 Cookie 传输</li>
+</ul></li>
+<li>CDN 加速
+<ul>
+<li>内容分发网络，将数据缓存在离用户最近的地方，使用户以最快速度获取数据，即所谓网络访问第一跳</li>
+</ul></li>
+<li>反向代理
+<ul>
+<li>传统代理服务器位于浏览器一侧；反向代理位于网站机房一侧，代理网站 Web
+服务器接收 HTTP 请求</li>
+</ul></li>
+</ul>
+<p><strong>应用服务器性能优化</strong></p>
+<ul>
+<li>异步操作
+<ul>
+<li>使用消息队列将调用异步
+<ul>
+<li>不使用消息队列，用户的请求数据直接写入数据库，在高并发的情况下，会对数据库造成巨大的压力，响应延迟加剧。</li>
+<li>使用消息队列后，用户请求的数据发送给消息队列后立即返回，再由消息队列的消费者进程从消息队列中获取数据，异步写入数据库。</li>
+</ul></li>
+<li>消息队列有很好的削峰作用
+<ul>
+<li>通过异步处理，将短时间高并发产生的事务消息存储在消息队列中，从而削平高峰期的并发事务。</li>
+<li>在电子商务网站促销活动中，合理使用消息队列，可有效抵御促销活动刚开始大量涌入的订单对系统造成的冲击。</li>
+</ul></li>
+</ul></li>
+</ul>
 <h3 id="微服务架构">微服务架构</h3>
 <h4 id="微服务架构的概念特点">微服务架构的概念、特点</h4>
+<p><strong>概念</strong></p>
+<p>微服务架构是一种将单个应用程序开发为一套小型服务的方法，每个服务都在自己的进程中运行，并通过轻量级机制（通常是
+HTTP 资源 API）进行通信。</p>
+<p>这些服务是围绕业务功能构建的，可以通过完全自动化的部署机制独立部署。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>在已发布的接口中将服务作为构建块（组件）使用</li>
+<li>围绕业务功能来组织</li>
+<li>开发团队完全负责生产环境中的软件</li>
+<li>智能端点和简单管道（Smart endpoints and dumb pipes）</li>
+<li>语言的去中心化控制（Decentralized control of languages）
+<ul>
+<li>例如，去中心化的数据库</li>
+</ul></li>
+</ul>
 <h4
 id="对比单体monolith应用和微服务应用的区别数据库部署">对比单体（Monolith）应用和微服务应用的区别（数据库部署）</h4>
+<figure>
+<img
+src="https://img.picgo.net/2024/06/07/monolith-microservices-database-deployment1dc2050f3490eaa1.jpeg"
+alt="单体和微服务应用在数据库部署上的区别" />
+<figcaption
+aria-hidden="true">单体和微服务应用在数据库部署上的区别</figcaption>
+</figure>
 <h2 id="软件需求">软件需求</h2>
 <h3 id="软件需求的概念">软件需求的概念</h3>
 <p>需求是对应当执行的任务的规范说明，描述系统的行为特性或属性，是一种对系统开发进程的约束。</p>
@@ -416,7 +583,7 @@ alt="顺序图" />
 <h3
 id="定义良好的需求well-formed-requirement的三个要求">定义良好的需求（Well-Formed
 Requirement）的三个要求</h3>
-<h4 id="概念-1">概念</h4>
+<h4 id="概念">概念</h4>
 <ul>
 <li>可验证（Verifiable）：可以被验证。</li>
 <li>必要（Necessary）：指系统必须满足或拥有的条件，以解决利益相关方的问题或实现他们的目标。</li>
@@ -456,17 +623,17 @@ itself”.</p>
 <p>通过合理分配资源，SRE
 团队可以同时提高系统可靠性和团队效率。这种模式可以使得团队增长呈亚线性趋势。</p>
 <ul>
-<li><p>保证持续对工程的关注</p></li>
-<li><p>在不违反服务 SLO 的情况下，追求最大变更速度</p></li>
-<li><p>监控的紧急程度：警报（Alerts）（立即行动）&gt;工单（Tickets）（行动）&gt;日志（FYI）</p></li>
-<li><p>应急响应：</p>
+<li>保证持续对工程的关注</li>
+<li>在不违反服务 SLO 的情况下，追求最大变更速度</li>
+<li>监控的紧急程度：警报（Alerts）（立即行动）&gt;工单（Tickets）（行动）&gt;日志（FYI）</li>
+<li>应急响应：
 <ul>
 <li>可靠性取决于平均无故障时间（MTTF）和平均修复时间（MTTR）</li>
 <li>人工参与会增加响应延迟，尽可能实现自动化</li>
 <li>制定值班“手册”（可将 MTTR 提高 <span
 class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
 </ul></li>
-<li><p>变更管理：</p>
+<li>变更管理：
 <ul>
 <li><span class="math inline">\(70\%\)</span>
 的中断是由于对生产系统的变更引起的</li>
@@ -477,7 +644,7 @@ class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
 <li>在出现问题时安全地回滚变更</li>
 </ul></li>
 </ul></li>
-<li><p>需求预测和容量规划：</p>
+<li>需求预测和容量规划：
 <ul>
 <li>确保有足够的容量和冗余，以满足未来预期需求并达到所需的可用性</li>
 <li>三个必要步骤：
@@ -487,11 +654,11 @@ class="math inline">\(3\)</span> 倍）和“灾难演练”</li>
 <li>定期进行系统负载测试，以关联原始容量（服务器、磁盘等）和服务容量</li>
 </ol></li>
 </ul></li>
-<li><p>供给（Provisioning）：</p>
+<li>供给（Provisioning）：
 <ul>
 <li>结合变更管理和容量规划</li>
 </ul></li>
-<li><p>效率和性能：</p>
+<li>效率和性能：
 <ul>
 <li>有效利用资源可以节省大量成本</li>
 <li>应密切监控并维护性能（响应速度）</li>
@@ -571,7 +738,7 @@ Agreements，SLA）：与用户的明确或隐含的合同，包括达成 SLO �
 <li>客户端：客户端检测工具</li>
 </ul>
 <h3 id="琐事toil">琐事（Toil）</h3>
-<h4 id="概念-2">概念</h4>
+<h4 id="概念-1">概念</h4>
 <p>与运营生产服务相关的工作，它往往是手动的（manual）、重复性的（repetitive）、可自动化的（automatable）、战术性的（tactical），没有持久价值（devoid
 of enduring value），随着服务的增长而呈线性增长。</p>
 <h4
@@ -598,7 +765,7 @@ class="math inline">\(50\%\)</span>
 <li>错误（Errors）：失败请求的比率。</li>
 <li>饱和度（Saturation）：系统使用率，关注最受限的资源。
 <ul>
-<li>可以通过监控 <span class="math inline">\(1\)</span> 分钟内的 <span
+<li>例如：通过监控 <span class="math inline">\(1\)</span> 分钟内的 <span
 class="math inline">\(99\%\)</span> 响应时间来快速检测饱和度。</li>
 </ul></li>
 </ol>
@@ -620,7 +787,7 @@ pager。</li>
 </ul>
 <h3 id="on-call-轮值原则being-on-call">On-call 轮值原则（Being
 On-Call）</h3>
-<h4 id="概念-3">概念</h4>
+<h4 id="概念-2">概念</h4>
 <p>轮值工程师需要在工作时间和<strong>非工作时间</strong>都保持联系。</p>
 <p><strong>例子</strong></p>
 <ul>
@@ -701,7 +868,7 @@ Response）</h3>
 <ul>
 <li>时间和经验都证明，系统不仅会出现故障，而且会以前所未有的方式出现故障</li>
 <li>多与团队成员合作，寻求帮助，采取各种必要措施，但要尽快行动</li>
-<li>在应急情况得到缓解后，一定要腾出时间进行清理、撰写事故报告,</li>
+<li>在应急情况得到缓解后，一定要腾出时间进行清理、撰写事故报告</li>
 </ul>
 <p><strong>从过去中吸取教训，不要重复犯错</strong></p>
 <ul>
