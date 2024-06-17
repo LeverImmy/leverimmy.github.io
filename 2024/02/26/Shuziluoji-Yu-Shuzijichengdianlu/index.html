@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PROM71b96c1712bd3052.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-17T09:19:34.284Z">
+<meta property="article:modified_time" content="2024-06-17T11:51:04.959Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@ Quine-McCluskey 化简法（不考）</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-17 17:19:34" itemprop="dateModified" datetime="2024-06-17T17:19:34+08:00">2024-06-17</time>
+      <time title="修改时间：2024-06-17 19:51:04" itemprop="dateModified" datetime="2024-06-17T19:51:04+08:00">2024-06-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -828,13 +828,6 @@ t_{\text{Pd}} = \frac{1}{\text{\# of gates}} \cdot \frac{t_{\text{Pd}_1}
 <li><p>传输延迟的一个应用是<strong>自激震荡</strong></p>
 <p>最后一个门输出的信号与最先一个门输入的信号相反，则会产生自激震荡。</p></li>
 </ul>
-<p><strong>噪音容限</strong>：在前一级输出为最坏的情况下，为保证后一级正常工作，所允许的最大噪声幅度。噪音容限时叠加到正常输入值的最大的外部噪音电压，它不会在电路的输出产生不可预料的变化。</p>
-<figure>
-<img
-src="https://img.picgo.net/2024/03/18/3-noise-marginc73a962d698ef511.jpeg"
-alt="与非门的电压传输特性曲线" />
-<figcaption aria-hidden="true">与非门的电压传输特性曲线</figcaption>
-</figure>
 <p><strong>转移特性</strong>：门电路中输出电压随输入电压的变化特性。</p>
 <figure>
 <img
@@ -887,12 +880,33 @@ class="math inline">\(V_{\text{OL}} \le 0.35\;\mathrm{V}\)</span>（10
 </tr>
 </tbody>
 </table>
+<p><strong>噪音容限</strong>：在前一级输出为最坏的情况下，为保证后一级正常工作，所允许的最大噪声幅度。噪音容限时叠加到正常输入值的最大的外部噪音电压，它不会在电路的输出产生不可预料的变化。</p>
+<figure>
+<img
+src="https://img.picgo.net/2024/03/18/3-noise-marginc73a962d698ef511.jpeg"
+alt="与非门的电压传输特性曲线" />
+<figcaption aria-hidden="true">与非门的电压传输特性曲线</figcaption>
+</figure>
+<p>图中假设 <span class="math inline">\(V_{\text{O}} =
+f(V_{\text{I}})\)</span>，则在确定 <span
+class="math inline">\(V_{\text{ON}}\)</span> 和 <span
+class="math inline">\(V_{\text{OFF}}\)</span> 后，有 <span
+class="math display">\[
+\begin{align*}
+V_{\text{NL}} = V_{\text{OFF}} - f(V_{\text{ON}}), \\
+V_{\text{NH}} = f(V_{\text{OFF}}) - V_{\text{ON}}.
+\end{align*}
+\]</span> <span class="math inline">\(V_{\text{NL}}\)</span>
+的意义是，可将低电平输入信号 <span class="math inline">\(L\)</span>
+破坏的最小噪声，<span class="math inline">\(V_{\text{NH}}\)</span>
+的意义是，可将高电平输入信号 <span class="math inline">\(H\)</span>
+破坏的最小噪声。</p>
 <h4 id="ttl-与非门电路的级联">TTL 与非门电路的级联</h4>
 <p><strong>级联</strong>：前一个器件的输出就是后一个器件的输入，后一个是前一个的负载，两者要相互影响。</p>
 <p><strong>负载计算</strong>： <span class="math display">\[
 \begin{align*}
-I_{OH} = N \cdot I_{IH}, \\
-I_{OL} = N \cdot I_{IL}.
+I_{\text{OH}} = N \cdot I_{\text{IH}}, \\
+I_{\text{OL}} = N \cdot I_{\text{IL}}.
 \end{align*}
 \]</span>
 当负载数量超过理论值时，门电路进入非正常工作状态。负载大于与非门承受能力时，<strong>低电平变高，高电平变低</strong>。</p>
@@ -901,7 +915,7 @@ I_{OL} = N \cdot I_{IL}.
 <p>普通与非门不能直接线与在一起，因为 Totem
 输出结构的电路，是不能把它们的输出线与在一起的。</p>
 <p>否则，当一门电路的输出为 <span
-class="math inline">\(H\)</span>，另一为 <span
+class="math inline">\(H\)</span>，另一门输出为 <span
 class="math inline">\(L\)</span> 时，有大电流从 <span
 class="math inline">\(H\)</span> 端流向 <span
 class="math inline">\(L\)</span> 端，电流太大，会烧坏与非门。</p>
