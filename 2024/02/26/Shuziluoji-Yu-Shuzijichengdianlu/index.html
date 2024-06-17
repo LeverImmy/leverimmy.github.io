@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PROM71b96c1712bd3052.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-15T03:22:27.803Z">
+<meta property="article:modified_time" content="2024-06-17T02:25:26.963Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@ Quine-McCluskey 化简法</span></a></li><li class="nav-item nav-level-4"><a cla
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-15 11:22:27" itemprop="dateModified" datetime="2024-06-15T11:22:27+08:00">2024-06-15</time>
+      <time title="修改时间：2024-06-17 10:25:26" itemprop="dateModified" datetime="2024-06-17T10:25:26+08:00">2024-06-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,8 +310,21 @@ class="math inline">\(a, b\)</span> 相加的规则是</p>
 0011\)</span>​。</li>
 <li>如果 <span class="math inline">\(a + b \ge
 10\)</span>，则产生进位，所以和为 <span class="math inline">\(10000 + (a
-+ b - 0011) - 1010 = a + b + 0011\)</span>。</li>
++ b - 0011) - 1010 = a + b + 0011\)</span>​。
+<ul>
+<li>注意，这里的 <span class="math inline">\(10000 =
+1010\)</span>，前者的 <span class="math inline">\(1\)</span>
+代表着第二个“四位一组”的最低位，由于余三码本质是逢 <span
+class="math inline">\(10\)</span> 进 <span
+class="math inline">\(1\)</span>，故 <span class="math inline">\(10000 =
+(10)_{10} = 1010\)</span>。</li>
+</ul></li>
 </ul>
+<blockquote>
+<p>规则可以简记为：如果两个余三码相加没有进位，则和数要减 <span
+class="math inline">\(3\)</span>；否则和数要加 <span
+class="math inline">\(3\)</span>。</p>
+</blockquote>
 <h3 id="格雷码">格雷码</h3>
 <p>格雷码是一种无权码，特点是<strong>任何两个相邻的十进制数的格雷码仅有一位不同</strong>（Hamming
 distance 为 <span
@@ -362,9 +375,9 @@ AB + \overline{A}C + BC = AB + \overline{A}C \\
 \text{(absorption)}\; A + \overline{A}C = A + C
 \]</span></p>
 <h4 id="反演规则和对偶规则">反演规则和对偶规则</h4>
-<p><strong>反演规则</strong>本质上是 de Morgan 律的使用：<span
+<p><strong>反演规则</strong>本质上是 De Morgan 律的使用。<span
 class="math inline">\(\overline{F}\)</span> 是 <span
-class="math inline">\(F\)</span></p>
+class="math inline">\(F\)</span> 经过以下操作：</p>
 <ul>
 <li>将所有“与”替换为“或”，“或”替换为“与”</li>
 <li>将所有变量替换为反变量，反变量替换为原变量</li>
@@ -373,9 +386,9 @@ class="math inline">\(1\)</span>，<span class="math inline">\(1\)</span>
 替换为 <span class="math inline">\(0\)</span></li>
 </ul>
 <p>之后得到的结果。反演规则可以帮助我们方便地求出一个函数的反函数。</p>
-<p><strong>对偶规则</strong>是指对偶式 <span
+<p><strong>对偶规则</strong>是指，对偶式 <span
 class="math inline">\(F&#39;\)</span> 是 <span
-class="math inline">\(F\)</span></p>
+class="math inline">\(F\)</span> 经过以下操作：</p>
 <ul>
 <li>将所有“与”替换为“或”，“或”替换为“与”</li>
 <li>将所有 <span class="math inline">\(0\)</span> 替换为 <span
