@@ -18,59 +18,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】Quantum Computation and Quantum Information</title>
-    <url>/2024/05/12/QCQI/</url>
-    <content><![CDATA[<p>这是 <em>Quantum Computation and Quantum Information</em>
-的学习笔记。</p>
-<span id="more"></span>
-<h2 id="nomenclature-and-notation">Nomenclature and notation</h2>
-<h3 id="linear-algebra-and-quantum-mechanics">Linear Algebra and quantum
-mechanics</h3>
-<h4 id="positive-positive-definite-and-support">Positive, positive
-definite, and support</h4>
-<p>An operator <span class="math inline">\(A\)</span> is
-<em>positive</em> if <span class="math inline">\(\braket{\psi |A| \psi}
-\ge 0\)</span> holds for all <span
-class="math inline">\(\ket{\psi}\)</span>.</p>
-<p>An operator <span class="math inline">\(A\)</span> is <em>positive
-definite</em> if <span class="math inline">\(\braket{\psi |A| \psi} &gt;
-0\)</span> holds for all <span
-class="math inline">\(\ket{\psi}\)</span>.</p>
-<p>The <em>support</em> of an operator is defined to be the vector space
-orthogonal to its kernel.</p>
-<h4 id="the-letter-h">The Letter H</h4>
-<p><span class="math inline">\(H\)</span> is for <em>Hadamard Gate</em>,
-which has the matrix representation <span class="math display">\[
-H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
--1\end{bmatrix}.
-\]</span> Or, it could be the <em>Hamiltonian</em> for a quantum
-system.</p>
-<h3 id="information-theory-and-probability">Information theory and
-probability</h3>
-<h4 id="relative-entropy">Relative Entropy</h4>
-<p>The <em>relative entropy</em> of a positive operator <span
-class="math inline">\(A\)</span> <strong>relative to </strong> another
-positive operator B is defined as <span class="math display">\[
-S(A \parallel B) = \text{tr}(A \log A) - \text{tr}(B \log B).
-\]</span> Note that the order of the operators matters. <span
-class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span> need to be positive because of the
-<span class="math inline">\(\log\)</span> function.</p>
-<h3 id="frequently-used-quantum-gates-and-circuit-symbols">Frequently
-used quantum gates and circuit symbols</h3>
-<p>TBA</p>
-<h2 id="fundamental-concepts">Fundamental concepts</h2>
-<h3 id="introduction-and-overview">Introduction and overview</h3>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>理论计算机科学</tag>
-        <tag>量子计算</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【学习笔记】数字逻辑与数字集成电路</title>
     <url>/2024/02/26/Shuziluoji-Yu-Shuzijichengdianlu/</url>
     <content><![CDATA[<p>这是《数字逻辑与数字集成电路（第2版）》的学习笔记。</p>
@@ -4411,7 +4358,7 @@ class="math inline">\(X = 1\)</span> 时反向计数。</p>
 <p>异步清零有两种方式：(1) 用触发器提供的异步清零 (2)
 在输出时用组合逻辑限定 <span class="math inline">\(\overline{R_D}\cdot
 Q\)</span></p>
-<p>方法 (2)
+<p><strong>注意</strong>：方法 (2)
 在使用时需要慎重，因为这只是从输出上（外表上）清零了，计数器仍然在工作，可能会出现
 <span class="math inline">\(0000\)</span> 后直接出现 <span
 class="math inline">\(0011\)</span> 这类的情况。</p>
@@ -4468,16 +4415,12 @@ class="math inline">\(\text{CP}\)</span></th>
 <tr class="odd">
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><span
 class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
+<td style="text-align: center;">-</td>
 <td>清零（异步）</td>
 </tr>
 <tr class="even">
@@ -4485,12 +4428,9 @@ class="math inline">\(X\)</span></td>
 class="math inline">\(1\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><span
 class="math inline">\(\downarrow\)</span></td>
 <td>清零（同步）</td>
@@ -4502,10 +4442,8 @@ class="math inline">\(1\)</span></td>
 class="math inline">\(1\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><span
 class="math inline">\(\downarrow\)</span></td>
 <td>Load（并行数据输入）</td>
@@ -4534,10 +4472,8 @@ class="math inline">\(1\)</span></td>
 class="math inline">\(1\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 <td>FF Hold, RC= 0</td>
 </tr>
 <tr class="even">
@@ -4551,8 +4487,7 @@ class="math inline">\(1\)</span></td>
 class="math inline">\(1\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(0\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(X\)</span></td>
+<td style="text-align: center;">-</td>
 <td>Hold（保持）</td>
 </tr>
 </tbody>
@@ -4853,6 +4788,59 @@ class="math inline">\(\overline{Q}\)</span> 反馈到内部）</li>
       </categories>
       <tags>
         <tag>数字逻辑电路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】Quantum Computation and Quantum Information</title>
+    <url>/2024/05/12/QCQI/</url>
+    <content><![CDATA[<p>这是 <em>Quantum Computation and Quantum Information</em>
+的学习笔记。</p>
+<span id="more"></span>
+<h2 id="nomenclature-and-notation">Nomenclature and notation</h2>
+<h3 id="linear-algebra-and-quantum-mechanics">Linear Algebra and quantum
+mechanics</h3>
+<h4 id="positive-positive-definite-and-support">Positive, positive
+definite, and support</h4>
+<p>An operator <span class="math inline">\(A\)</span> is
+<em>positive</em> if <span class="math inline">\(\braket{\psi |A| \psi}
+\ge 0\)</span> holds for all <span
+class="math inline">\(\ket{\psi}\)</span>.</p>
+<p>An operator <span class="math inline">\(A\)</span> is <em>positive
+definite</em> if <span class="math inline">\(\braket{\psi |A| \psi} &gt;
+0\)</span> holds for all <span
+class="math inline">\(\ket{\psi}\)</span>.</p>
+<p>The <em>support</em> of an operator is defined to be the vector space
+orthogonal to its kernel.</p>
+<h4 id="the-letter-h">The Letter H</h4>
+<p><span class="math inline">\(H\)</span> is for <em>Hadamard Gate</em>,
+which has the matrix representation <span class="math display">\[
+H = \frac{1}{\sqrt{2}}\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
+-1\end{bmatrix}.
+\]</span> Or, it could be the <em>Hamiltonian</em> for a quantum
+system.</p>
+<h3 id="information-theory-and-probability">Information theory and
+probability</h3>
+<h4 id="relative-entropy">Relative Entropy</h4>
+<p>The <em>relative entropy</em> of a positive operator <span
+class="math inline">\(A\)</span> <strong>relative to </strong> another
+positive operator B is defined as <span class="math display">\[
+S(A \parallel B) = \text{tr}(A \log A) - \text{tr}(B \log B).
+\]</span> Note that the order of the operators matters. <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> need to be positive because of the
+<span class="math inline">\(\log\)</span> function.</p>
+<h3 id="frequently-used-quantum-gates-and-circuit-symbols">Frequently
+used quantum gates and circuit symbols</h3>
+<p>TBA</p>
+<h2 id="fundamental-concepts">Fundamental concepts</h2>
+<h3 id="introduction-and-overview">Introduction and overview</h3>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>理论计算机科学</tag>
+        <tag>量子计算</tag>
       </tags>
   </entry>
   <entry>
@@ -9002,6 +8990,2147 @@ alt="12-45 一个无死锁程序的进度图" />
       </tags>
   </entry>
   <entry>
+    <title>【学习笔记】软件工程(1)</title>
+    <url>/2024/04/20/SE_1/</url>
+    <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。</p>
+<span id="more"></span>
+<h2 id="前端">前端</h2>
+<h3 id="typescript-初探">Typescript 初探</h3>
+<ul>
+<li><code>const</code> 和 <code>let</code> 的区别
+<ul>
+<li>前者为常量，后者为变量</li>
+</ul></li>
+<li><code>==</code>、<code>!=</code>、<code>===</code> 和
+<code>!==</code>
+<ul>
+<li>前两者会进行隐式转换，例如 <code>1 == true</code> 为真</li>
+<li>应尽量使用后两者</li>
+</ul></li>
+<li><code>forEach</code>、<code>map</code> 和 <code>filter</code>
+<ul>
+<li><code>arr.forEach((val, ind) =&gt; &#123; &#125;)</code>，<code>val</code>
+是值，<code>ind</code> 是下标</li>
+<li><code>arr.map(val =&gt; val * val)</code>，得到一个新的数组，其中每个元素为
+<code>arr</code> 中对应下标元素的平方</li>
+<li><code>arr.filter(val =&gt; val % 2 == 0)</code>，得到一个新的数组，其中仅含偶数</li>
+</ul></li>
+</ul>
+<h3 id="next.js-路由">Next.js 路由</h3>
+<h4 id="基于文件系统的路由">基于文件系统的路由</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src</span><br><span class="line">└── pages</span><br><span class="line">    ├── _app.tsx              // 入口文件</span><br><span class="line">    ├── index.tsx             // /</span><br><span class="line">    ├── login.tsx             // /login</span><br><span class="line">    └── list</span><br><span class="line">        ├── index.tsx         // /list</span><br><span class="line">        ├── detail.tsx        // /list/detail</span><br><span class="line">        └── edit.tsx          // /list/edit</span><br></pre></td></tr></table></figure>
+<h4 id="userouter-hook"><code>useRouter</code> Hook</h4>
+<p><strong>捕获路由参数</strong>：<code>router.query.aaa</code> 对应着
+<code>/list?aaa=bbb</code> 里的 <code>aaa</code> 字段，值为
+<code>bbb</code>。</p>
+<p><strong>实现页面跳转</strong>：<code>router.push("/")</code> 和
+<code>router.back()</code>。</p>
+<h3 id="副作用与网络请求">副作用与网络请求</h3>
+<p>将耗时的数据获取操作从渲染本身中分离出来，这就是所谓的<strong>副作用</strong>。</p>
+<h4 id="useeffect-hook"><code>useEffect</code> Hook</h4>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 需要执行的副作用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 副作用的清除</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;, dependentList); <span class="comment">// 依赖列表</span></span><br></pre></td></tr></table></figure>
+<p><code>dependentList</code> 是一个数组，用于控制副作用何时被触发：</p>
+<ul>
+<li>如果 <code>dependentList</code> 是
+<code>undefined</code>，则副作用会在<strong>每次渲染</strong>时触发</li>
+<li>如果 <code>dependentList</code> 是空数组
+<code>[]</code>，则副作用只会在<strong>第一次渲染</strong>时触发</li>
+<li>如果 <code>dependentList</code>
+不为空，则副作用会在<strong>第一次渲染</strong>和
+<code>dependentList</code> 中的变量<strong>发生变化</strong>时触发</li>
+</ul>
+<h4 id="异步">异步</h4>
+<p>声明为 <code>async</code>
+的函数在调用时会<strong>立即返回</strong>，其函数体内容会在后台执行。</p>
+<p>在一个异步函数的调用前面加上 <code>await</code>
+关键字会<strong>阻塞当前代码</strong>，直到异步任务完成或报错。</p>
+<p>因为 <code>await</code>
+有阻塞代码执行的性质，所以<strong>仅可以在异步函数体内使用</strong>。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">request</span>(<span class="string">&quot;/api/&quot;</span>, <span class="string">&quot;GET&quot;</span>, <span class="literal">false</span>)</span><br><span class="line">	.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    	<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	&#125;)</span><br><span class="line">	.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    	<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	&#125;)</span><br><span class="line">	.<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    &#125;)</span><br><span class="line">	.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="后端">后端</h2>
+<h3 id="git-的使用">Git 的使用</h3>
+<h4 id="基本概念">基本概念</h4>
+<ul>
+<li>工作区：工作目录（你的代码所在的文件夹）；</li>
+<li>暂存区：临时的缓存（做一个临时的标记）</li>
+<li>分支：将暂存区中的内容提交到分支（做一次完整的记录）</li>
+</ul>
+<h4 id="mainmaster-head">main(master), HEAD</h4>
+<ul>
+<li>main</li>
+<li>HEAD：指向工作区当前位置 commit 的指针，通常指向当前所在分支的最新的
+commit</li>
+</ul>
+<h4 id="commit-merge">commit, merge</h4>
+<ul>
+<li>commit：一次提交，每次 <code>git commit</code>
+指令都会产生一个提交，该提交用一个独一无二的哈希值代表，伴随提交信息</li>
+<li>merge：合并指定分支到当前分支
+<ul>
+<li>Fast-Forward
+<ul>
+<li>直接移动指针</li>
+</ul></li>
+<li>Three-Way Merge
+<ul>
+<li>考虑两次提交的最近公共祖先，这样就能看出差异点是由谁修改而成的，进而自动合并</li>
+</ul></li>
+<li>Squash &amp; Merge
+<ul>
+<li>压缩分支的所有提交为一次</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="push-pull-fetch">push, pull, fetch</h4>
+<ul>
+<li>push：提交到远程仓库</li>
+<li>fetch：拉取远程仓库</li>
+<li>pull：拉取远程仓库并合并（=fetch+merge）</li>
+</ul>
+<h3 id="前后端交互中的鉴权问题">前后端交互中的鉴权问题</h3>
+<p>JWT（JSON Web Token）是一种开放标准（RFC
+7519），用于安全地在两方之间传递信息作为 JSON 对象。</p>
+<p>它可以用于身份验证和信息交换，提供了一种简洁的、自包含的方法用于在各方之间传递信息。</p>
+<h4 id="jwt-的结构">JWT 的结构</h4>
+<p>JWT 由三部分构成，并用 <code>.</code>
+进行分割：<code>header.payload.signature</code>。</p>
+<ul>
+<li><strong>header</strong>
+<ul>
+<li>通常由两部分构成：令牌类型 <code>typ</code> 和加密算法
+<code>alg</code></li>
+<li>格式如下： <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HW256&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>然后用 base64 编码</li>
+</ul></li>
+<li><strong>payload</strong>
+<ul>
+<li>载荷包含 JWT 的主要信息，比如用户的标识、令牌的签发时间等。</li>
+<li>可以包含多个预定义的字段，也可以包含自定义的字段。</li>
+<li>格式如下： <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;iat&quot;</span><span class="punctuation">:</span> <span class="number">1516239022</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>然后用 base64 编码</li>
+</ul></li>
+<li><strong>signature</strong>
+<ul>
+<li>签名用于验证消息的发送者身份并确保消息在传输过程中未被篡改。</li>
+<li>签名是通过对头部和载荷进行加密算法处理，并使用秘钥来生成。</li>
+</ul></li>
+</ul>
+<h4 id="使用场景">使用场景</h4>
+<ul>
+<li>身份验证
+<ul>
+<li>JWT 是进行身份验证的一种常见方法。当用户登录后，每个后续请求将包括
+JWT，允许用户访问该令牌允许的路由、服务和资源</li>
+</ul></li>
+<li>信息交换
+<ul>
+<li>JWT
+是安全地在各方之间传输信息的好方法，因为可以验证每一部分的签名</li>
+</ul></li>
+</ul>
+<h2 id="敏捷开发">敏捷开发</h2>
+<p>软件项目的“不可能三角”：同一个项目，在团队、效能水平一定的情况下，范围、时间、成本，三者只能取其二。</p>
+<h3 id="瀑布模型">瀑布模型</h3>
+<pre><code class="highlight mermaid">graph LR
+A(Requirement) --&gt; B(Design)
+B --&gt; C(Coding)
+C --&gt; D(Testing)
+D --&gt; E(Maintenance)
+A &lt;---&gt; B
+B &lt;---&gt; C
+C &lt;---&gt; D
+D &lt;---&gt; E</code></pre>
+<p>在每一步骤完成之后才开始下一步骤。</p>
+<p><strong>原因</strong>：越早找到 bug，修复它的成本就越低。</p>
+<p><strong>问题</strong>：</p>
+<ul>
+<li>软件的优势在于它能够快速修改（change）和适应（adapt）；但瀑布模型无法做到这一点</li>
+<li>每个步骤用时很长，遇到问题时需要回溯到上一个步骤</li>
+</ul>
+<h3 id="敏捷开发的原则与特点">敏捷开发的原则与特点</h3>
+<ul>
+<li>Adaptive rather than predictive
+<ul>
+<li>不要一开始就计划项目的绝大部分；应该增强软件开发的可修改性</li>
+</ul></li>
+<li>People-oriented rather than process-oriented
+<ul>
+<li>合作共赢，享受合作开发的过程，利用人性；而非与其作对</li>
+</ul></li>
+</ul>
+<h4 id="条原则">12 条原则</h4>
+<ol type="1">
+<li>Our highest priority is to satisfy the customer through the early
+and continuous delivery of valuable software.</li>
+<li>Welcome changing requirements, even late in development. Agile
+processes harness change for the customer’s competitive advantage.</li>
+<li>Deliver working software frequently, from a couple of weeks to a
+couple of months, with a preference to the shorter timescale.</li>
+<li>Business people and developers must work together daily throughout
+the project.</li>
+<li>Build projects around motivated individuals. Give them the
+environment and support they need, and trust them to get the job
+done.</li>
+<li>The most efficient and effective method of conveying information to
+and within a development team is face-to-face conversation.</li>
+<li>Working software is the primary measure of progress.</li>
+<li>Agile processes promote sustainable development. The sponsors,
+developers, and users should be able to maintain a constant pace
+indefinitely.</li>
+<li>Continuous attention to technical excellence and good design
+enhances agility.</li>
+<li>Simplicity–the art of maximizing the amount of work not done–is
+essential.</li>
+<li>The best architectures, requirements, and designs emerge from
+self-organizing teams.</li>
+<li>At regular intervals, the team reflects on how to become more
+effective, then tunes and adjusts its behavior accordingly.</li>
+</ol>
+<h4 id="特点">特点</h4>
+<p>合作共赢（Teamwork）；所有人向同一个目标奋斗，没有任何一个个体是独自工作的。</p>
+<h3 id="敏捷开发中的用户故事">敏捷开发中的用户故事</h3>
+<p><span class="math display">\[
+\text{Initiative} = n \cdot \text{Epics} = nm \cdot \text{Stories/Tasks}
+= nml \cdot \text{Subtasks}
+\]</span></p>
+<p>Stories 通常在 1~2 周内完成，Epic 通常在 1~3 个月内完成，Initiative
+通常在 3~12 个月内完成。</p>
+<h4 id="用户故事表达卡片">用户故事表达：卡片</h4>
+<p><strong>格式</strong>：作为一名 <code>&lt;角色&gt;</code>，我可以
+<code>&lt;活动&gt;</code>，使得 <code>&lt;业务价值&gt;</code>。</p>
+<p><strong>例子</strong>：</p>
+<p>用户故事卡片：作为一名<em>消费者</em>，我希望能够<em>查看我的日常能源使用量</em>，从而我可以<em>降低能源支出和使用率</em>。</p>
+<p>验收标准：</p>
+<ul>
+<li>每 <span class="math inline">\(10\)</span> 秒钟读取 DecaWatt
+计量表的数据，在门户上显示 <span class="math inline">\(15\)</span>
+分钟的增量，在室内屏上显示每⼀读数；</li>
+<li>随着新数据的产⽣读取 KiloWatt
+计量表，并且每小时显示在门户上，在每次读取后显示在室内屏上。</li>
+</ul>
+<h4 id="invest-原则">INVEST 原则</h4>
+<ul>
+<li>Independent（独立性）
+<ul>
+<li>故事不依赖于其他故事，可以被单独地开发、测试甚至交付。</li>
+</ul></li>
+<li>Negotiable（可协商）
+<ul>
+<li>故事不是详尽的需求说明书（系统应该完成的事），而是可协商的意向表达。</li>
+</ul></li>
+<li>Valuable（有价值）
+<ul>
+<li>聚焦于由用户规定的价值，而非功能分解结构。</li>
+</ul></li>
+<li>Estimable（可估算）
+<ul>
+<li>故事相对而言更容易估算，可以快速确定实现相关功能的工作量。</li>
+</ul></li>
+<li>Small（小型）
+<ul>
+<li>故事代表有价值功能的小型增量，可以在一到两周内交付。</li>
+</ul></li>
+<li>Testable（可测试）
+<ul>
+<li>清晰可测试。</li>
+</ul></li>
+</ul>
+<h3 id="敏捷开发中的-scheduling">敏捷开发中的 Scheduling</h3>
+<p>关键路径：项目用时的最长路径。</p>
+<h3 id="开发工具与敏捷开发概念的对应">开发工具与敏捷开发概念的对应</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Agile artifact</th>
+<th style="text-align: left;">GitLab feature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">User stories</td>
+<td style="text-align: left;">Issues</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Task</td>
+<td style="text-align: left;">Task lists</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Epics</td>
+<td style="text-align: left;">Epics</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Points and estimation</td>
+<td style="text-align: left;">Issue weights</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Product backlog</td>
+<td style="text-align: left;">Issue lists and prioritized labels</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Sprints/iterations</td>
+<td style="text-align: left;">Milestones</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Burndown charts</td>
+<td style="text-align: left;">Burndown charts</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Agile board</td>
+<td style="text-align: left;">Issue boards</td>
+</tr>
+</tbody>
+</table>
+<h3 id="release.version.revision">Release.Version.Revision</h3>
+<ul>
+<li>Release Number：用户角度</li>
+<li>Version Number：开发者角度</li>
+<li>Revision Number：开发者角度
+<ul>
+<li>Change to a version that corrects only errors in the design/code,
+but does not affect the documented functionality.</li>
+</ul></li>
+</ul>
+<h3 id="版本控制">版本控制</h3>
+<p>集中式版本控制的问题：每个版本都提交到中心，性能瓶颈，冲突解决</p>
+<p>分布式版本控制的好处：在本地就可以做跟踪和回滚，大大减少提交的数量，对中心服务器的依赖减少；提升系统工作的性能</p>
+<h2 id="软件测试">软件测试</h2>
+<p>软件测试就是为程序能够按预期设想运行而建立足够的信心。</p>
+<ul>
+<li>Verification（验证）：Did you build the thing right?
+符合标准了吗？</li>
+<li>Validation（确认）：Did you build the right thing?
+标准满足用户需求了吗？</li>
+</ul>
+<p>测试用例：</p>
+<ul>
+<li>输入数据：交由待测试程序代码进行处理的数据</li>
+<li>前置条件：程序处理输入数据的运行上下文，即要满足前置条件</li>
+<li>测试步骤：程序代码对输入数据的处理可能涉及到一系列的步骤，其中的某些步骤需要用户的进一步输入</li>
+<li>预期输出：程序代码的预期输出结果</li>
+</ul>
+<h3 id="software-quality">Software Quality</h3>
+<p>Quality Assurance: Processes/standards to produce product and to
+improve quality over time.</p>
+<p>Software Quality:</p>
+<ul>
+<li>Satisfies customers' needs</li>
+<li>Easy for developer to debug and enhance</li>
+</ul>
+<h3 id="软件测试方法分类">软件测试方法分类</h3>
+<pre><code class="highlight mermaid">graph LR
+A(Testing) --- B(AdHoc)
+A --- C(Program Testing)
+A --- D(System Testing)
+A --- E(Acceptance Testing)
+C --- F(Unit Testing)
+C --- G(Integration Testing)
+F --- H(Black Box)
+F --- I(White Box)
+H --- J(Equivalence)
+H --- K(Boundary)
+H --- L(Decision Table)
+H --- M(State Transition)
+H --- N(Use Case)
+H --- O(Domain Analysis)
+I --- P(Control Flow)
+I --- Q(Data Flow)
+G --- R(Top Down)
+G --- S(Bottom Up)
+G --- T(Big Bang)
+G --- U(Sandwich)
+D --- V(Function)
+D --- W(Properties)
+W --- X(Performance)
+W --- Y(Relieability)
+W --- Z(Availability)
+W --- AA(Security)
+W --- AB(Usability)
+W --- AC(Documentation)
+W --- AD(Portability)
+W --- AE(Capacity)
+E --- AF(Benchmark)
+E --- AG(Pilot)
+E --- AH(Alpha)
+E --- AI(Beta)</code></pre>
+<h3
+id="软件测试中的错误率恒定定律与规模代价平方定律">软件测试中的错误率恒定定律与规模代价平方定律</h3>
+<p>为了减少错误修复的成本，要尽可能早地发现错误，并在尽量小的范围内定位并修复错误。</p>
+<h4 id="错误率恒定定律">错误率恒定定律</h4>
+<p>对某一个程序员来说，不考虑其水平的成长，错误产出比在很长一段时间内（项目周期内）是个常数。</p>
+<h4 id="规模代价平方定律">规模代价平方定律</h4>
+<p>定位并修复一个 bug 所需的代价正比于目标代码规模的平方。</p>
+<blockquote>
+<p>假设每 <span class="math inline">\(100\)</span> 行有 <span
+class="math inline">\(10\)</span> 个 bug，则每 <span
+class="math inline">\(1000\)</span> 行代码有 <span
+class="math inline">\(100\)</span> 个 bug。</p>
+<p>假设找 <span class="math inline">\(100\)</span> 行代码中的 <span
+class="math inline">\(1\)</span> 个 bug 需要 <span
+class="math inline">\(1\)</span> 小时，则找 <span
+class="math inline">\(1000\)</span> 行代码中的 <span
+class="math inline">\(1\)</span> 个 bug 需要 <span
+class="math inline">\(10^2 = 100\)</span> 小时。</p>
+<p>找 <span class="math inline">\(1000\)</span> 行代码中的 <span
+class="math inline">\(50\)</span> 个 bug：<span class="math inline">\(50
+\times 100 = 5000\)</span> 小时。</p>
+</blockquote>
+<h3 id="测试驱动开发test-driven-development循环">测试驱动开发（Test
+Driven Development）循环</h3>
+<pre><code class="highlight mermaid">graph LR
+A(&quot;1. Write Test&quot;) --&gt; B(&quot;2. Test Fails&quot;)
+B --&gt; C(&quot;3. Write Code&quot;)
+C --&gt; D(&quot;4. Test passes&quot;)
+D --&gt; E(&quot;5. Refactor&quot;)
+E --&gt; A</code></pre>
+<ul>
+<li>Each new feature begins with writing a test.</li>
+<li>在单测通过之前，不能写生产代码</li>
+<li>新的单测写到让现有代码通不过即可</li>
+<li>新的生产代码写到让现有单测通过即可</li>
+</ul>
+<p>TDD uses same skills &amp; techniques as conventional debugging - but
+more productive.</p>
+<p>Writing tests before code takes more time up-front, but often less
+time overall.</p>
+<h3 id="软件测试的原则first-原则">软件测试的原则（FIRST 原则）</h3>
+<ul>
+<li>Fast: Run (subset of) tests quickly (since you'll be running them
+all the time).</li>
+<li>Independent: No tests depend on others, so can run any subset in any
+order.</li>
+<li>Repeatable: Consistent results every run (to isolate bugs and enable
+automation).</li>
+<li>Self-checking: Test can automatically detect if passed (no human
+checking of output).</li>
+<li>Timely: Written about the same time as code under test (with TDD,
+written first!).</li>
+</ul>
+<h3 id="白盒测试控制流测试">白盒测试：控制流测试</h3>
+<h4 id="判定覆盖c_1">判定覆盖（<span
+class="math inline">\(C_1\)</span>）</h4>
+<p>分支整体取值为 <code>true</code> 和 <code>false</code>
+都要覆盖到；如果为 <code>switch</code> 语句，则每一个 <code>case</code>
+都需要被覆盖到。</p>
+<p>在控制流图中，即为每条边都被遍历到。</p>
+<h4 id="语句覆盖c_0">语句覆盖（<span
+class="math inline">\(C_0\)</span>）</h4>
+<p>所有语句都要覆盖到。</p>
+<p>在控制流图中，即为每个点都被遍历到。</p>
+<h3 id="黑盒测试等价类测试">黑盒测试：等价类测试</h3>
+<p>把不可穷举的数据，变成可穷举的类。</p>
+<ul>
+<li>等价类是本质互斥的</li>
+<li>等价类中的数据遵循“类似的行为”</li>
+<li>测试数据由等价类派生而成</li>
+</ul>
+<h4 id="弱测试和强测试">弱测试和强测试</h4>
+<ul>
+<li>弱测试
+<ul>
+<li>每行都覆盖到，每列都覆盖到</li>
+</ul></li>
+<li>强测试
+<ul>
+<li>每行且每列都覆盖到</li>
+</ul></li>
+<li>General Testing
+<ul>
+<li>只有 valid 的测试点被覆盖到</li>
+</ul></li>
+<li>Robust Testing
+<ul>
+<li>无论 valid 还是 invalid 的测试点都要被覆盖到</li>
+</ul></li>
+</ul>
+<h2 id="代码风格与重构">代码风格与重构</h2>
+<h3 id="防御式编程的权衡取舍">防御式编程的权衡取舍</h3>
+<p>Assume nothing. Unwritten assumptions continually cause faults,
+particularly as code grows.</p>
+<ul>
+<li>Encourage programmers to include as many checks as possible
+<ul>
+<li>Check the values of all data from external sources</li>
+<li>Check the values of all input parameters</li>
+<li>Decide how to handle bad inputs</li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">AGAINST</th>
+<th>FOR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">影响代码运行性能（速度）</td>
+<td>节省了很多调试的时间</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">有些防御式编程需要额外的工作</td>
+<td>速度慢但可靠的代码，比速度快但<strong>有时出错</strong>的代码更有意义</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码格式">代码格式</h3>
+<p>代码是写给编译器、自己、<strong>其他人</strong>看的。</p>
+<p>Good code does not require a lot of thinking to understand. If the
+code logic is not clear at the first glance, the code is probably not
+good enough.</p>
+<h4 id="the-big-deal">The Big Deal</h4>
+<ul>
+<li>Presentation makes a real impact on the quality of code.</li>
+<li>Programmers read meaning into code based on its layout.
+<ul>
+<li>Good presentation: Illuminate and support your code’s structure,
+helping reader understand what’s going on.</li>
+<li>Bad presentation: Confuse, mislead, and hide the code's intent.</li>
+</ul></li>
+<li>Bad formatting not only makes code harder to follow; it may actually
+hide bugs from you.</li>
+</ul>
+<h4 id="good-presentation">Good Presentation</h4>
+<ul>
+<li>Consistent
+<ul>
+<li>Keep the style consistent across the project.</li>
+</ul></li>
+<li>Conventional
+<ul>
+<li>To adopt one of the major styles currently in use in the industry
+rather than invent your own rules.</li>
+</ul></li>
+<li>Concise
+<ul>
+<li>Easy to follow and pick up.</li>
+</ul></li>
+</ul>
+<h3 id="命名规范">命名规范</h3>
+<h4 id="要求">要求</h4>
+<p>Accurate and easy-to-understand</p>
+<p><strong>命名的作用</strong>：</p>
+<ul>
+<li>Identity</li>
+<li>Behavior
+<ul>
+<li>Roles, relationships, and interactions</li>
+</ul></li>
+<li>Recognition
+<ul>
+<li>Elevate something from ethereal concept to well-defined reality</li>
+</ul></li>
+</ul>
+<p><strong>如何命名</strong>：</p>
+<ul>
+<li>Descriptive</li>
+<li>Technically correct</li>
+<li>Idiomatic</li>
+<li>Appropriate</li>
+</ul>
+<p><strong>禁止</strong>：</p>
+<ul>
+<li>Cryptic</li>
+<li>Verbose</li>
+<li>Inaccurate or misleading</li>
+<li>Ambiguous or vague</li>
+</ul>
+<h4 id="好处">好处</h4>
+<p>People naturally read the meaning out of something based on its
+name.</p>
+<p>From the viewpoint of the use, hiding all the internal
+implementation.</p>
+<h3 id="自文档代码">自文档代码</h3>
+<h4 id="要求-1">要求</h4>
+<ul>
+<li>Write simple code with good presentation
+<ul>
+<li>Avoid too many nested statements</li>
+<li>Be wary of optimizing code so that it's no longer a clear expression
+of a basic algorithm.
+<ul>
+<li>Never optimize code unless you've proved that it is a bottleneck to
+acceptable program function.</li>
+</ul></li>
+</ul></li>
+<li>Decompose into atomic functions</li>
+<li>Group related information</li>
+<li>Emphasize important code</li>
+<li>Choose meaningful names</li>
+<li>Choose descriptive types</li>
+<li>Name constants
+<ul>
+<li>Avoid magic numbers.</li>
+</ul></li>
+</ul>
+<h4 id="好处-1">好处</h4>
+<p>The only document that describes your code completely and correctly
+is the code itself.</p>
+<p>Even the smallest, most beautiful functions will need later
+maintenance.</p>
+<h3 id="注释规范">注释规范</h3>
+<h4 id="要求-2">要求</h4>
+<p>We need to focus on comment quality, not quantity, so more important
+than the amount of comments we write are the contents of those
+comments.</p>
+<ul>
+<li>Explain 'why', not 'how'</li>
+<li>Don't describe the code</li>
+<li>Don't replace the code</li>
+<li>Keep it useful
+<ul>
+<li>Document the unexpected</li>
+<li>Tell the truth</li>
+<li>Are worthwhile</li>
+<li>Are clear</li>
+</ul></li>
+</ul>
+<h4 id="好处-2">好处</h4>
+<p>Describe the intent of the code.</p>
+<p>Summarize the whole block of code.</p>
+<h3 id="代码气味">代码气味</h3>
+<ul>
+<li>Continuous inspection</li>
+<li>Health
+<ul>
+<li>Duplicated code</li>
+<li>Coding standards</li>
+<li>Code complexity</li>
+<li>Comments</li>
+<li>Bugs</li>
+<li>Security vulnerabilities</li>
+</ul></li>
+</ul>
+<h4 id="abc-complexity">ABC Complexity</h4>
+<p>Assignments, Branches, Conditions. <span class="math display">\[
+\sqrt{A^2 + B^2 + C^2} \le 20 \quad(\text{per method})
+\]</span></p>
+<h4 id="圈复杂度">圈复杂度</h4>
+<p>Edge, Vertex, Decision, Region <span class="math display">\[
+\text{Cycle Complexity} = |E| - |V| + 2 = |D| + 1 = |R|
+\]</span></p>
+<h3 id="代码重构的定义">代码重构的定义</h3>
+<p>A software transformation that</p>
+<ul>
+<li>Preserves the external software behavior</li>
+<li>Improves the internal software structure</li>
+</ul>
+<p>Refactoring is a disciplined technique for restructuring an existing
+body of code, altering its internal structure without changing its
+external behavior.</p>
+<ul>
+<li>To enhance some non-functional quality – simplicity, flexibility,
+understandability, performance</li>
+<li>Its heart is a series of small behavior-preserving transformations.
+The system is kept fully working after each refactoring</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【学习笔记】计算机科学概论</title>
+    <url>/2023/07/20/CSAO/</url>
+    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
+<p><strong>第一章 数据存储</strong></p>
+<ul>
+<li>逻辑门</li>
+<li>C 中的字符常量</li>
+<li>二进制中的补码与余码
+<ul>
+<li>补码记数法</li>
+<li>余码记数法</li>
+</ul></li>
+</ul>
+<p><strong>第十二章 计算理论</strong></p>
+<ul>
+<li>可计算性</li>
+<li>Bare Bones 语言
+<ul>
+<li>复制操作</li>
+<li>交换操作</li>
+<li>分支结构</li>
+</ul></li>
+<li>停机问题</li>
+<li>RSA</li>
+</ul>
+<span id="more"></span>
+<h2 id="第一章-数据存储">第一章 数据存储</h2>
+<h3 id="逻辑门">逻辑门</h3>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
+alt="逻辑门" />
+<figcaption aria-hidden="true">逻辑门</figcaption>
+</figure>
+<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
+就是右侧加一个小圆圈，<code>X</code>
+就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
+skyhappy，他跟我讲：</p>
+<blockquote>
+<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
+或运算就不需要了，所以窄一点就好了</p>
+</blockquote>
+<p>我觉得很有道理。</p>
+<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
+href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
+C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
+<h3 id="c-中的字符常量">C 中的字符常量</h3>
+<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
+<code>char str = '123';</code>，虽然
+<strong>他通过了编译</strong>，但这是错误的。</p>
+<p>关注的重点在于
+<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
+<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
+byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
+<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
+<code>int</code> 类型的常量。其实就是四个 <code>char</code>
+并排组在一起就成为了一个 <code>int</code>。</p>
+<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
+是一模一样的，均为 <code>(int)12594</code>。</p>
+<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
+<p>如果大于或等于 5 个，编译器会警告：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
+<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
+<h4 id="补码记数法">补码记数法</h4>
+<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
+二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
+<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
+class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
+二进制串的表示范围为 <span class="math inline">\([-2^{31},
+2^{31}-1]\)</span>。</p>
+<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
+<h4 id="余码记数法">余码记数法</h4>
+<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
+的数。这个数在所有 32 bit
+二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
+<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
+<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
+<h3 id="可计算性">可计算性</h3>
+<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
+<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
+<strong>不可计算的</strong>。</p>
+<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
+<h3 id="bare-bones-语言">Bare Bones 语言</h3>
+<p>一个通用程序设计语言。</p>
+<ul>
+<li><p>一种基本数据类型。</p>
+<p>所有的变量本质上都是二进制数。</p></li>
+<li><p>三条赋值语句。</p>
+<p><code>clear name</code> 表示把 <code>name</code> 清零。
+<code>incr name</code> 表示使 <code>name</code> 自增 1。
+<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
+<li><p>一条控制结构语句。</p>
+<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
+的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
+</ul>
+<blockquote>
+<p><strong>定理</strong>：Bare Bones
+语言能够用来表达计算所有图灵可计算函数的算法。</p>
+</blockquote>
+<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
+语言实现。</p>
+<h4 id="复制操作">复制操作</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
+<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
+的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
+<h4 id="交换操作">交换操作</h4>
+<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
+<h4 id="分支结构">分支结构</h4>
+<p>我们现在想实现类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
+<p>的结构。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
+<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
+<h3 id="停机问题">停机问题</h3>
+<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
+Bare Bones 程序是 <strong>自终止的</strong>。</p>
+<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
+程序是否是自终止的。</p>
+<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
+<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
+Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
+是否是自终止的：若是自终止的，则输出
+<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
+<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
+<code>A</code> 后添加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
+<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
+既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
+<ul>
+<li><p>若 <code>B</code> 是自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
+<code>while</code> 死循环，则 <code>B</code>
+不是自终止的。矛盾。</p></li>
+<li><p>若 <code>B</code> 是非自终止的：</p>
+<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
+<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
+</ul>
+<p>所以，如果停机问题可解，也就是说，存在一个程序
+<code>A</code>，使得它能判断一段 Bare Bones
+程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
+<code>B</code>。因此停机问题不可解。</p>
+<h3 id="rsa">RSA</h3>
+<p>RSA
+是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
+<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
+<blockquote>
+<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
+href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
+function</a>，是指最小的正整数 <span
+class="math inline">\(m\)</span>，满足对于所有的与 <span
+class="math inline">\(n\)</span> 互质的 <span
+class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
+\equiv 1 \pmod n\)</span>。</p>
+</blockquote>
+<ol type="1">
+<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
+class="math inline">\(n = pq\)</span>。</li>
+<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
+- 1)\)</span>。</li>
+<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
+class="math inline">\(e\)</span> 与 <span
+class="math inline">\(\lambda(n)\)</span> 互质。</li>
+<li>计算 <span class="math inline">\(d\)</span> 满足 <span
+class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
+</ol>
+<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
+class="math inline">\(d\)</span> 作为密钥。</p>
+<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
+<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
+取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
+的长度小于 <span class="math inline">\(n\)</span>。</p>
+<ul>
+<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
+n\)</span></p></li>
+<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
+\pmod n\)</span></p></li>
+</ul>
+<h4 id="rsa-的正确性">RSA 的正确性</h4>
+<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
+{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
+\equiv m^{de} \pmod p\)</span> 即可，对 <span
+class="math inline">\(q\)</span> 同理。</p>
+<p>由于 <span class="math inline">\(de \equiv 1 \pmod
+{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
+- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
+h(p - 1) = k(q - 1)\)</span>。</p>
+<ol type="1">
+<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
+class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
+<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
+p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
+\pmod p\)</span>。</li>
+</ol>
+<p><span class="math display">\[
+  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
+\cdot 1^{h} \equiv m \pmod p
+\]</span></p>
+<p>因此命题得证。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机科学概论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
+    <url>/2022/07/25/2022WFLS-Invigilate/</url>
+    <content><![CDATA[<p>为什么叫划水记呢？</p>
+<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
+<hr />
+<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
+350 \mathrm{ min}\)</span> <del>（不是）</del></p>
+<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
+<span id="more"></span>
+<h2 id="准备工作">准备工作</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
+alt="@全体成员" />
+<figcaption aria-hidden="true"><span class="citation"
+data-cites="全体成员">@全体成员</span></figcaption>
+</figure>
+<p><del>（后面两次@没有<span class="citation"
+data-cites="上">@上</span>）</del></p>
+<p>支持母校招生工作！</p>
+<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<h2 id="物理">物理</h2>
+<p><strong>8:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>8:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>8:20</strong></p>
+<p>考生们开始答题，我也看看题。</p>
+<p>我一看第二题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
+alt="物理卷子T2" />
+<figcaption aria-hidden="true">物理卷子T2</figcaption>
+</figure>
+<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
+<p>于是顺着开始做选择题。</p>
+<p><strong>9:00</strong></p>
+<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
+<p>继续看题：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
+alt="物理卷子T6" />
+<figcaption aria-hidden="true">物理卷子T6</figcaption>
+</figure>
+<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
+的很多层，对每一层算压强然后积分！</p>
+<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
+<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
+<p>我：有啥简单方法吗？</p>
+<p>cyx：草草草，我们都降智了。</p>
+<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
+class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
+class="math inline">\(2G\)</span>。</p>
+<p>我：嗯我是蠢蛋。</p>
+<p><strong>9:20</strong></p>
+<p>再看实验题。都是电学实验，用 <span
+class="math inline">\(\dfrac{1}{3}\)</span>
+准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
+<p>考试怎么还不结束啊。</p>
+<p><strong>9:30</strong></p>
+<p>考试怎么还不结束啊。</p>
+<p>那再下去巡逻一圈。</p>
+<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
+<p><strong>9:40</strong></p>
+<p>站起来看看大家专注而茫然的表情。</p>
+<p>怎么有人开始检查了？世界真参差啊。</p>
+<p><strong>10:00</strong></p>
+<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
+<p>收好了物理答题卡、卷子和草稿纸。</p>
+<h2 id="化学">化学</h2>
+<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
+<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
+<p><strong>10:10</strong></p>
+<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
+张的 <span class="math inline">\(5\)</span> 份。</p>
+<p>开始发答题卡和草稿纸。</p>
+<p><strong>10:15</strong></p>
+<p>开始发卷子。</p>
+<p><strong>10:20</strong></p>
+<p>考生们开始答题。我看着他们看题。我也看看题。</p>
+<p>题目长这个样子。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
+alt="化学卷子P1,P2" />
+<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
+</figure>
+<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
+<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
+<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
+<span class="math inline">\(3\)</span> 道计算题？</p>
+<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
+<p><strong>10:35</strong></p>
+<p>笑着下去巡视。</p>
+<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
+alt="笑谈化学卷子" />
+<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
+</figure>
+<p><strong>11:00</strong></p>
+<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
+<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
+<p>大眼瞪小眼。</p>
+<p><strong>12:00</strong></p>
+<p>收好了化学答题卡、卷子和草稿纸。</p>
+<h2 id="吃午饭">吃午饭</h2>
+<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
+<p>老汉口餐厅，李彬主任请客。</p>
+<p>竟然还有三楼？</p>
+<p>我和 cyx：这个词能拿 20 分，还行。</p>
+<p>cyx 和 cdz：你看我这个英雄……</p>
+<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
+data-cites="数学">@数学</span></p>
+<p>xyx、clx：不知道在说啥。</p>
+<p>吃完饭就返回学校数数学卷子了。</p>
+<h2 id="数学">数学</h2>
+<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
+alt="细致入微" />
+<figcaption aria-hidden="true">细致入微</figcaption>
+</figure>
+<p>写了几道能力范围之内的题目。</p>
+<blockquote>
+<ol type="1">
+<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
+<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
+是一个完全平方数.</li>
+</ol>
+</blockquote>
+<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
+class="math inline">\(4\)</span> 就可以知道 <span
+class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
+class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
+<blockquote>
+<ol start="6" type="1">
+<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
+<span class="math inline">\(xyz = 1\)</span>，证明： <span
+class="math display">\[
+\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \le 1
+\]</span></li>
+</ol>
+</blockquote>
+<p>注意到 <span class="math display">\[
+\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
+\]</span> 则 <span class="math display">\[
+\begin{aligned}
+&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
+\dfrac{2}{(z+1)^2+x^2+1} \\\\
+\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
+\dfrac{1}{z^2+zx+1} \\\\
+= &amp; 1
+\end{aligned}
+\]</span></p>
+<blockquote>
+<ol start="7" type="1">
+<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
+d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
+class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
+n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
+1\)</span>.</li>
+</ol>
+</blockquote>
+<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
+<span class="math inline">\(3 \nmid n\)</span>。因 <span
+class="math inline">\(m\)</span> 为完全平方数，则 <span
+class="math inline">\(\alpha\)</span> 必为偶数。</p>
+<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
+class="math inline">\(3\nmid n\)</span>，则 <span
+class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
+class="math inline">\(d_{\alpha} = 1\)</span>。</p>
+<hr />
+<p>当我不知道干啥的时候，我看到了这个</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
+alt="来了来了" />
+<figcaption aria-hidden="true">来了来了</figcaption>
+</figure>
+<p>大家都表示不知道该吃啥。先等一手。</p>
+<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
+<p>每人分配任务，不一会儿就改完了。</p>
+<p><del>电学实验他们是真的做得差啊。</del></p>
+<p>想找到人与人之间的差距，总是能找到的。</p>
+<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
+<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
+<p>恐怖如斯。</p>
+<p><del>还有个90+的高分。</del></p>
+<h2 id="吃晚饭">吃晚饭</h2>
+<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
+<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
+<p>吃饭前：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
+alt="海底捞吃饭前" />
+<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
+</figure>
+<p>吃吃吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
+alt="杯盘狼藉" />
+<figcaption aria-hidden="true">杯盘狼藉</figcaption>
+</figure>
+<p>大家喜欢抢的几样东西：血旺、饼。</p>
+<p>没人吃的东西：娃娃菜。</p>
+<p>粉丝下在辣锅里好呛人！</p>
+<p>第一次感受到了自己吃辣的能力在下降。</p>
+<p>好吃好吃：</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
+alt="椰子" />
+<figcaption aria-hidden="true">椰子</figcaption>
+</figure>
+<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
+<h2 id="总结">总结</h2>
+<figure>
+<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
+alt="监考老师们的合照" />
+<figcaption aria-hidden="true">监考老师们的合照</figcaption>
+</figure>
+<p>嗝。</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>物理</tag>
+        <tag>化学</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2023 暑假重庆璧山乡村振兴实践</title>
+    <url>/2023/07/01/2023Chongqing-Social-Practice/</url>
+    <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
+<p>乡村振兴？这是什么？了解一下！</p>
+<p>重庆璧山？这是哪里？拜访一次！</p>
+<span id="more"></span>
+<h2 id="day--1">2023-07-01 Day -1</h2>
+<p>窝在家里修整自己的博客，似乎这样在进行实践的时候就能留下一些记忆。</p>
+<p><del>虽然但是咱支队也有宣传组，那我自封为宣传组副副副副副副副组员好了。</del></p>
+<p>清理自己的行李箱。并不知道该干啥。</p>
+<p>不如睡大觉。</p>
+<h2 id="day-0">2023-07-02 Day 0</h2>
+<p>早上 06:30
+起床，已经很久没有这么早起床了。似乎我早就已经成为懒狗大学牲了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/03/hankoub29bd177e526a4cb.jpeg"
+alt="汉口站" />
+<figcaption aria-hidden="true">汉口站</figcaption>
+</figure>
+<p>人是真的多。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/03/crowded85b25028ae40d35a.jpeg"
+alt="多" />
+<figcaption aria-hidden="true">多</figcaption>
+</figure>
+<p>中午实在是饿得不行，早上忘记买泡面了，结果一个傻傻的怨种在高铁上斥重金买了盒饭（但有一说一，cvoodoo
+推荐的还真没错，这个红烧肉还挺好吃）。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/stupid-lunch7d12bca2d67e5817.jpeg"
+alt="枣香红烧肉盒饭" />
+<figcaption aria-hidden="true">枣香红烧肉盒饭</figcaption>
+</figure>
+<p>在高铁上看了一章多一点的《数理逻辑与集合论（第2版）》，觉得开头很容易，但简略地翻了一下后面的章节，感觉形式化的语言总归还是晦涩的。</p>
+<p>重庆是山城吧。沿路能看见远处的山脉像水粉一般淡淡地作为背景。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/mountain16d7fb18dd72177b0.jpeg"
+alt="高楼背后的山" />
+<figcaption aria-hidden="true">高楼背后的山</figcaption>
+</figure>
+<p>下午搬行李办住宿手续。这里的住宿条件是真的好，不是民宿，而是公寓。<del>唯一的缺点可能是没有
+Wi-Fi？并且流量的信号也不是很好。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/apartment1193170499eb1e473.jpeg"
+alt="我的卧室" />
+<figcaption aria-hidden="true">我的卧室</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/apartment246bd9d1d283cc855.jpeg"
+alt="客厅甚至有个大电视" />
+<figcaption aria-hidden="true">客厅甚至有个大电视</figcaption>
+</figure>
+<p>晚上和支队长 zzc，初中同班同学（且高中同学）gyc
+在公寓旁边找了一家餐馆吃饭，属实是给了我这个武汉人一点小小的重庆震撼。</p>
+<p>首先是时蔬汤。12元一大碗清水煮白菜，其实挺划算，汤也挺好喝，主要是这个白菜是真的好吃，而且量真的多。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/vegetable-soupef07179a7351f8db.jpeg"
+alt="时蔬汤" />
+<figcaption aria-hidden="true">时蔬汤</figcaption>
+</figure>
+<p>其次是来凤鱼。超大一盘，量多味辣，十分好吃。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/03/laifeng-fish87f62296bb273f42.jpeg"
+alt="来凤鱼" />
+<figcaption aria-hidden="true">来凤鱼</figcaption>
+</figure>
+<p><del>我们三个都不敢相信 150 块钱能吃到这么多。感觉被北京 PUA
+了。</del></p>
+<p>回到寝室里继续看《数理逻辑与集合论（第2版）》。然后补了补博客，帮同学调了调代码。</p>
+<h2 id="day-1">2023-07-03 Day 1</h2>
+<p>呃呃，凌晨一点钟了还没睡觉。在干嘛？在学 <a
+href="https://www.bilibili.com/read/cv2841976">麻将</a>。</p>
+<p>早上参观了两个公园。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/04/skyshuttlea16c1a745d55184f.jpeg"
+alt="云中巴士" />
+<figcaption aria-hidden="true">云中巴士</figcaption>
+</figure>
+<p>解锁了新的交通工具——“云中巴士”。我觉得这大概是公交车的大小的轻轨。重庆地铁在璧山区只有一站，而且该站处于璧山区的边缘（中心城区和璧山区的接合部）。由于璧山区没有资格/实力/地位修建属于自己的地铁/轻轨线路，因此，“云中巴士”应运而生。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/flower1095fdb88ff8f2591.jpeg"
+alt="花" />
+<figcaption aria-hidden="true">花</figcaption>
+</figure>
+<p>这个是由花构成的梯田，镶嵌性的布局展示出了层次感。</p>
+<p>以下是从两个视角拍的同一座亭子的风景照。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/tree1e8b1fc86aeca3c28.jpeg"
+alt="你看右下角湖面上的蜗牛石塑" />
+<figcaption aria-hidden="true">你看右下角湖面上的蜗牛石塑</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/tree2806908af907da385.jpeg"
+alt="哇" />
+<figcaption aria-hidden="true">哇</figcaption>
+</figure>
+<p>下午参观了高新产业园区。<del>byd 参观 byd 是吧。</del></p>
+<p>我们参观的厂房是电池以及新能源相关，我啥都不会。磷酸铁锂的化学式都差点忘了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/byd10497423e929d1a8.jpeg"
+alt="BYD" />
+<figcaption aria-hidden="true">BYD</figcaption>
+</figure>
+<p>晚上和政府对接人员一起吃正宗的重！庆！火！锅！</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/hotpot12bb3c398013b9ca0.jpeg"
+alt="重庆火锅" />
+<figcaption aria-hidden="true">重庆火锅</figcaption>
+</figure>
+<p>我觉得比较有特色的是它的碟，被称为油碟，因为最重要的是“香油”。<del>但这里没有芝麻酱。很难想象没有芝麻酱怎么吃火锅，对吧？</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/plate1081e5d3885051f34.jpeg"
+alt="碗1" />
+<figcaption aria-hidden="true">碗1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/plate2338af4b3ba7c520d.jpeg"
+alt="碗2" />
+<figcaption aria-hidden="true">碗2</figcaption>
+</figure>
+<p>你看这个碗，它有两段。右边这一段是用来滤油的。太高级了。</p>
+<p>回到公寓，洗了澡之后又是学麻将+帮同学调代码一直干到了凌晨。困。</p>
+<h2 id="day-2">2023-07-04 Day 2</h2>
+<p>美滋滋睡懒觉，早上八点二十才起床。匆匆忙忙吃完早餐，乘坐大巴到区政府参加座谈会。</p>
+<p>人生中第一次，我的名字竟然能被写在名牌上，倍感荣幸。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/meeting7c079dcd27184522.jpeg"
+alt="名牌" />
+<figcaption aria-hidden="true">名牌</figcaption>
+</figure>
+<p>还是说说我对“乡镇引入优秀人才”这一政策的思考吧。就个人而言，我觉得所有的政策都是很好的，给的福利也很多；但是，我觉得
+<strong>子女受教育机会</strong>
+这一点很难得到满足与保障。乡镇最大的困难可能是教育资源贫乏，而受良好教育（尤其是义务教育阶段）又是我比较看重的，所以我以后可能就不会考虑选调下沉农乡基层。哦，当然我以后的思维观念也有可能转变，不过到时候再说吧。</p>
+<p>中午去政府单位的食堂吃了午饭，然后回公寓睡了一觉。很爽。</p>
+<p>下午参观大圆祥博物馆。“一个博物馆，就是一所大学校。”此言不假。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/tree2141c17db35d54a98.jpeg"
+alt="风景" />
+<figcaption aria-hidden="true">风景</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/museumf13cc9b954741648.jpeg"
+alt="大圆祥博物馆" />
+<figcaption aria-hidden="true">大圆祥博物馆</figcaption>
+</figure>
+<p>大圆祥博物馆不同于其他常见的博物馆，它取址与自然中，展览的物品大多是石雕、木雕（包括木门、木牌匾、木床、木桌椅板凳等），它们都没有被放入玻璃橱窗中，而是真切地被展览在你的面前。<del>理论上可以直接摸到这些展览品，但有警告标语禁止触碰。</del>
+而且室外也有展览，石狮子、石门。<del>有的上面甚至有蜘蛛网。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/04/skulpture956074b8b61cbf47.jpeg"
+alt="石雕1" />
+<figcaption aria-hidden="true">石雕1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/04/skulpture2decc6f965d93187f.jpeg"
+alt="石雕2" />
+<figcaption aria-hidden="true">石雕2</figcaption>
+</figure>
+<p>这是什么？这是“情侣凳”。一对情侣坐在上面，视线夹角就是 <span
+class="math inline">\(90^\circ\)</span> 而不是并排坐的 <span
+class="math inline">\(0^\circ\)</span>
+了，这样<del>更加暧昧</del>能增进感情。</p>
+<p>而且这玩意儿一个人会坐不稳，必须得两个人平衡重量。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/bench3290e654cf691d9e.jpeg"
+alt="情侣凳" />
+<figcaption aria-hidden="true">情侣凳</figcaption>
+</figure>
+<p>哦，忘了说，一个桌子加一个情侣凳要两万块钱。买不起。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/wood1582cb476bf279129.jpeg"
+alt="牌匾" />
+<figcaption aria-hidden="true">牌匾</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/wood2f12c60dd31ab8be5.jpeg"
+alt="木制品" />
+<figcaption aria-hidden="true">木制品</figcaption>
+</figure>
+<p>晚上在博物馆旁边吃的农家乐。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/foodfa8e76e5c8b07313.jpeg"
+alt="大碗菜" />
+<figcaption aria-hidden="true">大碗菜</figcaption>
+</figure>
+<p>还久违地碰到了只因哥哥。不知道他是否能够挺过这段时间。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/04/rooster9f7d8fd72832d13a.jpeg"
+alt="只因" />
+<figcaption aria-hidden="true">只因</figcaption>
+</figure>
+<p>晚上很累。在楼底下超市买了一些水果和饼干，但发现并不好吃。不如睡大觉。</p>
+<h2 id="day-3">2023-07-05 Day 3</h2>
+<p>早上到达喜观振兴驿站。这里是重庆市璧山区七塘镇。</p>
+<p>感觉这个驿站类似于党员群众服务中心，设施挺齐全的。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/insidea0e810e46688bcb8.jpeg"
+alt="里边" />
+<figcaption aria-hidden="true">里边</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/outside150f67db02c20b08.jpeg"
+alt="外边" />
+<figcaption aria-hidden="true">外边</figcaption>
+</figure>
+<p>田间有很多民间艺术家就地取材，用稻梗制作出了一件件艺术品。这里确实和川美合作很多。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/dogb8618324dcaa9645.jpeg"
+alt="这应该是狗……吧？" />
+<figcaption aria-hidden="true">这应该是狗……吧？</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/lay2a00e76ec8ab7bad.jpeg"
+alt="惬意地躺在地上的人" />
+<figcaption aria-hidden="true">惬意地躺在地上的人</figcaption>
+</figure>
+<p>化身成草帽吉米。准备入户调研采访。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/selfie6ccbc8bbbe7faa2f.jpeg"
+alt="这是带着草帽的我" />
+<figcaption aria-hidden="true">这是带着草帽的我</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/shadow1ff87d538f87fd54.jpeg"
+alt="这也是带着草帽的我" />
+<figcaption aria-hidden="true">这也是带着草帽的我</figcaption>
+</figure>
+<p>呃呃，“四体不勤五谷不分”说的就是我。<del>我说武汉话，这位爷爷说重庆话，我们竟然能对话？</del></p>
+<video src="../../../../gallery/journal-2023-07-03-Chongqing/day3/interview.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
+<p>这是村民养的鸭。有纯白的鸭鸭。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/05/duckbdfeda7cf477ac48.jpeg"
+alt="鸭鸭" />
+<figcaption aria-hidden="true">鸭鸭</figcaption>
+</figure>
+<p>采访完毕后，感慨颇深。怎么说呢。政府政策是很好，乡村振兴这战略那战略，但是落到每家每户上呢？墙的外表是刷了新的墙面，但是内部还是原来的样子；未经村民同意，在村民不在家的时候把厨房拆了，之后再还建到别处；电线报给物业修理
+3 月份的事儿现在还没办成……</p>
+<p>哎，哥哥。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/05/stone-chicken9808f53e0ad9a3d5.jpeg"
+alt="只应" />
+<figcaption aria-hidden="true">只应</figcaption>
+</figure>
+<p>晚上外卖点了西瓜果切和两斤荔枝。比超市里的好吃多了。</p>
+<h2 id="day-4">2023-07-06 Day 4</h2>
+<p>早上八点钟闹钟响了，我延时了 5min，然后睡着了。然后就没有然后了。</p>
+<p>The next thing I knew was that
+支队长在敲公寓的大门（我在卧室里被吵醒了）。</p>
+<p>迟到了 10 分钟。我愧疚的很。</p>
+<p>早上和艺术家座谈，感受到了艺术家们想尝试改变整个乡村发展的热忱。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/08/artist-meetingf5519c46fb292d20.md.jpeg"
+alt="与艺术家座谈" />
+<figcaption aria-hidden="true">与艺术家座谈</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/08/i-ask-artist30fe99c845ad977b.md.jpeg"
+alt="问问题" />
+<figcaption aria-hidden="true">问问题</figcaption>
+</figure>
+<p>我这个毛小子还问了个问题。挺好。</p>
+<p>下午在干啥？下午其他人是在为之后的“助农直播”进行筹备。我应该是在整理早上的会议记录。</p>
+<p>看看晚霞吧！</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/08/sunsetc83cd54f030a811a.jpeg"
+alt="晚霞" />
+<figcaption aria-hidden="true">晚霞</figcaption>
+</figure>
+<p>看看乡村的鸡鸭。鸭子没有在喝水，而是在用水梳理自己的羽毛。右边的鸡啄了左边的鸡一下。</p>
+<p>唉，哥哥。</p>
+<video src="../../../../gallery/journal-2023-07-03-Chongqing/day4/chicken.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
+<p>晚上开始准备明天和重庆医科大学的同学交流会的 PPT。睡的挺晚的。</p>
+<p>哎，一整理出来，感觉这一天我没干啥事儿。这比昨天的事儿可少多了。</p>
+<h2 id="day-5">2023-07-07 Day 5</h2>
+<p>好消息：今天早上没迟到。但早饭不是很好吃。有烧麦，但真难吃。纯米，没有肉。</p>
+<p>早上去拜访大兴镇白深富故居进行党性教育。太阳是真的大。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/07/old-house1459e43d47e5e9546.jpeg"
+alt="白深富故居" />
+<figcaption aria-hidden="true">白深富故居</figcaption>
+</figure>
+<p>我们是在类似于一个四合院里，顶着大太阳，听一个老师傅讲解故事。大概听了
+1
+个小时吧。之后我们才进入故居进行参观。虽然带有重庆口音的普通话我不能完全听懂，但是大致意思我理解了。我们也为白深富同志默哀了半分钟。我几乎要被热到融化了，但最终还是挺了下来，感觉这也能算是党性教育的一部分吧。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/07/old-house24e87b0f9e152e13a.jpeg"
+alt="入团宣言和入党宣言" />
+<figcaption aria-hidden="true">入团宣言和入党宣言</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/07/old-house3a7a4857e1700d3e6.jpeg"
+alt="白深富的床" />
+<figcaption aria-hidden="true">白深富的床</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/07/old-house4302259907e982577.jpeg"
+alt="白深富的灶台" />
+<figcaption aria-hidden="true">白深富的灶台</figcaption>
+</figure>
+<p>下午和重庆医科大学的同学们进行交流学习。这是一个突然插播的项目，起因是我们在振兴驿站里碰到了他们，对方老师很热情，希望和我们进行一些交流，于是就有了这么一个交流会。我作为汇报人，讲了好长时间。首先是大约说了一下前几天我们支队对艺术乡建的调研成果；然后我还分享我查找到的关于“数字化乡村振兴新模式”的一些已有成果（上知网查的论文）和我自己的看法；最后进行了破冰会，认识了一些新的同学吧。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/07/PPT88808d34db0c9e2f.png"
+alt="我做的逆天 PPT" />
+<figcaption aria-hidden="true">我做的逆天 PPT</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/CQMU9c78b958469f6335.jpeg"
+alt="合影" />
+<figcaption aria-hidden="true">合影</figcaption>
+</figure>
+<p>晚上在写 Wordle，完成度似乎还可以？一共写了 7kB
+的代码，就当是代码能力复健吧。</p>
+<p>实际上是练习使用 STL，有一说一，<code>std::string</code>
+是真好用。<del>妈的，字符数组就应该被废除掉。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/07/code-lengthd3d342bd1e9e5c6f.png"
+alt="代码长度" />
+<figcaption aria-hidden="true">代码长度</figcaption>
+</figure>
+<p>自己玩了一下，感觉这单词的难度一言难尽。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/07/rubbishc65eab1b105a5cff.png"
+alt="垃圾数据" />
+<figcaption aria-hidden="true">垃圾数据</figcaption>
+</figure>
+<p><del>其实倒数第二次的猜测表明我的代码有问题，第一个 p
+应该是红色的。</del></p>
+<p>不知不觉，又已经十二点了。一天又结束了。</p>
+<h2 id="day-6">2023-07-08 Day 6</h2>
+<p>早上与重庆校友会的学长学姐进行了交流座谈。个人感觉收获很多。</p>
+<blockquote>
+<p>刘书记 1.
+安徽待了六个星期，听不懂话。大学的传承，社会实践的深度传承下去。 2.
+乡镇党委书记，乡村振兴是我工作的主业之一。结合我的工作，跟大家聊一下乡村振兴的看法。今天你们分享的，是直观观感上的感受。其实，乡村振兴是有顶层设计的。
+-
+产业振兴。文创，是产业的一部分。第一要务：我种什么。文化与旅游附着的基础是什么？是基础。安全垫在哪里？在种植产业。粮食安全。为什么有荒地？种一亩亏一亩。粮食一年内间种蔬菜。产业振兴的基础是什么？是种植业。
+-
+人才振兴。很少有年轻人。人才是需要有回报的，使用市场化的方式撬动。先富带后富。“村民永远不会相信你说什么，只会看你干成了什么。”更重要的是运营人才。
+- 文化振兴。接受市场，接受契约。 -
+生态振兴。深入农村的时候，有没有臭味儿。有没有蚊虫。 -
+组织振兴。组织是什么？村委会和党支部合一。小合作社带动大合作社。 3.
+乡村振兴的三个层次。 - 获得一些新的认知。 - 体会一种生活方式。 -
+认识一种价值体系。</p>
+</blockquote>
+<p>哎，也不知道自己会不会走选调这条路。</p>
+<p>中午想着自己既然已经写过 <a href="http://wordlegame.org/">Wordle</a>
+了，不如继续玩玩。于是尝试玩了一下 <a
+href="https://sedecordlegame.org/">Sedecordle</a>。个人认为宝刀未老。一局足足让我玩了半个小时。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
+alt="Sedecordle" />
+<figcaption aria-hidden="true">Sedecordle</figcaption>
+</figure>
+<p>下午去玩了一下振兴驿站旁边的昆虫王国。</p>
+<video src="../../../../gallery/journal-2023-07-03-Chongqing/day6/playground.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
+<p>这儿的儿童游乐设施还挺多。身边的很多同学都说我很“天真”，我觉得也是，我希望能在我逐渐长大的过程中仍保存我内心中最柔弱、最青春的那一部分。<del>比如看看我体验儿童游乐设施。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/07/16/swing1851446318cdee27.jpeg"
+alt="荡秋千" />
+<figcaption aria-hidden="true">荡秋千</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/16/balance1cfd28f96c274789e.jpeg"
+alt="练平衡力1" />
+<figcaption aria-hidden="true">练平衡力1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/16/balance2eb652383dfc16f4e.jpeg"
+alt="练平衡力2" />
+<figcaption aria-hidden="true">练平衡力2</figcaption>
+</figure>
+<p>拍了一张很有意思的帅照（我认为挺帅的）。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/handsomedd39ad2e5390625c.jpeg"
+alt="帅照" />
+<figcaption aria-hidden="true">帅照</figcaption>
+</figure>
+<p>看看只因哥哥。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/chicken1b333eed6cc77a94.jpeg"
+alt="鸡" />
+<figcaption aria-hidden="true">鸡</figcaption>
+</figure>
+<p>夕阳真美呀。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/sunsetd30257d8bba23101.jpeg"
+alt="夕阳" />
+<figcaption aria-hidden="true">夕阳</figcaption>
+</figure>
+<p>晚饭在“农家小院”吃的。柴火鸡还是很好吃的。这相当于一个灶台，直接在灶台边吃饭，锅边还能贴很多类似于锅盔的“玉米粑粑”。这样做有一个巧妙的地方，就是可以通过观察粑粑的颜色（以及是否烤枯了）来判断柴火鸡的火候是否到位。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/corn58d6741d76ba18f7.jpeg"
+alt="玉米粑粑" />
+<figcaption aria-hidden="true">玉米粑粑</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/firewood0e9f91a8b1390373.jpeg"
+alt="柴火" />
+<figcaption aria-hidden="true">柴火</figcaption>
+</figure>
+<p>然后就回公寓了。晚上干了啥？看了看一本 Python
+的入门书籍，然后就睡大觉了。</p>
+<h2 id="day-7">2023-07-09 Day 7</h2>
+<p>早上参观了葡萄园。我们看到了阳光玫瑰葡萄。还有夏黑葡萄。</p>
+<p>值得一提的是，我两种都吃了。很好吃。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/green36e48b7cf2a3a6d4.jpeg"
+alt="阳光玫瑰葡萄" />
+<figcaption aria-hidden="true">阳光玫瑰葡萄</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/black756a201db920ef05.jpeg"
+alt="夏黑葡萄" />
+<figcaption aria-hidden="true">夏黑葡萄</figcaption>
+</figure>
+<video src="../../../../gallery/journal-2023-07-03-Chongqing/day7/grapes.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
+<p>下午在振兴驿站修整。然后又看了很长时间的 Python 入门书籍。</p>
+<p>晚上在写直播文案。大概想了想自己会说啥，以及整个的流程。</p>
+<h2 id="day-8">2023-07-10 Day 8</h2>
+<p>一整天都在准备直播的事情。</p>
+<p>感觉没啥好写的。</p>
+<p><del>真的不是因为我懒。</del></p>
+<p>下午试播了一次。天气真的是热。我被烤熟了。</p>
+<h2 id="day-9">2023-07-11 Day 9</h2>
+<blockquote>
+<p>直播日。</p>
+</blockquote>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/data14b205f8024c60a06.jpeg"
+alt="早上的点赞" />
+<figcaption aria-hidden="true">早上的点赞</figcaption>
+</figure>
+<p>下午我就去直播了。天气是真**热。比昨天还热。整张照片贴上来算了。真的累。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/16/afternoon19ece15476532616.jpeg"
+alt="下午直播" />
+<figcaption aria-hidden="true">下午直播</figcaption>
+</figure>
+<p>晚上在“农家小院”吃播。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/eat95407edc6e113d48.jpeg"
+alt="晚上吃播" />
+<figcaption aria-hidden="true">晚上吃播</figcaption>
+</figure>
+<p>我也有分享学习经验。跟 gyc 一起文理双子星嘎嘎乱说话。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/study02d692468a3ea592.jpeg"
+alt="分享学习经验" />
+<figcaption aria-hidden="true">分享学习经验</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/data2a0fb26904f5878fa.jpeg"
+alt="总直播数据" />
+<figcaption aria-hidden="true">总直播数据</figcaption>
+</figure>
+<p><del>累计 9.8 万赞呢。</del></p>
+<p>其实我们下播是因为说了某个人的名字，我们也只是在歌颂他的英明政策的时候提及了他的名字。然后就被封禁了
+10 分钟。<del>封禁信息可以从上面那张截图里看到。</del></p>
+<p>好累。晚上睡大觉！</p>
+<h2 id="day-10">2023-07-12 Day 10</h2>
+<p>昨天的直播意犹未尽。早上昏昏沉沉地去了振兴驿站。</p>
+<p>然后开始直播咱支队策划的艺术品展览。</p>
+<p>中途抽了两次奖品。<del>我过硬的手速使得</del>我抽中了一份纪念品。</p>
+<p>中午把 Python
+的一本入门书籍看完了。自我感觉良好。准备回家之后学会怎么写爬虫。</p>
+<p>下午结束之后把展览撤掉了。拿到了纪念品。嘻嘻。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/souvenir68aa3ce795cb7e6d.jpeg"
+alt="纪念品" />
+<figcaption aria-hidden="true">纪念品</figcaption>
+</figure>
+<p>晚上跟 wyq（a.k.a.
+永琪哥）一起吃了“外婆面”的重庆小面。去之前买了香酥芝麻鸭。好吃。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/sesame-duck1ea5a8d812d316776.jpeg"
+alt="香酥芝麻鸭1" />
+<figcaption aria-hidden="true">香酥芝麻鸭1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/sesame-duck23ed11a448341a3f0.jpeg"
+alt="香酥芝麻鸭2" />
+<figcaption aria-hidden="true">香酥芝麻鸭2</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/Chongqing-Xiaomian526a0114f75beca6.jpeg"
+alt="重庆小面" />
+<figcaption aria-hidden="true">重庆小面</figcaption>
+</figure>
+<p>偶遇颜值很高的猫学姐。</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/cat133a009fc6a7647f3.jpeg"
+alt="猫学姐1" />
+<figcaption aria-hidden="true">猫学姐1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/cat29683d9bd836c9559.jpeg"
+alt="猫学姐2" />
+<figcaption aria-hidden="true">猫学姐2</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/cat363359a8d22d7aa19.jpeg"
+alt="猫学姐3" />
+<figcaption aria-hidden="true">猫学姐3</figcaption>
+</figure>
+<p>晚上在跟支队的部分同学一起打牌。虽然我斗地主一直输，但德州扑克还是赢了几把的。</p>
+<p>明天没有事儿，那就睡大觉！</p>
+<h2 id="day-11">2023-07-13 Day 11</h2>
+<p>很难想象我是几点钟起床的。11:50！准确地讲，是 8:50
+闹钟响了，起来看了眼手机，然后又躺了下去。<del>再次睁眼已经是中午了。</del></p>
+<p>cvoodoo 说得好，这个时间点起床反而比 10:00
+起床要舒服，<del>因为不用纠结要不要吃早饭了。</del></p>
+<p>吃完午饭水了一下 B 站，然后粗略地看了看 <a
+href="https://docs.net9.org/">计算机系学生科协技能引导文档</a>，觉得这个暑假能学的东西还挺多。</p>
+<p>然后又想到这几天 <a
+href="https://summer23.net9.org/">计算机系暑期培训</a>
+似乎漏了一两节课。</p>
+<p>看一眼讲义。原来是 Web 啊。不会。</p>
+<p>再看一眼讲义，还是不会。<del>再多看一眼就会爆炸。</del></p>
+<p>不想用流量看回放。这些还是回家再说吧。</p>
+<p>然后就开始睡午觉了。此时 15:40。</p>
+<p>一觉醒来已经是
+17:00。出门准备去昨天吃的那家面馆吃豌杂面。结果关门了<del>（当然，也有可能是还没开门）</del>。</p>
+<p>于是去旁边的一家面馆吃了红油抄手。好吃。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/chaoshoub04b951d22b9321b.jpeg"
+alt="还加了个煎蛋，美滋滋" />
+<figcaption aria-hidden="true">还加了个煎蛋，美滋滋</figcaption>
+</figure>
+<p>旁边有一家蜜雪冰城。是熟悉的芝士奶盖绿茶，当初是高中每周放学帅会带我喝的。<del>现在帅带我喝瑞幸。喝的东西变了，兄弟没变。</del></p>
+<p>失误了，没说要半糖，店员给我加了全糖。太甜了。</p>
+<p>晚上开始补博客。我给了一个比喻是“像是高三拖欠了很久作业就再也不想补以前作业的感觉”。</p>
+<p>cvoodoo 锐评：</p>
+<blockquote>
+<p>不用高三 像是两个月前拖欠了几节课就再也不想去上课的感觉x</p>
+</blockquote>
+<p>晚上没事儿干，于是和支队里部分同学一起出去吃了海底捞。<del>店里有芝麻酱，好评！</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/hotpot819b4bf10fc9ac69.jpeg"
+alt="海底捞" />
+<figcaption aria-hidden="true">海底捞</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/peoplec8a3eda96233f2ed.jpeg"
+alt="凌晨人还很多" />
+<figcaption aria-hidden="true">凌晨人还很多</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/eatfbf8ace0ac36deef.jpeg"
+alt="吃吃吃" />
+<figcaption aria-hidden="true">吃吃吃</figcaption>
+</figure>
+<p>和海底捞的店员互动，石头剪刀布三局两胜，我 2-0 获得了一个小玩具。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/dine-sauraeb9c3327fd2a099.jpeg"
+alt="拼装恐龙" />
+<figcaption aria-hidden="true">拼装恐龙</figcaption>
+</figure>
+<p><del>《适龄：3 岁及以上》</del></p>
+<p>然后回公寓一直打牌到了凌晨四五点。斗地主和德州扑克都挺好玩的，而且我运气挺好，感受到了赢的乐趣。<del>但感觉还是不如日麻。</del></p>
+<p>明天应该也确实没我啥事儿。我不用说话，只需要听支队长汇报就行了。<del>我只需要保证自己不在会上睡着就行（</del></p>
+<h2 id="day-12">2023-07-14 Day 12</h2>
+<p>呃呃。今天要去向政府汇报了。</p>
+<p>早上十点五十起床的。还行，起码睡了五个半小时（多）。</p>
+<p>傻了吧唧地到政府机关吃午饭，肚子其实挺饱的，也没吃多少。</p>
+<p>吃完了午饭速速到达会议室，然后开始等待。<del>毕竟我们是十二点半到达的会议室，但会议两点才开始。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/meeting-roome529bec0014dffd1.jpeg"
+alt="会议室" />
+<figcaption aria-hidden="true">会议室</figcaption>
+</figure>
+<p><del>唉，支队汇报。没意思。</del></p>
+<p>晚上支队一起吃了顿饭。其他菜都挺好吃的，就是小龙虾不太行。<del>不如回武汉再多吃几顿小龙虾。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/diningc6b78bf8ced611ce.jpeg"
+alt="饭饭" />
+<figcaption aria-hidden="true">饭饭</figcaption>
+</figure>
+<p>然后走到洪崖洞拍了拍照，夜景十分华丽。<del>人也是真的多。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/dusk01582280da64fb3f.jpeg"
+alt="傍晚" />
+<figcaption aria-hidden="true">傍晚</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2023/07/15/Hongyadong5aecd6a57293ac65.jpeg"
+alt="洪崖洞" />
+<figcaption aria-hidden="true">洪崖洞</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/bridgec3c4c7c90770ea1a.jpeg"
+alt="桥" />
+<figcaption aria-hidden="true">桥</figcaption>
+</figure>
+<p>之后又走到鹅岭二厂去了。拍了几张店铺都关门了的照片。下次得早点来游玩，晚上关门了之后黑灯瞎火的，有点吓人。Errie.</p>
+<figure>
+<img src="https://img.picgo.net/2023/07/15/ELECb17b5db0fd065abf.jpeg"
+alt="鹅岭二厂" />
+<figcaption aria-hidden="true">鹅岭二厂</figcaption>
+</figure>
+<p>很难想象今日步数突破 2
+万。很久没有走过这么多的路了，腿确实挺累的。</p>
+<p>晚上和永琪哥在名茗姐房里消灭买多了的冰棒。我吃了一根绿色心情，还吃了一根核桃牛奶。个人认为“天友”这个重庆本土品牌的乳制品还是十分不错的。</p>
+<p>一起聊天聊到一点钟，<del>讲了很多八卦吃到了很多有意思的瓜，</del>然后我就回去睡觉了。</p>
+<h2 id="day-13">2023-07-15 Day 13</h2>
+<p>早上七点钟永琪哥把他的房门钥匙交给我了，让我帮他还给物业。唉，永琪哥人又帅性格又好。</p>
+<p>然后又睡到八点。醒了。然后看了看微信，又睡着了。</p>
+<p>九点零五分正式醒来，收拾好东西回家！</p>
+<p>高铁上没啥意思。一直就在更现在你正在看的<a
+href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
+<p>我一直在想，这一次到重庆璧山的暑期实践到底给我带来了什么。</p>
+<p>第一次看见田野。</p>
+<p>第一次参观蔬菜大棚。</p>
+<p>第一次差点通宵。</p>
+<p>第一次吃重庆火锅。</p>
+<p>第一次在政府大楼里开会。</p>
+<p>第一次使用抖音。</p>
+<p>第一次进行露脸直播。<del>（寒假时我在 b
+站上共享屏幕直播过植物大战僵尸）</del></p>
+<p>这次暑期实践，结识了一帮好朋友，也治好了我“四体不勤五谷不分”的坏毛病。</p>
+<blockquote>
+<p>谨以此博客，献给 2023 年去重庆璧山实践的时光。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>重庆</tag>
+        <tag>璧山</tag>
+        <tag>乡村振兴</tag>
+        <tag>暑期实践</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【游记】2022 年回眸</title>
+    <url>/2022/12/31/2022Lookback/</url>
+    <content><![CDATA[<p>2022 年就这么过去了，</p>
+<p>我也从一个高三学生变成了一个大一新生了。</p>
+<hr />
+<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png"
+alt="换微信头像啦！" />
+<figcaption aria-hidden="true">换微信头像啦！</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="一月至五月">一月至五月</h2>
+<p><strong>2022-02-05 自己的 18 岁生日</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg"
+alt="蛋糕" />
+<figcaption aria-hidden="true">蛋糕</figcaption>
+</figure>
+<p><strong>各种调考</strong></p>
+<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
+<h2 id="六月">六月</h2>
+<p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
+<p>数学卷子好难。</p>
+<p><strong>2022-06-16 回初中看老师</strong></p>
+<p>感觉外初变新了，装修得非常漂亮。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg"
+alt="一行人" />
+<figcaption aria-hidden="true">一行人</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg"
+alt="内景" />
+<figcaption aria-hidden="true">内景</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg"
+alt="外景" />
+<figcaption aria-hidden="true">外景</figcaption>
+</figure>
+<p><strong>2022-06-25 高考出分</strong></p>
+<p>超常发挥吧。</p>
+<h2 id="七月">七月</h2>
+<p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
+<p>感谢 Q 宝的邀请</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg"
+alt="大汉" />
+<figcaption aria-hidden="true">大汉</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg"
+alt="小火车" />
+<figcaption aria-hidden="true">小火车</figcaption>
+</figure>
+<p><strong>2022-07-25 收到录取通知书</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg"
+alt="二校门" />
+<figcaption aria-hidden="true">二校门</figcaption>
+</figure>
+<h2 id="八月">八月</h2>
+<p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
+<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
+<p><strong>2022-08-19 开始军训</strong></p>
+<p><strong>2022-08-24 第一次定向越野</strong></p>
+<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg"
+alt="map" />
+<figcaption aria-hidden="true">map</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg"
+alt="成绩！" />
+<figcaption aria-hidden="true">成绩！</figcaption>
+</figure>
+<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg"
+alt="奇怪的出入校审批" />
+<figcaption aria-hidden="true">奇怪的出入校审批</figcaption>
+</figure>
+<p><strong>2022-08-28 参加 20km 拉练</strong></p>
+<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg"
+alt="丑陋的背包" />
+<figcaption aria-hidden="true">丑陋的背包</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg"
+alt="夜景" />
+<figcaption aria-hidden="true">夜景</figcaption>
+</figure>
+<h2 id="九月">九月</h2>
+<p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg"
+alt="可惜的是缺了 Jett 和罗总" />
+<figcaption aria-hidden="true">可惜的是缺了 Jett 和罗总</figcaption>
+</figure>
+<p><strong>2022-09-17 参加篮球运动周</strong></p>
+<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2。</del></p>
+<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至
+bilibili 观看</a></p>
+<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg"
+alt="文学长在进行操作" />
+<figcaption aria-hidden="true">文学长在进行操作</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg"
+alt="在享受" />
+<figcaption aria-hidden="true">在享受</figcaption>
+</figure>
+<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
+<p>问题就在于，背完了没太大用。</p>
+<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
+<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
+<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg"
+alt="GRE" />
+<figcaption aria-hidden="true">GRE</figcaption>
+</figure>
+<h2 id="十月">十月</h2>
+<p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
+<p>十分震撼。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg"
+alt="仪仗队在出旗" />
+<figcaption aria-hidden="true">仪仗队在出旗</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg"
+alt="国旗" />
+<figcaption aria-hidden="true">国旗</figcaption>
+</figure>
+<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg"
+alt="5人合影（我拍的）" />
+<figcaption aria-hidden="true">5人合影（我拍的）</figcaption>
+</figure>
+<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
+<p><del>什么叫物美价廉啊（战术后仰</del></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg"
+alt="《差距》" />
+<figcaption aria-hidden="true">《差距》</figcaption>
+</figure>
+<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
+<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
+<p><a
+href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至
+bilibili 观看</a></p>
+<p><strong>2022-10-03 参观工字厅</strong></p>
+<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg"
+alt="外部" />
+<figcaption aria-hidden="true">外部</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg"
+alt="内部1" />
+<figcaption aria-hidden="true">内部1</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg"
+alt="内部2" />
+<figcaption aria-hidden="true">内部2</figcaption>
+</figure>
+<p><del>值得一提的是，偶遇了<a
+href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
+<p><strong>2022-10-06 成功脱单</strong></p>
+<p>感谢我能遇见你。</p>
+<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
+<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg"
+alt="外部" />
+<figcaption aria-hidden="true">外部</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg"
+alt="国旗飘扬" />
+<figcaption aria-hidden="true">国旗飘扬</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg"
+alt="武汉战疫" />
+<figcaption aria-hidden="true">武汉战疫</figcaption>
+</figure>
+<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
+<p>勇夺全校并列第七！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg"
+alt="选手照片" />
+<figcaption aria-hidden="true">选手照片</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg"
+alt="并列第7！" />
+<figcaption aria-hidden="true">并列第7！</figcaption>
+</figure>
+<p>比我初一时候的成绩提高了大概 40 个（确信</p>
+<h2 id="十一月">十一月</h2>
+<p><strong>2022-11-01 写了一首诗</strong></p>
+<blockquote>
+<p>To Autumn</p>
+<hr />
+<p>Golden leaves of autumn</p>
+<p>danced and drifted to the ground.</p>
+<p>They dotted the picturesque view of mother nature,</p>
+<p>when the color of gold conquered the world.</p>
+<p>Leaves are leaving,</p>
+<p>but I'm not.</p>
+<hr />
+<p>My hand holds yours,</p>
+<p>your hand fits mine.</p>
+<p>By chance,</p>
+<p>my eyes meet thine.</p>
+</blockquote>
+<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
+<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
+<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep
+My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
+<blockquote>
+<p>Blossom and I -</p>
+<p>Her oath, and mine -</p>
+<p>Will surely come again.</p>
+</blockquote>
+<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
+<p>能代表系里参加马杯，属实是我的荣幸。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg"
+alt="在排队参赛" />
+<figcaption aria-hidden="true">在排队参赛</figcaption>
+</figure>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg"
+alt="横幅" />
+<figcaption aria-hidden="true">横幅</figcaption>
+</figure>
+<p>还不错，甲组全校第四！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg"
+alt="第四！" />
+<figcaption aria-hidden="true">第四！</figcaption>
+</figure>
+<p><strong>2022-11-27
+完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
+<p>学到许多。</p>
+<p><span class="math inline">\(\LaTeX\)</span> 熟练度增加了！</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg"
+alt="算法课报告" />
+<figcaption aria-hidden="true">算法课报告</figcaption>
+</figure>
+<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
+<p>我们班的篮球队最后 3
+秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
+<p><del>当然，我超常发挥也可能是因为女朋友来看比赛了。</del>
+当然，我超常发挥也可能是因为前女友来看比赛了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg"
+alt="最后的罚篮" />
+<figcaption aria-hidden="true">最后的罚篮</figcaption>
+</figure>
+<p><strong>2022-11-28 第一次封寝</strong></p>
+<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
+<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg"
+alt="自习位置" />
+<figcaption aria-hidden="true">自习位置</figcaption>
+</figure>
+<h2 id="十二月">十二月</h2>
+<p><strong>2022-12-03 第一次参加志愿服务</strong></p>
+<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg"
+alt="空空旷旷" />
+<figcaption aria-hidden="true">空空旷旷</figcaption>
+</figure>
+<p><del>和女朋友一起参加志愿服务！</del> 和前女友一起参加志愿服务。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg"
+alt="合照！你能找到我吗？" />
+<figcaption aria-hidden="true">合照！你能找到我吗？</figcaption>
+</figure>
+<p>送完第二波大巴之后，天刚刚亮。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg"
+alt="送完大巴之后，天也亮了" />
+<figcaption aria-hidden="true">送完大巴之后，天也亮了</figcaption>
+</figure>
+<p><strong>2022-12-08 返乡</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg"
+alt="在寝室清东西" />
+<figcaption aria-hidden="true">在寝室清东西</figcaption>
+</figure>
+<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg"
+alt="返乡大巴" />
+<figcaption aria-hidden="true">返乡大巴</figcaption>
+</figure>
+<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
+<p><del>实名diss听涛园的热干面不咋地</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg"
+alt="热！干！面！" />
+<figcaption aria-hidden="true">热！干！面！</figcaption>
+</figure>
+<p><strong>2022-12-16 感染新冠病毒</strong></p>
+<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
+<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
+<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
+<figure>
+<img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg"
+alt="蒸橙子" />
+<figcaption aria-hidden="true">蒸橙子</figcaption>
+</figure>
+<p><strong>2022-12-20 复习期末</strong></p>
+<p>线代好难。</p>
+<p>微积分好难。</p>
+<p>基物好难。</p>
+<p>我想睡觉。</p>
+<h2 id="总结">总结</h2>
+<p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
+<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
+<p>新的一年里继续努力吧！</p>
+]]></content>
+      <categories>
+        <category>游记</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>回眸</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【学习笔记】自动机理论、语言和计算导论</title>
     <url>/2023/09/17/IATLC/</url>
     <content><![CDATA[<p>这是《自动机理论、语言和计算导论》的学习笔记。</p>
@@ -11495,1227 +13624,322 @@ class="math inline">\(ww^Rw\)</span> 的样式。因此该语言不为 CFL。</p
       </tags>
   </entry>
   <entry>
-    <title>【学习笔记】计算机科学概论</title>
-    <url>/2023/07/20/CSAO/</url>
-    <content><![CDATA[<p>这是《计算机科学概论（原书第13版）》的学习笔记，本文主要包括以下内容：</p>
-<p><strong>第一章 数据存储</strong></p>
-<ul>
-<li>逻辑门</li>
-<li>C 中的字符常量</li>
-<li>二进制中的补码与余码
-<ul>
-<li>补码记数法</li>
-<li>余码记数法</li>
-</ul></li>
-</ul>
-<p><strong>第十二章 计算理论</strong></p>
-<ul>
-<li>可计算性</li>
-<li>Bare Bones 语言
-<ul>
-<li>复制操作</li>
-<li>交换操作</li>
-<li>分支结构</li>
-</ul></li>
-<li>停机问题</li>
-<li>RSA</li>
-</ul>
-<span id="more"></span>
-<h2 id="第一章-数据存储">第一章 数据存储</h2>
-<h3 id="逻辑门">逻辑门</h3>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/21/logic-gatesb7ebe6a28e57870c.png"
-alt="逻辑门" />
-<figcaption aria-hidden="true">逻辑门</figcaption>
-</figure>
-<p>这八个基础的逻辑门的符号需要记清楚。记忆的技巧也很简单，<code>N</code>
-就是右侧加一个小圆圈，<code>X</code>
-就是左侧加一条线。“与”和“或”的符号我总是弄混淆，后来问了一下
-skyhappy，他跟我讲：</p>
-<blockquote>
-<p>我是这么记的，看输出端 如果是与运算，就得有容乃大，所以开口得胖一点
-或运算就不需要了，所以窄一点就好了</p>
-</blockquote>
-<p>我觉得很有道理。</p>
-<p><del>于是联想到了一个经典Stack Overflow 笑话——<a
-href="https://stackoverflow.com/questions/7054124/is-there-an-xnor-logical-biconditional-operator-in-c">在
-C# 语言中如何实现“同或 (XNOR) ”操作</a></del></p>
-<h3 id="c-中的字符常量">C 中的字符常量</h3>
-<p>在大一下学期学习《计算机程序设计基础》这门课的时候，老师上课说有同学将一个字符串定义成
-<code>char str = '123';</code>，虽然
-<strong>他通过了编译</strong>，但这是错误的。</p>
-<p>关注的重点在于
-<strong>他通过了编译</strong>，于是我上网查找了一下“单引号内如果包含多个字符为什么会编译成功”。</p>
-<p>在 C/C++ 中，一个 <code>int</code> 类型占用的空间是 32 bit，即 4 个
-byte。一个 <code>char</code> 类型占用的空间是 8 bit，即 1 个 byte。所以
-<code>'</code> 内一共可以最多包含 4 个字符，它会被看做成一个
-<code>int</code> 类型的常量。其实就是四个 <code>char</code>
-并排组在一起就成为了一个 <code>int</code>。</p>
-<p>例如，<code>('1' &lt;&lt; 8) + '2'</code> 和 <code>'12'</code>
-是一模一样的，均为 <code>(int)12594</code>。</p>
-<p>如果 <code>'</code> 内字符大于或等于 2 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: multi-character character constant [-Wmultichar]</span><br></pre></td></tr></table></figure>
-<p>如果大于或等于 5 个，编译器会警告：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">warning: character constant too long for its type</span><br></pre></td></tr></table></figure>
-<h3 id="二进制中的补码与余码">二进制中的补码与余码</h3>
-<h4 id="补码记数法">补码记数法</h4>
-<p>在补码记数法中，一个 <strong>有符号整数</strong> 用一个 32 bit
-二进制串来表示，其中最左侧被称为“最高位”，最右侧被称为“最低位”。最高位表示
-<span class="math inline">\(-2^{31}\)</span>，其余各位分别表示 <span
-class="math inline">\(2^{30}, \cdots, 2^1, 2^0\)</span>。因此一个 32 bit
-二进制串的表示范围为 <span class="math inline">\([-2^{31},
-2^{31}-1]\)</span>。</p>
-<p>一个通过补码记数法记录的整数，通过“按位取反再加一”的方式可以得到自己的相反数。</p>
-<h4 id="余码记数法">余码记数法</h4>
-<p>在余码记数法中，“0”被定义为最高位为 1，其余位均为 0
-的数。这个数在所有 32 bit
-二进制串中恰好排在“差不多”中间的位置。比它大的数即为正数，比它小的数即为负数。</p>
-<p>余码记数法和补码记数法的唯一区别是最高位的值相反。</p>
-<h2 id="第十二章-计算理论">第十二章 计算理论</h2>
-<h3 id="可计算性">可计算性</h3>
-<p>一个函数，如果依据输入，通过算法，可以确定输出值，则它被称为
-<strong>可计算的</strong>。事实上，存在那么一些函数，它们过于复杂以致找不到定义明确的、有限步骤的过程来根据输入确定输出。这样的函数计算超出了任何算法系统的能力范围，它们是
-<strong>不可计算的</strong>。</p>
-<p>一个函数是否可计算是非常重要的。如果确定了一个问题（以及数学建模后对应的函数）是不可计算的，那么人们就可以不必花更多精力研究如何用计算机来解决它，而是求助于其他更有效的方法。</p>
-<h3 id="bare-bones-语言">Bare Bones 语言</h3>
-<p>一个通用程序设计语言。</p>
-<ul>
-<li><p>一种基本数据类型。</p>
-<p>所有的变量本质上都是二进制数。</p></li>
-<li><p>三条赋值语句。</p>
-<p><code>clear name</code> 表示把 <code>name</code> 清零。
-<code>incr name</code> 表示使 <code>name</code> 自增 1。
-<code>decr name</code> 表示使 <code>name</code> 自减 1。</p></li>
-<li><p>一条控制结构语句。</p>
-<p><code>while name not 0:</code> 在 <code>name</code> 不为 0
-的时候，会一直做下方缩进的语句或语句序列（和 Python 类似）。</p></li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：Bare Bones
-语言能够用来表达计算所有图灵可计算函数的算法。</p>
-</blockquote>
-<p>复制操作、交换操作、分支结构等特性都可以使用 Bare Bones
-语言实现。</p>
-<h4 id="复制操作">复制操作</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while x not 0:</span><br><span class="line">  incr z</span><br><span class="line">while z not 0:</span><br><span class="line">  incr x</span><br><span class="line">  incr y</span><br></pre></td></tr></table></figure>
-<p>这样就通过辅助变量 <code>z</code> 完成了 <code>y = x</code>
-的复制操作。我们将其简写为 <code>copy x to y</code>。</p>
-<h4 id="交换操作">交换操作</h4>
-<p>既然能够完成复制操作，那么也一定能够完成交换操作。</p>
-<h4 id="分支结构">分支结构</h4>
-<p>我们现在想实现类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if x:</span><br><span class="line">  // ... do sth1</span><br><span class="line">else:</span><br><span class="line">  // ... do sth2</span><br></pre></td></tr></table></figure>
-<p>的结构。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy x to z</span><br><span class="line">clear w</span><br><span class="line">incr w</span><br><span class="line">while z not 0:</span><br><span class="line">  // do sth1</span><br><span class="line">  clear z</span><br><span class="line">  decr w</span><br><span class="line">while w not 0:</span><br><span class="line">  // do sth 2</span><br></pre></td></tr></table></figure>
-<p>以上代码可以实现这样的 <code>if-else</code> 分支结构。</p>
-<h3 id="停机问题">停机问题</h3>
-<p>如果程序中所有的变量都是用程序自身的编码表示（把字符全部转为二进制串）来进行初始化的，且这个程序在有限步骤后能够停止，则称这个
-Bare Bones 程序是 <strong>自终止的</strong>。</p>
-<p>停机问题指的是，是否存在一个算法，能够判断一个 Bare Bones
-程序是否是自终止的。</p>
-<p>答案是不存在。证明停机问题不可解，采取的方式是反证法。</p>
-<p>假设有一个 Bare Bones 程序 <code>A</code>，它接受的输入是一段 Bare
-Bones 程序 <code>test</code>，产生的输出是 <code>test</code>
-是否是自终止的：若是自终止的，则输出
-<code>1</code>；若不是自终止的，则输出 <code>0</code>。</p>
-<p>假设把 <code>A</code> 所得输出放入变量 <code>x</code>。考虑在
-<code>A</code> 后添加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// A...</span><br><span class="line">// x = output</span><br><span class="line">while x not 0:</span><br></pre></td></tr></table></figure>
-<p>我们称这个新的程序为 <code>B</code>。接下来我们要证明 <code>B</code>
-既不是自终止的，也不是非自终止的，以此推导出矛盾。</p>
-<ul>
-<li><p>若 <code>B</code> 是自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 1。此时进入
-<code>while</code> 死循环，则 <code>B</code>
-不是自终止的。矛盾。</p></li>
-<li><p>若 <code>B</code> 是非自终止的：</p>
-<p>将 <code>B</code> 作为自己的输入，则 <code>x</code> 为 0。此时不进入
-<code>while</code> 循环，则 <code>B</code> 是自终止的。矛盾。</p></li>
-</ul>
-<p>所以，如果停机问题可解，也就是说，存在一个程序
-<code>A</code>，使得它能判断一段 Bare Bones
-程序是否是自终止的，那么我们就可以构造出一个矛盾的程序
-<code>B</code>。因此停机问题不可解。</p>
-<h3 id="rsa">RSA</h3>
-<p>RSA
-是一种经典的公钥加密系统，被广泛应用于加密信息传递。<del>尤其是树洞上的信息加密。</del></p>
-<h4 id="rsa-密钥的生成与分发">RSA 密钥的生成与分发</h4>
-<blockquote>
-<p><span class="math inline">\(\lambda(n)\)</span> 为 <a
-href="https://en.wikipedia.org/wiki/Carmichael_function">Carmichael
-function</a>，是指最小的正整数 <span
-class="math inline">\(m\)</span>，满足对于所有的与 <span
-class="math inline">\(n\)</span> 互质的 <span
-class="math inline">\(a\)</span>，均有 <span class="math inline">\(a^{m}
-\equiv 1 \pmod n\)</span>。</p>
-</blockquote>
-<ol type="1">
-<li>选择两个大质数 <span class="math inline">\(p, q\)</span>，记 <span
-class="math inline">\(n = pq\)</span>。</li>
-<li>计算 <span class="math inline">\(\lambda(n) = \mathrm{lcm}(p - 1, q
-- 1)\)</span>。</li>
-<li>选择一个 <span class="math inline">\(e\)</span> 使得 <span
-class="math inline">\(e\)</span> 与 <span
-class="math inline">\(\lambda(n)\)</span> 互质。</li>
-<li>计算 <span class="math inline">\(d\)</span> 满足 <span
-class="math inline">\(d \equiv e^{-1} \pmod{\lambda(n)}\)</span>。</li>
-</ol>
-<p><span class="math inline">\(n, e\)</span> 作为公钥，<span
-class="math inline">\(d\)</span> 作为密钥。</p>
-<h4 id="rsa-的加密与解密">RSA 的加密与解密</h4>
-<p>由于所有的运算都会对 <span class="math inline">\(n\)</span>
-取模，所以一个很自然的要求是明文 <span class="math inline">\(m\)</span>
-的长度小于 <span class="math inline">\(n\)</span>。</p>
-<ul>
-<li><p>加密：密文 <span class="math inline">\(c \equiv m^e \pmod
-n\)</span></p></li>
-<li><p>解密：明文 <span class="math inline">\(m \equiv m^{de} \equiv c^d
-\pmod n\)</span></p></li>
-</ul>
-<h4 id="rsa-的正确性">RSA 的正确性</h4>
-<p>只需要证明 <span class="math inline">\(m \equiv m^{de} \pmod
-{pq}\)</span> 即可，更简化地说，只需要证明 <span class="math inline">\(m
-\equiv m^{de} \pmod p\)</span> 即可，对 <span
-class="math inline">\(q\)</span> 同理。</p>
-<p>由于 <span class="math inline">\(de \equiv 1 \pmod
-{\lambda(pq)}\)</span>，而 <span class="math inline">\(\lambda(pq) = (p
-- 1)(q - 1)\)</span>。所以不妨记 <span class="math inline">\(de - 1 =
-h(p - 1) = k(q - 1)\)</span>。</p>
-<ol type="1">
-<li>若 <span class="math inline">\(m \equiv 0 \pmod p\)</span>，则 <span
-class="math inline">\(m^{ed} \equiv 0 \equiv m \pmod p\)</span>。</li>
-<li>若 <span class="math inline">\(m \not\equiv 0 \pmod
-p\)</span>，则由费马小定理 <span class="math inline">\(m^{p-1} \equiv 1
-\pmod p\)</span>。</li>
-</ol>
-<p><span class="math display">\[
-  m^{de} \equiv m^{1 + h(p - 1)} \equiv m \cdot (m^{p-1})^h \equiv m
-\cdot 1^{h} \equiv m \pmod p
-\]</span></p>
-<p>因此命题得证。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机科学概论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【学习笔记】软件工程(1)</title>
-    <url>/2024/04/20/SE_1/</url>
-    <content><![CDATA[<p>这是清华大学计算机系春季课程《软件工程》期中考试复习笔记。</p>
-<span id="more"></span>
-<h2 id="前端">前端</h2>
-<h3 id="typescript-初探">Typescript 初探</h3>
-<ul>
-<li><code>const</code> 和 <code>let</code> 的区别
-<ul>
-<li>前者为常量，后者为变量</li>
-</ul></li>
-<li><code>==</code>、<code>!=</code>、<code>===</code> 和
-<code>!==</code>
-<ul>
-<li>前两者会进行隐式转换，例如 <code>1 == true</code> 为真</li>
-<li>应尽量使用后两者</li>
-</ul></li>
-<li><code>forEach</code>、<code>map</code> 和 <code>filter</code>
-<ul>
-<li><code>arr.forEach((val, ind) =&gt; &#123; &#125;)</code>，<code>val</code>
-是值，<code>ind</code> 是下标</li>
-<li><code>arr.map(val =&gt; val * val)</code>，得到一个新的数组，其中每个元素为
-<code>arr</code> 中对应下标元素的平方</li>
-<li><code>arr.filter(val =&gt; val % 2 == 0)</code>，得到一个新的数组，其中仅含偶数</li>
-</ul></li>
-</ul>
-<h3 id="next.js-路由">Next.js 路由</h3>
-<h4 id="基于文件系统的路由">基于文件系统的路由</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src</span><br><span class="line">└── pages</span><br><span class="line">    ├── _app.tsx              // 入口文件</span><br><span class="line">    ├── index.tsx             // /</span><br><span class="line">    ├── login.tsx             // /login</span><br><span class="line">    └── list</span><br><span class="line">        ├── index.tsx         // /list</span><br><span class="line">        ├── detail.tsx        // /list/detail</span><br><span class="line">        └── edit.tsx          // /list/edit</span><br></pre></td></tr></table></figure>
-<h4 id="userouter-hook"><code>useRouter</code> Hook</h4>
-<p><strong>捕获路由参数</strong>：<code>router.query.aaa</code> 对应着
-<code>/list?aaa=bbb</code> 里的 <code>aaa</code> 字段，值为
-<code>bbb</code>。</p>
-<p><strong>实现页面跳转</strong>：<code>router.push("/")</code> 和
-<code>router.back()</code>。</p>
-<h3 id="副作用与网络请求">副作用与网络请求</h3>
-<p>将耗时的数据获取操作从渲染本身中分离出来，这就是所谓的<strong>副作用</strong>。</p>
-<h4 id="useeffect-hook"><code>useEffect</code> Hook</h4>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 需要执行的副作用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 副作用的清除</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;, dependentList); <span class="comment">// 依赖列表</span></span><br></pre></td></tr></table></figure>
-<p><code>dependentList</code> 是一个数组，用于控制副作用何时被触发：</p>
-<ul>
-<li>如果 <code>dependentList</code> 是
-<code>undefined</code>，则副作用会在<strong>每次渲染</strong>时触发</li>
-<li>如果 <code>dependentList</code> 是空数组
-<code>[]</code>，则副作用只会在<strong>第一次渲染</strong>时触发</li>
-<li>如果 <code>dependentList</code>
-不为空，则副作用会在<strong>第一次渲染</strong>和
-<code>dependentList</code> 中的变量<strong>发生变化</strong>时触发</li>
-</ul>
-<h4 id="异步">异步</h4>
-<p>声明为 <code>async</code>
-的函数在调用时会<strong>立即返回</strong>，其函数体内容会在后台执行。</p>
-<p>在一个异步函数的调用前面加上 <code>await</code>
-关键字会<strong>阻塞当前代码</strong>，直到异步任务完成或报错。</p>
-<p>因为 <code>await</code>
-有阻塞代码执行的性质，所以<strong>仅可以在异步函数体内使用</strong>。</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">request</span>(<span class="string">&quot;/api/&quot;</span>, <span class="string">&quot;GET&quot;</span>, <span class="literal">false</span>)</span><br><span class="line">	.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    	<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	&#125;)</span><br><span class="line">	.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    	<span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">	&#125;)</span><br><span class="line">	.<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// ...</span></span><br><span class="line">    &#125;)</span><br><span class="line">	.<span class="title function_">finally</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="后端">后端</h2>
-<h3 id="git-的使用">Git 的使用</h3>
-<h4 id="基本概念">基本概念</h4>
-<ul>
-<li>工作区：工作目录（你的代码所在的文件夹）；</li>
-<li>暂存区：临时的缓存（做一个临时的标记）</li>
-<li>分支：将暂存区中的内容提交到分支（做一次完整的记录）</li>
-</ul>
-<h4 id="mainmaster-head">main(master), HEAD</h4>
-<ul>
-<li>main</li>
-<li>HEAD：指向工作区当前位置 commit 的指针，通常指向当前所在分支的最新的
-commit</li>
-</ul>
-<h4 id="commit-merge">commit, merge</h4>
-<ul>
-<li>commit：一次提交，每次 <code>git commit</code>
-指令都会产生一个提交，该提交用一个独一无二的哈希值代表，伴随提交信息</li>
-<li>merge：合并指定分支到当前分支
-<ul>
-<li>Fast-Forward
-<ul>
-<li>直接移动指针</li>
-</ul></li>
-<li>Three-Way Merge
-<ul>
-<li>考虑两次提交的最近公共祖先，这样就能看出差异点是由谁修改而成的，进而自动合并</li>
-</ul></li>
-<li>Squash &amp; Merge
-<ul>
-<li>压缩分支的所有提交为一次</li>
-</ul></li>
-</ul></li>
-</ul>
-<h4 id="push-pull-fetch">push, pull, fetch</h4>
-<ul>
-<li>push：提交到远程仓库</li>
-<li>fetch：拉取远程仓库</li>
-<li>pull：拉取远程仓库并合并（=fetch+merge）</li>
-</ul>
-<h3 id="前后端交互中的鉴权问题">前后端交互中的鉴权问题</h3>
-<p>JWT（JSON Web Token）是一种开放标准（RFC
-7519），用于安全地在两方之间传递信息作为 JSON 对象。</p>
-<p>它可以用于身份验证和信息交换，提供了一种简洁的、自包含的方法用于在各方之间传递信息。</p>
-<h4 id="jwt-的结构">JWT 的结构</h4>
-<p>JWT 由三部分构成，并用 <code>.</code>
-进行分割：<code>header.payload.signature</code>。</p>
-<ul>
-<li><strong>header</strong>
-<ul>
-<li>通常由两部分构成：令牌类型 <code>typ</code> 和加密算法
-<code>alg</code></li>
-<li>格式如下： <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;alg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;HW256&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;typ&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JWT&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>然后用 base64 编码</li>
-</ul></li>
-<li><strong>payload</strong>
-<ul>
-<li>载荷包含 JWT 的主要信息，比如用户的标识、令牌的签发时间等。</li>
-<li>可以包含多个预定义的字段，也可以包含自定义的字段。</li>
-<li>格式如下： <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;sub&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1234567890&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;John Doe&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;iat&quot;</span><span class="punctuation">:</span> <span class="number">1516239022</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>然后用 base64 编码</li>
-</ul></li>
-<li><strong>signature</strong>
-<ul>
-<li>签名用于验证消息的发送者身份并确保消息在传输过程中未被篡改。</li>
-<li>签名是通过对头部和载荷进行加密算法处理，并使用秘钥来生成。</li>
-</ul></li>
-</ul>
-<h4 id="使用场景">使用场景</h4>
-<ul>
-<li>身份验证
-<ul>
-<li>JWT 是进行身份验证的一种常见方法。当用户登录后，每个后续请求将包括
-JWT，允许用户访问该令牌允许的路由、服务和资源</li>
-</ul></li>
-<li>信息交换
-<ul>
-<li>JWT
-是安全地在各方之间传输信息的好方法，因为可以验证每一部分的签名</li>
-</ul></li>
-</ul>
-<h2 id="敏捷开发">敏捷开发</h2>
-<p>软件项目的“不可能三角”：同一个项目，在团队、效能水平一定的情况下，范围、时间、成本，三者只能取其二。</p>
-<h3 id="瀑布模型">瀑布模型</h3>
-<pre><code class="highlight mermaid">graph LR
-A(Requirement) --&gt; B(Design)
-B --&gt; C(Coding)
-C --&gt; D(Testing)
-D --&gt; E(Maintenance)
-A &lt;---&gt; B
-B &lt;---&gt; C
-C &lt;---&gt; D
-D &lt;---&gt; E</code></pre>
-<p>在每一步骤完成之后才开始下一步骤。</p>
-<p><strong>原因</strong>：越早找到 bug，修复它的成本就越低。</p>
-<p><strong>问题</strong>：</p>
-<ul>
-<li>软件的优势在于它能够快速修改（change）和适应（adapt）；但瀑布模型无法做到这一点</li>
-<li>每个步骤用时很长，遇到问题时需要回溯到上一个步骤</li>
-</ul>
-<h3 id="敏捷开发的原则与特点">敏捷开发的原则与特点</h3>
-<ul>
-<li>Adaptive rather than predictive
-<ul>
-<li>不要一开始就计划项目的绝大部分；应该增强软件开发的可修改性</li>
-</ul></li>
-<li>People-oriented rather than process-oriented
-<ul>
-<li>合作共赢，享受合作开发的过程，利用人性；而非与其作对</li>
-</ul></li>
-</ul>
-<h4 id="条原则">12 条原则</h4>
-<ol type="1">
-<li>Our highest priority is to satisfy the customer through the early
-and continuous delivery of valuable software.</li>
-<li>Welcome changing requirements, even late in development. Agile
-processes harness change for the customer’s competitive advantage.</li>
-<li>Deliver working software frequently, from a couple of weeks to a
-couple of months, with a preference to the shorter timescale.</li>
-<li>Business people and developers must work together daily throughout
-the project.</li>
-<li>Build projects around motivated individuals. Give them the
-environment and support they need, and trust them to get the job
-done.</li>
-<li>The most efficient and effective method of conveying information to
-and within a development team is face-to-face conversation.</li>
-<li>Working software is the primary measure of progress.</li>
-<li>Agile processes promote sustainable development. The sponsors,
-developers, and users should be able to maintain a constant pace
-indefinitely.</li>
-<li>Continuous attention to technical excellence and good design
-enhances agility.</li>
-<li>Simplicity–the art of maximizing the amount of work not done–is
-essential.</li>
-<li>The best architectures, requirements, and designs emerge from
-self-organizing teams.</li>
-<li>At regular intervals, the team reflects on how to become more
-effective, then tunes and adjusts its behavior accordingly.</li>
-</ol>
-<h4 id="特点">特点</h4>
-<p>合作共赢（Teamwork）；所有人向同一个目标奋斗，没有任何一个个体是独自工作的。</p>
-<h3 id="敏捷开发中的用户故事">敏捷开发中的用户故事</h3>
-<p><span class="math display">\[
-\text{Initiative} = n \cdot \text{Epics} = nm \cdot \text{Stories/Tasks}
-= nml \cdot \text{Subtasks}
-\]</span></p>
-<p>Stories 通常在 1~2 周内完成，Epic 通常在 1~3 个月内完成，Initiative
-通常在 3~12 个月内完成。</p>
-<h4 id="用户故事表达卡片">用户故事表达：卡片</h4>
-<p><strong>格式</strong>：作为一名 <code>&lt;角色&gt;</code>，我可以
-<code>&lt;活动&gt;</code>，使得 <code>&lt;业务价值&gt;</code>。</p>
-<p><strong>例子</strong>：</p>
-<p>用户故事卡片：作为一名<em>消费者</em>，我希望能够<em>查看我的日常能源使用量</em>，从而我可以<em>降低能源支出和使用率</em>。</p>
-<p>验收标准：</p>
-<ul>
-<li>每 <span class="math inline">\(10\)</span> 秒钟读取 DecaWatt
-计量表的数据，在门户上显示 <span class="math inline">\(15\)</span>
-分钟的增量，在室内屏上显示每⼀读数；</li>
-<li>随着新数据的产⽣读取 KiloWatt
-计量表，并且每小时显示在门户上，在每次读取后显示在室内屏上。</li>
-</ul>
-<h4 id="invest-原则">INVEST 原则</h4>
-<ul>
-<li>Independent（独立性）
-<ul>
-<li>故事不依赖于其他故事，可以被单独地开发、测试甚至交付。</li>
-</ul></li>
-<li>Negotiable（可协商）
-<ul>
-<li>故事不是详尽的需求说明书（系统应该完成的事），而是可协商的意向表达。</li>
-</ul></li>
-<li>Valuable（有价值）
-<ul>
-<li>聚焦于由用户规定的价值，而非功能分解结构。</li>
-</ul></li>
-<li>Estimable（可估算）
-<ul>
-<li>故事相对而言更容易估算，可以快速确定实现相关功能的工作量。</li>
-</ul></li>
-<li>Small（小型）
-<ul>
-<li>故事代表有价值功能的小型增量，可以在一到两周内交付。</li>
-</ul></li>
-<li>Testable（可测试）
-<ul>
-<li>清晰可测试。</li>
-</ul></li>
-</ul>
-<h3 id="敏捷开发中的-scheduling">敏捷开发中的 Scheduling</h3>
-<p>关键路径：项目用时的最长路径。</p>
-<h3 id="开发工具与敏捷开发概念的对应">开发工具与敏捷开发概念的对应</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Agile artifact</th>
-<th style="text-align: left;">GitLab feature</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">User stories</td>
-<td style="text-align: left;">Issues</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Task</td>
-<td style="text-align: left;">Task lists</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Epics</td>
-<td style="text-align: left;">Epics</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Points and estimation</td>
-<td style="text-align: left;">Issue weights</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Product backlog</td>
-<td style="text-align: left;">Issue lists and prioritized labels</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Sprints/iterations</td>
-<td style="text-align: left;">Milestones</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Burndown charts</td>
-<td style="text-align: left;">Burndown charts</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Agile board</td>
-<td style="text-align: left;">Issue boards</td>
-</tr>
-</tbody>
-</table>
-<h3 id="release.version.revision">Release.Version.Revision</h3>
-<ul>
-<li>Release Number：用户角度</li>
-<li>Version Number：开发者角度</li>
-<li>Revision Number：开发者角度
-<ul>
-<li>Change to a version that corrects only errors in the design/code,
-but does not affect the documented functionality.</li>
-</ul></li>
-</ul>
-<h3 id="版本控制">版本控制</h3>
-<p>集中式版本控制的问题：每个版本都提交到中心，性能瓶颈，冲突解决</p>
-<p>分布式版本控制的好处：在本地就可以做跟踪和回滚，大大减少提交的数量，对中心服务器的依赖减少；提升系统工作的性能</p>
-<h2 id="软件测试">软件测试</h2>
-<p>软件测试就是为程序能够按预期设想运行而建立足够的信心。</p>
-<ul>
-<li>Verification（验证）：Did you build the thing right?
-符合标准了吗？</li>
-<li>Validation（确认）：Did you build the right thing?
-标准满足用户需求了吗？</li>
-</ul>
-<p>测试用例：</p>
-<ul>
-<li>输入数据：交由待测试程序代码进行处理的数据</li>
-<li>前置条件：程序处理输入数据的运行上下文，即要满足前置条件</li>
-<li>测试步骤：程序代码对输入数据的处理可能涉及到一系列的步骤，其中的某些步骤需要用户的进一步输入</li>
-<li>预期输出：程序代码的预期输出结果</li>
-</ul>
-<h3 id="software-quality">Software Quality</h3>
-<p>Quality Assurance: Processes/standards to produce product and to
-improve quality over time.</p>
-<p>Software Quality:</p>
-<ul>
-<li>Satisfies customers' needs</li>
-<li>Easy for developer to debug and enhance</li>
-</ul>
-<h3 id="软件测试方法分类">软件测试方法分类</h3>
-<pre><code class="highlight mermaid">graph LR
-A(Testing) --- B(AdHoc)
-A --- C(Program Testing)
-A --- D(System Testing)
-A --- E(Acceptance Testing)
-C --- F(Unit Testing)
-C --- G(Integration Testing)
-F --- H(Black Box)
-F --- I(White Box)
-H --- J(Equivalence)
-H --- K(Boundary)
-H --- L(Decision Table)
-H --- M(State Transition)
-H --- N(Use Case)
-H --- O(Domain Analysis)
-I --- P(Control Flow)
-I --- Q(Data Flow)
-G --- R(Top Down)
-G --- S(Bottom Up)
-G --- T(Big Bang)
-G --- U(Sandwich)
-D --- V(Function)
-D --- W(Properties)
-W --- X(Performance)
-W --- Y(Relieability)
-W --- Z(Availability)
-W --- AA(Security)
-W --- AB(Usability)
-W --- AC(Documentation)
-W --- AD(Portability)
-W --- AE(Capacity)
-E --- AF(Benchmark)
-E --- AG(Pilot)
-E --- AH(Alpha)
-E --- AI(Beta)</code></pre>
-<h3
-id="软件测试中的错误率恒定定律与规模代价平方定律">软件测试中的错误率恒定定律与规模代价平方定律</h3>
-<p>为了减少错误修复的成本，要尽可能早地发现错误，并在尽量小的范围内定位并修复错误。</p>
-<h4 id="错误率恒定定律">错误率恒定定律</h4>
-<p>对某一个程序员来说，不考虑其水平的成长，错误产出比在很长一段时间内（项目周期内）是个常数。</p>
-<h4 id="规模代价平方定律">规模代价平方定律</h4>
-<p>定位并修复一个 bug 所需的代价正比于目标代码规模的平方。</p>
-<blockquote>
-<p>假设每 <span class="math inline">\(100\)</span> 行有 <span
-class="math inline">\(10\)</span> 个 bug，则每 <span
-class="math inline">\(1000\)</span> 行代码有 <span
-class="math inline">\(100\)</span> 个 bug。</p>
-<p>假设找 <span class="math inline">\(100\)</span> 行代码中的 <span
-class="math inline">\(1\)</span> 个 bug 需要 <span
-class="math inline">\(1\)</span> 小时，则找 <span
-class="math inline">\(1000\)</span> 行代码中的 <span
-class="math inline">\(1\)</span> 个 bug 需要 <span
-class="math inline">\(10^2 = 100\)</span> 小时。</p>
-<p>找 <span class="math inline">\(1000\)</span> 行代码中的 <span
-class="math inline">\(50\)</span> 个 bug：<span class="math inline">\(50
-\times 100 = 5000\)</span> 小时。</p>
-</blockquote>
-<h3 id="测试驱动开发test-driven-development循环">测试驱动开发（Test
-Driven Development）循环</h3>
-<pre><code class="highlight mermaid">graph LR
-A(&quot;1. Write Test&quot;) --&gt; B(&quot;2. Test Fails&quot;)
-B --&gt; C(&quot;3. Write Code&quot;)
-C --&gt; D(&quot;4. Test passes&quot;)
-D --&gt; E(&quot;5. Refactor&quot;)
-E --&gt; A</code></pre>
-<ul>
-<li>Each new feature begins with writing a test.</li>
-<li>在单测通过之前，不能写生产代码</li>
-<li>新的单测写到让现有代码通不过即可</li>
-<li>新的生产代码写到让现有单测通过即可</li>
-</ul>
-<p>TDD uses same skills &amp; techniques as conventional debugging - but
-more productive.</p>
-<p>Writing tests before code takes more time up-front, but often less
-time overall.</p>
-<h3 id="软件测试的原则first-原则">软件测试的原则（FIRST 原则）</h3>
-<ul>
-<li>Fast: Run (subset of) tests quickly (since you'll be running them
-all the time).</li>
-<li>Independent: No tests depend on others, so can run any subset in any
-order.</li>
-<li>Repeatable: Consistent results every run (to isolate bugs and enable
-automation).</li>
-<li>Self-checking: Test can automatically detect if passed (no human
-checking of output).</li>
-<li>Timely: Written about the same time as code under test (with TDD,
-written first!).</li>
-</ul>
-<h3 id="白盒测试控制流测试">白盒测试：控制流测试</h3>
-<h4 id="判定覆盖c_1">判定覆盖（<span
-class="math inline">\(C_1\)</span>）</h4>
-<p>分支整体取值为 <code>true</code> 和 <code>false</code>
-都要覆盖到；如果为 <code>switch</code> 语句，则每一个 <code>case</code>
-都需要被覆盖到。</p>
-<p>在控制流图中，即为每条边都被遍历到。</p>
-<h4 id="语句覆盖c_0">语句覆盖（<span
-class="math inline">\(C_0\)</span>）</h4>
-<p>所有语句都要覆盖到。</p>
-<p>在控制流图中，即为每个点都被遍历到。</p>
-<h3 id="黑盒测试等价类测试">黑盒测试：等价类测试</h3>
-<p>把不可穷举的数据，变成可穷举的类。</p>
-<ul>
-<li>等价类是本质互斥的</li>
-<li>等价类中的数据遵循“类似的行为”</li>
-<li>测试数据由等价类派生而成</li>
-</ul>
-<h4 id="弱测试和强测试">弱测试和强测试</h4>
-<ul>
-<li>弱测试
-<ul>
-<li>每行都覆盖到，每列都覆盖到</li>
-</ul></li>
-<li>强测试
-<ul>
-<li>每行且每列都覆盖到</li>
-</ul></li>
-<li>General Testing
-<ul>
-<li>只有 valid 的测试点被覆盖到</li>
-</ul></li>
-<li>Robust Testing
-<ul>
-<li>无论 valid 还是 invalid 的测试点都要被覆盖到</li>
-</ul></li>
-</ul>
-<h2 id="代码风格与重构">代码风格与重构</h2>
-<h3 id="防御式编程的权衡取舍">防御式编程的权衡取舍</h3>
-<p>Assume nothing. Unwritten assumptions continually cause faults,
-particularly as code grows.</p>
-<ul>
-<li>Encourage programmers to include as many checks as possible
-<ul>
-<li>Check the values of all data from external sources</li>
-<li>Check the values of all input parameters</li>
-<li>Decide how to handle bad inputs</li>
-</ul></li>
-</ul>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 66%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">AGAINST</th>
-<th>FOR</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">影响代码运行性能（速度）</td>
-<td>节省了很多调试的时间</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">有些防御式编程需要额外的工作</td>
-<td>速度慢但可靠的代码，比速度快但<strong>有时出错</strong>的代码更有意义</td>
-</tr>
-</tbody>
-</table>
-<h3 id="代码格式">代码格式</h3>
-<p>代码是写给编译器、自己、<strong>其他人</strong>看的。</p>
-<p>Good code does not require a lot of thinking to understand. If the
-code logic is not clear at the first glance, the code is probably not
-good enough.</p>
-<h4 id="the-big-deal">The Big Deal</h4>
-<ul>
-<li>Presentation makes a real impact on the quality of code.</li>
-<li>Programmers read meaning into code based on its layout.
-<ul>
-<li>Good presentation: Illuminate and support your code’s structure,
-helping reader understand what’s going on.</li>
-<li>Bad presentation: Confuse, mislead, and hide the code's intent.</li>
-</ul></li>
-<li>Bad formatting not only makes code harder to follow; it may actually
-hide bugs from you.</li>
-</ul>
-<h4 id="good-presentation">Good Presentation</h4>
-<ul>
-<li>Consistent
-<ul>
-<li>Keep the style consistent across the project.</li>
-</ul></li>
-<li>Conventional
-<ul>
-<li>To adopt one of the major styles currently in use in the industry
-rather than invent your own rules.</li>
-</ul></li>
-<li>Concise
-<ul>
-<li>Easy to follow and pick up.</li>
-</ul></li>
-</ul>
-<h3 id="命名规范">命名规范</h3>
-<h4 id="要求">要求</h4>
-<p>Accurate and easy-to-understand</p>
-<p><strong>命名的作用</strong>：</p>
-<ul>
-<li>Identity</li>
-<li>Behavior
-<ul>
-<li>Roles, relationships, and interactions</li>
-</ul></li>
-<li>Recognition
-<ul>
-<li>Elevate something from ethereal concept to well-defined reality</li>
-</ul></li>
-</ul>
-<p><strong>如何命名</strong>：</p>
-<ul>
-<li>Descriptive</li>
-<li>Technically correct</li>
-<li>Idiomatic</li>
-<li>Appropriate</li>
-</ul>
-<p><strong>禁止</strong>：</p>
-<ul>
-<li>Cryptic</li>
-<li>Verbose</li>
-<li>Inaccurate or misleading</li>
-<li>Ambiguous or vague</li>
-</ul>
-<h4 id="好处">好处</h4>
-<p>People naturally read the meaning out of something based on its
-name.</p>
-<p>From the viewpoint of the use, hiding all the internal
-implementation.</p>
-<h3 id="自文档代码">自文档代码</h3>
-<h4 id="要求-1">要求</h4>
-<ul>
-<li>Write simple code with good presentation
-<ul>
-<li>Avoid too many nested statements</li>
-<li>Be wary of optimizing code so that it's no longer a clear expression
-of a basic algorithm.
-<ul>
-<li>Never optimize code unless you've proved that it is a bottleneck to
-acceptable program function.</li>
-</ul></li>
-</ul></li>
-<li>Decompose into atomic functions</li>
-<li>Group related information</li>
-<li>Emphasize important code</li>
-<li>Choose meaningful names</li>
-<li>Choose descriptive types</li>
-<li>Name constants
-<ul>
-<li>Avoid magic numbers.</li>
-</ul></li>
-</ul>
-<h4 id="好处-1">好处</h4>
-<p>The only document that describes your code completely and correctly
-is the code itself.</p>
-<p>Even the smallest, most beautiful functions will need later
-maintenance.</p>
-<h3 id="注释规范">注释规范</h3>
-<h4 id="要求-2">要求</h4>
-<p>We need to focus on comment quality, not quantity, so more important
-than the amount of comments we write are the contents of those
-comments.</p>
-<ul>
-<li>Explain 'why', not 'how'</li>
-<li>Don't describe the code</li>
-<li>Don't replace the code</li>
-<li>Keep it useful
-<ul>
-<li>Document the unexpected</li>
-<li>Tell the truth</li>
-<li>Are worthwhile</li>
-<li>Are clear</li>
-</ul></li>
-</ul>
-<h4 id="好处-2">好处</h4>
-<p>Describe the intent of the code.</p>
-<p>Summarize the whole block of code.</p>
-<h3 id="代码气味">代码气味</h3>
-<ul>
-<li>Continuous inspection</li>
-<li>Health
-<ul>
-<li>Duplicated code</li>
-<li>Coding standards</li>
-<li>Code complexity</li>
-<li>Comments</li>
-<li>Bugs</li>
-<li>Security vulnerabilities</li>
-</ul></li>
-</ul>
-<h4 id="abc-complexity">ABC Complexity</h4>
-<p>Assignments, Branches, Conditions. <span class="math display">\[
-\sqrt{A^2 + B^2 + C^2} \le 20 \quad(\text{per method})
-\]</span></p>
-<h4 id="圈复杂度">圈复杂度</h4>
-<p>Edge, Vertex, Decision, Region <span class="math display">\[
-\text{Cycle Complexity} = |E| - |V| + 2 = |D| + 1 = |R|
-\]</span></p>
-<h3 id="代码重构的定义">代码重构的定义</h3>
-<p>A software transformation that</p>
-<ul>
-<li>Preserves the external software behavior</li>
-<li>Improves the internal software structure</li>
-</ul>
-<p>Refactoring is a disciplined technique for restructuring an existing
-body of code, altering its internal structure without changing its
-external behavior.</p>
-<ul>
-<li>To enhance some non-functional quality – simplicity, flexibility,
-understandability, performance</li>
-<li>Its heart is a series of small behavior-preserving transformations.
-The system is kept fully working after each refactoring</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2022 年回眸</title>
-    <url>/2022/12/31/2022Lookback/</url>
-    <content><![CDATA[<p>2022 年就这么过去了，</p>
-<p>我也从一个高三学生变成了一个大一新生了。</p>
+    <title>【游记】2023 年回眸</title>
+    <url>/2023/12/28/2023Lookback/</url>
+    <content><![CDATA[<p>2023
+年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
+<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
 <hr />
 <p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/cover53724a4b06b80249.png"
-alt="换微信头像啦！" />
-<figcaption aria-hidden="true">换微信头像啦！</figcaption>
-</figure>
 <span id="more"></span>
-<h2 id="一月至五月">一月至五月</h2>
-<p><strong>2022-02-05 自己的 18 岁生日</strong></p>
+<h2 id="一月">一月</h2>
+<p>在家里卷。学了学 OOP。</p>
+<h2 id="二月">二月</h2>
+<p><strong>2023-02-23
+第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
+<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉！</p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/birthday414f754fc919dd46.jpeg"
-alt="蛋糕" />
-<figcaption aria-hidden="true">蛋糕</figcaption>
+src="https://img.picgo.net/2023/12/28/class-yylc2bc29e816fe7cda.jpeg"
+alt="非常好！" />
+<figcaption aria-hidden="true">非常好！</figcaption>
 </figure>
-<p><strong>各种调考</strong></p>
-<p>成绩不想贴出来，年级（和班级）排名单调下降，丢人。</p>
+<p>可惜的是……他不再在清华教书了。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/farewell-yyldde4cfaf75275a85.jpeg"
+alt="可惜" />
+<figcaption aria-hidden="true">可惜</figcaption>
+</figure>
+<h2 id="三月">三月</h2>
+<p><strong>2023-03-05 人生中第一次献血</strong></p>
+<p>抽血的过程还真挺疼的，但医务人员一直在跟我聊天分散我注意力。</p>
+<p><del>体验十分良好</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation11d04ab5827807448.jpeg"
+alt="合照" />
+<figcaption aria-hidden="true">合照</figcaption>
+</figure>
+<p>吐槽一下你清各种吉祥物的名字。“布拉”是 blood
+的谐音，但怎么越看越觉得离谱。<del>就像生命科学学院的吉祥物“莱福” 是
+life 的谐音一样，化工系的微信公众号“卡安” 是 chemical engineering
+不知道哪几个音节拼起来的一样。</del></p>
+<p>就很怪。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/blood-donation23e966e8fce9f5e8b.jpeg"
+alt="第一次被缠这么多绷带" />
+<figcaption aria-hidden="true">第一次被缠这么多绷带</figcaption>
+</figure>
+<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
+<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/speech83f566ccbe99bdc7.png"
+alt="帅照（确信）" />
+<figcaption aria-hidden="true">帅照（确信）</figcaption>
+</figure>
+<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
+<p><strong>2023-03-26
+代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/pingpong247b3198d020b0cc.jpeg"
+alt="乒乓球马杯" />
+<figcaption aria-hidden="true">乒乓球马杯</figcaption>
+</figure>
+<p>可惜小组赛没出线。</p>
+<h2 id="四月">四月</h2>
+<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/fool5e54ad495e3db30a.jpeg"
+alt="睡大觉。" />
+<figcaption aria-hidden="true">睡大觉。</figcaption>
+</figure>
+<p>我倒也想选这门课啊，甚至 5 学分呢。</p>
+<p><strong>2023-04-13
+代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/shuttlecock87edf70961021e2a.jpeg"
+alt="我们可是甲组季军呢" />
+<figcaption aria-hidden="true">我们可是甲组季军呢</figcaption>
+</figure>
+<p><del>非常好毽球，爱来自工物。</del></p>
+<p>最后拿到了甲组季军。现在回想起来，致理和电子都那么强，真不知道当时是怎么赢的（</p>
+<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/mahjongf0094aff62857af2.jpeg"
+alt="国士无双！" />
+<figcaption aria-hidden="true">国士无双！</figcaption>
+</figure>
+<p>逆天极了。我四暗刻一向听，对家国士无双听绝张白板。还得是 sjx
+啊，高手胡绝张。</p>
+<p>ctl 也是倒霉，摸到了绝张白板，放了炮。</p>
+<p><del>线下友人局离役满最近的一次</del></p>
+<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
+<p>咱就是说，给武汉外国语学校丢脸了。才 610 多一点。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-449ecac9a9eabce93.jpeg"
+alt="CET-4" />
+<figcaption aria-hidden="true">CET-4</figcaption>
+</figure>
+<p><strong>2023-04-25 写沟突然换老师？</strong></p>
+<p>太逆天了。上了八周的写沟，老师突然不见了。<del>最后推测难道是去出高考卷子了？还有人说被挖去北大了。</del></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-1bea8b56a3faa5f5c.jpeg"
+alt="逆天" />
+<figcaption aria-hidden="true">逆天</figcaption>
+</figure>
+<p>然后还让我们电子签名。好正式。搞得我好怕。</p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/change-2d3df805277f2268e.jpeg"
+alt="哈人" />
+<figcaption aria-hidden="true">哈人</figcaption>
+</figure>
+<p><strong>2023-04-25 第一次参加的小清心的心理团体辅导结束</strong></p>
+<p>主题是亲密关系。</p>
+<p>分手让我痛苦了很久，所以我就开始尝试寻求帮助，最后在清华小清心公众号上找到了这个团体辅导。</p>
+<p>参加心理团体真的很有用，既让我了解到了知识，也使我收获了友谊。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/group77faffd6ec3524b5.png"
+alt="合照！" />
+<figcaption aria-hidden="true">合照！</figcaption>
+</figure>
+<h2 id="五月">五月</h2>
+<p><strong>2023-05-01 清华开放校园</strong></p>
+<p>各种游客络绎不绝，奇葩也很多。林子大了什么鸟都有。</p>
+<p><strong>2023-05-20 转专业成功</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/transfer2c7ea716cc14bc8c.jpeg"
+alt="三卡" />
+<figcaption aria-hidden="true">三卡</figcaption>
+</figure>
+<p><del>成为第一个一年内获得三种校园卡的人。</del></p>
+<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
+<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
+嘛。</del></p>
 <h2 id="六月">六月</h2>
-<p><strong>2022-06-07 至 2022-06-09 高考</strong></p>
-<p>数学卷子好难。</p>
-<p><strong>2022-06-16 回初中看老师</strong></p>
-<p>感觉外初变新了，装修得非常漂亮。</p>
+<p><strong>2023-06-02 第一次参加学生节</strong></p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/WFLS-middle1a154a8b78140cd8d.jpeg"
-alt="一行人" />
-<figcaption aria-hidden="true">一行人</figcaption>
+src="https://img.picgo.net/2023/12/28/festivalfdd3e155268193fb.jpeg"
+alt="好好好" />
+<figcaption aria-hidden="true">好好好</figcaption>
+</figure>
+<p>二胡的音色完美阐释了《风居住的街道》中内蕴的悲伤。</p>
+<p>美极了！</p>
+<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
+<p>很喜欢一句话：一二三四，清华第一；五六七八，北大回家（确信</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-1648f5e9e37a167c6.jpeg"
+alt="展示军火（确信）" />
+<figcaption aria-hidden="true">展示军火（确信）</figcaption>
+</figure>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cubal-2e813a96c67ff383b.jpeg"
+alt="比分" />
+<figcaption aria-hidden="true">比分</figcaption>
+</figure>
+<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
+<p>什么时候成立远方书院（合并计算机系、软件学院、交叉信息研究院、自动化系）</p>
+<p><del>“远方”出自“莘莘学子来远方”，意指这个书院的学子全部都会润，有专门提供出国留学相关指导的活动。</del></p>
+<p><strong>2023-06-17 第一次考英语六级</strong></p>
+<p>六级翻译真恶心死我了。</p>
+<figure>
+<img src="https://img.picgo.net/2023/12/28/cet-63b293b930c8b51d1.jpeg"
+alt="CET-6" />
+<figcaption aria-hidden="true">CET-6</figcaption>
+</figure>
+<p><strong>2023-06-25 做招生志愿者</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2023/12/28/entrance-19d0105a6fe8abb63.jpeg"
+alt="赢" />
+<figcaption aria-hidden="true">赢</figcaption>
 </figure>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/WFLS-middle2e79c5db67fc3f017.jpeg"
-alt="内景" />
-<figcaption aria-hidden="true">内景</figcaption>
+src="https://img.picgo.net/2023/12/28/entrance-2864a9a253599d01d.jpeg"
+alt="又赢" />
+<figcaption aria-hidden="true">又赢</figcaption>
 </figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/WFLS-middle3df9fb27ee05c6741.jpeg"
-alt="外景" />
-<figcaption aria-hidden="true">外景</figcaption>
-</figure>
-<p><strong>2022-06-25 高考出分</strong></p>
-<p>超常发挥吧。</p>
+<p><del>成功说服状元报清华，赢！</del></p>
+<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
+<p>实现绩点自由了。学不懂一点物理，基物毁我人生。</p>
 <h2 id="七月">七月</h2>
-<p><strong>2022-07-03 和高中朋友一起咸宁游</strong></p>
-<p>感谢 Q 宝的邀请</p>
+<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
+<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
+<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/xianning191eea47b8f7a3893.jpeg"
-alt="大汉" />
-<figcaption aria-hidden="true">大汉</figcaption>
+src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
+alt="Sedecordle" />
+<figcaption aria-hidden="true">Sedecordle</figcaption>
 </figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/xianning276fcb4a1fad0e44d.jpeg"
-alt="小火车" />
-<figcaption aria-hidden="true">小火车</figcaption>
-</figure>
-<p><strong>2022-07-25 收到录取通知书</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/admissiond1dbbd370ad6b54f.jpeg"
-alt="二校门" />
-<figcaption aria-hidden="true">二校门</figcaption>
-</figure>
+<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
+<p><a
+href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
 <h2 id="八月">八月</h2>
-<p><strong>2022-08-18 删掉了全部的 QQ 好友</strong></p>
-<p>确实挺抱歉的，但我基本上不用 QQ 了。QQ 群我都没退。</p>
-<p><strong>2022-08-19 开始军训</strong></p>
-<p><strong>2022-08-24 第一次定向越野</strong></p>
-<p>军训时的定向越野，我不熟路，甚至跑出了学校？出校也没拦我，入校才把我拦下来了。</p>
+<p><strong>2023-08-17 收到了小礼物</strong></p>
+<p>可爱吧！</p>
 <figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting1bc25bea9b7c0a16a.jpeg"
-alt="map" />
-<figcaption aria-hidden="true">map</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting267f9e50d8f47a4a5.jpeg"
-alt="成绩！" />
-<figcaption aria-hidden="true">成绩！</figcaption>
-</figure>
-<p>我还哼哧哼哧地补了一个出入校审批。把我卡在校门外好久，大概半个小时吧。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/orienting38029f4720adc31ef.jpeg"
-alt="奇怪的出入校审批" />
-<figcaption aria-hidden="true">奇怪的出入校审批</figcaption>
-</figure>
-<p><strong>2022-08-28 参加 20km 拉练</strong></p>
-<p>走完全程，jio 十分酸痛。<del>至少我坚持了下来。</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/20km1da40059414003fed.jpeg"
-alt="丑陋的背包" />
-<figcaption aria-hidden="true">丑陋的背包</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/20km2ae3e3caea3fbc256.jpeg"
-alt="夜景" />
-<figcaption aria-hidden="true">夜景</figcaption>
+<img src="https://img.picgo.net/2023/12/28/presentbe279d91ecbb3b54.jpeg"
+alt="熊！" />
+<figcaption aria-hidden="true">熊！</figcaption>
 </figure>
 <h2 id="九月">九月</h2>
-<p><strong>2022-09-12 参加清华的外高校友聚会</strong></p>
+<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
+<p>GitHub repo: <a
+href="https://github.com/LeverImmy/NewsApp">LeverImmy/NewsApp</a></p>
+<p>博客: <a
+href="https://leverimmy.top/2023/09/10/2023Summer-Java/">【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java)
+大作业报告（2023 夏）</a></p>
+<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
+<p>武外人，无外人！</p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/schoolmatesa59df8b69eba69e6.jpeg"
-alt="可惜的是缺了 Jett 和罗总" />
-<figcaption aria-hidden="true">可惜的是缺了 Jett 和罗总</figcaption>
+src="https://img.picgo.net/2023/12/28/schoolmate7a11be6910be71b5.jpeg"
+alt="合照" />
+<figcaption aria-hidden="true">合照</figcaption>
 </figure>
-<p><strong>2022-09-17 参加篮球运动周</strong></p>
-<p>这波啊，这波赢麻了。三分大赛，获得了5中2的好成绩！<del>校队最高水平也是5中2。</del></p>
-<p><a href="https://www.bilibili.com/video/BV18D4y15793/">点击这里跳转至
-bilibili 观看</a></p>
-<p><strong>2022-09-22 在楚协吃正宗的热干面</strong></p>
+<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/hot-dry1ca5c01a6921037d4.jpeg"
-alt="文学长在进行操作" />
-<figcaption aria-hidden="true">文学长在进行操作</figcaption>
+src="https://img.picgo.net/2023/12/28/english-corner0ee5f0d5d2b3741c.jpeg"
+alt="英语角" />
+<figcaption aria-hidden="true">英语角</figcaption>
 </figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hot-dry2c0a5327fe50a4184.jpeg"
-alt="在享受" />
-<figcaption aria-hidden="true">在享受</figcaption>
-</figure>
-<p><strong>2022-09-23 第一次背完 GRE 单词</strong></p>
-<p>问题就在于，背完了没太大用。</p>
-<p>那么多单词，大概印象深刻的只有 20% 左右吧（不过这也很不错了）</p>
-<p>这 20% 是我在学习中经常碰到的，所以印象比较深刻。</p>
-<p><del>有些单词，这辈子感觉是只有考 GRE 才会见到的。</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gre60a11da638612426.jpeg"
-alt="GRE" />
-<figcaption aria-hidden="true">GRE</figcaption>
-</figure>
+<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
+<blockquote>
+<p>既然今天准备 GAP 一天，那就得好好利用起来。</p>
+<p>早上睡到了 10:30
+才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
+6 小时了。今天可算是让我好好补了回来。</p>
+<p>下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
+8 号，因为“那天上周五的课”。</p>
+<p>一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。</p>
+<p>晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。</p>
+<p>最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。</p>
+<p>我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？</p>
+<p>“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
+</blockquote>
 <h2 id="十月">十月</h2>
-<p><strong>2022-10-01 在清华的中央主楼观看了升旗仪式</strong></p>
-<p>十分震撼。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/ceremony2bfa11e384bc03835.jpeg"
-alt="仪仗队在出旗" />
-<figcaption aria-hidden="true">仪仗队在出旗</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/ceremony19e0081cff6e30067.jpeg"
-alt="国旗" />
-<figcaption aria-hidden="true">国旗</figcaption>
-</figure>
-<p><strong>2022-10-02 和一些高中朋友聚餐</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/classmates47454a3d365c1c52.jpeg"
-alt="5人合影（我拍的）" />
-<figcaption aria-hidden="true">5人合影（我拍的）</figcaption>
-</figure>
-<p>下面这幅图是一个是清华学生的饮食消费记录，一个是北大学生的饮食消费记录。</p>
-<p><del>什么叫物美价廉啊（战术后仰</del></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/money7abc56161cede76c.jpeg"
-alt="《差距》" />
-<figcaption aria-hidden="true">《差距》</figcaption>
-</figure>
-<p><strong>2022-10-03 为课本剧《作家之死》添上了字幕</strong></p>
-<p>从暑假一直咕到十一放假才做完，感觉还是挺不错的。</p>
+<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
 <p><a
-href="https://www.bilibili.com/video/BV1St4y1a7Cw?share_source=copy_web">点击这里跳转至
-bilibili 观看</a></p>
-<p><strong>2022-10-03 参观工字厅</strong></p>
-<p>四年能进工字厅的次数不多，有种好奇宝宝的感觉。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt16aba09ee1058b3d4.jpeg"
-alt="外部" />
-<figcaption aria-hidden="true">外部</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt21448ae75dfc5701c.jpeg"
-alt="内部1" />
-<figcaption aria-hidden="true">内部1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/gzt3e7c98a981b1a72d8.jpeg"
-alt="内部2" />
-<figcaption aria-hidden="true">内部2</figcaption>
-</figure>
-<p><del>值得一提的是，偶遇了<a
-href="https://baike.baidu.com/item/%E9%82%B1%E5%8B%87/229950">邱宝</a></del></p>
-<p><strong>2022-10-06 成功脱单</strong></p>
-<p>感谢我能遇见你。</p>
-<p>update@2023-02-08: 她觉得我和她并不合适，于是我们分手了。</p>
-<p><strong>2022-10-09 参加“奋进新时代”主题成就展</strong></p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd1f8c1b2c7c1fbc840.jpeg"
-alt="外部" />
-<figcaption aria-hidden="true">外部</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd249651b0efbedc89d.jpeg"
-alt="国旗飘扬" />
-<figcaption aria-hidden="true">国旗飘扬</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/fjxsd33ea2a77fe6315bd5.jpeg"
-alt="武汉战疫" />
-<figcaption aria-hidden="true">武汉战疫</figcaption>
-</figure>
-<p><strong>2022-10-09 参加“新生赤足运动会”</strong></p>
-<p>勇夺全校并列第七！</p>
+href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
+<p><strong>2023-10-13 学会了手巾花</strong></p>
+<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/barefoot1ea05c64c5bc093b0.jpeg"
-alt="选手照片" />
-<figcaption aria-hidden="true">选手照片</figcaption>
+src="https://img.picgo.net/2023/12/28/volunteerb51844dd76d97200.png"
+alt="终于加入校答疑坊了！" />
+<figcaption aria-hidden="true">终于加入校答疑坊了！</figcaption>
 </figure>
+<p><strong>2023-10-22
+参加了第十五届北京市体育大会毽球选拔赛</strong></p>
+<p>14 支队伍，分为 A B C D 四个组，每组前两名出线。我们在 C
+组，只有三支队伍，其中有一支弃权，没来参赛。</p>
+<p>小组内打那个没弃权的队伍，没赢；出线（晋级八强）后的淘汰赛，也没赢。</p>
+<p>结果是一局没赢的我们最后并列第五。</p>
+<p><del>不知道这是什么运气。</del></p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/barefoot27a0ea18ec380d01c.jpeg"
-alt="并列第7！" />
-<figcaption aria-hidden="true">并列第7！</figcaption>
+src="https://img.picgo.net/2023/12/28/bj-shuttlecockdcd89b43708b474f.jpeg"
+alt="野少有事儿先走了，缺他的合影" />
+<figcaption aria-hidden="true">野少有事儿先走了，缺他的合影</figcaption>
 </figure>
-<p>比我初一时候的成绩提高了大概 40 个（确信</p>
+<p><strong>2023-10-27 李克强总理逝世</strong></p>
+<p>愿逝者安息。</p>
 <h2 id="十一月">十一月</h2>
-<p><strong>2022-11-01 写了一首诗</strong></p>
-<blockquote>
-<p>To Autumn</p>
-<hr />
-<p>Golden leaves of autumn</p>
-<p>danced and drifted to the ground.</p>
-<p>They dotted the picturesque view of mother nature,</p>
-<p>when the color of gold conquered the world.</p>
-<p>Leaves are leaving,</p>
-<p>but I'm not.</p>
-<hr />
-<p>My hand holds yours,</p>
-<p>your hand fits mine.</p>
-<p>By chance,</p>
-<p>my eyes meet thine.</p>
-</blockquote>
-<p><del>诗是写给女朋友的。</del> 诗是写给前女友的。</p>
-<p>自己写完后还对自己第二段的韵脚洋洋得意？</p>
-<p>后来感觉很眼熟，发现这应该是原来看过的 Emily Dickenson 的 <em>I Keep
-My Pledge</em> 里的最后一段蹦到我脑海里被我化用了。</p>
-<blockquote>
-<p>Blossom and I -</p>
-<p>Her oath, and mine -</p>
-<p>Will surely come again.</p>
-</blockquote>
-<p><strong>2022-11-10 代表工物系参加马约翰杯</strong></p>
-<p>能代表系里参加马杯，属实是我的荣幸。</p>
+<p><strong>2023-11-23
+代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
 <figure>
 <img
-src="https://img.picgo.net/2022/12/31/JohnMaCup11dfb093693e9de87.jpeg"
-alt="在排队参赛" />
-<figcaption aria-hidden="true">在排队参赛</figcaption>
+src="https://img.picgo.net/2023/12/28/shuttlecock-loop9d88c5efd679ddc4.jpeg"
+alt="转系后的第一次" />
+<figcaption aria-hidden="true">转系后的第一次</figcaption>
 </figure>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/JohnMaCup2c7be1d0ad4f94657.jpeg"
-alt="横幅" />
-<figcaption aria-hidden="true">横幅</figcaption>
-</figure>
-<p>还不错，甲组全校第四！</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/JohnMaCup3aaa36821084cdc9a.jpeg"
-alt="第四！" />
-<figcaption aria-hidden="true">第四！</figcaption>
-</figure>
-<p><strong>2022-11-27
-完成《算法设计及其复杂性分析》课程的课程报告</strong></p>
-<p>学到许多。</p>
-<p><span class="math inline">\(\LaTeX\)</span> 熟练度增加了！</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/algorithme4daa5c70e6eb8a7.jpeg"
-alt="算法课报告" />
-<figcaption aria-hidden="true">算法课报告</figcaption>
-</figure>
-<p><strong>2022-11-27 第一次在篮球赛中绝杀翻盘</strong></p>
-<p>我们班的篮球队最后 3
-秒的边线球战术配合得相当精彩，每个人都是不可或缺的一环。我竟然顶住了压力罚篮全进，压哨翻盘？</p>
-<p><del>当然，我超常发挥也可能是因为女朋友来看比赛了。</del>
-当然，我超常发挥也可能是因为前女友来看比赛了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/basketball-cupb13c49671edb8988.jpeg"
-alt="最后的罚篮" />
-<figcaption aria-hidden="true">最后的罚篮</figcaption>
-</figure>
-<p><strong>2022-11-28 第一次封寝</strong></p>
-<p>早晨被走廊里的警报吵醒，我们宿舍楼有一例十混一阳性。但这样封寝的日子是再也不会重来了吧？</p>
-<p>其他室友在寝室里上网课，我反正窝在中厅里自习。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/dormf6c936abf1e8d037.jpeg"
-alt="自习位置" />
-<figcaption aria-hidden="true">自习位置</figcaption>
-</figure>
+<p>三人围踢 3 分钟，甲组第二。菜就多练！明年继续挑战。</p>
+<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
+<p><a
+href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
 <h2 id="十二月">十二月</h2>
-<p><strong>2022-12-03 第一次参加志愿服务</strong></p>
-<p>人生中第一次参加志愿服务，是返乡“送站专线”。早晨四点半就起来了。</p>
+<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
 <figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer10795815861bbcd2f.jpeg"
-alt="空空旷旷" />
-<figcaption aria-hidden="true">空空旷旷</figcaption>
+<img src="https://img.picgo.net/2023/12/28/snowman46eba5251875095b.jpeg"
+alt="你就说帅不帅吧" />
+<figcaption aria-hidden="true">你就说帅不帅吧</figcaption>
 </figure>
-<p><del>和女朋友一起参加志愿服务！</del> 和前女友一起参加志愿服务。</p>
+<p>自己搞了个雪人。</p>
+<p><strong>2023-12-16
+参加第二次英语六级考试并被人挂在小红书上了</strong></p>
+<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
+<p>最佳梗图：</p>
 <figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer272cd74135fd1f56a.jpeg"
-alt="合照！你能找到我吗？" />
-<figcaption aria-hidden="true">合照！你能找到我吗？</figcaption>
+<img src="https://img.picgo.net/2023/12/28/emoji-19d945499c88aa2c1.jpeg"
+alt="1" />
+<figcaption aria-hidden="true">1</figcaption>
 </figure>
-<p>送完第二波大巴之后，天刚刚亮。</p>
 <figure>
-<img
-src="https://img.picgo.net/2022/12/31/volunteer3fbbb94edbb45beb3.jpeg"
-alt="送完大巴之后，天也亮了" />
-<figcaption aria-hidden="true">送完大巴之后，天也亮了</figcaption>
+<img src="https://img.picgo.net/2023/12/28/emoji-2a046537180cf0dec.jpeg"
+alt="2" />
+<figcaption aria-hidden="true">2</figcaption>
 </figure>
-<p><strong>2022-12-08 返乡</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown1d7751fe1975f2c40.jpeg"
-alt="在寝室清东西" />
-<figcaption aria-hidden="true">在寝室清东西</figcaption>
-</figure>
-<p>没想到，以前是我送大巴，现在是其他志愿者送我。</p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown23004ee63acb4644a.jpeg"
-alt="返乡大巴" />
-<figcaption aria-hidden="true">返乡大巴</figcaption>
-</figure>
-<p>回到家后的第一个早晨，当然是吃热！干！面！</p>
-<p><del>实名diss听涛园的热干面不咋地</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2022/12/31/hometown3485eec21aec3255a.jpeg"
-alt="热！干！面！" />
-<figcaption aria-hidden="true">热！干！面！</figcaption>
-</figure>
-<p><strong>2022-12-16 感染新冠病毒</strong></p>
-<p>我倒是我们家最后一个阳的。没测抗原，也就没图。</p>
-<p>周五下午开始头疼+发烧，一直到周日晚上。然后屁颠屁颠地继续上周一的课了。</p>
-<p>喉咙不疼但有痰，我觉得我其实挺过了发烧的几天，之后就还好。</p>
-<figure>
-<img src="https://img.picgo.net/2022/12/31/orangefc95b0b61d4387da.jpeg"
-alt="蒸橙子" />
-<figcaption aria-hidden="true">蒸橙子</figcaption>
-</figure>
-<p><strong>2022-12-20 复习期末</strong></p>
-<p>线代好难。</p>
-<p>微积分好难。</p>
-<p>基物好难。</p>
-<p>我想睡觉。</p>
 <h2 id="总结">总结</h2>
-<p>学习方面，感觉学习确实有点吃亏，觉得自己身边的同学们都好厉害。</p>
-<p>生活方面，感觉自己还把自己照顾得挺好的。</p>
-<p>新的一年里继续努力吧！</p>
+<p>转专业成功了。</p>
+<p>遇见了志同道合的知心朋友。</p>
+<p>感觉自己融入了新的集体。</p>
+<p>也不知道新的一年，又会是怎样的情况呢？</p>
 ]]></content>
       <categories>
         <category>游记</category>
@@ -13485,1242 +14709,6 @@ Response）</h3>
       </categories>
       <tags>
         <tag>软件工程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2022 武汉外国语学校理科分班考试之监考划水记</title>
-    <url>/2022/07/25/2022WFLS-Invigilate/</url>
-    <content><![CDATA[<p>为什么叫划水记呢？</p>
-<p>因为我以划水的心态<del>做了</del>看了考试的卷子，所以叫划水记（确信）。</p>
-<hr />
-<p>老老实实监考并且坐牢 <span class="math inline">\(100 + 100 + 150 =
-350 \mathrm{ min}\)</span> <del>（不是）</del></p>
-<p><del>试着做做卷子顺便监考一下再吃大餐（是）</del></p>
-<span id="more"></span>
-<h2 id="准备工作">准备工作</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/prepreb34611f75ef2ec4c.png"
-alt="@全体成员" />
-<figcaption aria-hidden="true"><span class="citation"
-data-cites="全体成员">@全体成员</span></figcaption>
-</figure>
-<p><del>（后面两次@没有<span class="citation"
-data-cites="上">@上</span>）</del></p>
-<p>支持母校招生工作！</p>
-<p>被梅老师拉进一个群，然后他再三强调晚饭他请客，那就不客气了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/pref7015fe411ed65ec.png"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<h2 id="物理">物理</h2>
-<p><strong>8:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>8:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>8:20</strong></p>
-<p>考生们开始答题，我也看看题。</p>
-<p>我一看第二题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T2e7c2fdb25c062080.jpeg"
-alt="物理卷子T2" />
-<figcaption aria-hidden="true">物理卷子T2</figcaption>
-</figure>
-<p>这绝对是 may 卷。等效嘛……感觉这可以算是 may 的标志了。</p>
-<p>于是顺着开始做选择题。</p>
-<p><strong>9:00</strong></p>
-<p>下去巡逻一圈。有个人东张西望企图干些什么，我瞪了他一眼。他就“唯唯诺诺”了。</p>
-<p>继续看题：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/physics-T67cf08af8a9eb6ddd.jpeg"
-alt="物理卷子T6" />
-<figcaption aria-hidden="true">物理卷子T6</figcaption>
-</figure>
-<p>这个我会！侧面切成 <span class="math inline">\(\text{d}h\)</span>
-的很多层，对每一层算压强然后积分！</p>
-<p>cyx：我也在积，诶我这个 <span class="math inline">\(h\)</span> 写成
-<span class="math inline">\(H\)</span> 了，嗯改改，ok 了。</p>
-<p>我：有啥简单方法吗？</p>
-<p>cyx：草草草，我们都降智了。</p>
-<p>cyx：总压力是 <span class="math inline">\(3G\)</span>，重力提供 <span
-class="math inline">\(G\)</span>，剩下的就是侧面提供的 <span
-class="math inline">\(2G\)</span>。</p>
-<p>我：嗯我是蠢蛋。</p>
-<p><strong>9:20</strong></p>
-<p>再看实验题。都是电学实验，用 <span
-class="math inline">\(\dfrac{1}{3}\)</span>
-准则判断了一下第一题的电表，感觉难度不小，然后就没做了。</p>
-<p>考试怎么还不结束啊。</p>
-<p><strong>9:30</strong></p>
-<p>考试怎么还不结束啊。</p>
-<p>那再下去巡逻一圈。</p>
-<p>这些人怎么计算器用的都不是 991 啊，那做个锤子的物理题。</p>
-<p><strong>9:40</strong></p>
-<p>站起来看看大家专注而茫然的表情。</p>
-<p>怎么有人开始检查了？世界真参差啊。</p>
-<p><strong>10:00</strong></p>
-<p><del>收卷了，收卷了！物理答题卡交上来！</del></p>
-<p>收好了物理答题卡、卷子和草稿纸。</p>
-<h2 id="化学">化学</h2>
-<p>收完了物理卷子，李彬主任和王老师直接帮我们把化学卷子送到班上来了。</p>
-<p><del>不用自己数三十份卷子出来就是方便哈。</del></p>
-<p><strong>10:10</strong></p>
-<p>把答题卡、草稿纸、卷子分成每份 <span class="math inline">\(6\)</span>
-张的 <span class="math inline">\(5\)</span> 份。</p>
-<p>开始发答题卡和草稿纸。</p>
-<p><strong>10:15</strong></p>
-<p>开始发卷子。</p>
-<p><strong>10:20</strong></p>
-<p>考生们开始答题。我看着他们看题。我也看看题。</p>
-<p>题目长这个样子。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/chem-12ed2d84f4154c691b.jpeg"
-alt="化学卷子P1,P2" />
-<figcaption aria-hidden="true">化学卷子P1,P2</figcaption>
-</figure>
-<p>看到卷子的我：？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？</p>
-<p>怎么都是湖北高考从不会出现的选四原理选择题？</p>
-<p>怎么还有 <span class="math inline">\(6\)</span> 道多选题？怎么还有
-<span class="math inline">\(3\)</span> 道计算题？</p>
-<p><del>每题都要计算是吧，那我摆烂算了。</del> 遂没做化学卷子。</p>
-<p><strong>10:35</strong></p>
-<p>笑着下去巡视。</p>
-<p>非常满意。一刻钟过去了，没有多少人做到第三题。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/wechat-chemc608489ccb7dfac7.jpeg"
-alt="笑谈化学卷子" />
-<figcaption aria-hidden="true">笑谈化学卷子</figcaption>
-</figure>
-<p><strong>11:00</strong></p>
-<p>睡了一大半。瞌睡是有传染性的。我也想睡。</p>
-<p>“你们再看看<del>卷子</del>我，我再看看你们。”</p>
-<p>大眼瞪小眼。</p>
-<p><strong>12:00</strong></p>
-<p>收好了化学答题卡、卷子和草稿纸。</p>
-<h2 id="吃午饭">吃午饭</h2>
-<p><del>先去的老成都，只可惜已经倒闭了？电梯里只有第三层的按钮坏了，去不了老成都的那一层楼。</del></p>
-<p>老汉口餐厅，李彬主任请客。</p>
-<p>竟然还有三楼？</p>
-<p>我和 cyx：这个词能拿 20 分，还行。</p>
-<p>cyx 和 cdz：你看我这个英雄……</p>
-<p>xqy、lbx、skc：数学&amp;##啊这题$数学&amp;<span class="citation"
-data-cites="数学">@数学</span></p>
-<p>xyx、clx：不知道在说啥。</p>
-<p>吃完饭就返回学校数数学卷子了。</p>
-<h2 id="数学">数学</h2>
-<p><del>lbx、xqy在抱着数学卷子去考场的途中就已经口胡出来了两题。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/maths-fix1cdead7e8a6fa5f6.png"
-alt="细致入微" />
-<figcaption aria-hidden="true">细致入微</figcaption>
-</figure>
-<p>写了几道能力范围之内的题目。</p>
-<blockquote>
-<ol type="1">
-<li>（10分）求所有的正整数 <span class="math inline">\(n\)</span>，使得
-<span class="math inline">\(1\underbrace{44\cdots4}_{n 个 4}\)</span>
-是一个完全平方数.</li>
-</ol>
-</blockquote>
-<p>先除以 <span class="math inline">\(4\)</span> 然后模 <span
-class="math inline">\(4\)</span> 就可以知道 <span
-class="math inline">\(n \ge 4\)</span> 均不符合条件。枚举 <span
-class="math inline">\(n = 1, 2, 3\)</span> 即可。</p>
-<blockquote>
-<ol start="6" type="1">
-<li>（25分）设正实数 <span class="math inline">\(x, y, z\)</span> 满足
-<span class="math inline">\(xyz = 1\)</span>，证明： <span
-class="math display">\[
-\dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \le 1
-\]</span></li>
-</ol>
-</blockquote>
-<p>注意到 <span class="math display">\[
-\dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} + \dfrac{1}{z^2+zx+1} = 1
-\]</span> 则 <span class="math display">\[
-\begin{aligned}
-&amp; \dfrac{2}{(x+1)^2+y^2+1} + \dfrac{2}{(y+1)^2+z^2+1} +
-\dfrac{2}{(z+1)^2+x^2+1} \\\\
-\le &amp; \dfrac{1}{x^2+xy+1} + \dfrac{1}{y^2+yz+1} +
-\dfrac{1}{z^2+zx+1} \\\\
-= &amp; 1
-\end{aligned}
-\]</span></p>
-<blockquote>
-<ol start="7" type="1">
-<li>（30分）设 <span class="math inline">\(m = d_0 + d_1\cdot3 +
-d_2\cdot3^2+\cdots+d_n\cdot3^n\)</span> 为一个正整数的平方，且 <span
-class="math inline">\(d_i\in\\{0, 1, 2\\}, i = 0, 1, 2, \cdots,
-n\)</span>. 证明：至少有一个 <span class="math inline">\(d_i =
-1\)</span>.</li>
-</ol>
-</blockquote>
-<p>设 <span class="math inline">\(m = 3^{\alpha}\cdot n\)</span>，其中
-<span class="math inline">\(3 \nmid n\)</span>。因 <span
-class="math inline">\(m\)</span> 为完全平方数，则 <span
-class="math inline">\(\alpha\)</span> 必为偶数。</p>
-<p>因 <span class="math inline">\(n\)</span> 也为完全平方数且 <span
-class="math inline">\(3\nmid n\)</span>，则 <span
-class="math inline">\(n \equiv 1 (\bmod3)\)</span>，则 <span
-class="math inline">\(d_{\alpha} = 1\)</span>。</p>
-<hr />
-<p>当我不知道干啥的时候，我看到了这个</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/dinner9b334dc4a5b23b5b.png"
-alt="来了来了" />
-<figcaption aria-hidden="true">来了来了</figcaption>
-</figure>
-<p>大家都表示不知道该吃啥。先等一手。</p>
-<h2 id="帮梅老师改物理卷子">帮梅老师改物理卷子</h2>
-<p>每人分配任务，不一会儿就改完了。</p>
-<p><del>电学实验他们是真的做得差啊。</del></p>
-<p>想找到人与人之间的差距，总是能找到的。</p>
-<p>以前总是听说小六选手有多么多么厉害，但看到七八十分的答题卡我是真的傻了。</p>
-<p>保守估计我高三巅峰状态做这张卷子应该是 80-85 的水平。</p>
-<p>恐怖如斯。</p>
-<p><del>还有个90+的高分。</del></p>
-<h2 id="吃晚饭">吃晚饭</h2>
-<p><del>你以为的梅老板请客：梅老板和我们围在一个餐桌旁嘻嘻哈哈。</del></p>
-<p><del>事实上的梅老板请客：梅老板告诉我们去哪里吃，吃完后我们报告给他，他汇款给cdz付钱。</del></p>
-<p>吃饭前：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-empty8f36081cc9bde989.jpeg"
-alt="海底捞吃饭前" />
-<figcaption aria-hidden="true">海底捞吃饭前</figcaption>
-</figure>
-<p>吃吃吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-full7e1ba2d82de46012.jpeg"
-alt="杯盘狼藉" />
-<figcaption aria-hidden="true">杯盘狼藉</figcaption>
-</figure>
-<p>大家喜欢抢的几样东西：血旺、饼。</p>
-<p>没人吃的东西：娃娃菜。</p>
-<p>粉丝下在辣锅里好呛人！</p>
-<p>第一次感受到了自己吃辣的能力在下降。</p>
-<p>好吃好吃：</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/26/hdl-coconut750dc4979eadf915.jpeg"
-alt="椰子" />
-<figcaption aria-hidden="true">椰子</figcaption>
-</figure>
-<p><del>嗯，属于是我们九个人把游标卡尺的饭钱全部消耗完了。</del></p>
-<h2 id="总结">总结</h2>
-<figure>
-<img src="https://img.picgo.net/2023/07/26/us353c5edbc7a58145.jpeg"
-alt="监考老师们的合照" />
-<figcaption aria-hidden="true">监考老师们的合照</figcaption>
-</figure>
-<p>嗝。</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>数学</tag>
-        <tag>物理</tag>
-        <tag>化学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2023 年回眸</title>
-    <url>/2023/12/28/2023Lookback/</url>
-    <content><![CDATA[<p>2023
-年就这么过去了。我做梦也没有想到，这一年将会对我接下来的大学生活（乃至人生）产生如此巨大的影响。</p>
-<p>一年中，我从一个懵懵懂懂的大一新生，摇身一变，变为了一只大二老狗。算是在大学里是越活越通透了。</p>
-<hr />
-<p>一年发生了很多事情。现在，是时候回顾一下了？</p>
-<span id="more"></span>
-<h2 id="一月">一月</h2>
-<p>在家里卷。学了学 OOP。</p>
-<h2 id="二月">二月</h2>
-<p><strong>2023-02-23
-第一次听杨一龙老师的《高等线性代数选讲（英）》</strong></p>
-<p>自然的表述、inspiring 的思路，真的给我耳目一新的感觉！</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/class-yylc2bc29e816fe7cda.jpeg"
-alt="非常好！" />
-<figcaption aria-hidden="true">非常好！</figcaption>
-</figure>
-<p>可惜的是……他不再在清华教书了。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/farewell-yyldde4cfaf75275a85.jpeg"
-alt="可惜" />
-<figcaption aria-hidden="true">可惜</figcaption>
-</figure>
-<h2 id="三月">三月</h2>
-<p><strong>2023-03-05 人生中第一次献血</strong></p>
-<p>抽血的过程还真挺疼的，但医务人员一直在跟我聊天分散我注意力。</p>
-<p><del>体验十分良好</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/blood-donation11d04ab5827807448.jpeg"
-alt="合照" />
-<figcaption aria-hidden="true">合照</figcaption>
-</figure>
-<p>吐槽一下你清各种吉祥物的名字。“布拉”是 blood
-的谐音，但怎么越看越觉得离谱。<del>就像生命科学学院的吉祥物“莱福” 是
-life 的谐音一样，化工系的微信公众号“卡安” 是 chemical engineering
-不知道哪几个音节拼起来的一样。</del></p>
-<p>就很怪。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/blood-donation23e966e8fce9f5e8b.jpeg"
-alt="第一次被缠这么多绷带" />
-<figcaption aria-hidden="true">第一次被缠这么多绷带</figcaption>
-</figure>
-<p><strong>2023-03-09 在清华里第一次国旗下讲话</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/v0THevSxs8NCAk61bcPpbw">致敬英雄，铭记使命——工程物理系参加升旗仪式</a></p>
-<p><del>没想到，为了新生舞会专门准备的西装，在这个时候发挥了作用。</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/speech83f566ccbe99bdc7.png"
-alt="帅照（确信）" />
-<figcaption aria-hidden="true">帅照（确信）</figcaption>
-</figure>
-<p>感觉自己皱着个眉头，看起来严肃又滑稽（</p>
-<p><strong>2023-03-26
-代表工物系参加2022-2023学年度马杯乒乓球比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/pingpong247b3198d020b0cc.jpeg"
-alt="乒乓球马杯" />
-<figcaption aria-hidden="true">乒乓球马杯</figcaption>
-</figure>
-<p>可惜小组赛没出线。</p>
-<h2 id="四月">四月</h2>
-<p><strong>2023-04-01 愚人节的 THUInfo</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/fool5e54ad495e3db30a.jpeg"
-alt="睡大觉。" />
-<figcaption aria-hidden="true">睡大觉。</figcaption>
-</figure>
-<p>我倒也想选这门课啊，甚至 5 学分呢。</p>
-<p><strong>2023-04-13
-代表工物系参加2022-2023学年度马杯毽球比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/shuttlecock87edf70961021e2a.jpeg"
-alt="我们可是甲组季军呢" />
-<figcaption aria-hidden="true">我们可是甲组季军呢</figcaption>
-</figure>
-<p><del>非常好毽球，爱来自工物。</del></p>
-<p>最后拿到了甲组季军。现在回想起来，致理和电子都那么强，真不知道当时是怎么赢的（</p>
-<p><strong>2023-04-23 线下麻将友人场的国士无双</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/mahjongf0094aff62857af2.jpeg"
-alt="国士无双！" />
-<figcaption aria-hidden="true">国士无双！</figcaption>
-</figure>
-<p>逆天极了。我四暗刻一向听，对家国士无双听绝张白板。还得是 sjx
-啊，高手胡绝张。</p>
-<p>ctl 也是倒霉，摸到了绝张白板，放了炮。</p>
-<p><del>线下友人局离役满最近的一次</del></p>
-<p><strong>2023-04-25 第一次考英语四级，出分了</strong></p>
-<p>咱就是说，给武汉外国语学校丢脸了。才 610 多一点。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cet-449ecac9a9eabce93.jpeg"
-alt="CET-4" />
-<figcaption aria-hidden="true">CET-4</figcaption>
-</figure>
-<p><strong>2023-04-25 写沟突然换老师？</strong></p>
-<p>太逆天了。上了八周的写沟，老师突然不见了。<del>最后推测难道是去出高考卷子了？还有人说被挖去北大了。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/change-1bea8b56a3faa5f5c.jpeg"
-alt="逆天" />
-<figcaption aria-hidden="true">逆天</figcaption>
-</figure>
-<p>然后还让我们电子签名。好正式。搞得我好怕。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/change-2d3df805277f2268e.jpeg"
-alt="哈人" />
-<figcaption aria-hidden="true">哈人</figcaption>
-</figure>
-<p><strong>2023-04-25 第一次参加的小清心的心理团体辅导结束</strong></p>
-<p>主题是亲密关系。</p>
-<p>分手让我痛苦了很久，所以我就开始尝试寻求帮助，最后在清华小清心公众号上找到了这个团体辅导。</p>
-<p>参加心理团体真的很有用，既让我了解到了知识，也使我收获了友谊。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/group77faffd6ec3524b5.png"
-alt="合照！" />
-<figcaption aria-hidden="true">合照！</figcaption>
-</figure>
-<h2 id="五月">五月</h2>
-<p><strong>2023-05-01 清华开放校园</strong></p>
-<p>各种游客络绎不绝，奇葩也很多。林子大了什么鸟都有。</p>
-<p><strong>2023-05-20 转专业成功</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/transfer2c7ea716cc14bc8c.jpeg"
-alt="三卡" />
-<figcaption aria-hidden="true">三卡</figcaption>
-</figure>
-<p><del>成为第一个一年内获得三种校园卡的人。</del></p>
-<p><strong>2023-05-24 清华大学第二次退课规则修改</strong></p>
-<p>期中之后不能退课了。爷青结。<del>不过无所谓，不就是从记 W 改为记 F
-嘛。</del></p>
-<h2 id="六月">六月</h2>
-<p><strong>2023-06-02 第一次参加学生节</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/festivalfdd3e155268193fb.jpeg"
-alt="好好好" />
-<figcaption aria-hidden="true">好好好</figcaption>
-</figure>
-<p>二胡的音色完美阐释了《风居住的街道》中内蕴的悲伤。</p>
-<p>美极了！</p>
-<p><strong>2023-06-03 看 CUBAL 篮球半决赛（清华-北大）</strong></p>
-<p>很喜欢一句话：一二三四，清华第一；五六七八，北大回家（确信</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cubal-1648f5e9e37a167c6.jpeg"
-alt="展示军火（确信）" />
-<figcaption aria-hidden="true">展示军火（确信）</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cubal-2e813a96c67ff383b.jpeg"
-alt="比分" />
-<figcaption aria-hidden="true">比分</figcaption>
-</figure>
-<p><strong>2023-06-05 清华大学秀钟书院成立</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/EgR6swpdhtlwoe5ZI4g0gw">清华大学成立秀钟书院</a></p>
-<p>什么时候成立远方书院（合并计算机系、软件学院、交叉信息研究院、自动化系）</p>
-<p><del>“远方”出自“莘莘学子来远方”，意指这个书院的学子全部都会润，有专门提供出国留学相关指导的活动。</del></p>
-<p><strong>2023-06-17 第一次考英语六级</strong></p>
-<p>六级翻译真恶心死我了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/cet-63b293b930c8b51d1.jpeg"
-alt="CET-6" />
-<figcaption aria-hidden="true">CET-6</figcaption>
-</figure>
-<p><strong>2023-06-25 做招生志愿者</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/entrance-19d0105a6fe8abb63.jpeg"
-alt="赢" />
-<figcaption aria-hidden="true">赢</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/entrance-2864a9a253599d01d.jpeg"
-alt="又赢" />
-<figcaption aria-hidden="true">又赢</figcaption>
-</figure>
-<p><del>成功说服状元报清华，赢！</del></p>
-<p><strong>2023-06-28 大一下期末考试，出分了</strong></p>
-<p>实现绩点自由了。学不懂一点物理，基物毁我人生。</p>
-<h2 id="七月">七月</h2>
-<p><strong>2023-07-03 前往重庆璧山进行乡村振兴社会实践</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/">回顾一下我的游记</a></p>
-<p><strong>2023-07-08 第一次完成 Sedecordle</strong></p>
-<p>来点小小的武汉外国语学校学生的英语水平的震撼。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
-alt="Sedecordle" />
-<figcaption aria-hidden="true">Sedecordle</figcaption>
-</figure>
-<p><strong>2023-07-11 第一次在抖音上直播</strong></p>
-<p><a
-href="https://leverimmy.top/2023/07/01/2023Chongqing-SocialPractice/#day-9">来看帅气照片</a></p>
-<h2 id="八月">八月</h2>
-<p><strong>2023-08-17 收到了小礼物</strong></p>
-<p>可爱吧！</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/presentbe279d91ecbb3b54.jpeg"
-alt="熊！" />
-<figcaption aria-hidden="true">熊！</figcaption>
-</figure>
-<h2 id="九月">九月</h2>
-<p><strong>2023-09-10 完成 Java 小学期的大作业</strong></p>
-<p>GitHub repo: <a
-href="https://github.com/LeverImmy/NewsApp">LeverImmy/NewsApp</a></p>
-<p>博客: <a
-href="https://leverimmy.top/2023/09/10/2023Summer-Java/">【课程报告】清华大学计算机系暑期课程《程序设计训练》(Java)
-大作业报告（2023 夏）</a></p>
-<p><strong>2023-09-17 和学弟学妹们吃饭</strong></p>
-<p>武外人，无外人！</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/schoolmate7a11be6910be71b5.jpeg"
-alt="合照" />
-<figcaption aria-hidden="true">合照</figcaption>
-</figure>
-<p><strong>2023-09-22 第一次参加学校里的英语角</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/english-corner0ee5f0d5d2b3741c.jpeg"
-alt="英语角" />
-<figcaption aria-hidden="true">英语角</figcaption>
-</figure>
-<p><strong>2023-09-29 第一次由于压力太大 gap 一天</strong></p>
-<blockquote>
-<p>既然今天准备 GAP 一天，那就得好好利用起来。</p>
-<p>早上睡到了 10:30
-才起床，整个人都舒服了许多。翻了翻我手环上的睡眠记录，我已经差不多两周每天睡眠时长不超过
-6 小时了。今天可算是让我好好补了回来。</p>
-<p>下午本来准备去找老师指导学习和科研方向的，结果到了东主楼门口才发现今天是节假日。这次讨论，也就顺理成章地被咕到了
-8 号，因为“那天上周五的课”。</p>
-<p>一个人晃晃悠悠去五道口解决了晚餐。去喜家德吃了一份水饺，还有几个肉丸。可能是店员看到我中秋节居然一个人肯定好孤独吧，临走之前还祝福我了一句“中秋节快乐，欢迎下次光临！”不知道为啥，但我当时哭了。</p>
-<p>晚上迫不及待地跟外婆、爷爷奶奶、父母（还有我！弟！）打了电话。这次我先主动跟老人家们打了电话问候了几句，而不是被动地让爸妈提醒我，我还有点小自豪，觉得自己长大了懂事了。</p>
-<p>最后去紫操逗留了一会儿，然后去打篮球了。熄灯后跟风给月亮来了张特写。我觉得我这个手机只能拍出最难看的月亮吧。不对，是最难看的光斑。</p>
-<p>我不太会用文字细腻地抒发自己的情感，写的英文诗也都是隐喻之类的。今年中秋的感想也大抵如此吧？</p>
-<p>“但愿人长久，千里共婵娟。”也祝朋友圈的各位中秋快乐！</p>
-</blockquote>
-<h2 id="十月">十月</h2>
-<p><strong>2023-10-11 高中时的转笔哥在武大被记过了</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/Cxcc1eciR-MA7MRNv3mbvA">关于我在武汉大学图书馆受到性骚扰这件事</a></p>
-<p><strong>2023-10-13 学会了手巾花</strong></p>
-<p><strong>2023-10-17 加入校答疑坊，第一次线下值班！</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/volunteerb51844dd76d97200.png"
-alt="终于加入校答疑坊了！" />
-<figcaption aria-hidden="true">终于加入校答疑坊了！</figcaption>
-</figure>
-<p><strong>2023-10-22
-参加了第十五届北京市体育大会毽球选拔赛</strong></p>
-<p>14 支队伍，分为 A B C D 四个组，每组前两名出线。我们在 C
-组，只有三支队伍，其中有一支弃权，没来参赛。</p>
-<p>小组内打那个没弃权的队伍，没赢；出线（晋级八强）后的淘汰赛，也没赢。</p>
-<p>结果是一局没赢的我们最后并列第五。</p>
-<p><del>不知道这是什么运气。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/bj-shuttlecockdcd89b43708b474f.jpeg"
-alt="野少有事儿先走了，缺他的合影" />
-<figcaption aria-hidden="true">野少有事儿先走了，缺他的合影</figcaption>
-</figure>
-<p><strong>2023-10-27 李克强总理逝世</strong></p>
-<p>愿逝者安息。</p>
-<h2 id="十一月">十一月</h2>
-<p><strong>2023-11-23
-代表计算机系参加2022-2023学年度马杯毽绳比赛</strong></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/12/28/shuttlecock-loop9d88c5efd679ddc4.jpeg"
-alt="转系后的第一次" />
-<figcaption aria-hidden="true">转系后的第一次</figcaption>
-</figure>
-<p>三人围踢 3 分钟，甲组第二。菜就多练！明年继续挑战。</p>
-<p><strong>2023-11-27 人大在烤鹅腿卡脖子技术上遥遥领先！</strong></p>
-<p><a
-href="https://mp.weixin.qq.com/s/zyQ2LmCZw8xzkU00fQ5kgA">自主研发，抢先上市，人大食堂突破烤鹅腿卡脖子技术</a></p>
-<h2 id="十二月">十二月</h2>
-<p><strong>2023-12-11 第一次见到这么大的雪</strong></p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/snowman46eba5251875095b.jpeg"
-alt="你就说帅不帅吧" />
-<figcaption aria-hidden="true">你就说帅不帅吧</figcaption>
-</figure>
-<p>自己搞了个雪人。</p>
-<p><strong>2023-12-16
-参加第二次英语六级考试并被人挂在小红书上了</strong></p>
-<p><strong>2023-12-22 王希勤卸任清华大学校长</strong></p>
-<p>最佳梗图：</p>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/emoji-19d945499c88aa2c1.jpeg"
-alt="1" />
-<figcaption aria-hidden="true">1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/12/28/emoji-2a046537180cf0dec.jpeg"
-alt="2" />
-<figcaption aria-hidden="true">2</figcaption>
-</figure>
-<h2 id="总结">总结</h2>
-<p>转专业成功了。</p>
-<p>遇见了志同道合的知心朋友。</p>
-<p>感觉自己融入了新的集体。</p>
-<p>也不知道新的一年，又会是怎样的情况呢？</p>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>回眸</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【游记】2023 暑假重庆璧山乡村振兴实践</title>
-    <url>/2023/07/01/2023Chongqing-Social-Practice/</url>
-    <content><![CDATA[<p>暑期实践？这是什么？参加一个！</p>
-<p>乡村振兴？这是什么？了解一下！</p>
-<p>重庆璧山？这是哪里？拜访一次！</p>
-<span id="more"></span>
-<h2 id="day--1">2023-07-01 Day -1</h2>
-<p>窝在家里修整自己的博客，似乎这样在进行实践的时候就能留下一些记忆。</p>
-<p><del>虽然但是咱支队也有宣传组，那我自封为宣传组副副副副副副副组员好了。</del></p>
-<p>清理自己的行李箱。并不知道该干啥。</p>
-<p>不如睡大觉。</p>
-<h2 id="day-0">2023-07-02 Day 0</h2>
-<p>早上 06:30
-起床，已经很久没有这么早起床了。似乎我早就已经成为懒狗大学牲了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/03/hankoub29bd177e526a4cb.jpeg"
-alt="汉口站" />
-<figcaption aria-hidden="true">汉口站</figcaption>
-</figure>
-<p>人是真的多。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/03/crowded85b25028ae40d35a.jpeg"
-alt="多" />
-<figcaption aria-hidden="true">多</figcaption>
-</figure>
-<p>中午实在是饿得不行，早上忘记买泡面了，结果一个傻傻的怨种在高铁上斥重金买了盒饭（但有一说一，cvoodoo
-推荐的还真没错，这个红烧肉还挺好吃）。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/stupid-lunch7d12bca2d67e5817.jpeg"
-alt="枣香红烧肉盒饭" />
-<figcaption aria-hidden="true">枣香红烧肉盒饭</figcaption>
-</figure>
-<p>在高铁上看了一章多一点的《数理逻辑与集合论（第2版）》，觉得开头很容易，但简略地翻了一下后面的章节，感觉形式化的语言总归还是晦涩的。</p>
-<p>重庆是山城吧。沿路能看见远处的山脉像水粉一般淡淡地作为背景。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/mountain16d7fb18dd72177b0.jpeg"
-alt="高楼背后的山" />
-<figcaption aria-hidden="true">高楼背后的山</figcaption>
-</figure>
-<p>下午搬行李办住宿手续。这里的住宿条件是真的好，不是民宿，而是公寓。<del>唯一的缺点可能是没有
-Wi-Fi？并且流量的信号也不是很好。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/apartment1193170499eb1e473.jpeg"
-alt="我的卧室" />
-<figcaption aria-hidden="true">我的卧室</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/apartment246bd9d1d283cc855.jpeg"
-alt="客厅甚至有个大电视" />
-<figcaption aria-hidden="true">客厅甚至有个大电视</figcaption>
-</figure>
-<p>晚上和支队长 zzc，初中同班同学（且高中同学）gyc
-在公寓旁边找了一家餐馆吃饭，属实是给了我这个武汉人一点小小的重庆震撼。</p>
-<p>首先是时蔬汤。12元一大碗清水煮白菜，其实挺划算，汤也挺好喝，主要是这个白菜是真的好吃，而且量真的多。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/vegetable-soupef07179a7351f8db.jpeg"
-alt="时蔬汤" />
-<figcaption aria-hidden="true">时蔬汤</figcaption>
-</figure>
-<p>其次是来凤鱼。超大一盘，量多味辣，十分好吃。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/03/laifeng-fish87f62296bb273f42.jpeg"
-alt="来凤鱼" />
-<figcaption aria-hidden="true">来凤鱼</figcaption>
-</figure>
-<p><del>我们三个都不敢相信 150 块钱能吃到这么多。感觉被北京 PUA
-了。</del></p>
-<p>回到寝室里继续看《数理逻辑与集合论（第2版）》。然后补了补博客，帮同学调了调代码。</p>
-<h2 id="day-1">2023-07-03 Day 1</h2>
-<p>呃呃，凌晨一点钟了还没睡觉。在干嘛？在学 <a
-href="https://www.bilibili.com/read/cv2841976">麻将</a>。</p>
-<p>早上参观了两个公园。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/04/skyshuttlea16c1a745d55184f.jpeg"
-alt="云中巴士" />
-<figcaption aria-hidden="true">云中巴士</figcaption>
-</figure>
-<p>解锁了新的交通工具——“云中巴士”。我觉得这大概是公交车的大小的轻轨。重庆地铁在璧山区只有一站，而且该站处于璧山区的边缘（中心城区和璧山区的接合部）。由于璧山区没有资格/实力/地位修建属于自己的地铁/轻轨线路，因此，“云中巴士”应运而生。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/flower1095fdb88ff8f2591.jpeg"
-alt="花" />
-<figcaption aria-hidden="true">花</figcaption>
-</figure>
-<p>这个是由花构成的梯田，镶嵌性的布局展示出了层次感。</p>
-<p>以下是从两个视角拍的同一座亭子的风景照。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/tree1e8b1fc86aeca3c28.jpeg"
-alt="你看右下角湖面上的蜗牛石塑" />
-<figcaption aria-hidden="true">你看右下角湖面上的蜗牛石塑</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/tree2806908af907da385.jpeg"
-alt="哇" />
-<figcaption aria-hidden="true">哇</figcaption>
-</figure>
-<p>下午参观了高新产业园区。<del>byd 参观 byd 是吧。</del></p>
-<p>我们参观的厂房是电池以及新能源相关，我啥都不会。磷酸铁锂的化学式都差点忘了。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/byd10497423e929d1a8.jpeg"
-alt="BYD" />
-<figcaption aria-hidden="true">BYD</figcaption>
-</figure>
-<p>晚上和政府对接人员一起吃正宗的重！庆！火！锅！</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/hotpot12bb3c398013b9ca0.jpeg"
-alt="重庆火锅" />
-<figcaption aria-hidden="true">重庆火锅</figcaption>
-</figure>
-<p>我觉得比较有特色的是它的碟，被称为油碟，因为最重要的是“香油”。<del>但这里没有芝麻酱。很难想象没有芝麻酱怎么吃火锅，对吧？</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/plate1081e5d3885051f34.jpeg"
-alt="碗1" />
-<figcaption aria-hidden="true">碗1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/plate2338af4b3ba7c520d.jpeg"
-alt="碗2" />
-<figcaption aria-hidden="true">碗2</figcaption>
-</figure>
-<p>你看这个碗，它有两段。右边这一段是用来滤油的。太高级了。</p>
-<p>回到公寓，洗了澡之后又是学麻将+帮同学调代码一直干到了凌晨。困。</p>
-<h2 id="day-2">2023-07-04 Day 2</h2>
-<p>美滋滋睡懒觉，早上八点二十才起床。匆匆忙忙吃完早餐，乘坐大巴到区政府参加座谈会。</p>
-<p>人生中第一次，我的名字竟然能被写在名牌上，倍感荣幸。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/meeting7c079dcd27184522.jpeg"
-alt="名牌" />
-<figcaption aria-hidden="true">名牌</figcaption>
-</figure>
-<p>还是说说我对“乡镇引入优秀人才”这一政策的思考吧。就个人而言，我觉得所有的政策都是很好的，给的福利也很多；但是，我觉得
-<strong>子女受教育机会</strong>
-这一点很难得到满足与保障。乡镇最大的困难可能是教育资源贫乏，而受良好教育（尤其是义务教育阶段）又是我比较看重的，所以我以后可能就不会考虑选调下沉农乡基层。哦，当然我以后的思维观念也有可能转变，不过到时候再说吧。</p>
-<p>中午去政府单位的食堂吃了午饭，然后回公寓睡了一觉。很爽。</p>
-<p>下午参观大圆祥博物馆。“一个博物馆，就是一所大学校。”此言不假。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/tree2141c17db35d54a98.jpeg"
-alt="风景" />
-<figcaption aria-hidden="true">风景</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/museumf13cc9b954741648.jpeg"
-alt="大圆祥博物馆" />
-<figcaption aria-hidden="true">大圆祥博物馆</figcaption>
-</figure>
-<p>大圆祥博物馆不同于其他常见的博物馆，它取址与自然中，展览的物品大多是石雕、木雕（包括木门、木牌匾、木床、木桌椅板凳等），它们都没有被放入玻璃橱窗中，而是真切地被展览在你的面前。<del>理论上可以直接摸到这些展览品，但有警告标语禁止触碰。</del>
-而且室外也有展览，石狮子、石门。<del>有的上面甚至有蜘蛛网。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/04/skulpture956074b8b61cbf47.jpeg"
-alt="石雕1" />
-<figcaption aria-hidden="true">石雕1</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/04/skulpture2decc6f965d93187f.jpeg"
-alt="石雕2" />
-<figcaption aria-hidden="true">石雕2</figcaption>
-</figure>
-<p>这是什么？这是“情侣凳”。一对情侣坐在上面，视线夹角就是 <span
-class="math inline">\(90^\circ\)</span> 而不是并排坐的 <span
-class="math inline">\(0^\circ\)</span>
-了，这样<del>更加暧昧</del>能增进感情。</p>
-<p>而且这玩意儿一个人会坐不稳，必须得两个人平衡重量。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/bench3290e654cf691d9e.jpeg"
-alt="情侣凳" />
-<figcaption aria-hidden="true">情侣凳</figcaption>
-</figure>
-<p>哦，忘了说，一个桌子加一个情侣凳要两万块钱。买不起。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/wood1582cb476bf279129.jpeg"
-alt="牌匾" />
-<figcaption aria-hidden="true">牌匾</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/wood2f12c60dd31ab8be5.jpeg"
-alt="木制品" />
-<figcaption aria-hidden="true">木制品</figcaption>
-</figure>
-<p>晚上在博物馆旁边吃的农家乐。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/foodfa8e76e5c8b07313.jpeg"
-alt="大碗菜" />
-<figcaption aria-hidden="true">大碗菜</figcaption>
-</figure>
-<p>还久违地碰到了只因哥哥。不知道他是否能够挺过这段时间。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/04/rooster9f7d8fd72832d13a.jpeg"
-alt="只因" />
-<figcaption aria-hidden="true">只因</figcaption>
-</figure>
-<p>晚上很累。在楼底下超市买了一些水果和饼干，但发现并不好吃。不如睡大觉。</p>
-<h2 id="day-3">2023-07-05 Day 3</h2>
-<p>早上到达喜观振兴驿站。这里是重庆市璧山区七塘镇。</p>
-<p>感觉这个驿站类似于党员群众服务中心，设施挺齐全的。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/insidea0e810e46688bcb8.jpeg"
-alt="里边" />
-<figcaption aria-hidden="true">里边</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/outside150f67db02c20b08.jpeg"
-alt="外边" />
-<figcaption aria-hidden="true">外边</figcaption>
-</figure>
-<p>田间有很多民间艺术家就地取材，用稻梗制作出了一件件艺术品。这里确实和川美合作很多。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/dogb8618324dcaa9645.jpeg"
-alt="这应该是狗……吧？" />
-<figcaption aria-hidden="true">这应该是狗……吧？</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/lay2a00e76ec8ab7bad.jpeg"
-alt="惬意地躺在地上的人" />
-<figcaption aria-hidden="true">惬意地躺在地上的人</figcaption>
-</figure>
-<p>化身成草帽吉米。准备入户调研采访。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/selfie6ccbc8bbbe7faa2f.jpeg"
-alt="这是带着草帽的我" />
-<figcaption aria-hidden="true">这是带着草帽的我</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/shadow1ff87d538f87fd54.jpeg"
-alt="这也是带着草帽的我" />
-<figcaption aria-hidden="true">这也是带着草帽的我</figcaption>
-</figure>
-<p>呃呃，“四体不勤五谷不分”说的就是我。<del>我说武汉话，这位爷爷说重庆话，我们竟然能对话？</del></p>
-<video src="../../../../gallery/journal-2023-07-03-Chongqing/day3/interview.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
-<p>这是村民养的鸭。有纯白的鸭鸭。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/05/duckbdfeda7cf477ac48.jpeg"
-alt="鸭鸭" />
-<figcaption aria-hidden="true">鸭鸭</figcaption>
-</figure>
-<p>采访完毕后，感慨颇深。怎么说呢。政府政策是很好，乡村振兴这战略那战略，但是落到每家每户上呢？墙的外表是刷了新的墙面，但是内部还是原来的样子；未经村民同意，在村民不在家的时候把厨房拆了，之后再还建到别处；电线报给物业修理
-3 月份的事儿现在还没办成……</p>
-<p>哎，哥哥。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/05/stone-chicken9808f53e0ad9a3d5.jpeg"
-alt="只应" />
-<figcaption aria-hidden="true">只应</figcaption>
-</figure>
-<p>晚上外卖点了西瓜果切和两斤荔枝。比超市里的好吃多了。</p>
-<h2 id="day-4">2023-07-06 Day 4</h2>
-<p>早上八点钟闹钟响了，我延时了 5min，然后睡着了。然后就没有然后了。</p>
-<p>The next thing I knew was that
-支队长在敲公寓的大门（我在卧室里被吵醒了）。</p>
-<p>迟到了 10 分钟。我愧疚的很。</p>
-<p>早上和艺术家座谈，感受到了艺术家们想尝试改变整个乡村发展的热忱。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/08/artist-meetingf5519c46fb292d20.md.jpeg"
-alt="与艺术家座谈" />
-<figcaption aria-hidden="true">与艺术家座谈</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/08/i-ask-artist30fe99c845ad977b.md.jpeg"
-alt="问问题" />
-<figcaption aria-hidden="true">问问题</figcaption>
-</figure>
-<p>我这个毛小子还问了个问题。挺好。</p>
-<p>下午在干啥？下午其他人是在为之后的“助农直播”进行筹备。我应该是在整理早上的会议记录。</p>
-<p>看看晚霞吧！</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/08/sunsetc83cd54f030a811a.jpeg"
-alt="晚霞" />
-<figcaption aria-hidden="true">晚霞</figcaption>
-</figure>
-<p>看看乡村的鸡鸭。鸭子没有在喝水，而是在用水梳理自己的羽毛。右边的鸡啄了左边的鸡一下。</p>
-<p>唉，哥哥。</p>
-<video src="../../../../gallery/journal-2023-07-03-Chongqing/day4/chicken.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
-<p>晚上开始准备明天和重庆医科大学的同学交流会的 PPT。睡的挺晚的。</p>
-<p>哎，一整理出来，感觉这一天我没干啥事儿。这比昨天的事儿可少多了。</p>
-<h2 id="day-5">2023-07-07 Day 5</h2>
-<p>好消息：今天早上没迟到。但早饭不是很好吃。有烧麦，但真难吃。纯米，没有肉。</p>
-<p>早上去拜访大兴镇白深富故居进行党性教育。太阳是真的大。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/07/old-house1459e43d47e5e9546.jpeg"
-alt="白深富故居" />
-<figcaption aria-hidden="true">白深富故居</figcaption>
-</figure>
-<p>我们是在类似于一个四合院里，顶着大太阳，听一个老师傅讲解故事。大概听了
-1
-个小时吧。之后我们才进入故居进行参观。虽然带有重庆口音的普通话我不能完全听懂，但是大致意思我理解了。我们也为白深富同志默哀了半分钟。我几乎要被热到融化了，但最终还是挺了下来，感觉这也能算是党性教育的一部分吧。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/07/old-house24e87b0f9e152e13a.jpeg"
-alt="入团宣言和入党宣言" />
-<figcaption aria-hidden="true">入团宣言和入党宣言</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/07/old-house3a7a4857e1700d3e6.jpeg"
-alt="白深富的床" />
-<figcaption aria-hidden="true">白深富的床</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/07/old-house4302259907e982577.jpeg"
-alt="白深富的灶台" />
-<figcaption aria-hidden="true">白深富的灶台</figcaption>
-</figure>
-<p>下午和重庆医科大学的同学们进行交流学习。这是一个突然插播的项目，起因是我们在振兴驿站里碰到了他们，对方老师很热情，希望和我们进行一些交流，于是就有了这么一个交流会。我作为汇报人，讲了好长时间。首先是大约说了一下前几天我们支队对艺术乡建的调研成果；然后我还分享我查找到的关于“数字化乡村振兴新模式”的一些已有成果（上知网查的论文）和我自己的看法；最后进行了破冰会，认识了一些新的同学吧。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/07/PPT88808d34db0c9e2f.png"
-alt="我做的逆天 PPT" />
-<figcaption aria-hidden="true">我做的逆天 PPT</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/CQMU9c78b958469f6335.jpeg"
-alt="合影" />
-<figcaption aria-hidden="true">合影</figcaption>
-</figure>
-<p>晚上在写 Wordle，完成度似乎还可以？一共写了 7kB
-的代码，就当是代码能力复健吧。</p>
-<p>实际上是练习使用 STL，有一说一，<code>std::string</code>
-是真好用。<del>妈的，字符数组就应该被废除掉。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/07/code-lengthd3d342bd1e9e5c6f.png"
-alt="代码长度" />
-<figcaption aria-hidden="true">代码长度</figcaption>
-</figure>
-<p>自己玩了一下，感觉这单词的难度一言难尽。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/07/rubbishc65eab1b105a5cff.png"
-alt="垃圾数据" />
-<figcaption aria-hidden="true">垃圾数据</figcaption>
-</figure>
-<p><del>其实倒数第二次的猜测表明我的代码有问题，第一个 p
-应该是红色的。</del></p>
-<p>不知不觉，又已经十二点了。一天又结束了。</p>
-<h2 id="day-6">2023-07-08 Day 6</h2>
-<p>早上与重庆校友会的学长学姐进行了交流座谈。个人感觉收获很多。</p>
-<blockquote>
-<p>刘书记 1.
-安徽待了六个星期，听不懂话。大学的传承，社会实践的深度传承下去。 2.
-乡镇党委书记，乡村振兴是我工作的主业之一。结合我的工作，跟大家聊一下乡村振兴的看法。今天你们分享的，是直观观感上的感受。其实，乡村振兴是有顶层设计的。
--
-产业振兴。文创，是产业的一部分。第一要务：我种什么。文化与旅游附着的基础是什么？是基础。安全垫在哪里？在种植产业。粮食安全。为什么有荒地？种一亩亏一亩。粮食一年内间种蔬菜。产业振兴的基础是什么？是种植业。
--
-人才振兴。很少有年轻人。人才是需要有回报的，使用市场化的方式撬动。先富带后富。“村民永远不会相信你说什么，只会看你干成了什么。”更重要的是运营人才。
-- 文化振兴。接受市场，接受契约。 -
-生态振兴。深入农村的时候，有没有臭味儿。有没有蚊虫。 -
-组织振兴。组织是什么？村委会和党支部合一。小合作社带动大合作社。 3.
-乡村振兴的三个层次。 - 获得一些新的认知。 - 体会一种生活方式。 -
-认识一种价值体系。</p>
-</blockquote>
-<p>哎，也不知道自己会不会走选调这条路。</p>
-<p>中午想着自己既然已经写过 <a href="http://wordlegame.org/">Wordle</a>
-了，不如继续玩玩。于是尝试玩了一下 <a
-href="https://sedecordlegame.org/">Sedecordle</a>。个人认为宝刀未老。一局足足让我玩了半个小时。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sedecordle0bf968ddcda72642.png"
-alt="Sedecordle" />
-<figcaption aria-hidden="true">Sedecordle</figcaption>
-</figure>
-<p>下午去玩了一下振兴驿站旁边的昆虫王国。</p>
-<video src="../../../../gallery/journal-2023-07-03-Chongqing/day6/playground.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
-<p>这儿的儿童游乐设施还挺多。身边的很多同学都说我很“天真”，我觉得也是，我希望能在我逐渐长大的过程中仍保存我内心中最柔弱、最青春的那一部分。<del>比如看看我体验儿童游乐设施。</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/07/16/swing1851446318cdee27.jpeg"
-alt="荡秋千" />
-<figcaption aria-hidden="true">荡秋千</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/16/balance1cfd28f96c274789e.jpeg"
-alt="练平衡力1" />
-<figcaption aria-hidden="true">练平衡力1</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/16/balance2eb652383dfc16f4e.jpeg"
-alt="练平衡力2" />
-<figcaption aria-hidden="true">练平衡力2</figcaption>
-</figure>
-<p>拍了一张很有意思的帅照（我认为挺帅的）。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/handsomedd39ad2e5390625c.jpeg"
-alt="帅照" />
-<figcaption aria-hidden="true">帅照</figcaption>
-</figure>
-<p>看看只因哥哥。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/chicken1b333eed6cc77a94.jpeg"
-alt="鸡" />
-<figcaption aria-hidden="true">鸡</figcaption>
-</figure>
-<p>夕阳真美呀。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/sunsetd30257d8bba23101.jpeg"
-alt="夕阳" />
-<figcaption aria-hidden="true">夕阳</figcaption>
-</figure>
-<p>晚饭在“农家小院”吃的。柴火鸡还是很好吃的。这相当于一个灶台，直接在灶台边吃饭，锅边还能贴很多类似于锅盔的“玉米粑粑”。这样做有一个巧妙的地方，就是可以通过观察粑粑的颜色（以及是否烤枯了）来判断柴火鸡的火候是否到位。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/corn58d6741d76ba18f7.jpeg"
-alt="玉米粑粑" />
-<figcaption aria-hidden="true">玉米粑粑</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/firewood0e9f91a8b1390373.jpeg"
-alt="柴火" />
-<figcaption aria-hidden="true">柴火</figcaption>
-</figure>
-<p>然后就回公寓了。晚上干了啥？看了看一本 Python
-的入门书籍，然后就睡大觉了。</p>
-<h2 id="day-7">2023-07-09 Day 7</h2>
-<p>早上参观了葡萄园。我们看到了阳光玫瑰葡萄。还有夏黑葡萄。</p>
-<p>值得一提的是，我两种都吃了。很好吃。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/green36e48b7cf2a3a6d4.jpeg"
-alt="阳光玫瑰葡萄" />
-<figcaption aria-hidden="true">阳光玫瑰葡萄</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/black756a201db920ef05.jpeg"
-alt="夏黑葡萄" />
-<figcaption aria-hidden="true">夏黑葡萄</figcaption>
-</figure>
-<video src="../../../../gallery/journal-2023-07-03-Chongqing/day7/grapes.mp4" preload="metadata" controlslist="nodownload" controls playsinline poster=""></video>
-<p>下午在振兴驿站修整。然后又看了很长时间的 Python 入门书籍。</p>
-<p>晚上在写直播文案。大概想了想自己会说啥，以及整个的流程。</p>
-<h2 id="day-8">2023-07-10 Day 8</h2>
-<p>一整天都在准备直播的事情。</p>
-<p>感觉没啥好写的。</p>
-<p><del>真的不是因为我懒。</del></p>
-<p>下午试播了一次。天气真的是热。我被烤熟了。</p>
-<h2 id="day-9">2023-07-11 Day 9</h2>
-<blockquote>
-<p>直播日。</p>
-</blockquote>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/data14b205f8024c60a06.jpeg"
-alt="早上的点赞" />
-<figcaption aria-hidden="true">早上的点赞</figcaption>
-</figure>
-<p>下午我就去直播了。天气是真**热。比昨天还热。整张照片贴上来算了。真的累。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/16/afternoon19ece15476532616.jpeg"
-alt="下午直播" />
-<figcaption aria-hidden="true">下午直播</figcaption>
-</figure>
-<p>晚上在“农家小院”吃播。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/eat95407edc6e113d48.jpeg"
-alt="晚上吃播" />
-<figcaption aria-hidden="true">晚上吃播</figcaption>
-</figure>
-<p>我也有分享学习经验。跟 gyc 一起文理双子星嘎嘎乱说话。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/study02d692468a3ea592.jpeg"
-alt="分享学习经验" />
-<figcaption aria-hidden="true">分享学习经验</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/data2a0fb26904f5878fa.jpeg"
-alt="总直播数据" />
-<figcaption aria-hidden="true">总直播数据</figcaption>
-</figure>
-<p><del>累计 9.8 万赞呢。</del></p>
-<p>其实我们下播是因为说了某个人的名字，我们也只是在歌颂他的英明政策的时候提及了他的名字。然后就被封禁了
-10 分钟。<del>封禁信息可以从上面那张截图里看到。</del></p>
-<p>好累。晚上睡大觉！</p>
-<h2 id="day-10">2023-07-12 Day 10</h2>
-<p>昨天的直播意犹未尽。早上昏昏沉沉地去了振兴驿站。</p>
-<p>然后开始直播咱支队策划的艺术品展览。</p>
-<p>中途抽了两次奖品。<del>我过硬的手速使得</del>我抽中了一份纪念品。</p>
-<p>中午把 Python
-的一本入门书籍看完了。自我感觉良好。准备回家之后学会怎么写爬虫。</p>
-<p>下午结束之后把展览撤掉了。拿到了纪念品。嘻嘻。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/souvenir68aa3ce795cb7e6d.jpeg"
-alt="纪念品" />
-<figcaption aria-hidden="true">纪念品</figcaption>
-</figure>
-<p>晚上跟 wyq（a.k.a.
-永琪哥）一起吃了“外婆面”的重庆小面。去之前买了香酥芝麻鸭。好吃。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sesame-duck1ea5a8d812d316776.jpeg"
-alt="香酥芝麻鸭1" />
-<figcaption aria-hidden="true">香酥芝麻鸭1</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/sesame-duck23ed11a448341a3f0.jpeg"
-alt="香酥芝麻鸭2" />
-<figcaption aria-hidden="true">香酥芝麻鸭2</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/Chongqing-Xiaomian526a0114f75beca6.jpeg"
-alt="重庆小面" />
-<figcaption aria-hidden="true">重庆小面</figcaption>
-</figure>
-<p>偶遇颜值很高的猫学姐。</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/cat133a009fc6a7647f3.jpeg"
-alt="猫学姐1" />
-<figcaption aria-hidden="true">猫学姐1</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/cat29683d9bd836c9559.jpeg"
-alt="猫学姐2" />
-<figcaption aria-hidden="true">猫学姐2</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/cat363359a8d22d7aa19.jpeg"
-alt="猫学姐3" />
-<figcaption aria-hidden="true">猫学姐3</figcaption>
-</figure>
-<p>晚上在跟支队的部分同学一起打牌。虽然我斗地主一直输，但德州扑克还是赢了几把的。</p>
-<p>明天没有事儿，那就睡大觉！</p>
-<h2 id="day-11">2023-07-13 Day 11</h2>
-<p>很难想象我是几点钟起床的。11:50！准确地讲，是 8:50
-闹钟响了，起来看了眼手机，然后又躺了下去。<del>再次睁眼已经是中午了。</del></p>
-<p>cvoodoo 说得好，这个时间点起床反而比 10:00
-起床要舒服，<del>因为不用纠结要不要吃早饭了。</del></p>
-<p>吃完午饭水了一下 B 站，然后粗略地看了看 <a
-href="https://docs.net9.org/">计算机系学生科协技能引导文档</a>，觉得这个暑假能学的东西还挺多。</p>
-<p>然后又想到这几天 <a
-href="https://summer23.net9.org/">计算机系暑期培训</a>
-似乎漏了一两节课。</p>
-<p>看一眼讲义。原来是 Web 啊。不会。</p>
-<p>再看一眼讲义，还是不会。<del>再多看一眼就会爆炸。</del></p>
-<p>不想用流量看回放。这些还是回家再说吧。</p>
-<p>然后就开始睡午觉了。此时 15:40。</p>
-<p>一觉醒来已经是
-17:00。出门准备去昨天吃的那家面馆吃豌杂面。结果关门了<del>（当然，也有可能是还没开门）</del>。</p>
-<p>于是去旁边的一家面馆吃了红油抄手。好吃。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/chaoshoub04b951d22b9321b.jpeg"
-alt="还加了个煎蛋，美滋滋" />
-<figcaption aria-hidden="true">还加了个煎蛋，美滋滋</figcaption>
-</figure>
-<p>旁边有一家蜜雪冰城。是熟悉的芝士奶盖绿茶，当初是高中每周放学帅会带我喝的。<del>现在帅带我喝瑞幸。喝的东西变了，兄弟没变。</del></p>
-<p>失误了，没说要半糖，店员给我加了全糖。太甜了。</p>
-<p>晚上开始补博客。我给了一个比喻是“像是高三拖欠了很久作业就再也不想补以前作业的感觉”。</p>
-<p>cvoodoo 锐评：</p>
-<blockquote>
-<p>不用高三 像是两个月前拖欠了几节课就再也不想去上课的感觉x</p>
-</blockquote>
-<p>晚上没事儿干，于是和支队里部分同学一起出去吃了海底捞。<del>店里有芝麻酱，好评！</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/hotpot819b4bf10fc9ac69.jpeg"
-alt="海底捞" />
-<figcaption aria-hidden="true">海底捞</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/peoplec8a3eda96233f2ed.jpeg"
-alt="凌晨人还很多" />
-<figcaption aria-hidden="true">凌晨人还很多</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/eatfbf8ace0ac36deef.jpeg"
-alt="吃吃吃" />
-<figcaption aria-hidden="true">吃吃吃</figcaption>
-</figure>
-<p>和海底捞的店员互动，石头剪刀布三局两胜，我 2-0 获得了一个小玩具。</p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/dine-sauraeb9c3327fd2a099.jpeg"
-alt="拼装恐龙" />
-<figcaption aria-hidden="true">拼装恐龙</figcaption>
-</figure>
-<p><del>《适龄：3 岁及以上》</del></p>
-<p>然后回公寓一直打牌到了凌晨四五点。斗地主和德州扑克都挺好玩的，而且我运气挺好，感受到了赢的乐趣。<del>但感觉还是不如日麻。</del></p>
-<p>明天应该也确实没我啥事儿。我不用说话，只需要听支队长汇报就行了。<del>我只需要保证自己不在会上睡着就行（</del></p>
-<h2 id="day-12">2023-07-14 Day 12</h2>
-<p>呃呃。今天要去向政府汇报了。</p>
-<p>早上十点五十起床的。还行，起码睡了五个半小时（多）。</p>
-<p>傻了吧唧地到政府机关吃午饭，肚子其实挺饱的，也没吃多少。</p>
-<p>吃完了午饭速速到达会议室，然后开始等待。<del>毕竟我们是十二点半到达的会议室，但会议两点才开始。</del></p>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/meeting-roome529bec0014dffd1.jpeg"
-alt="会议室" />
-<figcaption aria-hidden="true">会议室</figcaption>
-</figure>
-<p><del>唉，支队汇报。没意思。</del></p>
-<p>晚上支队一起吃了顿饭。其他菜都挺好吃的，就是小龙虾不太行。<del>不如回武汉再多吃几顿小龙虾。</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/diningc6b78bf8ced611ce.jpeg"
-alt="饭饭" />
-<figcaption aria-hidden="true">饭饭</figcaption>
-</figure>
-<p>然后走到洪崖洞拍了拍照，夜景十分华丽。<del>人也是真的多。</del></p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/dusk01582280da64fb3f.jpeg"
-alt="傍晚" />
-<figcaption aria-hidden="true">傍晚</figcaption>
-</figure>
-<figure>
-<img
-src="https://img.picgo.net/2023/07/15/Hongyadong5aecd6a57293ac65.jpeg"
-alt="洪崖洞" />
-<figcaption aria-hidden="true">洪崖洞</figcaption>
-</figure>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/bridgec3c4c7c90770ea1a.jpeg"
-alt="桥" />
-<figcaption aria-hidden="true">桥</figcaption>
-</figure>
-<p>之后又走到鹅岭二厂去了。拍了几张店铺都关门了的照片。下次得早点来游玩，晚上关门了之后黑灯瞎火的，有点吓人。Errie.</p>
-<figure>
-<img src="https://img.picgo.net/2023/07/15/ELECb17b5db0fd065abf.jpeg"
-alt="鹅岭二厂" />
-<figcaption aria-hidden="true">鹅岭二厂</figcaption>
-</figure>
-<p>很难想象今日步数突破 2
-万。很久没有走过这么多的路了，腿确实挺累的。</p>
-<p>晚上和永琪哥在名茗姐房里消灭买多了的冰棒。我吃了一根绿色心情，还吃了一根核桃牛奶。个人认为“天友”这个重庆本土品牌的乳制品还是十分不错的。</p>
-<p>一起聊天聊到一点钟，<del>讲了很多八卦吃到了很多有意思的瓜，</del>然后我就回去睡觉了。</p>
-<h2 id="day-13">2023-07-15 Day 13</h2>
-<p>早上七点钟永琪哥把他的房门钥匙交给我了，让我帮他还给物业。唉，永琪哥人又帅性格又好。</p>
-<p>然后又睡到八点。醒了。然后看了看微信，又睡着了。</p>
-<p>九点零五分正式醒来，收拾好东西回家！</p>
-<p>高铁上没啥意思。一直就在更现在你正在看的<a
-href="./">这篇博客</a>。似乎我写了近 6 千字。</p>
-<p>我一直在想，这一次到重庆璧山的暑期实践到底给我带来了什么。</p>
-<p>第一次看见田野。</p>
-<p>第一次参观蔬菜大棚。</p>
-<p>第一次差点通宵。</p>
-<p>第一次吃重庆火锅。</p>
-<p>第一次在政府大楼里开会。</p>
-<p>第一次使用抖音。</p>
-<p>第一次进行露脸直播。<del>（寒假时我在 b
-站上共享屏幕直播过植物大战僵尸）</del></p>
-<p>这次暑期实践，结识了一帮好朋友，也治好了我“四体不勤五谷不分”的坏毛病。</p>
-<blockquote>
-<p>谨以此博客，献给 2023 年去重庆璧山实践的时光。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>游记</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-        <tag>重庆</tag>
-        <tag>璧山</tag>
-        <tag>乡村振兴</tag>
-        <tag>暑期实践</tag>
       </tags>
   </entry>
   <entry>
