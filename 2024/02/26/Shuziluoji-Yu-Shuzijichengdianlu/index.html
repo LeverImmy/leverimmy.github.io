@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PROM71b96c1712bd3052.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-18T08:07:26.238Z">
+<meta property="article:modified_time" content="2024-06-18T09:43:28.382Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@ Quine-McCluskey 化简法（不考）</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-18 16:07:26" itemprop="dateModified" datetime="2024-06-18T16:07:26+08:00">2024-06-18</time>
+      <time title="修改时间：2024-06-18 17:43:28" itemprop="dateModified" datetime="2024-06-18T17:43:28+08:00">2024-06-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -3725,8 +3725,8 @@ C_n &amp; = X_nY_n\overline{C_{n-1}} + X_n\overline{Y_n}C_{n-1} +
 class="math inline">\(F_n\)</span> 均需要 <strong>2 级门延迟</strong>。
 <span class="math display">\[
 \begin{align*}
-F_n &amp; = \overline{X_nY_n\;\overline{C_{n-1}} +
-X_n\;\overline{Y_n}\;C_{n-1} + \overline{X_n}\;Y_nC_{n-1} +
+F_n &amp; = \overline{X_nY_n\overline{C_{n-1}} +
+X_n\overline{Y_n}C_{n-1} + \overline{X_n}Y_nC_{n-1} +
 \overline{X_n}\;\overline{Y_n}\;\overline{C_{n-1}}} , \\
 C_n &amp; = \overline{\overline{X_n}\;\overline{Y_n} +
 \overline{X_n}\;\overline{C_{n-1}} +
@@ -3755,9 +3755,9 @@ class="math inline">\(F_n\)</span></strong>。</p>
 级门延迟</strong>，<span class="math inline">\(F_n\)</span> 需要
 <strong>3 级门延迟</strong>。 <span class="math display">\[
 \begin{align*}
-F_n &amp; = X_nY_nC_{n-1} + X_n\;\overline{C_n} + Y_n\;\overline{C_n} +
-C_{n-1}\;\overline{C_n}, \\
-C_n &amp; = X_nY_n + (X_n+Y_n)C_{n-1}.
+F_n &amp; = X_nY_nC_{n-1} + X_n\overline{C_n} + Y_n\overline{C_n} +
+C_{n-1}\overline{C_n}, \\
+C_n &amp; = X_nY_n + X_nC_{n-1} + Y_nC_{n-1}.
 \end{align*}
 \]</span></p>
 <p>(d)：<span class="math inline">\(C_n\)</span> 需要 <strong>2
@@ -3765,12 +3765,17 @@ C_n &amp; = X_nY_n + (X_n+Y_n)C_{n-1}.
 <strong>3 级门延迟</strong>。 <span class="math display">\[
 \begin{align*}
 F_n &amp; = \overline{\overline{X_n}\;\overline{Y_n}\;\overline{C_{n-1}}
-+ \overline{X_n}\;C_n + \overline{Y_n}\;C_n + \overline{C_{n-1}}\;C_n},
-\\
++ \overline{X_n}C_n + \overline{Y_n}C_n + \overline{C_{n-1}}C_n}, \\
 C_n &amp; = \overline{\overline{X_n}\;\overline{Y_n} +
-(\overline{X_n}+\overline{Y_n})\overline{C_{n-1}}}.
+\overline{X_n}\;\overline{C_{n-1}} +
+\overline{Y_n}\;\overline{C_{n-1}}}.
 \end{align*}
 \]</span></p>
+<blockquote>
+<p><strong>注意</strong>：由原理可知，<span
+class="math inline">\(F_n\)</span> 需要的级数等于 <span
+class="math inline">\(C_n\)</span> 需要的级数 + 1 级。</p>
+</blockquote>
 <h4 id="位串行进位加法器">4 位串行进位加法器</h4>
 <p>将四个 1 位全加器串联起来，前一级输出的 <span
 class="math inline">\(C_{n-1}\)</span> 作为后一级输入的 <span
@@ -3788,12 +3793,12 @@ alt="4 位串行进位加法器" />
 class="math inline">\(C_{i-1}, X_i, Y_i\)</span> 同时到达。
 <ul>
 <li><span class="math inline">\(F_1\)</span> 需要 2 级，<span
-class="math inline">\(C_1\)</span> 需要 2 级，<span
-class="math inline">\(F_2\)</span> 需要 4 级，<span
+class="math inline">\(C_1\)</span> 需要 2 级。</li>
+<li><span class="math inline">\(F_2\)</span> 需要 4 级，<span
 class="math inline">\(C_2\)</span> 需要 4 级。</li>
 <li><span class="math inline">\(F_3\)</span> 需要 6 级，<span
-class="math inline">\(C_3\)</span> 需要 6 级，<strong><span
-class="math inline">\(F_4\)</span> 需要 8 级，<span
+class="math inline">\(C_3\)</span> 需要 6 级。</li>
+<li><strong><span class="math inline">\(F_4\)</span> 需要 8 级，<span
 class="math inline">\(C_4\)</span> 需要 8 级</strong>。</li>
 </ul></li>
 <li>若仅使用 (c) 或 (d)，计算 <span class="math inline">\(F_n\)</span>
@@ -3801,12 +3806,12 @@ class="math inline">\(C_4\)</span> 需要 8 级</strong>。</li>
 class="math inline">\(C_{i-1}, X_i, Y_i\)</span> 同时到达。
 <ul>
 <li><span class="math inline">\(F_1\)</span> 需要 3 级，<span
-class="math inline">\(C_1\)</span> 需要 2 级，<span
-class="math inline">\(F_2\)</span> 需要 5 级，<span
+class="math inline">\(C_1\)</span> 需要 2 级。</li>
+<li><span class="math inline">\(F_2\)</span> 需要 5 级，<span
 class="math inline">\(C_2\)</span> 需要 4 级。</li>
 <li><span class="math inline">\(F_3\)</span> 需要 7 级，<span
-class="math inline">\(C_3\)</span> 需要 6 级，<strong><span
-class="math inline">\(F_4\)</span> 需要 9 级，<span
+class="math inline">\(C_3\)</span> 需要 6 级。</li>
+<li><strong><span class="math inline">\(F_4\)</span> 需要 9 级，<span
 class="math inline">\(C_4\)</span> 需要 8 级</strong>。</li>
 </ul></li>
 <li>使用 (c) (d) <strong>交叉串联</strong>可以更快。
@@ -3822,14 +3827,20 @@ alt="(c) (d) 交叉串联" />
 <figcaption aria-hidden="true">(c) (d) 交叉串联</figcaption>
 </figure></li>
 <li><span class="math inline">\(F_1\)</span> 需要 3 级，<span
-class="math inline">\(C_1\)</span> 需要 2 级，<span
-class="math inline">\(F_2\)</span> 需要 3 级，<span
-class="math inline">\(C_2\)</span> 需要 2 级。</li>
+class="math inline">\(C_1\)</span> 需要 2 级。</li>
+<li><span class="math inline">\(F_2\)</span> 需要 3 级，<span
+class="math inline">\(C_2\)</span> 需要 2 级（原本的串联 2 +
+2，再减去省下的 2，故为 2）。</li>
 <li><span class="math inline">\(F_3\)</span> 需要 5 级，<span
-class="math inline">\(C_3\)</span> 需要 4 级，<strong><span
-class="math inline">\(F_4\)</span> 需要 5 级，<span
-class="math inline">\(C_4\)</span> 需要 4 级</strong>。</li>
-</ul></li>
+class="math inline">\(C_3\)</span> 需要 4 级。</li>
+<li><strong><span class="math inline">\(F_4\)</span> 需要 5 级，<span
+class="math inline">\(C_4\)</span>​ 需要 4 级</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：类似于 (c) (d) 的原理，<span
+class="math inline">\(F_n\)</span> 需要的级数等于 <span
+class="math inline">\(C_n\)</span> 需要的级数 + 1 级。</p>
+</blockquote></li>
 </ol>
 <p><strong>问题</strong>：</p>
 <ul>
@@ -3888,11 +3899,32 @@ C_4 &amp; = \overline{\overline{P_4} + \overline{G_4}\;\overline{P_3} +
 \overline{G_4}\;\overline{G_3}\;\overline{G_2}\;\overline{P_1} +
 \overline{G_4}\;\overline{G_3}\;\overline{G_2}\;\overline{G_1}\;\overline{C_0}}.
 \end{align*}
-\]</span> <img
+\]</span> &gt; <strong>注意</strong>：<span class="math inline">\(G_i
+\oplus P_i = X_i \oplus Y_i\)</span>。</p>
+<p><span class="math inline">\(P_i\)</span> 表示的是两个加数中是否已经有
+<span class="math inline">\(1\)</span>；<span
+class="math inline">\(G_i\)</span>
+表示的是此位是否已经产生进位。因此，没有产生进位的条件是：</p>
+<ul>
+<li>当前加数没有 <span class="math inline">\(1\)</span>，即 <span
+class="math inline">\(\overline{P_i}\)</span>；或</li>
+<li>当前位没有进位且上一位加数中没有 <span
+class="math inline">\(1\)</span>，即 <span
+class="math inline">\(\overline{G_i}\;\overline{P_{i-1}}\)</span>；或</li>
+<li>当前位没有进位且上一位没有进位，且上上一位加数中没有 <span
+class="math inline">\(1\)</span>，即 <span
+class="math inline">\(\overline{G_i}\;\overline{G_{i-1}}\;\overline{P_{i-2}}\)</span>；或</li>
+<li>……</li>
+</ul>
+<figure>
+<img
 src="https://img.picgo.net/2024/04/13/4-4-adder-parallel1535352f0e5ac046.png"
-alt="4 位并行加法器" /></p>
+alt="4 位并行加法器" />
+<figcaption aria-hidden="true">4 位并行加法器</figcaption>
+</figure>
 <p><span class="math inline">\(C_i\)</span> 延迟级数与位数无关，都是 2
-级；<span class="math inline">\(F_i\)</span> 延迟级数基本为 3 级。</p>
+级；<span class="math inline">\(F_i\)</span> 延迟级数基本为 3 级（<span
+class="math inline">\(F_1\)</span> 为特例，只需 2 级）。</p>
 <blockquote>
 <p>如果写出各位进位如下： <span class="math display">\[
 \begin{align*}
@@ -3911,7 +3943,18 @@ C_2 &amp; = G_2 + P_2G_1 + P_2P_1C_0, \\
 C_3 &amp; = G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_0, \\
 C_4 &amp; = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_0.
 \end{align*}
-\]</span></p>
+\]</span> 将 <span class="math inline">\(P_i\)</span> 和 <span
+class="math inline">\(G_i\)</span>的定义代入上述式子中，可能会更容易理解。产生进位的条件是：</p>
+<ul>
+<li>当前位已经进位，即 <span class="math inline">\(G_i\)</span>；或</li>
+<li>上一位已经进位，且这一位加数中有 <span
+class="math inline">\(1\)</span>，即 <span
+class="math inline">\(P_iG_{i-1}\)</span>；或</li>
+<li>上上一位已经进位，且上一位和这一位加数中都有 <span
+class="math inline">\(1\)</span>，即 <span
+class="math inline">\(P_iP_{i-1}G_{i-2}\)</span>；或</li>
+<li>……</li>
+</ul>
 </blockquote>
 <h4 id="位加法器">16 位加法器</h4>
 <blockquote>
@@ -3989,8 +4032,9 @@ alt="4 位算术逻辑运算单元（方法一）" />
 位算术逻辑运算单元（方法一）</figcaption>
 </figure>
 <p>方法二：<span class="math inline">\(M\)</span> 为状态控制端。当 <span
-class="math inline">\(M = H\)</span> 时，电路执行逻辑运算；当 <span
-class="math inline">\(M = L\)</span> 时，电路执行算术运算。</p>
+class="math inline">\(M = \text{H}\)</span> 时，电路执行逻辑运算；当
+<span class="math inline">\(M = \text{L}\)</span>
+时，电路执行算术运算。</p>
 <figure>
 <img
 src="https://img.picgo.net/2024/04/13/4-4-ALU-21802e8086eab86501.jpeg"
@@ -4013,7 +4057,7 @@ id="时序逻辑电路和组合逻辑电路的区别">时序逻辑电路和组�
 <li>时序逻辑电路某一时刻的稳定输出不仅取决于当时的输入，还取决于过去的输入（历史状态）。
 <ul>
 <li><strong>记忆元件</strong>（Memory
-Devices）是时序逻辑电路的基本元件。</li>
+Device）是时序逻辑电路的基本元件。</li>
 <li>计算机中的实现记忆存储功能的元件有多种：磁存储、光存储、半导体存储（电存储）。
 <ul>
 <li>时序逻辑电路中的记忆元件一定要是可修改、可控制的。这种元件被称为“触发器”。</li>
