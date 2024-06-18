@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-ROMf09e38a954f07c8c.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-18T11:53:58.313Z">
+<meta property="article:modified_time" content="2024-06-18T11:59:20.967Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,7 @@ Quine-McCluskey 化简法（不考）</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-18 19:53:58" itemprop="dateModified" datetime="2024-06-18T19:53:58+08:00">2024-06-18</time>
+      <time title="修改时间：2024-06-18 19:59:20" itemprop="dateModified" datetime="2024-06-18T19:59:20+08:00">2024-06-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -4967,7 +4967,12 @@ class="math inline">\(2N\)</span>）<span
 class="math inline">\(\times\)</span>（<span
 class="math inline">\(P\)</span> 项数）<span
 class="math inline">\(\times\)</span>（输出数 <span
-class="math inline">\(M\)</span>）</li>
+class="math inline">\(M\)</span>​）
+<ul>
+<li><span class="math inline">\(2N\)</span> 是上半部分行数</li>
+<li><span class="math inline">\(P\)</span> 是列数</li>
+<li><span class="math inline">\(M\)</span> 是下半部分行数</li>
+</ul></li>
 </ul>
 <h3 id="promplapal-对比">PROM、PLA、PAL 对比</h3>
 <ul>
@@ -4984,7 +4989,8 @@ class="math inline">\(M\)</span>）</li>
 <li>PAL
 <ul>
 <li>与阵列可编程，或阵列固定</li>
-<li>不同的芯片可实现不同的逻辑，有些PAL只能实现组合逻辑电路，有些只能实现时序逻辑电路</li>
+<li>不同的芯片可实现不同的逻辑，有些 PAL
+只能实现组合逻辑电路，有些只能实现时序逻辑电路</li>
 <li>一次性编程</li>
 </ul></li>
 </ul>
@@ -4998,8 +5004,8 @@ Logic，通用阵列逻辑）是为解决这一问题而产生的芯片。</p>
 <ul>
 <li>PROM <span class="math inline">\(\to\)</span> PLA
 <ul>
-<li>或阵列可编程</li>
-<li>与、或阵列都可编程灵活，节省码点</li>
+<li>从只有或阵列可编程变为与、或阵列都可编程</li>
+<li>更加灵活，能节省码点</li>
 </ul></li>
 <li>PLA <span class="math inline">\(\to\)</span> PAL
 <ul>
@@ -5009,9 +5015,10 @@ Logic，通用阵列逻辑）是为解决这一问题而产生的芯片。</p>
 </ul></li>
 <li>PAL <span class="math inline">\(\to\)</span> GAL
 <ul>
-<li>工艺：电可擦除，多次编程（Lattice 公司 1985 年专利）</li>
+<li>工艺：电可擦除，多次编程</li>
 <li>结构：输出宏单元，更通用</li>
 <li>或阵列不可编程</li>
+<li>GAL 是 Lattice 公司 1985 年专利</li>
 </ul></li>
 </ul>
 
