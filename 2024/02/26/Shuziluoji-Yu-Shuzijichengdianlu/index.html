@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PROM71b96c1712bd3052.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-18T04:11:49.061Z">
+<meta property="article:modified_time" content="2024-06-18T08:07:26.238Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -254,7 +254,7 @@ Quine-McCluskey 化简法（不考）</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-18 12:11:49" itemprop="dateModified" datetime="2024-06-18T12:11:49+08:00">2024-06-18</time>
+      <time title="修改时间：2024-06-18 16:07:26" itemprop="dateModified" datetime="2024-06-18T16:07:26+08:00">2024-06-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -3366,66 +3366,75 @@ Y_1 &amp; = X_2 + X_3 + X_6 + X_7, \\
 Y_2 &amp; = X_4 + X_5 + X_6 + X_7, \\
 Y_3 &amp; = X_8 + X_9.
 \end{align*}
-\]</span> <img
+\]</span> 逻辑图：</p>
+<figure>
+<img
 src="https://img.picgo.net/2024/04/07/4-8421-encoderb4ea07984360f462.jpeg"
-alt="8421 码编码器" /></p>
+alt="8421 码编码器" />
+<figcaption aria-hidden="true">8421 码编码器</figcaption>
+</figure>
 <h4 id="优先编码器">8-3 优先编码器</h4>
 <blockquote>
-<p>上述编码器有什么问题？</p>
-<p>以 4-2 编码器为例，当 <span class="math inline">\(I_0 = I_1 =
-0\)</span> 时，仍能得到 <span class="math inline">\(A_0 = A_1 =
-1\)</span>。</p>
-<p>产生问题的原因是：2-4
-译码器的输出并没有包含所有四输入的可能组合。只有<strong>互斥</strong>输入时，才能使用这种编码器。在任意时刻所有输入线中最多只允许有一个为
+<p><strong>问题</strong>：以 4-2 编码器为例，当 <span
+class="math inline">\(I_0 = I_1 = 0\)</span> 时，仍能得到 <span
+class="math inline">\(A_0 = A_1 = 1\)</span>。</p>
+<p><strong>原因</strong>：2-4
+译码器的输出并没有包含所有四输入的可能组合。只有<strong>互斥</strong>输入时，才能使用这种编码器。在任意时刻所有输入线中最多<strong>只允许有一个</strong>为
 <span class="math inline">\(0\)</span>（4-2 编码器）或 <span
 class="math inline">\(1\)</span>（8421
 码编码器），否则编码器会发生混乱。</p>
-<p>解决办法：使用优先编码器。</p>
+<p><strong>解决办法</strong>：使用优先编码器。</p>
 </blockquote>
-<p><strong>优先编码器</strong>：当两条或两条以上的线为 <span
+<p><strong>优先编码器</strong>：当两条或两条以上的输入线为 <span
 class="math inline">\(0\)</span>
-时，<strong>优先按照输入编号大的编码</strong>，称为优先编码器。</p>
+时，<strong>优先按照输入编号最大的信号进行编码</strong>，称为优先编码器。</p>
 <p><strong>8-3 优先编码器</strong>：</p>
 <ul>
-<li><strong>输出为反码</strong>，即用 <span
+<li><p><strong>输出为反码</strong>，即用 <span
 class="math inline">\(000\)</span> 来表示 <span
 class="math inline">\(7\)</span>，用 <span
 class="math inline">\(111\)</span> 来表示 <span
-class="math inline">\(0\)</span>。</li>
-<li>输出使能端 <span
-class="math inline">\(E_o\)</span>：只有当输入数据（<span
-class="math inline">\(0 \sim 7\)</span>）中出现 <span
-class="math inline">\(0\)</span> 时，才为 <span
-class="math inline">\(1\)</span>；其余情况为 <span
-class="math inline">\(0\)</span>。</li>
-<li>输出的编码是否有效 <span class="math inline">\(G_s\)</span>：当
+class="math inline">\(0\)</span>​。</p>
+<blockquote>
+<p><strong>注意</strong>：8-3
+优先编码器输出为<strong>反码</strong>。一定要牢记在心。</p>
+</blockquote></li>
+<li><p>输入使能端 <span
+class="math inline">\(\overline{E}_1\)</span>：当 <span
+class="math inline">\(\overline{E}_1 = 0\)</span> 时，允许电路编码；当
+<span class="math inline">\(\overline{E}_1 = 1\)</span>
+时，禁止电路编码（输出全 <span class="math inline">\(1\)</span>，包括
+<span class="math inline">\(E_0\)</span> 和 <span
+class="math inline">\(G_s\)</span>）。</p></li>
+<li><p>输出的编码是否有效 <span class="math inline">\(G_s\)</span>：当
 <span class="math inline">\(G_s = 0\)</span> 时，表示当前编码有效；当
-<span class="math inline">\(G_s = 1\)</span> 时，表示当前编码无效。</li>
-<li>输入使能端 <span class="math inline">\(\overline{E}_i\)</span>：当
-<span class="math inline">\(\overline{E}_i = 0\)</span>
-时，允许电路编码；当 <span class="math inline">\(\overline{E}_i =
-1\)</span> 时，禁止电路编码（输出全 <span
-class="math inline">\(1\)</span>，包括 <span
-class="math inline">\(E_o\)</span> 和 <span
-class="math inline">\(G_s\)</span>）。</li>
+<span class="math inline">\(G_s = 1\)</span>
+时，表示当前编码无效。</p></li>
+<li><p>输出使能端 <span
+class="math inline">\(E_0\)</span>：只有当输入数据（<span
+class="math inline">\(0 \sim 7\)</span>）中出现 <span
+class="math inline">\(0\)</span> 时，或是“禁止电路编码”时，才为 <span
+class="math inline">\(1\)</span>；其余情况（即，允许电路编码，且输入中无
+<span class="math inline">\(0\)</span> 时）为 <span
+class="math inline">\(0\)</span>。</p></li>
 </ul>
 <p>输出的逻辑表达式： <span class="math display">\[
 \begin{align*}
-A_0 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
-\overline{\overline{E}_i} \cdot 6 \cdot\overline{5} +
-\overline{\overline{E}_i} \cdot 6 \cdot 4 \cdot \overline{3} +
-\overline{\overline{E}_i} \cdot 6 \cdot 4 \cdot 2 \cdot \overline{1}},
+A_0 &amp; = \overline{\overline{\overline{E}_1} \cdot \overline{7} +
+\overline{\overline{E}_1} \cdot 6 \cdot\overline{5} +
+\overline{\overline{E}_1} \cdot 6 \cdot 4 \cdot \overline{3} +
+\overline{\overline{E}_1} \cdot 6 \cdot 4 \cdot 2 \cdot \overline{1}},
 \\
-A_1 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
-\overline{\overline{E}_i} \cdot \overline{6} + \overline{\overline{E}_i}
-\cdot 5 \cdot 4 \cdot \overline{3} + \overline{\overline{E}_i} \cdot 5
+A_1 &amp; = \overline{\overline{\overline{E}_1} \cdot \overline{7} +
+\overline{\overline{E}_1} \cdot \overline{6} + \overline{\overline{E}_1}
+\cdot 5 \cdot 4 \cdot \overline{3} + \overline{\overline{E}_1} \cdot 5
 \cdot 4 \cdot \overline{2}}, \\
-A_2 &amp; = \overline{\overline{\overline{E}_i} \cdot \overline{7} +
-\overline{\overline{E}_i} \cdot \overline{6} + \overline{\overline{E}_i}
-\cdot \overline{5} + \overline{\overline{E}_i} \cdot \overline{4}}, \\
-E_o &amp; = \overline{\overline{\overline{E}_i} \cdot 7 \cdot 6\cdot 5
+A_2 &amp; = \overline{\overline{\overline{E}_1} \cdot \overline{7} +
+\overline{\overline{E}_1} \cdot \overline{6} + \overline{\overline{E}_1}
+\cdot \overline{5} + \overline{\overline{E}_1} \cdot \overline{4}}, \\
+E_0 &amp; = \overline{\overline{\overline{E}_1} \cdot 7 \cdot 6\cdot 5
 \cdot 4 \cdot 3 \cdot 2 \cdot 1 \cdot 0}, \\
-G_s &amp; = \overline{\overline{\overline{E}_i}\cdot E_o}.
+G_s &amp; = \overline{\overline{\overline{E}_1}\cdot E_0}.
 \end{align*}
 \]</span> <strong>将 8-3 优先编码器扩展成 16-4 优先编码器</strong></p>
 <figure>
@@ -3443,10 +3452,10 @@ alt="8-3 优先编码器扩展成 16-4 优先编码器" />
 1\)</span>，输出取决于低位片的 <span class="math inline">\(A_0 \sim
 A_3\)</span>。</li>
 <li>当高位片有 <span class="math inline">\(0\)</span> 的时候，高位片有
-<span class="math inline">\(E_o = 1\)</span>，将高位片的 <span
-class="math inline">\(E_o\)</span> 作为低位片的 <span
-class="math inline">\(\overline{E}_i\)</span>
-以<strong>禁止低位片</strong>，输出取决于高位片的 <span
+<span class="math inline">\(E_0 = 1\)</span>，将高位片的 <span
+class="math inline">\(E_0\)</span> 作为低位片的 <span
+class="math inline">\(\overline{E}_1\)</span>
+以<strong>禁止低位片</strong>。输出取决于高位片的 <span
 class="math inline">\(A_0 \sim A_3\)</span>。</li>
 </ul>
 <p><strong>优先编码器的应用</strong>：</p>
@@ -3462,16 +3471,16 @@ class="math inline">\(A_0 \sim A_3\)</span>。</li>
 <ul>
 <li><span class="math inline">\(A &lt; B\)</span> 的条件：<span
 class="math inline">\(A = 0, B = 1\)</span>，即 <span
-class="math inline">\(\overline{A}\;B = 1\)</span>，等价地，<span
-class="math inline">\(W = B\;\overline{AB} = 1\)</span>。</li>
+class="math inline">\(\overline{A}B = 1\)</span>，等价地，<span
+class="math inline">\(W = B\overline{AB} = 1\)</span>。</li>
 <li><span class="math inline">\(A = B\)</span> 的条件：<span
 class="math inline">\(A \oplus B = 0\)</span>，等价地，<span
-class="math inline">\(Y = \overline{A\;\overline{AB} + B\;\overline{AB}}
-= 1\)</span>。</li>
+class="math inline">\(Y = \overline{A\overline{AB} + B\overline{AB}} =
+1\)</span>。</li>
 <li><span class="math inline">\(A &gt; B\)</span> 的条件：<span
 class="math inline">\(A = 1, B = 0\)</span>，即 <span
-class="math inline">\(A\;\overline{B} = 1\)</span>，等价地，<span
-class="math inline">\(Z = A\;\overline{AB} = 1\)</span>。</li>
+class="math inline">\(A\overline{B} = 1\)</span>，等价地，<span
+class="math inline">\(Z = A\overline{AB} = 1\)</span>。</li>
 </ul>
 <p>逻辑图如下：</p>
 <figure>
@@ -3490,6 +3499,12 @@ Y_3Y_2Y_1Y_0}, \\
 Y_3Y_2Y_1Y_0}.
 \end{align*}
 \]</span></p>
+<blockquote>
+<p><strong>注意</strong>：<span class="math inline">\([A&lt;B]\)</span>
+枚举的实际上是 <span class="math inline">\(A \ge B\)</span>的条件；<span
+class="math inline">\([A&gt;B]\)</span> 枚举的实际上是 <span
+class="math inline">\(A \le B\)</span> 的条件。</p>
+</blockquote>
 <p>根据输出表达式画出 4 位比较器的原理图如下：</p>
 <figure>
 <img
@@ -3498,7 +3513,7 @@ alt="4 位并行比较器原理图" />
 <figcaption aria-hidden="true">4 位并行比较器原理图</figcaption>
 </figure>
 <h4 id="分段比较">分段比较</h4>
-<p>分段比较是多片比较器构成更长位数的方法。比较器不仅输出比较结果，还要能接受其它片输出的结果。</p>
+<p>分段比较是多片比较器构成更长位数的方法。比较器不仅输出比较结果，<strong>还要能接受其它片输出的结果</strong>。</p>
 <figure>
 <img
 src="https://img.picgo.net/2024/04/07/4-4-compare-8-compare0f068da153e20d5e.jpeg"
@@ -3556,15 +3571,17 @@ class="math inline">\(O_2 = O_1 \oplus I_2 = O_1
 \oplus(\oplus_{i=0}^{i=7}I_{i2}) =
 \overline{\oplus_{i=0}^{i=7}(I_{i1}\oplus I_{i2})}\)</span>。</li>
 <li>若 <span class="math inline">\(O_2 = 1\)</span>，则输出正确；若
-<span class="math inline">\(O_2 = 0\)</span>，则输出错误。</li>
+<span class="math inline">\(O_2 = 0\)</span>​，则输出错误。</li>
 </ul>
+<p>可以看出，运输过程中信息正确，当且仅当 <span
+class="math inline">\(O_2 = I_{81}\)</span>。</p>
 <h3 id="算术逻辑运算单元">算术逻辑运算单元</h3>
 <h4 id="位半加器">1 位半加器</h4>
 <p>不考虑低位进位输入和向高位的进位输出，两数码 <span
 class="math inline">\(X_n, Y_n\)</span>
 相加，称<strong>半加</strong>。</p>
 <p>表达式如下： <span class="math display">\[
-H_n = X_n\;\overline{Y_n} + \overline{X_n}\;Y_n = X_n \oplus Y_n.
+H_n = X_n\overline{Y_n} + \overline{X_n}Y_n = X_n \oplus Y_n.
 \]</span></p>
 <h4 id="位全加器">1 位全加器</h4>
 <p>将输入 <span class="math inline">\(X_n, Y_n\)</span> 以及低位进位
@@ -3686,20 +3703,24 @@ class="math inline">\(1\)</span></td>
 </tbody>
 </table>
 <p><strong>全加器的四种形式</strong></p>
+<figure>
+<img
+src="https://img.picgo.net/2024/06/18/4-full-adder429832df55e3aad7.jpeg"
+alt="全加器的四种形式" />
+<figcaption aria-hidden="true">全加器的四种形式</figcaption>
+</figure>
 <p>(a)：不化简，全部用最小项实现，<span
 class="math inline">\(C_n\)</span> 和 <span
 class="math inline">\(F_n\)</span> 均需要 <strong>3 级门延迟</strong>。
 <span class="math display">\[
 \begin{align*}
-F_n &amp; = X_n\;\overline{Y_n}\;\overline{C_{n-1}} +
-\overline{X_n}\;Y_n\;\overline{C_{n-1}} +
-\overline{X_n}\;\overline{Y_n}\;C_{n-1} + X_nY_nC_{n-1}, \\
-C_n &amp; = X_nY_n\;\overline{C_{n-1}} + X_n\;\overline{Y_n}\;C_{n-1} +
-\overline{X_n}\;Y_nC_{n-1} + X_nY_nC_{n-1}.
+F_n &amp; = X_n\overline{Y_n}\;\overline{C_{n-1}} +
+\overline{X_n}Y_n\overline{C_{n-1}} +
+\overline{X_n}\;\overline{Y_n}C_{n-1} + X_nY_nC_{n-1}, \\
+C_n &amp; = X_nY_n\overline{C_{n-1}} + X_n\overline{Y_n}C_{n-1} +
+\overline{X_n}Y_nC_{n-1} + X_nY_nC_{n-1}.
 \end{align*}
-\]</span> <img
-src="https://img.picgo.net/2024/04/13/4-full-adderaa2ee5ca709261422.png"
-alt="(a)" /></p>
+\]</span></p>
 <p>(b)：变换后，<span class="math inline">\(C_n\)</span> 和 <span
 class="math inline">\(F_n\)</span> 均需要 <strong>2 级门延迟</strong>。
 <span class="math display">\[
@@ -3711,9 +3732,7 @@ C_n &amp; = \overline{\overline{X_n}\;\overline{Y_n} +
 \overline{X_n}\;\overline{C_{n-1}} +
 \overline{Y_n}\;\overline{C_{n-1}}}.
 \end{align*}
-\]</span> <img
-src="https://img.picgo.net/2024/04/13/4-full-adderb3439c67fa2d4f51d.png"
-alt="(b)" /></p>
+\]</span></p>
 <blockquote>
 <p>分析全加器中 <span class="math inline">\(F_n\)</span> 和 <span
 class="math inline">\(C_n\)</span> 间的关系，可以发现 <span
@@ -3721,9 +3740,11 @@ class="math inline">\(F_n\)</span> 在两种情况下可以为 <span
 class="math inline">\(1\)</span>：</p>
 <ol type="1">
 <li><span class="math inline">\(X_n = Y_n = C_{n-1} = 1\)</span>；</li>
-<li><span class="math inline">\(X_n, Y_n, C_{n-1}\)</span>
-中至少有一个为 <span class="math inline">\(1\)</span>，且 <span
-class="math inline">\(C_n = 0\)</span>。</li>
+<li><span class="math inline">\(X_n\)</span>、<span
+class="math inline">\(Y_n\)</span> 和 <span
+class="math inline">\(C_{n-1}\)</span> 中至少有一个为 <span
+class="math inline">\(1\)</span>，且 <span class="math inline">\(C_n =
+0\)</span>。</li>
 </ol>
 <p>因此，可以用 <span class="math inline">\(C_n\)</span> 表示 <span
 class="math inline">\(F_n\)</span>，<strong>先组合出 <span
@@ -3738,9 +3759,7 @@ F_n &amp; = X_nY_nC_{n-1} + X_n\;\overline{C_n} + Y_n\;\overline{C_n} +
 C_{n-1}\;\overline{C_n}, \\
 C_n &amp; = X_nY_n + (X_n+Y_n)C_{n-1}.
 \end{align*}
-\]</span> <img
-src="https://img.picgo.net/2024/04/13/4-full-addercaa26a28b21fd97b5.png"
-alt="(c)" /></p>
+\]</span></p>
 <p>(d)：<span class="math inline">\(C_n\)</span> 需要 <strong>2
 级门延迟</strong>，<span class="math inline">\(F_n\)</span> 需要
 <strong>3 级门延迟</strong>。 <span class="math display">\[
@@ -3751,9 +3770,7 @@ F_n &amp; = \overline{\overline{X_n}\;\overline{Y_n}\;\overline{C_{n-1}}
 C_n &amp; = \overline{\overline{X_n}\;\overline{Y_n} +
 (\overline{X_n}+\overline{Y_n})\overline{C_{n-1}}}.
 \end{align*}
-\]</span> <img
-src="https://img.picgo.net/2024/04/13/4-full-adderd49f80c4b6fb51ae9.png"
-alt="(d)" /></p>
+\]</span></p>
 <h4 id="位串行进位加法器">4 位串行进位加法器</h4>
 <p>将四个 1 位全加器串联起来，前一级输出的 <span
 class="math inline">\(C_{n-1}\)</span> 作为后一级输入的 <span
