@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-ROMf09e38a954f07c8c.jpeg">
 <meta property="og:image" content="https://img.picgo.net/2024/04/08/7-PLA1329d8ce7c084d3b.jpeg">
 <meta property="article:published_time" content="2024-02-26T12:14:22.000Z">
-<meta property="article:modified_time" content="2024-06-19T01:15:08.055Z">
+<meta property="article:modified_time" content="2024-06-19T01:40:05.727Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="数字逻辑电路">
 <meta name="twitter:card" content="summary">
@@ -253,7 +253,7 @@ Quine-McCluskey 化简法（不考）</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-19 09:15:08" itemprop="dateModified" datetime="2024-06-19T09:15:08+08:00">2024-06-19</time>
+      <time title="修改时间：2024-06-19 09:40:05" itemprop="dateModified" datetime="2024-06-19T09:40:05+08:00">2024-06-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -4615,28 +4615,28 @@ class="math inline">\(X = 1\)</span> 时反向计数。</p>
 <h4 id="集成化的-4-位二进制计数器">集成化的 4 位二进制计数器</h4>
 <p><strong>集成化的计数器具有的基本功能</strong></p>
 <ul>
-<li><p>异步/同步清零：初始化</p>
-<blockquote>
-<p>异步清零有两种方式：(1) 用触发器提供的异步清零 (2)
+<li>异步/同步清零：初始化
+<ul>
+<li>异步清零有两种方式：(1) 用触发器提供的异步清零 (2)
 在输出时用组合逻辑限定 <span class="math inline">\(\overline{R_D}\cdot
-Q\)</span></p>
-<p><strong>注意</strong>：方法 (2)
+Q\)</span></li>
+<li>方法 (2)
 在使用时需要慎重，因为这只是从输出上（外表上）清零了，计数器仍然在工作，可能会出现
 <span class="math inline">\(0000\)</span> 后直接出现 <span
-class="math inline">\(0011\)</span> 这类的情况。</p>
-</blockquote></li>
-<li><p>同步置数：开始计数的初值</p>
+class="math inline">\(0011\)</span> 这类的情况。</li>
+</ul></li>
+<li>同步置数：开始计数的初值
 <ul>
 <li>有的时候不希望只能从 <span class="math inline">\(0\)</span>
 开始计数。</li>
 </ul></li>
-<li><p>计数：正常工作</p></li>
-<li><p>保持：计数到某个特定的计数值保持</p>
+<li>计数：正常工作</li>
+<li>保持：计数到某个特定的计数值保持
 <ul>
 <li>假设低位片进位到了高位片，低位片清零。此时低位片继续开始计数，高位片需要保持。</li>
 </ul></li>
-<li><p>扩展性：相同的计数器级联更多位数的计数器</p></li>
-<li><p>进位传递：扩展时进位传递到高位片</p></li>
+<li>扩展性：相同的计数器级联更多位数的计数器</li>
+<li>进位传递：扩展时进位传递到高位片</li>
 </ul>
 <figure>
 <img
@@ -4648,13 +4648,13 @@ alt="集成化的 4 位二进制计数器逻辑图" />
 <p><strong>用负边沿 D 触发器构成的 4 位二进制计数器</strong></p>
 <table>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 16%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 16%" />
-<col style="width: 27%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 14%" />
+<col style="width: 35%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4736,7 +4736,8 @@ class="math inline">\(1\)</span></td>
 class="math inline">\(0\)</span></td>
 <td style="text-align: center;">-</td>
 <td style="text-align: center;">-</td>
-<td>FF Hold, RC = 0</td>
+<td>Hold（保持），<span class="math inline">\(\text{RC} =
+0\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span
@@ -4755,7 +4756,7 @@ class="math inline">\(0\)</span></td>
 </tbody>
 </table>
 <ul>
-<li><p><span class="math inline">\(\text{CLR}\)</span></p>
+<li><span class="math inline">\(\text{CLR}\)</span>
 <ul>
 <li>只要 <span class="math inline">\(\text{CLR} =
 0\)</span>，在下一个时钟跳变的时候输出均应该为 <span
@@ -4768,7 +4769,7 @@ D_D &amp; = \text{CLR} \cdot (Q_D \oplus Q_CQ_BQ_A).
 \end{align*}
 \]</span></li>
 </ul></li>
-<li><p><span class="math inline">\(L\)</span></p>
+<li><span class="math inline">\(L\)</span>
 <ul>
 <li>本质上 <span class="math inline">\(L\)</span>
 控制的是“接受新的数据输入”和“原激励不变”之间进行数据二选一。 <span
@@ -4784,9 +4785,16 @@ Q_CQ_BQ_A)).
 \end{align*}
 \]</span></li>
 </ul></li>
-<li><p><span class="math inline">\(T\)</span></p>
+<li><span class="math inline">\(T\)</span>
 <ul>
-<li><p>当 <span class="math inline">\(T = 0\)</span> 时，触发器保持；当
+<li>设计 <span class="math inline">\(\text{RC}\)</span> 表示进位标志：
+<ul>
+<li>四位二进制计数器 <span class="math inline">\(\text{RC} =
+Q_DQ_CQ_BQ_A\)</span>；</li>
+<li>十进制计数器 <span class="math inline">\(\text{RC} =
+Q_D\overline{Q_C}\overline{Q_B}Q_A\)</span>。</li>
+</ul></li>
+<li>当 <span class="math inline">\(T = 0\)</span> 时，触发器保持；当
 <span class="math inline">\(T = 1\)</span>
 时才允许计数，这也是一个数据二选一。 <span class="math display">\[
 \begin{align*}
@@ -4800,20 +4808,23 @@ D_D &amp; = \text{CLR} \cdot (\overline{L}\; D + L\;(\overline{T}\; Q_D
 + T\;(Q_D \oplus Q_CQ_BQ_A))), \\
 \text{RC} &amp; = Q_DQ_CQ_BQ_AT.
 \end{align*}
-\]</span></p></li>
-<li><p>此时的问题是片间进位信号是通过 <span
+\]</span></li>
+<li>此时的问题是片间进位信号是通过 <span
 class="math inline">\(\text{RC}\)</span>
-串行逐片传递的，这会导致计数频率不能很高。</p></li>
-<li><figure>
+串行逐片传递的，这会导致计数频率不能很高。</li>
+</ul>
+<figure>
 <img
 src="https://img.picgo.net/2024/05/19/5-counter-integrated-tcf2c063195eab7d1.jpeg"
 alt="串行扩展，RC 逐片传递" />
 <figcaption aria-hidden="true">串行扩展，RC 逐片传递</figcaption>
 </figure></li>
-</ul></li>
-<li><p><span class="math inline">\(P\)</span></p>
+<li><span class="math inline">\(P\)</span>
 <ul>
-<li>使用 <span class="math inline">\(P\)</span> <span
+<li>为了提高计数频率，再引入输入 <span
+class="math inline">\(P\)</span>。当 <span class="math inline">\(TP =
+1\)</span> 时触发器才开始计数。这样，<span class="math inline">\(P =
+0\)</span> 能够限制多片进位时间，使得它们能够同时进位。 <span
 class="math display">\[
 \begin{align*}
 D_A &amp; = \text{CLR} \cdot (\overline{L}\; A + L\;(\overline{TP}\; Q_A
@@ -4826,16 +4837,22 @@ D_D &amp; = \text{CLR} \cdot (\overline{L}\; D + L\;(\overline{TP}\; Q_D
 + TP\;(Q_D \oplus Q_CQ_BQ_A))).
 \end{align*}
 \]</span></li>
-</ul></li>
-<li><p>此时的问题是最高位的 RC 为高电平并不表示整体进位！此时各个位的 RC
-全部与起来，如果为高电平，才表示整体进位。</p></li>
-<li><figure>
+<li>此时的问题是最高位的 RC 为高电平并不表示整体进位！此时各个位的 RC
+全部与起来，如果为高电平，才表示整体进位。</li>
+</ul>
+<figure>
 <img
 src="https://img.picgo.net/2024/05/19/5-counter-integrated-p78bd566c700e14cf.jpeg"
 alt="快速扩展" />
 <figcaption aria-hidden="true">快速扩展</figcaption>
 </figure></li>
 </ul>
+<blockquote>
+<p><strong>注意</strong>：在应用 74163（或 74161）集成化 4
+位二进制计数器的时候，记得将 <span
+class="math inline">\(\text{CP}\)</span> 连上时钟信号，同时令 <span
+class="math inline">\(\text{CLR} = T = P = 1\)</span>。</p>
+</blockquote>
 <h4 id="寄存器">寄存器</h4>
 <h2 id="第-7-章-可编程逻辑电路">第 7 章 可编程逻辑电路</h2>
 <p>“软件固化”和“以存代算”的理念催生了“用软件设计硬件”的新思路，进而诞生了多种硬件设计语言（Hardware
