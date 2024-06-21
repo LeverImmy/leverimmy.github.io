@@ -2400,6 +2400,9 @@ mjx-container[jax='CHTML'][display='true'],
 mjx-container[display='true'] + br {
   display: none;
 }
+.giscus {
+  max-width: unset;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
