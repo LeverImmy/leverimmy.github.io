@@ -19,7 +19,7 @@ document.addEventListener('page:loaded', () => {
         'data-input-position'   : CONFIG.giscus.input_position,
         'data-theme'            : CONFIG.giscus.theme,
         'data-lang'             : CONFIG.giscus.lang,
-        'data-loading'          : CONFIG.giscus.loading
+        'data-loading'          : CONFIG.giscus.loading,
       },
       parentNode: document.querySelector('.giscus-container')
     }));
