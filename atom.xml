@@ -6,7 +6,7 @@
   <link href="https://leverimmy.top/atom.xml" rel="self"/>
   
   <link href="https://leverimmy.top/"/>
-  <updated>2024-06-10T14:50:09.831Z</updated>
+  <updated>2024-06-24T16:24:25.653Z</updated>
   <id>https://leverimmy.top/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【讲义】Android 入门</title>
+    <link href="https://leverimmy.top/2024/06/25/Introduction-to-Android/"/>
+    <id>https://leverimmy.top/2024/06/25/Introduction-to-Android/</id>
+    <published>2024-06-24T16:16:27.000Z</published>
+    <updated>2024-06-24T16:24:25.653Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Android
+部分的讲义。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="讲义" scheme="https://leverimmy.top/categories/%E8%AE%B2%E4%B9%89/"/>
+    
+    
+    <category term="Android" scheme="https://leverimmy.top/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【讲义】Java 入门</title>
+    <link href="https://leverimmy.top/2024/06/25/Introduction-to-Java/"/>
+    <id>https://leverimmy.top/2024/06/25/Introduction-to-Java/</id>
+    <published>2024-06-24T16:15:14.000Z</published>
+    <updated>2024-06-24T16:24:48.823Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Java
+部分的讲义。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="讲义" scheme="https://leverimmy.top/categories/%E8%AE%B2%E4%B9%89/"/>
+    
+    
+    <category term="Java" scheme="https://leverimmy.top/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>【学习笔记】软件工程(2)</title>
@@ -309,9 +349,9 @@ href=&quot;https://github.com/LeverImmy/News-App/&quot;&gt;LeverImmy/News-App&lt
     <category term="课程报告" scheme="https://leverimmy.top/categories/%E8%AF%BE%E7%A8%8B%E6%8A%A5%E5%91%8A/"/>
     
     
-    <category term="Java" scheme="https://leverimmy.top/tags/Java/"/>
-    
     <category term="Android" scheme="https://leverimmy.top/tags/Android/"/>
+    
+    <category term="Java" scheme="https://leverimmy.top/tags/Java/"/>
     
     <category term="程序设计训练" scheme="https://leverimmy.top/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83/"/>
     
@@ -459,13 +499,13 @@ alt=&quot;换微信头像啦！&quot; /&gt;
     <category term="游记" scheme="https://leverimmy.top/categories/%E6%B8%B8%E8%AE%B0/"/>
     
     
-    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
     <category term="数学" scheme="https://leverimmy.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="物理" scheme="https://leverimmy.top/tags/%E7%89%A9%E7%90%86/"/>
     
     <category term="化学" scheme="https://leverimmy.top/tags/%E5%8C%96%E5%AD%A6/"/>
+    
+    <category term="生活" scheme="https://leverimmy.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
