@@ -41,10 +41,10 @@
     <link href="https://leverimmy.top/2024/06/25/Introduction-to-Java/"/>
     <id>https://leverimmy.top/2024/06/25/Introduction-to-Java/</id>
     <published>2024-06-24T16:15:14.000Z</published>
-    <updated>2024-06-24T16:24:48.823Z</updated>
+    <updated>2024-06-25T00:41:21.161Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Java
+    <summary type="html">&lt;p&gt;这是&lt;a href=&quot;&quot;&gt;清华大学计算机系学生科协暑期培训&lt;/a&gt;的 Java
 部分的讲义。&lt;/p&gt;</summary>
     
     
@@ -93,28 +93,6 @@
     <category term="Haskell" scheme="https://leverimmy.top/tags/Haskell/"/>
     
     <category term="Lambda 演算" scheme="https://leverimmy.top/tags/Lambda-%E6%BC%94%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【学习笔记】Quantum Computation and Quantum Information</title>
-    <link href="https://leverimmy.top/2024/05/12/QCQI/"/>
-    <id>https://leverimmy.top/2024/05/12/QCQI/</id>
-    <published>2024-05-12T12:14:22.000Z</published>
-    <updated>2024-05-12T03:26:22.991Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是 &lt;em&gt;Quantum Computation and Quantum Information&lt;/em&gt;
-的学习笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://leverimmy.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="理论计算机科学" scheme="https://leverimmy.top/tags/%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
-    
-    <category term="量子计算" scheme="https://leverimmy.top/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/"/>
     
   </entry>
   

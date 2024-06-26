@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"leverimmy.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Java 部分的讲义。">
+    <meta name="description" content="这是清华大学计算机系学生科协暑期培训的 Java 部分的讲义。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【讲义】Java 入门">
 <meta property="og:url" content="https://leverimmy.top/2024/06/25/Introduction-to-Java/index.html">
 <meta property="og:site_name" content="Clever_Jimmy&#39;s Blog">
-<meta property="og:description" content="这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Java 部分的讲义。">
+<meta property="og:description" content="这是清华大学计算机系学生科协暑期培训的 Java 部分的讲义。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-24T16:15:14.000Z">
-<meta property="article:modified_time" content="2024-06-24T16:24:48.823Z">
+<meta property="article:modified_time" content="2024-06-25T00:41:21.161Z">
 <meta property="article:author" content="Clever_Jimmy">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Java 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">1.1.</span> <span class="nav-text">发展历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%B8%8E%E4%B8%8D%E8%B6%B3"><span class="nav-number">1.2.</span> <span class="nav-text">优势与不足</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">1.2.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">1.2.2.</span> <span class="nav-text">不足</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">课前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hello-world"><span class="nav-number">2.2.</span> <span class="nav-text">Hello, World!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">基础语法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,7 +167,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -232,7 +233,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-25 00:24:48" itemprop="dateModified" datetime="2024-06-25T00:24:48+08:00">2024-06-25</time>
+      <time title="修改时间：2024-06-25 08:41:21" itemprop="dateModified" datetime="2024-06-25T08:41:21+08:00">2024-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,9 +262,81 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>这是 2024 年清华大学计算机系学生科学技术协会暑期培训的 Java
+        <p>这是<a href="">清华大学计算机系学生科协暑期培训</a>的 Java
 部分的讲义。</p>
 <span id="more"></span>
+<h2 id="java-简介">Java 简介</h2>
+<p>Java 是一种广泛使用的计算机编程语言，于 1995 年由 Sun Microsystems
+公司推出。它是一种面向对象的编程语言，旨在减少编程中可能出现的错误，并易于理解和维护。</p>
+<p>尽管近年来面临一些新兴语言的挑战，Java
+由于它的跨平台性、良好的安全性、前向兼容性以及不算差的性能，仍是一门历史地位和业界地位都极其崇高的语言。庞大的
+Java 社区和海量的 Java
+项目，使得对任何想要接触业界的贵系同学来说，你也许可以不精通它，但至少应当对这门简单、强大、通用的语言有一些了解。</p>
+<h3 id="发展历史">发展历史</h3>
+<p>Java 发明于 20 世纪 90 年代初，由 Sun Microsystems（后来被 Oracle
+收购）的工程师团队开发。最初的目标是创建一种用于家电设备的编程语言。1995
+年，Java 1.0 正式发布，带来了跨平台的能力，也就是 "Write Once, Run
+Anywhere"（一次编写，随处运行）。这一特性是通过将 Java
+代码编译为中间表示形式（字节码）实现的，然后在任何支持 Java
+虚拟机（JVM）的平台上运行。随着时间的推移，Java
+不仅仅成为一种用于嵌入式系统的语言，它还发展成为一种强大的服务器端、企业级应用、Web
+和移动应用的开发语言。</p>
+<h3 id="优势与不足">优势与不足</h3>
+<h4 id="优势">优势</h4>
+<ol type="1">
+<li><strong>跨平台性</strong>：Java
+采用“一次编写，到处运行”的理念，代码可以在不同操作系统（Windows、macOS、Linux
+等）上运行，无需重新编写。这得益于 Java 虚拟机（Java Virtual
+Machine，JVM）的设计。</li>
+<li><strong>面向对象</strong>：Java
+是一种<strong>纯粹的面向对象编程语言</strong>，支持封装、继承和多态等
+OOP 特性，有利于代码的复用和维护。</li>
+<li><strong>安全性</strong>：Java
+具有强大的安全机制，如垃圾回收机制（Garbage
+Collection，GC）、异常处理等，可以有效地防范程序运行过程中的安全隐患。</li>
+<li><strong>丰富的标准库</strong>：Java
+附带了大量的标准库，涵盖了网络、图形界面、数据库等各个方面，开发者可以直接调用这些库（而无需重复造轮子），提高开发效率。</li>
+<li><strong>广泛的应用领域</strong>：Java 可用于开发桌面应用程序、Web
+应用程序、移动应用程序、大数据处理、机器学习等各种类型的软件。</li>
+</ol>
+<h4 id="不足">不足</h4>
+<ol type="1">
+<li><strong>性能</strong>：与编译成本地机器代码的语言（如 C 或
+C++）相比，Java 的性能通常较低。这是因为 Java 程序需要在 JVM
+上运行，这增加了额外的抽象层。</li>
+<li><strong>内存消耗</strong>：Java
+应用程序通常比其他编程语言的应用程序消耗更多的内存。这是由于其“面向对象”导向的设计和垃圾回收机制。</li>
+<li><strong>冗长的代码</strong>：与一些现代编程语言（例如
+Rust）相比，Java
+的代码可能显得冗长和繁琐。这可能会使开发过程变得复杂和耗时。</li>
+</ol>
+<p>尽管存在这些不足，Java
+仍然是世界上最受欢迎和广泛使用的编程语言之一。它在企业级应用程序、移动应用程序（尤其是
+Android）和大型系统中得到了广泛应用。</p>
+<h2 id="课前准备">课前准备</h2>
+<h3 id="环境配置">环境配置</h3>
+<p>要运行 Java 程序，你需要先安装 Java Developer Kit (JDK) 。Windows 或
+Mac 用户建议直接在 Oracle 官网<a
+target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java21">下载
+JDK21</a>；而 Linux 用户（这里以 Ubuntu 为例，其余平台请自行百度 /
+Google）则可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:linuxuprising/java</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install oracle-java21-installer --install-recommends</span><br></pre></td></tr></table></figure>
+<p>本教程就会使用 JDK21 这一版本。请使用 <code>java -version</code>
+命令来确认 JDK 是否安装完成。</p>
+<p>你可以使用如下命令编译运行 Java 程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">javac YourProgram.java  <span class="comment"># 编译</span></span><br><span class="line">java YourProgram        <span class="comment"># 运行</span></span><br><span class="line">java YourProgram.java   <span class="comment"># 编译 &amp; 运行</span></span><br></pre></td></tr></table></figure>
+<p>同时，本教程将使用，也强烈推荐使用 <a
+target="_blank" rel="noopener" href="https://www.jetbrains.com.cn/idea/">IntelliJ IDEA</a> 作为 IDE
+来辅助开发。如果你是清华大学学生，建议使用
+<code>&lt;你的邮箱名&gt;@mail.thu.edu.cn&gt;</code> 来获取<a
+target="_blank" rel="noopener" href="https://www.jetbrains.com.cn/community/education/#students">面向学生和教师的个人许可证</a>，以获得“终极体验”（类似于
+Professional 版本）。</p>
+<h3 id="hello-world">Hello, World!</h3>
+<p>在 IntelliJ IDEA 中，新建</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Helloworld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你的程序应当输出：<code>Hello, world!</code>。</p>
+<p>至此，课前准备环节结束。你已经能够成功运行 Java 程序了！</p>
+<h2 id="基础语法">基础语法</h2>
 
     </div>
 

@@ -1,5 +1,3 @@
 # leverimmy.github.io
 
-## 简介
-
-这里是 Clever_Jimmy 的博客仓库。
+This is [LeverImmy](https://github.com/LeverImmy)'s personal blog.
